@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>ObsPy generated StationXML</Source>
+  <Module>ObsPy 1.4.2</Module>
+  <ModuleURI>https://www.obspy.org</ModuleURI>
+  <Created>2026-02-10T15:38:05.625041Z</Created>
+  <Network code="1R">
+    <Description>Generated from station list CSV</Description>
+    <Station code="B01">
+      <Latitude unit="DEGREES">28.62138888888889</Latitude>
+      <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B01</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.62138888888889</Latitude>
+        <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.62138888888889</Latitude>
+        <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.62138888888889</Latitude>
+        <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.62138888888889</Latitude>
+        <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.62138888888889</Latitude>
+        <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.62138888888889</Latitude>
+        <Longitude unit="DEGREES">-80.60666666666665</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B03">
+      <Latitude unit="DEGREES">28.642777777777777</Latitude>
+      <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B03</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.642777777777777</Latitude>
+        <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.642777777777777</Latitude>
+        <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.642777777777777</Latitude>
+        <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.642777777777777</Latitude>
+        <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.642777777777777</Latitude>
+        <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.642777777777777</Latitude>
+        <Longitude unit="DEGREES">-80.6236111111111</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B05">
+      <Latitude unit="DEGREES">28.64</Latitude>
+      <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B05</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.64</Latitude>
+        <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.64</Latitude>
+        <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.64</Latitude>
+        <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.64</Latitude>
+        <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.64</Latitude>
+        <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.64</Latitude>
+        <Longitude unit="DEGREES">-80.64500000000001</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B07">
+      <Latitude unit="DEGREES">28.607222222222223</Latitude>
+      <Longitude unit="DEGREES">-80.59416666666667</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B07</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.607222222222223</Latitude>
+        <Longitude unit="DEGREES">-80.59416666666667</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.607222222222223</Latitude>
+        <Longitude unit="DEGREES">-80.59416666666667</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.607222222222223</Latitude>
+        <Longitude unit="DEGREES">-80.59416666666667</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B12">
+      <Latitude unit="DEGREES">28.621666666666663</Latitude>
+      <Longitude unit="DEGREES">-80.64722222222223</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B12</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.621666666666663</Latitude>
+        <Longitude unit="DEGREES">-80.64722222222223</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.621666666666663</Latitude>
+        <Longitude unit="DEGREES">-80.64722222222223</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.621666666666663</Latitude>
+        <Longitude unit="DEGREES">-80.64722222222223</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B14">
+      <Latitude unit="DEGREES">28.63222222222222</Latitude>
+      <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B14</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.63222222222222</Latitude>
+        <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.63222222222222</Latitude>
+        <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.63222222222222</Latitude>
+        <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.63222222222222</Latitude>
+        <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.63222222222222</Latitude>
+        <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.63222222222222</Latitude>
+        <Longitude unit="DEGREES">-80.61583333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B20">
+      <Latitude unit="DEGREES">28.57361111111111</Latitude>
+      <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B20</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.57361111111111</Latitude>
+        <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.57361111111111</Latitude>
+        <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.57361111111111</Latitude>
+        <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.57361111111111</Latitude>
+        <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.57361111111111</Latitude>
+        <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.57361111111111</Latitude>
+        <Longitude unit="DEGREES">-80.57222222222222</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B23">
+      <Latitude unit="DEGREES">28.578611111111112</Latitude>
+      <Longitude unit="DEGREES">-80.60777777777777</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B23</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.578611111111112</Latitude>
+        <Longitude unit="DEGREES">-80.60777777777777</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.578611111111112</Latitude>
+        <Longitude unit="DEGREES">-80.60777777777777</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.578611111111112</Latitude>
+        <Longitude unit="DEGREES">-80.60777777777777</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B24">
+      <Latitude unit="DEGREES">28.580555555555556</Latitude>
+      <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B24</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.580555555555556</Latitude>
+        <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.580555555555556</Latitude>
+        <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.580555555555556</Latitude>
+        <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.580555555555556</Latitude>
+        <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.580555555555556</Latitude>
+        <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.580555555555556</Latitude>
+        <Longitude unit="DEGREES">-80.64083333333333</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="B29">
+      <Latitude unit="DEGREES">28.618055555555557</Latitude>
+      <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+      <Elevation unit="METERS">0.0</Elevation>
+      <Site>
+        <Name>Site B29</Name>
+      </Site>
+      <Channel code="DHZ" locationCode="">
+        <Latitude unit="DEGREES">28.618055555555557</Latitude>
+        <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH1" locationCode="">
+        <Latitude unit="DEGREES">28.618055555555557</Latitude>
+        <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DH2" locationCode="">
+        <Latitude unit="DEGREES">28.618055555555557</Latitude>
+        <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD1" locationCode="">
+        <Latitude unit="DEGREES">28.618055555555557</Latitude>
+        <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD2" locationCode="">
+        <Latitude unit="DEGREES">28.618055555555557</Latitude>
+        <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="DD3" locationCode="">
+        <Latitude unit="DEGREES">28.618055555555557</Latitude>
+        <Longitude unit="DEGREES">-80.67694444444444</Longitude>
+        <Elevation unit="METERS">0.0</Elevation>
+        <Depth unit="METERS">0.0</Depth>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>
