@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rocket-infrasound-model"
+version = "0.1.0"
+description = "Simple forward model for rocket infrasound arrival times and amplitudes"
+authors = [{name = "OpenAI"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "matplotlib", "scipy"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rocket_infrasound_model*"]
