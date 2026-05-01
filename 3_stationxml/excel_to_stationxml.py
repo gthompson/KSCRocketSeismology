@@ -13,6 +13,8 @@ system = platform.system()
 metadata_dir = (
     os.path.join(home, "Dropbox", "DATA", "station_metadata")
 )
+# Not sure where the Dropbox data are now, but this is an older version on hal9000 where /data -> /Volumes/classdata
+metadata_dir = "/Volumes/classdata/KSC/EROSION/station_metadata"
 os.makedirs(metadata_dir, exist_ok=True)
 
 # Define all relevant paths
