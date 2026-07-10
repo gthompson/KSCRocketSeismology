@@ -1,0 +1,3122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1-kFu9Nech-FpGZuVrLE5HKvx2pEsOmEN">
+	<name>KSC Seismic Deployment</name>
+	<Schema name="__managed_schema" id="__managed_schema">
+		<SimpleField type="int" name="028EF3BC6232027B343F">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0376CC8E6132027A3B6E">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0F0347EFB5320267372C">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0D8BA0417E32025E521D">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0736FA5C8132025AF98A">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="074C86AE00320258F9D0">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0C46A77954320254AED9">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0C3F1DB8853202333F4B">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="085F9BE16A32021FC6D8">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0387C0374232020D1A1E">
+			<displayName>Accuracy (m)</displayName>
+		</SimpleField>
+	</Schema>
+	<gx:CascadingStyle kml:id="__managed_style_4F3D9A26473D8CEDC337">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>data:image/png;base64,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</href>
+				</Icon>
+				<hotSpot x="32" y="64" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_38FF2BFC983D8CEDC337">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_4F3D9A26473D8CEDC337</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_5865EE89773D8CEDC337</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_E22ED2961E3D8CEDC336">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_C32B884DF23D8CEDC336">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_D98306C5B53D8CEDC336</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_E22ED2961E3D8CEDC336</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_07D244390F3D8CEDC337">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1D1DB2FD363D8CEDC337</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_271A693E7B3D8CEDC337</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_5C0A87B6A83D8CEDC339">
+		<Style>
+			<IconStyle>
+				<scale>0.9</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_3EEA0A5BB93D8CEDC339">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_463DA17EA83D8CEDC339</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_5C0A87B6A83D8CEDC339</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_251E74B1723D8CEDC333">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_7EBEF2B2593D8CEDC336">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_612616F5B33D8CEDC336">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_7EBEF2B2593D8CEDC336</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_8D1245E1B13D8CEDC336</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_2F925088983D8CEDC339">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=26a69a&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_19E309DCF03D8CEDC339">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=26a69a&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1D1DB2FD363D8CEDC337">
+		<Style>
+			<IconStyle>
+				<color>ffff004e</color>
+				<scale>1.2</scale>
+				<Icon>
+					<href>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAPlUlEQVR4nO2bf2xTV5bHP3YcxzExxgnkVzHgFkLdZtqpKHShabdhoEBpmSlaEGpLd1esSnfVUVo1I7HVajVUarrpj6W0g1qF1cAqtKIdRl22tN0IqiT8bAgEk9+QQEIM+eGQEMcm/hH7vf3jPg/PJokDpJuVypGuXvC99j33+84595zvvWhkWebnLNrJVmCy5S4Ak63AZMtdACZbgcmWnz0AurE6NRrNRM6VCKQABuXvBOXvYSAIhAE/4AUCEzVpvG1+TAAmQCyIRU8FTMrfSYAeAUASEOJmADzK0wtcU8b8JPJTAKAHpiMWn6Y8zYjFRyxADcCw0kYCoF9pvYBb+WxCZaIByFTaDCCLGwCkABnAHCAVmMINl/ADPoTZDwDtQDfRAHQjQOhSnv6JUlgzlo/ExoDRxmo0mlRuLH6W8kwDsoGHTSbTnOTkZP/69etbHnvsMX9OTk6CxWLRZWVlWQYGBrydnZ2+3t7e8MmTJ3VffPHF7I6OjoxgMHgZaADOA4NAJ+BEAOCUZbn3TnSeMAA0Gs09gE218EzgAeCh9PR04zvvvFO3YcOGzJSUlPvH1EQl4XC454cffmh+6623stvb29P6+voagWrgKgKEDqBDluW229E5avydAKDRaGwIs7YB9wJWIM9msxn27t17YdGiRY8h/P22paur69SLL76Y3NraOt3pdDqAMwgALiqtXZbl4fHqfJPIsjxqG2ssMBdYBvwjUAz8qNVqQ7t37y6XJMkrT7DU1dUdS0tL6weagG3Ab4HngBwgcTw6j9RuywI0Gs1sBYD7EW9/tdVqnXb27FmXxWJ5aAy8/b29vU1tbW3egYEB6fTp01qr1RrOyclJSE9P18+aNWueVqtNHe3L4XC457nnnuv5/vvvpwLfAeeANqBZluWWsXQeVW7VAhDR/SlgM/A+0LJgwYLzoVCoe5SXF3A4HEc2bdpUZTAYhhBRvQO4ANQg3mgH0KPT6YKrVq06u3///gpJkvpH+72CgoJjNpvtCrADYQlPA/f+5BaAiOwPIN7+fGB1bm7ulNra2ukajcYUO7i+vv74888/b21tbdUi3lQL0IfIAWIToSBiW5wH2EwmU/auXbuq165du1Cj0UyJ/e3XX3/9+Pbt2zOB/UCrAuR54EosAGPJrQCQoCz+IeX5VHp6+nyn0+nV6/Wz1QMlSXKtWLHCde7cuRlK4KpDBMNfALOBdIPBoPP7/QadTjccCoUCiOTnorKYHkRAfcxqtRobGhr6TCbTgzHq+ZcuXXqhvLw8EfgvhDs0AY2IpGlcANyKC2QDvwJ+B3yp1+sDLperJtY+BwcH661WaxfQjAhWO4A6g8HgW7du3amysrIKj8fTFAgE2mVZlsPhcJ/H42lqbGw8tnnz5hMmk8mLsJRS4D2gWq/XBxwOx5HYucLhcJ8y14/A74FfI4LiuNYny/K4ATACjwJ/j/D7tgMHDpSPtHjFz6sRO8MJi8UyUFhYeCyy4HgiSdJgaWlpuQJEA/DvwHdWq7WrrKysInZ8f3//WbPZ7AY+RcSDv0ZkohMKQDawCvgX4JDdbm+XZTmgViQUCnUrb6Ma+ABoyM7O7unr63OMZ+GxMjw8fCU/P78eESx3AH/KzMx0tbS0nIgdu3Xr1sOK+b8LvIjYnSYMAC3wsPL2PwC6R1AinJeX16goUQzUP/LII63Dw8NXxlpkOBzui4ODr6Cg4BiiPvgYOGQ2m92xO04oFOrW6/UB4D8UK3gcUYBNCAAzgHygEPg6Nzf3oizLYbUCDofjCHBZMdcT6enpV4eHh52xq5Ekqb+0tLQ8Nzf3IiDrdLogIGdnZ/cUFRUdHhoaahkJpxdeeKEaEeGLgabCwsJjsYMUKzgFbAXWAPdMFAA24G+AIuD8/v37o/xQkiSvYvrfATssFsvASGZfVVV1WPHr88DXwGfAH5TnF8AZo9Ho3bZtW6Uc416SJPUrWeB/AyVarTbk9Xqb1WOuXbtWbzabB4EPgb9D7DhxARgPJWZSWoper5/1zDPPzFN3Hj169LTT6QwA9UDeyy+/3JCamvqwesyePXsq1q9ff5/H46lQFj+IiNZLgFyEmx0aGhr64o033pi1fv36OkReAIBGo7F888039QhXHJQkqXbLli3X1HNMmzbtwdTUVA8wE0HATEVwD2NLHAtIUpT8LfBnJfhFyapVq84CZcB2g8Ew5Pf729T9DofjiGIhpYg33mQ2m93r1q07VVRUdHjz5s0nlP4LypjtQNvWrVsPx7rC3LlzO4A/AX80GAxDkiQNqgcUFRUdRmSXbwErgOl36gJpwHJgC3Byy5YtR2NNU6vVhoAS4Lv8/Pz6mH61e3xis9mubN68+cQIabOvtLS0XPmtPwOfmkwmz+DgYNTv7d69uxyxNRYDvU6nszoWbEQsegdYC8yJB0A8FzAAyUqz5OXlDas7u7u7L0iSNIBgcua9+eabUSRFdXV1jdPpHEa4x5NLly69/Nlnn/1VQkJCRuw8L7300lNlZWVHgQXAdY/H0/z222+71YPWrFmTighuCcDVioqKKIps7ty5M4BpiLzFqOg9psQDIEnVTPPnz4/yqdbW1iEEdaUFpi9evNii7i8pKUkCLgFJBoNh3o4dO9LHmmzZsmVP2Gy2REQa3Lxr1y67ut9isdyv1WojJGt/VVVVlD7JyckWRMqdqGpjSjwAtKqmmzJlShSH6HK5JASXpwP0RqMxRd3vcDgsCFY3e+bMmVeTkpLmxJtv48aNFxHkitvtdqdIktSv6tdPnz59AMEp+js7O5OivqzVTuVGoRVpcRcYrz/SEpKSkqIQ9fl8ABKgEfNrowByu90GBEDJM2bMGIqnDEBWVlYY4XpSKBQKS5IU9b0pU6ZEAA/5fL7YBeoVXdQt7gLHkrCqhbxeb9SBhcViQVEmDISCwaBP3T9nzhw3Ygvta2xszGIcbO6RI0emIErmRCBJp9NFuc3Vq1fNCBY5yWKxBNV9sixfR7yQsPKU4s0XD4BhVfN1d3dHAZCTk5OEqOEDgLerqytqb16+fHk/gg53ud3u/srKypNjTeb1epv37dv3EKIkvmfBggWtqDjFcDjcEwgEEhGl89Tc3NwowIeHh/sVXUOq55gSD4CAqg3W1taG1Z1WqzXdaDRORUTbSyUlJVEV1CuvvJJmNpvvQwRRx8qVKxd6vd7mkSaSJKn/ySefTAwGg3UI1ujBoqKiTvWY+vr6lmAw2IsIvJYlS5ZEzedyuSJ9fkXnuBYXDwCfql0tLy+PCnIGg+G+5OTkACJfaFGi9l/Mbtq0aQ+uWbOmGUFZnff7/Y1paWn37tmzp+L69evnAILB4KWampqjWVlZ8pkzZ8JABfC41Wo1Ll++/FH1fB9++GESImEyGI3GGYsWLcpW99fU1FxHBF0fMKS0sSVOIqQFFgKvomRfsiz71MmHqgj5ALgcS1yEw+EeJRmqQ3AJpUCT0Wj0ArLBYPAhuP5vgX8DKkciWwKBQLuq4hsxK127dm0N8AOicMsHpsZLhMZTDNkRNfb7wNXOzs6o7Mvj8TQpRc4OFOIilhYPBALtdru9XXl7uxFMzzZEIbQdUcfvAOpNJpM3NsOTZVnetGlTlQrEtoMHD8YWZYMKGfNHBGG7ENBOBABZwGrgX4ETBQUFN5WihYWFxxTl3gMujJDHy5IkeXfu3FmuKNmDSGlrAAdwRa/XBwoKCo6NVEY3NjYey87O7gY+AcqsVmuXHFMxnj59+ohiScXKC7PHs3BZHh8rnIKo2BYAj+j1+o0ej6dLTYQGg8FLJpMpKxgMHgBcNpttzSeffHJ+9erVT43gctcvXbpUX1lZ6evs7ExITk6Wly1bprPb7feNkCIzMDDQkJGRMS8YDFYA57Ozs9cdOnTogt1uX6IaJj3wwAPOpqamBuAocBqoBbrHWl9EoXgWAIJiehFRZNS99tprN9FSBw8erFC4+s+AL20225Xdu3eXx467FWlpaYmQpCcRdf6FTZs2VcWOO378+GFEyv0Bgrl6BLHzTAghAuK8/wngn4A/mM1md39//9lYRYqLiysR/P/HwH/abLYr69atOxVbIscTSZIGP/7444rMzEwXcAjh902LFy9ulmOCsCRJXhVZsgVRvf5ld5goAADuQ1BNvwd+VErfKD+UZTmwcePGkwgOrwQR4M5qtdpQUVHR4XgEqd/vb9u3b1+5wvK2ADsRwfKc3W5vH+n06dNPP61ABNf3gI3AL1ElT/EAuJWDETPiQORB5fl8YWFh5/vvv78k5mvSRx99dPTdd9/NdblcdYgtcirwqMViuTcxMTG0YsWKi3a73Z+cnCz7fD5NT09Pwrfffmu9fPnydL/f70T4sBNRFC1ctWqV+8CBAzNjzw07OjpOLly4cK7L5dqP8PlaxMFItxqAseRWj8asiOg6H7jfZrP9ZrRg19HRcXLlypUZTU1NGuAsIr2VELvKTESNoFU+CyCIjE4EFTYDWGI2mzO++uqrM08//fQTxCRtHo+nwWq1Wt1u9xnE3t+gLD4q04wHwK24QOSzeYhj6d8BX86ePftKVVXVTdueIuHjx48ftlqtXSaTyaMo9z/Al4hgGWmliEToDNBrMpm8O3fuLB/tgHRwcLA+PT39KuIMogj4W8S+f9MZ4kTGgMhnkTO+9Yigc2D27NlXRmJzY5Xeu3dv+bJly+qU3UKOtLS0tP68vLzG4uLiSiUJGvV3HA7HESUjrEZkjv+AOA3KGE3nCQVA+dyMCDYvKCCUAG3PPvvsmXA43DOa8ncogW3btlWqOMZ3lMU/BcyMp/OEAqD0pSogPA8UAB8BzSaTybt3794JvSXicDiOKFbTpoD9z4i85An14m8HgDu9I5SMuBwVuSM0CxHgFqelpVm+/vrruscffzx3rFsfY4i/tbXVsWHDhjSXy2VyOp1nEIHuMuJCRTviolTfregcKxN1TU69+Ayl5QC/1Ol02cuXL2969dVXr+Xn5083mUx2RinD/X7/hdra2s6SkpKkzz///Bd+v38QwSg7ECxRF2J7vIxYvC/2NyYFAGVsOmL7ykBQ19ncuCQ5D2Elmcq/NYsXLz6XkJAgAZw6dWqO3+9PNhqNQ0NDQ32ItDZym8TNjYX3Aj2yLEcRJberM9x6HhBPNNywgBkIACzcOKpKQfD1IKwlMkEPYv+PXJX1IhY+yI2rsl0IQG7pluj/NQARSUQEyRTEQUUsABoEjRaZwIfYEn1EA+BBHLq4GQ+7M4JMFgBq0XJj8aMB4EdkhGoAvKgOSG9X/j8AMJoYVX9HAJhwuSMAfg7ys/8vM3cBmGwFJlvuAjDZCky23AVgshWYbPlfbdZXl+ZFVtkAAAAASUVORK5CYII=</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_05E666DED03D8CEDC339">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_19E309DCF03D8CEDC339</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2F925088983D8CEDC339</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_27563EA79B3D8CEDC336">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=fbc02d&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_271A693E7B3D8CEDC337">
+		<Style>
+			<IconStyle>
+				<color>ffff004e</color>
+				<scale>1.44</scale>
+				<Icon>
+					<href>data:image/png;base64,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</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_17CE2E7F7C3D8CEDC336">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=fbc02d&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_D98306C5B53D8CEDC336">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0281FBA0463D8CEDC336">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_17CE2E7F7C3D8CEDC336</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_27563EA79B3D8CEDC336</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_B0A84819043D8CEDC334">
+		<Style>
+			<IconStyle>
+				<scale>0.9</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=fbc02d&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_A2C79CFBE33D8CEDC334">
+		<Style>
+			<IconStyle>
+				<scale>0.75</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=fbc02d&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_963C6D13E43D8CEDC334">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_A2C79CFBE33D8CEDC334</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_B0A84819043D8CEDC334</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_493C7E41BC3D8CEDC334">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.5</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=ffa726&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_72409E3A1B3D8CEDC334">
+		<Style>
+			<IconStyle>
+				<scale>0.75</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=26a69a&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0D7B10D3103D8CEDC333">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_171EC71EC93D8CEDC333</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_251E74B1723D8CEDC333</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_463DA17EA83D8CEDC339">
+		<Style>
+			<IconStyle>
+				<scale>0.75</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_62A6CD47DD3D8CEDC334">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_72409E3A1B3D8CEDC334</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_88EA4707423D8CEDC334</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_5865EE89773D8CEDC337">
+		<Style>
+			<IconStyle>
+				<scale>1.44</scale>
+				<Icon>
+					<href>data:image/png;base64,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</href>
+				</Icon>
+				<hotSpot x="32" y="64" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_88EA4707423D8CEDC334">
+		<Style>
+			<IconStyle>
+				<scale>0.9</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=26a69a&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1D7881DCA73D8CEDC334">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=7b1fa2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_171EC71EC93D8CEDC333">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_59F3D2F2453D8CEDC334">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.8</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=ffa726&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2046AA0AEA3D8CEDC334">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=7b1fa2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_8D1245E1B13D8CEDC336">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_3FACE105213D8CEDC334">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_493C7E41BC3D8CEDC334</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_59F3D2F2453D8CEDC334</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_0190895B2E3D8CEDC334">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1D7881DCA73D8CEDC334</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2046AA0AEA3D8CEDC334</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder id="08020FA515391AF03CB8">
+		<name>Seis_Backbone</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<Placemark id="004353485B391B271CAC">
+			<name>B02</name>
+			<LookAt>
+				<longitude>-80.62251448903052</longitude>
+				<latitude>28.63884367001456</latitude>
+				<altitude>0.7069134659517684</altitude>
+				<heading>0.001339515890573974</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>92.56297052394984</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.62261033602741,28.6388084885874,0.5398442129832937</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="066A2520CA391B29AE83">
+			<name>B04</name>
+			<LookAt>
+				<longitude>-80.64579028473854</longitude>
+				<latitude>28.64056099958319</latitude>
+				<altitude>0.8497920601347464</altitude>
+				<heading>0.001337999508267622</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>135.4336315725413</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.64575185268522,28.64061085551597,0.5619995407269651</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0916D311D3391B2C5D76">
+			<name>B06</name>
+			<LookAt>
+				<longitude>-80.62134228885651</longitude>
+				<latitude>28.61439236808967</latitude>
+				<altitude>1.282950463710901</altitude>
+				<heading>0.001336121659587344</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>122.456076494218</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.62133652235889,28.61437117768055,1.359078010278747</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="007B7697B1391B2D513B">
+			<name>B08</name>
+			<LookAt>
+				<longitude>-80.61081580290062</longitude>
+				<latitude>28.59949142700225</latitude>
+				<altitude>1.738860566941403</altitude>
+				<heading>0.00133553151023915</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>39.86729903195283</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.61080458924714,28.59947890834567,1.667888847926451</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0C53C729F2391B2DD2E7">
+			<name>B09</name>
+			<LookAt>
+				<longitude>-80.61885028515989</longitude>
+				<latitude>28.59486413192104</latitude>
+				<altitude>1.415503723138078</altitude>
+				<heading>0.001335330095862297</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>35.55049143159523</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.61884733592279,28.5948791424105,1.363743479671944</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="00187B88F9391B2E47B6">
+			<name>B10</name>
+			<LookAt>
+				<longitude>-80.65487759169646</longitude>
+				<latitude>28.62720809319634</latitude>
+				<altitude>7.417165961956227</altitude>
+				<heading>0.001335019181242156</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>30.7904383182813</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.65487830513443,28.62721392129142,7.426344568573782</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0D1362826F391B2E9FC4">
+			<name>B11</name>
+			<LookAt>
+				<longitude>-80.65626289255304</longitude>
+				<latitude>28.62487122632868</latitude>
+				<altitude>1.798069498669947</altitude>
+				<heading>0.001334855096140243</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>25.00199512137442</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.65625396697095,28.62487193865451,1.76969594808476</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="076714FA7E391B3088FC">
+			<name>B13</name>
+			<LookAt>
+				<longitude>-80.66404025105365</longitude>
+				<latitude>28.64319856997729</latitude>
+				<altitude>1.034618265559208</altitude>
+				<heading>0.001333657565130781</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>229.8509780828681</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.66400543476911,28.64324573767902,1.487075743956956</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0EA86ADE0B391B325D1B">
+			<name>B15</name>
+			<LookAt>
+				<longitude>-80.66359904464944</longitude>
+				<latitude>28.61822379328821</latitude>
+				<altitude>1.652752318016635</altitude>
+				<heading>0.001332539646147193</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>128.201073281125</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.66355127607709,28.61831088473977,2.012297156596321</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E10679076391B33DF71">
+			<name>B16</name>
+			<LookAt>
+				<longitude>-80.59040037660675</longitude>
+				<latitude>28.60143059888772</latitude>
+				<altitude>1.786346846373252</altitude>
+				<heading>0.001331618414987055</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>120.3175605228898</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.59034772093629,28.60144908858834,2.325710126999128</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0A3AADB726391B3493F3">
+			<name>B17</name>
+			<LookAt>
+				<longitude>-80.58534727518283</longitude>
+				<latitude>28.59796605728141</latitude>
+				<altitude>3.268486809921041</altitude>
+				<heading>0.001331459659192858</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>126.0738332118854</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.58530727143682,28.59787272394251,3.565039068458142</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="038321AD4D391B352EF1">
+			<name>B18</name>
+			<LookAt>
+				<longitude>-80.58247514705236</longitude>
+				<latitude>28.59415856837823</latitude>
+				<altitude>2.967749073606976</altitude>
+				<heading>0.001331268579704888</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>80.37910915810244</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.58251229409565,28.59411594435175,2.978776877488685</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="05D927BB78391B35FB24">
+			<name>B19</name>
+			<LookAt>
+				<longitude>-80.57739352108942</longitude>
+				<latitude>28.58554382493794</latitude>
+				<altitude>3.520206706202593</altitude>
+				<heading>0.001330609720045287</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>868.1297780550085</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.57578018824854,28.58515729282511,2.902309147591173</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0C0C29CC6A391B376BC4">
+			<name>B21</name>
+			<LookAt>
+				<longitude>-80.58198028158581</longitude>
+				<latitude>28.59052623051988</latitude>
+				<altitude>2.623036790947846</altitude>
+				<heading>0.001329795690215393</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>414.2615309377288</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.58237738707112,28.5904976860859,2.265006923387054</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0D45C8E1C7391B37D544">
+			<name>B22</name>
+			<LookAt>
+				<longitude>-80.57969335246898</longitude>
+				<latitude>28.57557133411358</latitude>
+				<altitude>7.061569022272176</altitude>
+				<heading>0.001329570929125397</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>355.3838924808952</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.57949941962279,28.57562905832273,6.973666321561625</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="07E1A77469391B39E3DC">
+			<name>B25</name>
+			<LookAt>
+				<longitude>-80.63667941578215</longitude>
+				<latitude>28.59304659623469</latitude>
+				<altitude>1.888102973920469</altitude>
+				<heading>0.001328253668347797</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>340.5840450081087</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.63638370719275,28.59303520400674,1.483765817537448</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E5DF84227391B3B29F8">
+			<name>B26</name>
+			<LookAt>
+				<longitude>-80.6957811026307</longitude>
+				<latitude>28.62616942521527</latitude>
+				<altitude>1.80620484170382</altitude>
+				<heading>0.001327462629544009</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>140.9637024805852</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.69571007912188,28.62612078606524,1.652750566681918</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02646035C9391B3B5C8B">
+			<name>B27</name>
+			<LookAt>
+				<longitude>-80.6924920448042</longitude>
+				<latitude>28.615212224102</latitude>
+				<altitude>2.228574884786183</altitude>
+				<heading>0.001327345937509991</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>48.54141129314939</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.69246644268273,28.61520142640783,2.121493461881183</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="01E8684BCD391B3BE570">
+			<name>B28</name>
+			<LookAt>
+				<longitude>-80.66914058865213</longitude>
+				<latitude>28.6046317233868</latitude>
+				<altitude>1.938338413146692</altitude>
+				<heading>0.001326983715007123</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>40.11662915986562</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.66909453136022,28.60460779926332,1.807316323877219</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0065DA4D0D391B3EAF74">
+			<name>B30</name>
+			<LookAt>
+				<longitude>-80.64911794256311</longitude>
+				<latitude>28.58739926639604</latitude>
+				<altitude>1.976621328199366</altitude>
+				<heading>0.001324868272293816</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>24.99999895062957</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.64909937931506,28.5873806293953,1.983735965632918</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0519CBACD6391B3EE17F">
+			<name>B31</name>
+			<LookAt>
+				<longitude>-80.64369102065223</longitude>
+				<latitude>28.57552775756407</latitude>
+				<altitude>4.589175837639496</altitude>
+				<heading>0.001324745299093952</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>170.1799124559511</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.64368865866565,28.575372288111,4.58421533342027</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="011BF184E2391B3F99FE">
+			<name>B32</name>
+			<LookAt>
+				<longitude>-80.60881337622722</longitude>
+				<latitude>28.56351492620949</latitude>
+				<altitude>4.835663695014986</altitude>
+				<heading>0.001324363376649345</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>267.2462267971059</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.60882655306267,28.56338953359101,4.798021492612388</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="010D4FB566391B402B07">
+			<name>B33</name>
+			<LookAt>
+				<longitude>-80.62158911872496</longitude>
+				<latitude>28.6064182784164</latitude>
+				<altitude>1.696369057342286</altitude>
+				<heading>0.00132407218310162</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>224.6612818102222</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.62166424340566,28.60634909814436,1.850357028277572</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="08C1D77D42391B407184">
+			<name>B34</name>
+			<LookAt>
+				<longitude>-80.60155419026761</longitude>
+				<latitude>28.61533870362836</latitude>
+				<altitude>1.772938774901434</altitude>
+				<heading>0.001323858288446807</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>313.0146382336534</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.60126358666082,28.61509258227451,1.960280066737672</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02E37D3FEB391B423F84">
+			<name>B35</name>
+			<LookAt>
+				<longitude>-80.58666012470896</longitude>
+				<latitude>28.56971946323337</latitude>
+				<altitude>8.095783042148996</altitude>
+				<heading>0.00132272740336487</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>92.8679703483249</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.58657744049994,28.56969894729364,4.837961511237843</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="07C00296C9391B43CEDB">
+			<name>B36</name>
+			<LookAt>
+				<longitude>-80.63828585479781</longitude>
+				<latitude>28.55604858522079</latitude>
+				<altitude>5.993408728788907</altitude>
+				<heading>0.001321201683353606</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1462.941424075834</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.63815789114724,28.55559634580529,5.624966261056561</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02F9362C10391B4572FC">
+			<name>B37</name>
+			<LookAt>
+				<longitude>-80.63235751769629</longitude>
+				<latitude>28.57358392153645</latitude>
+				<altitude>6.837750200986519</altitude>
+				<heading>0.0013197733435136</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>92.11873127142098</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.63220569067093,28.57354529612016,6.658090227853921</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="037B5B279B391B45CC33">
+			<name>B38</name>
+			<LookAt>
+				<longitude>-80.6152374281471</longitude>
+				<latitude>28.54732661175016</latitude>
+				<altitude>5.588734632864998</altitude>
+				<heading>0.001319602943610366</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>104.2961492646464</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.61514630777046,28.54727956932039,5.073543951623165</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0509A42ED1391B462778">
+			<name>B39</name>
+			<LookAt>
+				<longitude>-80.65198170553658</longitude>
+				<latitude>28.5635101363352</latitude>
+				<altitude>5.0883940152323</altitude>
+				<heading>0.001319443018337626</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>430.4687454212399</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.65154530687271,28.56333237893853,7.373219715652373</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0F9FF3C306391B47D2D3">
+			<name>B40</name>
+			<LookAt>
+				<longitude>-80.68401535168543</longitude>
+				<latitude>28.64394955580956</latitude>
+				<altitude>2.536082675647615</altitude>
+				<heading>0.001317936449252157</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>2227.102517578751</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.68179070934755,28.64323495290711,3.221018298473075</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="040181193C391B4899E4">
+			<name>B41</name>
+			<LookAt>
+				<longitude>-80.70699070046142</longitude>
+				<latitude>28.62295493156759</latitude>
+				<altitude>1.698785685640181</altitude>
+				<heading>0.00131765019724429</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>340.2143622983204</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.70657589573705,28.6225469561752,1.328681487020142</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="09B3A61F53391B492EEF">
+			<name>B42</name>
+			<LookAt>
+				<longitude>-80.72981207516335</longitude>
+				<latitude>28.64257655866425</latitude>
+				<altitude>1.201655705914499</altitude>
+				<heading>0.001317031293152389</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>470.5010486802348</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.72944982882635,28.64293672812842,1.186527140475166</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="06BE7DC55D391B49BB76">
+			<name>B43</name>
+			<LookAt>
+				<longitude>-80.7023336054469</longitude>
+				<latitude>28.55472296100632</latitude>
+				<altitude>4.395680342875012</altitude>
+				<heading>0.001316618067432648</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>218.7293924508776</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.70246021542243,28.55478917574638,4.279882112590288</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0A3CE762CB391B4AB256">
+			<name>B44</name>
+			<LookAt>
+				<longitude>-80.6486329758784</longitude>
+				<latitude>28.52479921242031</latitude>
+				<altitude>6.090708706807848</altitude>
+				<heading>0.001315874598868031</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>25.00022493222332</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.64862886332472,28.52481170435513,6.115376911282498</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="03B8FE01B4391B4B648B">
+			<name>B45</name>
+			<LookAt>
+				<longitude>-80.67710665266563</longitude>
+				<latitude>28.54488262990201</latitude>
+				<altitude>28.62855149247567</altitude>
+				<heading>0.001315324410964859</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>227.2558981705515</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.67658507293859,28.54487979325708,6.55072920252227</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0AFBAC5DF0391B4C0DB8">
+			<name>B46</name>
+			<LookAt>
+				<longitude>-80.625190273667</longitude>
+				<latitude>28.52217667639835</latitude>
+				<altitude>9.339198293117597</altitude>
+				<heading>0.001314814464444362</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>305.2578837663169</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.62490690993826,28.52212230903459,4.578209330472891</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="04E98A2F2E391B4CD7F7">
+			<name>B47</name>
+			<LookAt>
+				<longitude>-80.67023790583977</longitude>
+				<latitude>28.51425835562396</latitude>
+				<altitude>5.046655143849894</altitude>
+				<heading>0.001314319017211745</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>434.970206058497</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.67066299993432,28.5143657751021,5.046672689733979</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="00EA6ABE99391B4D75BF">
+			<name>B48</name>
+			<LookAt>
+				<longitude>-80.63297086151978</longitude>
+				<latitude>28.50879623321014</latitude>
+				<altitude>14.65136844827873</altitude>
+				<heading>0.001313706866744769</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>448.4354641825485</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.63257786429357,28.50893945935889,4.119392820790642</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="01AA627420391B4E9694">
+			<name>B49</name>
+			<LookAt>
+				<longitude>-80.64380103440485</longitude>
+				<latitude>28.54252170012246</latitude>
+				<altitude>5.730161463934172</altitude>
+				<heading>0.001312842103072616</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>452.3240163823357</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.64370192307494,28.5428956393372,6.747720533969486</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0D07817E3C391B4F5629">
+			<name>B50</name>
+			<LookAt>
+				<longitude>-80.65687284098365</longitude>
+				<latitude>28.49304186979698</latitude>
+				<altitude>6.517712505695612</altitude>
+				<heading>0.001312260370667811</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>120.1323019712072</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.65676385580934,28.4929930006821,6.632741375204909</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="04B6E4ADF0391B515FEE">
+			<name>B51</name>
+			<LookAt>
+				<longitude>-80.60436291823216</longitude>
+				<latitude>28.60167808002654</latitude>
+				<altitude>1.61576229398938</altitude>
+				<heading>0.001311035251443775</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>457.292691067487</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.60466403485289,28.60137574107232,1.02084392181196</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="04C9733A7F391B51DCBF">
+			<name>B52</name>
+			<LookAt>
+				<longitude>-80.58411426298144</longitude>
+				<latitude>28.57666197249082</latitude>
+				<altitude>5.877002233644422</altitude>
+				<heading>0.00131064516270621</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>526.3034368988156</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.58467481329397,28.57606580427064,4.555010379824845</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="072D27E869391B523528">
+			<name>B53</name>
+			<LookAt>
+				<longitude>-80.66404673836088</longitude>
+				<latitude>28.63365458739015</latitude>
+				<altitude>2.644856889460543</altitude>
+				<heading>0.001310461616795922</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>214.7252303854839</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.66403653692903,28.63376804881467,2.315467295952571</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0C27CD32EB391B52B439">
+			<name>B54</name>
+			<LookAt>
+				<longitude>-80.60602062161307</longitude>
+				<latitude>28.61878020626066</latitude>
+				<altitude>1.40559145439743</altitude>
+				<heading>0.001310175678919431</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>204.7868380232104</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.60600936507426,28.61873400470892,1.123204996868443</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="01E13E43F7391B5387D1">
+			<name>B55</name>
+			<LookAt>
+				<longitude>-80.62963236353902</longitude>
+				<latitude>28.63018603261804</latitude>
+				<altitude>1.362215827744806</altitude>
+				<heading>0.001309501475219123</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>71.15932088077899</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.62959237487753,28.63020421942632,1.206914231282525</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="091CAB54AC391B5412F6">
+			<name>B56</name>
+			<LookAt>
+				<longitude>-80.68395370292937</longitude>
+				<latitude>28.62761225855504</latitude>
+				<altitude>1.945234160618907</altitude>
+				<heading>0.001309124014477483</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>413.984651335777</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.6836424950318,28.62762279320483,2.265207332381713</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="093DC3F549391B5495FC">
+			<name>B57</name>
+			<LookAt>
+				<longitude>-80.59096714488653</longitude>
+				<latitude>28.59427377347826</latitude>
+				<altitude>1.775913296673566</altitude>
+				<heading>0.001308679885543551</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>267.2201288202268</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.59074677413108,28.59438707791832,1.509576254397733</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="01F1D55098391B56444F">
+			<name>B58</name>
+			<LookAt>
+				<longitude>-80.6341656329861</longitude>
+				<latitude>28.57913863223303</latitude>
+				<altitude>5.962145549481976</altitude>
+				<heading>0.001307194369627737</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>151.8406137849342</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.63403951272167,28.57915875254626,6.249210400631928</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0BCDE01D5A391B57C398">
+			<name>B59</name>
+			<LookAt>
+				<longitude>-80.63867737362845</longitude>
+				<latitude>28.64320111759669</latitude>
+				<altitude>-0.04718510361712225</altitude>
+				<heading>0.001306163185765896</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>324.8910487439935</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.63876878771515,28.64325471751267,-0.01467404244554049</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02DD297500391B59D321">
+			<name>B60</name>
+			<LookAt>
+				<longitude>-80.69365843769833</longitude>
+				<latitude>28.50901520453469</latitude>
+				<altitude>5.096697821670699</altitude>
+				<heading>0.00130440771558072</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>371.5728430161107</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0190895B2E3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.69433049405345,28.50921430469758,5.340595999639013</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="0AD6D8CD633C585FF2EB">
+		<name>Long-Term_Monitoring</name>
+		<snippet></snippet>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<Placemark id="12CD6E48BA3C585FF2EB">
+			<name>B01</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Seismic (nanometrics) #271.&nbsp; Infrasound (other) #412. Digitizer #268 #453. Waveform and infrasound test good.&nbsp; &nbsp;&nbsp;<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.60685987360016</longitude>
+				<latitude>28.62144688507465</latitude>
+				<altitude>1.8095310012137</altitude>
+				<heading>0.001340088783065857</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>25.00028287622172</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0Jvck40Y0ZEdGlleFJtKzF6citRMlZDclFlQnR4OFpSR2NESktFSitncUFrMjh6aDF5N3FwdGFtTWVaanJYMi9ZN2VKeWZ5c2UxZEV5ZGpLUjkzUG5HMyt4MkZQNTVYMWdTWUl6T1ZWZ1B6S2M4M1RTOVhMU2Y4bkhuUEIxV3dHb2oxQTQ5dFRxVHNjb3hHb2NqelBvby83VUhQZDJQRy9kVUFteEdGN1BlcGZzUys1VXRiNzRqZ0ZBRU9MV3VMeVZCVGVnSlZpcDJlRnNWdkNZeVJhZ0REWTdkQlRjNlo1RkJqblFMMnBsTVhsMFRDNWFxUW5TSW41TmRQRlNRRDZFaWs9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorSXstmPRpauCfD_7oWRWrYzFmOg1LxwwX1VGfh0E6QjqlLerDKyvnUUICEt5t3uEujdPZxwj2qRqu7aKremQa45oPMeEyY38XV3JvGFSVEvjRpCu6JMJa2TokjaTM1eF1P1zQtYJxl0MM8CqVySqOvygJsK6xXcG72D6OEGtdtN_EACHMm87MNDKhZgAu4x3UWmbgUVBf629jtUTSor7qbl3gLvhk_aMaz-OXLeeIqHAPw3ujSDFIgmYCP0y2egr_cI8Mn_-atxyw8?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.606844,28.621407,1.79481445070576</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="3A2FF5A9BE3C585FF2EB">
+			<name>B03</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Sensor ~100ft from Eagle 4 tower on dune. Seismic (nanometrics) #2663. Infrasound #417.&nbsp;<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.62368512260123</longitude>
+				<latitude>28.64307033464913</latitude>
+				<altitude>2.207243067729334</altitude>
+				<heading>0.001339244592465993</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>25.00089418540483</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0JvcGp0NXA2SHA1eTk0YzdDMTNmcC93ak1hWStGNlpEV1ArMStLdHMvdGtObVJQVXBQcEdMMDFtY1l2dlVLanJkRE0rc0ZlbjljalpoM1BSeCtacWdIbnErZ2ZPWjdCQXl6VVR1OWdpWkZkQ3VFcUpsaTlvVWoyWlIwT3hGZGFxQVErME5IMFdyMm4zN0QydnczZmkzemp1emc3dmdZYkVDZmV5YUkrVTRESElMbmhxTUpaZytIZUtxU2pLQTROTHFMZ3lmMEpQYjk1MkwxeHNZWXZjSjNVR2tkZ3p3aUZWSUQwTjhSQWdQbldPSXpxdG91cGcrN1NBN1lSWVF2ZVZqVkE9_0">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBopS4cH_xN7BLMRBe8uiJU3yGmGUeRkIRGowGFe0OCCJfV_XgnuC0zkxyU3p463R33x751Kyn1Q_sQgigYG_4o2bnta_kjY82clm2m3x2WzwY_oElI8e53nkqcTf00S6NJ0Ur8rQQWxxjkj1JxvO4iMXX5da7a9uhUm8_Crg1cTQWOG_hsgk6ZPOFQnDAiCVne-n2Q0VRCkytu0HA7PeeXF0UiykKU8pI0zku-m1eXmgs8zsgZ4jh5lcs_MWjl8G6hmzm9I1CaGIr8mT?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+				<gx:Image kml:id="hosted_image_QUxDc0Jvb0RJdWlTTTRuRDJ0bWI3WDJOOUhHUHRuQ2twSXhTSFhicVFyS01zaVdscElFYmd3ZWZEcjFBNGlsdWwyK2M4Rkc3c0U1VU1kcXBlMThseFVrSmUrZEd5bGhXYkpDdytTazJXREdWUmpmZXhPRkFrSlBvMUNzbkZ6a2V2N3lNam8rVFdyVEp3R3Y1WG1mNE9SbFM0MWJlcnB3d0FVNXBvcFJ2MnpTOW1Ib01icVp6KzkxN2U5RlN2M3RLRm4yZ2xvbFhRaExTTk9DbEkrV0c5Q0tUbDBadWlpM2Vvb1JPbkxiUkhVbmM1RkI4NnU1MFViRkpXRG02SGxmZmlRZCtxYms9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoohkeacufPAcw5Rz-Unk8u_OmqmHWcBtdwLHk4WrkEBXgqWLheFGdriqtg0yG0ikS-PP1f-iSRfcd0pViKb6ye4Juypi7D1P1ayPhH-YunyBP8bggnOl-w7_N8KgIXCie08kfh7q7ES_mY9xYBPxXEraRij7I7igyTNVqR8zOYApg4PIC6Xv0VOCpHqssnbxeWXxdjq7BkiesDJYJ9BnQqrMdFPLT-mO4JYRXtCFC505uQDysC7shHJzTvZKYc2rktCBRkruZhT60jO?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.62363999999999,28.643038,2.184068545229831</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="585B628B333C585FF2EB">
+			<name>B05</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Sensor in front of Helipad 9 sign. Seismic (nanometrics) #2392. Infrasound #414. Digitizer #386. Seis notes: horizontal components are ok. Vertical component pinned. Infrasound checked out ok.&nbsp;<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.63449548970306</longitude>
+				<latitude>28.63203822789207</latitude>
+				<altitude>1.015284381899124</altitude>
+				<heading>0.00133643149957686</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>78.3784419589665</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0Jvb2NyR1lxNDdMU1RMRTVWWnkwSnVKSllqYU9JK01FcnkxblJHVUtmQVR3T0ZUVnd2SEZ2bUwvODJzbHZxOEZyR3JJMk1OME1jdXliN2ZiVDRhVi83MkVvNGtLVFhMakFVUGExOFRzSktMeUM3aGFkZTk1d0lDVFhrbVJvdmxmeUMrRXRwWmFXL1NpNituS2M2Wkk5aExoY0pXZVRTeDg1UkpGREYyc1hUN2hQOVh5Z3gwMUdLT0lyK1p0OVpZRjBocmZOY2FFVm5xMUtEUk1RMHBMWnVQK0xEdVRleFUyWVg4ZUJUaFg2V01BS2tVWDFyWlA2Z3M2clFIZzREYkd2Q0k9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoqFcmoEdQ8D6bbgvot1KX0u2Gm1FOcTMW_1uWs7TJbXwKvxQUHjbXEOgIvKNCrdaNGTMWhsPgTtVvzZoLumu284bvJArBh-IlsAtsiie5F6srPuDXH4MQ-84U_tQsFuILkQTRwPRsNx6-oAyItPkXRYtc-2YguvbdHBs8nvK_plXHZnEeMpYWnWejt4y2V_pZIbAWz3Q2P8Jh9eUWln-2GZQgY96TDhfVIQvSu8xdyKSbhPac1rSHQHGtsS-E_gwquONM_Xagwo-5J5?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.645143,28.640045,1.293091233534105</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="7E619D80D03C585FF2EB">
+			<name>B07</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Sensor (Guralp) #00B68. IPv4 169.254.168.11<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.5972741537615</longitude>
+				<latitude>28.60552396047765</latitude>
+				<altitude>0.9424355503631721</altitude>
+				<heading>0.001335848307975296</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>26.35546262478783</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0JvclhHRUJ5Zk03bTFHT3NLdmRzWkJ3Z3VOUlJTUzltNzNXVk5zMXpuamRucnMyT0hUMzMrYS8ya2RQM044Wk92MDhGVE51Y2ZXN3lMWTFSUjRuRTkzTzZnVHRCSUZNa2syRGhpTlJqR0pjLzQ1U1FEdmtLK2NkQmZFTEE1SFNXODFxeXhYVDNVR3M0NHllc1g0dnAzMTMvTVZmTkxVTFp5VUNpM3lTZkY2Mm9JbkE1TCtHdjRMcWhTZEMvbWVtWDlUbWhYeVlySVgrRTlERHZjbjhMaGNXSlRXaVhHTGp3QUM4Ulp0VHhSbytPZFBoWXJsK0J2ZVhQdGV4SDF1dUEwVnM9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoqhix1SI-kaFR2bqgzGEhpL3okd1bex5cqJ5vh538p-DlKtcO9kpIEVZ8Bpsja6WHN-NEBlqzBdUYIjnaRLoBAMS115AFvmM_y04UZVF-AvhDoqagTO3zPq7GQQjTi4dWxt72VGJYOxw1LcSwf6KtV7wiPApQ0RgIWAWrJT89WZ3p-b47sj4vyTHaArUv5erNr3ctixQkYcppRfywcg2Obr2AuKZuB0rI3kDOjWKcuOLa5OxCWATRrT9StSXR52iEmubWSo9ji5K71P?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.594177,28.607271,0.8871838768440665</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="C5721A150C3C585FF2EB">
+			<name>B12</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Sensor located off Happy Creek Rd. Guralp Certimus #00D68. GPS clock had trouble locking. Station is located just on side of road to be visible to fire crew.&nbsp;&nbsp;</div>]]></description>
+			<LookAt>
+				<longitude>-80.6461133679497</longitude>
+				<latitude>28.62141094038276</latitude>
+				<altitude>2.283816194591122</altitude>
+				<heading>0.001334643475755332</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1334.422284598695</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0Jvb2RZR3ZUdTh1TElHalhZdzArelh1cWZMb1ljOTUzQ3B2eDJCZHhvRURvWll5V3JPejBWaDMyYWgwSHgzLzlEaS9Edjl6ZlNlUi9PRUJDWXlBS0FoSGxCVEd0dkF4NUtOTWxKOWw1LzY0TE9jckJQb1hFWjkxKytmK0thTzdXTlROTXJVQ0czQVRORUJhY09hUEJ6emVDaE82R05UeVAvcFdLL0kvZUhRSXpScFR2NjhzOENYOHQ5WjBpOWxuR1NWVis0ZElpUEpvazV0OHJzM2czb1ZEMy9jem9HMTBRUGhyR2d6NmJSVHVSdXN0RFdrbGZTc21wUlpnVzM4bHFUeGs9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorbQVZbkEh83BE_M1gu0UzexRRQM2UFJml8M7rXCf39ticxzwBS9Ni35HdOmzaQDn4HhbyHzdeM4G5jsMJnr6EE1id8acjqo4NrA6f8XGkCHQkBhU6UG41AwcXVwSW8jsOzgq23OgtVZ0hrYuz8wQZvSFBhvJ42zyUYYto6WLTgwiqIIfOvN6OxItqtkRNJ7ar5s0aFTCyU3HsOP56gd2g1s67bYoTw0qoFlfB5FqlmuT4ZxbBsoChR5MCAY3_NPr1Z8YqGSEoHez3C?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.64727000000001,28.621723,2.283746022371966</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="E38A6BB5923C585FF2EB">
+			<name>B14</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Seismic (nanometrics) #2719. Infrasound x3 - #292, #461, #336. Digitizer #383. Stomp and infrasound test good.&nbsp;<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.61595891409661</longitude>
+				<latitude>28.63271649079368</latitude>
+				<altitude>1.965512606429267</altitude>
+				<heading>0.001332781408250524</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>216.463898001457</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0JvcnpOU3F2U0htTFBicXkyYStCVXZoVkpjUlUrRlZndUNQcDVlZ1dET0VKS3RVYWwvZFB4MjcyRnRKb2JqUTZHa1o0bXlmb05mNmlHamMvOC9BRWREaE5Oc1gxbEtvcHNySERvWXBROENzc3h5ZkVUa1VSdDdnS3NWbzEySzVsWU01NEtuK3F3Mlpod3c0bTZaczFabXJ0b0oxaFNDWDVVWkMrUXJJUU9VTFhtTE1iWWM1RFFLMnpKNC80VDZkTklPV09sT1c4anJOUU91ekhLcCtvY0ZjOXpNdFJiN29wbC9CcHV2azJxL1RQc3hySnllWlYrd3E4aWxiYkRyei9zdUE9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBopG-L6f6R_pVqe1fGx3w_DmnZkg1YWA7uJHZUDtZvGJOgbMyCbntq3b9K0RFH65TTvp554f6NM-XHekCaOn7r5hzjr6bK7pocJDcMSbG4eDt5FkRfgYjsoVoHJ4juI-2MWVWB2IlSZ7yQQzu33GQ3j5efRNbxjd6wMYJT2R6x-BDSXk9G0DTwFRhSwV8ZYTOJdNr0vpjQXEl3q97no84ogNGRGrPow87q8AvInQqmCRLrshebs56zuFGVblQr0IzyyEvUEkKgFfK3G7?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.61594100000001,28.632325,1.322593803688887</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="14E83C3C8B33C585FF2EB">
+			<name>B20</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Sensor located 20 ft 195degrees from north. Seismic (nanometrics) Infrasound. Station name updated. Centaur waveform autoscale not displaying. High RMS. Digitizer #384. Pharcal #071975 + other #403.<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.57204226407423</longitude>
+				<latitude>28.57442415169468</latitude>
+				<altitude>12.44185189769364</altitude>
+				<heading>0.001330370302866545</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>123.8278195347266</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0Jvb3JrRGJDYzRMMk5VcFQ3dXpwdXRCWXpUSnZQS2YrcHlNNE1qZ3R5MlIwYXYydm84aTBFbHF1NnROMWY3MEhDeElRSUwvbktUNDgxTzhXU3dBU20yOVdXc3ZaUlBDaG5Mb21zbFJYa2tveDBhcWMzcXRhZzNFSGNGR3p4NWdKbXdYTGkvSWRJcE1XY3JWcHJSTEM0aVJLVUlvbHlOWUFnZ1Bzd0cxMUJXcTBGUittR3Yra3ZtWXdwSnlpdEdmVGs3WktVQ2IrSE9Rck5vZ21mODFNajFRa2tINTFSK2hEMVMvY3dZZkhFUlZqd3FVaVcrc0lNd1h5d21ROGU3b1dXR1E9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorAGh1JyreQ6X9wA5y9S6Vj51eTmZcrnGBEXaxCSvm3z2iilM7MQ2dr06b8UY4tkEHZFbrc4uOwn5bQa92JlEeVGlTf9iby2abbowtAk4Qtjr65dxSsDdBuc2bqKKqrrQzo4aYg-767Lgka7PYUmBpHsIp7clqZWcF1TreuwxSCFukDNVejkm_QV3q6g7O8Tt4W2qW5dSznw9otPwRubFNWvCj0RVmH6JrjzKJyHbCRNANr02pnb3Z7m-UOri41MDT6I47_k2U9pomc?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.572277,28.573654,12.3576178216505</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0675E20AF63C68601E78">
+			<name>B23</name>
+			<description><![CDATA[<div>Sensor (gain set to 5 Vpp). SA #the only one we have. Station located at NE corner of clearing, on the mound. Unmowed clearing outside the refuge area.</div>]]></description>
+			<LookAt>
+				<longitude>-80.61222598754328</longitude>
+				<latitude>28.57927653446784</latitude>
+				<altitude>3.875018899395235</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1362.166890846711</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0JvbytGN1JDY1d6dDNYdzhXMUF5ajBINEtzbGVrRS9MWUEwUzZ3TmNqUGtiSUhudkFlMElrVlN6N2FHMkJoRFhyRzF4dk93RzRpUEJmL1J3QzNSbEZCVUViRTNJa0lLeUdKUDJKRU0wUitndUI5L0M3K1YyN2VqZVNaN2ZEbncrN25IcS9PVC9wcGFCK3hKdEtGdis2UEhCQ0pVN2wvVjN3SnVMM1Bnajh0VnR6eG56OVlJREFrb0t1eWNoYTJhblhiQUwzQlREWGlQY2JaM3BBUlNaa2phS2JhRnlhTUFHWlpvMk9CREhBTUZveTdnaFpwWHQydWtoeDNmTnZWc1FVYm89_0">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoo8Hp8QB5MLOrfc__ikG1ydbXQ_nYB3s4WEJ5omTf80wjlgcFHCbcVMAZI2i34Aa1MfdQbrWh7QuN_fkOM6IC1liFyY8SB7DJ8KBm4dtqbfHjTaPfgqcjXs9HOA1ucnpdVKrdyDIip0Jdf6UwkFWDecthlKJ6PFcSIZcOHcjC2-y2R22x1PyT68q_yNwnDg-rwYxmR32xoTMWDUniYrtb4ISpYUyw9Q3ByAcvOAPAiRIvgkBBU6V3odaIqWYCh9fgKgtaMMwqvuPoe0?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+				<gx:Image kml:id="hosted_image_QUxDc0JvclpNUmFHQnlxWXI3UjRGRVhybDZaMUVGTldGb3NEOXZOaURzY3dOLzVvVFFRNnB6K1ZTb01FTHFxRjR5Q0pRZzlRNHFESWJHcVFtdXVMckZ4TE5XQ1hDSTcvVWRBU3RUeDBXQXIwdEJydHBLR3JvSXloeEI0ampiM09ueTZmV0VQTnd5cERBVWMvMkdWQnl4akVpcFZFWlprMGtYTHpkOVE4ZldmRHBTbGFFQzNRemV6RlFkWXhzUTlHaEovdDlIaStnWDZaWTBlZUJpNkV5U3JacEh4eUw1QWdSS29UREt0TjN5dnNLUWo0a3pkZUhyKy8xb2RhODgzTERWL0FKNGc9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorFk--KFrRnd5sApn846qx-bjyqinATEyHiKPxnO5GrXgSy54KGPbMwyww3ghubP36eQ5xDlu2yz9_MktzUSbRxoyLrGWLw475W2Zd6iaEAAtx7v-o1Mg5OUOndlI2U3XoJjQPjyQukld7RXt8_NwaXWesW32g2pLfdrAzFm60CeNODQaqz4ukDERWsPm3NG-iMkO_rZ9QQx7590xnoYJ7Kx1dgRZEXNRfFa6hLzbObbuCaoNCIdtSqOSh9EHAk3ny-TpdBi_3L3e7J?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.60779700000001,28.5788032,6.61114714369945</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="1899D9E413B3C585FF2EB">
+			<name>B24</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Seismic (nanometrics) #2619. Infrasound #0224. Digitizer #166. Lead acid battery. 35 amp hr. Solar panel 30w. Waveforms good. Infrasound signal noisy, unconfirmed.&nbsp;<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.64050294348191</longitude>
+				<latitude>28.60305239938856</latitude>
+				<altitude>4.839365498845936</altitude>
+				<heading>0.001328905468356074</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>176.4883798608935</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0JvcnNKcnpTWWVGeFRGdzdzRGdsNVJYQXNBTmR0aWloeVkyL05IK1U5dXZ2SldtemRTSFVZYUNKbWpWZm5MV3REYVprMzRkNHZPdFFFU3lnc2F0SUpOUjErVm10V2lRSVJORER6eHRMN1VsN1h4NDUwMk5iUWZNSlgxT0JnS1FDcEtvQWtOZVFTZTRDVkcramFldXhLV2xackhwemVGaGlKWG5vQ1NzVVBtSVo3RCs0MnlMdDAwd1o2bjV6bGNIcStxbk5QY0gzQlBiMGlIZm4yeGFJRFd6MStPeUFRYndNWG94cjJUN2IwZ0FKV0tkK0ZWdC9EbzZxUTZrWFREMmZGTUE9_0">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorSJbpUsIjOaY45nGcI3ME4VU63wJndD8J6TcdImvX2Q4-m5x4xuL9WBHLUeAFpsvXMlybyXvG3xBw9kBGomSb6OVIM_WLc30B4VatbdXFhPw6purBasxaY7GbnmTavwBVdYJAhnyHq1aJxi8i8sY6elNN1MPlGFSLHfLUVcnQ0oxYuhRahGEMucLUicrB1q59fgRprEDVS5iG6H01SerAYJBcAo6IL_UvzSqYMegkdz7m8nyq2mSSyJsPlymmNWct3lqqGGyC4pYGW?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+				<gx:Image kml:id="hosted_image_QUxDc0JvcktMVlpsTGhvSkR5TUFTSGpYQllQWXJSWHVKaVE5c21kYVg3MEEzVmN4OEtLTjRNeVhEeUhOU0hRUzltSm1rRTdzcmJiVW83ZHRkN3hIZXdhQmlEUmlPeVhwRmtybmJnbVgvOWNlWXJFbkl6bnFKeldybENFLzUyb1dOTFJ4V1RkanpudUJ5akNoZlhPdnNVanNsMGhKVGFkRHFZM1NCL1hqeU1rN1AzS29uekJCeHlWcm84UmxDUURNSWZlY2JyY1IwR3BlNEd1Rkpwc2JRcTJwSkNVckFudEoycHhUTTljQ1R1MlMrZkRtNXpuYUNFVStRYzgvNlJZZnhpWEFtNTQ9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBooZxza2_x3L6tBBsWBzwDLrJkAqw26jY8MQ8k2nCoLGjlUI4lVBAnCj1Ba8ZJbocRQDGuYRoJJCCNruq7301BtN9g1kUaxj0bNpoVny5h2WQ7PjTUhc-zTxJgfU6ZEi19ZTt3_nCGM_ppY5Forg3jxyqjZu5nGZoTGHxU8fw2MjG63APWn6-OlLpQUDZsU-aLr36XEwmmOGOLIiEc5pi74SOz9-Ho20Ai-pnctJT1KGe0HX1cIU-QtCEH1Ca0Dcn-HnadryYBnnJhHo?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.64084099999999,28.580694,0.844655241212382</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="1DEC4F568D23C585FF2EB">
+			<name>B29</name>
+			<snippet></snippet>
+			<description><![CDATA[<div>Site of controlled burn. Station watered to save from fire. Box stayed dry inside.&nbsp; Seismic (nanometrics) #2410. Infrasound #0436. Digitizer #202. Power issues, maybe fixed. Digitizer intermittent.&nbsp;&nbsp;<br></div>]]></description>
+			<LookAt>
+				<longitude>-80.67919213792003</longitude>
+				<latitude>28.60088291937377</latitude>
+				<altitude>2.472050358739806</altitude>
+				<heading>0.001325049822595591</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>131.2988637347553</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3FACE105213D8CEDC334</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0JvcnlwSDBNMTFtNkxnUHc0MFBrK05scU5Pb2JUd04zWG9QMitRZ1FZWU1keG5saXJKb1pTR296Y0lrUnErUCtpT3NZSEZhUy85NU1YcHc4YUo5RW4xMnF1TEcrNVcxZTdaZkxXbThnM3dDaVE4MjZjUktCTDQvTW5ZbGRFUVlPbEc4elhhRWdEUHd0bXJYNzczTUExclBmdE13R3pVQ0lvN09adGhuUm54TktqOVNJbWlIOXpUU0tobUVlZVdxZ1FPdVRMUDRDbFRhZFpSWTAycGFTSUNlR1NnNHBodmpKenhuNytQajVXaGtCUkVIMUVBdHJ4SWY1ckZQMGhIZS9KK009">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoov5nF7Mcc1H5PRUdIRpaXWpctOaS9wyco0OWZbfrMX0vPH-dpxgRQubptQV683jWfisq_F2lP_hVwuIaTJE3HxJQQBVa_y4tjmCiGtQVfKnsqcRdj-uc-Z6tFJv_fRFLNgz8F6x-bfWEwI2F2oDbbAqvJN6M-xegHD5EuYYsTYphINNzqUxANfMwR4nzgRqTSevHJj8OqBZOrcgHr-8OMr1abvHhfmdILqo-Q55i8FtycTGKe84FpwAx9yYMwKUQ6sF2DVImp27Vme?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.677176,28.61823,1.222720643892392</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="04AF3E563E391AF18359">
+		<name>OSL</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<Placemark id="014D284BD038FD134E59">
+			<name>BroadAxe Ridge</name>
+			<LookAt>
+				<longitude>-80.62787409877099</longitude>
+				<latitude>28.61445760141274</latitude>
+				<altitude>0.7222575813675691</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1459.155316865217</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.62749298271885,28.61757162915477,1.812947464804093</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0856CBE54B38FD0FC910">
+			<name>OSL Atlantic Frontal 39A</name>
+			<LookAt>
+				<longitude>-80.59818579742658</longitude>
+				<latitude>28.60865776863406</latitude>
+				<altitude>0.8707392838047578</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>721.0139063107637</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.59630962328166,28.60922198126488,2.487119479238789</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="08026B6E9038C4590D16">
+			<name>80-105 ka Burdette et al. 2010</name>
+			<LookAt>
+				<longitude>-80.67981234495937</longitude>
+				<latitude>28.49090636447533</latitude>
+				<altitude>6.930878704832992</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>17420.31334612984</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_963C6D13E43D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.66614716437779,28.47909685707235,7.018239905014947</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0DCB3FDC5E38C458196C">
+			<name>80-105 ka Burdette et al. 2010</name>
+			<LookAt>
+				<longitude>-80.67981234495937</longitude>
+				<latitude>28.49090636447533</latitude>
+				<altitude>6.930878704832992</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>17420.31334612984</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<LineString>
+				<coordinates>
+					-80.67439866024044,28.47859593952657,0 -80.65553387452543,28.47840436022643,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark id="0B7334506E38C4418E49">
+			<name>DRC-01 Burdette et al. 2005 109.9 +/- 9.5 ka</name>
+			<LookAt>
+				<longitude>-80.67504742908781</longitude>
+				<latitude>28.47748357649244</latitude>
+				<altitude>5.71444525637943</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1223.253803291882</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_963C6D13E43D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.67573763383616,28.47819561667771,5.433303669635978</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0B848358CD38C431B1B6">
+			<name>CC8 Rink and Forrest 2005 43.8 +/- 3.6 ka</name>
+			<LookAt>
+				<longitude>-80.64322404617802</longitude>
+				<latitude>28.54271252236121</latitude>
+				<altitude>13.89959535979677</altitude>
+				<heading>-0.07681867387980193</heading>
+				<tilt>0.1205349843715319</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>209.7788757285161</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0281FBA0463D8CEDC336</styleUrl>
+			<Point>
+				<coordinates>-80.64325549215582,28.54283171319146,13.48250721207398</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0476237B6138C4264A36">
+			<name>OSL Merritt NW </name>
+			<LookAt>
+				<longitude>-80.67865724126041</longitude>
+				<latitude>28.62324216064419</latitude>
+				<altitude>1.591080122691093</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>10555.77518894454</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.68176365474179,28.6248718976461,1.599487307390504</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="09787C578B38C4185784">
+			<name>OSL False Cape South</name>
+			<LookAt>
+				<longitude>-80.56124763088954</longitude>
+				<latitude>28.54287847013784</latitude>
+				<altitude>-0.8315913183296897</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>2900.778541312321</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.56615680219996,28.54459968205328,8.528303795788858</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0B2E9C571A38C41686FC">
+			<name>OSL False Cape N Exposed</name>
+			<LookAt>
+				<longitude>-80.58032022184243</longitude>
+				<latitude>28.59335559161146</latitude>
+				<altitude>1.592392735329835</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>10073.42079146532</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.5771524502165,28.58689507413691,1.615968658653797</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="097FE0A4E538C414AF60">
+			<name>OSL False Cape Atlantic</name>
+			<LookAt>
+				<longitude>-80.57679827462</longitude>
+				<latitude>28.57650590245756</latitude>
+				<altitude>10.11343674227157</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1942.875060367514</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.57277777659698,28.5760127784139,7.179894451188265</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0F96F071E738B4DC4300">
+			<name>HCC-01 Burdette et al. 2009 79.2 +/- 12.4 ka</name>
+			<LookAt>
+				<longitude>-80.66288667210731</longitude>
+				<latitude>28.65190777247516</latitude>
+				<altitude>-2.189810831544748</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>16519.84618144808</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0281FBA0463D8CEDC336</styleUrl>
+			<Point>
+				<coordinates>-80.75499357733197,28.73567286319762,-2.925806410805589</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E8C87CFF838B4D8D79E">
+			<name>OSL Merritt NW1</name>
+			<LookAt>
+				<longitude>-80.62894521196914</longitude>
+				<latitude>28.6549588173363</latitude>
+				<altitude>1.617781967702732</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>14361.43687658944</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.64045039093686,28.6366421980362,2.750855060915582</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0CDBFA5C9C38B4D7D901">
+			<name>OSL Merritt SE</name>
+			<LookAt>
+				<longitude>-80.61988237612941</longitude>
+				<latitude>28.55704972629786</latitude>
+				<altitude>6.65950194793016</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>5621.002471087268</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.61465243539047,28.56185683598386,6.666267693458505</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="059D7971FC38B009760B">
+			<name>OSL 2021 Rodrigues et al baseline</name>
+			<LookAt>
+				<longitude>-80.59472461533201</longitude>
+				<latitude>28.54626157712712</latitude>
+				<altitude>2.040534076195244</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>13824.59324096097</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_963C6D13E43D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.5745339855476,28.54459078044522,7.035106308011159</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0EE3C1A1A938B004E756">
+			<name>OSL Atlantic Frontal 39B</name>
+			<LookAt>
+				<longitude>-80.60713010801069</longitude>
+				<latitude>28.62029204645491</latitude>
+				<altitude>1.646791558354335</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>468.5767516709894</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.60637134624915,28.6198168830212,1.691792597626318</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="03B6B0A88A38B002E7AE">
+			<name>OSL False Cape Ridge</name>
+			<LookAt>
+				<longitude>-80.57649087886675</longitude>
+				<latitude>28.57726185329685</latitude>
+				<altitude>10.09855114128002</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>2146.54812203109</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_62A6CD47DD3D8CEDC334</styleUrl>
+			<Point>
+				<coordinates>-80.58000503542003,28.5752320751536,9.749235415901371</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02609B054F38AFFEE04C">
+			<name>OSL Merritt NE </name>
+			<LookAt>
+				<longitude>-80.61366883203097</longitude>
+				<latitude>28.62829777315394</latitude>
+				<altitude>0.4042639129621928</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>2880.822072001175</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_05E666DED03D8CEDC339</styleUrl>
+			<Point>
+				<coordinates>-80.61351793417519,28.62825304080847,-0.8321786251734276</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="05F8754666391AF342FC">
+		<name>Seis_Temporary</name>
+		<visibility>0</visibility>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<Placemark id="0CBD22900D38E84079CB">
+			<name>Penny site</name>
+			<LookAt>
+				<longitude>-80.57604264102659</longitude>
+				<latitude>28.50918492619308</latitude>
+				<altitude>6.664404618493562</altitude>
+				<heading>0.007672249083749109</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>5826.10308745061</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.58354802108416,28.49998601280826,9.479435024343276</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E80B4641532027B343B">
+			<name>Power Facility</name>
+			<LookAt>
+				<longitude>-80.65336229309979</longitude>
+				<latitude>28.51696845669819</latitude>
+				<altitude>5.973897448219661</altitude>
+				<heading>0.09887170092028177</heading>
+				<tilt>67.32970672301713</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>503.1435915801558</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="028EF3BC6232027B343F">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.65350649825116,28.51554232198401,6.129568317426624</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0013D957D132027A3B6A">
+			<name>Across Solar Panels</name>
+			<LookAt>
+				<longitude>-80.65192453595415</longitude>
+				<latitude>28.5198182931168</latitude>
+				<altitude>16.36720205610971</altitude>
+				<heading>0.09886894493123015</heading>
+				<tilt>68.94442469406307</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>796.1013087870379</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0376CC8E6132027A3B6E">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.65149372997867,28.51866608005854,5.511421988650396</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="05EC9178963202673729">
+			<name>VAB alternative</name>
+			<LookAt>
+				<longitude>-80.64365579328484</longitude>
+				<latitude>28.57527158505792</latitude>
+				<altitude>4.67159104930944</altitude>
+				<heading>8.664857556311297e-06</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.0003351808717</gx:fovy>
+				<range>681.7877199575014</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0F0347EFB5320267372C">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.64370850458904,28.57537573388303,4.584197085870578</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E9578E8B232025E521A">
+			<name>Roundabout</name>
+			<LookAt>
+				<longitude>-80.60787155468522</longitude>
+				<latitude>28.57813838793457</latitude>
+				<altitude>6.288861219855997</altitude>
+				<heading>0.6146668761855451</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>194.5506135091637</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0D8BA0417E32025E521D">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.60781923794505,28.57824135606418,6.551181260491228</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0BDF2EC0E732025AF987">
+			<name>Roundabout</name>
+			<LookAt>
+				<longitude>-80.60844598471276</longitude>
+				<latitude>28.5781671618001</latitude>
+				<altitude>6.95296243722122</altitude>
+				<heading>0.6146668762738954</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>25.79199200675249</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0736FA5C8132025AF98A">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.60843166152452,28.57817869824013,7.575629491395814</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="088437593E320258F9CD">
+			<name>Roundabout</name>
+			<LookAt>
+				<longitude>-80.60748901900331</longitude>
+				<latitude>28.57786606518116</latitude>
+				<altitude>5.322266848784183</altitude>
+				<heading>0.614666876364618</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>143.1359186813825</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="074C86AE00320258F9D0">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.60740978672457,28.57799937950113,4.942450224558796</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="06587DA6DF3202333F48">
+			<name>Tower</name>
+			<LookAt>
+				<longitude>-80.65643352445606</longitude>
+				<latitude>28.625208596593</latitude>
+				<altitude>1.961819574833037</altitude>
+				<heading>0.6146668773566442</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>330.3467543244915</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0C3F1DB8853202333F4B">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.65625380754929,28.62487245113399,1.771613212571252</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="002D9B1E46320254AEC9">
+			<name>Fire safety training</name>
+			<LookAt>
+				<longitude>-80.61522156509942</longitude>
+				<latitude>28.54736314534723</latitude>
+				<altitude>5.38986586352765</altitude>
+				<heading>0.61466687652531</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>294.5240825492147</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0C46A77954320254AED9">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.61512067835203,28.54727721988447,5.350094336599689</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02B038B20332021FC6D5">
+			<name>39W</name>
+			<LookAt>
+				<longitude>-80.65492971035897</longitude>
+				<latitude>28.62711802014495</latitude>
+				<altitude>6.216519592112871</altitude>
+				<heading>1.499620930812048</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>236.4708017688099</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="085F9BE16A32021FC6D8">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.65487809623562,28.62721290563132,7.424693747454539</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0F999E1B8232020D1A1A">
+			<name>Concrete tower pylon</name>
+			<LookAt>
+				<longitude>-80.6956852558816</longitude>
+				<latitude>28.62650419958455</latitude>
+				<altitude>1.605126275566966</altitude>
+				<heading>1.760979665189051</heading>
+				<tilt>0</tilt>
+				<gx:fovy>30.0003508918068</gx:fovy>
+				<range>972.8928980027558</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#__managed_schema">
+					<SimpleData name="0387C0374232020D1A1E">0</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<extrude>1</extrude>
+				<coordinates>-80.69573026125354,28.62611445848604,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="02D45E07F93201B5AEE4">
+			<name>Crawler 39A</name>
+			<LookAt>
+				<longitude>-80.61081392537132</longitude>
+				<latitude>28.59949281681857</latitude>
+				<altitude>1.600351743855493</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>7066.357567162488</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.61081392537132,28.59949281681857,1.600351743855493</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="05250594DF3201B510E2">
+			<name>Beach House</name>
+			<LookAt>
+				<longitude>-80.57203739923406</longitude>
+				<latitude>28.57432794232731</latitude>
+				<altitude>12.44289606665229</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1177.124817942095</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_3EEA0A5BB93D8CEDC339</styleUrl>
+			<Point>
+				<coordinates>-80.57203739923406,28.57432794232731,12.44289606665229</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0B1F6313803201B3C20F">
+			<name>Corrosion</name>
+			<LookAt>
+				<longitude>-80.58250602440287</longitude>
+				<latitude>28.59411769393699</latitude>
+				<altitude>3.667781392672649</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>911.7026450370031</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.58250602440287,28.59411769393699,3.667781392672649</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0190D810783201B31920">
+			<name>Burrow</name>
+			<LookAt>
+				<longitude>-80.58530962292851</longitude>
+				<latitude>28.59787386710344</latitude>
+				<altitude>3.546618191801159</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>163.1570187283432</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<Point>
+				<coordinates>-80.58530962292851,28.59787386710344,3.546618191801159</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="07F339AF5E3201B28B5A">
+			<name>LC48</name>
+			<LookAt>
+				<longitude>-80.58900462571908</longitude>
+				<latitude>28.59905799505377</latitude>
+				<altitude>1.927283547041121</altitude>
+				<heading>1.231614076273131e-11</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>1053.294414105039</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.58900462571908,28.59905799505377,1.927283547041121</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="059FF14DA53201B15FBB">
+			<name>Pad</name>
+			<LookAt>
+				<longitude>-80.58976825143024</longitude>
+				<latitude>28.60154026150619</latitude>
+				<altitude>1.44379537265424</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>184.9710915065771</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.58976825143024,28.60154026150619,1.44379537265424</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="08B3D266093201B0D9FF">
+			<name>Burrow</name>
+			<LookAt>
+				<longitude>-80.59034117247744</longitude>
+				<latitude>28.601437320916</latitude>
+				<altitude>2.238225220058676</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>184.1766561109216</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<Point>
+				<coordinates>-80.59034117247744,28.601437320916,2.238225220058676</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0398FD99F73201AFF9C5">
+			<name>39S</name>
+			<LookAt>
+				<longitude>-80.59725090296021</longitude>
+				<latitude>28.60552419284067</latitude>
+				<altitude>1.028650330800231</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>464.313185913561</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_612616F5B33D8CEDC336</styleUrl>
+			<Point>
+				<coordinates>-80.59725090296021,28.60552419284067,1.028650330800231</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0B84D3D5B931FDFD7E8A">
+			<name>KSC HQ</name>
+			<LookAt>
+				<longitude>-80.6502503893924</longitude>
+				<latitude>28.52465017131431</latitude>
+				<altitude>7.124104536490472</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>1274.937253973039</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.64863134964359,28.52481173194512,5.471565238559881</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="05E376132D31FDFA28CD">
+			<name>VAB</name>
+			<LookAt>
+				<longitude>-80.64971539077582</longitude>
+				<latitude>28.58705149365877</latitude>
+				<altitude>2.529334195902972</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>532.0492564904998</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.64909015172974,28.58737027526199,2.112317594084951</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="07D01C735231FDF9BD1E">
+			<name>Sand Point Park</name>
+			<LookAt>
+				<longitude>-80.80475378745196</longitude>
+				<latitude>28.61782208471558</latitude>
+				<altitude>-0.01813864793558051</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>847.3994550564387</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.80517565310009,28.61812240105653,-0.09821231664532171</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0B65E11D1831FDF858D5">
+			<name>Shuttle Landing Facility</name>
+			<LookAt>
+				<longitude>-80.69237862343013</longitude>
+				<latitude>28.61508071552181</latitude>
+				<altitude>1.457916069012819</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>573.6684836224595</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.69245510308944,28.61519604638357,2.129981383993475</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0E6299F74C31FDF556E4">
+			<name>Observation Gantry</name>
+			<LookAt>
+				<longitude>-80.61894056016783</longitude>
+				<latitude>28.59539378464364</latitude>
+				<altitude>1.955898858208303</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>529.3508276626382</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.61884714173763,28.59487857212052,1.446191205835287</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0ED429413631FDF47F3F">
+			<name>Eagle4</name>
+			<LookAt>
+				<longitude>-80.62374345467275</longitude>
+				<latitude>28.64290650259754</latitude>
+				<altitude>1.646799321944745</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>674.2247302208125</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_C32B884DF23D8CEDC336</styleUrl>
+			<gx:Carousel>
+				<gx:Image kml:id="hosted_image_QUxDc0Jvb3RNRFRjaU42dWtYNzJCTFIrcVRxSUw5clAvNlhSRWk1MjN2MmF6TzJvdlJlemV0MW9ldlV3Z3hXdzMva1ZlcFFLQlNyd24zcmx3U3BjVGkrc29BK241WWJwV0FOcHgyT1pPRGgzUzgwTzZvYzA3empCbXF3UVh3ZlBVdXZ0b0U2S3JSa09xN3J5aU4xemthSTMwK1RnQ3ZIMU1ER1JUcDMxNGtvVlRuUmYyb21YMUNodXFuREZJd3RvS1VBQ2h6TTVxYll6eG9DWXVTbXNxYk13MzhLVGVZQXFTeldGOURLSjZFWVlSN3lnUGpjZlVTWmF1cW9qTzNvNGp6S1ExQ0E9_0">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBooNrIwrqYrQbPow0qDMXxSsd1JGmKLAcmRppsiKkVOqrnNp7Hfpvs3K5m7FSdnbGAxYXHRJjsBDT8FiYOprDIqor2S9nstKUWZC-j2IHUqae9g3LezufsJ5fReyMQ8B2_0Q5ODbmpXVr5ryxgwEWYuMU5iJkiGR0SvlBr7-LXKC-elWKYjSGKcZLPeX11eWuq9LMy1xRhUYwMZ7H0jSeYatfJPyY5ZwuhWTxGJFdb1SO3dpFng4stOmaaR9HXTIIv9YdRy3JKyeiytd?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+				<gx:Image kml:id="hosted_image_QUxDc0JvcXdpcHdRb0ZBWVBVOVBKc3VHSDdNeTBCd2NhRlpNU28xem5Qb1dOcEFJRG5yMVl1bDFSRkQvUEhnWlg3VEhVNEVOcTJKdWVRQm1YNmlsTWczSWVsMWRHMnNjcWtKYk10ZTJDeC9TZk9JMzUyVVpmcWdMTERXUFprT0EyVnpydWtjcm9vY3BtWURleVZYNk9vZGRBVmR2bDJqbWd2KzRRM29uR2tSN2VkV2tVZWhFbmJhZldnMi9UeHZmdjZKRFF3Y1cwUGhmNHFZNWRDV0pDN1NRSWdQLzRENEI4M2hWcGZrdHZ5TFBwdlJMQm9nNUZDTEIzdTJWem9KRnorTW0wNTQ9">
+					<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorQqxgTW1Rlcb51PKYNkYYPSqG1pDe-oIW65qFPygVypZc8ij-CJDdEk656VQn3x06ku82LjhzytliwJss2oyWhK-1X199zo1dVlVfQpLD9bVSBbOHEZjcRcPj1ZTUScJLQqrwiuxLWTSLDgvyTXGyuFRCfp-hAk99J8a2jEmTU28pqsypBk3KERB5oXbDOjtQMmT9NusGzApPJhxfNz-Ep8Ph34nRBAxt7QPZcU5LS_-42j3H4dw8yUldXjtzjtjLiICpKAnTUNJvo?authuser=0&amp;fife=s{size}</gx:imageUrl>
+				</gx:Image>
+			</gx:Carousel>
+			<Point>
+				<coordinates>-80.62367934410051,28.64307759122179,2.485977311381249</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="070D7FBAF231FDF35F7B">
+			<name>Camera Pad</name>
+			<LookAt>
+				<longitude>-80.606916995714</longitude>
+				<latitude>28.62136732069343</latitude>
+				<altitude>1.672194297790139</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>29.99999053</gx:fovy>
+				<range>150.5559373964206</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Point>
+				<coordinates>-80.60686792647383,28.62145367731266,1.796949928311459</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<GroundOverlay id="00C6435D123C343FA043">
+		<name>Digital elevation model (Copernicus GLO-30)</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-105</longitude>
+			<latitude>44</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>10000000</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<drawOrder>1</drawOrder>
+		<Icon>
+			<href>data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==</href>
+		</Icon>
+		<LatLonBox>
+			<north>85</north>
+			<south>-85</south>
+			<east>180</east>
+			<west>-180</west>
+		</LatLonBox>
+		<gx:MapTilePyramid>
+			<Link>
+				<href>earthdatalayer:0:CAESJGQxYmZlYTMwLTU1NTAtNDIzNy04Y2I3LWU5MGNjMDk1YWYzYg</href>
+			</Link>
+			<gx:minLevel>0</gx:minLevel>
+			<gx:maxLevel>22</gx:maxLevel>
+		</gx:MapTilePyramid>
+	</GroundOverlay>
+	<GroundOverlay id="01529F414A3C5978EF9E">
+		<name>Localities</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-105</longitude>
+			<latitude>44</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>10000000</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<drawOrder>2</drawOrder>
+		<Icon>
+			<href>data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==</href>
+		</Icon>
+		<LatLonBox>
+			<north>85</north>
+			<south>-85</south>
+			<east>180</east>
+			<west>-180</west>
+		</LatLonBox>
+		<gx:MapTilePyramid>
+			<Link>
+				<href>earthdatalayer:0:CAESJDgxMGFhODQ1LTY4MTgtNDYyYy04MGJiLTJlMmM5NDU0ZjFiMQ</href>
+			</Link>
+			<gx:minLevel>0</gx:minLevel>
+			<gx:maxLevel>22</gx:maxLevel>
+		</gx:MapTilePyramid>
+	</GroundOverlay>
+	<GroundOverlay id="1F0F5FB1373C5978EF9E">
+		<name>Administrative area level 3</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>-105</longitude>
+			<latitude>44</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>10000000</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<drawOrder>3</drawOrder>
+		<Icon>
+			<href>data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==</href>
+		</Icon>
+		<LatLonBox>
+			<north>85</north>
+			<south>-85</south>
+			<east>180</east>
+			<west>-180</west>
+		</LatLonBox>
+		<gx:MapTilePyramid>
+			<Link>
+				<href>earthdatalayer:0:CAESJDZmMTVmMjgxLTY1NzctNDZjMy05MTUxLTc3ZTA3NWJmZDNiMg</href>
+			</Link>
+			<gx:minLevel>0</gx:minLevel>
+			<gx:maxLevel>22</gx:maxLevel>
+		</gx:MapTilePyramid>
+	</GroundOverlay>
+	<Folder id="5A6085E238000001">
+		<name>Artemis2 deployment</name>
+		<open>1</open>
+		<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+		<Folder id="5A6085E238000002">
+			<name>SmartSolos</name>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Placemark id="5A6085E239000003">
+				<name>B18</name>
+				<LookAt>
+					<longitude>-80.58247514705236</longitude>
+					<latitude>28.59415856837823</latitude>
+					<altitude>2.967749073606976</altitude>
+					<heading>0.001331268579704888</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>80.37910915810244</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.58251229409565,28.59411594435175,2.978776877488685</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000004">
+				<name>B25</name>
+				<LookAt>
+					<longitude>-80.63667941578215</longitude>
+					<latitude>28.59304659623469</latitude>
+					<altitude>1.888102973920469</altitude>
+					<heading>0.001328253668347797</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>340.5840450081087</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.63638370719275,28.59303520400674,1.483765817537448</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000005">
+				<name>B32</name>
+				<LookAt>
+					<longitude>-80.60881337622722</longitude>
+					<latitude>28.56351492620949</latitude>
+					<altitude>4.835663695014986</altitude>
+					<heading>0.001324363376649345</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>267.2462267971059</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.60882655306267,28.56338953359101,4.798021492612388</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000006">
+				<name>B35</name>
+				<LookAt>
+					<longitude>-80.58666012470896</longitude>
+					<latitude>28.56971946323337</latitude>
+					<altitude>8.095783042148996</altitude>
+					<heading>0.00132272740336487</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>92.8679703483249</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.58657744049994,28.56969894729365,4.837961511237843</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000007">
+				<name>B38</name>
+				<LookAt>
+					<longitude>-80.6152374281471</longitude>
+					<latitude>28.54732661175016</latitude>
+					<altitude>5.588734632864998</altitude>
+					<heading>0.001319602943610366</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>104.2961492646464</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.61514630777046,28.54727956932039,5.073543951623165</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000008">
+				<name>B43</name>
+				<LookAt>
+					<longitude>-80.7023336054469</longitude>
+					<latitude>28.55472296100632</latitude>
+					<altitude>4.395680342875012</altitude>
+					<heading>0.001316618067432648</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>218.7293924508776</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.70246021542243,28.55478917574638,4.279882112590288</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000009">
+				<name>B48</name>
+				<LookAt>
+					<longitude>-80.63297086151978</longitude>
+					<latitude>28.50879623321014</latitude>
+					<altitude>14.65136844827873</altitude>
+					<heading>0.001313706866744769</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>448.4354641825485</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.63257786429357,28.50893945935889,4.119392820790642</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23900000A">
+				<name>B49</name>
+				<LookAt>
+					<longitude>-80.64380103440485</longitude>
+					<latitude>28.54252170012246</latitude>
+					<altitude>5.730161463934172</altitude>
+					<heading>0.001312842103072616</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>452.3240163823357</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.64370192307494,28.5428956393372,6.747720533969486</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23900000B">
+				<name>B51</name>
+				<LookAt>
+					<longitude>-80.60436291823216</longitude>
+					<latitude>28.60167808002654</latitude>
+					<altitude>1.61576229398938</altitude>
+					<heading>0.001311035251443775</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>457.292691067487</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.60466403485289,28.60137574107232,1.02084392181196</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23900000C">
+				<name>B53</name>
+				<LookAt>
+					<longitude>-80.66404673836088</longitude>
+					<latitude>28.63365458739015</latitude>
+					<altitude>2.644856889460543</altitude>
+					<heading>0.001310461616795922</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>214.7252303854839</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_07D244390F3D8CEDC337</styleUrl>
+				<Point>
+					<coordinates>-80.66403653692903,28.63376804881467,2.315467295952571</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder id="5A6085E23900000D">
+			<name>Long-Term_Monitoring</name>
+			<visibility>0</visibility>
+			<styleUrl>#__managed_style_0D7B10D3103D8CEDC333</styleUrl>
+			<Placemark id="5A6085E23900000E">
+				<name>B01</name>
+				<description><![CDATA[<div>Seismic (nanometrics) #271.&nbsp; Infrasound (other) #412. Digitizer #268 #453. Waveform and infrasound test good.&nbsp; &nbsp;&nbsp;<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.60685987360016</longitude>
+					<latitude>28.62144688507465</latitude>
+					<altitude>1.8095310012137</altitude>
+					<heading>0.001340088783065857</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>25.00028287622172</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcWxtWFcwREMwcnJNM21hOGhyUFpob3RCOVVidE91WDAxbkE3OWExTWNuaWdkWjllenB4ZnRWd29ZUWZOZERaVVpjM0k3dFVjMTJjZldKK0tRWVJQeXhCT05vYlRlZ0JDN1ZCNW1UOXJZdUh3TE1oM0d2SW9XVG41dUhEcTJOTTdXQUs5aTY5TEJPLy85b2h0NVFqK1hUYnVWR1lQakRrZ2gxZVQ2UzdiRnpvWDVqMDZQeUcvSHRZcHpERTRVVDNRTGVuQmcrM1dTZWxqNDJUZkNzcmNXMlNrWHZYbjN5MTNZZ3BjUVg2VWhFdGtMNWMwN3hkQTlLV3hCazZqOGMrVXc9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBopFnIzqIkiuFxx-_jO9B172NNffkUF_AU_DdsAxfwkrwqLha9T4d1sOPdYvwhgQoybvgSlGVxAzaQPtvMElXHMYwfgG6_VxMR7bKIstI45bw12Nfy7FZ0EfRQAv_5YfJoOFeAKeX5obmKNivAxEvsM8iYnBOZR4DIWi-pf-rFVf-1r_Yzrs2VdqnxCvqvYUM3pGK4DTcRc4oQJ2AVAgtGHQdGE1r3rL-BWT1ws5nWGVJuSc8ecQmjVSJLTuispIqz82gFD23EjoAl8C?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.606844,28.621407,1.79481445070576</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23900000F">
+				<name>B03</name>
+				<description><![CDATA[<div>Sensor ~100ft from Eagle 4 tower on dune. Seismic (nanometrics) #2663. Infrasound #417.&nbsp;<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.62368512260123</longitude>
+					<latitude>28.64307033464913</latitude>
+					<altitude>2.207243067729334</altitude>
+					<heading>0.001339244592465993</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>25.00089418540483</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcGZqUFhTSnExRXQzL25IcllKZ2RkTjZKQWJnZFpnZDV0cVc2R1ZoOFJQQzlnWG9lSU1PUUJ0cGhsblhhQmxIWHg4YlE0dTF2Z2pGNVlYZGpuRDFETjlXcmo0K1pWa2s4MWpwcEdOZ045M1VzcjVpK1RlT1hmZkxKT1dKb2cwRmlqeXpEcDlRdE1Qd2JzZVNJcmU3R3ZmWHF6WkxmU1hSeXd6UkVjTDdtckJaSjNFaHNnMk9HNzNFR0VEd3I0M2ViTStoWVVjWG5xcE9zZnQ1eHA2TjhJTWN3TkF1Y1BSb0E1RzRQWUhwbTZXZU43SVFwQjdLUEZPK2FWTG1SMXV5VHM9_0">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoojD5WQ2uEbOLQnZB8aAwR-3xCe-urj2ckJgEVLsw1ns2PvGSeUgjomfd5WOM7XqCZ0nCbMk8gGZFZI2WNb4_42JsMpfKWW8CoDWRhTw2L8eYgzI0t1a8sl_gCwKkM_yt9t55E0HdrN1IAZLxG7YwC2bIA_dEgiTEvHvOp9nwlvy8-ESfIaMNxZ5rFjMOLtGDgt_lPeA6O4LSRH1W-XRm4zQ3fNUyXoIq3-50ufea9yb6ZmgQWff19j06OOvETkpSRdv3Nnm0GLGYd3?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcWRRR1AzOGxjdlF6RDdBL2plc0o2bHRZQWdZTnpFcE03Y3ZlUXU5TWdycE84bHFtS0NudXV2SGJOVWRwcDBLRXoxMitYTDdVR3pSVEoyWUVQSjZWYjdJNVgzRjBZSTc2L1FDMmIrMHlhUVMxQitlYWRSNVJCeSsydFVpWFdtTTdudERnM0FLcUViMW1HMXp3bXlPU2R5VUhsYU5PSU5DeFJSaGJBWUV3RWJjQnUwWjVXS2JhSEZjUDQyd3kvRXJNTmhNcTRiNWVZUXJiRzBIZElRUlhHK0d5YWhIb2N5WmYzTGVtN2kzT1FZbWl2aVdZM2FkLzBWMkJVYm8yb1h2T0U9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBooyzcd_juz63NvDBBpMxjo9XqIOOIVegvUptA8tifDM2NyCMgTp_LutRPFh18PI00gqFVZN2gTl4WXeiJlh8qhxTkdbkFlL-uj-F8KL0zo3CwVUPDZk9uD8lYJ6XJUnyibRjpKyww2sFkFxMghoDNslKmEC4YdFglUSXX562jcMcAbt7NIr0N9i67t0pWvJok7RCzgQN4LEMjl__XwFJoKjz_ce8MpWvj4b7nhGblg3FLW8ybJXoUl3xM4rEwC53TQKI0_D-1xthvxz?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.62363999999999,28.643038,2.184068545229831</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000010">
+				<name>B05</name>
+				<description><![CDATA[<div>Sensor in front of Helipad 9 sign. Seismic (nanometrics) #2392. Infrasound #414. Digitizer #386. Seis notes: horizontal components are ok. Vertical component pinned. Infrasound checked out ok.&nbsp;<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.63449548970306</longitude>
+					<latitude>28.63203822789207</latitude>
+					<altitude>1.015284381899124</altitude>
+					<heading>0.00133643149957686</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>78.3784419589665</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0Jvbyt1VEVrMUdxWWlSR21WUHdCN3QxSDltWU95ZGJBTW1HU1N5cW9wQllUbXN6dFgvYVRTaHFBNDB1S3VXZXRWTEZYZDZOVzEvWEgvOXBLWEJpZEVPaktiMWJrSDZNUVNhZWRVRkM0Y3VKSmYrVWtiZ2ZIVWRpVjd1WE9OSTVxdVVncVl6NDMydTY3QmdHS1FnL1NtMWZBSmtNYWEvOWVKaEdKNFF5WTdySzZCdTZkakdPZVdWRllkcHRqV0JOUERvUThIeU9waVRMRFBuWVhQQXpIWlgxR0d6SWp3ZFJISktZMjV5L09Bd1FuTDRxSmU1RmNVQWpucFViem5CUUtrbk09">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBopD3P8EQmwWe3rNVRjFEChWTlqU3YW-W9SW-v6ex2kFJv1px4b79mXXKu-viQMlK1zyIugE-xeei5BZUFV_EOGCMhlVIzJcMqnDMNp8uiyvVS3U2pGjxSwXF_Q35v2eq7oZQE6_mDe4Bm-0fEFQTjmn4ebpxPm9XGUnNKkVQN8Nch1aurqnzISeq-a8I0ZzLtSxilrppYjZeb5p5GZLd2EKAMN6Z3bSc1bmq5OKcQrXPONT2WDtT_yUn05GQ1GIQ3s8i-G0VjkZ3t-M?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.645143,28.640045,1.293091233534105</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000011">
+				<name>B07</name>
+				<description><![CDATA[<div>Sensor (Guralp) #00B68. IPv4 169.254.168.11<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.5972741537615</longitude>
+					<latitude>28.60552396047765</latitude>
+					<altitude>0.9424355503631721</altitude>
+					<heading>0.001335848307975296</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>26.35546262478783</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcnV0WkxZU2dqaFpVTk8yeGcxbC9wYnBmbmxZcG9nVUZIOFY0STFWc3JmczlvVklJb1JSMkFoRjNWY1pYQy9jdzZMN2h6aDZVRmVxWkxnY294V0VrWko5bG5TMUJsZkRIakIxUVJ3eng5YlZiclJmM254M3NpL3cwbC9lRnpjK0IzLzg4WWhVaGNEMk5LVzVJLzBLanpKQzQxY1pGanBuWERGRlAvbUNTbHR5VGJZTytwMVVIUzdKODczUC9lcmhoY3dQaWQ5RnM4WmZHWW5YSXBSUzNCWWlSNVUzdFZkYjVGRjdaS1VRaEtjZUpUQXorRXdWdU4wWnlhNmNHOHp4NWM9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoru1kBck_A1y-D0EKqru6_AVRASW714Cd5Su3agHGxTOsJAzx-NCTKmChUg0Gbcbuq-Zl2Env2XrMxAauDKtBV3cllPqQ5ofUWtrRCmzmw86zAJUKPXCh5_gZdXXwXy_so5sEeOmpohWv-LFtNPu4K6fHZpNu3DsWSNUBppDlCWTmYF5VAXhjIXBb0H8sMQj1O1sn4g1oZK12J6UZ1Klz-_x91rAByDK2KuSEZzK_6OIQTB-wAkqPOelyhYj4AbWqDpVNYSztcC5kp6?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.594177,28.607271,0.8871838768440667</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000012">
+				<name>B12</name>
+				<description><![CDATA[<div>Sensor located off Happy Creek Rd. Guralp Certimus #00D68. GPS clock had trouble locking. Station is located just on side of road to be visible to fire crew.&nbsp;&nbsp;</div>]]></description>
+				<LookAt>
+					<longitude>-80.6461133679497</longitude>
+					<latitude>28.62141094038276</latitude>
+					<altitude>2.283816194591122</altitude>
+					<heading>0.001334643475755332</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>1334.422284598695</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcDBYVVYxY3ZaNis4NTVXQVU4eFJvaStFOUhMckdrcWl5eXJtZlI0c3k2aUEvUmNWRkp6dkhnaXRoSndlVXhXeU5RZndVL21BVk5YSGNjV2JOV2NacEFGVWUyQjV6VW16S1J5am5oa0x3M2ZETUNDV2dzelZ2QzVYbzVkVjJkWU1YVlJzWWxrVWFjNlE1Y2U3OWlMeFYyMXh0ZTljeFpXZGI4bU9KaWJBMU1FVCtPb000MHZHbS9RcnNGYUNwN1c2Z0F6MEsvalVnbURRWHdwZkpjY3dpNDV0VXF0UTVOSll1VlBoSnVNcWJSZklQTXdXWDA0WGtSekx0dXlXMjBQelE9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoofkd5nnBnopD-kgLcPVCqrMRAQyt1iYOEsg9qK7qONuM6pii_b3t2kPCox453JGuxpElsbo3VBIUfHAAVxTearz285LfX631YdYzelZbCtbzSkDTW0LL174LEIUO_RiJ153beS_2DJuhKYlP4HrWeihcFSypl9om2xgHIDC02tqbKSxcOIZebZRY5pFpzxR_vtALB-Ygjnn9tAmEkMVCJ2Httue1QJqCIyazZuJF8kiW_wq3gDqMM1BZAe15XTO_H0Ee-2ujNwm9dc?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.64727000000001,28.621723,2.283746022371966</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000013">
+				<name>B14</name>
+				<description><![CDATA[<div>Seismic (nanometrics) #2719. Infrasound x3 - #292, #461, #336. Digitizer #383. Stomp and infrasound test good.&nbsp;<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.61595891409661</longitude>
+					<latitude>28.63271649079368</latitude>
+					<altitude>1.965512606429267</altitude>
+					<heading>0.001332781408250524</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>216.463898001457</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcE5jTzB4OE5OQmN0aWlySEhDeDFheU4rZlZOL09qQjIxa0w5U2djRDFjTSs4TWtya2ZXNnRqNEptaTBucDdPSXlMQVNwRDd5THlmTFJYeDBoVUpoRTRMaDRKRnJOVkRUUkpqczk2dG0rSTczZ3RIMlc4ZVFjc2E3djJHSE4zY2VsUU1kc3prU0lPd1NyZVBzM1pNRVRXVTBMYTJIUUhKbUtaUEZYRFU3RGxrcDZQaUFrVDZkOHRoZW93WVJJZ1FVSXVUamVCZjI5ZlFrVjQ3ajFlaHlhOC9wTG80cVBHVFFpL3FxVVdDNFptRmpWOW1jTlhEQVg4UjlaWm01S3paZFU9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBopgOgJqmqhvxldr2kize4zIVZ2MZYV9NvFca81uB2zvfUyOQ6SaM_ufANNHdym80cE7xDyZ1B-o9AePC-6pdmp-WSyH2w1WExTHkN24USAnWuFoXkDLjXmZ6bCYgcRS0luTIR1vGMjMZV5OJGLAUrgenvhE5SS7REiC01npNtm8UEYe-wVr4596At_Tue6rt43_dl04DKEegbgo7HFqjbCqhKbidwpM2NtHocz6rd-DLZWidD0qDCZQocC1MF183v3nd2YQjDB_qb4e?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.61594100000001,28.632325,1.322593803688887</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E239000014">
+				<name>B20</name>
+				<description><![CDATA[<div>Sensor located 20 ft 195degrees from north. Seismic (nanometrics) Infrasound. Station name updated. Centaur waveform autoscale not displaying. High RMS. Digitizer #384. Pharcal #071975 + other #403.<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.57204226407423</longitude>
+					<latitude>28.57442415169468</latitude>
+					<altitude>12.44185189769364</altitude>
+					<heading>0.001330370302866545</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>123.8278195347266</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcFkrTGY2V003TmE5enN2djUzL2lnQlJOU1J3RjVURldqWDdPTTA5RFRYZUszSXdzWlloWmluaTQrU1pRaDJEcWljc2QvQkkvWDVHQ1BDVUVjL3lsSHkyQVY2SDVjUWJ3a2JtMldCcjdYWjY5aUxpK24xV2M1U1RTbVhoTmdQL3VkUnJERVd3TVVwU05CUW9nQXZvNllLOEV4K0hvVzBrc2JqeXZvL2tMOHdtcUdid01KSmMwZ1VUTmxTbzlvaG93NUJEYVh0aU9NMjgzdGdKQ3ludnBqQ3lsaFIxN09Hb21lN3ZyTjBTd3lsSDBnVGJ1OUpqYXhuYzRVK3pnT0dVZDQ9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBopkyyocFOTTkZwPOo8IG0H1kiPFIDqDYKaYL1ldRNIr1FrI9A8QrRplrN9vI2GTZ4IFI7EClmD0mdBFXWHhhX4Dp-36ElZEIV1qn3i9kl70g87CR-TMc0jLEaTLZj-k75wYGWdn-UmNffvdUKTXMcsXHgBBDMhKovHhdIaNRoclrf_20M4_XQufJnZMsHcKudpcGEiERlrelNyRlIyVxQSqK-1rJFUPjevEZSRoTmBQjqFQqBMC3Oj5BicUSdF_CgzGF5D-oHVGWcTu?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.572277,28.573654,12.3576178216505</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23A000015">
+				<name>B23</name>
+				<description><![CDATA[<div>Sensor (gain set to 5 Vpp). SA #the only one we have. Station located at NE corner of clearing, on the mound. Unmowed clearing outside the refuge area.</div>]]></description>
+				<LookAt>
+					<longitude>-80.61222598754328</longitude>
+					<latitude>28.57927653446784</latitude>
+					<altitude>3.875018899395235</altitude>
+					<heading>0</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>1362.166890846711</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcHlibUFzbmtxYmFXRlAxRllPdGxEVzVQTmhSazZvNDBlREhWS2lDQ2FEOXlKeERCdEdabVBKL0pCRlJrUGZudUV4WTdhQzJaUmFpMC9KckZwUDUvTjlmV1E4RWljQ0JydUxkSEY0REFkMTVIYm1ualZETUdaTFVkRS9zTDRWc1V4M0gwbWpQZmc0OUlYMXFBUHpCOVJmRS8zbFByQlNaVDBjdzk3TVVKWTZ6bnlZSWdwYzU0WEY2MzJ0dGtvYlhuZ0F0c1FFWEYySDZscWVhakx5Q1lHanVUbHhxMmtXeEJZaE9VdUhWWE14RUVpNy9rSEtiVDBUb052K25McTkxSG89_0">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoqoo4gWD4Pk2hrurJ0FnjXZN-v93E4woeLpLOKCplpOBEDWva35O-w9VW0ox0X_eKTFzlIC63ofxvCGPrpMsDkhIIO_PArpHug2KPXXI8VPHbvvmiFYpeCszAMHzOcwpG5JTzPCXW_mpO2YbRrcAcImiXBDzDoiiBd8Nd-Bgyv0rx1BlL5uyLLVgrmOisxLexapfRHCDL0O5csAxwx7drRcgJlklWpUx4mBCrwngmDbXS7bd6BGBLU-cXMxJuVJdOIYhyi4xx53o9V_?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcGY3OFEweW44M2tydERna1JhK0U1MWppSFNiM2NRRG9CV21qNVN2eWlQNzNXL2hKU2ZSV3hXejdjcXZUWjZVRTNmZjI0d0RGTUVUV2QrdGRhOHVZRzFheDc1QkRLNkFNWm5maHJpRUR4NGszNm5OVWE0djR4ZXpLSlAzdGtBSkQwQXhaYkxkVlNuNXNIdUxVeHBFRlJPUUpoc2ZqR3RiYzRnSlpySXdnMmh2NG1rWjhHaEYrNm1lanpDempMMXprTlpmbVdSRi9BVkZIa3Vvdmx4SEFnMDBLQkpKL0FUcG85bmc2K0ZMQ3FYWVRxbHRFQXFhMXczbjZlZHRWcVhKRGs9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorrAS2mjMadu6Xn9wqpKRKrJmIh0B0usM7lMtopBw92hQSulMdgTKaRIlFtn9Kuk56Jl0clMU-dP2i2khbo1ahL6PzvUZkV2nftOLLeLoOnHqEWschJ4VS6KAbWYxtsr__3L8b63-dIaX3_R5pr9fag4qBlN6FdTQhKpCyAsuIb2h3_yH-QkrGAOm_5Ksj44Tll-lxKYeNB7SYXkRpvBUpUyFq0Lu2FnWWT8iCfGoOdv28Kn8hQibQng2K8f_B1sz-dQmYxMUFwXpGg?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.60779700000001,28.5788032,6.61114714369945</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23A000016">
+				<name>B24</name>
+				<description><![CDATA[<div>Seismic (nanometrics) #2619. Infrasound #0224. Digitizer #166. Lead acid battery. 35 amp hr. Solar panel 30w. Waveforms good. Infrasound signal noisy, unconfirmed.&nbsp;<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.64050294348191</longitude>
+					<latitude>28.60305239938856</latitude>
+					<altitude>4.839365498845936</altitude>
+					<heading>0.001328905468356074</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>176.4883798608935</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcHZaeURBT2JMdVNJRExFZlBaV1JWZkVTSHB4Qk9VNkZOWWt2OG8rN0IwTm9FbGZFdDMwazNMN2hGaHZvamZ3RWlROE1tMDBXL1JkZ2JreTdmMFlNRy9HQzhJZDlSOGtjRE4wLzJlREovWW44d05uYTd1V3hjZTFOdk5UblNIZFFyTlhFWEt4YkhSMkkwZzRlYzFONlRkT0MwSUtpam4yMGZ2MGx2eFZTbWJVODZXaGtRMkt5OWhMMFppUkhEVmlIWVZCNm51ak9qcXR2V1ovdHdlK01MZ0pwRTVuQnhKS2NDSGpmek5IUjY2L0JxSzRwYW5USGg3d0xqL1BYRmcyekU9_0">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBorDyTsp3jjHagDhm89mZmqziYLoSzJctA1BggcV5PC8begcHlWdcNA4gsZgaE6fx5vzhQbWwP14965g-9JAIBCQpFl3G83j4Me_M2DeIhKcu5P89C4g6vDaBPzDbrjEFh1IJAe8_PyjJTDDRyU7qx8fvlCE-bpD--1dhTqVKEpyrU23uhN-d-GtpbPZv-g78KKOj4GfpUKyTT-XzvBU0Un77IDFrvE4pL5206Jh-puu_5q3bMGsR7u2jpBme9CfPK_w662npENdL3it?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+					<gx:Image kml:id="hosted_image_QUxDc0JvclM2YlFNaFlxc2RUa0E4dEYxNWY4UWZnQjlUTW5ycVJaU3ZIVTV0TUNrZGVWRDRRZTg4eFBPa3lVQ1d6RlhKSWo4Nk0zeE9JaFVvZG5MMkRVMTlmT0FQUGxLdFVaVW96emxlMCtWZEhSenhaa1ZrUVJZNlJ3TmtYNElCV0JKZm9CSXNXbEQ5RURIWW9QUXhPbVBPVDdlZm51MFpFT2RsTWtTMjNrOHd0cnA1dXVSU0lZL2dORXhkQmt3RkRzVnA1cDVLdHg0SkJiZm5oTy9zT2dPNm92dHIvMDM2UFdGeEROTm95ZjM5YUIvUEtvNFVCQWk1WURPZFUvNUo5WFQwZ3c9">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBory-pGzgJgr94iznWh-UQmSQYxOgSq6mEAWgGG3aW2B7mgLZ2SXhnS--WvAuu0BKL9aENZDKyeD13KKnyZUm2_BQrPkpd40ulhHhLP_HVK32I5iug46xF-Y-0uj_WX6hdvHExrD8GWsFO14VtcwrjGfl6clFOX79S_M7gGHwFqaUFPRlgdYnUDGT2AYCgALQL6KC8SayCae7weArQ88eHW8ja9fhFueeXxHqG8WwRUtSxMnHiuVTRCRFjW_Ag_4U9rQs-8Q8NEmlVnj?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.64084099999999,28.580694,0.844655241212382</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark id="5A6085E23A000017">
+				<name>B29</name>
+				<description><![CDATA[<div>Site of controlled burn. Station watered to save from fire. Box stayed dry inside.&nbsp; Seismic (nanometrics) #2410. Infrasound #0436. Digitizer #202. Power issues, maybe fixed. Digitizer intermittent.&nbsp;&nbsp;<br></div>]]></description>
+				<LookAt>
+					<longitude>-80.67919213792003</longitude>
+					<latitude>28.60088291937377</latitude>
+					<altitude>2.472050358739806</altitude>
+					<heading>0.001325049822595591</heading>
+					<tilt>0</tilt>
+					<gx:fovy>35</gx:fovy>
+					<range>131.2988637347553</range>
+					<altitudeMode>absolute</altitudeMode>
+				</LookAt>
+				<styleUrl>#__managed_style_38FF2BFC983D8CEDC337</styleUrl>
+				<gx:Carousel>
+					<gx:Image kml:id="hosted_image_QUxDc0JvcXRFSlpRRmZsa3JDeVZvSFhvcWFpdTUzSlk5MWh3dTNUd3FhVnRjM3R6c3dlVmNFd2VRdDJVQlp3SUxrNWxaV0R3M0lseXg0dk1tamw0QWdYbXF6bzVlWW1tM2c4NVVVMUw3clBQaFBuNkZvclVuV25FcmZETGZ0aWZZUnc3VlZmR0tjNnRldXAwejFVZVI1bG1CdDRDdFdzV3VVRVRXb2dRMm1IVmRudWx6QVZvUEZGMXpjcnN6YkFvUkVzREVNZlRZWHJ4MTZSNStNM25Cc1RHdnRhMXRqWjlZNEl2L0dhYTVwNFlzRmJtUDhicVk4Vm1yUjg3RkIxaVNCR205Rk09">
+						<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4ALCsBoqNKY4N1C5P1-w2aefbs1Zqlz40VRDo38rcPyKPVz6i0pkbbPFxeEXcuT_CBkdtOEzbMVhf3dhZhRrHJgBWrhurTPrwFbBoQyVPY2gX1z_KOFmdiw_ivTydixAWjvK5mRj6zwTAlYd9g45FRFwLyJNAQRWYm_l-ztdTh8LiczE-DiJxcnq125eshlkuuGSgESO-f0PwIO-TNUxl85CNstNTifIZeYC8RbCuVLJ92qaPJLoQ5HcFe2iP_XvCdvsiYE8BUbQad4EVwxXt?authuser=0&amp;fife=s{size}</gx:imageUrl>
+					</gx:Image>
+				</gx:Carousel>
+				<Point>
+					<coordinates>-80.677176,28.61823,1.222720643892392</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+	</Folder>
+</Document>
+</kml>
