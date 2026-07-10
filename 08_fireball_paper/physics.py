@@ -237,6 +237,8 @@ def effective_sound_speed_along_ray(
         "ray_azimuth_deg": ray_azimuth_deg,
         "wind_along_ray_mps": wind_along_ray_mps,
         "effective_sound_speed_mps": c_effective,
+        "shockwave_speed_mps": c1,
+        "acoustic_speed_with_wind_mps": c0 + wind_along_ray_mps,
     }
 
 
