@@ -693,7 +693,7 @@ def make_figure1(
         utm_to_ll=utm_to_ll,
         lonfmt="%.3f",
         latfmt="%.3f",
-        right_ylabel="",
+        #right_ylabel="",
         top_nbins=5,
         right_nbins=5,
     )
@@ -830,7 +830,7 @@ def make_figure1(
         utm_to_ll=utm_to_ll,
         lonfmt="%.5f",
         latfmt="%.5f",
-        ylabel="",
+        #ylabel="",
         top_nbins=5,
         right_nbins=6,
     )

@@ -1,0 +1,25 @@
+{
+  "waveform_source": "/Volumes/haldata/KSC/beforePASSCAL/EVENTS/20160901_SpaceXplosion",
+  "original_stationxml": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/metadata/KSC.xml",
+  "antelope_calibration_table": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/metadata/sitedb.calibration",
+  "infrabsu_sensor_template": "/Users/thompsong/Developer/flovopy/flovopy/stationmetadata/stationxml_templates/infraBSU_sensor.xml",
+  "corrected_mseed": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/outputs/response_correction/bchh_corrected_antelope_calibration.mseed",
+  "saved_original_inventory": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/outputs/response_correction/bchh_event_inventory_original.xml",
+  "saved_antelope_calibrated_inventory": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/outputs/response_correction/bchh_event_inventory_antelope_calibrated.xml",
+  "pressure_method": "subtract median raw-count baseline, then multiply by event-epoch Antelope calib in Pa/count",
+  "active_pressure_calib_pa_per_count": {
+    "HD1": 0.1234,
+    "HD2": 1.4499,
+    "HD3": 0.1
+  },
+  "seismic_method": "full event-StationXML response removal to velocity",
+  "seismic_pre_filt_hz": [
+    0.02,
+    0.05,
+    80.0,
+    100.0
+  ],
+  "seismic_water_level_db": 60.0,
+  "pressure_baseline_start": "2016-09-01T13:06:52.080000Z",
+  "pressure_baseline_end": "2016-09-01T13:07:10.080000Z"
+}
