@@ -1,0 +1,5 @@
+event_id,label,source_time
+second_stage,Initial second-stage failure,2016-09-01T13:07:12.080000Z
+principal_explosion,Principal explosion,2016-09-01T13:07:15.750000Z
+capsule_pulse_1,Capsule pulse 1,2016-09-01T13:07:24.600000Z
+capsule_pulse_2,Capsule pulse 2,2016-09-01T13:07:25.150000Z

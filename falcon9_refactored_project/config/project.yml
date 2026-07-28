@@ -1,0 +1,58 @@
+project:
+  name: falcon9_fireball
+  root: ".."
+
+paths:
+  raw_miniseed_dir: "/Volumes/haldata/KSC/beforePASSCAL/EVENTS/20160901_SpaceXplosion"
+  metadata_dir: "metadata"
+  stationxml_file: "metadata/KSC.xml"
+  css_calibration_file: "metadata/sitedb.calibration"
+  css_site_file: "metadata/sitedb.site"
+  css_sitechan_file: "metadata/sitedb.sitechan"
+  kml_file: "metadata/launchpads_cameras.kml"
+  weather_file: "metadata/nasa_weather_tower_data.xls"
+  legacy_export_dir: "metadata/legacy_export"
+  synchronized_audio_file: "data/public_video/syncedsound_14s.mp3"
+  infrabsu_template_file: null
+
+outputs:
+  root: "outputs"
+  namespace_pattern: "{code}_{slug}"
+  overwrite_existing: false
+
+analysis:
+  explosion_time_utc: "2016-09-01T13:07:12.020"
+  first_stage_time_utc: "2016-09-01T13:07:15.733333"
+  capsule_time_utc: "2016-09-01T13:07:24.533333"
+  acoustic_speed_mps: 350.4
+  seismic_speed_mps: 1100.0
+  audio_starttime_utc: "2016-09-01T13:07:10.000"
+  audio_clock_shift_s: 0.10
+  audio_reduction_delay_s: 0.0
+
+products:
+  corrected_inventory_xml: "outputs/01_correct_bchh_instrument_response_refactored/data/01_BCHH_20160901_empirically_calibrated.xml"
+  corrected_waveform_mseed: "outputs/01_correct_bchh_instrument_response_refactored/data/01_BCHH_20160901_response_corrected.mseed"
+  corrected_waveform_pickle: "outputs/01_correct_bchh_instrument_response_refactored/data/01_BCHH_20160901_response_corrected.pkl"
+
+  analysis_window_pickle: "outputs/02_prepare_analysis_inputs/data/02_bchh_corrected_analysis_window.pkl"
+  geometry_csv: "outputs/02_prepare_analysis_inputs/data/02_bchh_geometry.csv"
+  key_events_csv: "outputs/02_prepare_analysis_inputs/data/02_key_events.csv"
+
+  reviewed_events_csv: "outputs/05_reconstruct_and_review_event_catalogue/data/05_reconstructed_reduced_time_events_with_legacy_matches.csv"
+  reduced_pick_assignments_csv: "outputs/05_reconstruct_and_review_event_catalogue/data/05_reduced_time_pick_assignments.csv"
+  stack_metrics_csv: "outputs/05_reconstruct_and_review_event_catalogue/data/05_stack_metrics.csv"
+
+  baseline_corrected_pickle: "outputs/06_validate_infrasound_baseline_correction/data/06_bchh_corrected_moving_median_baseline_removed.pkl"
+
+  candidate_catalogue_csv: "outputs/07_build_candidate_airwave_catalogue/data/07_candidate_airwave_event_catalogue.csv"
+  candidate_stream_index_csv: "outputs/07_build_candidate_airwave_catalogue/data/07_candidate_event_stream_index.csv"
+  candidate_stream_dir: "outputs/07_build_candidate_airwave_catalogue/data/events"
+
+  planar_results_csv: "outputs/08_planar_array_analysis/data/08_planar_array_results.csv"
+  event_filter_decisions_csv: "outputs/08_planar_array_analysis/data/08_event_filter_decisions.csv"
+
+  finite_distance_results_csv: "outputs/09_finite_distance_array_analysis/data/09_circular_planar_comparison.csv"
+
+  amplitude_catalogue_csv: "outputs/10_measure_event_amplitudes_and_acoustic_seismic_coupling/data/10_event_acoustic_seismic_amplitudes.csv"
+  key_event_measurements_csv: "outputs/11_measure_key_events/data/11_key_event_pressure_measurements.csv"

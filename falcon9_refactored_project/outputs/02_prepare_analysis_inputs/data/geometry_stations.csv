@@ -1,0 +1,2 @@
+network,station,latitude,longitude,elevation_m,site_name,station_start,station_end,n_channels
+1R,BCHH,28.57422161,-80.57241686,0.0,BCHH_SITE,2016-05-17,2016-10-06,6
