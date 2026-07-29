@@ -1,0 +1,317 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\sisetup{
+  detect-all,
+  separate-uncertainty=true,
+  range-phrase=--,
+  range-units=single
+}
+
+\title{Falcon 9 Seismo-acoustic Analysis: Results Draft}
+\author{}
+\date{Draft reconstructed from the canonical analysis outputs}
+
+\begin{document}
+\maketitle
+
+\section{Results}
+
+\subsection{Candidate-event catalogue and temporal evolution}
+
+Manual review yielded 384 accepted infrasound picks on HD1--HD3. Correction for
+the predicted differential travel times reduced the normal approximately
+\SIrange{80}{90}{\milli\second} traversal time across the array and allowed the
+picks to be associated using a \SI{0.040}{\second} reduced-time window. The
+association produced 154 candidate events, of which 63 contained picks on all
+three infrasound channels and 91 contained picks on two channels. Thirteen
+accepted picks remained unassociated.
+
+The candidate catalogue extended from 13:07:15.927 to 13:33:54.396 UTC, a span
+of approximately \SI{26.64}{\minute}. The activity was strongly episodic rather
+than uniformly distributed through this interval (Figure~2). Using the four
+display intervals defined in Figure~2, 38 candidates occurred during Phase~I,
+3 during Phase~II, 87 during Phase~III, and 6 during Phase~IV; the remaining 20
+candidates fell outside the marked intervals. The opening sequence contained the
+largest-amplitude signals, whereas Phase~III contained the greatest number of
+catalogued impulses. A period of sustained seismic tremor followed the opening
+sequence between approximately 13:08:48 and 13:12:00 UTC, with no comparably
+continuous signal on the infrasound channels.
+
+The positive-compression/negative-rarefaction algorithm returned a valid pair
+for 153 of the 154 candidate events. The sole exception was the principal
+explosion, whose waveform was too complex to be represented by a single short
+positive--negative cycle. On the initial descriptive classification, 46 events
+were labelled robust impulsive events, 82 probable events, 25 weak coherent
+candidates, and one---the principal explosion---a complex or noncanonical
+waveform. These labels describe waveform quality rather than distinct physical
+source types.
+
+Of the 154 candidates, 148 passed the permissive criteria for planar array
+analysis, including the explicitly retained principal explosion. Seventy-six
+events passed the more conservative peak-to-peak pressure and SNR thresholds and
+formed the core planar set. Inspection of the underlying amplitude, SNR, and
+coherence distributions did not reveal sharp discontinuities at either set of
+thresholds; the core set is therefore a conservative subset of a continuous
+quality distribution rather than a separately resolved event population.
+
+\subsection{Opening sequence and key accident stages}
+
+The opening sequence contained four geophysically distinct signals associated
+with stages identified in the video chronology: the initial upper-stage failure,
+the principal lower-stage explosion, a capsule impact, and a subsequent
+capsule-related explosion (Table~2 and Figure~S1). The source-time estimates were
+13:07:12.080, 13:07:15.750, 13:07:24.600, and 13:07:25.150 UTC, respectively.
+
+The initial upper-stage failure produced a median-stack positive pressure of
+\SI{23}{\pascal}, a negative pressure of \SI{-21}{\pascal}, and a peak-to-peak
+pressure of \SI{44}{\pascal}. Its three-component vector PGV was
+$7.85\times10^{-5}\ \si{\metre\per\second}$. The best planar solution gave a
+back azimuth of \ang{201.5} and an apparent speed of
+\SI{355.5}{\metre\per\second}.
+
+Approximately \SI{3.67}{\second} later, the principal explosion produced the
+largest acoustic and seismic amplitudes in the catalogue (Figure~3). Using the
+aligned median-stack estimator applied consistently to all events, the positive
+pressure was \SI{1353}{\pascal}, the negative pressure was
+\SI{-84}{\pascal}, and the peak-to-peak pressure was \SI{1437}{\pascal}. The
+positive pressure was approximately 59 times that of the initial upper-stage
+signal. Assuming geometric spreading proportional to $1/r$, the stack-positive
+pressure corresponds to \SI{1919}{\pascal} at \SI{1}{\kilo\metre}. Its peak
+sound-pressure level at BCHH was \SI{156.6}{\decibel} re
+\SI{20}{\micro\pascal}.
+
+Measurements made separately on the three infrasound sensors gave positive
+peaks of 1.335, 1.546, and \SI{1.423}{\kilo\pascal} on HD1, HD2, and HD3,
+respectively. The corresponding negative extrema were $-193$, $-231$, and
+\SI{-234}{\pascal}. Thus, the median of the sensor-specific positive extrema was
+\SI{1.423}{\kilo\pascal}, equivalent to approximately
+\SI{2.014}{\kilo\pascal} at \SI{1}{\kilo\metre}. The difference from the
+median-stack result reflects the use of two distinct estimators: the stack is
+evaluated sample by sample after alignment, whereas the sensor-specific extrema
+need not occur at exactly the same relative time.
+
+The principal pressure waveform comprised an abrupt positive compression
+followed by a longer, irregular decay and substantially smaller rarefaction. It
+therefore did not display the compact, approximately symmetric positive--negative
+morphology of many weaker catalogue events. Its shape qualitatively resembles a
+blast pulse with an extended decay, although no parametric Friedlander-waveform
+fit was performed. The seismic response persisted considerably longer than the
+initial acoustic compression and contained large-amplitude motion on all three
+components. The three-component vector PGV reached
+$3.57\times10^{-3}\ \si{\metre\per\second}$, the largest value measured in the
+catalogue.
+
+The two capsule-related signals were separated by approximately
+\SI{0.55}{\second}. The first produced stack pressures of $+276$ and
+\SI{-102}{\pascal}, a peak-to-peak pressure of \SI{378}{\pascal}, and vector
+PGV of $6.98\times10^{-4}\ \si{\metre\per\second}$. The second produced
+$+291$ and \SI{-113}{\pascal}, a peak-to-peak pressure of
+\SI{404}{\pascal}, and vector PGV of
+$9.02\times10^{-4}\ \si{\metre\per\second}$. Their planar back azimuths were
+\ang{201.5} and \ang{201.3}, and their apparent speeds were 351.5 and
+\SI{351.0}{\metre\per\second}, respectively. Both directions and speeds were
+consistent with propagation from the launch-complex sector.
+
+\subsection{Planar-wave array results}
+
+The 148 analyzed events produced a narrow distribution of best-fitting source
+directions (Figure~5). The median planar back azimuth was \ang{200.4}, with an
+interquartile range (IQR) of \ang{1.3}. The complete analyzed range was
+\angrange{195.8}{208.2}, although the extremes were dominated by weak or broad
+coherence surfaces. Within the 76-event core set, the median was \ang{200.5},
+the IQR was \ang{1.2}, and the range was \angrange{196.8}{205.3}. The core
+median lay approximately \ang{1.1} clockwise from the surveyed direction to
+SLC-40 (\ang{199.4}). At a range of \SI{1.42}{\kilo\metre}, an angular
+difference of \ang{1.1} corresponds to approximately \SI{27}{\metre} in the
+cross-range direction, but this offset is not uniquely attributable to source
+position because geometry, atmospheric structure, waveform differences, and
+finite-range effects can produce comparable shifts.
+
+The median apparent speed for all analyzed events was
+\SI{352.0}{\metre\per\second}, with an IQR of
+\SI{12.6}{\metre\per\second}. The core set was more tightly concentrated, with
+a median of \SI{351.25}{\metre\per\second} and an IQR of
+\SI{6.75}{\metre\per\second}. Both medians closely matched the
+meteorologically estimated effective speed of
+\SI{350.98}{\metre\per\second}. The wider complete-catalogue range of
+\SIrange{280}{440}{\metre\per\second} included solutions that reached the
+search boundaries and was associated mainly with weak or poorly constrained
+events.
+
+The median joint coherence score was 0.819 for all analyzed events and 0.942 for
+the core set. Fifty planar solutions met the high-quality coherence and
+window-stability criteria, 46 were classified as probable, and 52 were weak or
+broad. Among the core events, 47 were high quality, 21 probable, and only 8 weak
+or broad. Perturbing the scoring windows produced median standard deviations of
+\ang{0.29} in back azimuth and \SI{1.89}{\metre\per\second} in speed across all
+analyzed events. For the core set these decreased to \ang{0.24} and
+\SI{1.44}{\metre\per\second}, respectively.
+
+The pairwise results supported the visual observation that HD2 and HD3 were
+usually more similar to one another than either was to HD1. Across all analyzed
+events, the median HD2--HD3 correlation was 0.928, compared with 0.645 for
+HD1--HD2 and 0.644 for HD1--HD3. Within the core set, the corresponding medians
+were 0.973, 0.886, and 0.863. The median HD1 correlation deficit---the HD2--HD3
+correlation minus the mean of the two HD1 pair correlations---was 0.197 for all
+analyzed events and 0.068 for the core set. HD1 therefore reduced coherence most
+strongly among the weaker events, while remaining well correlated for most core
+events.
+
+The principal explosion gave a planar back azimuth of \ang{200.2}, an apparent
+speed of \SI{352.5}{\metre\per\second}, and a coherence score of 0.9989. Its
+solution was exceptionally stable under changes to the scoring window. The
+composite coherence surface for the core catalogue also formed a compact maximum
+near the surveyed launch-complex direction and the meteorologically predicted
+speed, demonstrating that the catalogue-scale result was not controlled solely
+by the principal explosion.
+
+\subsection{Finite-range circular-wavefront results}
+
+Replacing the plane-wave approximation with exact horizontal distances to a
+source fixed at SLC-40 produced only modest changes. The median preferred
+circular-wavefront speed was \SI{355.75}{\metre\per\second}, compared with
+\SI{352.0}{\metre\per\second} for the planar model. The circular model's median
+coherence score was lower than the planar optimum by only 0.0047. This small
+difference is expected because the planar model can vary both direction and
+speed, whereas the fixed-source calculation constrains the source direction.
+
+For the principal explosion, the fixed-SLC-40 circular solution preferred
+\SI{355.0}{\metre\per\second} and gave a coherence score of 0.9965, compared
+with \SI{352.5}{\metre\per\second} and 0.9989 for the planar solution. Thus,
+wavefront curvature across the approximately \SI{30}{\metre} aperture did not
+materially alter the inferred propagation characteristics.
+
+The range-profile analysis demonstrated that the array could not determine
+source range. At a coherence-score reduction of 0.01, the along-range profile
+remained open at the search boundary for all 148 events, and 66 event maxima lay
+on an along-range boundary. Cross-range behavior was better constrained but
+remained broad: only 7 profiles were open at the cross-range boundaries, the
+median best cross-range offset was \SI{25}{\metre}, and the median full width at
+a score reduction of 0.01 was approximately \SI{115}{\metre}. The apparent
+clustering of trial locations away from SLC-40 therefore does not constitute a
+resolved source-location result. It primarily reflects a broad trade-off among
+cross-range position, propagation speed, and small systematic delay errors.
+
+\subsection{Event amplitudes through time}
+
+Across all 154 candidates, median stack peak-to-peak pressure was
+\SI{29.5}{\pascal}, with an interquartile range of
+\SIrange{16.2}{51.3}{\pascal}. Median vector PGV was
+$4.26\times10^{-5}\ \si{\metre\per\second}$, with an interquartile range of
+$2.27\times10^{-5}$ to
+$1.05\times10^{-4}\ \si{\metre\per\second}$. Both acoustic and seismic
+amplitudes were largest during the opening sequence, declined rapidly after the
+principal explosion and capsule-related signals, and increased again during the
+dense Phase~III sequence (Figure~6). Later events were generally weaker than the
+opening explosions, although several isolated impulses remained measurable late
+in the record.
+
+The principal explosion was the largest event by both pressure and vector PGV.
+The next two candidates immediately following it reached peak-to-peak pressures
+of approximately 699 and \SI{632}{\pascal} and vector PGVs of approximately
+$2.78\times10^{-3}\ \si{\metre\per\second}$. This concentration of the largest
+signals within a few seconds shows that the opening failure sequence dominated
+the measured acoustic and seismic amplitudes, even though most catalogued events
+occurred later.
+
+The median dimensional pressure-to-PGV ratio for the full catalogue was
+$5.70\times10^{5}\ \si{\pascal\per\metre\second}$. The ratio showed much more
+scatter among events with vector PGV below approximately
+$10^{-4}\ \si{\metre\per\second}$. This behavior coincided with decreasing
+seismic SNR and reduced capture of the event maximum, indicating that at least
+part of the increased low-amplitude scatter resulted from the seismic noise
+floor rather than a demonstrable change in acoustic--seismic coupling.
+
+\subsection{Acoustic pressure versus ground velocity}
+
+Twenty-seven events met the joint acoustic-SNR, seismic-SNR, and window-capture
+criteria for regression (Figure~7). Within this subset, peak-to-peak pressure and
+vector PGV were strongly correlated in logarithmic space. The fitted power-law
+exponent was
+\begin{equation}
+  b = 0.868 \pm 0.048,
+\end{equation}
+where the quoted uncertainty is the ordinary least-squares standard error. The
+95\% event-bootstrap interval was 0.734--0.971. The regression explained 93.0\%
+of the variance in $\log_{10}$ pressure ($R^2=0.930$).
+
+The fitted exponent was slightly below unity, implying a modestly sublinear
+relationship over the observed amplitude range. Nevertheless, the proportional
+model
+\begin{equation}
+  p_{\mathrm{p2p}} = K\,\mathrm{PGV}
+\end{equation}
+with
+\begin{equation}
+  K = \SI{0.447}{\mega\pascal\per\metre\second}
+\end{equation}
+provided a nearly comparable description. The free power-law and proportional
+models had base-10 logarithmic RMSE values of 0.128 and 0.146, respectively,
+equivalent to typical multiplicative residual factors of approximately 1.34 and
+1.40. The small difference in predictive scatter indicates that a nearly
+constant pressure-to-PGV ratio remains a useful first-order description, even
+though the unconstrained regression favored a sublinear exponent.
+
+The principal explosion lay within the high-quality regression subset. Its
+pressure-to-PGV ratio was approximately
+$4.02\times10^{5}\ \si{\pascal\per\metre\second}$, comparable to the fitted
+proportionality constant. The largest events therefore extended the general
+acoustic--seismic amplitude trend rather than forming a clearly separate
+population. In contrast, many of the weakest candidates departed substantially
+from the fitted trend and should not be used to infer changes in energy
+partitioning without a more explicit treatment of detection limits and
+uncertainties in both measurements.
+
+\clearpage
+\section*{Results items requiring confirmation before submission}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Principal pressure reported in the abstract and conclusions.}
+  Decide whether the headline value will be the catalogue-consistent aligned
+  stack positive pressure (\SI{1.353}{\kilo\pascal};
+  \SI{1.919}{\kilo\pascal} at \SI{1}{\kilo\metre}) or the median of the three
+  sensor-specific positive extrema (\SI{1.423}{\kilo\pascal};
+  \SI{2.014}{\kilo\pascal} at \SI{1}{\kilo\metre}). Both are defensible but
+  represent different estimators.
+
+  \item \textbf{Phase definitions.} Confirm that the four intervals drawn in
+  Figure~2 are intended as formal phases rather than visual annotations. If they
+  are interpretive, their physical definitions should be stated before reporting
+  counts per phase.
+
+  \item \textbf{Key-event terminology.} The canonical key-event file still uses
+  legacy identifiers \texttt{capsule\_pulse\_1} and
+  \texttt{capsule\_pulse\_2}. Confirm the interpretations ``capsule impact'' and
+  ``capsule explosion'' from the video analysis.
+
+  \item \textbf{Source-direction offset.} The approximately \ang{1} median
+  offset from the surveyed SLC-40 direction should not be interpreted as source
+  displacement until the geometry convention, atmospheric crosswind, and
+  channel timing have been fully audited.
+
+  \item \textbf{Circular-wavefront source positions.} Do not report the best
+  cross-range grid points as event locations. The broad profiles and unresolved
+  along-range dimension support only a resolution-limit result.
+
+  \item \textbf{Regression model.} The bootstrap interval excludes a unit
+  exponent, but the two model RMSE values differ only slightly. Decide whether
+  the paper should emphasize the statistically sublinear fit, the practical
+  adequacy of a constant ratio, or both.
+
+  \item \textbf{Energy results.} Acoustic and seismic energy and equivalent
+  magnitude values are omitted because the current canonical notebooks do not
+  regenerate them.
+\end{enumerate}
+
+\end{document}
