@@ -1,0 +1,7 @@
+seed_id,network,station,location,channel,waveform_channel,latitude,longitude,elevation_m,depth_m,azimuth_deg,dip_deg,sample_rate_hz,sensitivity,sensitivity_frequency_hz,input_units,output_units
+1R.BCHH.10.DD1,1R,BCHH,10,DD1,HD1,28.57422161,-80.57241686,0.0,0.0,0.0,0.0,250.0,18.4,1.0,Pa,count
+1R.BCHH.10.DD2,1R,BCHH,10,DD2,HD2,28.57388119,-80.57229578,0.0,0.0,90.0,0.0,250.0,18.4,1.0,Pa,count
+1R.BCHH.10.DD3,1R,BCHH,10,DD3,HD3,28.57400644,-80.57256045,0.0,0.0,0.0,0.0,250.0,18.4,1.0,Pa,count
+1R.BCHH.10.DHE,1R,BCHH,10,DHE,HHE,28.5740172,-80.572376,0.0,0.0,90.0,0.0,250.0,301720036.3325038,1.0,m/s,count
+1R.BCHH.10.DHN,1R,BCHH,10,DHN,HHN,28.5740172,-80.572376,0.0,0.0,0.0,0.0,250.0,301720036.3325038,1.0,m/s,count
+1R.BCHH.10.DHZ,1R,BCHH,10,DHZ,HHZ,28.5740172,-80.572376,0.0,0.0,0.0,-90.0,250.0,301720036.3325038,1.0,m/s,count

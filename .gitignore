@@ -8,3 +8,14 @@ rs3d_v5.xml
 rsb_v3.xml
 ksc_availability_2019-01.csv
 ksc_availability_2019-01.png
+*.zip
+*.pkl
+*.pdf
+*.png
+*.bbl
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.blg
+08_fireball_paper/writing/latex/mybibfile_old.bib
