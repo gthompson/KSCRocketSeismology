@@ -1,0 +1,1366 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Seismica Submission Template
+% Falcon 9 fireball paper working outline -- version 8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{seismica}
+\usepackage{tabularx}
+
+% All manuscript graphics are stored in the figures subdirectory.
+\graphicspath{{figures/}}
+
+\title{Near-Field Seismo-Acoustic Observations of the 2016 Falcon 9 Explosion at Kennedy Space Center}
+\shorttitle{Near-field observations of the 2016 Falcon 9 explosion}
+
+% TODO: add ORCID identifiers and confirm corresponding-author address.
+\author[1]{Glenn Thompson\thanks{Corresponding author: EMAIL TO BE CONFIRMED}}
+\author[2]{Robert G. Brown}
+\author[1]{Alexandra Farrell}
+\author[2]{John Kiriazes}
+\author[1]{Stephen R. McNutt}
+\author[1]{Christopher Mehta}
+\affil[1]{School of Geosciences, University of South Florida, Tampa, Florida, USA}
+\affil[2]{NASA Kennedy Space Center, Florida, USA (current affiliations to be confirmed)}
+
+% TODO: complete and verify CRediT contributions.
+\credit{Conceptualization}{Glenn Thompson, Stephen R. McNutt}
+\credit{Methodology}{Glenn Thompson}
+\credit{Software}{Glenn Thompson}
+\credit{Formal Analysis}{Glenn Thompson}
+\credit{Investigation}{Glenn Thompson, Robert G. Brown, Alexandra Farrell, John Kiriazes, Stephen R. McNutt, Christopher Mehta}
+\credit{Visualization}{Glenn Thompson}
+\credit{Writing - Original draft}{Glenn Thompson}
+\credit{Writing - Review \& Editing}{All authors}
+
+\begin{document}
+
+\makeseistitle{
+  \begin{summary}{Abstract}
+  On 1 September 2016, a Falcon~9 launch vehicle was destroyed during
+  preparations for a pre-launch static-fire test at Space Launch Complex~40
+  (SLC-40), Cape Canaveral Air Force Station (CCAFS; now Cape Canaveral Space
+  Force Station), Florida. The accident was recorded approximately
+  \SI{1.4}{\kilo\metre} away by a colocated broadband seismometer and
+  three-element infrasound array operated by the University of South Florida
+  near the Astronaut Beach House on adjacent Kennedy Space Center (KSC)
+  property, providing an unusually close calibrated seismo-acoustic record of
+  a major technological explosion.
+  %
+  The observations were analyzed as an independent forensic record of the
+  accident: to test for detectable energetic precursors, reconstruct the
+  chronology, quantify event amplitudes, determine whether signals originated
+  consistently from the launch complex, and evaluate their propagation
+  characteristics. Manual analysis identified 153 impulsive infrasound events
+  spanning approximately \SI{26}{\minute} and four phases of activity. No
+  anomalous seismic or infrasonic precursor was detected during the preceding
+  \SI{37}{\hour}. The earliest acoustic event produced positive peak
+  overpressures of \SIrange{33}{95}{\pascal}; approximately four seconds
+  later, the principal explosion generated \SIrange{1.35}{1.56}{\kilo\pascal}
+  and the strongest ground motion of the sequence. A prolonged interval of
+  continuous signal followed the initial phase, but its physical origin
+  remains uncertain.
+  %
+  Array solutions consistently pointed toward SLC-40 and exhibited stable
+  apparent propagation speeds despite more than two orders of magnitude
+  variation in pressure amplitude. Seismic records were dominated by
+  ground-coupled airwaves, and classical N-wave morphology was not observed.
+  A single near-field seismo-acoustic array therefore provided an independent
+  reconstruction of a complex launch-vehicle failure without reliance on
+  proprietary engineering telemetry.
+  \end{summary}
+  %
+  \begin{summary}{Non-technical summary}
+  A seismic and low-frequency sound monitoring station approximately
+  \SI{1.4}{\kilo\metre} from the launch pad recorded the 2016 Falcon~9
+  accident at SLC-40. The launch pad was at Cape Canaveral Air Force Station,
+  while the monitoring station was located on adjacent Kennedy Space Center
+  property. The recordings provide an independent account of what happened:
+  whether any detectable energetic signal preceded the visible failure, how
+  many subsequent events occurred, how large they were, where they originated,
+  and how quickly their pressure waves travelled. No unusual precursor was
+  detected during the preceding \SI{37}{\hour}. The accident was not a single
+  explosion, but a sequence of 153 short pressure pulses extending over
+  approximately \SI{26}{\minute}. By comparing arrival times and waveforms at
+  three infrasound sensors, we show that the events consistently originated
+  from the direction of the launch complex. The study demonstrates how a
+  small, continuously recording geophysical station can provide an independent
+  forensic record of a complex launch-vehicle failure.
+  \end{summary}
+}
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+Rocket launches generate some of the strongest routinely occurring
+anthropogenic seismic and infrasonic signals on Earth. During nominal launches,
+intense acoustic radiation is produced principally by the interaction of rocket
+exhaust with the atmosphere and launch infrastructure, and these airwaves can
+couple efficiently into the shallow ground. Rocket-generated signals have been
+studied for both operational monitoring and geophysical research, including
+global surveys of infrasonic signatures from routine space launches
+\citep{pilger_rocket_2021}. Catastrophic launch failures remain rare,
+particularly when recorded at close range by calibrated seismic and infrasound
+instruments.
+
+On 1 September 2016, a Falcon~9 launch vehicle was destroyed during
+preparations for a pre-launch static-fire test at Space Launch Complex~40
+(SLC-40), Cape Canaveral Air Force Station (CCAFS; now Cape Canaveral Space
+Force Station), Florida. The vehicle and its AMOS-6 payload were lost, and the
+launch complex sustained extensive damage. The accident was documented by
+several publicly available videos and was subsequently investigated by SpaceX,
+providing a high-energy technological explosion with known source location,
+timing, and geometry for which the geophysical record can be compared with
+independent visual observations and a subsequently released engineering
+chronology.
+
+In the immediate aftermath, the USF recordings were examined as an independent
+forensic record of the accident. The principal questions were whether any
+detectable energetic precursor preceded the visible failure; how many discrete
+events occurred and when; how large the principal events were; whether the
+signals originated consistently from SLC-40; and whether their apparent
+propagation speeds were compatible with atmospheric airwaves under the observed
+meteorological conditions. These questions motivated the original analysis
+conducted for SpaceX and the subsequent scientific investigation.
+
+At the time of the accident, the University of South Florida (USF) was
+operating the BCHH seismo-acoustic array near the Astronaut Beach House on
+Kennedy Space Center property, approximately 1.4~km north-northeast of SLC-40.
+The installation comprised a colocated broadband seismometer and three-element
+infrasound array and formed part of a broader USF program that used rocket
+launches to evaluate seismo-acoustic instrumentation between volcanic field
+deployments, train students in field operations, and investigate near-field
+rocket-generated wavefields. The BCHH array fortuitously recorded the complete
+accident sequence with high signal-to-noise ratio, without reliance on vehicle
+telemetry or a triggered recording system.
+
+Previous seismo-acoustic studies of large technological explosions have
+generally relied on regional observations. Examples include the 2005 Buncefield
+oil-depot explosion \citep{ottemoller_2008,ceranna_2009,green_2008}, the 2014
+Moerdijk chemical-plant explosions \citep{smink_2019}, and the 2020 Beirut
+ammonium-nitrate explosion \citep{pilger_beirut_2021,kim_pasyanos_2022}.
+Atmospheric propagation modelling was central to interpreting arrival times,
+amplitudes, source location, and explosive yield in those studies. By contrast,
+the 1.4-km source distance places the BCHH array in the near field, allowing
+direct-arrival analysis with comparatively little influence from atmospheric
+stratification or ducting, while still requiring explicit treatment of local
+wind and finite-range geometry. This proximity allows the chronology and
+relative strength of more than 150 individual impulsive events to be resolved
+and compared with independent video observations. The dataset therefore
+provides an unusually detailed view of the evolution of a catastrophic
+launch-vehicle failure.
+
+The objectives of this study are to:
+\begin{enumerate}
+  \item test the continuous seismic and infrasound record for detectable
+        energetic precursors to the visible failure;
+  \item construct a quantitative chronology of the accident and determine the
+        number and temporal distribution of discrete impulsive events;
+  \item measure the acoustic and seismic amplitudes of the principal events
+        and characterize their associated wavefields;
+  \item determine whether the impulsive arrivals originated consistently from
+        the direction of SLC-40 and whether their apparent propagation speeds
+        were compatible with the surveyed geometry and observed atmospheric
+        conditions; and
+  \item evaluate the value and limitations of near-field seismo-acoustic
+        observations for independent forensic analysis of launch-vehicle
+        accidents and other complex technological explosions.
+\end{enumerate}
+
+This study does not attempt to determine the internal engineering mechanism
+that initiated the vehicle failure. In particular, the absence of a detectable
+energetic precursor cannot exclude non-energetic or seismo-acoustically
+undetectable processes. Instead, the study focuses on what can be inferred
+directly from the near-field geophysical observations and on how those
+observations complement the publicly available visual record and the
+subsequently released failure investigation.
+
+
+\section{Instrumentation and data}
+\label{sec:data}
+
+\subsection{BCHH seismo-acoustic array}
+
+The BCHH array was initially deployed on 24 February 2016 as part of a
+three-station USF network on Kennedy Space Center property, but two stations
+were removed in May 2016. The network was established to evaluate and
+recalibrate seismic and infrasound instruments returned from the 2015
+Sakurajima experiment, during which anomalous amplitude responses had been
+identified. It subsequently developed into a longer-term program in which
+equipment was kept in continuous operational use between volcanic field
+campaigns. This supported routine instrument-performance checks, student
+training in equipment deployment and maintenance, teaching, and research on
+rocket-generated seismic and acoustic wavefields. The station and channel history, 
+including sensor positions and response metadata, is preserved in the network 
+metadata and StationXML files used during waveform processing.
+
+The 1 September 2016 Falcon~9 accident at SLC-40, Cape Canaveral Air Force
+Station (CCAFS), was recorded at BCHH near the Astronaut Beach House on
+adjacent Kennedy Space Center (KSC) property
+(Figure~\ref{fig:site_array}). Located approximately 1.42~km
+north-northeast of SLC-40, BCHH provided favorable geometry for recording
+both routine launches and, fortuitously, the accident. At the time of the
+event, the array comprised a three-component Nanometrics Trillium Compact
+Posthole broadband seismometer near the center of a three-element infrasound
+array with an aperture of approximately 30~m. The seismometer was buried
+approximately 0.5~m below ground level to improve thermal stability and reduce
+wind-induced noise.
+
+The three infraBSU differential-pressure sensors were mounted individually on
+short stakes approximately 20--30~cm above ground level in an approximately
+equilateral triangular configuration around the seismometer. All six channels
+were digitized continuously at 250 samples~s$^{-1}$ using a GPS-synchronized
+Nanometrics Centaur recorder. 
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.96\textwidth]{fig01_slc40_bchh_location.pdf}
+  \caption{Location and geometry of the BCHH seismo-acoustic array.
+  (a) Map of the southern Kennedy Space Center--Cape Canaveral launch area
+  showing the USF BCHH array on Kennedy Space Center property, approximately
+  1.4~km north-northeast of Space Launch Complex~40 (SLC-40) at Cape
+  Canaveral Air Force Station; Space Launch Complex~41 is shown for
+  geographic reference.
+  (b) Geometry of the BCHH array, comprising a three-component broadband
+  seismometer near the center of a three-element triangular infrasound array
+  with an aperture of approximately 30~m. Sensor locations were determined by
+  differential-GPS survey.}
+  \label{fig:site_array}
+\end{figure*}
+
+
+\subsection{Surveyed geometry}
+
+The sensor positions were determined by differential-GPS survey on 2 November
+2016, yielding estimated horizontal uncertainties of approximately 2--3~cm
+(Table~S2). Using the surveyed receiver coordinates and the known launch-pad
+location of the Falcon~9 vehicle, horizontal source-to-sensor distances for
+the three infrasound sensors ranged from 1406.3 to 1438.0~m, while their
+geometric back azimuths ranged from 198.73$^\circ$ to 199.91$^\circ$
+(Table~S3). These coordinates formed the basis for
+the differential-travel-time corrections and planar- and finite-range array
+analyses described in Section~\ref{sec:methods}.
+
+
+\subsection{Instrument responses and pressure calibration}
+
+The broadband-seismometer response was removed using the manufacturer
+calibration for the Trillium Compact Posthole--Centaur instrument chain. The
+infraBSU channels were converted to pressure using empirical, sensor-specific
+field calibration factors derived from comparative tests across the set of 25
+infraBSU sensors operated by USF. Available calibration records indicate that
+these experiments included colocated lift tests and impulsive tests such as
+door slams, allowing relative differences in sensor sensitivity to be
+quantified. The adopted BCHH calibration factors are summarized in
+Table~\ref{tab:instrument_calibration}; their implementation during response
+correction is described in Section~\ref{sec:methods}.
+
+The original analysis assigned an approximate absolute pressure uncertainty of
+$\pm20\%$. Because the basis for this value is not encoded in the modern
+processing notebooks, it will be verified against the original calibration
+records before final submission. Timing uncertainty reflects the 4-ms sampling
+interval, GPS synchronization, and manual arrival picking. For clear impulsive
+arrivals, absolute pick uncertainties are estimated to be better than
+approximately 0.02~s.
+
+\begin{table}
+\centering
+\caption{Instrument channels, sampling rate, and calibration factors used for
+response correction. The infraBSU values are empirical field sensitivities.}
+\label{tab:instrument_calibration}
+\begin{tabular}{lll}
+\hline
+Instrument/channel & Sampling rate & Sensitivity \\
+\hline
+Trillium Compact HHZ/HHN/HHE
+  & 250~Hz
+  & $3.0172\times10^8$ counts $(\mathrm{m\,s^{-1}})^{-1}$ \\
+infraBSU HD1
+  & 250~Hz
+  & 8.10 counts~Pa$^{-1}$ \\
+infraBSU HD2
+  & 250~Hz
+  & 0.690 counts~Pa$^{-1}$ \\
+infraBSU HD3
+  & 250~Hz
+  & 10.0 counts~Pa$^{-1}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Meteorological observations}
+
+Meteorological observations were obtained from the KSC weather-tower network
+during the accident sequence. The network comprised 68 instrumented towers
+spanning measurement heights of approximately 4--150~m above ground level.
+Available variables included wind speed, wind direction, air temperature,
+relative humidity, and barometric pressure at 5-min intervals between 13:05
+and 13:35~UTC. These observations provided unusually dense spatial and vertical
+sampling of atmospheric conditions during the accident and were used to
+estimate the still-air sound speed, the along-path wind correction, and the
+expected acoustic travel time between SLC-40 and BCHH
+(Section~\ref{sec:methods}).
+
+
+\subsection{Publicly available video and audio}
+
+The seismic and infrasound observations were compared with publicly available
+video recordings of the accident. These recordings provide an independent
+visual chronology and allow selected geophysical observations to be related to
+visible stages including the initial flash, growth of the fireball, structural
+collapse, descent of vehicle or payload components, and subsequent energetic
+activity. Public availability makes the source material independently
+inspectable, although several recordings lack reliable absolute timestamps and
+their camera positions, frame rates, and timing uncertainties require further
+documentation.
+
+The videos were used principally to interpret and label the geophysical
+sequence. Event association, waveform amplitudes, array measurements, and the
+other quantitative catalogue products were derived from the BCHH seismic and
+infrasound recordings. Proprietary SpaceX footage may have been viewed during
+the original forensic work, but no quantitative result reported here will rely
+on material that cannot be independently inspected or redistributed; any
+historical influence of such footage on an interpretation will be disclosed
+explicitly. The procedures and limitations of video and audio
+synchronization are described in Section~\ref{sec:methods}.
+
+
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Analysis overview TO DO}
+
+The analysis was organized around the principal forensic questions posed
+following the accident: whether any detectable energetic precursor preceded
+the visible failure; how many discrete events occurred and when; how their
+acoustic and seismic amplitudes varied; whether they originated consistently
+from SLC-40; and whether their apparent propagation speeds were compatible with
+direct acoustic propagation under the observed atmospheric conditions.
+
+The technical workflow comprised:
+(1) correction of instrument responses and conversion to physical units;
+(2) compilation of surveyed source--receiver geometry and meteorological
+constraints;
+(3) manual identification and reduced-time association of candidate airwave
+arrivals;
+(4) measurement of pressure-pulse morphology, amplitude, and signal-to-noise
+ratio;
+(5) estimation of back azimuth and apparent propagation speed using
+three-channel planar-wave coherence analysis;
+(6) assessment of finite-range effects using a horizontal circular-wavefront
+model;
+(7) measurement and comparison of acoustic pressure and seismic peak ground
+velocity;
+(8) calculation of time-dependent three-component polarization attributes and
+particle-motion measures;
+(9) estimation of acoustic and seismic energies and equivalent magnitudes
+using the original MATLAB workflow;
+(10) comparison of the geophysical chronology with publicly available video
+and audio recordings; and
+(11) generation of a synchronized forensic visualization combining video,
+waveforms, and polarization attributes.
+
+Modern waveform processing, event association, amplitude measurement, and
+array analysis were implemented in Python and are described directly from the
+processing code. Python-derived results take precedence wherever an equivalent
+modern product exists. Energy and equivalent-magnitude calculations that have
+not yet been reimplemented in Python are retained provisionally from the
+original MATLAB workflow and will be replaced or independently verified when a
+Python implementation is available. The legacy MATLAB/GISMO workflow also
+provided the original synchronized video, waveform, and polarization display,
+but interpretations derived from that product remain provisional until
+reproduced using the documented Python workflow. Continuous waveform data and
+metadata were originally archived in a CSS3.0 database using Antelope
+\citep{brtt_antelope}, manual arrival picks were made using
+\texttt{dbpick}, and the original MATLAB analysis used GISMO
+\citep{thompson_gismo_2017}. The canonical Python analysis interval extended from 180~s
+before to 1800~s after a reference source time of 13:07:12.080~UTC assigned to
+the initial upper-stage event. All six waveform channels were sampled
+continuously at 250~Hz. The polarization analysis and synchronized visualization are being
+reimplemented in Python and will become authoritative once their outputs have
+been validated against the archived MATLAB products.
+
+
+\subsection{Instrument calibration and response correction}
+
+The three seismic components were corrected using the manufacturer response
+for the Nanometrics Trillium Compact Posthole seismometer and Centaur digitizer
+combination. The combined sensitivity was
+$3.0172\times10^8$ counts $(\mathrm{m\,s^{-1}})^{-1}$. The Centaur was
+operated with a 40-V peak-to-peak input range, corresponding to a digitizer
+sensitivity of $4.0\times10^5$ counts~V$^{-1}$ and an implied seismometer
+sensitivity of approximately 754~V~$(\mathrm{m\,s^{-1}})^{-1}$.
+
+The three infraBSU differential-pressure sensors were converted independently
+from digital counts to pressure using empirical, sensor-specific field
+calibration factors of 8.10, 0.690, and 10.0 counts~Pa$^{-1}$ for HD1, HD2,
+and HD3, respectively. These factors were derived from comparative experiments
+in which colocated sensors were exposed to common pressure changes and
+impulsive sources. They should therefore be regarded as empirical field
+calibrations rather than laboratory-traceable absolute calibrations. The
+precise combination of tests used to derive the adopted factors, and the basis
+for the previously assigned absolute pressure uncertainty of approximately
+$\pm20\%$, will be verified from the original calibration records.
+
+For each infrasound channel, the median count level between 20 and 2~s before
+the initial explosion was removed before response correction. The empirical
+pressure sensitivities were incorporated into complete instrument-response
+representations while retaining the nominal poles, zeros, and digitizer
+stages. Seismic traces were demeaned and linearly detrended. All traces received
+a 5\% cosine taper before frequency-domain response removal.
+
+A four-corner prefilter of 0.02, 0.05, 80, and 100~Hz and a water level of
+60~dB were used to stabilize the response inversion. This prefilter was applied
+only during response removal. No additional Butterworth high-pass filter was
+applied during event association, amplitude measurement, or array analysis.
+Corrected seismic traces were expressed as ground velocity in
+m~s$^{-1}$, and corrected infrasound traces as differential pressure in Pa.
+
+
+\subsection{Source--receiver geometry}
+
+Sensor coordinates were obtained from the differential-GPS survey of BCHH and
+transformed to UTM Zone~17N for array calculations. Horizontal
+source--receiver distances and geographic azimuths were also calculated
+independently on the WGS84 ellipsoid. The central broadband seismometer, used
+as the array reference position, was located at approximately 541820.4~m~E and
+3160866.5~m~N. The reference horizontal distance from SLC-40 to the central broadband
+seismometer was 1417.9~m, and the geometric back azimuth from that nominal
+array-reference position toward SLC-40 was 199.41$^\circ$, measured clockwise
+from north.
+
+The three infrasound sensors formed an array with an aperture of approximately
+30~m. Their horizontal distances to SLC-40 were 1438.0~m (HD1), 1406.3~m
+(HD2), and 1410.9~m (HD3), with corresponding geometric back azimuths of
+198.95$^\circ$, 199.91$^\circ$, and 198.73$^\circ$, respectively. Individual
+source-to-sensor distances were retained when calculating expected
+differential acoustic travel times rather than treating the array as a single
+receiver. HD2 was used as the infrasound reference channel for reduced-time
+association and waveform alignment; consequently, its geometric direction to
+SLC-40 differs slightly from the nominal array-center direction.
+
+Approximate source-time labels for selected stages of the accident were
+obtained from the video chronology. These labels assisted interpretation of the
+initial upper-stage event, the principal explosion, and later
+capsule- or payload-related activity, but were not required to construct the
+general event catalogue, which was based on observed infrasound arrivals. A
+possible capsule impact has not yet been confirmed directly in the raw seismic
+waveforms and will be reassessed using polarization attributes regenerated in
+the Python workflow. Formal uncertainties for the video-derived source-time
+labels have not yet been established, and all but the best-constrained onset
+time should therefore be regarded as approximate.
+
+\subsection{Legacy chronology values and reconciliation}
+\label{sec:methods_legacy_chronology}
+
+The archived MATLAB analysis contains several chronology values that are useful
+for comparison but are not adopted as final measurements until they have been
+reproduced or reconciled with the Python workflow. These include a weak seismic
+feature at approximately 13:07:13.65~UTC, a first infrasound pulse approximately
+2.28~s later, a largest-event arrival near 13:07:19.43~UTC, payload- or
+capsule-related activity near 13:07:24.5~UTC, a possible seismic onset near
+13:07:25.6~UTC, and the beginning of the prolonged continuous signal near
+13:08:40~UTC. The legacy high-quality array subset also yielded a median
+apparent propagation speed of approximately 358.6~m~s$^{-1}$.
+
+These values mix observed arrival times, inferred source times, video-derived
+labels, and legacy processing conventions. They will therefore be reconciled
+against the Python reduced-time catalogue, the canonical reference time of
+13:07:12.080~UTC, the provisional principal-explosion source time, and the
+final video synchronization before they are used in tables, figures, or
+quantitative interpretation. Where modern Python and legacy MATLAB values
+differ, the Python result will be reported as primary and the legacy value will
+be retained only for documented historical comparison.
+
+
+\subsection{Meteorological correction}
+
+Meteorological observations from the Kennedy Space Center tower network between
+13:05 and 13:35~UTC were used to estimate the effective acoustic propagation
+speed between SLC-40 and BCHH. The selected dataset contained 84 temperature
+and 84 relative-humidity observations, with mean conditions of approximately
+26.36$^\circ$C and 83.87\% relative humidity.
+
+The still-air sound speed was calculated as
+\begin{equation}
+  c_0 = 331.3 + 0.606T + 1.26h,
+  \label{eq:sound_speed}
+\end{equation}
+where $T$ is temperature in degrees Celsius and $h$ is relative humidity
+expressed as a fraction. This yielded
+$c_0=348.33~\mathrm{m\,s^{-1}}$.
+
+Wind observations were resolved into east and north components, averaged
+within 10-m height intervals, and linearly interpolated through the lowest
+65~m of the atmosphere. The height-averaged wind component parallel to the
+SLC-40--BCHH propagation path was added to the thermodynamic sound speed:
+\begin{equation}
+  c_{\mathrm{eff}} =
+  c_0 + \mathbf{u}\cdot\hat{\mathbf{r}}.
+  \label{eq:effective_speed}
+\end{equation}
+
+The mean along-path wind component was $+2.65~\mathrm{m\,s^{-1}}$, giving
+$c_{\mathrm{eff}}=350.98~\mathrm{m\,s^{-1}}$. The corresponding travel time
+over 1417.9~m was 4.040~s, approximately 0.031~s shorter than the still-air
+estimate. Because the propagation distance was only about 1.4~km, direct
+atmospheric arrivals dominated and long-range ducting effects were not
+considered. The meteorologically estimated value of
+350.98~m~s$^{-1}$ is distinct from the approximately
+366.5--366.8~m~s$^{-1}$ empirical speed used only to align one supplementary
+video/audio display.
+
+\subsection{Manual arrival picking and baseline correction}
+
+Continuous waveforms were visually reviewed using Antelope \texttt{dbpick}. Candidate events were initially identified as impulsive pressure arrivals on the infrasound channels. Only non-deleted phase-$N$ picks on HD1, HD2, and HD3 were retained, and the original pick precision was preserved when exporting the arrivals to the Python workflow.
+
+Manual review was adopted because the accident sequence occupied approximately 26~min within a modest six-channel dataset and contained closely spaced, overlapping arrivals spanning a wide range of amplitudes and waveform shapes. For this dataset, manual inspection provided a consistent reference catalogue without the iterative tuning and validation required for a new automated detector. Local seismic transients without corresponding infrasound arrivals were excluded from the airwave catalogue.
+
+To address the forensic question of whether any detectable energetic precursor
+preceded the visible failure, the complete available record from 31 August
+through 1 September 2016 was also examined outside the main accident sequence.
+This interval included approximately 37~h before the first accident-related
+signal and 10.5~h after the final catalogued event. The search was intended to
+identify anomalous impulsive seismic or infrasonic signals and cannot exclude
+non-energetic, aseismic, or otherwise undetectable initiating processes.
+
+Slow baseline variations on the response-corrected infrasound channels were removed using a centered, noncausal moving median with a 251-sample window, corresponding to approximately 1~s at 250~Hz. The estimated median baseline was subtracted from each pressure trace. Seismic traces were not subjected to this baseline operation.
+
+The moving-median procedure was selected after comparison with unfiltered waveforms, conventional high-pass-filtered traces, local linear baselines, and moving-median windows of several durations. High-pass filtering enhanced some weak impulsive arrivals but distorted broader pressure pulses, whereas local linear baselines were occasionally controlled by a small number of samples and produced implausibly steep trends. The 1-s moving median provided the most stable baseline estimate while preserving the short pressure impulses. Although a centered median is nonlinear and therefore not formally a zero-phase filter, it does not impose the systematic delay of a one-sided causal smoother.
+
+\subsection{Reduced-time event association}
+
+Before event association, each accepted pick was corrected for its expected differential travel time relative to HD2:
+\begin{equation}
+  t_{i,\mathrm{red}} = t_i - \frac{r_i-r_{\mathrm{HD2}}}{c_{\mathrm{eff}}},
+  \label{eq:reduced_time}
+\end{equation}
+where $r_i$ is the SLC-40--sensor distance and $c_{\mathrm{eff}}=350.98~\mathrm{m\,s^{-1}}$. The resulting corrections were approximately 0.090~s for HD1, 0~s for HD2, and 0.013~s for HD3. These corrections compensated for the known source--receiver geometry only during preliminary association; final propagation direction and apparent speed were estimated independently from the waveforms.
+
+Reduced picks were sorted chronologically. Beginning with the earliest unassigned pick, all picks falling within the following 0.040~s were treated as a candidate cluster. At most one pick per channel was retained, with the pick closest to the cluster seed selected when multiple picks occurred on the same channel. A cluster was accepted as a candidate event if it contained picks from at least two distinct infrasound channels. Picks that failed this criterion remained unassociated rather than being forced into an event.
+
+For each accepted candidate, a six-channel waveform segment was extracted from 0.20~s before to 0.30~s after the reduced event time. The provisional travel-time corrections were not written into these waveform streams; the original observed sample times were retained. Application of the association procedure produced the candidate catalogue used in the subsequent waveform and array analyses.
+
+\subsection{Acoustic pulse measurements and event-quality tiers}
+
+For initial pulse characterization, the three infrasound traces were shifted to the HD2 reference time using the meteorologically predicted differential delays and combined using a sample-by-sample median. Within a search interval from $-0.04$ to $+0.25$~s relative to the reduced event time, the algorithm sought a positive compression followed by a negative pressure excursion. The negative peak was required to occur 0.010--0.180~s after the positive peak. When several peak pairs satisfied these criteria, the pair with the largest peak-to-peak pressure was retained.
+
+For positive and negative peaks at times $t_+$ and $t_-$, provisional one-cycle bounds were defined as
+\begin{equation}
+  t_{\mathrm{start}} = t_+ - 0.5(t_- - t_+)
+  \label{eq:pulse_start}
+\end{equation}
+and
+\begin{equation}
+  t_{\mathrm{end}} = t_- + 0.5(t_- - t_+).
+  \label{eq:pulse_end}
+\end{equation}
+Although one configuration option proposed refining these boundaries to the return-to-noise points, that refinement was not implemented in the adopted measurement function and is not assumed here.
+
+Noise was measured from $-0.40$ to $-0.10$~s relative to the event using the robust scale
+\begin{equation}
+  \sigma_{\mathrm{robust}} = 1.4826\,\mathrm{median}\left(\left|p-\mathrm{median}(p)\right|\right).
+  \label{eq:robust_noise}
+\end{equation}
+The provisional stack signal-to-noise ratio was the maximum absolute pressure within the event bounds divided by this noise scale.
+
+The positive--negative pulse morphology was used as a measurement-quality criterion rather than as the defining requirement for a physical event. In particular, the principal explosion was retained despite failing the simple one-cycle morphology test because it was an exceptionally strong, coherent, multichannel signal with a more complex pressure history.
+
+Candidate labels based on channel support, reduced-pick span, pressure amplitude, and signal-to-noise ratio were retained as descriptive quality indicators. They were not interpreted as distinct physical source classes.
+
+\subsection{Eligibility for detailed array analysis}
+
+Two operational threshold sets were used to identify events suitable for array analysis. The permissive analysis set required a median-stack peak-to-peak pressure of at least 10~Pa, a stack signal-to-noise ratio of at least 1.5, signal support on at least two infrasound channels, and a valid positive--negative pulse measurement. The principal explosion was explicitly retained despite failing the short-pulse morphology requirement.
+
+A more conservative core subset required a median-stack peak-to-peak pressure of at least 25~Pa and a stack signal-to-noise ratio of at least 3, together with the same channel-support requirement. These thresholds were configurable operational divisions along continuous amplitude and quality distributions; they were not interpreted as natural boundaries between event populations. All filtering decisions, including reasons for rejecting candidates, were retained in the analysis products.
+
+\subsection{Planar-wave array analysis}
+
+Back azimuth and apparent horizontal propagation speed were estimated jointly by shifting all three infrasound waveforms according to trial plane-wave models. Back azimuth $\theta$ was defined as the direction from the array toward the source, measured clockwise from north. For a trial back azimuth and apparent speed $v$, the horizontal propagation vector toward the array was
+\begin{equation}
+  \mathbf{k} = [-\sin\theta,-\cos\theta],
+  \label{eq:propagation_vector}
+\end{equation}
+and the predicted relative delay at sensor $i$, relative to HD2, was
+\begin{equation}
+  \Delta t_i = \frac{(\mathbf{x}_i-\mathbf{x}_{\mathrm{HD2}})\cdot\mathbf{k}}{v}.
+  \label{eq:plane_delay}
+\end{equation}
+
+For each trial model, the three waveforms were shifted by interpolation and trimmed to their common temporal overlap. Every point on the search surface was therefore evaluated using the same waveform duration, avoiding the unequal-overlap bias that can favor zero lag in conventional cross-correlation calculations.
+
+Each aligned trace was median-centered and normalized by its root-mean-square amplitude. Coherence was evaluated using both three-channel semblance,
+\begin{equation}
+  S = \frac{\sum_t\left[\sum_i x_i(t)\right]^2}{N\sum_t\sum_i x_i^2(t)},
+  \label{eq:semblance}
+\end{equation}
+and the mean of the three pairwise correlation coefficients. The mean correlation $\overline{\rho}$ was mapped from $[-1,1]$ to $[0,1]$, and the combined score was
+\begin{equation}
+  C = 0.60S + 0.40\left(\frac{\overline{\rho}+1}{2}\right).
+  \label{eq:coherence_score}
+\end{equation}
+
+The coarse search covered back azimuths from 180$^\circ$ to 220$^\circ$ in 0.5$^\circ$ increments and apparent speeds from 280 to 440~m~s$^{-1}$ in 2~m~s$^{-1}$ increments. Each coarse maximum was refined over $\pm2^\circ$ in 0.1$^\circ$ increments and $\pm20$~m~s$^{-1}$ in 0.5~m~s$^{-1}$ increments. Most events were scored over the interval $-0.04$ to $+0.18$~s relative to the reduced event time; the principal explosion used an extended interval ending at $+0.35$~s.
+
+Pairwise correlations and residual time lags were calculated after application of the best-fitting model. The lag-closure quantity
+\begin{equation}
+  \tau_{12}+\tau_{23}+\tau_{31}
+  \label{eq:lag_closure}
+\end{equation}
+was retained as a consistency diagnostic. The relative performance of HD1 was evaluated by comparing the HD2--HD3 correlation with the mean correlation of the two pairs containing HD1.
+
+Solution stability was tested by shifting the scoring window by $-0.008$, 0, and $+0.008$~s and scaling its duration by factors of 0.9, 1.0, and 1.1. Standard deviations of the resulting back azimuths and speeds were retained as empirical stability measures. Widths of the coherence surface at score reductions of 0.01 and 0.02 were also calculated, but these widths were treated as descriptive measures rather than formal confidence intervals.
+
+Composite coherence surfaces were formed from the individual coarse-search surfaces for both the full analysis set and the core subset. Arithmetic-mean, median, maximum-score-weighted, and individually normalized mean composites were retained to evaluate the population-level consistency of the solutions.
+
+\subsection{Finite-range circular-wavefront analysis}
+
+The adequacy of the plane-wave approximation was assessed using exact horizontal source--receiver distances. For a trial source position $\mathbf{x}_s$ and propagation speed $v$, the predicted delay at sensor $i$, relative to HD2, was
+\begin{equation}
+  \Delta t_i = \frac{|\mathbf{x}_i-\mathbf{x}_s|-|\mathbf{x}_{\mathrm{HD2}}-\mathbf{x}_s|}{v}.
+  \label{eq:circular_delay}
+\end{equation}
+Because receiver elevations were not included in the adopted geometry, this was a two-dimensional circular-wavefront model rather than a full three-dimensional spherical-wave model.
+
+The primary finite-range calculation fixed the source at SLC-40 and searched propagation speeds from 280 to 440~m~s$^{-1}$ in 0.5~m~s$^{-1}$ increments. Coherence was evaluated using the same waveform windows, normalization, and scoring metric as the planar-wave analysis.
+
+Sensitivity to source position was examined in coordinates oriented parallel and perpendicular to the SLC-40--BCHH path. Along-range offsets from $-500$ to $+500$~m and cross-range offsets from $-150$ to $+150$~m were evaluated while profiling over the complementary coordinate. These calculations were interpreted as resolution tests rather than independent source locations. With three sensors, only two independent relative delays are available, so source easting, source northing, and propagation speed cannot all be determined independently. Open along-range coherence ridges were therefore interpreted as a fundamental range-resolution limitation of the array geometry.
+
+\subsection{Acoustic and seismic amplitude measurements}
+
+Acoustic and seismic amplitudes were measured for each candidate event using the saved baseline-corrected waveform segments. Event intervals were taken from the positive--negative pulse measurements, except for the principal explosion, for which a fixed interval from $-0.04$ to $+0.35$~s was used.
+
+For each seismic component, the median ground velocity from $-0.18$ to $-0.05$~s was removed. Component peak ground velocity was the largest absolute velocity within the event interval. Three-component vector peak ground velocity was calculated as
+\begin{equation}
+  \mathrm{PGV}_{\mathrm{vec}} = \max_t\sqrt{v_E^2(t)+v_N^2(t)+v_Z^2(t)}.
+  \label{eq:vector_pgv}
+\end{equation}
+The maximum vector amplitude over the complete saved waveform segment was also retained to determine whether the acoustically defined event interval captured the largest seismic motion.
+
+For catalogue measurements, the three infrasound traces were aligned to HD2 using the meteorologically predicted differential delays and combined by a sample-by-sample median. Positive pressure, negative pressure, and peak-to-peak pressure were measured within the same event interval. Acoustic signal-to-noise ratio was defined as median-stack peak-to-peak pressure divided by the robust pre-event noise scale.
+
+The median-stack measurements provide a consistent catalogue metric but differ from measurements made separately on the three physical sensors. For the principal explosion, absolute positive overpressure was therefore characterized from the individual calibrated sensors, whereas the aligned median stack was used for comparison with the remaining catalogue. The earlier sensor-specific analysis gave positive peaks of approximately 1349--1557~Pa, with a median of 1435~Pa, and negative excursions of approximately $-179$ to $-223$~Pa. The present median-stack calculation gives approximately $+1353$~Pa, $-84$~Pa, and 1437~Pa peak-to-peak. These quantities represent different measurement procedures and should not be used interchangeably.
+
+Where pressure was reduced to a reference distance of 1~km, spherical geometric spreading was assumed:
+\begin{equation}
+  p_{\mathrm{red},1\,\mathrm{km}} = p_{\mathrm{obs}}\frac{r}{1000~\mathrm{m}}.
+  \label{eq:reduced_pressure}
+\end{equation}
+For a positive pressure peak of 1435~Pa at the BCHH distance, this gives a reduced positive pressure of approximately 2.03~kPa at 1~km.
+
+Peak pressure level was calculated as
+\begin{equation}
+  L_{\mathrm{peak}} = 20\log_{10}\left(\frac{p_+}{20~\mu\mathrm{Pa}}\right).
+  \label{eq:peak_pressure_level}
+\end{equation}
+This is a peak pressure level, not an RMS or time-averaged sound-pressure level. The positive peak pressure of approximately 1435~Pa corresponds to a peak level of approximately 157~dB re 20~$\mu$Pa.
+
+A dimensional acoustic-to-seismic amplitude ratio was calculated as peak-to-peak pressure divided by vector peak ground velocity, with units of Pa per m~s$^{-1}$. This quantity was treated as an empirical measure of pressure--ground-motion coupling and not as an acoustic-to-seismic energy ratio.
+
+\subsection{Acoustic--seismic amplitude regression}
+
+Regression analysis was restricted to events with vector-peak-ground-velocity signal-to-noise ratio of at least 5, acoustic peak-to-peak signal-to-noise ratio of at least 5, and an event-window peak ground velocity equal to at least 70\% of the maximum peak ground velocity measured in the complete saved segment.
+
+A free power-law relationship,
+\begin{equation}
+  p_{\mathrm{p2p}} = A\,\mathrm{PGV}^{b},
+  \label{eq:power_law}
+\end{equation}
+was fitted by ordinary least squares after transforming both variables to base-10 logarithms. A 95\% descriptive interval for the exponent $b$ was estimated using 5000 nonparametric bootstrap resamples of the event population.
+
+A proportional model,
+\begin{equation}
+  p_{\mathrm{p2p}} = K\,\mathrm{PGV},
+  \label{eq:proportional_model}
+\end{equation}
+was also evaluated as a constant-ratio alternative. The two models were compared using root-mean-square residuals in base-10 logarithmic space. These regressions describe the observed relationship only; they do not account for measurement uncertainty in both variables, covariance among sensor-calibration errors, or censoring near the acoustic or seismic noise floors.
+
+\subsection{Acoustic and seismic energy estimates}
+
+Acoustic and seismic energies were estimated in the original MATLAB analysis using the formulations of \citet{johnson_aster_2005}, developed for partitioning acoustic and seismic energy from impulsive volcanic sources. Equivalent energy magnitudes were subsequently calculated using the relationship of \citet{kanamori_1977}, and the ratio of acoustic to seismic energy was used to characterize the relative partitioning of radiated energy between the atmosphere and ground. These calculations produced, for the principal explosion, first-order estimates of approximately 1030~MJ acoustic energy and 7.8~MJ seismic energy, corresponding to equivalent acoustic and seismic magnitudes of approximately 2.88 and 1.46, respectively.
+
+These calculations have not yet been regenerated by the canonical Python notebook sequence and therefore remain products of the archived MATLAB workflow. The final version of this subsection should be checked directly against the original MATLAB routines to document the exact integration intervals, waveform quantities, density and wave-speed assumptions, propagation geometry, radiation assumptions, and treatment of the three sensors and seismic components. Until those implementation details are recovered, the resulting energies should be regarded as first-order estimates, most reliable for relative comparison and energy-partition interpretation rather than as precise source-yield determinations.
+
+\subsection{Video and audio comparison}
+
+Publicly available video recordings were used to identify major visible stages
+of the accident and to assign approximate source-time labels to the initial
+failure, the principal explosion, the descent and apparent ground contact of
+the payload or capsule, and later capsule- or payload-related energetic
+activity. Identifiable visual changes included the first flash, expansion of
+the principal fireball, structural collapse, descent of vehicle components,
+apparent ground contact, and subsequent explosions.
+
+The quantitative event catalogue, pressure measurements, and array results were
+derived independently from the BCHH geophysical data. Video observations were
+used principally to interpret the physical processes associated with key
+signals and to organize the accident chronology. In particular, a direct
+seismic signal associated with the apparent payload or capsule impact has not
+yet been confirmed in the raw three-component waveforms. The earlier impact
+interpretation was based partly on polarization attributes calculated in the
+legacy MATLAB workflow and will be reassessed after rectilinearity, planarity,
+ellipticity, and particle-motion measures are regenerated in Python. Because
+acoustic travel times from SLC-40 to the different cameras varied and several
+videos lacked reliable absolute timestamps, synchronization relied primarily
+on visible frames rather than on recorded audio.
+
+For a supplementary opening-sequence visualization, audio extracted from one publicly available video was demeaned and band-pass filtered from 1 to 2~kHz using a four-pole zero-phase filter. Because the recording lacked an absolute timestamp, the audio was aligned empirically with the BCHH sequence. The approximately 366.5--366.8~m~s$^{-1}$ speed implicit in this display alignment was not interpreted as an atmospheric propagation measurement. Unless the earlier frame-by-frame analysis can be fully reconstructed---including camera locations, video identifiers, frame rates, synchronization procedures, and timing uncertainties---the video/audio alignment should be described as illustrative rather than as an independent absolute timing constraint.
+
+\subsection{Polarization analysis and synchronized forensic visualization}
+\label{sec:methods_polarization}
+
+The original forensic analysis used a synchronized MATLAB/GISMO visualization
+to examine the relationship between public video observations and the BCHH
+seismo-acoustic waveforms. The display comprised four coordinated elements:
+(1) time-referenced video of the accident; (2) scrolling waveforms from the
+three seismic and three infrasound channels; (3) a magnified approximately
+5-s view of the six-channel waveform data; and (4) time-dependent seismic
+polarization attributes derived from the three-component broadband
+seismometer. This display was used to examine the onset and principal
+explosion, search for a possible payload- or capsule-impact signal, and
+interpret the prolonged continuous signal following the initial failure phase.
+
+The legacy polarization analysis included rectilinearity, planarity,
+ellipticity, particle-motion orientation, and related measures derived from
+the three-component covariance matrix within moving time windows. These
+attributes were used to distinguish intervals dominated by approximately
+linear body-wave motion from those exhibiting elliptical or planar motion
+consistent with surface waves. The archived MATLAB results also formed the
+basis for earlier interpretations of a possible impact-related seismic phase
+and mixed wave types within the prolonged continuous signal.
+
+Because the exact window lengths, overlap, filtering, eigenvalue conventions,
+coordinate orientation, and attribute definitions used in the original
+MATLAB implementation have not yet been fully recovered, those interpretations
+are treated as provisional in the present study. The polarization analysis
+will be reimplemented in Python using the response-corrected three-component
+ground-velocity records. The Python implementation will document all processing
+parameters explicitly and will be treated as authoritative for the final
+polarization results and figures.
+
+The regenerated products will include the time-dependent polarization
+attributes, particle-motion plots for selected intervals, and a synchronized
+four-panel video combining the public accident video, scrolling six-channel
+waveforms, a magnified waveform window, and the polarization time series.
+The synchronized visualization will be distributed as supplementary material.
+
+\subsection{Interpretation and provenance}
+
+Throughout the analysis, direct observations were distinguished from later physical interpretations. Direct observations included arrival times, waveform amplitudes, pressure polarity and duration, apparent propagation speeds, back azimuths, coherence measures, ground velocities, and derived energy estimates. Interpretations of individual signals were based on their temporal correspondence with publicly available video and, where relevant, information released during the subsequent SpaceX failure investigation.
+
+The modern Python workflow was treated as authoritative for response
+correction, baseline removal, event association, pulse measurements, planar-
+and circular-wavefront analysis, acoustic and seismic amplitude measurements,
+and amplitude regression. Python results take priority over legacy MATLAB
+values wherever both are available. The polarization and particle-motion
+analysis is still being reimplemented in Python; until it has been validated,
+legacy polarization-derived interpretations of the payload- or capsule-related
+interval and the prolonged continuous signal remain provisional. Legacy MATLAB
+results were otherwise retained only where the corresponding analysis has not
+yet been reproduced in Python, particularly for acoustic and seismic energies
+and equivalent magnitudes. Where both workflows produced related quantities,
+their definitions and provenance were kept explicit rather than silently
+combining the results.
+
+\subsection{Reproducibility}
+
+Each Python processing stage writes its numerical products, configuration parameters, intermediate event streams, event-selection decisions, and diagnostic figures to a dedicated output directory. The canonical workflow comprises notebooks for response correction, input preparation, meteorological processing, candidate association, planar-wave analysis, circular-wavefront analysis, acoustic--seismic amplitude analysis, and production of paper figures and tables. Event-filter outcomes are retained for all candidates, including events that fail the permissive or core thresholds.
+
+The archive will also include the Python implementation of the
+three-component polarization analysis, the resulting regularly sampled
+polarization attributes with complete processing metadata, selected
+particle-motion products, and the script used to generate the synchronized
+four-panel supplementary video. The source video identifier, synchronization
+offset, frame-rate handling, waveform time base, filtering, moving-window
+parameters, coordinate conventions, and definitions of all polarization
+attributes will be documented explicitly. Where redistribution of the original
+public video is not permitted, the archive will provide the synchronization
+metadata and rendering scripts together with an exact citation and identifier
+for the source video rather than redistributing the source footage.
+
+The continuous waveforms, station metadata, manual arrival picks, event catalogue, Python notebooks, legacy MATLAB routines, derived tables, and figure-generation scripts will be archived in an open repository with a persistent identifier. The archive will identify the specific workflow and software implementation used to generate each principal result. The Python processing uses ObsPy \citep{beyreuther_obspy_2010,krischer_obspy_2015}
+and the scientific Python ecosystem, whereas the original analysis used
+Antelope \citep{brtt_antelope}, GISMO \citep{thompson_gismo_2017}, and custom
+MATLAB routines. Final software and data citations will also document NumPy,
+SciPy, pandas, Matplotlib, pyproj, the KSC meteorological observations, the
+instrument responses and infraBSU calibration information, and the public
+videos used in the chronology.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Atmospheric conditions}
+\label{sec:results_atmosphere}
+
+Atmospheric conditions remained nearly constant throughout the 30-minute explosion sequence. Averaged over all weather-tower observations, the air temperature was 26.36~\textdegree C and the relative humidity was 83.87\%. Vector averaging of the wind measurements yielded a mean along-path wind component of $+2.65~\mathrm{m\,s^{-1}}$. These conditions correspond to a still-air sound speed of $348.33~\mathrm{m\,s^{-1}}$ and an effective propagation speed of $350.98~\mathrm{m\,s^{-1}}$ along the source-to-BCHH path after accounting for the component of the wind in the propagation direction. Little systematic temporal variation was observed, supporting use of a single atmospheric model for the acoustic analyses presented below.
+
+\subsection{Overview of the explosion sequence}
+\label{sec:results_overview}
+
+The Falcon~9 explosion generated a complex sequence of seismic and infrasonic
+signals that was recorded continuously by the BCHH array over a period of
+approximately 26~min (Figure~\ref{fig:overview}). Manual analysis identified
+153 impulsive infrasound events spanning this interval. The records also
+contain a prolonged interval of continuous signal following the initial phase
+and later signals temporally associated with the descent and apparent ground
+contact of the payload or capsule in public video. These features are not
+included as additional members of the 153-event impulsive infrasound catalogue.
+Their channel distribution and physical interpretation remain under review.
+Thus, in addition to the 153 impulsive infrasound events, the records contain
+at least two other distinct features not represented as members of the acoustic
+catalogue: the prolonged continuous signal and tentative payload- or
+capsule-related activity. These should not be counted as two additional
+discrete explosions. Together, the observations document the geophysical
+evolution of the accident sequence.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.98\textwidth]{fig03_bchh_30min_overview_zp_false.pdf}
+  \caption{Overview of the Falcon~9 accident sequence recorded at BCHH. The
+  upper three traces show acoustic pressure on HD1--HD3 and the lower three
+  traces show three-component ground velocity. The four phases of impulsive
+  activity and the prolonged interval of continuous signal are indicated. Time
+  is UTC on 1 September 2016. The final version will be regenerated from the
+  frozen Python workflow with publication-sized labels, final phase boundaries,
+  and reassessment of the continuous signal across all channels.}
+  \label{fig:overview}
+\end{figure*}
+
+Inspection of the continuous waveforms and event catalogue reveals four
+readily distinguishable phases of impulsive activity separated by intervals of
+greatly reduced event rates (Figure~\ref{fig:overview}). These phases provide a
+convenient framework for describing the temporal evolution of the sequence
+(Table~\ref{tab:phases}). Phase~1 began with the initial failure at
+approximately 13:07~UTC and contained the largest explosion together with the
+strongest seismic and acoustic signals. Three additional phases followed
+between approximately 13:14 and 13:34~UTC, each characterized by distinct event
+rates, amplitudes, and durations. Between Phases~1 and~2, a prolonged interval
+of continuous signal lasting approximately 3.5~min was prominent on the seismic
+channels and may also be present on HD2. It was not expressed as a corresponding
+sequence of discrete impulsive infrasound events. Its channel distribution and
+possible association with sustained launch-pad fire remain to be verified
+against the calibrated waveforms and synchronized video.
+
+Peak infrasound pressures ranged from approximately 7~Pa for the smallest catalogued events to 1432~Pa for the principal explosion. Seismic counterparts were observed for many of the larger impulsive events, particularly during Phase~1, whereas smaller events were often detectable only on the infrasound channels. The complete event catalogue forms the basis for the quantitative analyses presented in the following sections.
+
+\begin{table*}[t]
+\caption{Summary of the four phases of impulsive activity identified from the
+temporal distribution of the 153-event infrasound catalogue. Phase boundaries
+are based on intervals of markedly reduced impulsive activity and are used as
+a descriptive framework; the phase names do not imply specific physical
+mechanisms. The prolonged continuous signal between Phases~1 and~2 is described
+separately. The pressure ranges shown here are legacy catalogue values and
+will be replaced by, or verified against, the frozen Python catalogue before
+final submission.}
+\label{tab:phases}
+\centering
+\small
+\begin{tabularx}{\textwidth}{c l l c c l X}
+\hline
+Phase & Name & Approx. UTC & Duration & Events & Pressure (Pa) & Remarks \\
+\hline
+1 & Initial failure
+  & 13:07--13:09
+  & $\sim$2 min
+  & 48
+  & 16--1432$^{*}$
+  & Initial failure, principal explosion, later payload- or
+    capsule-related activity, and numerous energetic events. \\
+2 & Secondary explosion
+  & 13:14--13:16
+  & $\sim$2 min
+  & 4
+  & 117--256$^{*}$
+  & Four energetic explosions after several minutes of relative quiescence. \\
+3 & Sustained explosion
+  & 13:19--13:24
+  & $\sim$5 min
+  & 96
+  & 7--78$^{*}$
+  & Numerous smaller explosions at the highest event rate. \\
+4 & Terminal explosion
+  & 13:30--13:34
+  & $\sim$4 min
+  & 5
+  & 23--63$^{*}$
+  & Final moderate explosions before detectable activity ceased. \\
+\hline
+\multicolumn{7}{l}{\footnotesize
+$^{*}$Legacy MATLAB catalogue range; verify or replace using the frozen Python catalogue.}
+\end{tabularx}
+\end{table*}
+
+\subsection{Initial failure and absence of precursors}
+\label{sec:results_onset}
+
+To test whether a detectable energetic precursor preceded the visible failure,
+the complete continuous dataset spanning approximately 37~h before the first
+accident-related signal was reviewed for anomalous impulsive seismic or
+infrasonic activity. No such precursor attributable to the accident was
+identified. The pre-event record contained normal background seismicity,
+cultural noise, and environmental signals, but no coherent impulsive arrival
+from the direction of SLC-40 that could be associated with an external
+energetic event.
+
+This result places an observational constraint on detectable seismo-acoustic
+precursors at BCHH. It does not identify the initiating engineering mechanism
+and cannot exclude aseismic, non-impulsive, weak, or otherwise undetectable
+processes within the launch vehicle.
+
+No additional explosion-related impulsive arrivals were identified during the
+10.5~h following the final event in Phase~4.
+
+The earliest identifiable acoustic signal associated with the accident was a small impulsive infrasound arrival with positive peak overpressures of 33--95~Pa across the three infrasound sensors (Figure~\ref{fig:onset}). These amplitudes were approximately an order of magnitude smaller than those produced by the subsequent principal explosion. The corresponding ground-coupled airwave is visible on all three seismic components, although no distinct direct seismic signal attributable to the initiating failure can be identified with confidence.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.94\textwidth]{second_stage_waveforms.png}
+  \caption{Calibrated seismic and acoustic waveforms associated with the initial second-stage failure. The left column shows three-component ground velocity and the right column shows pressure on HD1--HD3. Waveforms are plotted relative to 13:07:15~UTC. The initial failure produced positive peak overpressures of approximately 33--95~Pa in the earlier analysis, substantially smaller than those of the principal explosion. The final version will be regenerated using the frozen calibration and measurement definitions.}
+  \label{fig:onset}
+\end{figure*}
+
+Comparison with publicly available video recordings indicates that this initial acoustic arrival coincides with the first visible evidence of vehicle failure after accounting for acoustic travel times between the launch pad, recording cameras, and BCHH array. This correspondence provides an independent synchronization between the optical and geophysical observations, subject to the combined uncertainties in video frame timing and acoustic propagation.
+
+The onset waveforms exhibit differences in amplitude and polarity among the
+three infrasound sensors despite the small ($\sim$30~m) array aperture
+(Figure~\ref{fig:onset}). These differences may reflect source complexity,
+waveform interference, local propagation effects, or residual calibration
+uncertainty. They contrast with the highly coherent waveforms of the principal
+explosion but do not uniquely determine the geometry of the initiating source.
+Activity intensified rapidly during the following approximately 4~s,
+culminating in the catastrophic destruction of the launch vehicle.
+
+\subsection{Principal explosion}
+\label{sec:results_principal}
+
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.98\textwidth]{fig03_bchh_20s_zoom_with_audio_reduced_zp_false.pdf}
+  \caption{Expanded view of the opening approximately 20~s of the accident sequence. Public-video audio is shown above the three infrasound and three seismic channels for illustrative synchronization. Vertical markers identify principal interpreted source stages after reduction for acoustic travel time. Because the video lacks an independent absolute timestamp, the audio alignment is illustrative and will be revised or moved to supplementary material after the final video-timing analysis.}
+  \label{fig:opening}
+\end{figure*}
+Approximately 4~s after the onset of failure, the Falcon~9 vehicle underwent the largest explosion of the sequence. This event generated the strongest seismic and infrasound signals recorded during the entire 26-minute accident sequence and dominated both the estimated acoustic and seismic energy release (Figures~\ref{fig:opening} and~\ref{fig:principal}).
+
+The explosion produced remarkably coherent pressure waveforms across all three infrasound sensors, with positive peak overpressures ranging from 1.35 to 1.56~kPa and a median value of approximately 1.43~kPa (Table~\ref{tab:principal}). Correcting for the small differences in source-to-sensor distance (1.406--1.438~km) yields reduced positive peak pressures of 1.95--2.20~kPa, with a median value of 2.03~kPa at a reference distance of 1~km. The corresponding peak pressure level was approximately 157~dB re $20~\mu$Pa.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.94\textwidth]{principal_explosion_waveforms.png}
+  \caption{Calibrated seismic and acoustic waveforms associated with the principal Falcon~9 explosion. The left column shows three-component ground velocity and the right column shows pressure on HD1--HD3, plotted relative to 13:07:18~UTC. The pressure waveforms are dominated by a sharp compression followed by a weaker rarefaction, while the seismic records contain the ground-coupled airwave and subsequent Rayleigh-wave motion. Numerical annotations in this working figure will be regenerated using the final sensor-specific and median-stack measurement definitions.}
+  \label{fig:principal}
+\end{figure*}
+
+The calibrated pressure waveforms consist of a sharp compression followed by a substantially weaker rarefaction (Figure~\ref{fig:principal}). Negative pressure excursions ranged from $-179$ to $-223$~Pa, giving peak-to-peak pressures of 1.53--1.78~kPa. The compression was approximately five times larger than the subsequent rarefaction, indicating that, although the impulsive arrival resembles a blast wave, the broadband waveform differs from a classical symmetric N-wave.
+
+The associated seismic records are dominated by the ground-coupled airwave followed by large-amplitude Rayleigh waves that persist for approximately 20~s (Figure~\ref{fig:principal}). No other event in the catalogue produced comparable seismic amplitudes or waveform duration.
+
+Waveform coherence was excellent among the three infrasound sensors, making the principal explosion one of the highest-quality events for array analysis. The inferred back azimuth was consistent with the surveyed direction to SLC-40, and the apparent propagation velocity was similar to that measured for the strongest arrivals throughout the explosion sequence.
+
+Using the calibrated pressure and ground-velocity measurements, the original MATLAB workflow yielded the largest estimated acoustic and seismic energies in the event catalogue (Table~\ref{tab:principal}). The equivalent acoustic magnitude was estimated as 2.88, compared with an equivalent seismic magnitude of 1.46, indicating that substantially more energy was radiated into the atmosphere than into the ground.
+
+Comparison with synchronized video recordings shows that the principal explosion coincides with rapid expansion of the primary fireball and catastrophic destruction of the launch vehicle. The engineering interpretation of this stage is discussed in Section~\ref{sec:discussion_investigation}.
+
+\begin{table}
+\caption{Summary parameters of the principal explosion. Pressure, direction, and speed values should be reconciled against the final frozen Python products; energy and equivalent-magnitude values are retained from the original MATLAB workflow.}
+\label{tab:principal}
+\centering
+\begin{tabular}{ll}
+\hline
+Parameter & Value \\
+\hline
+Origin time (UTC) & 2016-09-01 13:07:15.75 (estimated) \\
+Distance to BCHH infrasound sensors & 1.406--1.438~km \\
+Peak positive overpressure & 1.45~kPa (1.35--1.56~kPa) \\
+Peak negative pressure & $-207$~Pa ($-179$ to $-223$~Pa) \\
+Reduced positive overpressure (1~km) & 2.03~kPa \\
+Peak pressure level & 157~dB re $20~\mu$Pa \\
+Acoustic energy & $\sim$1030~MJ \\
+Acoustic equivalent magnitude & 2.88 \\
+Seismic energy & $\sim$7.8~MJ \\
+Seismic equivalent magnitude & 1.46 \\
+Geometric back azimuth, HD2 to SLC-40 & 199.91\textdegree \\
+Apparent propagation speed & $359~\mathrm{m\,s^{-1}}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Payload- or capsule-related activity}
+\label{sec:results_capsule}
+
+Several seconds after the principal explosion, two coherent acoustic pulses
+were recorded during the interval in which public video shows the payload or
+capsule descending and apparently reaching the ground
+(Figure~\ref{fig:capsule}). The pulses were separated by approximately 0.55~s,
+and both produced corresponding ground-coupled motion on the broadband
+seismometer. No distinct direct seismic arrival attributable to mechanical
+impact is evident in these short raw-waveform windows.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.94\textwidth]{capsule_explosion_waveforms.png}
+  \caption{Calibrated ground velocity and acoustic pressure during the
+  payload- or capsule-related interval. Two coherent acoustic pulses are
+  visible, separated by approximately 0.55~s, and both are accompanied by
+  ground-coupled motion. No distinct direct seismic arrival attributable to
+  mechanical impact is evident in this short window. The timing, labels, and
+  pressure annotations will be regenerated after the waveform interpretations
+  are reconciled with the video chronology and regenerated polarization
+  attributes.}
+  \label{fig:capsule}
+\end{figure*}
+
+Comparison with publicly available video suggests that activity during this
+interval may include apparent ground contact followed by a later explosion or
+rupture. The two observed acoustic pulses cannot presently be assigned uniquely
+to impact, explosion, or structural failure. The earlier MATLAB interpretation
+of an impact-related seismic phase relied partly on polarization attributes
+rather than on an unambiguous arrival in the raw seismograms. That
+interpretation will be reassessed after equivalent polarization measures are
+regenerated in Python.
+
+\subsection{Event catalogue}
+\label{sec:results_catalogue}
+
+The event-identification procedure described in Section~\ref{sec:methods}
+yielded a catalogue of 153 impulsive infrasound events spanning approximately
+26~min (Table~S1). Each event was characterized, where data quality permitted,
+by manual arrival times, pressure amplitude, pulse duration, signal-to-noise
+ratio, apparent propagation speed, back azimuth, and seismic ground motion.
+Legacy acoustic and seismic energy estimates were available for selected
+events. The catalogue provides a detailed chronology of the impulsive acoustic
+activity. The prolonged continuous signal and tentative payload- or
+capsule-related interpretations are described separately because they are not
+equivalent catalogue events.
+
+Peak infrasound pressures ranged from approximately 7~Pa for the smallest catalogued events to 1432~Pa for the principal explosion, spanning more than two orders of magnitude. Most events exhibited impulsive waveforms with durations of approximately 0.1~s, although the largest explosions produced more prolonged waveforms accompanied by strong ground-coupled airwaves and Rayleigh waves. Seismic counterparts were observed for many of the larger events, whereas the weakest events were generally detectable only on the infrasound channels.
+
+The temporal distribution of events was highly non-uniform. Forty-eight impulsive events occurred during Phase~1, including the onset and principal explosion. Following the prolonged interval of continuous signal, Phase~2 comprised four relatively energetic events between approximately 13:14 and 13:16~UTC. Phase~3 contained 96 events between approximately 13:19 and 13:24~UTC and exhibited the highest event rate, reaching approximately 29 events per minute. Although individual events in this phase were generally much smaller than those of Phase~1, together they account for nearly two-thirds of all impulsive events identified. Phase~4 consisted of five moderate-amplitude events between approximately
+13:30 and 13:34~UTC. The legacy catalogue places the final event at
+13:33:49~UTC; this time will be verified against the frozen Python catalogue.
+No further explosion-related impulsive activity was detected.
+
+The catalogue demonstrates that the Falcon~9 accident was not a single
+explosion but a prolonged sequence of discrete impulsive sources with widely
+varying amplitudes and recurrence intervals. The 153-event count should be
+regarded as a lower bound on detectable impulsive acoustic activity because
+weak events may have been obscured during periods of elevated background noise
+or overlapping signals. This caveat will be quantified from the frozen Python
+catalogue and noise measurements before final submission. Although the phases are evident from the temporal distribution alone, waveform characteristics, array measurements, and comparison with publicly available video provide additional constraints on the physical processes responsible for the sequence.
+
+The complete event catalogue, including arrival times, amplitudes, apparent propagation speeds, back azimuths, and derived energy estimates, will be provided as an electronic supplement to facilitate future comparative studies of rocket-launch accidents and other large near-field explosions. Table~\ref{tab:principal_events} is reserved for a concise selection of principal events.
+
+\begin{table*}
+\caption{Principal events and intervals in the Falcon~9 accident sequence.
+The final table will include selected early events, the principal explosion,
+tentative payload- or capsule-related activity, and the first and last events
+of each later phase. Interpretations will be distinguished explicitly from
+direct waveform measurements. The complete 153-event catalogue will be
+provided electronically.}
+\label{tab:principal_events}
+\centering
+\begin{tabular}{lllllll}
+\hline
+Event & Time (UTC) & Peak pressure & Peak seismic amplitude & Back azimuth & Apparent speed & Interpretation \\
+ & & (Pa) & & (\textdegree) & ($\mathrm{m\,s^{-1}}$) & \\
+\hline
+% Populate from the frozen event catalogue.
+TBD & TBD & TBD & TBD & TBD & TBD & TBD \\
+\hline
+\end{tabular}
+\end{table*}
+
+\subsection{Array measurements}
+\label{sec:results_array}
+
+The three-element infrasound array provided independent estimates of back azimuth and apparent propagation speed for impulsive events with sufficiently high signal-to-noise ratio. In the original MATLAB analysis, the highest-quality solutions were obtained for 44 events exhibiting the strongest waveform coherence across the array, although propagation vectors were estimated wherever reliable inter-sensor lag times could be measured. The modern Python workflow provides revised event-selection tiers and coherence-based planar-wave solutions; final numerical summaries will be updated from the frozen Python outputs.
+
+% TODO Figure: event-by-event back azimuth and apparent-speed results from the frozen Python workflow.
+Estimated back azimuths clustered tightly around the known direction to SLC-40, demonstrating that essentially all high-quality impulsive events originated from the vicinity of the launch complex. A final array-results figure will be inserted after the frozen Python products are generated. Scatter in back azimuth was small for the highest-amplitude events and increased progressively for weaker arrivals as signal-to-noise ratio decreased. No systematic temporal trend in propagation direction was observed during the 26-minute sequence.
+
+Apparent propagation speeds were similarly consistent throughout the legacy catalogue. The median apparent propagation speed for the 44 highest-quality MATLAB events was approximately $359~\mathrm{m\,s^{-1}}$. The relationship between this legacy value, the meteorologically predicted effective speed, and the revised Python planar- and circular-wavefront solutions will be evaluated using consistent event selections. The onset event exhibited a slightly larger average source-to-array propagation speed than the apparent speed measured across the array, although the significance of this difference remains under review.
+
+Overall, the array measurements demonstrate that the impulsive events were remarkably consistent in both back azimuth and apparent propagation speed despite spanning more than two orders of magnitude in peak pressure.
+
+\subsection{Seismo-acoustic waveform characteristics}
+\label{sec:results_waveforms}
+
+Many of the stronger impulsive events were recorded simultaneously by the
+infrasound array and broadband seismometer, illustrating efficient coupling of
+atmospheric pressure waves into the ground. The seismic response was dominated by ground-coupled airwaves followed by Rayleigh-wave energy that persisted for several seconds after passage of the direct acoustic wave. No convincing evidence was found for direct seismic body waves generated by most individual explosions, consistent with sources occurring primarily within the atmosphere.
+
+The principal explosion produced the strongest seismic response, including high-amplitude Rayleigh waves that dominated ground motion for approximately 20~s. In contrast, many smaller impulsive events produced clear infrasound arrivals but only weak or undetectable seismic signals.
+
+Public video shows the payload or capsule descending and apparently reaching
+the ground approximately 11~s after the onset. No distinct direct seismic
+impact arrival has yet been confirmed in the raw three-component waveforms,
+which are dominated during this interval by ground-coupled airwaves. An
+impact-related interpretation was proposed in the original MATLAB analysis
+using rectilinearity, planarity, ellipticity, and particle-motion attributes,
+but those calculations must be reproduced before the interpretation can be
+evaluated further.
+
+Following the initial phase of impulsive activity, a prolonged continuous
+signal persisted for approximately 3.5~min. It is strongest on the seismic
+channels but may also be present on HD2 and therefore should not presently be
+classified as seismic-only. Preliminary comparison with video suggests a
+possible association with sustained launch-pad fire, but this interpretation
+requires verification using synchronized video and a consistent examination of
+all calibrated channels.
+
+The infrasound waveforms were predominantly impulsive, with typical rise times of approximately 0.01--0.02~s. Even for the largest explosion, however, the waveforms did not exhibit the classical symmetric N-wave morphology commonly associated with idealized blast waves.
+
+\subsection{Polarization and particle-motion results TO DO}
+\label{sec:results_polarization}
+
+% TODO: populate after the legacy MATLAB polarization workflow has been
+% reproduced and validated in Python.
+Time-dependent rectilinearity, planarity, ellipticity, polarization direction,
+and particle-motion attributes will be used to reassess two interpretations
+from the original forensic analysis: whether a distinct direct seismic phase
+is associated with the apparent payload or capsule ground contact, and which
+wave types contribute to the prolonged continuous signal following Phase~1.
+No quantitative polarization results are reported here until the analysis has
+been reproduced using the documented Python workflow.
+
+\subsection{Temporal evolution of the explosion sequence}
+\label{sec:results_temporal}
+
+The event catalogue reveals that the Falcon~9 accident evolved through four
+distinct phases of impulsive activity separated by intervals of greatly reduced
+infrasound activity (Figure~\ref{fig:overview}; Table~\ref{tab:phases}). The
+first phase comprised the onset, principal explosion, later payload- or
+capsule-related activity, and numerous additional impulsive events during the
+first approximately 2~min following the initial failure. This phase contained the largest amplitudes and accounted for most of the estimated acoustic and seismic energy released during the sequence.
+
+Following the prolonged interval of continuous signal, a second phase consisted of four relatively energetic impulsive events over approximately 2~min. Although far fewer in number than during the initial phase, these events were substantially larger than most of those that followed.
+
+The third phase was characterized by sustained low-amplitude impulsive activity lasting approximately 5~min. It contained nearly two-thirds of all catalogued events and reached event rates approaching 29 events per minute, representing the highest event frequency despite comparatively modest amplitudes.
+
+The final phase consisted of five moderate-amplitude impulsive events spread over approximately 4~min. The final catalogued event marked the end of all detectable explosion-related infrasound, after which neither the seismic nor acoustic observations indicated further energetic activity associated with the accident.
+
+Taken together, these observations demonstrate that the Falcon~9 accident was not a single explosion but a prolonged sequence of discrete impulsive sources spanning more than 26~min. The quantitative catalogue provides a detailed chronology against which video observations and subsequent engineering investigations can be compared.
+
+\subsection{Finite-range wavefront results}
+\label{sec:results_finite_range}
+
+% TODO: populate from the frozen Python circular-wavefront products.
+The modern Python workflow additionally compares the planar-wave solutions with a fixed-source circular-wavefront model and evaluates along-range and cross-range source-position sensitivity. Final results will report the relative coherence of the two models, the best-fitting apparent speed for a source fixed at SLC-40, and the open along-range resolution ridges expected from a three-sensor array.
+
+\subsection{Acoustic--seismic amplitude relationship}
+\label{sec:results_regression}
+
+% TODO: populate from the frozen Python pressure--PGV regression products.
+The modern Python workflow also quantifies the relationship between acoustic peak-to-peak pressure and three-component vector PGV. Final results will report the fitted power-law exponent, its bootstrap interval, the proportional-model constant, sample size, and residual scatter.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Independent forensic reconstruction}
+\label{sec:discussion_reconstruction}
+
+% TODO Figure: integrated geophysical/video chronology after the video timing is finalized.
+The BCHH observations provide an independent forensic record of the Falcon~9
+accident. The original analysis was organized around five practical questions:
+whether a detectable energetic precursor occurred; how many discrete events
+followed and when; how large the principal events were; whether the impulsive
+signals originated consistently from SLC-40; and whether their propagation
+speeds were compatible with atmospheric airwaves. The seismic and infrasound
+records address these questions without reliance on proprietary launch-vehicle
+telemetry.
+
+No anomalous impulsive precursor attributable to the accident was identified
+during the preceding 37~h. The sequence subsequently produced 153 catalogued
+impulsive infrasound events over approximately 26~min, with the principal
+explosion dominating both pressure and ground-motion amplitudes. High-quality
+array solutions consistently pointed toward SLC-40, and their apparent speeds
+were broadly compatible with direct acoustic propagation under the observed
+atmospheric conditions.
+
+The combined seismic, infrasound, and publicly available video observations
+permit a detailed reconstruction of the temporal evolution of the Falcon~9
+explosion sequence. A final integrated-chronology figure will be inserted after the waveform and video timing products are frozen. Although the datasets record
+different physical manifestations of the accident, they are mutually
+consistent and together provide a more complete chronology than any individual
+dataset alone.
+
+The earliest geophysical observations include a weak seismic feature followed approximately 2.3~s later by the first impulsive infrasound event. The origin and significance of the earlier seismic feature require final verification against the waveform records. No anomalous seismic or infrasonic activity was detected during the preceding 37~h, indicating that the observed sequence began abruptly. The first visible flash in public video coincides closely with the initial infrasound event after accounting for acoustic travel times, providing an independent synchronization between geophysical and optical observations.
+
+Approximately 4~s later, the largest explosion produced by far the strongest acoustic and seismic signals recorded by BCHH. Public video shows this event corresponding to rapid expansion of the principal fireball and catastrophic destruction of the launch vehicle. Several seconds later, acoustic and ground-coupled signals occurred during
+the interval in which video shows the payload or capsule descending and
+apparently reaching the ground. The current raw waveforms do not isolate an
+unambiguous direct seismic impact phase, so the association remains tentative
+pending regeneration of the legacy polarization analysis.
+
+Following the initial failure phase, activity evolved through three
+additional phases of progressively smaller impulsive events separated by
+intervals of greatly reduced activity. Between the first and second phases, a
+prolonged continuous signal persisted for approximately 3.5~min. The signal is
+prominent seismically and may also be present on HD2, but it does not appear as
+a sequence of discrete impulsive infrasound events. A possible association with
+sustained launch-pad fire will be tested against synchronized video.
+
+Taken together, the observations demonstrate that the Falcon~9 accident was not a single explosion but a prolonged sequence of discrete energetic events extending over more than 26~min. The event catalogue provides a quantitative framework for examining that evolution and comparing it with subsequent engineering investigations.
+
+\subsection{Comparison with the official failure investigation}
+\label{sec:discussion_investigation}
+
+At the time the original analyses were performed in 2016--2017, the engineering cause of the accident had not yet been established. SpaceX subsequently released results of its failure investigation, providing an independent chronology against which the geophysical observations can be evaluated.
+
+According to that investigation, the initiating failure involved rapid release
+of helium from a composite overwrapped pressure vessel immersed within the
+second-stage liquid-oxygen tank. The resulting overpressure led to structural
+failure of the second stage, followed by rapid destruction of the launch
+vehicle and ignition of the propellant inventory. Although the geophysical
+observations alone cannot identify these engineering mechanisms, they
+independently document the timing and relative magnitudes of the principal
+energetic events. The absence of a detectable preceding energetic signal is
+consistent with an initiating process internal to the vehicle, but the BCHH
+observations alone cannot identify that process or exclude every possible
+external mechanism.
+
+The initial infrasound event represents the first identifiable atmospheric manifestation of the accident and is consistent in timing with the earliest visible evidence of vehicle failure. Approximately 4~s later, the principal explosion produced the largest acoustic and seismic signals of the sequence and coincided with rapid growth of the fireball in public video. The close correspondence between the independently derived geophysical chronology and subsequently published engineering timeline supports the interpretation that the event catalogue accurately captures the evolution of the accident.
+
+Importantly, the event catalogue, propagation measurements, amplitude estimates, and timing relationships were derived from the seismic and infrasound recordings independently of the later engineering interpretation. The SpaceX findings therefore provide an external comparison rather than the basis for the geophysical measurements.
+
+\subsection{Seismo-acoustic characteristics of a near-field rocket explosion}
+\label{sec:discussion_characteristics}
+
+The Falcon~9 dataset provides a rare opportunity to examine a catastrophic technological explosion at a source distance of only approximately 1.4~km. At this range, direct acoustic arrivals dominate, minimizing uncertainties associated with long-range atmospheric propagation that complicate regional infrasound observations.
+
+The explosion radiated energy much more efficiently into the atmosphere than into the ground. The principal explosion generated peak pressures exceeding 1400~Pa at BCHH while producing comparatively modest seismic amplitudes, yielding an acoustic-to-seismic energy ratio characteristic of a predominantly atmospheric source. Smaller events frequently generated clear infrasound signals with little or no measurable seismic counterpart, demonstrating that pressure measurements provide substantially greater sensitivity to this source class than ground-motion observations alone.
+
+Array measurements further demonstrate that the impulsive events were remarkably consistent in both back azimuth and apparent propagation speed despite spanning more than two orders of magnitude in pressure amplitude. Nearly all high-quality events originated from the direction of SLC-40, indicating that the numerous impulsive sources occurred within or immediately adjacent to the launch complex.
+
+Classical symmetric N-wave morphology was not observed, even for the
+principal explosion. The available data do not uniquely distinguish among
+source complexity, near-ground propagation, waveform evolution over the
+1.4-km path, and instrumental or local-site effects, so no single explanation
+is preferred.
+
+\subsection{Planar and finite-range propagation}
+\label{sec:discussion_propagation}
+
+The modern Python analysis extends the original planar-wave treatment by explicitly evaluating a finite-range circular wavefront. At a source distance of approximately 1.4~km and an array aperture of approximately 30~m, wavefront curvature is small but potentially measurable. Comparison of the planar and fixed-source circular models provides a direct test of whether curvature affects the inferred propagation speed or coherence.
+
+The finite-range sensitivity calculations also clarify the resolution of the three-element array. Two independent relative delays are sufficient to constrain direction and apparent speed under a planar model, but they cannot independently determine source easting, source northing, and propagation speed. The resulting open along-range coherence ridges therefore represent a fundamental range-resolution limitation rather than a failure of the optimization procedure. Final discussion of the magnitude of finite-range corrections will be added after the Python results are frozen.
+
+\subsection{Comparison with other technological and natural explosions}
+\label{sec:discussion_comparison}
+
+Large technological explosions have previously been investigated using
+seismic and infrasound observations, including the 2005 Buncefield oil-depot
+explosion \citep{ottemoller_2008,green_2008,ceranna_2009}, the 2014 Moerdijk
+chemical-plant explosions \citep{smink_2019}, and the 2020 Beirut
+ammonium-nitrate explosion
+\citep{pilger_beirut_2021,kim_pasyanos_2022}. Such studies demonstrate the value of seismo-acoustic observations for estimating source location, explosive yield, and source characteristics. Most, however, rely primarily on regional observations, where atmospheric propagation strongly influences arrival times, amplitudes, and waveforms and detailed propagation modelling is required.
+
+The Falcon~9 dataset differs in several respects. BCHH was located only approximately 1.4~km from the launch pad, so direct acoustic and seismic arrivals dominate and propagation uncertainties are comparatively small. Rather than emphasizing yield estimation alone, the proximity of the observations permits reconstruction of a complex sequence comprising more than 150 individual impulsive events. Public video and the subsequent failure investigation provide independent constraints against which the geophysical chronology can be evaluated. Together, these datasets make the accident an unusually well-constrained benchmark for near-field seismo-acoustic analysis of a technological explosion.
+
+In several respects, the prolonged sequence resembles sustained explosive activity during volcanic eruptions, in which a major explosion is followed by numerous smaller impulses over minutes to tens of minutes. The event-catalogue approach therefore has applications beyond rocket launches, providing a common framework for analysing complex atmospheric explosion sequences and integrating seismic, infrasound, and optical observations to reconstruct source evolution.
+
+\subsection{Implications for rocket-launch monitoring}
+\label{sec:discussion_monitoring}
+
+The accidental recording of the Falcon~9 failure demonstrates the forensic
+value of continuous seismo-acoustic monitoring at launch facilities. A single
+well-calibrated station constrained the onset, absence of detectable energetic
+precursors, number and timing of subsequent impulsive events, relative
+amplitudes, source direction, and propagation characteristics without access to
+proprietary engineering telemetry.
+
+Since 2016, launch cadence and the number of launch providers at Kennedy Space Center and Cape Canaveral have increased substantially. The methods developed here---including systematic event cataloguing, array-based propagation analysis, and integration with independent observational datasets---provide a foundation for monitoring both nominal launches and off-nominal events.
+
+Future networks employing multiple seismo-acoustic arrays could substantially improve source-location capability while enabling more detailed characterization of explosion dynamics, sonic booms, and other transient atmospheric phenomena associated with rocket operations.
+
+\subsection{Limitations}
+\label{sec:discussion_limitations}
+
+Several limitations should be considered. The observations were obtained from a single three-element seismo-acoustic array, preventing independent triangulation of individual sources. The array analysis therefore provides robust directional and apparent-speed constraints but limited source-range resolution.
+
+Event identification was performed manually because of the modest data volume and complexity of the sequence. Although this produced an internally consistent catalogue, larger datasets would benefit from automated detection algorithms trained and validated against the manual reference catalogue.
+
+The infrasound calibrations were empirical field estimates rather than
+laboratory-traceable absolute calibrations, and their absolute uncertainty
+requires final documentation. Public-video timing is also limited by uncertain
+camera locations, frame timing, and absent absolute timestamps in some
+recordings.
+
+The forensic conclusions are constrained by the types of processes detectable
+seismo-acoustically. The absence of a precursor means that no anomalous
+energetic seismic or infrasonic signal was identified above the effective noise
+and detection limits of BCHH. It does not exclude slow structural degradation,
+internal fluid or mechanical processes, weak sources, or other mechanisms that
+would not generate a detectable signal at the array.
+
+Interpretations of payload or capsule impact and of the prolonged continuous
+signal remain provisional. The former depends partly on legacy polarization
+attributes not yet regenerated in Python, while the latter requires
+reassessment across the seismic and infrasound channels and comparison with
+synchronized video.
+
+Finally, the acoustic and seismic energy estimates should be regarded as
+first-order approximations because of uncertainties in atmospheric propagation,
+near-surface properties, source radiation, and the exact implementation of the
+legacy MATLAB calculations. These limitations do not preclude relative
+comparisons within the sequence but must be considered when comparing absolute
+energies with other events.
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+The 1 September 2016 Falcon~9 static-fire accident produced one of the most comprehensively documented near-field technological explosions recorded by a colocated seismic and infrasound array. Continuous observations acquired at BCHH, approximately 1.4~km from SLC-40, captured the complete 26-minute sequence with high signal-to-noise ratio, providing a rare opportunity to investigate the temporal evolution of a catastrophic launch-vehicle failure using geophysical observations.
+
+Manual analysis identified a catalogue of 153 impulsive infrasound events.
+The records also contain tentative payload- or capsule-related signals and a
+prolonged interval of continuous activity that are not included as additional
+members of the impulsive-event catalogue. The interpretation of these features
+requires further polarization and video analysis. The catalogue is the
+principal scientific product of this study and provides quantitative
+measurements of event timing, amplitude, apparent propagation speed, back
+azimuth, and, where measurable, acoustic and seismic energy.
+
+The observations address the principal forensic questions that motivated the
+original analysis. No anomalous energetic seismic or infrasonic precursor
+attributable to the accident was identified during the preceding 37~h. This
+result constrains detectable impulsive precursors but does not exclude
+non-energetic or seismo-acoustically undetectable initiating processes. The
+accident generated 153 catalogued impulsive infrasound events over approximately
+26~min, rather than a single explosion. Approximately 4~s after the first
+detected acoustic manifestation, the principal explosion produced the largest
+pressure and ground-motion amplitudes of the sequence. High-quality array
+solutions consistently pointed toward SLC-40, and their apparent propagation
+speeds were broadly compatible with direct atmospheric propagation under the
+observed meteorological conditions.
+
+Comparison with public video and the subsequently published SpaceX failure investigation shows that the independently derived geophysical chronology is consistent with the documented evolution of the accident. The observations therefore provide an independent forensic record without relying on proprietary engineering telemetry.
+
+More broadly, the study demonstrates the value of continuous near-field
+seismo-acoustic monitoring at major launch facilities. Even a single
+well-calibrated array was sufficient to constrain the timing, evolution,
+relative magnitudes, source direction, and propagation characteristics of a
+complex launch-vehicle failure. Multiple arrays would add source-location
+capability and improve characterization of nominal launches, anomalous events,
+sonic booms, and explosion dynamics.
+
+By making the waveform archive, event catalogue, and analysis software openly available, this study will establish a benchmark dataset for developing and evaluating future seismo-acoustic methods and for comparison with subsequent rocket-launch accidents and other complex atmospheric explosions.
+
+\begin{acknowledgements}
+% TODO: confirm acknowledgements, funding, KSC support, array deployment assistance, weather-data providers, SpaceX wording, and Astronaut Beach House access.
+Acknowledgements to be completed.
+\end{acknowledgements}
+
+\section*{Data and code availability}
+
+% TODO: replace placeholders with persistent repository citations and DOIs.
+Continuous waveform data, station metadata, manual arrival picks, the event catalogue, Python notebooks, archived MATLAB routines, derived tables, and figure-generation scripts will be deposited in an open repository with a persistent identifier. The repository will identify which workflow generated each reported product. GitHub-hosted development code will be archived as a versioned release in a persistent repository such as Zenodo.
+
+\section*{Competing interests}
+
+The authors declare that they have no competing interests.
+
+% Requires mybibfile_updated.bib in the manuscript directory.
+\bibliography{mybibfile}
+
+\end{document}
