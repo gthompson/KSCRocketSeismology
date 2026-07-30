@@ -13,16 +13,17 @@ def write_geometry_products(
     stations_df: pd.DataFrame,
     locations_df: pd.DataFrame,
     output_directory: str | Path,
+    prefix: str,
 ) -> dict[str, Path]:
     """Write standardized geometry products shared by analysis and Figure 1."""
     output_directory = Path(output_directory)
     output_directory.mkdir(parents=True, exist_ok=True)
 
     paths = {
-        "inventory": output_directory / "BCHH_20160901_event_inventory.xml",
-        "channels": output_directory / "bchh_channels.csv",
-        "stations": output_directory / "bchh_stations.csv",
-        "locations": output_directory / "launchpad_camera_locations.csv",
+        "inventory": output_directory / f"{prefix}BCHH_20160901_event_inventory.xml",
+        "channels": output_directory / f"{prefix}bchh_channels.csv",
+        "stations": output_directory / f"{prefix}bchh_stations.csv",
+        "locations": output_directory / f"{prefix}launchpad_camera_locations.csv",
     }
     inventory.write(str(paths["inventory"]), format="STATIONXML", validate=True)
     channels_df.to_csv(paths["channels"], index=False)
@@ -33,15 +34,16 @@ def write_geometry_products(
 
 def read_geometry_products(
     derived_directory: str | Path,
+    prefix: str,
 ) -> tuple[Inventory, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Read standardized geometry products written by Notebook 02."""
     derived_directory = Path(derived_directory)
     inventory = read_inventory(
-        str(derived_directory / "BCHH_20160901_event_inventory.xml")
+        str(derived_directory / f"{prefix}BCHH_20160901_event_inventory.xml")
     )
-    channels = pd.read_csv(derived_directory / "bchh_channels.csv")
-    stations = pd.read_csv(derived_directory / "bchh_stations.csv")
+    channels = pd.read_csv(derived_directory / f"{prefix}bchh_channels.csv")
+    stations = pd.read_csv(derived_directory / f"{prefix}bchh_stations.csv")
     locations = pd.read_csv(
-        derived_directory / "launchpad_camera_locations.csv"
+        derived_directory / "{prefix}launchpad_camera_locations.csv"
     )
     return inventory, channels, stations, locations

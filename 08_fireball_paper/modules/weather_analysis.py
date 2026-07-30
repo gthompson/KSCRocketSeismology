@@ -35,12 +35,38 @@ def load_ksc_weather_excel(
     filename = Path(filename)
     dataframe = pd.read_excel(filename, sheet_name=sheet_name)
 
+    # Normalize spreadsheet headers before checking them. KSC exports may
+    # contain leading/trailing spaces or slightly different latitude/longitude
+    # labels. Latitude and longitude are optional because they are not required
+    # for the atmospheric profile or acoustic-speed calculations.
+    dataframe = dataframe.copy()
+    dataframe.columns = [
+        str(column).strip()
+        for column in dataframe.columns
+    ]
+
+    aliases = {
+        "Latitude": "Lat",
+        "Longitude": "Lon",
+        "Tower Latitude": "Lat",
+        "Tower Longitude": "Lon",
+        "Average Wind Direction": "Avg Wind Direction",
+        "Average Wind Speed": "Avg Wind Speed",
+        "Temperature": "Temp",
+        "RH": "Relative Humidity",
+    }
+    dataframe = dataframe.rename(
+        columns={
+            source: target
+            for source, target in aliases.items()
+            if source in dataframe.columns and target not in dataframe.columns
+        }
+    )
+
     required = {
         "UTC Date",
         "UTC Time",
         "Tower Measurement Location",
-        "Lat",
-        "Lon",
         "Height",
         "Avg Wind Direction",
         "Avg Wind Speed",
@@ -50,10 +76,27 @@ def load_ksc_weather_excel(
     missing = required.difference(dataframe.columns)
     if missing:
         raise KeyError(
-            f"Weather spreadsheet is missing required columns: {sorted(missing)}"
+            "Weather spreadsheet is missing required columns: "
+            f"{sorted(missing)}\n"
+            f"Available columns: {dataframe.columns.tolist()}"
         )
 
     out = dataframe.copy()
+
+    # Preserve tower coordinates when supplied, but do not require them.
+    if "Lat" in out.columns:
+        out["tower_latitude"] = pd.to_numeric(
+            out["Lat"], errors="coerce"
+        )
+    else:
+        out["tower_latitude"] = np.nan
+
+    if "Lon" in out.columns:
+        out["tower_longitude"] = pd.to_numeric(
+            out["Lon"], errors="coerce"
+        )
+    else:
+        out["tower_longitude"] = np.nan
 
     date_text = pd.to_datetime(out["UTC Date"]).dt.strftime("%Y-%m-%d")
     time_text = out["UTC Time"].astype(str)
