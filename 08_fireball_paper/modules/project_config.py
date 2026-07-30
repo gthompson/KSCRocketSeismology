@@ -30,6 +30,7 @@ DATA_DIR = Path(
     )
 ).expanduser()
 
+# obsolete - replaced by SDS
 MINISEED_DIR = Path(
     os.environ.get(
         "FALCON9_MINISEED_DIR",
@@ -37,6 +38,10 @@ MINISEED_DIR = Path(
         "20160901_SpaceXplosion",
     )
 ).expanduser()
+
+SDS_DIR = "/Volumes/haldata/remastered/SDS_KSC"
+
+ROCKET_CATALOG_DIR = Path('~/Library/CloudStorage/Box-Box/thompsong/DATA/rocket_events').expanduser()
 
 
 # -----------------------------------------------------------------------------
