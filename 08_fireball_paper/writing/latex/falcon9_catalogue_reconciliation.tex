@@ -1,0 +1,270 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\title{Construction and Reconciliation of the Falcon 9 Infrasound Event Catalogue}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Purpose and provenance}
+
+The Falcon 9 accident sequence was originally represented by two legacy
+catalogue products containing 153 and 157 infrasound-event windows. Both were
+derived from manual arrival picks made on the BCHH infrasound array using
+Antelope \texttt{dbpick}, but the historical products used different event
+constructions. We therefore treated both catalogues as provenance products and
+reconstructed the event sequence directly from the preserved manual picks.
+The reconstruction was designed to determine a reproducible event count
+without selecting processing parameters merely because they reproduced either
+legacy count.
+
+The archived pick table contained 890 picks of all types. After limiting the
+data to non-deleted infrasound phase-\(N\) picks within the accident interval,
+384 picks remained. Of these, 66 were recorded on DD1, 162 on DD2, and 156 on
+DD3. The archived channel names HD1--HD3 were mapped to the corresponding
+current channel names DD1--DD3 without modifying the original pick table.
+DD1 contained substantially fewer accepted picks than DD2 and DD3 and was
+therefore treated as a supporting channel rather than as a requirement for
+event acceptance.
+
+\begin{table}[htbp]
+\centering
+\caption{Accepted manual infrasound picks used for catalogue reconstruction.}
+\label{tab:accepted_picks}
+\begin{tabular}{lrr}
+\toprule
+Channel & Accepted picks & Role in final assessment \\
+\midrule
+DD1 & 66  & Supporting channel; not allowed to veto DD2--DD3 detections \\
+DD2 & 162 & Primary reference channel \\
+DD3 & 156 & Primary corroborating channel \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Reduced-time event association}
+
+Raw inter-pick spacing was examined to document the legacy event construction,
+but it was not used to select the production association window. The raw pick
+times contain the acoustic travel time across the array; in particular, the
+predicted DD1--DD2 differential travel time is approximately 0.090~s. A raw
+0.1~s grouping window would therefore compensate partly for array geometry
+rather than represent a physical separation between successive source events.
+
+Each accepted pick was instead reduced to the DD2 reference time using
+
+\begin{equation}
+t_{i,\mathrm{red}}
+=
+t_i-
+\frac{r_i-r_{\mathrm{DD2}}}{c_{\mathrm{eff}}},
+\label{eq:reduced_time}
+\end{equation}
+
+where \(t_i\) is the observed pick time, \(r_i\) is the surveyed horizontal
+distance from SLC-40 to sensor \(i\), and
+\(c_{\mathrm{eff}}=350.977~\mathrm{m\,s^{-1}}\) is the meteorologically
+estimated effective sound speed along the source-to-array path. The resulting
+corrections were 0.090107~s for DD1, 0 for DD2, and 0.012867~s for DD3. These
+corrections were used only for pick association; the continuous waveform time
+axes were not altered.
+
+Reduced picks were sorted chronologically. Beginning with the earliest
+unassigned pick, all remaining picks within a following association window
+were considered a candidate group. At most one pick per channel was retained,
+and a candidate event required picks from at least two distinct infrasound
+channels. Picks that did not satisfy this requirement remained unassociated
+rather than being forced into an event.
+
+Association windows from 0.008 to 0.060~s were tested. The reconstructed event
+count increased from 128 at 0.008~s to 154 at 0.040~s and remained unchanged
+through 0.060~s (Table~\ref{tab:window_sensitivity}). We selected 0.040~s as
+the smallest tested value on this stable plateau. At this value, 371 of the
+384 accepted picks were associated into 154 candidates: 63 candidates had
+three-channel support and 91 had two-channel support. The median reduced pick
+span was 0.004867~s, and its 95th percentile was 0.017226~s.
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity of the reduced-time catalogue to the association window.}
+\label{tab:window_sensitivity}
+\begin{tabular}{rrrrrr}
+\toprule
+Window & Events & Associated & Unassociated & Three-channel & Two-channel \\
+(s) & & picks & picks & events & events \\
+\midrule
+0.008 & 128 & 303 & 81 & 47 & 81 \\
+0.012 & 144 & 347 & 37 & 59 & 85 \\
+0.016 & 149 & 357 & 27 & 59 & 90 \\
+0.020 & 151 & 363 & 21 & 61 & 90 \\
+0.024 & 152 & 366 & 18 & 62 & 90 \\
+0.030 & 153 & 368 & 16 & 62 & 91 \\
+\textbf{0.040} & \textbf{154} & \textbf{371} & \textbf{13} & \textbf{63} & \textbf{91} \\
+0.050 & 154 & 371 & 13 & 63 & 91 \\
+0.060 & 154 & 371 & 13 & 63 & 91 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 0.040~s window should be interpreted as an operational association
+tolerance rather than as a direct sound-speed constraint. Across the longest
+source-distance difference, plausible apparent speeds of approximately
+280--440~\(\mathrm{m\,s^{-1}}\) would produce residual delays no larger than
+about 0.023~s after reduction. The additional tolerance accommodates manual
+pick uncertainty, differences in waveform onset among sensors, small source
+position variations, and propagation-model error.
+
+\section{Targeted candidate review and final event count}
+
+Only one candidate was added when the association window increased from 0.030
+to 0.040~s. Candidate 137, at approximately 13:22:29.928 UTC, was supported by
+DD2 and DD3 with a reduced pick span of 0.035866~s. After waveform alignment,
+its best DD2--DD3 correlation was approximately 0.879 and its robust stack
+peak signal-to-noise ratio (SNR) was approximately 8.0. The coherent waveform
+supports retaining this threshold-sensitive event.
+
+One of the 154 candidates, candidate 148 at approximately 13:24:50.831 UTC,
+was supported only by DD1 and DD2. It had no DD3 pick or coherent DD3 waveform
+counterpart; the best DD2--DD3 correlation was only approximately 0.092.
+Because DD1 was the least reliable array element, DD1--DD2 support alone was
+not considered sufficient to establish an infrasound event. Candidate 148 was
+therefore classified as ambiguous and excluded. The production detection
+catalogue consequently contains
+
+\begin{equation}
+154\ \text{reduced-time candidates}
+-1\ \text{ambiguous candidate}
+=153\ \text{detected events}.
+\end{equation}
+
+This result supports the historical count of 153, but it is not obtained by
+tuning the association window to that number. Instead, it follows from a
+stable 154-candidate association result and an explicit waveform-based
+decision concerning the sole DD1--DD2-only candidate.
+
+Direct assignment of the accepted picks to the legacy 157-event windows also
+showed why the larger historical catalogue should not be interpreted as 157
+independently confirmed events. Only 146 of the 157 windows had support from
+at least two channels, 11 had fewer than two supporting channels, and three
+contained no accepted infrasound picks. Four adjacent window pairs touched or
+overlapped. Comparison of the two legacy products identified two possible
+153-to-157 splits and no convincing merges.
+
+\section{Waveform-quality subsets}
+
+Event detection was separated from suitability for quantitative waveform and
+array analysis. For every retained event, subsequent processing measured
+robust peak SNR, the signal-window to noise-window standard-deviation ratio,
+shifted DD2--DD3 correlation and residual lag, pressure amplitude, pulse
+morphology, and three-channel array coherence where DD1 was usable.
+
+The robust noise scale was defined using the median absolute deviation,
+
+\begin{equation}
+\sigma_{\mathrm{robust}}
+=
+1.4826\,\mathrm{median}
+\left(
+\left|p-\mathrm{median}(p)\right|
+\right),
+\end{equation}
+
+and robust peak SNR was calculated relative to this pre-event noise estimate.
+Of the 153 detected events, 138 had robust peak SNR of at least 3 and shifted
+DD2--DD3 correlation of at least 0.5. A core subset of 107 events had robust
+peak SNR of at least 5 and DD2--DD3 correlation of at least 0.7. Fifteen
+events remained valid DD2--DD3-supported detections but fell below the usable
+waveform thresholds.
+
+\begin{table}[htbp]
+\centering
+\caption{Operational catalogue and waveform-quality subsets. Thresholds are
+descriptive quality divisions rather than natural event classes.}
+\label{tab:quality_subsets}
+\begin{tabular}{p{0.22\linewidth}p{0.58\linewidth}r}
+\toprule
+Subset & Criteria & Events \\
+\midrule
+Detection catalogue & DD2 and DD3 reduced-time pick support after targeted review & 153 \\
+Usable waveform subset & Robust peak SNR $\geq 3$ and DD2--DD3 correlation $\geq 0.5$ & 138 \\
+Core waveform subset & Robust peak SNR $\geq 5$ and DD2--DD3 correlation $\geq 0.7$ & 107 \\
+Marginal detections & Retained detections below the usable waveform thresholds & 15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The absolute signal-window root-mean-square (RMS) or standard deviation was
+not used as an additional catalogue-defining cutoff. Absolute RMS is primarily
+an amplitude measure, while the signal-to-noise RMS ratio depends strongly on
+the selected window duration. A short pressure impulse can have high peak SNR
+but only moderate windowed RMS because the pulse occupies a small fraction of
+the measurement interval. The RMS or standard-deviation ratio should therefore
+be retained as a continuous diagnostic and sensitivity measure rather than as
+a binary event criterion.
+
+\section{Recommended presentation in the paper}
+
+\subsection{Main text}
+
+No new main-text figure is essential if the paper already contains a
+continuous-waveform or event-chronology figure showing the 153-event sequence.
+The principal catalogue-construction results can be reported concisely in the
+Methods and Results:
+
+\begin{itemize}
+\item 384 accepted manual infrasound picks;
+\item differential-time reduction to DD2 using 350.977~\(\mathrm{m\,s^{-1}}\);
+\item a 0.040~s association window and a two-channel minimum;
+\item 154 candidates followed by one explicit ambiguous-event exclusion;
+\item a final 153-event detection catalogue;
+\item 138 usable and 107 core waveform-quality events.
+\end{itemize}
+
+Table~\ref{tab:quality_subsets} is the only compact table that may be useful in
+the main paper, although these counts could also be stated in prose. The full
+association-window table is methodological detail and need not occupy main-text
+space.
+
+\subsection{Supplementary material}
+
+Two supplementary figures would provide the strongest audit trail:
+
+\begin{enumerate}
+\item \textbf{Reduced-time association sensitivity.} Event count, associated
+pick count, and preferably the median or 95th-percentile corrected pick span
+versus association window. This demonstrates the stable 0.040--0.060~s
+plateau. The existing event-count figure is adequate, but a second panel for
+pick-span statistics would make it more informative.
+\item \textbf{Targeted waveform decisions.} Baseline-corrected, reduced-time
+DD2 and DD3 overlays for candidate 137 and candidate 148. This directly
+documents why the threshold-sensitive candidate was retained and the
+DD1--DD2-only candidate was excluded.
+\end{enumerate}
+
+The following should be supplied electronically:
+
+\begin{itemize}
+\item the complete 153-event catalogue;
+\item the 154-candidate decision table, including the excluded candidate and
+its rationale;
+\item the reduced-pick assignment table;
+\item the association-window sensitivity table;
+\item per-event waveform-quality measurements and tier assignments.
+\end{itemize}
+
+The raw global-gap histogram, same-channel-gap histogram, raw-time clustering
+sweep, 157-window pick raster, and complete 153-versus-157 matching tables are
+valuable provenance products but are not essential publication figures. They
+can remain in the reproducibility archive or an extended supplement. In
+particular, the raw-time threshold plots should not be emphasized because they
+combine source recurrence with inter-sensor propagation delays.
+
+\end{document}

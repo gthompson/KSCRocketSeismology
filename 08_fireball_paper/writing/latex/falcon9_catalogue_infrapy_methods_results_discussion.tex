@@ -1,0 +1,234 @@
+% Draft manuscript text derived from:
+% 04_reconcile_manual_event_catalogs.ipynb
+% S03_validate_catalogue_with_infrapy_bartlett.ipynb
+% S03_validate_catalogue_with_infrapy_bartlett_continuous.ipynb
+%
+% The BibTeX key `infrapy` is provisional and should be replaced by the
+% key used for the archived InfraPy software release in mybibfile.bib.
+
+\subsection{Manual arrival picking and reduced-time event association}
+\label{sec:methods_catalogue_association}
+
+Infrasonic arrivals were picked manually on the three pressure channels using
+Antelope \texttt{dbpick}.  Catalogue reconstruction retained non-deleted
+phase-\(N\) picks within the accident interval.  The archived channel names
+HD1--HD3 were mapped to the corresponding current StationXML channel names
+DD1--DD3 without altering the archived pick times.  This procedure retained
+384 picks: 66 on DD1, 162 on DD2, and 156 on DD3.  Unix epoch seconds were used
+throughout to preserve the original millisecond timing.
+
+Before association, each pick was reduced to the DD2 reference time using the
+surveyed source--receiver geometry and the meteorologically estimated effective
+sound speed:
+
+\begin{equation}
+t_{i,\mathrm{red}} = t_i - \frac{r_i-r_{\mathrm{DD2}}}{c_{\mathrm{eff}}},
+\label{eq:reduced_pick_time}
+\end{equation}
+
+where \(r_i\) is the SLC-40--sensor distance and
+\(c_{\mathrm{eff}}=350.977\ \mathrm{m\,s^{-1}}\).  The resulting corrections
+were 0.090107, 0, and 0.012867~s for DD1, DD2, and DD3, respectively.  These
+corrections were used only for event association; the waveform sample times
+were not changed.
+
+Reduced picks were sorted chronologically.  Beginning with the earliest
+unassigned pick, picks within a following association window were grouped as a
+candidate cluster.  At most one pick per channel was retained, selecting the
+pick closest to the cluster seed when necessary.  A cluster was accepted only
+when it contained picks from at least two distinct infrasound channels, and its
+reduced event time was defined as the median of the selected reduced pick
+times.  Picks that did not satisfy the two-channel criterion remained
+unassociated rather than being forced into an event.
+
+Association windows from 0.008 to 0.060~s were tested.  The number of
+two-or-more-channel candidates increased from 128 at 0.008~s to 153 at
+0.030~s, and reached a stable plateau of 154 candidates between 0.040 and
+0.060~s.  We adopted 0.040~s because it was the smallest value on this plateau.
+The single candidate added between 0.030 and 0.040~s had coherent DD2--DD3
+waveforms after the predicted shift (maximum correlation 0.879) and a robust
+stack peak signal-to-noise ratio (SNR) of 8.0, supporting its retention.  Of
+the 154 candidates, one DD1--DD2 candidate was excluded following targeted
+waveform review because it lacked both a DD3 pick and a coherent DD3 waveform
+counterpart (DD2--DD3 correlation 0.092).  The resulting detection catalogue
+contained 153 events.  Event detection was kept separate from subsequent
+waveform-quality classification; no amplitude, SNR, or beamforming threshold
+was used to define the catalogue count.
+
+\subsection{Waveform-quality measurements}
+\label{sec:methods_waveform_quality}
+
+Waveform quality was measured consistently for every retained event using the
+baseline-corrected pressure records.  The three traces were aligned using the
+surveyed differential distances and \(c_{\mathrm{eff}}\), independently of the
+subsequent beamforming result, and combined using a sample-by-sample median.
+The signal interval extended from \(-0.08\) to \(+0.25\)~s relative to the
+reduced event time, and the noise interval from \(-0.50\) to \(-0.15\)~s.
+Peak SNR was defined as the maximum absolute median-stack amplitude divided by
+the robust noise scale
+
+\begin{equation}
+\sigma_{\mathrm{MAD}} = 1.4826\,
+\mathrm{median}\left(\left|p-\mathrm{median}(p)\right|\right).
+\end{equation}
+
+An RMS SNR was also calculated as the ratio of signal-window to noise-window
+root-mean-square amplitudes.  Finally, the maximum normalized correlation
+between the fixed-geometry-aligned DD2 and DD3 traces was found while allowing
+a residual lag of \(\pm0.020\)~s.  The peak SNR and DD2--DD3 correlation were
+used to define descriptive waveform-quality subsets: a usable subset required
+peak SNR \(\geq3\) and correlation \(\geq0.5\), whereas a core subset required
+peak SNR \(\geq5\) and correlation \(\geq0.7\).  These are operational quality
+divisions rather than event-detection criteria.  RMS SNR was retained as a
+continuous diagnostic because it depends strongly on window duration and can
+be modest for short, high-amplitude impulses.
+
+\subsection{Independent Bartlett beamforming validation}
+\label{sec:methods_infrapy_validation}
+
+The catalogue and array measurements were independently evaluated using the
+frequency-domain Bartlett beamformer implemented in LANL InfraPy version
+0.4.1.0 \citep{infrapy}.  The three baseline-corrected pressure channels were
+processed directly as an ObsPy stream using their surveyed coordinates.  The
+analysis band was 2--20~Hz and the beam window length was 0.50~s.  For the
+event-centred analysis, one window was centred on each reduced catalogue time.
+Back azimuth was searched from \(170^{\circ}\) to \(230^{\circ}\) in
+\(0.5^{\circ}\) increments, and trace velocity from 280 to
+440~\(\mathrm{m\,s^{-1}}\) in 2~\(\mathrm{m\,s^{-1}}\) increments.  The
+surveyed back azimuth to SLC-40 was \(199.438^{\circ}\); the meteorological
+effective speed of 350.98~\(\mathrm{m\,s^{-1}}\) was retained as an external
+reference and was not imposed on the beam search.
+
+At each grid point, InfraPy returned normalized Bartlett coherence \(C\).  For
+three channels, the reported Fisher statistic was calculated as
+
+\begin{equation}
+F = (N-1)\frac{C}{1-C}, \qquad N=3.
+\label{eq:bartlett_f_statistic}
+\end{equation}
+
+An empirical screening threshold was obtained from 153 evenly spaced,
+non-overlapping 0.50-s windows preceding the first catalogue event.  The
+99.5th percentile of this background distribution was \(F=3.023\).
+
+To test catalogue recovery without using the catalogue times to position the
+analysis windows, the complete common three-channel interval was also scanned
+with 0.50-s windows stepped by 0.10~s.  For computational efficiency, this
+blind scan used a \(1^{\circ}\) back-azimuth grid and a
+5~\(\mathrm{m\,s^{-1}}\) trace-velocity grid over the same search limits.
+Blind candidates were defined as local maxima above the empirical \(F\)
+threshold, separated by at least 0.10~s and having a prominence of at least
+twice the robust background \(F\)-statistic scale.  Only after peak detection
+were blind candidates matched greedily and one-to-one to catalogue events
+within \(\pm0.25\)~s.  InfraPy's sequential detection grouping was also
+retained to describe broad episodes of coherent activity, but these episodes
+were not interpreted as individual explosions because overlapping windows can
+merge closely spaced events.
+
+\subsection{Catalogue construction and waveform quality}
+\label{sec:results_catalogue_quality}
+
+The final catalogue comprises 153 events between 13:07:15.927 and
+13:33:54.396~UTC, a span of 1598.47~s (26.64~min).  Ninety events were supported
+by DD2 and DD3, and 63 by all three infrasound sensors; thus every retained
+event included picks on both DD2 and DD3.  After travel-time
+reduction, the median span among picks assigned to an event was 0.00487~s and
+the 95th percentile was 0.0173~s.
+
+The median robust peak SNR was 7.86.  Of the 153 events, 146 had peak SNR
+\(\geq3\), 120 had peak SNR \(\geq5\), and 63 had peak SNR \(\geq10\).  The
+median RMS SNR was 2.23.  Median DD2--DD3 correlation was 0.876; 137 events had
+correlation \(\geq0.5\), 117 had correlation \(\geq0.7\), and 70 had
+correlation \(\geq0.9\).  Applying the joint descriptive criteria yielded 132
+events in the usable subset and 100 in the core subset.  For 151 of 153 events,
+the best residual DD2--DD3 lag after the fixed geometric correction was no
+larger than one sample (0.004~s) in magnitude.
+
+\subsection{Event-centred Bartlett validation}
+\label{sec:results_event_centred_bartlett}
+
+The event-centred InfraPy analysis yielded a median \(F\) statistic of 5.04,
+with 113 of 153 event windows exceeding the empirical pre-event threshold of
+3.023.  The median back azimuth was \(200.675^{\circ}\), compared with the
+surveyed SLC-40 direction of \(199.438^{\circ}\), and the median absolute
+back-azimuth error was \(1.43^{\circ}\).  Among all events, 145 were within
+\(5^{\circ}\) and 151 were within \(10^{\circ}\) of SLC-40.  Among the 113
+events above the empirical \(F\) threshold, 112 were within \(5^{\circ}\) and
+all were within \(10^{\circ}\).
+
+The median trace velocity was 354.6~\(\mathrm{m\,s^{-1}}\), close to but not
+identical with the meteorological effective speed of
+350.98~\(\mathrm{m\,s^{-1}}\).  Trace-velocity scatter decreased strongly with
+beam quality.  The 5th--95th percentile interval was 308--428~\(\mathrm{m\,s^{-1}}\)
+for all events, 327--394~\(\mathrm{m\,s^{-1}}\) for events above the empirical
+threshold, and 346--372~\(\mathrm{m\,s^{-1}}\) for the 42 events with
+\(F\geq10\).  No event with \(F\geq5\) reached a trace-velocity grid boundary,
+indicating that the extreme speeds were confined to weak, poorly constrained
+windows rather than strong solutions truncated by the search limits.
+
+\subsection{Blind continuous Bartlett validation}
+\label{sec:results_continuous_bartlett}
+
+The blind scan evaluated 17,839 overlapping windows and identified 418 local
+\(F\)-statistic maxima above the deliberately permissive empirical threshold.
+Greedy one-to-one matching within \(\pm0.25\)~s recovered 129 of the 153
+catalogue events (84.3\%).  If sharing of a broad peak by closely spaced events
+was allowed, 136 catalogue events had a blind peak within 0.25~s.  The 129
+matched blind peaks had median \(F=8.08\), median back azimuth
+\(200.623^{\circ}\), and median trace velocity
+356.0~\(\mathrm{m\,s^{-1}}\); 126 were within \(5^{\circ}\) and all were within
+\(10^{\circ}\) of SLC-40.
+
+The 24 events not recovered by one-to-one matching were systematically weaker
+than the recovered events.  Their median event-centred \(F\), peak SNR, RMS
+SNR, and DD2--DD3 correlation were 2.19, 5.70, 1.59, and 0.606, respectively,
+compared with 5.76, 8.85, 2.42, and 0.893 for recovered events.  Some nominally
+missed events occurred in dense sequences and lay close to a broad blind peak
+that had already been assigned to a neighboring catalogue event.
+
+The 289 unmatched local maxima were predominantly marginal or occurred in the
+coda of catalogue events.  At \(F\geq10\), 57 of 62 blind peaks matched the
+catalogue, and the five unmatched peaks all occurred within 1~s of a catalogue
+event.  Every one of the 31 peaks with \(F\geq20\) matched the catalogue.  No
+unmatched peak more than 1~s from a catalogue event exceeded \(F=8.41\).
+During the 183.6~s of the blind scan preceding the first catalogue event, 11
+low-level maxima exceeded the permissive \(F=3.023\) threshold, but none
+reached \(F=4\); their directions and trace velocities were not stable.
+
+\subsection{Catalogue robustness and limitations of the independent validation}
+\label{sec:discussion_catalogue_validation}
+
+The reduced-time reconstruction supports a 153-event \emph{detection}
+catalogue, while the waveform metrics describe a nested continuum of event
+quality.  This distinction is important: a weak event need not satisfy a
+high-SNR or three-channel beamforming criterion to be credible when it has
+geometrically consistent manual picks on DD2 and DD3; waveform correlation and
+beam coherence provide additional continuous measures of confidence rather
+than binary definitions of event existence.  Conversely, DD1 provides useful
+supporting information but should not
+veto an event because it produced substantially fewer accepted picks and was
+often less consistent than the other two sensors.
+
+The InfraPy analysis provides independent support for the source direction and
+for the moderate-to-strong portion of the catalogue.  Both event-centred and
+blind results cluster tightly around the surveyed direction to SLC-40, whereas
+the trace-velocity distribution narrows only as coherence increases.  The
+broad speeds obtained for weak windows should therefore be interpreted as poor
+resolution of the back-azimuth--slowness surface, not as evidence for similarly
+large physical variations in atmospheric sound speed.  The approximately
+355--357~\(\mathrm{m\,s^{-1}}\) median obtained from the better constrained
+solutions is a trace velocity and should not be conflated with the independently
+estimated 350.98~\(\mathrm{m\,s^{-1}}\) effective propagation speed.
+
+The blind scan does not provide an independent proof that the exact event count
+must be 153.  Its 0.50-s overlapping windows cannot resolve every event in the
+densest parts of the sequence, while ringing, coda energy, and adjacent window
+maxima can produce several blind peaks around one physical event.  This explains
+both the unmatched weak catalogue events and the large raw count of 418 blind
+maxima.  Nevertheless, the absence of any strong unmatched peak away from the
+catalogue, together with complete matching of all peaks with \(F\geq20\),
+provides no evidence for a missing moderate or strong explosion.  The blind
+scan also found no coherent moderate or strong precursor during its 3.06-min
+pre-event interval; this statement is limited to that interval and does not by
+itself establish the absence of precursors throughout the longer archived
+record.
