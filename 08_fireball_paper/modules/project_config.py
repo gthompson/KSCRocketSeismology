@@ -13,7 +13,7 @@ from pathlib import Path
 # <project root>/modules/project_config.py
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MODULE_DIR = PROJECT_ROOT / "modules"
-NOTEBOOK_DIR = PROJECT_ROOT / "notebooks"
+NOTEBOOK_DIR = PROJECT_ROOT / "notebooks2"
 
 
 # -----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ KML_FILE = METADATA_DIR / "launchpads_cameras.kml"
 # Notebook 01 output products
 # -----------------------------------------------------------------------------
 
-OUTPUT_DIR = DATA_DIR / "outputs"
+OUTPUT_DIR = DATA_DIR / "outputs2"
 
 RAW_MSEED = OUTPUT_DIR / "01_bchh_raw_event_window.mseed"
 EVENT_STATIONXML_COPY = OUTPUT_DIR / "01_bchh_event_inventory_original.xml"
@@ -112,8 +112,8 @@ events = pd.DataFrame([
 # Project output locations
 # -----------------------------------------------------------------------------
 
-DERIVED_DIR = DATA_DIR / "derived"
-FIGURE_DIR = DATA_DIR / "figures"
+DERIVED_DIR = DATA_DIR / "derived2"
+FIGURE_DIR = DATA_DIR / "figures2"
 
 RESPONSE_CORRECTION_DIR = (
     OUTPUT_DIR
