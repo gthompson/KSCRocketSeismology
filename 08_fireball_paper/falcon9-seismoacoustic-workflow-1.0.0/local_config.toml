@@ -1,0 +1,13 @@
+# Copy this file to local_config.toml in the repository root and edit the
+# paths for the computer running the workflow. local_config.toml should remain
+# untracked because it contains machine-specific paths.
+
+[external_paths]
+
+# Optional SDS archive used by Notebook 000 only when the repository miniSEED
+# file data/miniseed/01_bchh_raw_event_window.mseed is absent.
+sds_dir = "/absolute/path/to/SDS_KSC"
+
+# Local copy of the copyrighted USLaunchReport source movie. The movie itself
+# is not distributed with the repository.
+uslaunchreport_video_file = "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/02_KSC/spaceX_explosion_movie/SpaceX - Static Fire Anomaly - AMOS-6 - 09-01-2016.mov"
