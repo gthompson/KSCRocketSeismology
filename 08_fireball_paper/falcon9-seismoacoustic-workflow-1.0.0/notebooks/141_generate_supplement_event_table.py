@@ -9,6 +9,9 @@ wide CSV with ``datatool`` can exhaust pdfTeX's main-memory allocation.
 from __future__ import annotations
 
 import csv
+import argparse
+import hashlib
+import json
 import math
 from pathlib import Path
 
@@ -26,7 +29,7 @@ SOURCE_CSV = (
     / "100_measure_event_amplitudes_and_acoustic_seismic_coupling"
     / "event_acoustic_seismic_amplitudes.csv"
 )
-OUTPUT_FILE = SCRIPT_DIR / "generated" / "supplement_event_measurements.tex"
+OUTPUT_FILE = REPOSITORY_ROOT / "latex" / "generated" / "supplement_event_measurements.tex"
 
 REQUIRED_COLUMNS = (
     "event_number",
@@ -95,14 +98,19 @@ def yes_no(value: str) -> str:
 
 
 def main() -> None:
-    if not SOURCE_CSV.is_file():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE_CSV)
+    parser.add_argument("--output", type=Path, default=OUTPUT_FILE)
+    args = parser.parse_args()
+    source_csv, output_file = args.source.expanduser().resolve(), args.output.expanduser().resolve()
+    if not source_csv.is_file():
         raise FileNotFoundError(
             "Notebook 100 event table not found:\n"
-            f"  {SOURCE_CSV}\n"
+            f"  {source_csv}\n"
             "Run Notebook 100 before generating the supplementary table."
         )
 
-    with SOURCE_CSV.open(newline="", encoding="utf-8-sig") as handle:
+    with source_csv.open(newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
         missing = [name for name in REQUIRED_COLUMNS if name not in (reader.fieldnames or ())]
         if missing:
@@ -114,9 +122,19 @@ def main() -> None:
 
     if len(rows) != 153:
         raise ValueError(
-            f"Expected 153 accepted events, but {SOURCE_CSV} contains {len(rows)} rows."
+            f"Expected 153 accepted events, but {source_csv} contains {len(rows)} rows."
         )
 
+    numbers = [finite_number(row["event_number"]) for row in rows]
+    if sorted(numbers, key=lambda v: -1 if v is None else v) != list(range(1, 154)):
+        raise ValueError("Expected unique integral catalogue IDs 1–153")
+    rows.sort(key=lambda row: int(float(row["event_number"])))
+    allowed_bool = {"true", "false", "1", "0", "yes", "no", "y", "n"}
+    if any(row["passes_regression_quality"].strip().lower() not in allowed_bool for row in rows):
+        raise ValueError("Missing or invalid regression-quality Boolean")
+    if any(row["solution_quality_class"].strip() not in {"A_high_quality", "B_probable", "C_weak_or_broad"} for row in rows):
+        raise ValueError("Unknown planar quality class")
+    regression_count = sum(yes_no(row["passes_regression_quality"]) == "yes" for row in rows)
     lines = [
         r"\begin{landscape}",
         r"\tiny",
@@ -127,9 +145,10 @@ def main() -> None:
         r"DD2-referenced catalogue arrival, and span is the corrected difference between",
         r"the first and last associated pressure picks. Classes A, B, and C denote",
         r"high-quality, intermediate, and weak or broad planar solutions. Pressure is",
-        r"the aligned-stack peak-to-peak amplitude; PGV is maximum three-component vector",
-        r"ground velocity; capture is the fraction of the complete-segment PGV contained",
-        r"in the adopted window. The final column identifies the 46 events admitted to",
+        r"the peak-to-peak amplitude of the aligned median waveform; BAZ is from grid north.",
+        r"PGV is maximum three-component vector",
+        r"ground velocity; capture is the event-window PGV divided by the maximum PGV",
+        rf"in the saved short segment. The final column identifies the {regression_count} rows admitted to",
         r"the pressure--PGV regression.}\label{tab:supp_event_measurements}\\",
         r"\toprule",
         r"Event & $t$ (s) & $N$ & Span (s) & Q & BAZ ($^\circ$) &",
@@ -171,9 +190,14 @@ def main() -> None:
         lines.append(" & ".join(values) + r" \\")
 
     lines.extend((r"\end{longtable}", r"\end{landscape}", ""))
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_FILE.write_text("\n".join(lines), encoding="utf-8")
-    print(f"Wrote {OUTPUT_FILE}")
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    output_file.write_text("\n".join(lines), encoding="utf-8")
+    metadata = {"producer": "141_generate_supplement_event_table.py", "source_csv": str(source_csv),
+        "source_sha256": hashlib.sha256(source_csv.read_bytes()).hexdigest(),
+        "output_tex": str(output_file), "catalogue_rows": len(rows), "regression_rows": regression_count,
+        "azimuth_convention": "projected grid north", "pressure_statistic": "extrema of aligned median waveform"}
+    output_file.with_suffix(".json").write_text(json.dumps(metadata, indent=2) + "\n")
+    print(f"Wrote {output_file}")
 
 
 if __name__ == "__main__":

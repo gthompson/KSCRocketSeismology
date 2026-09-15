@@ -1,0 +1,1221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Supplementary Material for main41.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{seismica}
+\usepackage{tabularx}
+\usepackage{placeins}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+
+\graphicspath{
+  {../data/outputs/170_generate_publication_figures/}
+  {../data/outputs/145_analyze_regional_detectability/}
+  {../data/outputs/140_search_for_direct_seismic_waves/}
+  {../data/outputs/130_analyze_seismic_polarization/}
+  {../data/outputs/120_estimate_acoustic_energetics/}
+  {../data/outputs/110_measure_named_events/}
+  {../data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/}
+  {../data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/}
+  {../data/outputs/090_analyze_finite_distance_propagation/}
+  {../data/outputs/080_analyze_planar_array_propagation/}
+  {../data/outputs/060_validate_infrasound_baseline_correction/}
+  {../data/outputs/040_validate_event_catalogue_with_array_processing/figures/}
+  {../data/outputs/040_validate_event_catalogue_with_array_processing/}
+  {../data/outputs/030_reconcile_manual_event_catalogues/}
+  {../data/outputs/020_analyze_ksc_weather/}
+  {figures/}
+}
+
+\newcommand{\pendingfigure}[1]{%
+  \fbox{\parbox[c][50mm][c]{0.92\textwidth}{\centering\textbf{Pending regenerated product}\par#1}}}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+
+\title{Supplementary Material for ``Close-Range Seismo-Acoustic Observations of the 2016 Falcon 9 AMOS-6 Failure at Cape Canaveral''}
+\shorttitle{Supplementary material: 2016 Falcon 9 failure}
+
+\author[1]{Glenn Thompson\thanks{Corresponding author: \texttt{thompsong@usf.edu}; ORCID: 0000-0002-9173-0097}}
+\author[2,3]{Robert G. Brown}
+\author[1,4]{Alexandra Farrell}
+\author[2,3]{John Kiriazes}
+\author[1]{Stephen R. McNutt}
+\author[1,5]{Christopher Mehta}
+\affil[1]{School of Geosciences, University of South Florida, Tampa, Florida, USA}
+\affil[2]{NASA Kennedy Space Center, Florida, USA}
+\affil[3]{Present address: Florida Space Institute, University of Central Florida, Orlando, Florida, USA}
+\affil[4]{Present address: University of Alaska Fairbanks, Fairbanks, Alaska, USA}
+\affil[5]{Present address: Howard University, Washington, DC, USA}
+
+\begin{document}
+
+\makeseistitle{
+  \begin{summary}{Supplementary overview}
+  This supplement provides detailed processing definitions, sensitivity tests,
+  regional screening, named-event waveforms, finite-distance and polarization
+  analyses, and acoustic energetics supporting the main manuscript. It also
+  includes the complete event catalogue; machine-readable event, station, and
+  measurement tables will accompany the archived workflow.
+  \end{summary}
+}
+
+\section{Supplementary methods}
+
+\subsection{S1. Response correction and baseline validation}
+\label{sec:supp_response}
+
+Instrument geometry and calibration factors are summarized in
+Table~\ref{tab:instrument_calibration}.
+
+\begin{table*}[!b]
+\centering
+\caption{BCHH instrument channels, source--receiver geometry, and
+calibration factors. All six channels were recorded by the same Centaur
+digitizer at 250~Hz. Distance and azimuth are measured from SLC-40; azimuth is
+clockwise from north. InfraBSU sensitivities are empirical channel factors documented as lift-test
+results in the November~2016 forensic report; pressure-head assignments remain
+unconfirmed.}
+\label{tab:instrument_calibration}
+\begin{tabular}{lrrr}
+\hline
+Instrument/channel & Distance (m) & Azimuth ($^\circ$) & Sensitivity \\
+\hline
+Trillium Compact DHZ/DHN/DHE & 1419.9 & 19.44
+  & $3.0172\times10^8$ counts $(\mathrm{m\,s^{-1}})^{-1}$ \\
+infraBSU DD1 & 1440.0 & 18.99 & 8.10 counts~Pa$^{-1}$ \\
+infraBSU DD2 & 1408.3 & 19.94 & 0.690 counts~Pa$^{-1}$ \\
+infraBSU DD3 & 1412.9 & 18.76 & 10.0 counts~Pa$^{-1}$ \\
+\hline
+\end{tabular}
+\end{table*}
+
+The three seismic components were corrected using the manufacturer response
+for the Nanometrics Trillium Compact Posthole seismometer and Centaur digitizer.
+The combined sensitivity was $3.0172\times10^8$ counts
+$(\mathrm{m\,s^{-1}})^{-1}$. With the Centaur operated at a 40-V peak-to-peak
+input range, the digitizer sensitivity was $4.0\times10^5$ counts~V$^{-1}$ and
+the implied seismometer sensitivity approximately
+754~V~$(\mathrm{m\,s^{-1}})^{-1}$.
+
+The pressure channels were converted independently using empirical factors of
+8.10, 0.690, and 10.0~counts~Pa$^{-1}$ for DD1--DD3, respectively.
+The November~2016 forensic report records their reciprocal lift-test factors,
+0.1234, 1.45, and 0.100~Pa~count$^{-1}$, and checks against amplitude ratios
+from the 44 largest sub-events \citep{thompson_mcnutt_fireball_2016}.
+The recalled lift procedure involved raising and lowering several instruments
+together through approximately 1~m total vertical excursion at about 0.5~Hz,
+producing approximately 12~Pa peak-to-peak hydrostatic pressure variation.
+These procedural details are based on author recollection. Such tests provide
+a small-signal reference at the test frequency, rather than validation across
+the full analysis band or at explosion amplitudes. Repeated door-slam huddle
+tests provided relative comparisons; room reflections and sensor positions
+could affect those comparisons. The provisional $\pm20\%$ pressure uncertainty
+reflects test variability and the report's approximate estimate, rather than
+a laboratory-traceable confidence interval.
+
+The motivation predates KSC. The published analysis of the 2015 Sakurajima
+campaign used a common nominal sensitivity of 18.4~counts~Pa$^{-1}$ for six infraBSUs
+\citep{smith_sakurajima_2020}. A contemporaneous handwritten field-calibration
+note dated 29~May~2015 (Julian day~149) records BD1, BD2, and BD3 sensitivities
+of 4.675, 10.14, and 10.21~counts~Pa$^{-1}$, respectively. These departures
+from the common nominal conversion motivated subsequent calibration
+experiments and free-field comparisons at KSC; they do not identify their cause.
+
+The inventory included All Sensors differential heads rated at 0.5, 1, and
+5~inches H$_2$O (approximately 125, 250, and 1250~Pa). The manufacturer's
+DS-0091 specifies nominal output spans of 10, 10, and 20~mV, respectively,
+at 12-V excitation, with output proportional to supply voltage.\footnote{All
+Sensors, \textit{Millivolt Output Pressure Sensors}, DS-0091 Rev.~C,
+\url{https://www.allsensors.com/hubfs/Product-Data-Sheets/DS-0091.pdf}.}
+At the infraBSU guide's 7-V excitation these imply approximately 46.8, 23.4,
+and 9.37~$\mu$V~Pa$^{-1}$, consistent with the guide's rounded values of
+46, 23, and 9.1~$\mu$V~Pa$^{-1}$. The latter correspond to 18.4, 9.2, and
+3.64~counts~Pa$^{-1}$ with this digitizer. Thus DD1 and DD3 are consistent
+with 1-inch heads; DD2 falls below all three nominal sensitivities, and a
+5-inch assignment alone would not explain its response. Channel-to-head and
+serial-number records remain unconfirmed, so these comparisons do not establish
+individual head types.
+
+Different transducer configurations, changes during service or handling,
+pneumatic components, and calibration conditions are possible contributors
+to the observed differences. Discussions with the developers also identified
+capillary characteristics as a possible contributor, but no cause was
+established. The evidence does not establish incorrect calibration when
+supplied. Pneumatic differences could affect frequency response as well as
+scalar sensitivity.
+
+After the approximately 1.4-kPa pressure estimates were discussed with Jeff
+Johnson at Boise State University, he advised that the sensors could record
+substantially beyond their nominal ranges and were likely to remain
+approximately linear (J.~Johnson, personal communication, 2016). Linearity
+beyond those ranges was not guaranteed and was not independently verified
+for these instruments at such amplitudes. Possible departures therefore add
+unquantified uncertainty to the largest inferred pressures and acoustic
+energies, beyond the provisional small-signal uncertainty. Planned comparisons
+of interchannel responses during launches immediately before and after the
+accident will test relative stability and frequency dependence; no results
+from those comparisons are assumed here.
+
+Before response correction, the median count level from 20 to 2~s before the
+opening signal was removed from each pressure channel. All traces received a
+5\% cosine taper. Frequency-domain response removal used a 0.02, 0.05, 80, and
+100~Hz prefilter and a 60-dB water level. No additional Butterworth high-pass
+filter was applied to records used for physical pressure measurements.
+
+Slow pressure variation was removed using a centred 1.0-s moving median,
+containing 251 samples at 250~Hz:
+\begin{equation}
+ p_{i,\mathrm{corr}}(t)=p_i(t)-b_i(t).
+\end{equation}
+The calculation is symmetric and noncausal but does not impose a systematic
+causal delay. Independent recomputation reproduced the canonical processed
+stream sample-for-sample, while all seismic samples remained unchanged.
+
+Sensitivity was tested with 0.125, 0.25, 0.5, 1.0, and 2.0-s median windows on
+24 selected three-channel events. Each baseline was calculated on the complete
+channel trace before extraction, differential alignment, and stacking.
+Median-stack peak-to-peak pressures were 104.1 and 107.4~Pa for 0.25 and
+0.5~s, compared with 90.0 and 90.2~Pa for 1.0 and 2.0~s. The short-window
+summaries contained 24 valid pulse pairs, whereas the 1--2-s summaries contained
+23. For the same 23 paired-valid events, median peak-to-peak ratios relative
+to 1.0~s were 0.987, 1.001, and 1.003 at 0.25, 0.5, and 2.0~s, respectively.
+The unpaired medians therefore do not quantify a systematic amplitude change.
+Changing the window
+also changed selected extrema and durations. These tests support consistent
+use of the adopted 1.0-s correction, but do not establish an optimal window
+or equivalent stability of integrated energy.
+
+A separate fixed-window principal-explosion test integrated channel pressure
+squared over $-0.70$ to $+1.05$~s relative to the predicted DD2 arrival, reusing
+the reviewed signal bounds described in Section~S5. Relative to the 1.0-s
+baseline, integrals were 0.740--0.751 times as large at 0.5~s and
+1.087--1.130 times as large at 2.0~s. With geometry, density, sound speed and
+other processing fixed, these are also acoustic-energy ratios. They are
+processing sensitivities, not confidence intervals. This test did not apply
+the later local-baseline convention and therefore does not replace the
+named-event energy calculation; it demonstrates an additional baseline-model
+sensitivity that is not captured by calibration uncertainty alone.
+
+An experimental automatic compression--rarefaction algorithm succeeded for
+92 of 96 waveforms from the 24 events. All four failures belonged to the
+largest complex event, showing that a simple positive-then-negative pulse model
+is not sufficiently general to replace manual review of key events.
+
+\FloatBarrier
+\subsection{S2. Geometry, weather, and timing coordinates}
+\label{sec:supp_weather}
+
+Geographic source--receiver distances were calculated on WGS84 and array
+coordinates transformed to UTM Zone~17N. The source-to-seismometer distance
+was 1419.9~m and its SLC-40 forward azimuth 19.44$^\circ$, corresponding to a
+199.44$^\circ$ back azimuth. DD1, DD2, and DD3 distances were 1439.96,
+1408.34, and 1412.85~m, respectively. On 6 October 2016, as Hurricane Matthew approached
+KSC, co-author Robert G. Brown removed the three above-ground pressure sensors,
+electronics enclosures, and solar panels as a precaution; the buried
+seismometer remained in place. The pressure sensors had not been formally
+surveyed before removal, so their locations were reconstructed from cable ends
+surveyed subsequently. Consequently, 1--2-m relative errors are more credible
+than the formal centimetre precision of the survey.
+
+The meteorological analysis used 105 records from three KSC towers at seven
+5-min epochs between 13:05 and 13:35~UTC. Measurement elevations spanned
+16.5--139.9~m. Wind observations were converted from meteorological direction
+to east and north vectors, averaged within 10-m elevation bins, and projected
+onto the SLC-40--BCHH direction. The nominal 0--65-m source-height summary is
+an estimate because the lowest valid wind observations were near 40~m; the
+lowest-bin wind vector was extended downward at a constant value to 0~m.
+Temperature and humidity means used all valid observations across the
+available elevations, rather than only the nominal 0--65-m interval.
+
+Atmospheric conditions changed little during the 30-min interval
+(Figures~\ref{fig:supp_weather_wind} and
+\ref{fig:supp_weather_time}). Mean air temperature was
+$26.4\pm0.3\,^{\circ}$C and mean relative humidity was
+$83.9\pm3.7\%$, where the uncertainties are sample standard deviations over
+all available observations. Across the complete wind dataset, the vector-mean
+wind was 5.4~m~s$^{-1}$ from 144$^\circ$; Figure~\ref{fig:supp_weather_time}
+shows its stability across the seven epochs.
+
+The still-air speed was
+\begin{equation}
+ c_0=331.3+0.606T+1.26h,
+\end{equation}
+where $T$ is $^\circ$C and $h$ relative humidity expressed as a fraction. Mean
+conditions gave $c_0=348.3$~m~s$^{-1}$. The estimated lower-profile
+vector-mean wind was 4.6~m~s$^{-1}$ from 145$^\circ$; its path-parallel
+component was +2.6~m~s$^{-1}$, giving
+$c_{\mathrm{eff}}=351.0$~m~s$^{-1}$. The corresponding travel time over
+the 1419.9-m source-to-seismometer distance was 4.046~s, compared with 4.076~s in still air. Thus, the wind
+correction shortened the predicted travel time by approximately 0.031~s.
+
+As a model sensitivity check, the zero-frequency interpolation of
+\citet{cramer1993speed}, evaluated at the mean temperature and humidity with
+assumed pressure of 101325~Pa and CO$_2$ concentration of 400~ppm, gave
+still-air and effective speeds of 348.62 and 351.26~m~s$^{-1}$, respectively.
+These pressure and CO$_2$ values were assumptions, not field observations.
+The corresponding source-to-seismometer travel time was 3.3~ms shorter.
+We retained the original approximation for the common timing reduction.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{supplement_weather_wind_structure.pdf}
+  \caption{Meteorological wind structure during 13:05--13:35~UTC.
+  (a) Distribution of valid tower observations by meteorological wind
+  direction and speed. (b) Individual wind-speed observations and vector
+  means within 10-m height bins. (c) Corresponding wind directions.
+  (d) Height-dependent wind component projected onto the SLC-40--BCHH
+  propagation direction; positive values indicate wind toward BCHH. Dashed
+  horizontal lines mark the nominal 65-m upper limit used for the
+  source-height wind summary. Because valid wind measurements began near
+  40~m, the lowest-bin wind vector is extended downward at a constant value
+  to estimate the unsampled lower part of the profile.}
+  \label{fig:supp_weather_wind}
+\end{figure*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{supplement_weather_temporal_variability.pdf}
+  \caption{Atmospheric conditions at seven 5-min epochs from 13:05 to
+  13:35~UTC. (a) Spatially averaged vector-mean and scalar-mean wind speeds.
+  (b) Vector-mean meteorological wind direction. (c) Mean air temperature.
+  (d) Mean relative humidity. Shading in panels (c) and (d) denotes one
+  spatial standard deviation among the available observations at each epoch.
+  The small changes demonstrate that the propagation correction was stable
+  throughout the impulsive-event sequence.}
+  \label{fig:supp_weather_time}
+\end{figure*}
+
+\FloatBarrier
+
+Observed UTC, DD2-referenced reduced arrival time, and source time were kept
+separate. Differential reductions for DD1, DD2, and DD3 were 0.090107, 0, and
+0.012867~s, respectively. They remove only array-aperture travel-time differences. Named
+source times subsequently subtract the full source-to-DD2 travel time. The
+rounded 351~m~s$^{-1}$ meteorological value is used for source-to-array
+reduction; the independently observed approximately 352~m~s$^{-1}$ array
+velocity is a result, not an input to the chronology.
+
+\FloatBarrier
+\subsection{S3. Catalogue association and waveform review}
+\label{sec:supp_catalogue}
+
+The manual review re-examined a continuous, gap-free 48-h interval extending
+from 37~h before to 11~h after the first upper-stage signal, using the revised
+calibration and processing described here. The absence of an identified
+precursor was previously reported in the November~2016 forensic report
+\citep{thompson_mcnutt_fireball_2016} and the 2017 AGU presentation
+\citep{thompson_agu_falcon9_2017}. All three pressure and all three seismic
+channels were displayed together in Antelope's \texttt{dbpick} program
+\citep{brtt_antelope}. The analyst marked conspicuous impulses readily visible
+across the compact array; isolated disturbances, including signals plausibly
+caused by nearby vehicles, were not treated as accident events. This visual
+screen does not establish a quantitative detection threshold for weak,
+emergent, local, internal, or otherwise poorly coupled precursors.
+
+Reconciliation began with 890 manual channel picks, of which 384 were
+identified as impulsive pressure arrivals and accepted for association. A short-window MATLAB/GISMO script
+\citep{thompson_gismo_2017} grouped picks into candidate events. Channel names
+were mapped to DD1--DD3 and reduced to
+DD2. Coincidence windows from 0.008 to 0.060~s were tested. The number of
+multichannel candidates stabilized at 154 from 0.040 to 0.060~s; 0.040~s, the
+smallest value on the plateau, was adopted. An event required at least two
+pressure channels. Because the retained impulses were already isolated and
+visually apparent, the association step formalized cross-channel grouping
+rather than rescuing marginal candidates.
+
+One marginal DD2--DD3 event was retained because correlation was 0.879 and
+robust peak SNR 8.0. One DD1--DD2 candidate was rejected despite SNR 5.19
+because no coherent DD3 signal was visible and targeted DD2--DD3 correlation
+was only 0.092. The final catalogue contains 153 accepted transients and 369
+accepted pressure picks: 90 events on DD2--DD3 and 63 on all three channels.
+No accepted event was represented only by DD1--DD2.
+
+Four descriptive time intervals enclose the visually separated activity
+clusters: Phase~I, 13:07:11.91--13:08:21.91; Phase~II,
+13:14:05--13:15:55; Phase~III, 13:19:02--13:25:00; and Phase~IV,
+13:29:39--13:34:54~UTC. The phase names summarize temporal clustering and do
+not imply four distinct physical source regimes or partition the catalogue.
+Counting source-reduced arrivals within the configured overview intervals
+gave 39, 4, 90, and 6 entries, respectively, with 14 outside those intervals.
+
+Paired unshifted and differentially aligned displays were generated for every
+retained event. Corrected pick spans had a median of 4.87~ms, interquartile
+range 2.13--8.87~ms, and maximum 36.24~ms. These values provide an internal
+check on event association and differential travel-time correction. Aligned
+review stacks were diagnostics only; later standardized physical measurements
+remain authoritative.
+
+Standardized quality measurements were available for all 153 events. Robust
+peak SNR had a median of 7.86 and interquartile range 5.49--16.10; median RMS
+SNR was 2.23. Median DD2--DD3 correlation was 0.876, with first quartile
+0.718, and median residual DD2--DD3 lag after geometric correction was zero.
+Aligned review stacks had median absolute peaks of 16.7~Pa for the mean stack
+and 15.4~Pa for the median stack. Their largest peak was approximately
+1.386~kPa. Because those values came from short visual-review windows, they
+were not substituted for the later sensor-specific amplitude measurements.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.88\textwidth]{reduced_time_event_count_vs_window.pdf}
+  \caption{Sensitivity of reduced-time association to the coincidence window.
+  The number of multichannel candidates stabilized at 154 for windows from
+  0.040 to 0.060~s. The adopted 0.040-s window is the smallest value on this
+  plateau. Subsequent waveform review rejected one ambiguous candidate,
+  producing the final catalogue of 153 accepted transients.}
+  \label{fig:supp_association_window}
+\end{figure*}
+
+\begin{table*}[!tbp]
+\centering
+\caption{Nested event-quality definitions. Catalogue membership is preserved
+independently of these waveform and array classes.}
+\label{tab:supp_quality}
+\begin{tabularx}{\textwidth}{lXr}
+\hline
+Subset & Definition and intended use & Count \\
+\hline
+Catalogue & Accepted multichannel transient; chronology and event rate & 153 \\
+Usable waveform & Robust peak SNR $\geq3$ and DD2--DD3 correlation $\geq0.5$ & 138 \\
+Core waveform & Robust peak SNR $\geq5$ and DD2--DD3 correlation $\geq0.7$ & 107 \\
+High-quality planar & Coherence $\geq0.90$, window-stability
+$\sigma_{\mathrm{BAZ}}\leq0.5^\circ$, and
+$\sigma_v\leq3.0$~m~s$^{-1}$ & 51 \\
+Intermediate planar & Remaining solutions with coherence $\geq0.75$,
+$\sigma_{\mathrm{BAZ}}\leq1.0^\circ$, and
+$\sigma_v\leq8.0$~m~s$^{-1}$ & 45 \\
+Weak or broad planar & Remaining time-domain solutions & 57 \\
+Regression & Separate pressure and seismic SNR criteria plus complete amplitude capture & 46 \\
+\hline
+\end{tabularx}
+\end{table*}
+
+\FloatBarrier
+\subsection{S4. Array processing and finite-range sensitivity}
+\label{sec:supp_array}
+
+The catalogue was evaluated independently with frequency-domain Bartlett
+beamforming in InfraPy \citep{webster_infrapy_2025}. The primary event-centred analysis used 0.5-s windows,
+a 2--20-Hz band, a 0.5$^\circ$ back-azimuth grid, and a 2~m~s$^{-1}$
+trace-velocity grid. The empirical coherence threshold was the 99.5th
+percentile of 153 nonoverlapping pre-event background windows, corresponding
+to $F=3.02$. This is an empirical screening threshold, not a scan-wide
+false-alarm calibration. Search-grid-edge solutions were flagged rather than
+silently discarded.
+
+Applying the continuous-scan steering grid to the same background windows
+gave $F=3.0230$, compared with 3.0228 on the event grid. Leave-one-out
+thresholds ranged from 2.900 to 3.025 on the event grid. These diagnostics
+quantify threshold sensitivity rather than confidence intervals. Nonoverlap
+does not establish statistical independence, and an extreme empirical
+percentile does not calibrate the false-alarm probability across the
+overlapping scan. The original event-grid threshold was retained for the
+continuous scan; alternative-threshold recovery counts were not recomputed.
+
+In the event-centred analysis, 145 of 153 catalogue entries (94.8\%) were
+within 5$^\circ$ of SLC-40 and 151 (98.7\%) were within 10$^\circ$. Median
+back azimuth, apparent trace velocity, and $F$ were 200.67$^\circ$,
+354.6~m~s$^{-1}$, and 5.04. In total, 113 entries exceeded the empirical
+background threshold, 77 had $F\geq5$, and 42 had $F\geq10$. Two solutions
+reached a back-azimuth grid edge and seven reached a trace-velocity edge.
+Apparent-velocity scatter decreased from 30.7~m~s$^{-1}$ for the complete
+catalogue to 12.1~m~s$^{-1}$ for entries with $F\geq10$, showing that the
+largest deviations were concentrated among weakly coherent windows.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{event_centred_bartlett_validation.pdf}
+  \caption{Event-centred InfraPy Bartlett validation. (a) Distributions of the
+  $F$ statistic for catalogue-centred and independent pre-event windows; the
+  dashed line is the 99.5th-percentile background threshold. (b) Back azimuth
+  and apparent trace velocity, coloured by $F$; dashed and dotted reference
+  lines show the geometric SLC-40 direction and the 351.0~m~s$^{-1}$
+  meteorological prediction. Red crosses identify search-grid-edge solutions.
+  (c) $F$ versus fixed-geometry robust stack peak SNR. (d) $F$ versus
+  DD2--DD3 waveform correlation. Colours in (c) and (d) show absolute
+  back-azimuth error, clipped at 10$^\circ$.}
+  \label{fig:supp_bartlett_event}
+\end{figure*}
+
+The blind continuous scan used the same 0.5-s windows and 2--20-Hz band at
+0.1-s steps, but a coarser 1$^\circ$ and 5~m~s$^{-1}$ screening grid. It
+analysed 17,839 overlapping windows without using catalogue times to position
+them. InfraPy grouped the above-threshold windows into 12 broader activity
+episodes, while an independent local-maximum search found 418 blind $F$ peaks.
+A greedy one-to-one comparison associated 129 of the 153 catalogue entries
+(84.3\%) with a peak within 0.25~s, leaving 24 entries unmatched.
+
+Conversely, 289 local maxima were unmatched. They are not an independent count
+of additional explosions: overlapping windows, ringing, and extended signals
+can generate several maxima from one physical source. Of these, 184 passed
+broad direction, trace-velocity, and grid-edge screens. That large residual
+demonstrates that these permissive tests are insufficient to establish
+additional events; confirmation would require waveform review or independent
+network evidence.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.97\textwidth]{continuous_full_beam_results.pdf}
+  \caption{Blind continuous InfraPy Bartlett scan. (a) $F$ statistic through
+  time, with the empirical background threshold, local maxima, and the 12
+  broader activity episodes. (b) Back azimuth and (c) apparent trace velocity
+  for above-threshold windows only, coloured by $F$. Low-$F$ grid maxima are
+  suppressed because their direction and velocity are not stable physical
+  measurements; red crosses mark above-threshold grid-edge solutions. The
+  local maxima and activity episodes describe coherent array activity rather
+  than counts of physical explosions.}
+  \label{fig:supp_bartlett_continuous}
+\end{figure*}
+
+Blind-scan recovery increased from 129 of 153 entries (84.3\%) for the full
+catalogue to 75 of 77 (97.4\%) for entries with event-centred $F\geq5$ and
+41 of 42 (97.6\%) for $F\geq10$, with non-recovery concentrated among
+weak, closely spaced, or insufficiently coherent signals. Notebook~040 also applied the
+same nominal SNR and correlation thresholds used for the usable and core
+definitions to an independently recomputed fixed-window metric set. Those
+calculations selected 132 and 100 entries, rather than the authoritative 138
+and 107 in Table~\ref{tab:supp_quality}, because their waveform windows and
+stack construction differed. They are retained as processing diagnostics but
+are not treated as replacements for the catalogue quality classes.
+
+Parameter sensitivity used 0.25-s windows at 4--30~Hz, the primary 0.5-s
+windows at 2--20~Hz, and 1.0-s windows at 1--10~Hz. The primary configuration
+gave the smallest median absolute back-azimuth error (1.43$^\circ$), the
+largest median $F$, and only seven velocity-grid-edge solutions. The 0.25-s
+configuration gave a median apparent velocity of 369.9~m~s$^{-1}$ and 33
+velocity-edge solutions; the 1.0-s configuration gave 354.7~m~s$^{-1}$ but 49
+velocity-edge solutions and a median absolute azimuth error of 2.82$^\circ$.
+Because the distribution of $F$ changes with window and passband, absolute
+$F$ values were interpreted relative to each configuration's background
+rather than compared without qualification.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/040_validate_event_catalogue_with_array_processing/figures/parameter_sensitivity_summary.pdf}{%
+    \includegraphics[width=0.94\textwidth]{parameter_sensitivity_summary.pdf}%
+  }{%
+    \pendingfigure{Bartlett window-and-band parameter sensitivity. Re-run
+    Notebook 040 to generate this new product.}%
+  }
+  \caption{Sensitivity of event-centred Bartlett results to window length and
+  frequency band. (a) Median absolute back-azimuth error. (b) Median apparent
+  trace velocity; the dotted line is the meteorological prediction.
+  (c) Numbers of back-azimuth and trace-velocity search-grid-edge solutions.
+  The 0.5-s, 2--20-Hz configuration provides the best overall compromise.}
+  \label{fig:supp_bartlett_sensitivity}
+\end{figure*}
+
+\FloatBarrier
+
+The time-domain inversion classified solutions independently of waveform
+morphology. Applying the coherence and stability criteria in
+Table~\ref{tab:supp_quality} across nine scoring-window perturbations yielded
+51 high-quality, 45 intermediate, and 57 weak or broad solutions. High-quality events gave a
+coherence-weighted back azimuth of 200.73$^\circ$ from projected grid north with 0.70$^\circ$
+dispersion and apparent velocity of 352.0~m~s$^{-1}$ with
+3.85~m~s$^{-1}$ dispersion. The principal explosion yielded back azimuth
+200.3$^\circ$, velocity 352.5~m~s$^{-1}$, and coherence 0.9984. Its scoring-window sensitivity was 0.082$^\circ$ and 0.41~m~s$^{-1}$; these values
+measure repeatability at fixed sensor positions, not total parameter uncertainty
+or formal spatial resolution. Holding the nominal inferred relative delays
+fixed, deterministic 1-m offsets of DD1 or DD3 in eight directions changed
+the principal solution by approximately $\pm2.1^\circ$ and $\pm11.9$~m~s$^{-1}$;
+2-m offsets produced changes of approximately $\pm4.2^\circ$ and
+$\pm23.8$~m~s$^{-1}$. These single-sensor scenarios hold DD2 fixed and omit
+correlated position errors and waveform re-inversion; they are not uncertainty
+bounds. Thus, in the preferred
+time-domain analysis the principal event is essentially typical of the
+high-quality population, not a high-speed outlier.
+The independent event-centred Bartlett estimate for the principal event is
+higher, approximately 369.4~m~s$^{-1}$, but has only modest $F\simeq4.49$.
+Relative to the full Bartlett catalogue median of 354.6~m~s$^{-1}$ it lies on
+the high side, but the complete-catalogue apparent-velocity scatter is large
+(30.7~m~s$^{-1}$) and decreases strongly with increasing $F$. The high Bartlett
+speed is therefore suggestive rather than decisive.
+
+Time-domain planar processing aligned interpolated pressure waveforms over a
+grid of back azimuth and apparent speed. A circular-wavefront test instead
+used exact horizontal distances from trial source points. With receiver
+coordinates $\mathbf{x}_i$, source $\mathbf{s}$, and speed $v$,
+\begin{equation}
+ \Delta t_i=\frac{\lVert\mathbf{x}_i-\mathbf{s}\rVert-
+ \lVert\mathbf{x}_{\mathrm{DD2}}-\mathbf{s}\rVert}{v}.
+\end{equation}
+The exported receiver elevations were 0~m and source elevation was fixed at
+0~m, rather than inferred; the nominal source metadata specify about 14~m.
+This is a horizontal finite-distance sensitivity model, not a resolved 3-D
+source inversion. Every trial retained the full inherited scoring window.
+
+The array-centroid geometric bearing was 199.025$^\circ$ from projected grid
+north and 199.229$^\circ$ from geographic north. The configured
+199.438$^\circ$ bearing refers to the seismometer and geographic north.
+These reference-point and north-convention differences are separate from
+sensor-location uncertainty. For the same centroid-to-source direction, exact
+and planar relative delays differed by only 0.18--0.27~ms at 351~m~s$^{-1}$.
+Consequently, comparing freely directed planar solutions with a fixed-SLC-40
+model does not isolate wavefront curvature alone.
+
+The median planar and fixed-SLC-40 speeds were 352.5 and
+355.5~m~s$^{-1}$, respectively, while the median event-by-event speed
+difference was +4.0~m~s$^{-1}$. Fixed-source coherence was lower by a median
+of 0.00512. The speed change is best interpreted as compensation for the
+approximately 1$^\circ$ directional offset imposed by nominal coordinates,
+not faster atmospheric propagation. Sixty-one best-fitting along-range
+positions reached a search-grid boundary, and all 153 along-range profiles
+remained open at a coherence decrease of 0.01. The finite-distance inversion
+therefore did not resolve source range. Cross-range offsets should likewise be
+treated as model sensitivity rather than physical source locations.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{supplement_planar_vs_fixed_source_and_range_sensitivity.pdf}
+  \caption{Planar and finite-distance sensitivity. (a) Planar apparent speed
+  versus fixed-SLC-40 speed. (b) Corresponding coherence. (c) Median
+  event-relative joint-score deficit over trial source positions. The open
+  along-range ridge demonstrates unresolved source range.}
+  \label{fig:supp_finite}
+\end{figure*}
+
+\FloatBarrier
+\subsection{S5. Amplitude, spectra, transfer, and energetics}
+\label{sec:supp_energy}
+
+Notebook~070 generated fixed six-channel event segments extending from 0.50~s
+before to 0.60~s after each DD2-referenced catalogue time. Subsequent amplitude
+measurements used narrower event-specific measurement intervals within these
+segments. Pressure channels were differentially aligned; seismic
+channels were not shifted. Peak-to-peak pressure was the median of individual
+sensor measurements, not the amplitude of a median-stacked waveform.
+Three-component vector PGV was
+\begin{equation}
+ \mathrm{PGV}_{3C}=\max_t\sqrt{v_Z^2(t)+v_N^2(t)+v_E^2(t)}.
+\end{equation}
+Events entered regression only if pressure and seismic SNR thresholds were
+met and the peak was not clipped by a window boundary. Ordinary least squares,
+equal-weight orthogonal regression, leave-one-out fits, exclusion of the
+principal explosion, and event bootstrap assessed robustness.
+
+Event spectra and cross-spectra used pressure aligned to DD2 and vertical
+ground velocity. The H1 estimator, coherence, and bootstrap intervals were
+supplemented by mismatched-event and time-shift permutation tests. The
+continuous Phase~I estimate used nonoverlapping 10-s segments. Removing the
+largest events, equalizing pressure RMS, and varying the pressure-beam
+construction preserved the 4--5 and 20--24-Hz bands.
+
+For named events, a short pre-signal interval removed residual constant offset
+and positive, negative, and peak-to-peak pressures were measured independently
+on DD1--DD3. The array summary is the median of scalar sensor measurements.
+Pressures reduced to 1~km use $p_{1\,\mathrm{km}}=p_{\mathrm{obs}}r/1000$ and
+are diagnostic geometric reductions, not direct measurements at 1~km.
+
+Sound exposure level is
+\begin{equation}
+ \mathrm{SEL}=10\log_{10}\left[
+ \frac{\int p^2(t)\,dt}{p_0^2(1~\mathrm{s})}\right],
+ \qquad p_0=20~\mu\mathrm{Pa}.
+\end{equation}
+Peak pressure level, used separately from SEL, is
+\begin{equation}
+ L_{\mathrm{peak}}=20\log_{10}\left(\frac{|p_+|}{20~\mu\mathrm{Pa}}\right).
+\end{equation}
+Acoustic energy assumes hemispherical radiation without attenuation. It is
+converted to a radiated acoustic TNT equivalent by division by
+$4.184\times10^6$~J~kg$^{-1}$. Illustrative total-yield scenarios additionally
+divide by acoustic efficiency $\eta_{\mathrm{ac}}$. Both the reported sound
+pressure levels and acoustic energies are limited to the processed infraBSU
+passband (approximately 0.05--80~Hz within the 0.02, 0.05, 80, and 100~Hz
+response-removal prefilter), rather than representing a fully broadband source
+measurement.
+
+Main-manuscript Table~1 reports the named-event pressure medians. The
+upper-stage event's positive, negative, and peak-to-peak 1-km reductions were
++54.9, $-35.8$, and 108.6~Pa, respectively. For the principal explosion,
+positive pressure ranged from 1.31 to 1.51~kPa and peak-to-peak pressure from
+1.44 to 1.67~kPa across DD1--DD3; their 1-km median reductions were 1.967 and
+2.189~kPa, respectively. Its median positive-peak sound pressure level was
+156.8~dB re 20~$\mu$Pa.
+
+The possibility of nonlinear propagation was considered from the beginning
+of the project, but the interpretation evolved as the timing and array
+analysis improved. The November~2016 report compared a video-based
+source-to-array speed of about 364~m~s$^{-1}$ with an array-crossing estimate
+of 358.6~m~s$^{-1}$ and a weather-based expectation near 350.4~m~s$^{-1}$,
+and considered a faster wave close to the vehicle that slowed with range
+\citep{thompson_mcnutt_fireball_2016}. By the December~2017 AGU presentation,
+the principal event was not unusually fast relative to the stronger array
+events, and the stated conclusion was that there was no evidence for a shock
+wave at the array; shock-wave modelling was nevertheless retained as a
+near-source propagation question \citep{thompson_agu_falcon9_2017}. The
+present analysis reconciles those historical interpretations by separating
+path-averaged timing from local receiver speed and by using the measured
+overpressure as an independent weak-shock constraint.
+
+The principal-explosion pressure and array-speed estimates permit a limited
+weak-shock consistency test. For a normal shock,
+\begin{equation}
+ M=\left[1+\frac{\gamma+1}{2\gamma}\frac{\Delta p}{p_0}\right]^{1/2},
+\end{equation}
+with $\gamma=1.4$. Using the measured median positive overpressure of
+1.390~kPa and $p_0=101325$~Pa gives $M=1.0059$ at BCHH. With the
+348.33~m~s$^{-1}$ still-air sound speed this corresponds to a local weak-shock
+speed of 350.37~m~s$^{-1}$, or 353.02~m~s$^{-1}$ after adding the
+2.65~m~s$^{-1}$ path-parallel tailwind. By contrast, interpreting the
+approximately 369.4~m~s$^{-1}$ Bartlett estimate literally as the local shock
+speed at BCHH would require an overpressure of order 13~kPa, roughly an order
+of magnitude larger than observed. The measured pressure therefore does not
+support a strongly supersonic wavefront at the receiver.
+
+To explore whether the wave could nevertheless have propagated faster closer
+to the source, Notebook~120 applies the deliberately simple sensitivity model
+$\Delta p\propto r^{-1}$ inward from the BCHH measurement. Extending this
+far-field spreading law only to 10~m gives a path-averaged still-air speed of
+357.16~m~s$^{-1}$, or 359.80~m~s$^{-1}$ including the measured tailwind
+(Figure~\ref{fig:supp_weak_shock}). The result is consistent with a disturbance
+that was appreciably more nonlinear near the vehicle and had decayed to a very
+weak shock by 1.4~km, but it is not a source-pressure inversion: the spreading
+law is not validated in the near field, and neither the true source pressure
+nor source onset is recovered by this calculation.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/120_estimate_acoustic_energetics/principal_explosion_weak_shock_sensitivity.pdf}{%
+    \includegraphics[width=0.86\textwidth]{principal_explosion_weak_shock_sensitivity.pdf}%
+  }{%
+    \pendingfigure{Principal-explosion weak-shock sensitivity from Notebook 120.}%
+  }
+  \caption{Weak-shock sensitivity for the principal explosion. (a) Overpressure
+  obtained by extending the measured BCHH positive overpressure inward with
+  $1/r$ spreading. (b) Corresponding local Mach number from the normal-shock
+  relation. This sensitivity model extrapolates far-field spreading into the
+  near-source region and is not a source-pressure inversion.}
+  \label{fig:supp_weak_shock}
+\end{figure*}
+
+The apparent timing provides a qualitatively consistent but non-independent
+clue. A source reduction performed with 351~m~s$^{-1}$ will place an arrival
+earlier in inferred source time if the actual early wavefront propagated
+faster. This is the same sense as the recurring tendency for video-based onset
+estimates of the principal explosion to fall slightly later than the
+351~m~s$^{-1}$-reduced pressure onset. Because the video UTC itself is mapped
+from a visual anchor and the two array-processing methods disagree on whether
+the principal event is anomalously fast, this timing offset is treated as
+supporting evidence only. The pressure pulse's rapid compression followed by
+a longer rarefaction is likewise Friedlander-like and compatible with a blast
+wave, but waveform shape alone does not establish a Mach number.
+
+Across the full catalogue, median stack peak-to-peak pressure was 29.5~Pa
+(interquartile range 16.2--51.3~Pa) and median vector PGV
+$5.6\times10^{-5}$~m~s$^{-1}$. The full-catalogue median dimensional
+pressure-to-vector-PGV ratio was
+$4.58\times10^5$~Pa~m$^{-1}$~s, compared with
+$4.34\times10^5$~Pa~m$^{-1}$~s in the 46-entry regression subset. Scatter
+increased sharply below vector PGV of approximately $10^{-4}$~m~s$^{-1}$,
+coincident with decreasing seismic SNR and incomplete peak capture.
+
+The 46-entry log--log regression gave slope 0.962 with a 95\%
+catalogue-entry-bootstrap
+interval of 0.893--1.009, $R^2=0.953$, and Spearman correlation 0.931.
+Equal-weight orthogonal regression gave 0.986; excluding the principal
+explosion gave 0.958 with $R^2=0.937$; and leave-one-out slopes ranged from
+0.952 to 0.971. The near-unit scaling was therefore not imposed by the
+principal explosion. Because closely spaced entries can share a physical event
+complex or coda, the quoted interval does not include within-complex
+dependence; a complex-level resampling test remains desirable.
+
+Event coherence was approximately 0.61--0.68 near 4.5--5.3~Hz and
+0.43--0.70 near 21--28~Hz, above frequency-specific permutation thresholds.
+The continuous Phase~I H1 estimate reached approximately
+$1.1\times10^{-5}$~(m~s$^{-1}$)~Pa$^{-1}$ near 4.7~Hz and
+$5$--$7\times10^{-6}$~(m~s$^{-1}$)~Pa$^{-1}$ near 21--25~Hz. These broad
+features persisted after removing the strongest events, equalizing pressure
+RMS, and changing pressure-beam construction.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/supplement_transfer_robustness_tests.pdf}{%
+    \includegraphics[width=0.94\textwidth]{supplement_transfer_robustness_tests.pdf}%
+  }{%
+    \pendingfigure{Transfer-function robustness tests from Notebook 100,
+    including exclusion of dominant events, equal event weighting, and
+    alternative pressure-beam definitions.}%
+  }
+  \caption{Sensitivity of the empirical pressure-to-vertical-velocity transfer
+  estimate. The tests exclude progressively more of the strongest events and
+  vary event weighting and pressure-beam construction. Persistence of the
+  broad 4--5- and 20--24-Hz features indicates that they are not produced
+  solely by the principal explosion or by one stacking convention.}
+  \label{fig:supp_transfer_robustness}
+\end{figure*}
+
+For the complementary continuous sequence analysis in Notebook~120,
+pressure was detrended, tapered, and high-pass filtered at 0.5~Hz with a
+zero-phase four-pole Butterworth filter before integrating $p^2(t)$. This
+additional high-pass is used only for the long continuous energy diagnostic,
+where it suppresses slow drift that otherwise dominates DD1 and DD3; it is not
+applied to the named-event pressure, SPL, or acoustic-energy measurements.
+The continuous acoustic-rate display therefore uses DD2 alone, the least
+drift-contaminated pressure channel. Ground velocity was evaluated in the
+0.5--20-Hz band and converted only to the local three-component
+$\int v^2dt$ proxy described below. Five-second increments were used to show
+the temporal distribution of both quantities through the complete sequence.
+
+Selected event windows were converted to absolute DD2 intervals and all
+overlaps merged. The continuous pressure stream was aligned and $p^2(t)$
+integrated once per disjoint event complex, separately by channel. Cumulative
+energy is the channel-wise sum over the union of high-quality and named-event
+intervals.
+
+\begin{table*}[!tbp]
+\centering
+\small
+\caption{Acoustic energetics of the four manually reviewed opening-sequence
+windows. SEL is referenced to 20~$\mu$Pa and 1~s. $E_{2\pi}$ assumes
+hemispherical radiation; the final column is an illustrative total-energy
+conversion at 1\% acoustic efficiency, not a calibrated blast yield.}
+\label{tab:supp_energetics}
+\begin{tabularx}{\textwidth}{Xrrrr}
+\hline
+Signal & SEL (dB) & $E_{2\pi}$ (J) & Acoustic TNT (kg) &
+\shortstack{Total-energy scenario\\at 1\% (t TNT)} \\
+\hline
+Upper-stage event       & 114.21 & $3.21\times10^6$ & 0.768 & 0.0768 \\
+Principal explosion     & 142.54 & $2.20\times10^9$ & 525   & 52.5 \\
+Candidate payload impact & 126.44 & $5.40\times10^7$ & 12.9  & 1.29 \\
+Payload-associated explosion & 127.05 & $6.22\times10^7$ & 14.9  & 1.49 \\
+\hline
+\end{tabularx}
+\end{table*}
+
+Notebook~120 also calculates cumulative squared ground velocity,
+$\int v_k^2\,dt$, for the response-corrected Z, radial, and transverse
+components in the 0.5--20~Hz band, using the same pressure-defined event
+windows. This quantity has units of m$^2$~s$^{-1}$ and is retained only as a
+local ground-motion energy proxy. It is not converted to joules:
+ground-coupled-airwave motion dominates the seismograms and masks any direct
+radiated seismic energy at this single station.
+
+Table~\ref{tab:supp_energetics} uses the manually reviewed named-event windows
+defined in Notebook~110 and integrated in Notebook~120.
+Figure~\ref{fig:supp_named_energy_windows} checks those integration windows;
+Figure~\ref{fig:supp_opening_cumulative} shows the opening 30~s continuously,
+and Figure~\ref{fig:supp_cumulative} shows de-duplicated event-complex
+contributions over the full sequence. The independent
+event-complex calculation in Notebook~100 instead merges overlapping catalogue
+windows before integration. Under that definition, the lower-stage complex
+contained a median $1.97\times10^9$~J across DD1--DD3 (range
+$1.68$--$2.25\times10^9$~J), equivalent to 471~kg TNT as radiated acoustic
+energy. The difference from the $2.20\times10^9$-J named-window value reflects
+the different integration and local-baseline definitions; it is not an
+independent estimate of a second physical explosion.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/120_estimate_acoustic_energetics/key_event_pressure_and_cumulative_acoustic_energy.pdf}{%
+    \includegraphics[width=0.96\textwidth]{key_event_pressure_and_cumulative_acoustic_energy.pdf}%
+  }{%
+    \pendingfigure{Channel-specific named-event pressure waveforms and
+    cumulative hemispherical acoustic-energy curves from Notebook 120.}%
+  }
+  \caption{Channel-specific pressure and cumulative hemispherical acoustic
+  energy for the four manually reviewed opening-sequence windows. Time is
+  relative to the predicted arrival at each sensor, and grey shading marks the
+  integration interval. The cumulative curves provide a direct check on
+  whether each selected window captures the principal energy contribution.}
+  \label{fig:supp_named_energy_windows}
+\end{figure*}
+
+The principal explosion dominates both cumulative acoustic energy and ground
+motion in the opening 30~s, while the upper-stage and payload-associated
+signals remain identifiable (Figure~\ref{fig:supp_opening_cumulative}).
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/120_estimate_acoustic_energetics/opening_sequence_cumulative_acoustic_and_ground_motion.pdf}{%
+    \includegraphics[width=0.97\textwidth]{opening_sequence_cumulative_acoustic_and_ground_motion.pdf}%
+  }{%
+    \pendingfigure{Opening-sequence cumulative acoustic energy and
+    ground-motion energy proxy from Notebook 120.}%
+  }
+  \caption{Cumulative energetics during the opening 30~s, plotted against time
+  from the adopted initial-failure origin after source--receiver travel-time
+  reduction. (a) Cumulative hemispherical acoustic energy for DD1--DD3 from
+  the continuous 0.5-Hz-high-pass diagnostic. (b) Cumulative squared ground
+  velocity for the $Z$, radial, and transverse components and their
+  three-component sum in the 0.5--20-Hz band; this is a ground-motion energy
+  proxy, not radiated seismic energy. Vertical markers identify the adopted
+  or inferred source times of the initial upper-stage failure, principal
+  explosion, candidate payload impact, and payload-associated explosion.
+  The principal explosion produces the dominant step in both quantities.
+  These source markers should not be read as directly observed explosion
+  onsets.}
+  \label{fig:supp_opening_cumulative}
+\end{figure*}
+
+Over the full sequence, 5-s increments reveal temporal structure that is
+compressed in cumulative curves by the principal explosion. The ground-motion
+proxy shows the four activity clusters especially clearly, including distinct
+increases at the beginnings of Phases~II--IV. DD2 acoustic energy also
+increases during those intervals, although the contrast is weaker. The
+prolonged signal after Phase~I is sustained rather than a single impulsive
+release. The corresponding full-sequence rate figure is included in the main
+manuscript; the processing details given here define that diagnostic.
+
+The 51 selected high-quality or named catalogue windows merged into 47
+nonoverlapping event complexes. Summing those complexes independently on each
+channel gave a median cumulative hemispherical acoustic energy of
+$2.27\times10^9$~J (range $1.95$--$2.55\times10^9$~J), equivalent to 543~kg
+TNT as radiated acoustic energy (range 467--610~kg). The corresponding median
+illustrative total-energy equivalent is 54.3~t TNT at 1\% acoustic efficiency;
+varying efficiency from 10\% to 0.1\% gives 5.43--543~t. These quantities cover
+only the union of the selected intervals and are not estimates of all acoustic
+energy radiated during the complete sequence.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/deduplicated_event_complex_and_cumulative_energy.pdf}{%
+    \includegraphics[width=0.94\textwidth]{deduplicated_event_complex_and_cumulative_energy.pdf}%
+  }{%
+    \pendingfigure{De-duplicated event-complex energies and running cumulative
+    acoustic energy. Regenerate Notebook 100 before finalizing the cumulative
+    numerical result.}%
+  }
+  \caption{Selected nonoverlapping event-complex acoustic energies and their
+  cumulative sum. Overlapping catalogue windows are integrated only once.
+  The cumulative value refers only to the union of the selected measurement
+  intervals, rather than to all acoustic energy radiated during the 26-min
+  sequence.}
+  \label{fig:supp_cumulative}
+\end{figure*}
+
+\subsubsection*{Complete event measurements}
+
+Table~\ref{tab:supp_event_measurements} reports a compact set of measurements
+for every accepted catalogue entry. It is generated directly from the
+Notebook~100 machine-readable event-measurement product, so both versions have
+the same provenance. Time is measured from the first accepted DD2-referenced
+arrival. The pressure values are fixed-window aligned-stack measurements
+intended for comparisons across the full catalogue; the separately reviewed
+pressure medians in main-manuscript Table~1 remain authoritative for the
+four named events, with their acoustic energetics in
+Table~\ref{tab:supp_energetics}.
+
+% The wide Notebook 100 CSV is converted to plain LaTeX before compilation.
+% Parsing and formatting it inside pdfLaTeX with datatool exceeded TeX Live
+% 2026's main-memory limit. The helper uses only the Python standard library.
+\IfFileExists{generated/supplement_event_measurements.tex}{%
+  % The generated longtable supplies its own caption, counter, and label.
+  \input{generated/supplement_event_measurements.tex}%
+}{%
+  \pendingfigure{The complete 153-event table has not yet been generated. From
+  the \texttt{latex} directory, run
+  \texttt{python3 generate\_supplement\_event\_table.py} after Notebook~100,
+  then compile this document again.}%
+}
+
+\FloatBarrier
+\subsection{S6. Regional detectability screening}
+\label{sec:supp_regional}
+
+Stations operating at the principal-explosion source time were queried from
+FDSN services. Pressure channels matching BDF or similar pressure codes were
+examined to 1800~km. Vertical HHZ, BHZ, and, where higher-rate data were
+unavailable, LHZ channels were examined to 600~km. Cached waveform and metadata
+products were used before issuing new queries. Each record was response
+corrected where metadata permitted and screened within broad tropospheric,
+stratospheric, thermospheric/slow-acoustic, $P$-like, and $S$-like windows.
+
+Automatic metrics compared peak amplitude and robust RMS within each phase
+window with duration-matched pre- and post-event controls separated by a guard
+interval. The criteria were deliberately permissive and generated review
+candidates, not detections. Manual review considered onset, duration,
+background stationarity, spectral content, and consistency with other
+stations. Confirmation required coherent network moveout or independent array
+direction information.
+
+The search assembled 171 station--sensor targets; 166 supplied usable
+waveforms and five failed because of missing data or response information.
+Automatic criteria flagged 93 phase windows at 67 stations. Most flags were
+persistent narrow-band background, unrelated transients, or peaks without a
+distinct onset.
+
+At IU.DWPF, the 1-Hz pressure channel restricted analysis to 0.2--0.45~Hz. No
+distinct packet occurred in the direct tropospheric window. A later maximum at
+13:15:42~UTC had celerity 192.8~m~s$^{-1}$ and SNR 3.33 but lay within
+persistent approximately 4-s oscillations and was rejected as background. The
+vertical seismic record had no accepted $P$- or $S$-like counterpart.
+
+Three isolated pressure packets at N4.257A, N4.S54A, and N4.R55A were the best
+remaining candidates (Table~\ref{tab:supp_regional_candidates}). Their
+diagnostic spherical reductions to 1~km are not source pressures because
+ducting, absorption, focusing, and frequency-dependent filtering violate a
+simple $1/r$ law. The 98-station northern record section showed no coherent
+moveout, so none was accepted as a Falcon~9 arrival.
+
+A post-hoc timing test was also applied to visually selected late peaks at
+IU.DWPF, N4.257A, and N4.S54A. A fixed-origin fit gave a nominal celerity of
+196.4~m~s$^{-1}$, but a free-intercept fit required an origin offset of
++28.5~s, and leave-one-out arrival residuals reached approximately 115~s. The
+known Falcon~9 origin ranked at the 87.7th percentile of the tested
+pseudo-origin alignments (post-hoc pseudo-$p=0.13$). Because the stations and
+peaks were selected after inspection, these values are descriptive rather
+than inferential and do not establish a common Falcon~9 arrival.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]
+    {145_bchh_dd2_regional_band_comparison.pdf}
+  \caption{BCHH DD2 pressure displayed unfiltered and in the 0.2--1-Hz
+  regional screening band after source-time reduction. The closely spaced
+  opening-sequence signals overlap strongly at these frequencies; consequently
+  the panel demonstrates that the local sequence radiated energy in the
+  regional screening band but does not provide an isolated dominant period
+  for the principal explosion.}
+  \label{fig:supp_bchh_regional_band}
+\end{figure*}
+
+\begin{table*}[!tbp]
+\centering
+\caption{Best isolated regional pressure packets. All remain unconfirmed and
+were excluded from period--yield analysis.}
+\label{tab:supp_regional_candidates}
+\begin{tabular}{lrrrrr}
+\hline
+Station/channel & Distance (km) & Azimuth ($^\circ$) & Celerity (m s$^{-1}$) & Peak (Pa) & Diagnostic $p_{1\,\mathrm{km}}$ (Pa) \\
+\hline
+N4.257A.EP.BDF & 380.8 & 353.6 & 192.7 & 0.352 & 134 \\
+N4.S54A.EP.BDF & 1026.8 & 356.4 & 197.0 & 0.323 & 332 \\
+N4.R55A.EP.BDF & 1079.0 & 2.1 & 224.7 & 0.162 & 175 \\
+\hline
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.90\textwidth]{supplement_regional_station_map_best_candidates.pdf}
+  \caption{Regional pressure and vertical-seismic stations screened for a
+  counterpart. Filled diamonds mark the three clearest isolated pressure
+  packets; none is a confirmed association.}
+  % Production note: regenerate the map to remove clipped marginal labels and
+  % separate the northern candidate labels before submission.
+  \label{fig:supp_regional_map}
+\end{figure*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{145_northern_corridor_source_reduced_section.pdf}
+  \caption{Source-reduced 0.2--1-Hz pressure section for 98 northern stations.
+  Traces are independently normalized and ordered by range; the line is a
+  196.4~m~s$^{-1}$ trial branch. No coherent moveout confirms the isolated
+  candidates.}
+  \label{fig:supp_regional_section}
+\end{figure*}
+
+\FloatBarrier
+\subsection{S7. Polarization and multimedia synchronization}
+\label{sec:supp_polarization}
+
+Sequence-wide ground velocity was rotated to $Z$, radial, and transverse
+components using a 199.438$^\circ$ back azimuth and filtered from 0.5 to 20~Hz.
+Real covariance and analytic-signal polarization attributes were calculated in
+overlapping windows. Bands were 0.5--3, 3--10, 10--25, 25--45, and
+0.5--20~Hz; windows shortened from 1.0~s at low frequency to 0.2~s at high
+frequency. Whole-interval medians include low-amplitude background and are
+descriptive only. Median degrees of polarization were 0.522, 0.698, 0.442, 0.557, and
+0.533 in the 0.5--3, 3--10, 10--25, 25--45, and 0.5--20~Hz bands,
+respectively.
+
+The focused upper-stage search used causal two-pole Butterworth filters as the
+primary timing analysis and zero-phase filtering as a sensitivity test. The
+search stopped at +3.45~s to limit contamination by the principal explosion at
++3.601~s. Persistent four-, five-, and six-robust-standard-deviation crossings
+were compared with STA/LTA and AIC variance-change estimates. Trailing
+polarization windows required amplitude above four background standard
+deviations, rectilinearity $\geq0.70$, degree of polarization $\geq0.55$, and
+radiality $\geq0.70$.
+
+\begin{table*}[!tbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Focused upper-stage onset results. The velocity envelope includes
+the causal threshold-crossing range and the zero-phase sensitivity estimate.
+All apparent velocities assume that the signal originated with the
+upper-stage failure.}
+\label{tab:supp_onsets}
+\begin{tabularx}{\textwidth}{@{}l
+  >{\centering\arraybackslash}p{0.13\textwidth}
+  >{\centering\arraybackslash}p{0.12\textwidth}
+  >{\centering\arraybackslash}p{0.13\textwidth}
+  >{\centering\arraybackslash}p{0.14\textwidth}
+  X@{}}
+\hline
+Band & Causal range (s) & Causal median (s) & Zero-phase median (s) &
+Apparent velocity (km s$^{-1}$) & Interpretation \\
+\hline
+0.8--3 Hz & 1.843--1.947 & 1.863 & 1.739 & 0.73--0.82 & Robust low-frequency onset \\
+3--8 Hz & 1.855--1.999 & 1.895 & 1.703 & 0.71--0.84 & Best-constrained onset \\
+8--20 Hz & 2.559--2.787 & 2.659 & 2.615 & 0.51--0.56 & Later or slower packet \\
+20--45 Hz & Single 4$\sigma$ pick & 2.811 & none & approximately 0.51 & Not reliable \\
+\hline
+\end{tabularx}
+\end{table*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{multiband_polarization_comparison.pdf}
+  \caption{Sequence-wide degree of polarization and ellipticity in five
+  frequency bands. Black points are degree of polarization and grey points
+  ellipticity. Vertical markers identify configured source times and predicted
+  airwave arrivals. This overview motivates, but does not itself display, the
+  focused 1.7--2.0-s causal onset measurement used in the main paper.}
+  \label{fig:supp_multiband}
+\end{figure*}
+
+Amplitude-gated polarization independently confirmed organized motion in the
+three lower frequency bands. The first qualifying trailing window ended at
+2.095~s in the 0.8--3-Hz band, constraining the contributing signal to
+1.095--2.095~s; at 1.875~s in the 3--8-Hz band, constraining it to
+1.475--1.875~s; and at 2.575~s in the 8--20-Hz band, constraining it to
+2.375--2.575~s. No qualifying polarization interval was recovered at
+20--45~Hz. These brackets reflect the full trailing-window duration and
+should not be interpreted as equally precise onset picks.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.97\textwidth]
+    {upper_stage_phase_discrimination.pdf}
+  \caption{Amplitude-gated component-energy and \(Z\)--\(R\) phase diagnostics
+  for the focused upper-stage interval. Motion after the low-frequency onset
+  is concentrated principally in the radial plane. Approximately quadrature
+  \(Z\)--\(R\) motion develops later in the packet, consistent with
+  Rayleigh-type or mixed shallow-wave motion but insufficient for a unique
+  phase assignment. Pale curves represent intervals failing the amplitude
+  gate.}
+  \label{fig:supp_phase_discrimination}
+\end{figure*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]
+    {upper_stage_noise_normalized_spectrogram.pdf}
+  \caption{Noise-normalized \(Z\), radial, and transverse spectrograms of the
+  focused upper-stage interval using 0.4-s and 1.0-s Fourier windows. Shading
+  gives amplitude in decibels above the frequency-specific pre-event median.
+  Low-frequency energy increases principally on the radial and vertical
+  components before the predicted ground-coupled airwave.}
+  \label{fig:supp_upper_stage_spectrogram}
+\end{figure*}
+
+The USLaunchReport camera range was approximately 4.255~km. Projecting the wind
+onto that path gave an effective speed of 349.8~m~s$^{-1}$ and travel time of
+12.16~s. Camera audio was advanced by this travel time. BCHH pressure and
+ground-velocity traces were shifted using their individual ranges and
+351~m~s$^{-1}$. The ground motion in these short windows is dominated by
+ground-coupled airwaves, justifying the acoustic reduction for multimodal
+display; it does not imply that all seismic energy propagated acoustically.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{fig03_bchh_30s_zoom_with_audio_reduced_zp_true.pdf}
+  \caption{Source-aligned 30-s opening sequence with synchronized camera audio,
+  DD1--DD3 pressure, and three-component ground velocity. The mapped UTC scale
+  remains conditional on the upper-stage visual anchor. Audio source:
+  \citet{uslaunchreport_amos6_video_2016}; used with permission.}
+  \label{fig:supp_opening}
+\end{figure*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{principal_explosion_waveforms.pdf}
+  \caption{Calibrated pressure and ground-velocity waveforms for the principal
+  explosion.}
+  % Production note: regenerate plotted annotations from the same authoritative
+  % named-event measurements used in the main table.
+  \label{fig:supp_principal}
+\end{figure*}
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{../data/outputs/170_generate_publication_figures/payload_explosion_waveforms.pdf}{%
+    \includegraphics[width=0.92\textwidth]{payload_explosion_waveforms.pdf}%
+  }{%
+    \pendingfigure{Candidate-payload-impact and payload-associated-explosion waveform panels.
+    Regenerate Notebook 170 so that internal labels no longer say ``capsule''.}%
+  }
+  \caption{Calibrated waveforms for the candidate payload impact and the
+  payload-associated explosion, separated by 0.568~s. The labels are based on
+  the mapped video chronology.}
+  \label{fig:supp_payload}
+\end{figure*}
+
+The principal explosion generated surface-wave-like ground motion that
+dominated the ground-velocity record for approximately 20~s. The prolonged
+signal after Phase~I persisted from approximately 13:08:48 to
+13:12:00~UTC. It was strongest on the seismic channels but is also visible on
+DD2 pressure; ``tremor'' is used only as a descriptive display label, not as a
+source or process classification. Public video shows the AMOS-6 payload
+descending and reaching the ground during the two payload-associated signals;
+the waveforms themselves remain dominated by ground-coupled airwaves and do
+not isolate a unique direct seismic impact phase.
+
+\FloatBarrier
+
+\section{Additional engineering and operational context}
+\label{sec:supp_engineering}
+
+SpaceX's 2~January~2017 public anomaly update reported that its Accident
+Investigation Team operated under an FAA-approved plan with FAA oversight and
+participation by NASA, the U.S. Air Force, the National Transportation Safety
+Board, industry experts, and other organizations
+\citep{spacex_anomaly_2017,nasa_sma_falcon9}. The investigation examined more
+than 3,000 telemetry and video channels, umbilical data, imagery, recovered
+hardware, and subsequent tests. SpaceX reported 93~ms between the first
+anomalous telemetry and loss of the second stage.
+
+The reported initiating failure was one of three composite overwrapped pressure
+vessels in the second-stage liquid-oxygen tank. Credible paths involved
+supercooled liquid oxygen, potentially including solid oxygen, trapped between
+an aluminium-liner buckle or void and the carbon-fibre overwrap. Fibre breakage
+or friction during pressurization could ignite the oxygen. Corrective measures
+returned helium loading to a warmer, previously flight-proven configuration;
+the longer-term remedy redesigned the vessels to prevent liner buckling
+\citep{spacex_anomaly_2017}.
+
+SpaceX reported that the Falcon Support Building and new liquid-oxygen farm
+were unaffected, the RP-1 farm largely unaffected, and pad control systems in
+relatively good condition despite extensive damage elsewhere. No personnel
+were injured. Falcon~9 returned to flight from Vandenberg after 135~days, while
+SLC-40 returned with CRS-13 after 470~days
+\citep{spacex_iridium1_2017,spacex_crs13_2017}. Activation of Launch
+Complex~39A allowed Florida operations to resume during the outage.
+
+The reported US\$196-million AMOS-6 reimbursement and approximately
+US\$50-million SLC-40 restoration-and-upgrade cost exclude the launch vehicle,
+schedule disruption, revenue, and complete customer and insurance consequences
+\citep{magan_amos6_2016,clark_slc40_2017}. They should not be summed as a
+comprehensive accident cost.
+
+\section{Supplementary data products}
+
+The repository deposit should contain, at minimum:
+\begin{enumerate}
+  \item all 153 catalogue entries with accepted picks, waveform-quality tiers,
+        array solutions, amplitudes, PGV, and provenance, including the
+        machine-readable source of
+        Table~\ref{tab:supp_event_measurements};
+  \item the excluded-candidate audit;
+  \item channel-specific named-event measurements and windows;
+  \item all nonoverlapping event-complex energetic measurements and the final
+        cumulative summary;
+  \item the regional station/channel manifest, metadata and waveform
+        availability audit, automatic metrics, candidate plots, and manual
+        decisions; and
+  \item the configuration, environment, and notebook-to-output manifest needed
+        to reproduce every table and figure.
+\end{enumerate}
+
+% The Seismica class selects abbrvnat_seismica_upcasetitle automatically.
+\bibliography{mybibfile40}
+
+\end{document}

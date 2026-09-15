@@ -1,0 +1,42 @@
+[
+  {
+    "status": "BLOCKER",
+    "action": "Supply the six-channel 48-hour precursor-screen MiniSEED and coverage/visual-review provenance."
+  },
+  {
+    "status": "BLOCKER",
+    "action": "Complete and freeze manual classification of the 93 regional automatic candidates, or preserve manuscript wording that states the review is incomplete."
+  },
+  {
+    "status": "BLOCKER",
+    "action": "Resolve/document the initial and principal physical pulse-to-PGV assignments used by Table 1."
+  },
+  {
+    "status": "OPEN_EVIDENCE",
+    "action": "Complete bracketing-launch calibration comparisons; document sensor-head/serial assignments and limits on over-range response."
+  },
+  {
+    "status": "OPEN_EVIDENCE",
+    "action": "Archive the exact AGU slides/report only if restoring the specific historical no-shock attribution."
+  },
+  {
+    "status": "RELEASE",
+    "action": "Add a calibration-provenance note distinguishing adopted empirical factors, nominal response, recollection, and unresolved cause."
+  },
+  {
+    "status": "RELEASE",
+    "action": "Record licenses/citations for data, Cartopy basemaps, InfraPy, TwistPy, and the source video."
+  },
+  {
+    "status": "PERMISSION",
+    "action": "Confirm whether the source/final USLaunchReport movie and derived audio may be redistributed before enabling video inclusion."
+  },
+  {
+    "status": "RELEASE",
+    "action": "Install the final version-43 TeX/support assets and perform a clean portable rerun and final page proof."
+  },
+  {
+    "status": "RELEASE",
+    "action": "Add Zenodo DOI/version metadata after reservation; do not invent a DOI."
+  }
+]

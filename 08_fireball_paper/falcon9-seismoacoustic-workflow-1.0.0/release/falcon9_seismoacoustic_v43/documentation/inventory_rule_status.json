@@ -1,0 +1,1145 @@
+[
+  {
+    "label": "Repository README",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "README.md",
+    "note": ""
+  },
+  {
+    "label": "Conda environment",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "environment.yml",
+    "note": ""
+  },
+  {
+    "label": "Software license",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "LICENSE; LICENSE.*",
+    "note": ""
+  },
+  {
+    "label": "Citation metadata",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "CITATION.cff",
+    "note": ""
+  },
+  {
+    "label": "Python modules",
+    "category": "code",
+    "required": true,
+    "match_count": 11,
+    "status": "FOUND",
+    "patterns": "modules/*.py",
+    "note": ""
+  },
+  {
+    "label": "Notebook 000",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/000_correct_bchh_instrument_response.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 010",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/010_prepare_analysis_inputs.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 020",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/020_analyze_ksc_weather.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 030",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/030_reconcile_manual_event_catalogues.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 040",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/040_validate_event_catalogue_with_array_processing.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 050",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/050_review_event_catalogue_waveforms.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 060",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/060_validate_infrasound_baseline_correction.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 070",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/070_prepare_event_waveform_products.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 080",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/080_analyze_planar_array_propagation.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 090",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/090_analyze_finite_distance_propagation.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 100",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/100_measure_event_amplitudes_and_acoustic_seismic_coupling.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 110",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/110_measure_named_events.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 124",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/124_estimate_acoustic_energetics.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 130",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/130_analyze_seismic_polarization.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 140",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/140_search_for_direct_seismic_waves.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 141",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/141_generate_supplement_event_table.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 145",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/145_analyze_regional_detectability_with_regional_validation.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 150",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/150_align_uslaunchreport_video.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 160",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/160_generate_synchronized_phase1_video.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 165",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/165_generate_video_waveform_figure.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Notebook 170",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/170_generate_publication_figures_fixed.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Release assembler",
+    "category": "code",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "notebooks/180_assemble_zenodo_release.ipynb",
+    "note": ""
+  },
+  {
+    "label": "Raw six-channel accident waveform",
+    "category": "observations",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/miniseed/01_bchh_raw_event_window.mseed",
+    "note": ""
+  },
+  {
+    "label": "Original BCHH response metadata",
+    "category": "metadata",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/metadata/KSC.xml",
+    "note": ""
+  },
+  {
+    "label": "NASA/KSC weather workbook",
+    "category": "observations",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/metadata/nasa_weather_tower_data.xls",
+    "note": ""
+  },
+  {
+    "label": "Launch-pad and camera coordinates",
+    "category": "metadata",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/metadata/launchpads_cameras.kml",
+    "note": ""
+  },
+  {
+    "label": "Original CSS site/calibration metadata",
+    "category": "metadata",
+    "required": true,
+    "match_count": 3,
+    "status": "FOUND",
+    "patterns": "data/metadata/sitedb.calibration; data/metadata/sitedb.site; data/metadata/sitedb.sitechan",
+    "note": ""
+  },
+  {
+    "label": "Legacy export manual_arrival_picks.csv",
+    "category": "observations",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/legacy_export/manual_arrival_picks.csv",
+    "note": ""
+  },
+  {
+    "label": "Legacy export legacy_infrasound_event_catalogue.csv",
+    "category": "observations",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/legacy_export/legacy_infrasound_event_catalogue.csv",
+    "note": ""
+  },
+  {
+    "label": "Legacy export legacy_catalog_157_events.csv",
+    "category": "observations",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/legacy_export/legacy_catalog_157_events.csv",
+    "note": ""
+  },
+  {
+    "label": "Legacy extraction provenance",
+    "category": "metadata",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/legacy_export/legacy_export_summary.txt",
+    "note": ""
+  },
+  {
+    "label": "Six-channel 48-hour precursor-screen record",
+    "category": "observations",
+    "required": true,
+    "match_count": 0,
+    "status": "MISSING",
+    "patterns": "data/miniseed/*48*h*.mseed; data/miniseed/*48hour*.mseed; data/miniseed/*precursor*.mseed",
+    "note": "Must span the stated 37 h before and 11 h after the first signal."
+  },
+  {
+    "label": "Calibration provenance note",
+    "category": "documentation",
+    "required": true,
+    "match_count": 0,
+    "status": "MISSING",
+    "patterns": "documentation/calibration_provenance.md; docs/calibration_provenance.md",
+    "note": ""
+  },
+  {
+    "label": "Manual video/event timing picks",
+    "category": "timing",
+    "required": true,
+    "match_count": 0,
+    "status": "MISSING",
+    "patterns": "data/outputs/150_align_uslaunchreport_video/**/*.json",
+    "note": "Consequential manual picks and revision/provenance record."
+  },
+  {
+    "label": "Bracketing-launch calibration comparison",
+    "category": "open_evidence",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/calibration_checks/**/*",
+    "note": "Open scientific evidence task; absence does not prevent the assembler from running."
+  },
+  {
+    "label": "Historical AGU slide/report evidence",
+    "category": "open_evidence",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "documentation/*AGU*; docs/*AGU*",
+    "note": "Needed only if a specific historical no-shock attribution is restored."
+  },
+  {
+    "label": "000_correct_bchh_instrument_response root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 3,
+    "status": "FOUND",
+    "patterns": "data/outputs/000_correct_bchh_instrument_response/*.csv; data/outputs/000_correct_bchh_instrument_response/*.json",
+    "note": ""
+  },
+  {
+    "label": "000_correct_bchh_instrument_response root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 3,
+    "status": "FOUND",
+    "patterns": "data/outputs/000_correct_bchh_instrument_response/*.xml; data/outputs/000_correct_bchh_instrument_response/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "010_prepare_analysis_inputs root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 6,
+    "status": "FOUND",
+    "patterns": "data/outputs/010_prepare_analysis_inputs/*.csv; data/outputs/010_prepare_analysis_inputs/*.json",
+    "note": ""
+  },
+  {
+    "label": "010_prepare_analysis_inputs root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/010_prepare_analysis_inputs/*.xml; data/outputs/010_prepare_analysis_inputs/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "020_analyze_ksc_weather root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 7,
+    "status": "FOUND",
+    "patterns": "data/outputs/020_analyze_ksc_weather/*.csv; data/outputs/020_analyze_ksc_weather/*.json",
+    "note": ""
+  },
+  {
+    "label": "020_analyze_ksc_weather root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/020_analyze_ksc_weather/*.xml; data/outputs/020_analyze_ksc_weather/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "030_reconcile_manual_event_catalogues root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 21,
+    "status": "FOUND",
+    "patterns": "data/outputs/030_reconcile_manual_event_catalogues/*.csv; data/outputs/030_reconcile_manual_event_catalogues/*.json",
+    "note": ""
+  },
+  {
+    "label": "030_reconcile_manual_event_catalogues root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/030_reconcile_manual_event_catalogues/*.xml; data/outputs/030_reconcile_manual_event_catalogues/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "040_validate_event_catalogue_with_array_processing root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 15,
+    "status": "FOUND",
+    "patterns": "data/outputs/040_validate_event_catalogue_with_array_processing/*.csv; data/outputs/040_validate_event_catalogue_with_array_processing/*.json",
+    "note": ""
+  },
+  {
+    "label": "040_validate_event_catalogue_with_array_processing root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/040_validate_event_catalogue_with_array_processing/*.xml; data/outputs/040_validate_event_catalogue_with_array_processing/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "050_review_event_catalogue_waveforms root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 4,
+    "status": "FOUND",
+    "patterns": "data/outputs/050_review_event_catalogue_waveforms/*.csv; data/outputs/050_review_event_catalogue_waveforms/*.json",
+    "note": ""
+  },
+  {
+    "label": "050_review_event_catalogue_waveforms root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/050_review_event_catalogue_waveforms/*.xml; data/outputs/050_review_event_catalogue_waveforms/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "060_validate_infrasound_baseline_correction root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/060_validate_infrasound_baseline_correction/*.csv; data/outputs/060_validate_infrasound_baseline_correction/*.json",
+    "note": ""
+  },
+  {
+    "label": "060_validate_infrasound_baseline_correction root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/060_validate_infrasound_baseline_correction/*.xml; data/outputs/060_validate_infrasound_baseline_correction/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "070_prepare_event_waveform_products root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/070_prepare_event_waveform_products/*.csv; data/outputs/070_prepare_event_waveform_products/*.json",
+    "note": ""
+  },
+  {
+    "label": "070_prepare_event_waveform_products root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/070_prepare_event_waveform_products/*.xml; data/outputs/070_prepare_event_waveform_products/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "080_analyze_planar_array_propagation root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 10,
+    "status": "FOUND",
+    "patterns": "data/outputs/080_analyze_planar_array_propagation/*.csv; data/outputs/080_analyze_planar_array_propagation/*.json",
+    "note": ""
+  },
+  {
+    "label": "080_analyze_planar_array_propagation root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/080_analyze_planar_array_propagation/*.xml; data/outputs/080_analyze_planar_array_propagation/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "090_analyze_finite_distance_propagation root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 8,
+    "status": "FOUND",
+    "patterns": "data/outputs/090_analyze_finite_distance_propagation/*.csv; data/outputs/090_analyze_finite_distance_propagation/*.json",
+    "note": ""
+  },
+  {
+    "label": "090_analyze_finite_distance_propagation root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/090_analyze_finite_distance_propagation/*.xml; data/outputs/090_analyze_finite_distance_propagation/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "100_measure_event_amplitudes_and_acoustic_seismic_coupling root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 39,
+    "status": "FOUND",
+    "patterns": "data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/*.csv; data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/*.json",
+    "note": ""
+  },
+  {
+    "label": "100_measure_event_amplitudes_and_acoustic_seismic_coupling root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/*.xml; data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "110_measure_named_events root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 5,
+    "status": "FOUND",
+    "patterns": "data/outputs/110_measure_named_events/*.csv; data/outputs/110_measure_named_events/*.json",
+    "note": ""
+  },
+  {
+    "label": "110_measure_named_events root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/110_measure_named_events/*.xml; data/outputs/110_measure_named_events/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "120_estimate_acoustic_energetics root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 9,
+    "status": "FOUND",
+    "patterns": "data/outputs/120_estimate_acoustic_energetics/*.csv; data/outputs/120_estimate_acoustic_energetics/*.json",
+    "note": ""
+  },
+  {
+    "label": "120_estimate_acoustic_energetics root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/120_estimate_acoustic_energetics/*.xml; data/outputs/120_estimate_acoustic_energetics/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "130_analyze_seismic_polarization root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/130_analyze_seismic_polarization/*.csv; data/outputs/130_analyze_seismic_polarization/*.json",
+    "note": ""
+  },
+  {
+    "label": "130_analyze_seismic_polarization root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/130_analyze_seismic_polarization/*.xml; data/outputs/130_analyze_seismic_polarization/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "140_search_for_direct_seismic_waves root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 8,
+    "status": "FOUND",
+    "patterns": "data/outputs/140_search_for_direct_seismic_waves/*.csv; data/outputs/140_search_for_direct_seismic_waves/*.json",
+    "note": ""
+  },
+  {
+    "label": "140_search_for_direct_seismic_waves root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/140_search_for_direct_seismic_waves/*.xml; data/outputs/140_search_for_direct_seismic_waves/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "145_analyze_regional_detectability root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 20,
+    "status": "FOUND",
+    "patterns": "data/outputs/145_analyze_regional_detectability/*.csv; data/outputs/145_analyze_regional_detectability/*.json",
+    "note": ""
+  },
+  {
+    "label": "145_analyze_regional_detectability root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/145_analyze_regional_detectability/*.xml; data/outputs/145_analyze_regional_detectability/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "150_align_uslaunchreport_video root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/150_align_uslaunchreport_video/*.csv; data/outputs/150_align_uslaunchreport_video/*.json",
+    "note": ""
+  },
+  {
+    "label": "150_align_uslaunchreport_video root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/150_align_uslaunchreport_video/*.xml; data/outputs/150_align_uslaunchreport_video/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "160_generate_synchronized_phase1_video root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/160_generate_synchronized_phase1_video/*.csv; data/outputs/160_generate_synchronized_phase1_video/*.json",
+    "note": ""
+  },
+  {
+    "label": "160_generate_synchronized_phase1_video root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/160_generate_synchronized_phase1_video/*.xml; data/outputs/160_generate_synchronized_phase1_video/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "165_generate_video_waveform_figure root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 4,
+    "status": "FOUND",
+    "patterns": "data/outputs/165_generate_video_waveform_figure/*.csv; data/outputs/165_generate_video_waveform_figure/*.json",
+    "note": ""
+  },
+  {
+    "label": "165_generate_video_waveform_figure root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/165_generate_video_waveform_figure/*.xml; data/outputs/165_generate_video_waveform_figure/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "170_generate_publication_figures root tables/provenance",
+    "category": "derived",
+    "required": false,
+    "match_count": 5,
+    "status": "FOUND",
+    "patterns": "data/outputs/170_generate_publication_figures/*.csv; data/outputs/170_generate_publication_figures/*.json",
+    "note": ""
+  },
+  {
+    "label": "170_generate_publication_figures root portable metadata/waveforms",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/170_generate_publication_figures/*.xml; data/outputs/170_generate_publication_figures/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "Nested compact result",
+    "category": "derived",
+    "required": false,
+    "match_count": 7,
+    "status": "FOUND",
+    "patterns": "data/outputs/060_validate_infrasound_baseline_correction/derived/*.csv",
+    "note": ""
+  },
+  {
+    "label": "Nested compact result",
+    "category": "derived",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/060_validate_infrasound_baseline_correction/derived/*.json",
+    "note": ""
+  },
+  {
+    "label": "Nested compact result",
+    "category": "derived",
+    "required": false,
+    "match_count": 7,
+    "status": "FOUND",
+    "patterns": "data/outputs/070_prepare_event_waveform_products/derived/*.csv",
+    "note": ""
+  },
+  {
+    "label": "Nested compact result",
+    "category": "derived",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/070_prepare_event_waveform_products/derived/*.json",
+    "note": ""
+  },
+  {
+    "label": "Nested compact result",
+    "category": "derived",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/130_analyze_seismic_polarization/multiband/*.csv",
+    "note": ""
+  },
+  {
+    "label": "Nested compact result",
+    "category": "derived",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/130_analyze_seismic_polarization/multiband/*.json",
+    "note": ""
+  },
+  {
+    "label": "000_correct_bchh_instrument_response root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/000_correct_bchh_instrument_response/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "010_prepare_analysis_inputs root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/010_prepare_analysis_inputs/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "020_analyze_ksc_weather root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 12,
+    "status": "FOUND",
+    "patterns": "data/outputs/020_analyze_ksc_weather/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "030_reconcile_manual_event_catalogues root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 5,
+    "status": "FOUND",
+    "patterns": "data/outputs/030_reconcile_manual_event_catalogues/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "040_validate_event_catalogue_with_array_processing root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/040_validate_event_catalogue_with_array_processing/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "050_review_event_catalogue_waveforms root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/050_review_event_catalogue_waveforms/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "060_validate_infrasound_baseline_correction root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/060_validate_infrasound_baseline_correction/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "070_prepare_event_waveform_products root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/070_prepare_event_waveform_products/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "080_analyze_planar_array_propagation root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 4,
+    "status": "FOUND",
+    "patterns": "data/outputs/080_analyze_planar_array_propagation/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "090_analyze_finite_distance_propagation root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/090_analyze_finite_distance_propagation/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "100_measure_event_amplitudes_and_acoustic_seismic_coupling root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "110_measure_named_events root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/110_measure_named_events/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "120_estimate_acoustic_energetics root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 6,
+    "status": "FOUND",
+    "patterns": "data/outputs/120_estimate_acoustic_energetics/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "130_analyze_seismic_polarization root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 18,
+    "status": "FOUND",
+    "patterns": "data/outputs/130_analyze_seismic_polarization/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "140_search_for_direct_seismic_waves root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 5,
+    "status": "FOUND",
+    "patterns": "data/outputs/140_search_for_direct_seismic_waves/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "145_analyze_regional_detectability root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 13,
+    "status": "FOUND",
+    "patterns": "data/outputs/145_analyze_regional_detectability/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "150_align_uslaunchreport_video root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/150_align_uslaunchreport_video/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "160_generate_synchronized_phase1_video root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/160_generate_synchronized_phase1_video/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "165_generate_video_waveform_figure root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/165_generate_video_waveform_figure/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "170_generate_publication_figures root PDFs",
+    "category": "figures",
+    "required": false,
+    "match_count": 23,
+    "status": "FOUND",
+    "patterns": "data/outputs/170_generate_publication_figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/020_analyze_ksc_weather/figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/030_reconcile_manual_event_catalogues/figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 5,
+    "status": "FOUND",
+    "patterns": "data/outputs/040_validate_event_catalogue_with_array_processing/figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 4,
+    "status": "FOUND",
+    "patterns": "data/outputs/060_validate_infrasound_baseline_correction/summary_figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 24,
+    "status": "FOUND",
+    "patterns": "data/outputs/080_analyze_planar_array_propagation/composites/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 2,
+    "status": "FOUND",
+    "patterns": "data/outputs/090_analyze_finite_distance_propagation/composites/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 13,
+    "status": "FOUND",
+    "patterns": "data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/130_analyze_seismic_polarization/multiband/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Selected publication/summary figures",
+    "category": "figures",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "data/outputs/140_search_for_direct_seismic_waves/figures/*.pdf",
+    "note": ""
+  },
+  {
+    "label": "Regional MiniSEED records",
+    "category": "regional_observations",
+    "required": true,
+    "match_count": 166,
+    "status": "FOUND",
+    "patterns": "data/outputs/145_analyze_regional_detectability/waveform_cache/**/*.mseed",
+    "note": ""
+  },
+  {
+    "label": "Regional response StationXML",
+    "category": "regional_metadata",
+    "required": true,
+    "match_count": 166,
+    "status": "FOUND",
+    "patterns": "data/outputs/145_analyze_regional_detectability/response_cache/**/*.xml",
+    "note": ""
+  },
+  {
+    "label": "Regional event-epoch inventory",
+    "category": "regional_metadata",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "data/outputs/145_analyze_regional_detectability/regional_station_inventory.xml",
+    "note": ""
+  },
+  {
+    "label": "main43.tex",
+    "category": "manuscript",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/main43.tex",
+    "note": ""
+  },
+  {
+    "label": "supplement43.tex",
+    "category": "manuscript",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/supplement43.tex",
+    "note": ""
+  },
+  {
+    "label": "mybibfile40.bib",
+    "category": "manuscript",
+    "required": true,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/mybibfile40.bib",
+    "note": ""
+  },
+  {
+    "label": "LaTeX support",
+    "category": "manuscript",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/*.cls",
+    "note": ""
+  },
+  {
+    "label": "LaTeX support",
+    "category": "manuscript",
+    "required": false,
+    "match_count": 0,
+    "status": "OPTIONAL_ABSENT",
+    "patterns": "latex/*.sty",
+    "note": ""
+  },
+  {
+    "label": "LaTeX support",
+    "category": "manuscript",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/*.bst",
+    "note": ""
+  },
+  {
+    "label": "LaTeX support",
+    "category": "manuscript",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/generated/*.tex",
+    "note": ""
+  },
+  {
+    "label": "LaTeX support",
+    "category": "manuscript",
+    "required": false,
+    "match_count": 1,
+    "status": "FOUND",
+    "patterns": "latex/generated/*.json",
+    "note": ""
+  }
+]
