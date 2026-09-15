@@ -1,0 +1,10 @@
+{
+  "producer": "141_generate_supplement_event_table.ipynb",
+  "source_csv": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/event_acoustic_seismic_amplitudes.csv",
+  "source_sha256": "f6ebf38f37e04bad73c3174199b5d67e9f8edcf62f0f3a2e609ce9c0cefbc9e3",
+  "output_tex": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/latex/generated/supplement_event_measurements.tex",
+  "catalogue_rows": 153,
+  "regression_rows": 46,
+  "azimuth_convention": "projected grid north",
+  "pressure_statistic": "extrema of aligned median waveform"
+}
