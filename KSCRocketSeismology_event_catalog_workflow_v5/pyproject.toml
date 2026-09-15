@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kscrocketseismology"
+version = "0.5.0"
+description = "Unified catalog, static website, and ensemble-analysis stack for KSC rocket seismology."
+requires-python = ">=3.11"
+dependencies = ["pandas>=2.0", "numpy>=1.24", "matplotlib>=3.7", "openpyxl>=3.1"]
+
+[project.optional-dependencies]
+seismic = ["obspy>=1.4"]
+maps = ["geopandas>=0.14", "contextily>=1.5", "pyproj>=3.6", "openpyxl>=3.1", "xlrd>=2.0"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ksc-rockets = "kscrockets.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

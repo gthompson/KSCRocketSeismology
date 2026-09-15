@@ -1,0 +1,2 @@
+match_mission,event_type,event_time_utc,window_start,window_end,event_time_source,event_time_quality,notes
+Falcon 9 Full Thrust | Amos 6 (Failure before launch),explosion,2016-09-01T13:07:11.913Z,2016-09-01T13:00:00Z,2016-09-01T14:00:00Z,AMOS-6 fireball analysis / curated project metadata,verified,Corrects erroneous 2016-09-03 source row. Window is an analysis/extraction window and is intentionally separate from event time.

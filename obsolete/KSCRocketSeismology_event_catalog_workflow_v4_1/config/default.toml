@@ -1,0 +1,21 @@
+[project]
+year_min = 2016
+year_max = 2022
+
+[paths]
+raw_catalog = "data/raw/merged_launches.csv"
+canonical_catalog = "data/processed/launch_catalog.csv"
+database = "data/processed/ksc_rockets.sqlite"
+event_overrides = "data/curated/event_overrides.csv"
+event_id_registry = "data/curated/event_id_registry.csv"
+metrics_index = "data/raw/launch_metrics_index.csv"
+website_output = "outputs/website"
+analysis_output = "outputs/ensemble"
+launchpads = "data/raw/launchpads.csv"
+
+[catalog]
+dedupe_tolerance_seconds = 120
+
+[website]
+title = "KSC Rocket Seismology Event Catalog"
+subtitle = "Kennedy Space Center / Cape Canaveral seismo-acoustic launch catalog"

@@ -1,0 +1,409 @@
+name,slug,launch_designator,SLC,success,net,window_start,window_end
+Atlas V 401 | GPS IIF-12 (USA-266),atlas-v-401-gps-iif-12-usa-266,2016-007,Space Launch Complex 40,True,2016-02-05T13:38:00Z,2016-02-05 13:38:00+00:00,2016-02-05 13:57:00+00:00
+Falcon 9 Full Thrust | SES-9,falcon-9-full-thrust-ses-9,2016-013,Space Launch Complex 40,True,2016-03-04T23:35:00Z,2016-03-04 23:35:00+00:00,2016-03-05 01:06:00+00:00
+Atlas V 401 | Cygnus CRS OA-6 (S.S. Rick Husband),atlas-v-401-cygnus-crs-oa-6-ss-rick-husband,2016-019,Space Launch Complex 40,True,2016-03-23T03:05:52Z,2016-03-23 03:05:52+00:00,2016-03-23 03:35:00+00:00
+Falcon 9 Full Thrust | SpX CRS-8,falcon-9-full-thrust-spx-crs-8,2016-024,Space Launch Complex 40,True,2016-04-08T20:43:32Z,2016-04-08 20:43:32+00:00,2016-04-08 20:43:32+00:00
+Falcon 9 Full Thrust | JCSAT-14,falcon-9-full-thrust-jcsat-14,2016-028,Space Launch Complex 40,True,2016-05-06T05:21:00Z,2016-05-06 05:21:00+00:00,2016-05-06 07:21:00+00:00
+Falcon 9 Full Thrust | Thaicom 8,falcon-9-full-thrust-thaicom-8,2016-031,Space Launch Complex 40,True,2016-05-27T21:39:00Z,2016-05-27 21:39:00+00:00,2016-05-27 23:39:00+00:00
+Delta IV Heavy | NROL-37,delta-iv-heavy-nrol-37,2016-036,Space Launch Complex 41,True,2016-06-11T17:51:00Z,2016-06-11 17:51:00+00:00,2016-06-11 17:51:00+00:00
+Falcon 9 Full Thrust | Eutelsat 117 West B & ABS-2A,falcon-9-full-thrust-eutelsat-117-west-b-abs-2a,2016-038,Space Launch Complex 40,True,2016-06-15T14:29:00Z,2016-06-15 14:29:00+00:00,2016-06-15 15:13:00+00:00
+Atlas V 551 | MUOS-5,atlas-v-551-muos-5,2016-041,Space Launch Complex 40,True,2016-06-24T14:30:00Z,2016-06-24 14:30:00+00:00,2016-06-24 15:14:00+00:00
+Falcon 9 Full Thrust | SpX CRS-9,falcon-9-full-thrust-spx-crs-9,2016-046,Space Launch Complex 40,True,2016-07-18T04:45:29Z,2016-07-18 04:45:29+00:00,2016-07-18 04:45:29+00:00
+Atlas V 421 | NROL-61,atlas-v-421-nrol-61,2016-047,Space Launch Complex 40,True,2016-07-28T12:37:00Z,2016-07-28 12:00:00+00:00,2016-07-28 16:00:00+00:00
+Falcon 9 Full Thrust | JCSAT-16,falcon-9-full-thrust-jcsat-16,2016-050,Space Launch Complex 40,True,2016-08-14T05:26:00Z,2016-08-14 05:26:00+00:00,2016-08-14 07:26:00+00:00
+"Delta IV M+(4,2) | AFSPC-6",delta-iv-m42-afspc-6,2016-052,Space Launch Complex 40,True,2016-08-19T04:52:00Z,2016-08-19 04:47:00+00:00,2016-08-19 05:52:00+00:00
+Falcon 9 Full Thrust | Amos 6 (Failure before launch),falcon-9-full-thrust-amos-6-failure-before-launch,,Space Launch Complex 40,True,2016-09-03T07:00:00Z,2016-09-03 07:00:00+00:00,2016-09-03 09:00:00+00:00
+Atlas V 411 | OSIRIS-REx,atlas-v-411-osiris-rex,2016-055,Space Launch Complex 40,True,2016-09-08T23:05:00Z,2016-09-08 23:05:00+00:00,2016-09-09 01:05:00+00:00
+Atlas V 541 | GOES-R,atlas-v-541-goes-r,2016-071,Space Launch Complex 40,True,2016-11-19T23:42:00Z,2016-11-19 22:42:00+00:00,2016-11-19 23:42:00+00:00
+"Delta IV M+(5,4) | WGS-8 (USA-272)",delta-iv-m54-wgs-8-usa-272,2016-075,Space Launch Complex 40,True,2016-12-07T23:53:00Z,2016-12-07 23:53:00+00:00,2016-12-08 00:42:00+00:00
+Pegasus XL | 8 x CYGNSS,pegasus-xl-8-x-cygnss,2016-078,Space Launch Complex 40,True,2016-12-15T13:37:21Z,2016-12-15 13:21:00+00:00,2016-12-15 14:21:00+00:00
+Atlas V 431 | Echostar 19 (Jupiter-2),atlas-v-431-echostar-19-jupiter-2,2016-079,Space Launch Complex 40,True,2016-12-18T19:13:00Z,2016-12-18 18:27:00+00:00,2016-12-18 20:27:00+00:00
+Atlas V 401 | SBIRS GEO Flight 3 (SBIRS GEO-4),atlas-v-401-sbirs-geo-flight-3-sbirs-geo-4,2017-004,Space Launch Complex 40,True,2017-01-21T00:42:00Z,2017-01-21 00:42:00+00:00,2017-01-21 01:22:00+00:00
+Falcon 9 Full Thrust | SpX CRS-10,falcon-9-full-thrust-spx-crs-10,2017-009,Launch Complex 39A,True,2017-02-19T14:39:00Z,2017-02-19 14:39:00+00:00,2017-02-19 14:39:00+00:00
+Falcon 9 Full Thrust | Echostar 23,falcon-9-full-thrust-echostar-23,2017-014,Launch Complex 39A,True,2017-03-16T06:00:00Z,2017-03-16 05:35:00+00:00,2017-03-16 08:05:00+00:00
+"Delta IV M+(5,4) | WGS-9 (USA-275)",delta-iv-m54-wgs-9-usa-275,2017-016,Space Launch Complex 40,True,2017-03-19T00:18:00Z,2017-03-18 23:44:00+00:00,2017-03-19 00:59:00+00:00
+Falcon 9 Full Thrust | SES-10,falcon-9-full-thrust-ses-10,2017-017,Launch Complex 39A,True,2017-03-30T22:27:00Z,2017-03-30 22:27:00+00:00,2017-03-31 00:57:00+00:00
+Atlas V 401 | Cygnus CRS OA-7 (S.S. John Glenn),atlas-v-401-cygnus-crs-oa-7-ss-john-glenn,2017-019,Space Launch Complex 40,True,2017-04-18T15:11:26Z,2017-04-18 15:11:00+00:00,2017-04-18 15:41:00+00:00
+Falcon 9 Full Thrust | NROL-76,falcon-9-full-thrust-nrol-76,2017-022,Launch Complex 39A,True,2017-05-01T11:15:00Z,2017-05-01 11:00:00+00:00,2017-05-01 13:00:00+00:00
+Falcon 9 Full Thrust | Inmarsat-5 F4,falcon-9-full-thrust-inmarsat-5-f4,2017-025,Launch Complex 39A,True,2017-05-15T23:21:00Z,2017-05-15 23:21:00+00:00,2017-05-16 00:10:00+00:00
+Falcon 9 Full Thrust | SpX CRS-11,falcon-9-full-thrust-spx-crs-11,2017-030,Launch Complex 39A,True,2017-06-03T21:07:38Z,2017-06-03 21:07:38+00:00,2017-06-03 21:07:38+00:00
+Falcon 9 Full Thrust | BulgariaSat-1,falcon-9-full-thrust-bulgariasat-1,2017-038,Launch Complex 39A,True,2017-06-23T19:10:00Z,2017-06-23 18:10:00+00:00,2017-06-23 20:10:00+00:00
+Falcon 9 Full Thrust | Intelsat 35e,falcon-9-full-thrust-intelsat-35e,2017-041,Launch Complex 39A,True,2017-07-05T23:38:00Z,2017-07-05 23:38:00+00:00,2017-07-06 00:35:00+00:00
+Falcon 9 Block 4 | SpX CRS-12,falcon-9-block-4-spx-crs-12,2017-045,Launch Complex 39A,True,2017-08-14T16:31:37Z,2017-08-14 16:31:37+00:00,2017-08-14 16:31:37+00:00
+Atlas V 401 | TDRS-M,atlas-v-401-tdrs-m,2017-047,Space Launch Complex 40,True,2017-08-18T12:29:00Z,2017-08-18 12:03:00+00:00,2017-08-18 12:43:00+00:00
+Minotaur IV | ORS-5,minotaur-iv-ors-5,2017-050,Space Launch Complex 40,True,2017-08-26T06:04:00Z,2017-08-26 03:15:00+00:00,2017-08-26 07:15:00+00:00
+Falcon 9 Block 4 | OTV-5 (X-37B),falcon-9-block-4-otv-5-x-37b,2017-052,Launch Complex 39A,True,2017-09-07T14:00:00Z,2017-09-07 13:50:00+00:00,2017-09-07 18:55:00+00:00
+Falcon 9 Full Thrust | Echostar 105/SES-11,falcon-9-full-thrust-echostar-105ses-11,2017-063,Launch Complex 39A,True,2017-10-11T22:53:00Z,2017-10-11 22:53:00+00:00,2017-10-12 00:53:00+00:00
+Atlas V 421 | NROL-52,atlas-v-421-nrol-52,2017-066,Space Launch Complex 40,True,2017-10-15T07:28:00Z,2017-10-15 07:28:00+00:00,2017-10-15 07:28:00+00:00
+Falcon 9 Block 4 | Koreasat 5A,falcon-9-block-4-koreasat-5a,2017-067,Launch Complex 39A,True,2017-10-30T19:34:00Z,2017-10-30 19:34:00+00:00,2017-10-30 21:58:00+00:00
+Falcon 9 Full Thrust | SpX CRS-13,falcon-9-full-thrust-spx-crs-13,2017-080,Space Launch Complex 40,True,2017-12-15T15:36:09Z,2017-12-15 15:36:09+00:00,2017-12-15 15:36:09+00:00
+Falcon 9 Block 4 | Zuma,falcon-9-block-4-zuma,2018-001,Launch Complex 36A,True,2018-01-08T01:00:00Z,2018-01-08 01:00:00+00:00,2018-01-08 03:00:00+00:00
+Atlas V 411 | SBIRS GEO Flight 4 (SBIRS GEO-3),atlas-v-411-sbirs-geo-flight-4-sbirs-geo-3,2018-009,Space Launch Complex 40,True,2018-01-20T00:48:00Z,2018-01-20 00:48:00+00:00,2018-01-20 01:32:00+00:00
+Falcon 9 Full Thrust | GovSat (SES-16),falcon-9-full-thrust-govsat-ses-16,2018-013,Space Launch Complex 40,True,2018-01-31T21:25:00Z,2018-01-31 21:25:00+00:00,2018-01-31 23:46:00+00:00
+Falcon Heavy | Demo (Test Flight),falcon-heavy-demo-test-flight,2018-017,Launch Complex 39A,True,2018-02-06T20:45:00Z,2018-02-06 18:30:00+00:00,2018-02-06 21:00:00+00:00
+Atlas V 541 | GOES-S,atlas-v-541-goes-s,2018-022,Space Launch Complex 40,True,2018-03-01T22:02:00Z,2018-03-01 22:02:00+00:00,2018-03-02 00:02:00+00:00
+Falcon 9 Block 4 | Hispasat 30W-6 (Hispasat 1F),falcon-9-block-4-hispasat-30w-6-hispasat-1f,2018-023,Space Launch Complex 40,True,2018-03-06T05:33:00Z,2018-03-06 05:33:00+00:00,2018-03-06 07:33:00+00:00
+Falcon 9 Block 4 | SpX CRS-14,falcon-9-block-4-spx-crs-14,2018-032,Space Launch Complex 40,True,2018-04-02T20:30:38Z,2018-04-02 20:30:38+00:00,2018-04-02 20:30:38+00:00
+Atlas V 551 | AFSPC-11,atlas-v-551-afspc-11,2018-036,Space Launch Complex 40,True,2018-04-14T23:13:00Z,2018-04-14 23:13:00+00:00,2018-04-15 01:11:00+00:00
+Falcon 9 Block 4 | TESS (Transiting Exoplanet Survey Satellite),falcon-9-block-4-tess-transiting-exoplanet-survey,2018-038,Space Launch Complex 40,True,2018-04-18T22:51:31Z,2018-04-18 22:51:31+00:00,2018-04-18 22:52:01+00:00
+Falcon 9 Block 5 | Bangabandhu-1,falcon-9-block-5-bangabandhu-1,2018-044,Launch Complex 39A,True,2018-05-11T20:14:00Z,2018-05-11 20:14:00+00:00,2018-05-11 22:21:00+00:00
+Falcon 9 Block 4 | SES-12,falcon-9-block-4-ses-12,2018-049,Space Launch Complex 40,True,2018-06-04T04:45:00Z,2018-06-04 04:29:00+00:00,2018-06-04 08:29:00+00:00
+Falcon 9 Block 4 | SpX CRS-15,falcon-9-block-4-spx-crs-15,2018-055,Space Launch Complex 40,True,2018-06-29T09:42:41Z,2018-06-29 09:42:41+00:00,2018-06-29 09:42:41+00:00
+Falcon 9 Block 5 | Telstar 19 VANTAGE,falcon-9-block-5-telstar-19-vantage,2018-059,Space Launch Complex 40,True,2018-07-22T05:50:00Z,2018-07-22 05:50:00+00:00,2018-07-22 09:50:00+00:00
+Falcon 9 Block 5 | Merah Putih (Telkom-4),falcon-9-block-5-merah-putih-telkom-4,2018-064,Space Launch Complex 40,True,2018-08-07T05:18:00Z,2018-08-07 05:18:00+00:00,2018-08-07 07:18:00+00:00
+Delta IV Heavy | Parker Solar Probe,delta-iv-heavy-parker-solar-probe,2018-065,Space Launch Complex 40,True,2018-08-12T07:31:00Z,2018-08-12 07:31:00+00:00,2018-08-12 08:36:00+00:00
+Falcon 9 Block 5 | Telstar 18 VANTAGE,falcon-9-block-5-telstar-18-vantage,2018-069,Space Launch Complex 40,True,2018-09-10T04:45:00Z,2018-09-10 03:28:00+00:00,2018-09-10 07:28:00+00:00
+Atlas V 551 | AEHF-4 (USA 288),atlas-v-551-aehf-4-usa-288,2018-079,Space Launch Complex 40,True,2018-10-17T04:15:00Z,2018-10-17 04:15:00+00:00,2018-10-17 06:15:00+00:00
+Falcon 9 Block 5 | Es'hail 2,falcon-9-block-5-eshail-2,2018-090,Launch Complex 39A,True,2018-11-15T20:46:00Z,2018-11-15 20:46:00+00:00,2018-11-15 22:29:00+00:00
+Falcon 9 Block 5 | SpX CRS-16,falcon-9-block-5-spx-crs-16,2018-101,Space Launch Complex 40,True,2018-12-05T18:16:16Z,2018-12-05 18:16:16+00:00,2018-12-05 18:16:16+00:00
+Falcon 9 Block 5 | GPS III SV01,falcon-9-block-5-gps-iii-sv01,2018-109,Space Launch Complex 40,True,2018-12-23T13:51:00Z,2018-12-23 13:51:00+00:00,2018-12-23 14:17:00+00:00
+"Falcon 9 Block 5 | Nusantara Satu & GTO-1 (Beresheet, S5)",falcon-9-block-5-nusantara-satu-gto-1-beresheet-s5,2019-009,Space Launch Complex 40,True,2019-02-22T01:45:00Z,2019-02-22 01:45:00+00:00,2019-02-22 02:17:00+00:00
+Falcon 9 Block 5 | SpX-DM1 (Demonstration Mission 1),falcon-9-block-5-spx-dm1-demonstration-mission-1,2019-011,Launch Complex 39A,True,2019-03-02T07:49:00Z,2019-03-02 07:49:00+00:00,2019-03-02 07:49:00+00:00
+"Delta IV M+(5,4) | WGS-10",delta-iv-m54-wgs-10,2019-014,Space Launch Complex 40,True,2019-03-16T00:26:00Z,2019-03-15 22:56:00+00:00,2019-03-16 01:05:00+00:00
+Falcon Heavy | Arabsat-6A,falcon-heavy-arabsat-6a,2019-021,Launch Complex 39A,True,2019-04-11T22:35:00Z,2019-04-11 22:35:00+00:00,2019-04-12 00:31:00+00:00
+Falcon 9 Block 5 | SpX CRS-17,falcon-9-block-5-spx-crs-17,2019-025,Space Launch Complex 40,True,2019-05-04T06:48:58Z,2019-05-04 06:48:58+00:00,2019-05-04 06:48:58+00:00
+Falcon 9 Block 5 | Starlink Demo (0.9),falcon-9-block-5-starlink-demo-09,2019-029,Space Launch Complex 40,True,2019-05-24T02:30:00Z,2019-05-24 02:30:00+00:00,2019-05-24 04:00:00+00:00
+Falcon Heavy | STP-2,falcon-heavy-stp-2,2019-036,Launch Complex 39A,True,2019-06-25T06:30:00Z,2019-06-25 03:30:00+00:00,2019-06-25 07:30:00+00:00
+Orion Test Booster | Ascent Abort-2,orion-test-booster-ascent-abort-2,,Space Launch Complex 40,True,2019-07-02T11:00:00Z,2019-07-02 11:00:00+00:00,2019-07-02 11:00:00+00:00
+Falcon 9 Block 5 | SpX CRS-18,falcon-9-block-5-spx-crs-18,2019-044,Space Launch Complex 41,True,2019-07-25T22:01:56Z,2019-07-25 22:01:56+00:00,2019-07-25 22:01:56+00:00
+Falcon 9 Block 5 | Amos-17,falcon-9-block-5-amos-17,2019-050,Space Launch Complex 40,True,2019-08-06T23:23:00Z,2019-08-06 22:53:00+00:00,2019-08-07 00:21:00+00:00
+Atlas V 551 | AEHF-5 (USA 292),atlas-v-551-aehf-5-usa-292,2019-051,Space Launch Complex 40,True,2019-08-08T10:13:00Z,2019-08-08 09:44:00+00:00,2019-08-08 11:44:00+00:00
+"Delta IV M+(4,2) | GPS III SV02",delta-iv-m42-gps-iii-sv02,2019-056,Space Launch Complex 40,True,2019-08-22T13:06:00Z,2019-08-22 13:00:30+00:00,2019-08-22 13:27:00+00:00
+Pegasus XL | Ionospheric Connection Explorer (ICON),pegasus-xl-ionospheric-connection-explorer-icon,2019-068,Space Launch Complex 40,True,2019-10-11T02:00:30Z,2019-10-11 01:30:00+00:00,2019-10-11 02:55:00+00:00
+Falcon 9 Block 5 | Starlink 1,falcon-9-block-5-starlink-1,2019-074,Space Launch Complex 40,True,2019-11-11T14:56:00Z,2019-11-11 14:50:00+00:00,2019-11-11 15:01:00+00:00
+Falcon 9 Block 5 | SpX CRS-19,falcon-9-block-5-spx-crs-19,2019-083,Space Launch Complex 40,True,2019-12-05T17:29:24Z,2019-12-05 17:29:24+00:00,2019-12-05 17:29:24+00:00
+Falcon 9 Block 5 | JCSAT-18/KACIFIC-1,falcon-9-block-5-jcsat-18kacific-1,2019-091,Space Launch Complex 40,True,2019-12-17T00:10:00Z,2019-12-17 00:10:00+00:00,2019-12-17 01:38:00+00:00
+Atlas V N22 | CST-100 Starliner Orbital Flight Test,atlas-v-n22-cst-100-starliner-orbital-flight-test,2019-094,Space Launch Complex 40,True,2019-12-20T11:36:43Z,2019-12-20 11:36:43+00:00,2019-12-20 11:36:43+00:00
+Falcon 9 Block 5 | Starlink 2,falcon-9-block-5-starlink-2,2020-001,Rocket Lab Launch Complex 1B,True,2020-01-07T02:19:21Z,2020-01-07 02:19:21+00:00,2020-01-07 02:19:21+00:00
+Falcon 9 Block 5 | Dragon In-Flight Abort Test,falcon-9-block-5-dragon-in-flight-abort-test,,Launch Complex 39A,True,2020-01-19T15:30:00Z,2020-01-19 13:00:00+00:00,2020-01-19 19:00:00+00:00
+Falcon 9 Block 5 | Starlink 3,falcon-9-block-5-starlink-3,2020-006,Space Launch Complex 40,True,2020-01-29T14:06:00Z,2020-01-29 14:06:00+00:00,2020-01-29 14:06:00+00:00
+Atlas V 411 | Solar Orbiter,atlas-v-411-solar-orbiter,2020-010,Space Launch Complex 40,True,2020-02-10T04:03:00Z,2020-02-10 04:03:00+00:00,2020-02-10 06:03:00+00:00
+Falcon 9 Block 5 | Starlink 4,falcon-9-block-5-starlink-4,2020-012,Space Launch Complex 41,True,2020-02-17T15:05:55Z,2020-02-17 15:05:55+00:00,2020-02-17 15:05:55+00:00
+Falcon 9 Block 5 | SpX CRS-20,falcon-9-block-5-spx-crs-20,2020-016,Space Launch Complex 40,True,2020-03-07T04:50:31Z,2020-03-07 04:50:31+00:00,2020-03-07 04:50:31+00:00
+Falcon 9 Block 5 | Starlink 5,falcon-9-block-5-starlink-5,2020-019,Launch Complex 39A,True,2020-03-18T12:16:39Z,2020-03-18 12:16:39+00:00,2020-03-18 12:16:39+00:00
+Atlas V 551 | AEHF-6,atlas-v-551-aehf-6,2020-022,Space Launch Complex 40,True,2020-03-26T20:18:00Z,2020-03-26 18:57:00+00:00,2020-03-26 20:57:00+00:00
+Falcon 9 Block 5 | Starlink 6,falcon-9-block-5-starlink-6,2020-025,Launch Complex 39A,True,2020-04-22T19:30:00Z,2020-04-22 19:30:00+00:00,2020-04-22 19:30:00+00:00
+Atlas V 501 | OTV-6 (X-37B) (USSF-7),atlas-v-501-otv-6-x-37b-ussf-7,2020-029,Space Launch Complex 40,True,2020-05-17T13:14:00Z,2020-05-17 13:14:00+00:00,2020-05-17 15:02:00+00:00
+Falcon 9 Block 5 | SpX-DM2 (Demonstration Mission 2),falcon-9-block-5-spx-dm2-demonstration-mission-2,2020-033,Launch Complex 39A,True,2020-05-30T19:22:45Z,2020-05-30 19:22:45+00:00,2020-05-30 19:22:45+00:00
+Falcon 9 Block 5 | Starlink 7,falcon-9-block-5-starlink-7,2020-035,Space Launch Complex 40,True,2020-06-04T01:25:33Z,2020-06-04 01:25:33+00:00,2020-06-04 01:25:33+00:00
+Falcon 9 Block 5 | Starlink 8,falcon-9-block-5-starlink-8,2020-038,Space Launch Complex 40,True,2020-06-13T09:21:18Z,2020-06-13 09:21:18+00:00,2020-06-13 09:21:18+00:00
+Falcon 9 Block 5 | GPS III SV03,falcon-9-block-5-gps-iii-sv03,2020-041,Space Launch Complex 40,True,2020-06-30T20:10:46Z,2020-06-30 19:55:00+00:00,2020-06-30 20:10:46+00:00
+Falcon 9 Block 5 | ANASIS-II,falcon-9-block-5-anasis-ii,2020-048,Space Launch Complex 40,True,2020-07-20T21:30:00Z,2020-07-20 21:00:00+00:00,2020-07-21 00:55:00+00:00
+Atlas V 541 | Mars 2020 (Perseverance rover & Ingenuity helicopter),atlas-v-541-mars-2020-perseverance-rover-ingenuity,2020-052,Space Launch Complex 41,True,2020-07-30T11:50:00Z,2020-07-30 11:50:00+00:00,2020-07-30 13:50:00+00:00
+Falcon 9 Block 5 | Starlink 9,falcon-9-block-5-starlink-9,2020-055,Launch Complex 39A,True,2020-08-07T05:12:00Z,2020-08-07 05:12:00+00:00,2020-08-07 05:12:00+00:00
+Falcon 9 Block 5 | Starlink 10,falcon-9-block-5-starlink-10,2020-057,Space Launch Complex 40,True,2020-08-18T14:31:00Z,2020-08-18 14:31:00+00:00,2020-08-18 14:31:00+00:00
+Falcon 9 Block 5 | SAOCOM 1B,falcon-9-block-5-saocom-1b,2020-059,Space Launch Complex 40,True,2020-08-30T23:18:00Z,2020-08-30 23:18:00+00:00,2020-08-30 23:18:00+00:00
+Electron | I Can’t Believe It’s Not Optical (Capella 2 & First Light),electron-i-cant-believe-its-not-optical-capella-2,2020-060,Space Launch Complex 40,True,2020-08-31T03:05:47Z,2020-08-31 03:05:47+00:00,2020-08-31 03:05:47+00:00
+Falcon 9 Block 5 | Starlink 11,falcon-9-block-5-starlink-11,2020-062,Launch Complex 39A,True,2020-09-03T12:46:14Z,2020-09-03 12:46:14+00:00,2020-09-03 12:46:14+00:00
+Falcon 9 Block 5 | Starlink 12,falcon-9-block-5-starlink-12,2020-070,Launch Complex 39A,True,2020-10-06T11:29:34Z,2020-10-06 11:29:34+00:00,2020-10-06 11:29:34+00:00
+Falcon 9 Block 5 | Starlink 13,falcon-9-block-5-starlink-13,2020-073,Launch Complex 39A,True,2020-10-18T12:25:57Z,2020-10-18 12:25:57+00:00,2020-10-18 12:25:57+00:00
+Falcon 9 Block 5 | Starlink 14,falcon-9-block-5-starlink-14,2020-074,Space Launch Complex 40,True,2020-10-24T15:31:34Z,2020-10-24 15:31:34+00:00,2020-10-24 15:31:34+00:00
+Falcon 9 Block 5 | GPS III SV04,falcon-9-block-5-gps-iii-sv04,2020-078,Space Launch Complex 40,True,2020-11-05T23:24:23Z,2020-11-05 23:24:00+00:00,2020-11-05 23:39:00+00:00
+Atlas V 531 | NROL-101,atlas-v-531-nrol-101,2020-083,Space Launch Complex 40,True,2020-11-13T22:32:00Z,2020-11-13 22:13:00+00:00,2020-11-14 01:05:00+00:00
+Falcon 9 Block 5 | Crew-1,falcon-9-block-5-crew-1,2020-084,Launch Complex 39A,True,2020-11-16T00:27:17Z,2020-11-16 00:27:17+00:00,2020-11-16 00:27:17+00:00
+Falcon 9 Block 5 | Starlink 15,falcon-9-block-5-starlink-15,2020-088,Space Launch Complex 40,True,2020-11-25T02:13:12Z,2020-11-25 02:13:12+00:00,2020-11-25 02:13:12+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-21,falcon-9-block-5-dragon-crs-2-spx-21,2020-093,Launch Complex 39A,True,2020-12-06T16:17:08Z,2020-12-06 16:17:08+00:00,2020-12-06 16:17:08+00:00
+Delta IV Heavy | NROL-44,delta-iv-heavy-nrol-44,2020-095,Space Launch Complex 40,True,2020-12-11T01:09:00Z,2020-12-10 22:50:00+00:00,2020-12-11 03:30:00+00:00
+Falcon 9 Block 5 | Sirius SXM-7,falcon-9-block-5-sirius-sxm-7,2020-096,Space Launch Complex 40,True,2020-12-13T17:30:00Z,2020-12-13 16:22:00+00:00,2020-12-13 18:21:00+00:00
+Falcon 9 Block 5 | NROL-108,falcon-9-block-5-nrol-108,2020-101,Launch Complex 39A,True,2020-12-19T14:00:00Z,2020-12-19 14:00:00+00:00,2020-12-19 17:00:00+00:00
+Falcon 9 Block 5 | Türksat 5A,falcon-9-block-5-turksat-5a,2021-001,Space Launch Complex 40,True,2021-01-08T02:15:00Z,2021-01-08 01:28:00+00:00,2021-01-08 05:28:00+00:00
+Falcon 9 Block 5 | Starlink 16,falcon-9-block-5-starlink-16,2021-005,Launch Complex 39A,True,2021-01-20T13:02:00Z,2021-01-20 13:02:00+00:00,2021-01-20 13:02:00+00:00
+Falcon 9 Block 5 | Transporter 1 (Dedicated SSO Rideshare),falcon-9-block-5-transporter-1-dedicated-sso-rides,2021-006,Space Launch Complex 40,True,2021-01-24T15:00:00Z,2021-01-24 15:00:00+00:00,2021-01-24 15:22:00+00:00
+Falcon 9 Block 5 | Starlink 18,falcon-9-block-5-starlink-18,2021-009,Space Launch Complex 40,True,2021-02-04T06:19:54Z,2021-02-04 06:19:54+00:00,2021-02-04 06:19:54+00:00
+Falcon 9 Block 5 | Starlink 19,falcon-9-block-5-starlink-19,2021-012,Space Launch Complex 40,True,2021-02-16T03:59:37Z,2021-02-16 03:59:37+00:00,2021-02-16 03:59:37+00:00
+Falcon 9 Block 5 | Starlink 17,falcon-9-block-5-starlink-17,2021-017,Launch Complex 39A,True,2021-03-04T08:24:54Z,2021-03-04 08:24:54+00:00,2021-03-04 08:24:54+00:00
+Falcon 9 Block 5 | Starlink 20,falcon-9-block-5-starlink-20,2021-018,Space Launch Complex 37B,True,2021-03-11T08:13:29Z,2021-03-11 08:13:29+00:00,2021-03-11 08:13:29+00:00
+Falcon 9 Block 5 | Starlink 21,falcon-9-block-5-starlink-21,2021-021,Launch Complex 39A,True,2021-03-14T10:01:26Z,2021-03-14 10:01:26+00:00,2021-03-14 10:01:26+00:00
+Falcon 9 Block 5 | Starlink 22,falcon-9-block-5-starlink-22,2021-024,Space Launch Complex 40,True,2021-03-24T08:28:00Z,2021-03-24 08:28:00+00:00,2021-03-24 08:28:00+00:00
+Falcon 9 Block 5 | Starlink 23,falcon-9-block-5-starlink-23,2021-027,Space Launch Complex 40,True,2021-04-07T16:34:00Z,2021-04-07 16:34:00+00:00,2021-04-07 16:34:00+00:00
+Falcon 9 Block 5 | Crew-2,falcon-9-block-5-crew-2,2021-030,Launch Complex 39A,True,2021-04-23T09:49:02Z,2021-04-23 09:49:02+00:00,2021-04-23 09:49:02+00:00
+Falcon 9 Block 5 | Starlink 24,falcon-9-block-5-starlink-24,2021-036,Space Launch Complex 40,True,2021-04-29T03:44:30Z,2021-04-29 03:44:30+00:00,2021-04-29 03:44:30+00:00
+Falcon 9 Block 5 | Starlink 25,falcon-9-block-5-starlink-25,2021-038,Launch Complex 39A,True,2021-05-04T19:01:00Z,2021-05-04 19:01:00+00:00,2021-05-04 19:01:00+00:00
+Falcon 9 Block 5 | Starlink 27,falcon-9-block-5-starlink-27,2021-040,Space Launch Complex 40,True,2021-05-09T06:42:00Z,2021-05-09 06:42:00+00:00,2021-05-09 06:42:00+00:00
+Falcon 9 Block 5 | Starlink 26,falcon-9-block-5-starlink-26,2021-041,Launch Complex 39A,True,2021-05-15T22:56:00Z,2021-05-15 22:56:00+00:00,2021-05-15 22:56:00+00:00
+Atlas V 421 | SBIRS GEO-5,atlas-v-421-sbirs-geo-5,2021-042,Space Launch Complex 40,True,2021-05-18T17:37:00Z,2021-05-18 17:31:00+00:00,2021-05-18 18:11:00+00:00
+Falcon 9 Block 5 | Starlink 28,falcon-9-block-5-starlink-28,2021-044,Space Launch Complex 40,True,2021-05-26T18:59:00Z,2021-05-26 18:59:00+00:00,2021-05-26 18:59:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-22,falcon-9-block-5-dragon-crs-2-spx-22,2021-048,Launch Complex 39A,True,2021-06-03T17:29:15Z,2021-06-03 17:29:15+00:00,2021-06-03 17:29:15+00:00
+Falcon 9 Block 5 | Sirius SXM-8,falcon-9-block-5-sirius-sxm-8,2021-049,Space Launch Complex 40,True,2021-06-06T04:26:00Z,2021-06-06 04:26:00+00:00,2021-06-06 06:25:00+00:00
+Falcon 9 Block 5 | GPS III SV05,falcon-9-block-5-gps-iii-sv05,2021-054,Space Launch Complex 40,True,2021-06-17T16:09:35Z,2021-06-17 16:09:00+00:00,2021-06-17 16:24:00+00:00
+Falcon 9 Block 5 | Transporter 2 (Dedicated SSO Rideshare),falcon-9-block-5-transporter-2-dedicated-sso-rides,2021-059,Space Launch Complex 40,True,2021-06-30T19:31:00Z,2021-06-30 18:56:00+00:00,2021-06-30 19:54:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-23,falcon-9-block-5-dragon-crs-2-spx-23,2021-078,Launch Complex 39A,True,2021-08-29T07:14:49Z,2021-08-29 07:14:49+00:00,2021-08-29 07:14:49+00:00
+Falcon 9 Block 5 | Inspiration4,falcon-9-block-5-inspiration4,2021-084,Launch Complex 39A,True,2021-09-16T00:02:56Z,2021-09-16 00:02:00+00:00,2021-09-16 05:13:00+00:00
+Atlas V 401 | Lucy,atlas-v-401-lucy,2021-093,Space Launch Complex 40,True,2021-10-16T09:34:00Z,2021-10-16 09:34:00+00:00,2021-10-16 10:49:00+00:00
+Falcon 9 Block 5 | Crew-3,falcon-9-block-5-crew-3,2021-103,Launch Complex 39A,True,2021-11-11T02:03:31Z,2021-11-11 02:03:31+00:00,2021-11-11 02:03:31+00:00
+Falcon 9 Block 5 | Starlink Group 4-1,falcon-9-block-5-starlink-group-4-1,2021-104,Space Launch Complex 40,True,2021-11-13T12:18:56Z,2021-11-13 12:18:56+00:00,2021-11-13 12:18:56+00:00
+Falcon 9 Block 5 | Starlink Group 4-3,falcon-9-block-5-starlink-group-4-3,2021-115,Space Launch Complex 40,True,2021-12-02T23:12:00Z,2021-12-02 23:12:00+00:00,2021-12-02 23:12:00+00:00
+Atlas V 551 | STP-3,atlas-v-551-stp-3,2021-118,Space Launch Complex 40,True,2021-12-07T10:19:00Z,2021-12-07 09:04:00+00:00,2021-12-07 11:04:00+00:00
+Falcon 9 Block 5 | X-Ray Polarimetry Explorer (IXPE),falcon-9-block-5-x-ray-polarimetry-explorer-ixpe,2021-121,Launch Complex 39A,True,2021-12-09T06:00:00Z,2021-12-09 06:00:00+00:00,2021-12-09 07:30:00+00:00
+Falcon 9 Block 5 | Türksat 5B,falcon-9-block-5-turksat-5b,2021-126,Space Launch Complex 41,True,2021-12-19T03:58:39Z,2021-12-19 03:58:00+00:00,2021-12-19 05:28:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-24,falcon-9-block-5-dragon-crs-2-spx-24,2021-127,Launch Complex 39A,True,2021-12-21T10:07:08Z,2021-12-21 10:07:08+00:00,2021-12-21 10:07:08+00:00
+Falcon 9 Block 5 | Starlink Group 4-5,falcon-9-block-5-starlink-group-4-5,2022-001,Launch Complex 39A,True,2022-01-06T21:49:10Z,2022-01-06 21:49:10+00:00,2022-01-06 21:49:10+00:00
+Falcon 9 Block 5 | Transporter 3 (Dedicated SSO Rideshare),falcon-9-block-5-transporter-3-dedicated-sso-rides,2022-002,Space Launch Complex 40,True,2022-01-13T15:25:39Z,2022-01-13 15:25:39+00:00,2022-01-13 15:54:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-6,falcon-9-block-5-starlink-group-4-6,2022-005,Launch Complex 39A,True,2022-01-19T02:02:40Z,2022-01-19 02:02:40+00:00,2022-01-19 02:02:40+00:00
+Atlas V 511 | USSF-8,atlas-v-511-ussf-8,2022-006,Space Launch Complex 40,True,2022-01-21T19:00:00Z,2022-01-21 18:15:00+00:00,2022-01-21 21:15:00+00:00
+Falcon 9 Block 5 | CSG-2,falcon-9-block-5-csg-2,2022-008,Space Launch Complex 40,True,2022-01-31T23:11:14Z,2022-01-31 23:11:14+00:00,2022-01-31 23:11:14+00:00
+Falcon 9 Block 5 | Starlink Group 4-7,falcon-9-block-5-starlink-group-4-7,2022-010,Launch Complex 39A,True,2022-02-03T18:13:20Z,2022-02-03 18:13:20+00:00,2022-02-03 18:13:20+00:00
+Astra Rocket 3 | ELaNa 41,astra-rocket-3-elana-41,,Space Launch Complex 40,True,2022-02-10T20:00:00Z,2022-02-10 20:00:00+00:00,2022-02-10 21:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-8,falcon-9-block-5-starlink-group-4-8,2022-016,Space Launch Complex 40,True,2022-02-21T14:44:20Z,2022-02-21 14:44:20+00:00,2022-02-21 14:44:20+00:00
+Atlas V 541 | GOES-T,atlas-v-541-goes-t,2022-021,Space Launch Complex 40,True,2022-03-01T21:38:00Z,2022-03-01 21:38:00+00:00,2022-03-01 23:38:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-9,falcon-9-block-5-starlink-group-4-9,2022-022,Launch Complex 39A,True,2022-03-03T14:25:00Z,2022-03-03 14:25:00+00:00,2022-03-03 14:25:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-10,falcon-9-block-5-starlink-group-4-10,2022-025,Space Launch Complex 40,True,2022-03-09T13:45:00Z,2022-03-09 13:45:00+00:00,2022-03-09 13:45:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-12,falcon-9-block-5-starlink-group-4-12,2022-029,Space Launch Complex 40,True,2022-03-19T04:42:30Z,2022-03-19 04:42:30+00:00,2022-03-19 04:42:30+00:00
+Falcon 9 Block 5 | Transporter 4 (Dedicated SSO Rideshare),falcon-9-block-5-transporter-4-dedicated-sso-rides,2022-033,Space Launch Complex 40,True,2022-04-01T16:24:17Z,2022-04-01 16:24:17+00:00,2022-04-01 16:24:17+00:00
+Falcon 9 Block 5 | Axiom Space Mission 1,falcon-9-block-5-axiom-space-mission-1,2022-037,Launch Complex 39A,True,2022-04-08T15:17:11Z,2022-04-08 15:17:11+00:00,2022-04-08 15:17:11+00:00
+Falcon 9 Block 5 | Starlink Group 4-14,falcon-9-block-5-starlink-group-4-14,2022-041,Space Launch Complex 40,True,2022-04-21T17:51:40Z,2022-04-21 17:51:40+00:00,2022-04-21 17:51:40+00:00
+Falcon 9 Block 5 | Crew-4,falcon-9-block-5-crew-4,2022-042,Launch Complex 39A,True,2022-04-27T07:52:55Z,2022-04-27 07:52:55+00:00,2022-04-27 07:52:55+00:00
+Falcon 9 Block 5 | Starlink Group 4-16,falcon-9-block-5-starlink-group-4-16,2022-045,Space Launch Complex 40,True,2022-04-29T21:27:10Z,2022-04-29 21:27:10+00:00,2022-04-29 21:27:10+00:00
+Falcon 9 Block 5 | Starlink Group 4-17,falcon-9-block-5-starlink-group-4-17,2022-049,Launch Complex 39A,True,2022-05-06T09:42:00Z,2022-05-06 09:42:00+00:00,2022-05-06 09:42:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-15,falcon-9-block-5-starlink-group-4-15,2022-052,Space Launch Complex 40,True,2022-05-14T20:40:50Z,2022-05-14 20:40:50+00:00,2022-05-14 20:40:50+00:00
+Falcon 9 Block 5 | Starlink Group 4-18,falcon-9-block-5-starlink-group-4-18,2022-053,Launch Complex 39A,True,2022-05-18T10:59:40Z,2022-05-18 10:59:40+00:00,2022-05-18 10:59:40+00:00
+Atlas V N22 | CST-100 Starliner Orbital Flight Test 2 (OFT-2),atlas-v-n22-cst-100-starliner-orbital-flight-tes-2,2022-055,Space Launch Complex 40,True,2022-05-19T22:54:47Z,2022-05-19 22:54:47+00:00,2022-05-19 22:54:47+00:00
+Falcon 9 Block 5 | Transporter 5 (Dedicated SSO Rideshare),falcon-9-block-5-transporter-5-dedicated-sso-rides,2022-057,Space Launch Complex 40,True,2022-05-25T18:35:00Z,2022-05-25 18:27:00+00:00,2022-05-25 19:24:00+00:00
+Falcon 9 Block 5 | Nilesat-301,falcon-9-block-5-nilesat-301,2022-061,Space Launch Complex 40,True,2022-06-08T21:04:00Z,2022-06-08 21:04:00+00:00,2022-06-08 23:33:00+00:00
+Astra Rocket 3 | TROPICS-1,astra-rocket-3-tropics-1,,Space Launch Complex 40,True,2022-06-12T17:43:00Z,2022-06-12 16:00:00+00:00,2022-06-12 18:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-19,falcon-9-block-5-starlink-group-4-19,2022-062,Launch Complex 39A,True,2022-06-17T16:08:50Z,2022-06-17 16:08:50+00:00,2022-06-17 16:08:50+00:00
+Falcon 9 Block 5 | Globalstar-2 FM15 & USA 328-331,falcon-9-block-5-globalstar-2-fm15-usa-328-331,2022-064,Space Launch Complex 40,True,2022-06-19T04:27:36Z,2022-06-19 04:27:36+00:00,2022-06-19 04:27:36+00:00
+Falcon 9 Block 5 | SES-22,falcon-9-block-5-ses-22,2022-071,Space Launch Complex 41,True,2022-06-29T21:04:00Z,2022-06-29 21:04:00+00:00,2022-06-29 23:04:00+00:00
+Atlas V 541 | USSF-12,atlas-v-541-ussf-12,2022-073,Space Launch Complex 40,True,2022-07-01T23:15:00Z,2022-07-01 22:00:00+00:00,2022-07-02 00:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-21,falcon-9-block-5-starlink-group-4-21,2022-076,Space Launch Complex 40,True,2022-07-07T13:11:00Z,2022-07-07 13:11:00+00:00,2022-07-07 13:11:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-25,falcon-9-block-5-dragon-crs-2-spx-25,2022-081,Launch Complex 39A,True,2022-07-15T00:44:20Z,2022-07-15 00:44:20+00:00,2022-07-15 00:44:20+00:00
+Falcon 9 Block 5 | Starlink Group 4-22,falcon-9-block-5-starlink-group-4-22,2022-083,Space Launch Complex 40,True,2022-07-17T14:20:00Z,2022-07-17 14:20:00+00:00,2022-07-17 14:20:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-25,falcon-9-block-5-starlink-group-4-25,2022-086,Launch Complex 39A,True,2022-07-24T13:38:20Z,2022-07-24 13:38:20+00:00,2022-07-24 13:38:20+00:00
+Atlas V 421 | SBIRS GEO-6,atlas-v-421-sbirs-geo-6,2022-092,Space Launch Complex 40,True,2022-08-04T10:29:00Z,2022-08-04 10:29:00+00:00,2022-08-04 11:09:00+00:00
+Falcon 9 Block 5 | Danuri (KPLO - Korean Pathfinder Lunar Orbiter),falcon-9-block-5-danuri-kplo-korean-pathfinder-lun,2022-094,Rocket Lab Launch Complex 1B,True,2022-08-04T23:08:48Z,2022-08-04 23:08:48+00:00,2022-08-04 23:08:48+00:00
+Falcon 9 Block 5 | Starlink Group 4-26,falcon-9-block-5-starlink-group-4-26,2022-097,Launch Complex 39A,True,2022-08-10T02:14:40Z,2022-08-10 02:14:40+00:00,2022-08-10 02:14:40+00:00
+Falcon 9 Block 5 | Starlink Group 4-27,falcon-9-block-5-starlink-group-4-27,2022-101,Space Launch Complex 40,True,2022-08-19T19:21:20Z,2022-08-19 19:21:20+00:00,2022-08-19 19:21:20+00:00
+Falcon 9 Block 5 | Starlink Group 4-23,falcon-9-block-5-starlink-group-4-23,2022-104,Space Launch Complex 41,True,2022-08-28T03:41:20Z,2022-08-28 03:41:20+00:00,2022-08-28 03:41:20+00:00
+Falcon 9 Block 5 | Starlink Group 4-20 & Varuna-TDM,falcon-9-block-5-starlink-group-4-20-varuna-tdm,2022-107,Space Launch Complex 40,True,2022-09-05T02:09:40Z,2022-09-05 02:09:40+00:00,2022-09-05 02:09:40+00:00
+Falcon 9 Block 5 | Starlink Group 4-2 & BlueWalker 3,falcon-9-block-5-starlink-group-4-2-bluewalker-3,2022-111,Launch Complex 39A,True,2022-09-11T01:20:00Z,2022-09-11 01:20:00+00:00,2022-09-11 01:20:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-34,falcon-9-block-5-starlink-group-4-34,2022-114,Space Launch Complex 40,True,2022-09-19T00:18:40Z,2022-09-19 00:18:40+00:00,2022-09-19 00:18:40+00:00
+Falcon 9 Block 5 | Starlink Group 4-35,falcon-9-block-5-starlink-group-4-35,2022-119,Space Launch Complex 40,True,2022-09-24T23:32:10Z,2022-09-24 23:32:10+00:00,2022-09-24 23:32:10+00:00
+Atlas V 531 | SES-20 & SES-21,atlas-v-531-ses-20-ses-21,2022-123,Rocket Lab Launch Complex 1B,True,2022-10-04T21:36:00Z,2022-10-04 21:36:00+00:00,2022-10-04 22:21:00+00:00
+Falcon 9 Block 5 | Crew-5,falcon-9-block-5-crew-5,2022-124,Launch Complex 39A,True,2022-10-05T16:00:57Z,2022-10-05 16:00:57+00:00,2022-10-05 16:00:57+00:00
+Falcon 9 Block 5 | Galaxy 33 & 34,falcon-9-block-5-galaxy-33-34,2022-128,Space Launch Complex 40,True,2022-10-08T23:05:00Z,2022-10-08 23:05:00+00:00,2022-10-09 00:15:00+00:00
+Falcon 9 Block 5 | Hotbird 13F,falcon-9-block-5-hotbird-13f,2022-134,Space Launch Complex 40,True,2022-10-15T05:22:00Z,2022-10-15 03:26:00+00:00,2022-10-15 05:22:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-36,falcon-9-block-5-starlink-group-4-36,2022-136,Space Launch Complex 40,True,2022-10-20T14:50:40Z,2022-10-20 14:50:40+00:00,2022-10-20 14:50:40+00:00
+Falcon Heavy | USSF-44,falcon-heavy-ussf-44,2022-144,Launch Complex 39B,True,2022-11-01T13:41:00Z,2022-11-01 13:41:00+00:00,2022-11-01 14:11:00+00:00
+Falcon 9 Block 5 | Hotbird 13G,falcon-9-block-5-hotbird-13g,2022-146,Space Launch Complex 40,True,2022-11-03T05:22:00Z,2022-11-03 03:26:00+00:00,2022-11-03 05:22:00+00:00
+Falcon 9 Block 5 | Galaxy 31 & 32,falcon-9-block-5-galaxy-31-32,2022-153,Space Launch Complex 40,True,2022-11-12T16:06:00Z,2022-11-12 16:06:00+00:00,2022-11-12 18:06:00+00:00
+SLS Block 1 | Artemis I,sls-block-1-artemis-i,2022-156,Launch Complex 39A,True,2022-11-16T06:47:44Z,2022-11-16 06:04:00+00:00,2022-11-16 08:04:00+00:00
+Falcon 9 Block 5 | Eutelsat 10B,falcon-9-block-5-eutelsat-10b,2022-157,Space Launch Complex 40,True,2022-11-23T02:57:00Z,2022-11-23 02:57:00+00:00,2022-11-23 02:57:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-26,falcon-9-block-5-dragon-crs-2-spx-26,2022-159,Launch Complex 39A,True,2022-11-26T19:20:43Z,2022-11-26 19:20:43+00:00,2022-11-26 19:20:43+00:00
+Falcon 9 Block 5 | OneWeb 15,falcon-9-block-5-oneweb-15,2022-166,Launch Complex 39A,True,2022-12-08T22:27:48Z,2022-12-08 22:27:48+00:00,2022-12-08 22:27:48+00:00
+Falcon 9 Block 5 | Hakuto-R M1 & Lunar Flashlight,falcon-9-block-5-hakuto-r-m1-lunar-flashlight,2022-168,Space Launch Complex 40,True,2022-12-11T07:38:13Z,2022-12-11 07:38:13+00:00,2022-12-11 07:38:13+00:00
+Falcon 9 Block 5 | O3b mPower 1 & 2,falcon-9-block-5-o3b-mpower-1-2,2022-174,Space Launch Complex 40,True,2022-12-16T22:48:00Z,2022-12-16 21:21:00+00:00,2022-12-16 22:48:00+00:00
+Falcon 9 Block 5 | Starlink Group 4-37,falcon-9-block-5-starlink-group-4-37,2022-175,Launch Complex 39A,True,2022-12-17T21:32:30Z,2022-12-17 21:32:30+00:00,2022-12-17 21:32:30+00:00
+Falcon 9 Block 5 | Starlink Group 5-1,falcon-9-block-5-starlink-group-5-1,2022-177,Space Launch Complex 40,True,2022-12-28T09:34:00Z,2022-12-28 09:30:00+00:00,2022-12-28 11:32:00+00:00
+Falcon 9 Block 5 | Transporter 6 (Dedicated SSO Rideshare),falcon-9-block-5-transporter-6-dedicated-sso-rides,2023-001,Space Launch Complex 40,True,2023-01-03T14:55:56Z,2023-01-03 14:55:56+00:00,2023-01-03 14:55:56+00:00
+Falcon 9 Block 5 | OneWeb 16,falcon-9-block-5-oneweb-16,2023-004,Space Launch Complex 37B,True,2023-01-10T04:50:17Z,2023-01-10 04:45:00+00:00,2023-01-10 05:05:00+00:00
+Falcon Heavy | USSF-67,falcon-heavy-ussf-67,2023-008,Launch Complex 39A,True,2023-01-15T22:56:00Z,2023-01-15 22:56:00+00:00,2023-01-15 23:33:00+00:00
+Falcon 9 Block 5 | GPS III SV06,falcon-9-block-5-gps-iii-sv06,2023-009,Space Launch Complex 40,True,2023-01-18T12:24:00Z,2023-01-18 12:10:00+00:00,2023-01-18 12:25:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-2,falcon-9-block-5-starlink-group-5-2,2023-013,Space Launch Complex 40,True,2023-01-26T09:32:20Z,2023-01-26 09:02:00+00:00,2023-01-26 11:24:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-3,falcon-9-block-5-starlink-group-5-3,2023-015,Launch Complex 39A,True,2023-02-02T07:58:20Z,2023-02-02 07:37:00+00:00,2023-02-02 12:07:00+00:00
+Falcon 9 Block 5 | Amazonas Nexus,falcon-9-block-5-amazonas-nexus,2023-017,Space Launch Complex 40,True,2023-02-07T01:32:00Z,2023-02-06 22:32:00+00:00,2023-02-07 02:32:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-4,falcon-9-block-5-starlink-group-5-4,2023-020,Space Launch Complex 40,True,2023-02-12T05:10:10Z,2023-02-12 05:10:10+00:00,2023-02-12 05:10:10+00:00
+Falcon 9 Block 5 | Inmarsat-6 F2,falcon-9-block-5-inmarsat-6-f2,2023-022,Space Launch Complex 40,True,2023-02-18T03:59:00Z,2023-02-18 03:59:00+00:00,2023-02-18 05:28:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-1,falcon-9-block-5-starlink-group-6-1,2023-026,Space Launch Complex 40,True,2023-02-27T23:13:50Z,2023-02-27 23:13:50+00:00,2023-02-27 23:13:50+00:00
+Falcon 9 Block 5 | Crew-6,falcon-9-block-5-crew-6,2023-027,Launch Complex 39A,True,2023-03-02T05:34:14Z,2023-03-02 05:34:14+00:00,2023-03-02 05:34:14+00:00
+Falcon 9 Block 5 | OneWeb 17,falcon-9-block-5-oneweb-17,2023-029,Space Launch Complex 40,True,2023-03-09T19:13:28Z,2023-03-09 19:13:28+00:00,2023-03-09 19:13:28+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-27,falcon-9-block-5-dragon-crs-2-spx-27,2023-033,Launch Complex 39A,True,2023-03-15T00:30:42Z,2023-03-15 00:30:42+00:00,2023-03-15 00:30:42+00:00
+Electron | Stronger Together (Capella 9-10),electron-stronger-together-capella-9-10,2023-035,Space Launch Complex 40,True,2023-03-16T22:38:59Z,2023-03-16 22:00:00+00:00,2023-03-17 00:00:00+00:00
+Falcon 9 Block 5 | SES-18 & SES-19,falcon-9-block-5-ses-18-ses-19,2023-038,Space Launch Complex 40,True,2023-03-17T23:38:00Z,2023-03-17 23:38:00+00:00,2023-03-18 00:16:00+00:00
+"Terran 1 | Good Luck, Have Fun (Maiden Flight)",terran-1-good-luck-have-fun-maiden-flight,,Space Launch Complex 40,True,2023-03-23T03:25:00Z,2023-03-23 02:00:00+00:00,2023-03-23 05:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-5,falcon-9-block-5-starlink-group-5-5,2023-042,Space Launch Complex 40,True,2023-03-24T15:43:10Z,2023-03-24 15:43:10+00:00,2023-03-24 18:55:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-10,falcon-9-block-5-starlink-group-5-10,2023-046,Space Launch Complex 40,True,2023-03-29T20:01:00Z,2023-03-29 20:01:00+00:00,2023-03-29 23:54:00+00:00
+Falcon 9 Block 5 | Intelsat 40e,falcon-9-block-5-intelsat-40e,2023-052,Launch Complex 16,True,2023-04-07T04:30:00Z,2023-04-07 04:30:00+00:00,2023-04-07 06:29:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-2,falcon-9-block-5-starlink-group-6-2,2023-056,Space Launch Complex 40,True,2023-04-19T14:31:10Z,2023-04-19 13:47:00+00:00,2023-04-19 14:31:10+00:00
+Falcon 9 Block 5 | O3b mPower 3 & 4,falcon-9-block-5-o3b-mpower-3-4,2023-059,Rocket Lab Launch Complex 2 (Launch Area 0 C),True,2023-04-28T22:12:00Z,2023-04-28 21:12:00+00:00,2023-04-28 22:40:00+00:00
+Falcon Heavy | ViaSat-3 Americas & others,falcon-heavy-viasat-3-americas-others,2023-060,Launch Complex 39A,True,2023-05-01T00:26:00Z,2023-04-30 23:29:00+00:00,2023-05-01 00:26:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-6,falcon-9-block-5-starlink-group-5-6,2023-061,Space Launch Complex 40,True,2023-05-04T07:31:00Z,2023-05-04 07:31:00+00:00,2023-05-04 07:31:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-9,falcon-9-block-5-starlink-group-5-9,2023-065,Space Launch Complex 40,True,2023-05-14T05:03:50Z,2023-05-14 05:03:50+00:00,2023-05-14 05:03:50+00:00
+Falcon 9 Block 5 | Starlink Group 6-3,falcon-9-block-5-starlink-group-6-3,2023-067,Space Launch Complex 40,True,2023-05-19T06:19:30Z,2023-05-19 04:41:30+00:00,2023-05-19 07:09:00+00:00
+Falcon 9 Block 5 | Axiom Space Mission 2,falcon-9-block-5-axiom-space-mission-2,2023-070,Launch Complex 39A,True,2023-05-21T21:37:09Z,2023-05-21 21:37:09+00:00,2023-05-21 21:37:09+00:00
+Falcon 9 Block 5 | BADR-8,falcon-9-block-5-badr-8,2023-075,Space Launch Complex 40,True,2023-05-27T04:30:00Z,2023-05-27 03:25:00+00:00,2023-05-27 05:32:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-4,falcon-9-block-5-starlink-group-6-4,2023-079,Space Launch Complex 40,True,2023-06-04T12:20:00Z,2023-06-04 09:56:00+00:00,2023-06-04 12:20:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-28,falcon-9-block-5-dragon-crs-2-spx-28,2023-080,Launch Complex 39A,True,2023-06-05T15:47:00Z,2023-06-05 15:47:00+00:00,2023-06-05 15:47:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-11,falcon-9-block-5-starlink-group-5-11,2023-083,Space Launch Complex 40,True,2023-06-12T07:10:50Z,2023-06-12 07:10:50+00:00,2023-06-12 08:52:00+00:00
+Falcon 9 Block 5 | Satria-1,falcon-9-block-5-satria-1,2023-086,Space Launch Complex 40,True,2023-06-18T22:21:00Z,2023-06-18 22:04:00+00:00,2023-06-19 01:02:00+00:00
+Delta IV Heavy | NROL-68,delta-iv-heavy-nrol-68,2023-089,Space Launch Complex 40,True,2023-06-22T09:18:00Z,2023-06-22 07:00:00+00:00,2023-06-22 11:45:00+00:00
+Falcon 9 Block 5 | Starlink Group 5-12,falcon-9-block-5-starlink-group-5-12,2023-090,Space Launch Complex 40,True,2023-06-23T15:35:10Z,2023-06-23 13:56:10+00:00,2023-06-23 15:35:10+00:00
+Falcon 9 Block 5 | Euclid,falcon-9-block-5-euclid,2023-092,Space Launch Complex 40,True,2023-07-01T15:12:00Z,2023-07-01 15:12:00+00:00,2023-07-01 15:12:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-5,falcon-9-block-5-starlink-group-6-5,2023-096,Space Launch Complex 40,True,2023-07-10T03:58:50Z,2023-07-10 03:58:50+00:00,2023-07-10 03:58:50+00:00
+Falcon 9 Block 5 | Starlink Group 5-15,falcon-9-block-5-starlink-group-5-15,2023-099,Space Launch Complex 40,True,2023-07-16T03:50:00Z,2023-07-16 03:50:00+00:00,2023-07-16 03:50:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-6,falcon-9-block-5-starlink-group-6-6,2023-105,Space Launch Complex 40,True,2023-07-24T00:50:30Z,2023-07-23 23:09:20+00:00,2023-07-24 02:31:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-7,falcon-9-block-5-starlink-group-6-7,2023-107,Space Launch Complex 40,True,2023-07-28T04:01:10Z,2023-07-28 02:20:10+00:00,2023-07-28 04:01:10+00:00
+Falcon Heavy | EchoStar 24/Jupiter-3,falcon-heavy-echostar-24jupiter-3,2023-108,Launch Complex 39A,True,2023-07-29T03:04:00Z,2023-07-29 03:04:00+00:00,2023-07-29 04:43:00+00:00
+Falcon 9 Block 5 | Galaxy 37,falcon-9-block-5-galaxy-37,2023-112,Space Launch Complex 40,True,2023-08-03T05:00:00Z,2023-08-03 04:15:00+00:00,2023-08-03 06:15:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-8,falcon-9-block-5-starlink-group-6-8,2023-113,Space Launch Complex 40,True,2023-08-07T02:41:10Z,2023-08-07 01:00:00+00:00,2023-08-07 04:22:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-9,falcon-9-block-5-starlink-group-6-9,2023-119,Space Launch Complex 40,True,2023-08-11T05:17:40Z,2023-08-11 05:17:40+00:00,2023-08-11 05:17:40+00:00
+Falcon 9 Block 5 | Starlink Group 6-10,falcon-9-block-5-starlink-group-6-10,2023-122,Space Launch Complex 40,True,2023-08-17T03:36:50Z,2023-08-17 00:14:50+00:00,2023-08-17 04:00:00+00:00
+Electron | We Love the Nightlife (Capella Acadia 1),electron-we-love-the-nightlife-capella-acadia-1,2023-126,Space Launch Complex 41,True,2023-08-23T23:45:00Z,2023-08-23 23:30:00+00:00,2023-08-24 03:30:00+00:00
+Falcon 9 Block 5 | Crew-7,falcon-9-block-5-crew-7,2023-128,Launch Complex 39A,True,2023-08-26T07:27:27Z,2023-08-26 07:27:27+00:00,2023-08-26 07:27:27+00:00
+Falcon 9 Block 5 | Starlink Group 6-11,falcon-9-block-5-starlink-group-6-11,2023-129,Space Launch Complex 40,True,2023-08-27T01:05:40Z,2023-08-27 01:05:40+00:00,2023-08-27 03:04:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-13,falcon-9-block-5-starlink-group-6-13,2023-131,Space Launch Complex 40,True,2023-09-01T02:21:50Z,2023-08-31 23:52:20+00:00,2023-09-01 03:12:20+00:00
+Falcon 9 Block 5 | Starlink Group 6-12,falcon-9-block-5-starlink-group-6-12,2023-134,Launch Complex 39A,True,2023-09-04T02:47:20Z,2023-09-03 23:34:00+00:00,2023-09-04 03:05:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-14,falcon-9-block-5-starlink-group-6-14,2023-138,Space Launch Complex 40,True,2023-09-09T03:12:50Z,2023-09-08 23:56:10+00:00,2023-09-09 03:30:30+00:00
+Atlas V 551 | NROL-107 (Silent Barker),atlas-v-551-nrol-107-silent-barker,2023-140,Space Launch Complex 40,True,2023-09-10T12:47:00Z,2023-09-10 12:47:00+00:00,2023-09-10 14:35:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-16,falcon-9-block-5-starlink-group-6-16,2023-144,Space Launch Complex 40,True,2023-09-16T03:38:20Z,2023-09-16 03:38:20+00:00,2023-09-16 04:07:30+00:00
+Electron | We Will Never Desert You (Capella Acadia 2),electron-we-will-never-desert-you-capella-acadia-2,,Space Launch Complex 40,True,2023-09-19T06:55:00Z,2023-09-19 06:33:00+00:00,2023-09-19 06:55:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-17,falcon-9-block-5-starlink-group-6-17,2023-146,Space Launch Complex 41,True,2023-09-20T03:38:10Z,2023-09-20 02:47:40+00:00,2023-09-20 05:46:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-18,falcon-9-block-5-starlink-group-6-18,2023-147,Space Launch Complex 40,True,2023-09-24T03:38:30Z,2023-09-24 01:07:00+00:00,2023-09-24 04:05:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-19,falcon-9-block-5-starlink-group-6-19,2023-151,Space Launch Complex 40,True,2023-09-30T02:00:00Z,2023-09-29 22:39:30+00:00,2023-09-30 02:15:50+00:00
+Falcon 9 Block 5 | Starlink Group 6-21,falcon-9-block-5-starlink-group-6-21,2023-153,Space Launch Complex 41,True,2023-10-05T05:36:30Z,2023-10-05 02:45:00+00:00,2023-10-05 05:57:00+00:00
+Atlas V 501 | Project Kuiper Protoflight Mission,atlas-v-501-project-kuiper-protoflight-mission,2023-154,Space Launch Complex 40,True,2023-10-06T18:06:00Z,2023-10-06 18:00:00+00:00,2023-10-06 20:00:00+00:00
+Falcon Heavy | Psyche,falcon-heavy-psyche,2023-157,Launch Complex 39A,True,2023-10-13T14:19:43Z,2023-10-13 14:19:43+00:00,2023-10-13 14:19:43+00:00
+Falcon 9 Block 5 | Starlink Group 6-22,falcon-9-block-5-starlink-group-6-22,2023-158,Space Launch Complex 40,True,2023-10-13T23:01:10Z,2023-10-13 23:01:10+00:00,2023-10-14 02:29:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-23,falcon-9-block-5-starlink-group-6-23,2023-160,Space Launch Complex 46,True,2023-10-18T00:39:00Z,2023-10-17 21:20:30+00:00,2023-10-18 00:48:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-24,falcon-9-block-5-starlink-group-6-24,2023-162,Space Launch Complex 40,True,2023-10-22T02:17:00Z,2023-10-22 02:17:00+00:00,2023-10-22 06:15:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-25,falcon-9-block-5-starlink-group-6-25,2023-167,Space Launch Complex 40,True,2023-10-30T23:20:30Z,2023-10-30 23:20:30+00:00,2023-10-31 02:22:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-26,falcon-9-block-5-starlink-group-6-26,2023-170,Space Launch Complex 41,True,2023-11-04T00:37:20Z,2023-11-03 22:30:10+00:00,2023-11-04 02:22:20+00:00
+Falcon 9 Block 5 | Starlink Group 6-27,falcon-9-block-5-starlink-group-6-27,2023-171,Space Launch Complex 40,True,2023-11-08T05:05:30Z,2023-11-08 04:31:00+00:00,2023-11-08 07:59:10+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-29,falcon-9-block-5-dragon-crs-2-spx-29,2023-173,Launch Complex 39A,True,2023-11-10T01:28:14Z,2023-11-10 01:28:14+00:00,2023-11-10 01:28:14+00:00
+Falcon 9 Block 5 | O3b mPower 5 & 6,falcon-9-block-5-o3b-mpower-5-6,2023-175,Space Launch Complex 40,True,2023-11-12T21:08:00Z,2023-11-12 21:08:00+00:00,2023-11-12 22:37:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-28,falcon-9-block-5-starlink-group-6-28,2023-177,Space Launch Complex 40,True,2023-11-18T05:05:50Z,2023-11-18 04:00:50+00:00,2023-11-18 07:59:30+00:00
+Falcon 9 Block 5 | Starlink Group 6-29,falcon-9-block-5-starlink-group-6-29,2023-180,Space Launch Complex 40,True,2023-11-22T07:47:40Z,2023-11-22 04:15:30+00:00,2023-11-22 07:59:40+00:00
+Falcon 9 Block 5 | Starlink Group 6-30,falcon-9-block-5-starlink-group-6-30,2023-183,Space Launch Complex 40,True,2023-11-28T04:20:00Z,2023-11-28 04:01:30+00:00,2023-11-28 07:58:10+00:00
+Falcon 9 Block 5 | Starlink Group 6-31,falcon-9-block-5-starlink-group-6-31,2023-186,Space Launch Complex 40,True,2023-12-03T04:00:50Z,2023-12-03 04:00:50+00:00,2023-12-03 04:51:20+00:00
+Falcon 9 Block 5 | Starlink Group 6-33,falcon-9-block-5-starlink-group-6-33,2023-191,Space Launch Complex 41,True,2023-12-07T05:07:30Z,2023-12-07 04:01:00+00:00,2023-12-07 07:59:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-34,falcon-9-block-5-starlink-group-6-34,2023-200,Space Launch Complex 40,True,2023-12-19T04:01:00Z,2023-12-19 04:01:00+00:00,2023-12-19 07:59:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-32,falcon-9-block-5-starlink-group-6-32,2023-203,Space Launch Complex 46,True,2023-12-23T05:33:00Z,2023-12-23 04:00:00+00:00,2023-12-23 08:00:00+00:00
+Falcon Heavy | OTV-7 (X-37B) (USSF-52),falcon-heavy-otv-7-x-37b-ussf-52,2023-210,Launch Complex 39A,True,2023-12-29T01:07:00Z,2023-12-29 01:07:00+00:00,2023-12-29 01:17:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-36,falcon-9-block-5-starlink-group-6-36,2023-211,Space Launch Complex 40,True,2023-12-29T04:01:40Z,2023-12-29 04:01:40+00:00,2023-12-29 07:59:50+00:00
+Falcon 9 Block 5 | Ovzon-3,falcon-9-block-5-ovzon-3,2024-003,Space Launch Complex 41,True,2024-01-03T23:04:00Z,2024-01-03 23:04:00+00:00,2024-01-03 23:14:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-35,falcon-9-block-5-starlink-group-6-35,2024-005,Space Launch Complex 40,True,2024-01-07T22:35:40Z,2024-01-07 21:00:40+00:00,2024-01-08 00:35:10+00:00
+Vulcan VC2S | Peregrine lunar lander (Maiden flight),vulcan-vc2s-peregrine-lunar-lander-maiden-flight,2024-006,Space Launch Complex 40,True,2024-01-08T07:18:38Z,2024-01-08 07:18:00+00:00,2024-01-08 08:03:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-37,falcon-9-block-5-starlink-group-6-37,2024-012,Space Launch Complex 41,True,2024-01-15T01:52:00Z,2024-01-15 00:27:00+00:00,2024-01-15 04:23:40+00:00
+Falcon 9 Block 5 | Axiom Space Mission 3,falcon-9-block-5-axiom-space-mission-3,2024-014,Launch Complex 39A,True,2024-01-18T21:49:11Z,2024-01-18 21:49:11+00:00,2024-01-18 21:49:11+00:00
+Falcon 9 Block 5 | Starlink Group 6-38,falcon-9-block-5-starlink-group-6-38,2024-019,Launch Complex 39A,True,2024-01-29T01:10:00Z,2024-01-28 23:15:00+00:00,2024-01-29 02:55:00+00:00
+Falcon 9 Block 5 | Cygnus CRS-2 NG-20 (S.S. Patricia “Patty” Hilliard Robertson),falcon-9-block-5-cygnus-crs-2-ng-20-ss-patricia-pa,2024-021,Space Launch Complex 40,True,2024-01-30T17:07:21Z,2024-01-30 17:07:21+00:00,2024-01-30 17:07:21+00:00
+"Falcon 9 Block 5 | PACE (Plankton, Aerosol, Cloud, ocean Ecosystem)",falcon-9-block-5-pace-plankton-aerosol-cloud-ocean,2024-025,Space Launch Complex 40,True,2024-02-08T06:33:36Z,2024-02-08 06:33:36+00:00,2024-02-08 06:33:36+00:00
+Falcon 9 Block 5 | USSF-124,falcon-9-block-5-ussf-124,2024-028,Space Launch Complex 41,True,2024-02-14T22:30:00Z,2024-02-14 22:30:00+00:00,2024-02-15 03:00:00+00:00
+Falcon 9 Block 5 | Nova-C IM-1,falcon-9-block-5-nova-c-im-1,2024-030,Launch Complex 39A,True,2024-02-15T06:05:37Z,2024-02-15 06:05:37+00:00,2024-02-15 06:05:37+00:00
+Falcon 9 Block 5 | HTS-113BT (Merah Putih 2),falcon-9-block-5-hts-113bt-merah-putih-2,2024-035,Space Launch Complex 40,True,2024-02-20T20:11:00Z,2024-02-20 20:11:00+00:00,2024-02-20 22:11:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-39,falcon-9-block-5-starlink-group-6-39,2024-038,Space Launch Complex 40,True,2024-02-25T22:06:00Z,2024-02-25 21:34:00+00:00,2024-02-26 01:34:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-40,falcon-9-block-5-starlink-group-6-40,2024-041,Space Launch Complex 40,True,2024-02-29T15:30:00Z,2024-02-29 15:30:00+00:00,2024-02-29 17:30:00+00:00
+Falcon 9 Block 5 | Crew-8,falcon-9-block-5-crew-8,2024-042,Launch Complex 39A,True,2024-03-04T03:53:38Z,2024-03-04 03:53:38+00:00,2024-03-04 03:53:38+00:00
+Falcon 9 Block 5 | Starlink Group 6-41,falcon-9-block-5-starlink-group-6-41,2024-044,Space Launch Complex 40,True,2024-03-04T23:56:00Z,2024-03-04 23:56:00+00:00,2024-03-05 03:54:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-43,falcon-9-block-5-starlink-group-6-43,2024-045,Space Launch Complex 41,True,2024-03-10T23:05:00Z,2024-03-10 23:05:00+00:00,2024-03-11 03:03:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-44,falcon-9-block-5-starlink-group-6-44,2024-049,Launch Complex 39A,True,2024-03-16T00:21:00Z,2024-03-15 22:39:00+00:00,2024-03-16 02:39:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-30,falcon-9-block-5-dragon-crs-2-spx-30,2024-054,Space Launch Complex 40,True,2024-03-21T20:55:09Z,2024-03-21 20:55:09+00:00,2024-03-21 20:55:09+00:00
+Falcon 9 Block 5 | Starlink Group 6-42,falcon-9-block-5-starlink-group-6-42,2024-056,Launch Complex 39A,True,2024-03-24T03:09:00Z,2024-03-23 23:29:00+00:00,2024-03-24 03:29:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-46,falcon-9-block-5-starlink-group-6-46,2024-057,Space Launch Complex 40,True,2024-03-25T23:42:00Z,2024-03-25 21:52:00+00:00,2024-03-26 01:00:00+00:00
+Falcon 9 Block 5 | Eutelsat 36D,falcon-9-block-5-eutelsat-36d,2024-059,Launch Complex 39A,True,2024-03-30T21:52:00Z,2024-03-30 21:52:00+00:00,2024-03-31 01:50:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-45,falcon-9-block-5-starlink-group-6-45,2024-060,Space Launch Complex 40,True,2024-03-31T01:30:00Z,2024-03-31 01:02:00+00:00,2024-03-31 02:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-47,falcon-9-block-5-starlink-group-6-47,2024-064,Space Launch Complex 40,True,2024-04-05T09:12:00Z,2024-04-05 06:14:00+00:00,2024-04-05 10:14:00+00:00
+Falcon 9 Block 5 | Bandwagon 1 (Dedicated Mid-Inclination Rideshare),falcon-9-block-5-bandwagon-1-dedicated-mid-inclina,2024-066,Launch Complex 39A,True,2024-04-07T23:16:57Z,2024-04-07 23:16:57+00:00,2024-04-07 23:16:57+00:00
+Delta IV Heavy | NROL-70,delta-iv-heavy-nrol-70,2024-067,Space Launch Complex 40,True,2024-04-09T16:53:00Z,2024-04-09 16:53:00+00:00,2024-04-09 22:51:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-48,falcon-9-block-5-starlink-group-6-48,2024-068,Space Launch Complex 40,True,2024-04-10T05:40:00Z,2024-04-10 04:04:00+00:00,2024-04-10 07:30:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-49,falcon-9-block-5-starlink-group-6-49,2024-071,Space Launch Complex 40,True,2024-04-13T01:40:00Z,2024-04-13 01:22:00+00:00,2024-04-13 04:48:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-51,falcon-9-block-5-starlink-group-6-51,2024-073,Launch Complex 39A,True,2024-04-17T21:26:00Z,2024-04-17 21:26:00+00:00,2024-04-18 01:24:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-52,falcon-9-block-5-starlink-group-6-52,2024-074,Space Launch Complex 40,True,2024-04-18T22:40:00Z,2024-04-18 22:40:00+00:00,2024-04-19 02:40:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-53,falcon-9-block-5-starlink-group-6-53,2024-076,Space Launch Complex 40,True,2024-04-23T22:17:00Z,2024-04-23 22:17:00+00:00,2024-04-24 01:25:00+00:00
+Falcon 9 Block 5 | Galileo L12 (FOC FM25 & FM27),falcon-9-block-5-galileo-l12-foc-fm25-fm27,2024-079,Launch Complex 39A,True,2024-04-28T00:34:00Z,2024-04-28 00:34:00+00:00,2024-04-28 00:34:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-54,falcon-9-block-5-starlink-group-6-54,2024-080,Space Launch Complex 40,True,2024-04-28T22:08:00Z,2024-04-28 22:08:00+00:00,2024-04-29 01:48:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-55,falcon-9-block-5-starlink-group-6-55,2024-082,Space Launch Complex 37B,True,2024-05-03T02:37:00Z,2024-05-03 01:49:00+00:00,2024-05-03 05:17:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-57,falcon-9-block-5-starlink-group-6-57,2024-084,Space Launch Complex 40,True,2024-05-06T18:14:00Z,2024-05-06 16:36:00+00:00,2024-05-06 18:48:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-56,falcon-9-block-5-starlink-group-6-56,2024-086,Launch Complex 39A,True,2024-05-08T18:42:00Z,2024-05-08 15:00:00+00:00,2024-05-08 18:42:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-58,falcon-9-block-5-starlink-group-6-58,2024-090,Space Launch Complex 41,True,2024-05-13T00:53:00Z,2024-05-13 00:53:00+00:00,2024-05-13 04:11:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-59,falcon-9-block-5-starlink-group-6-59,2024-093,Space Launch Complex 40,True,2024-05-18T00:32:00Z,2024-05-18 00:32:00+00:00,2024-05-18 03:30:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-62,falcon-9-block-5-starlink-group-6-62,2024-097,Space Launch Complex 40,True,2024-05-23T02:35:00Z,2024-05-23 02:35:00+00:00,2024-05-23 06:31:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-63,falcon-9-block-5-starlink-group-6-63,2024-098,Launch Complex 39A,True,2024-05-24T02:45:00Z,2024-05-23 22:45:00+00:00,2024-05-24 02:45:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-60,falcon-9-block-5-starlink-group-6-60,2024-100,Rocket Lab Launch Complex 1A,True,2024-05-28T14:24:00Z,2024-05-28 11:30:00+00:00,2024-05-28 15:28:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-64,falcon-9-block-5-starlink-group-6-64,2024-106,Space Launch Complex 40,True,2024-06-01T02:37:00Z,2024-05-31 22:47:00+00:00,2024-06-01 02:37:00+00:00
+Falcon 9 Block 5 | Starlink Group 8-5,falcon-9-block-5-starlink-group-8-5,2024-107,Space Launch Complex 40,True,2024-06-05T02:16:00Z,2024-06-05 02:16:00+00:00,2024-06-05 02:16:00+00:00
+Atlas V N22 | CST-100 Starliner Crewed Flight Test,atlas-v-n22-cst-100-starliner-crewed-flight-test,2024-109,Space Launch Complex 41,True,2024-06-05T14:52:15Z,2024-06-05 14:52:15+00:00,2024-06-05 14:52:15+00:00
+Falcon 9 Block 5 | Starlink Group 10-1,falcon-9-block-5-starlink-group-10-1,2024-111,Space Launch Complex 40,True,2024-06-08T01:56:00Z,2024-06-08 00:00:00+00:00,2024-06-08 02:10:00+00:00
+Falcon 9 Block 5 | Astra 1P/SES-24,falcon-9-block-5-astra-1pses-24,2024-115,Space Launch Complex 40,True,2024-06-20T21:35:00Z,2024-06-20 21:35:00+00:00,2024-06-21 00:24:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-2,falcon-9-block-5-starlink-group-10-2,2024-117,Space Launch Complex 40,True,2024-06-23T17:15:00Z,2024-06-23 17:15:00+00:00,2024-06-23 21:01:00+00:00
+Falcon Heavy | GOES-U,falcon-heavy-goes-u,2024-119,Launch Complex 39A,True,2024-06-25T21:26:00Z,2024-06-25 21:16:00+00:00,2024-06-25 23:16:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-3,falcon-9-block-5-starlink-group-10-3,2024-120,Space Launch Complex 40,True,2024-06-27T11:14:00Z,2024-06-27 11:14:00+00:00,2024-06-27 15:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 8-9,falcon-9-block-5-starlink-group-8-9,2024-124,Space Launch Complex 41,True,2024-07-03T08:55:00Z,2024-07-03 06:57:00+00:00,2024-07-03 09:59:00+00:00
+Falcon 9 Block 5 | Türksat 6A,falcon-9-block-5-turksat-6a,2024-127,Space Launch Complex 41,True,2024-07-08T23:30:00Z,2024-07-08 21:21:00+00:00,2024-07-09 01:21:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-9,falcon-9-block-5-starlink-group-10-9,2024-131,Launch Complex 39A,True,2024-07-27T05:45:00Z,2024-07-27 04:21:00+00:00,2024-07-27 08:21:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-4,falcon-9-block-5-starlink-group-10-4,2024-132,Space Launch Complex 40,True,2024-07-28T05:09:00Z,2024-07-28 04:17:00+00:00,2024-07-28 08:01:00+00:00
+Atlas V 551 | USSF-51,atlas-v-551-ussf-51,2024-134,Space Launch Complex 40,True,2024-07-30T10:45:00Z,2024-07-30 10:45:00+00:00,2024-07-30 15:45:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-6,falcon-9-block-5-starlink-group-10-6,2024-136,Launch Complex 39A,True,2024-08-02T05:01:00Z,2024-08-02 04:19:00+00:00,2024-08-02 08:19:00+00:00
+Falcon 9 Block 5 | Cygnus CRS-2 NG-21 (S.S. Francis R. “Dick” Scobee),falcon-9-block-5-cygnus-crs-2-ng-21-ss-francis-r-d,2024-139,Space Launch Complex 41,True,2024-08-04T15:02:53Z,2024-08-04 15:02:53+00:00,2024-08-04 15:02:53+00:00
+Falcon 9 Block 5 | Starlink Group 8-3,falcon-9-block-5-starlink-group-8-3,2024-141,Space Launch Complex 40,True,2024-08-10T12:50:00Z,2024-08-10 12:00:00+00:00,2024-08-10 14:48:00+00:00
+Electron | A Sky Full of SARs (Capella Acadia 3),electron-a-sky-full-of-sars-capella-acadia-3,2024-142,Space Launch Complex 40,True,2024-08-11T13:18:00Z,2024-08-11 11:23:00+00:00,2024-08-11 14:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-7,falcon-9-block-5-starlink-group-10-7,2024-144,Launch Complex 39A,True,2024-08-12T10:37:00Z,2024-08-12 10:37:00+00:00,2024-08-12 13:49:00+00:00
+Falcon 9 Block 5 | WorldView Legion 3 & 4,falcon-9-block-5-worldview-legion-3-4,2024-146,Space Launch Complex 41,True,2024-08-15T13:00:00Z,2024-08-15 13:00:00+00:00,2024-08-15 14:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-5,falcon-9-block-5-starlink-group-10-5,2024-150,Space Launch Complex 40,True,2024-08-20T13:20:00Z,2024-08-20 09:36:00+00:00,2024-08-20 13:20:00+00:00
+Falcon 9 Block 5 | Starlink Group 8-6,falcon-9-block-5-starlink-group-8-6,2024-152,Space Launch Complex 40,True,2024-08-28T07:48:00Z,2024-08-28 05:50:00+00:00,2024-08-28 09:50:00+00:00
+Falcon 9 Block 5 | Starlink Group 8-10,falcon-9-block-5-starlink-group-8-10,2024-154,Space Launch Complex 40,True,2024-08-31T07:43:00Z,2024-08-31 05:39:00+00:00,2024-08-31 09:39:00+00:00
+Falcon 9 Block 5 | Starlink Group 8-11,falcon-9-block-5-starlink-group-8-11,2024-158,Cape Canaveral,True,2024-09-05T15:33:00Z,2024-09-05 12:35:00+00:00,2024-09-05 16:31:00+00:00
+Falcon 9 Block 5 | Polaris Dawn,falcon-9-block-5-polaris-dawn,2024-161,Launch Complex 39A,True,2024-09-10T09:23:49Z,2024-09-10 07:38:00+00:00,2024-09-10 11:09:00+00:00
+Falcon 9 Block 5 | BlueBird Block 1,falcon-9-block-5-bluebird-block-1,2024-163,Space Launch Complex 37B,True,2024-09-12T08:52:00Z,2024-09-12 08:52:00+00:00,2024-09-12 12:52:00+00:00
+Falcon 9 Block 5 | Galileo L13 (FOC FM26 & FM32),falcon-9-block-5-galileo-l13-foc-fm26-fm32,2024-167,Space Launch Complex 41,True,2024-09-17T22:50:49Z,2024-09-17 22:50:49+00:00,2024-09-17 22:50:49+00:00
+Falcon 9 Block 5 | Crew-9,falcon-9-block-5-crew-9,2024-178,Space Launch Complex 40,True,2024-09-28T17:17:21Z,2024-09-28 17:17:21+00:00,2024-09-28 17:17:21+00:00
+Vulcan VC2S | Certification Flight 2,vulcan-vc2s-certification-flight-2,2024-179,Space Launch Complex 40,True,2024-10-04T11:25:00Z,2024-10-04 10:00:00+00:00,2024-10-04 13:00:00+00:00
+Falcon 9 Block 5 | Hera,falcon-9-block-5-hera,2024-180,Space Launch Complex 46,True,2024-10-07T14:52:11Z,2024-10-07 14:52:11+00:00,2024-10-07 14:52:11+00:00
+Falcon Heavy | Europa Clipper,falcon-heavy-europa-clipper,2024-182,Launch Complex 39A,True,2024-10-14T16:06:00Z,2024-10-14 16:05:45+00:00,2024-10-14 16:06:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-10,falcon-9-block-5-starlink-group-10-10,2024-183,Space Launch Complex 40,True,2024-10-15T06:10:00Z,2024-10-15 05:34:00+00:00,2024-10-15 09:22:00+00:00
+Falcon 9 Block 5 | Starlink Group 8-19,falcon-9-block-5-starlink-group-8-19,2024-187,Space Launch Complex 40,True,2024-10-18T23:31:00Z,2024-10-18 19:31:00+00:00,2024-10-18 23:31:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-61,falcon-9-block-5-starlink-group-6-61,2024-191,Space Launch Complex 37B,True,2024-10-23T21:47:00Z,2024-10-23 21:47:00+00:00,2024-10-24 01:23:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-8,falcon-9-block-5-starlink-group-10-8,2024-193,Space Launch Complex 40,True,2024-10-26T21:47:00Z,2024-10-26 21:47:00+00:00,2024-10-27 01:47:00+00:00
+Falcon 9 Block 5 | Starlink Group 10-13,falcon-9-block-5-starlink-group-10-13,2024-196,Space Launch Complex 40,True,2024-10-30T21:10:00Z,2024-10-30 21:10:00+00:00,2024-10-31 01:08:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-31,falcon-9-block-5-dragon-crs-2-spx-31,2024-200,Launch Complex 39A,True,2024-11-05T02:29:31Z,2024-11-05 02:29:31+00:00,2024-11-05 02:29:31+00:00
+Falcon 9 Block 5 | Starlink Group 6-77,falcon-9-block-5-starlink-group-6-77,2024-202,Space Launch Complex 40,True,2024-11-07T20:19:00Z,2024-11-07 20:13:00+00:00,2024-11-08 00:09:00+00:00
+Falcon 9 Block 5 | Koreasat 6A,falcon-9-block-5-koreasat-6a,2024-206,Launch Complex 39A,True,2024-11-11T17:22:00Z,2024-11-11 17:07:00+00:00,2024-11-11 21:07:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-69,falcon-9-block-5-starlink-group-6-69,2024-207,Space Launch Complex 41,True,2024-11-11T21:28:00Z,2024-11-11 21:02:00+00:00,2024-11-12 00:44:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-68,falcon-9-block-5-starlink-group-6-68,2024-210,Space Launch Complex 40,True,2024-11-14T13:21:00Z,2024-11-14 10:33:00+00:00,2024-11-14 14:33:00+00:00
+Falcon 9 Block 5 | Optus-X/TD7,falcon-9-block-5-optus-xtd7,2024-212,Launch Complex 39A,True,2024-11-17T22:28:00Z,2024-11-17 21:29:00+00:00,2024-11-17 23:27:00+00:00
+Falcon 9 Block 5 | GSAT-20 (GSAT-N2),falcon-9-block-5-gsat-20-gsat-n2,2024-214,Space Launch Complex 37B,True,2024-11-18T18:31:00Z,2024-11-18 18:31:00+00:00,2024-11-18 20:20:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-66,falcon-9-block-5-starlink-group-6-66,2024-216,Space Launch Complex 40,True,2024-11-21T16:07:50Z,2024-11-21 16:07:50+00:00,2024-11-21 19:49:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-1,falcon-9-block-5-starlink-group-12-1,2024-220,Space Launch Complex 40,True,2024-11-25T10:02:20Z,2024-11-25 09:32:00+00:00,2024-11-25 13:32:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-76,falcon-9-block-5-starlink-group-6-76,2024-222,Launch Complex 39A,True,2024-11-27T04:41:30Z,2024-11-27 03:05:00+00:00,2024-11-27 06:30:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-65,falcon-9-block-5-starlink-group-6-65,2024-224,Space Launch Complex 40,True,2024-11-30T05:00:00Z,2024-11-30 05:00:00+00:00,2024-11-30 09:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-70,falcon-9-block-5-starlink-group-6-70,2024-229,Space Launch Complex 40,True,2024-12-04T10:13:10Z,2024-12-04 08:29:00+00:00,2024-12-04 12:29:00+00:00
+Falcon 9 Block 5 | Sirius SXM-9,falcon-9-block-5-sirius-sxm-9,2024-234,Launch Complex 39A,True,2024-12-05T16:10:00Z,2024-12-05 16:10:00+00:00,2024-12-05 17:40:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-5,falcon-9-block-5-starlink-group-12-5,2024-237,Space Launch Complex 40,True,2024-12-08T05:12:30Z,2024-12-08 05:12:30+00:00,2024-12-08 09:02:20+00:00
+Falcon 9 Block 5 | GPS III SV07 (RRT-1),falcon-9-block-5-gps-iii-sv07-rrt-1,2024-242,Space Launch Complex 41,True,2024-12-17T00:52:00Z,2024-12-17 00:52:00+00:00,2024-12-17 00:52:00+00:00
+Falcon 9 Block 5 | O3b mPower 7 & 8,falcon-9-block-5-o3b-mpower-7-8,2024-244,Launch Complex 39A,True,2024-12-17T22:26:00Z,2024-12-17 20:59:00+00:00,2024-12-17 22:26:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-2,falcon-9-block-5-starlink-group-12-2,2024-249,Launch Complex 39A,True,2024-12-23T05:35:30Z,2024-12-23 05:35:30+00:00,2024-12-23 08:21:20+00:00
+Falcon 9 Block 5 | Astranis: From One to Many (4x Astranis MicroGEO),falcon-9-block-5-astranis-from-one-to-many-4x-astr,2024-252,Space Launch Complex 40,True,2024-12-29T05:00:00Z,2024-12-29 05:00:00+00:00,2024-12-29 07:30:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-6,falcon-9-block-5-starlink-group-12-6,2024-254,Launch Complex 39A,True,2024-12-31T05:39:10Z,2024-12-31 05:39:10+00:00,2024-12-31 06:28:10+00:00
+Falcon 9 Block 5 | Thuraya 4-NGS,falcon-9-block-5-thuraya-4-ngs,2025-001,Space Launch Complex 40,True,2025-01-04T01:27:00Z,2025-01-04 01:27:00+00:00,2025-01-04 05:27:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-71,falcon-9-block-5-starlink-group-6-71,2025-003,Space Launch Complex 41,True,2025-01-06T20:43:59Z,2025-01-06 16:44:00+00:00,2025-01-06 21:15:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-11,falcon-9-block-5-starlink-group-12-11,2025-004,Launch Complex 39A,True,2025-01-08T15:27:00Z,2025-01-08 15:27:00+00:00,2025-01-08 19:17:59+00:00
+Falcon 9 Block 5 | Starlink Group 12-12,falcon-9-block-5-starlink-group-12-12,2025-006,Space Launch Complex 40,True,2025-01-10T19:11:20Z,2025-01-10 15:27:00+00:00,2025-01-10 19:15:09+00:00
+Falcon 9 Block 5 | Starlink Group 12-4,falcon-9-block-5-starlink-group-12-4,2025-008,Space Launch Complex 41,True,2025-01-13T16:47:09Z,2025-01-13 14:59:00+00:00,2025-01-13 18:45:00+00:00
+Falcon 9 Block 5 | Blue Ghost Lunar Lander Mission 1 & Hakuto-R M2 “Resilience”,falcon-9-block-5-blue-ghost-lunar-lander-mission-1,2025-010,Launch Complex 39A,True,2025-01-15T06:11:39Z,2025-01-15 06:06:00+00:00,2025-01-15 06:45:00+00:00
+New Glenn | Maiden Flight,new-glenn-maiden-flight,2025-011,Space Launch Complex 40,True,2025-01-16T07:03:00Z,2025-01-16 06:00:00+00:00,2025-01-16 09:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 13-1,falcon-9-block-5-starlink-group-13-1,2025-014,Launch Complex 39A,True,2025-01-21T05:24:50Z,2025-01-21 05:24:50+00:00,2025-01-21 09:11:49+00:00
+Falcon 9 Block 5 | Starlink Group 12-7,falcon-9-block-5-starlink-group-12-7,2025-019,Space Launch Complex 40,True,2025-01-27T22:05:00Z,2025-01-27 20:22:40+00:00,2025-01-27 23:21:00+00:00
+Falcon 9 Block 5 | SpainSat NG I,falcon-9-block-5-spainsat-ng-i,2025-021,Launch Complex 39A,True,2025-01-30T01:34:00Z,2025-01-30 01:34:00+00:00,2025-01-30 03:34:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-3,falcon-9-block-5-starlink-group-12-3,2025-024,Space Launch Complex 41,True,2025-02-04T10:15:00Z,2025-02-04 08:27:10+00:00,2025-02-04 11:24:19+00:00
+Falcon 9 Block 5 | WorldView Legion 5 & 6,falcon-9-block-5-worldview-legion-5-6,2025-025,Launch Complex 39A,True,2025-02-04T23:13:00Z,2025-02-04 23:07:00+00:00,2025-02-05 00:07:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-9,falcon-9-block-5-starlink-group-12-9,2025-027,Space Launch Complex 46,True,2025-02-08T19:18:30Z,2025-02-08 18:23:00+00:00,2025-02-08 22:08:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-18,falcon-9-block-5-starlink-group-12-18,2025-031,Space Launch Complex 41,True,2025-02-11T18:53:20Z,2025-02-11 18:53:20+00:00,2025-02-11 20:44:29+00:00
+Falcon 9 Block 5 | Starlink Group 12-8,falcon-9-block-5-starlink-group-12-8,2025-032,Space Launch Complex 41,True,2025-02-15T06:14:10Z,2025-02-15 06:14:10+00:00,2025-02-15 07:15:59+00:00
+Falcon 9 Block 5 | Starlink Group 10-12,falcon-9-block-5-starlink-group-10-12,2025-034,Space Launch Complex 37B,True,2025-02-18T23:21:50Z,2025-02-18 23:15:10+00:00,2025-02-19 02:35:30+00:00
+Falcon 9 Block 5 | Starlink Group 12-14,falcon-9-block-5-starlink-group-12-14,2025-035,Space Launch Complex 41,True,2025-02-21T15:19:00Z,2025-02-21 11:40:00+00:00,2025-02-21 15:25:39+00:00
+Falcon 9 Block 5 | Nova-C IM-2 & Others,falcon-9-block-5-nova-c-im-2-others,2025-038,Launch Complex 39A,True,2025-02-27T00:16:30Z,2025-02-27 00:16:30+00:00,2025-02-27 00:16:30+00:00
+Falcon 9 Block 5 | Starlink Group 12-13,falcon-9-block-5-starlink-group-12-13,2025-039,Space Launch Complex 41,True,2025-02-27T03:34:20Z,2025-02-27 03:34:00+00:00,2025-02-27 07:34:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-20,falcon-9-block-5-starlink-group-12-20,2025-043,Cape Canaveral,True,2025-03-03T02:24:00Z,2025-03-03 02:24:00+00:00,2025-03-03 05:21:20+00:00
+Falcon 9 Block 5 | Starlink Group 12-21,falcon-9-block-5-starlink-group-12-21,2025-048,Space Launch Complex 37B,True,2025-03-13T02:35:30Z,2025-03-13 02:20:00+00:00,2025-03-13 06:51:00+00:00
+Falcon 9 Block 5 | Crew-10,falcon-9-block-5-crew-10,2025-049,Launch Complex 39A,True,2025-03-14T23:03:48Z,2025-03-14 23:03:48+00:00,2025-03-14 23:03:48+00:00
+Falcon 9 Block 5 | Starlink Group 12-16,falcon-9-block-5-starlink-group-12-16,2025-053,Space Launch Complex 41,True,2025-03-15T11:35:10Z,2025-03-15 10:28:00+00:00,2025-03-15 14:59:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-25,falcon-9-block-5-starlink-group-12-25,2025-057,Space Launch Complex 41,True,2025-03-18T19:57:50Z,2025-03-18 18:09:00+00:00,2025-03-18 22:40:00+00:00
+Falcon 9 Block 5 | NROL-69,falcon-9-block-5-nrol-69,2025-060,Space Launch Complex 40,True,2025-03-24T17:48:00Z,2025-03-24 17:42:00+00:00,2025-03-24 18:24:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-80,falcon-9-block-5-starlink-group-6-80,2025-065,Space Launch Complex 41,True,2025-03-31T19:52:50Z,2025-03-31 19:52:50+00:00,2025-03-31 21:55:49+00:00
+Falcon 9 Block 5 | Fram2,falcon-9-block-5-fram2,2025-066,Launch Complex 39A,True,2025-04-01T01:46:50Z,2025-04-01 01:46:50+00:00,2025-04-01 06:26:20+00:00
+Falcon 9 Block 5 | Starlink Group 6-72,falcon-9-block-5-starlink-group-6-72,2025-070,Space Launch Complex 40,True,2025-04-06T03:07:20Z,2025-04-06 02:40:00+00:00,2025-04-06 06:40:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-17,falcon-9-block-5-starlink-group-12-17,2025-075,Launch Complex 39A,True,2025-04-13T00:53:30Z,2025-04-13 00:53:00+00:00,2025-04-13 04:42:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-73,falcon-9-block-5-starlink-group-6-73,2025-076,Space Launch Complex 41,True,2025-04-14T04:00:10Z,2025-04-14 01:59:00+00:00,2025-04-14 05:59:00+00:00
+Falcon 9 Block 5 | Dragon CRS-2 SpX-32,falcon-9-block-5-dragon-crs-2-spx-32,2025-080,Launch Complex 39A,True,2025-04-21T08:15:45Z,2025-04-21 08:15:45+00:00,2025-04-21 08:15:45+00:00
+Falcon 9 Block 5 | Bandwagon 3 (Dedicated Mid-Inclination Rideshare),falcon-9-block-5-bandwagon-3-dedicated-mid-inclina,2025-081,Space Launch Complex 40,True,2025-04-22T00:48:34Z,2025-04-22 00:43:00+00:00,2025-04-22 01:23:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-74,falcon-9-block-5-starlink-group-6-74,2025-083,Space Launch Complex 41,True,2025-04-25T01:52:40Z,2025-04-25 01:52:40+00:00,2025-04-25 05:28:59+00:00
+Falcon 9 Block 5 | Starlink Group 12-23,falcon-9-block-5-starlink-group-12-23,2025-085,Space Launch Complex 40,True,2025-04-28T02:09:40Z,2025-04-28 02:09:40+00:00,2025-04-28 05:49:50+00:00
+Atlas V 551 | Project Kuiper (KA-01),atlas-v-551-project-kuiper-ka-01,2025-088,Space Launch Complex 37A,True,2025-04-28T23:01:00Z,2025-04-28 23:00:00+00:00,2025-04-29 01:00:00+00:00
+Falcon 9 Block 5 | Starlink Group 12-10,falcon-9-block-5-starlink-group-12-10,2025-089,Launch Complex 39A,True,2025-04-29T02:34:10Z,2025-04-29 02:31:00+00:00,2025-04-29 05:31:50+00:00
+Falcon 9 Block 5 | Starlink Group 6-75,falcon-9-block-5-starlink-group-6-75,2025-091,Space Launch Complex 40,True,2025-05-02T01:51:10Z,2025-05-02 01:51:10+00:00,2025-05-02 05:51:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-84,falcon-9-block-5-starlink-group-6-84,2025-092,Launch Complex 39A,True,2025-05-04T08:54:40Z,2025-05-04 08:54:40+00:00,2025-05-04 12:48:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-93,falcon-9-block-5-starlink-group-6-93,2025-093,Space Launch Complex 40,True,2025-05-07T01:17:20Z,2025-05-07 01:17:20+00:00,2025-05-07 03:37:09+00:00
+Falcon 9 Block 5 | Starlink Group 6-91,falcon-9-block-5-starlink-group-6-91,2025-095,Space Launch Complex 40,True,2025-05-10T06:28:00Z,2025-05-10 06:28:00+00:00,2025-05-10 10:28:00+00:00
+Falcon 9 Block 5 | Starlink Group 6-83,falcon-9-block-5-starlink-group-6-83,2025-099,Launch Complex 39A,True,2025-05-13T05:02:20Z,2025-05-13 03:36:30+00:00,2025-05-13 07:31:39+00:00
+Falcon 9 Block 5 | Starlink Group 6-67,falcon-9-block-5-starlink-group-6-67,2025-101,Space Launch Complex 41,True,2025-05-14T16:38:50Z,2025-05-14 16:38:50+00:00,2025-05-14 18:47:09+00:00
+Falcon 9 Block 5 | Starlink Group 12-15,falcon-9-block-5-starlink-group-12-15,2025-107,Space Launch Complex 40,True,2025-05-21T03:19:10Z,2025-05-21 03:19:10+00:00,2025-05-21 03:23:49+00:00
+Falcon 9 Block 5 | Starlink Group 12-22,falcon-9-block-5-starlink-group-12-22,2025-111,Space Launch Complex 41,True,2025-05-24T17:19:10Z,2025-05-24 17:19:00+00:00,2025-05-24 21:04:59+00:00

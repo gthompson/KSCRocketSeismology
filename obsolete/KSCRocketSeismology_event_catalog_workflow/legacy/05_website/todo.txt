@@ -1,0 +1,3 @@
+TO DO:
+* integrate the new launch event table with my website generation and the SDS archive on hal
+* this requires modifications to codes like 25 and beyond

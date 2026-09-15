@@ -1,0 +1,2 @@
+event_id,event_type,event_time_utc,event_time_source,event_time_quality,event_time_precision,time_definition,name,mission,vehicle,pad,provider,source,notes
+ksc-sonicbat-20170822,aircraft_sonic_boom,2017-08-22T00:00:00Z,All_KSC_Rocket_Launches.xlsx,approximate,day,experiment_day,SonicBAT F-18 sonic booms,F-18 planes,,SLF,,manual_excel,"Workbook gives date only (00:00 placeholder), recorded at BCHH. Add individual boom times from waveform review as separate events."

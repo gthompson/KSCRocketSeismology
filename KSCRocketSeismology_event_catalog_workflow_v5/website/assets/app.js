@@ -1,0 +1,3 @@
+const q=document.querySelector('#q'),year=document.querySelector('#year'),vehicle=document.querySelector('#vehicle'),pad=document.querySelector('#pad');
+function filter(){const text=q.value.toLowerCase();document.querySelectorAll('#catalog tbody tr').forEach(r=>{const okText=!text||r.innerText.toLowerCase().includes(text);const okYear=!year.value||r.dataset.year===year.value;const okVehicle=!vehicle.value||r.dataset.vehicle===vehicle.value;const okPad=!pad.value||r.dataset.pad===pad.value;r.hidden=!(okText&&okYear&&okVehicle&&okPad);});}
+[q,year,vehicle,pad].forEach(x=>x.addEventListener('input',filter));

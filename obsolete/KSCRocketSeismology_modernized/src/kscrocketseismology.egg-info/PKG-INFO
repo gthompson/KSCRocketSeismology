@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: kscrocketseismology
+Version: 0.1.0
+Summary: Unified catalog, static website, and ensemble-analysis stack for KSC rocket seismology.
+Requires-Python: >=3.11
+Requires-Dist: pandas>=2.0
+Requires-Dist: numpy>=1.24
+Requires-Dist: matplotlib>=3.7
+Provides-Extra: seismic
+Requires-Dist: obspy>=1.4; extra == "seismic"
+Provides-Extra: maps
+Requires-Dist: geopandas>=0.14; extra == "maps"
+Requires-Dist: contextily>=1.5; extra == "maps"
+Requires-Dist: pyproj>=3.6; extra == "maps"
+Requires-Dist: openpyxl>=3.1; extra == "maps"
+Requires-Dist: xlrd>=2.0; extra == "maps"
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"

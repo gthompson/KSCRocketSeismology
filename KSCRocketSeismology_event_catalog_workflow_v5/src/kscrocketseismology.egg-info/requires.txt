@@ -1,0 +1,17 @@
+pandas>=2.0
+numpy>=1.24
+matplotlib>=3.7
+openpyxl>=3.1
+
+[dev]
+pytest>=8
+
+[maps]
+geopandas>=0.14
+contextily>=1.5
+pyproj>=3.6
+openpyxl>=3.1
+xlrd>=2.0
+
+[seismic]
+obspy>=1.4

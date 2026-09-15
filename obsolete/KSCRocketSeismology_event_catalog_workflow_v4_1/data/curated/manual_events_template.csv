@@ -1,0 +1,2 @@
+event_id,event_type,event_time_utc,event_time_source,event_time_quality,event_time_precision,time_definition,name,mission,vehicle,pad,provider,source,notes
+,aircraft_sonic_boom,2017-08-22T00:00:00Z,waveform_review,manual_verified,second,observed_arrival_or_source_time,Example SonicBAT boom,F-18 aircraft,,SLF,,waveform_review,Replace example and assign/preserve an event_id
