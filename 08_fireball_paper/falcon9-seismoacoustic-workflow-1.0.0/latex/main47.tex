@@ -191,7 +191,7 @@ pressure channel.
 
 \begin{figure*}[!tbp]
   \centering
-  \includegraphics[width=0.96\textwidth]{figures/fig01_slc40_bchh_location.pdf}
+  \includegraphics[width=0.96\textwidth]{fig01_slc40_bchh_location.pdf}
   \caption{Location and geometry of the BCHH seismo-acoustic array.
   (a) SLC-40 and BCHH in the southern Kennedy Space Center--Cape Canaveral
   launch area. (b) Three-component seismometer and three-element infrasound
@@ -205,19 +205,22 @@ pressure channel.
 
 The seismic response was removed using the manufacturer calibration for the
 Trillium Compact Posthole--Centaur chain. Field checks during the 2015
-Sakurajima campaign identified sensitivities differing from the common
-nominal conversion subsequently used in the published analysis
-\citep{smith_sakurajima_2020}; these observations motivated the KSC calibration
-experiments. The inventory included several All Sensors pressure-transducer
-ranges with different nominal sensitivities. The November~2016 forensic
-report documents BCHH lift-test factors of 0.1234, 1.45, and
-0.100~Pa~count$^{-1}$ for DD1--DD3, equivalent to 8.10, 0.690, and
+Sakurajima campaign found that manually determined infraBSU sensitivities
+could differ from a common nominal conversion \citep{smith_sakurajima_2020};
+these observations motivated the KSC calibration experiments. The
+November~2016 forensic report documents BCHH lift-test factors of 0.1234,
+1.45, and 0.100~Pa~count$^{-1}$ for DD1--DD3, equivalent to 8.10, 0.690, and
 10.0~counts~Pa$^{-1}$, respectively \citep{thompson_mcnutt_fireball_2016}.
 These empirical factors are retained here (Supplementary Table~S1).
-DD1 and DD3 are consistent with 1-inch H$_2$O heads, but channel-to-head
-assignments and the cause of DD2's lower sensitivity remain unresolved.
-The available evidence does not establish incorrect calibration when supplied.
-Supplementary Section~S1 describes the historical tests and their limitations.
+Deployment notes and the measured responses indicate that DD1 and DD3 were
+likely 1-inch H$_2$O heads; their channel assignments are not confirmed by
+serial-number records. Independent raw-count comparisons from three nearby
+launches support a stable low DD2/DD3 gain ratio, while the cause and nominal
+configuration of DD2's lower sensitivity remain unresolved. These observations
+do not show that the instruments were miscalibrated when supplied; service
+history, field exposure, handling, and pneumatic components are possible
+contributors. Supplementary Section~S1 describes the tests and their
+limitations.
 The provisional $\pm20\%$ pressure uncertainty reflects empirical test
 variability rather than a laboratory-traceable absolute uncertainty. Manual
 arrival uncertainty was approximately 0.01~s for the clearest impulses and
@@ -600,14 +603,9 @@ impulses approached the seismic noise floor.
   \centering
   \includegraphics[width=0.88\textwidth]{../data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/high_quality_normalized_pressure_and_dhz_waveforms.pdf}
   \caption{Independently normalized pressure and vertical-ground-velocity
-  waveforms for the 51 events in the high-quality planar class. The pressure
-  trace is the median of DD1, DD2, and DD3 after DD1 and DD3 were shifted by
-  their predicted differential acoustic travel times to the DD2 reference.
-  DHZ is unshifted at the seismometer. Its approximately 11.6-m longer
-  source--receiver path corresponds to an expected approximately 0.033-s later
-  local acoustic arrival than at DD2; this is not a fitted pressure--ground
-  delay. Pale curves are individual events, the dark curve is the pointwise
-  median, and shading spans the 16th--84th percentiles.}
+  waveforms for the 51 events in the high-quality planar class. Pale curves
+  are individual events, the dark curve is the pointwise median, and shading
+  spans the 16th--84th percentiles.}
   \label{fig:waveform_ensemble}
 \end{figure*}
 
@@ -828,6 +826,15 @@ energies rather than blast yields. Absolute calibration, possible sensor
 over-range response, baseline choice, reflection, directivity, and obstacles
 remain larger interpretive limits than the precision of the nominal values.
 
+The lift-test calibration is also supported by the independent launch
+comparison. For the likely 1-inch DD3 head, its nominal sensitivity of
+9.2~counts~Pa$^{-1}$ is close to the adopted 10.0~counts~Pa$^{-1}$ lift-test
+value: using the nominal value would raise DD3-derived pressures by only
+8.7\%. This agreement does not establish an absolute laboratory calibration,
+and the anomalously low DD2 sensitivity remains an important qualification,
+but it supports use of the empirical factors within the stated $\pm20\%$
+pressure uncertainty.
+
 No regional counterpart was confirmed, and the flagged regional windows remain
 under formal review. Consequently the Falcon~9 event cannot support the
 period--yield analysis applied to the regionally detected 2026 New Glenn
@@ -853,8 +860,9 @@ ranges, manual event identification, uncertain absolute video timing, and
 first-order radiation assumptions. The provisional $\pm20\%$ pressure
 calibration uncertainty affects all absolute pressure-dependent results, while
 baseline, geometry, propagation, and possible over-range nonlinearity add
-uncertainties not included in that percentage. Bracketing-launch calibration
-checks remain outstanding. These limitations preserve the relative timing,
+uncertainties not included in that percentage. Nearby-launch raw-count checks
+support relative DD2/DD3 stability, but do not identify DD2's nominal head or
+establish an absolute calibration. These limitations preserve the relative timing,
 direction, and scaling results but require caution in absolute energy, yield,
 and seismic-phase interpretations.
 
