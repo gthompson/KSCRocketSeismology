@@ -1,0 +1,50 @@
+Legacy Falcon 9 MATLAB/GISMO export summary
+==========================================
+
+Input MAT file:
+  /Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/02_KSC/matlab/data/spacexplosion.mat
+
+Time representation
+-------------------
+All important times are exported as MATLAB datenum, Unix epoch seconds, and UTC datetime formatted to milliseconds. Epoch seconds are recommended for Python interchange.
+
+Manual picks
+------------
+Total picks: 890
+Parsed channel identifiers: 890
+Deleted-phase picks: 214
+N-phase picks: 456
+Seismic P/S phase picks: 5
+Unclassified-phase picks: 210
+
+Picks by channel
+----------------
+BCHH.00.HHE: 32
+BCHH.00.HHN: 36
+BCHH.00.HHZ: 404
+BCHH.10.HD1: 81
+BCHH.10.HD2: 174
+BCHH.10.HD3: 163
+
+153-event associations
+----------------------
+Legacy events: 153
+Associated picks: 533
+Unassociated picks: 357
+Events represented: 153
+Ambiguous pick associations: 0
+Events passing first/last N-pick validation: 120
+
+157-event catalog.mat export
+----------------------------
+Catalogue events: 157
+
+Configured pick interval
+------------------------
+Start: 01-Sep-2016
+End:   02-Sep-2016 23:59:59
+Picks in interval: 755
+
+Important interpretation
+------------------------
+The manual pick table is the primary archival product. Legacy amplitudes, energies, reduced pressures, and array results are retained for comparison, but should be recomputed from the modern response-corrected waveform stream where possible.
