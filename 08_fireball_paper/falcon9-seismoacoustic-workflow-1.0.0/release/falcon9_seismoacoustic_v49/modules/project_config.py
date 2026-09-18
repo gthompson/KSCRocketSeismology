@@ -17,7 +17,10 @@ part of the public repository; use ``local_config.example.toml`` as a template.
 from __future__ import annotations
 
 import sys
-import tomllib
+try:
+    import tomllib  # Python 3.11+
+except ModuleNotFoundError:
+    import tomli as tomllib  # Python 3.10 and earlier
 from pathlib import Path
 
 import pandas as pd
@@ -36,7 +39,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 METADATA_DIR = DATA_DIR / "metadata"
 MINISEED_DIR = DATA_DIR / "miniseed"
 OUTPUT_DIR = DATA_DIR / "outputs"
-LEGACY_EXPORT_DIR = METADATA_DIR / "legacy_export"
+LEGACY_EXPORT_DIR = DATA_DIR / "legacy_export"
 
 
 LOCAL_CONFIG_FILE = PROJECT_ROOT / "local_config.toml"
@@ -179,9 +182,20 @@ ROCKET_CATALOG_DIR = NB000_DIR / "event_catalogue"
 SOURCE_EVENT_TIMES = {
     "upper_stage": UTCDateTime("2016-09-01T13:07:11.9130"),
     "lower_stage": UTCDateTime("2016-09-01T13:07:15.5136"),
-    "capsule_impact": UTCDateTime("2016-09-01T13:07:24.4200"),
-    "capsule_explosion": UTCDateTime("2016-09-01T13:07:24.9875"),
+    "payload_impact": UTCDateTime("2016-09-01T13:07:24.4200"),
+    "payload_explosion": UTCDateTime("2016-09-01T13:07:24.9875"),
     "event_024": UTCDateTime("2016-09-01T13:07:26.4580"),
+}
+
+# Earlier development products used ``capsule_*`` identifiers. Falcon 9 was
+# carrying the AMOS-6 payload rather than a crew capsule, so new code and new
+# products use ``payload_*``. These aliases are deliberately kept outside
+# SOURCE_EVENT_TIMES: adding duplicate dictionary entries would cause code that
+# iterates over the event table to process the same physical events twice.
+LEGACY_SOURCE_EVENT_KEY_ALIASES = {
+    "capsule_impact": "payload_impact",
+    "capsule_explosion": "payload_explosion",
+    "after_capsule_explosion": "event_024",
 }
 
 # Backward-compatible name used by the notebook sequence.
@@ -210,22 +224,22 @@ OVERVIEW_PHASE_INTERVALS = (
     ),
     (
         "Phase II",
-        UTCDateTime("2016-09-01T13:14:15"),
-        UTCDateTime("2016-09-01T13:15:45"),
+        UTCDateTime("2016-09-01T13:14:15") - 10.0,
+        UTCDateTime("2016-09-01T13:15:45") + 10.0,
     ),
     (
         "Phase III",
-        UTCDateTime("2016-09-01T13:19:12"),
+        UTCDateTime("2016-09-01T13:19:12") - 10.0,
         UTCDateTime("2016-09-01T13:25:00"),
     ),
     (
         "Phase IV",
-        UTCDateTime("2016-09-01T13:29:54"),
+        UTCDateTime("2016-09-01T13:29:54") - 15.0,
         UTCDateTime("2016-09-01T13:34:54"),
     ),
 )
 
-OVERVIEW_TREMOR_INTERVAL = (
+OVERVIEW_PROLONGED_SIGNAL_INTERVAL = (
     UTCDateTime("2016-09-01T13:08:48"),
     UTCDateTime("2016-09-01T13:12:00"),
 )
@@ -255,14 +269,14 @@ events = pd.DataFrame(
             "source_time": str(SOURCE_EVENT_TIMES["lower_stage"]),
         },
         {
-            "event_id": "capsule_impact",
+            "event_id": "payload_impact",
             "label": "Payload impact",
-            "source_time": str(SOURCE_EVENT_TIMES["capsule_impact"]),
+            "source_time": str(SOURCE_EVENT_TIMES["payload_impact"]),
         },
         {
-            "event_id": "capsule_explosion",
+            "event_id": "payload_explosion",
             "label": "Payload explosion",
-            "source_time": str(SOURCE_EVENT_TIMES["capsule_explosion"]),
+            "source_time": str(SOURCE_EVENT_TIMES["payload_explosion"]),
         },
         {
             "event_id": "event_024",
@@ -285,6 +299,29 @@ RESPONSE_CORRECTION_DIR = NB000_DIR
 # -----------------------------------------------------------------------------
 # Helper functions
 # -----------------------------------------------------------------------------
+
+def canonical_source_event_key(event_key: str) -> str:
+    """Return the canonical identifier for a source-event key.
+
+    This permits current notebooks to read archived CSV/JSON products that
+    contain the former ``capsule_*`` identifiers without perpetuating those
+    names in newly written products.
+    """
+    normalized = str(event_key).strip().lower()
+    return LEGACY_SOURCE_EVENT_KEY_ALIASES.get(normalized, normalized)
+
+
+def source_event_time(event_key: str) -> UTCDateTime:
+    """Return an authoritative source time, accepting legacy identifiers."""
+    canonical_key = canonical_source_event_key(event_key)
+    try:
+        return SOURCE_EVENT_TIMES[canonical_key]
+    except KeyError as exc:
+        raise KeyError(
+            f"Unknown source event {event_key!r}; canonical key "
+            f"{canonical_key!r}. Available keys: "
+            f"{sorted(SOURCE_EVENT_TIMES)}"
+        ) from exc
 
 def find_project_root(start: str | Path | None = None) -> Path:
     """Find the repository root from a path inside the project."""
