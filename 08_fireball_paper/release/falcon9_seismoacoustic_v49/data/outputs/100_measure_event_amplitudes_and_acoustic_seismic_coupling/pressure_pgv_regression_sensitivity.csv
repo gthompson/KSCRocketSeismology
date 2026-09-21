@@ -1,0 +1,6 @@
+analysis,n_events,slope,r_squared
+full measurement-quality subset,46,0.9622298844593847,0.952556896069677
+entire principal measurement overlap group excluded,44,0.9433806778388281,0.9049439454657296
+leave-one-out minimum,45,0.951538948419359,0.9370693656542342
+leave-one-out maximum,45,0.9708851176344794,0.9617056400553374
+equal-weight orthogonal regression,46,0.9855567865728376,

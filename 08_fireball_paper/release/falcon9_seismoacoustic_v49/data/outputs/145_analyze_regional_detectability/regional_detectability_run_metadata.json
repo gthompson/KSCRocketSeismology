@@ -1,0 +1,95 @@
+{
+  "notebook": "145_analyze_regional_detectability_with_regional_validation.ipynb",
+  "reference_event_key": "lower_stage",
+  "reference_event_label": "principal explosion",
+  "source_time_utc": "2016-09-01T13:07:15.513600",
+  "source_latitude": 28.56193580144674,
+  "source_longitude": -80.57720517592954,
+  "source_geometry_provenance": "data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+  "fdsn_provider": "EARTHSCOPE",
+  "acoustic_max_distance_km": 1800.0,
+  "seismic_max_distance_km": 600.0,
+  "acoustic_channel_patterns": [
+    "?DF",
+    "?DO"
+  ],
+  "seismic_channel_patterns": [
+    "HHZ",
+    "BHZ",
+    "LHZ"
+  ],
+  "acoustic_band_hz": [
+    0.2,
+    1.0
+  ],
+  "seismic_band_hz": [
+    0.5,
+    5.0
+  ],
+  "minimum_snr": 2.5,
+  "minimum_event_to_control_peak_ratio": 1.25,
+  "control_window_rule": "pre and post controls match each phase-window duration",
+  "control_guard_s": 120.0,
+  "acoustic_phase_celerities_mps": {
+    "tropospheric": [
+      310.0,
+      350.0
+    ],
+    "stratospheric": [
+      260.0,
+      310.0
+    ],
+    "thermospheric_or_slow": [
+      180.0,
+      260.0
+    ]
+  },
+  "seismic_phase_velocities_mps": {
+    "P_candidate": [
+      3000.0,
+      8000.0
+    ],
+    "S_candidate": [
+      1500.0,
+      4500.0
+    ],
+    "surface_candidate": [
+      500.0,
+      3500.0
+    ],
+    "ground_coupled_airwave": [
+      300.0,
+      380.0
+    ]
+  },
+  "optional_station_manifest": null,
+  "target_count": 171,
+  "screened_count": 165,
+  "failed_count": 6,
+  "automatic_candidate_count": 93,
+  "automatic_candidate_station_count": 67,
+  "interpretation_warning": "Automatic candidates require manual review. Missing data and response failures are not non-detections. Do not infer a regional null result until regional_candidate_manual_review.csv is completed. A confirmed regional detection also requires a physically consistent multi-station branch.",
+  "focused_regional_validation": {
+    "stations": [
+      "IU.DWPF",
+      "N4.257A",
+      "N4.S54A",
+      "N4.R55A"
+    ],
+    "posthoc_slow_branch": [
+      "IU.DWPF",
+      "N4.257A",
+      "N4.S54A"
+    ],
+    "fixed_origin_celerity_mps": 196.43076611773355,
+    "free_origin_celerity_mps": 197.82494013053503,
+    "free_origin_offset_s": 28.813631062977493,
+    "pseudo_origin_test_warning": "Stations and candidate peaks were selected after inspection; this is not a pre-registered or formal false-alarm test.",
+    "bchh_comparison_band_hz": [
+      0.2,
+      1.0
+    ],
+    "yield_method": "ReVelle (1997) period-yield relation as used by Silber and Scamfer (2026), restricted to manually accepted primary tropospheric or stratospheric arrivals",
+    "current_yield_status": "No selected slow/thermospheric candidate is eligible for yield estimation"
+  }
+}

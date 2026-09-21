@@ -1,0 +1,12 @@
+{
+  "stations": [
+    "IU.DWPF",
+    "N4.257A",
+    "N4.S54A"
+  ],
+  "known_source_best_celerity_mps": 196.5,
+  "known_source_score": 1.3892605024711664,
+  "descriptive_percentile": 86.36363636363636,
+  "pseudo_p_posthoc_not_formal": 0.14414414414414414,
+  "warning": "Stations and candidate peaks were selected after inspection; this is not a pre-registered or formal false-alarm test."
+}

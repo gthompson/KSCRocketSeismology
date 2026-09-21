@@ -1,0 +1,6 @@
+event_id,label,source_time
+upper_stage,Upper stage,2016-09-01T13:07:11.913000Z
+lower_stage,Principal explosion,2016-09-01T13:07:15.513600Z
+payload_impact,Payload impact,2016-09-01T13:07:24.420000Z
+payload_explosion,Payload explosion,2016-09-01T13:07:24.987500Z
+event_024,Event 024,2016-09-01T13:07:26.458000Z

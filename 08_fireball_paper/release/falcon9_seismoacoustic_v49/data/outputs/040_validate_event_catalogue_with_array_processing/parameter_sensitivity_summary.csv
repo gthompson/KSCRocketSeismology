@@ -1,0 +1,4 @@
+name,window_length_s,freq_band_hz,events_analyzed,median_back_azimuth_deg,median_abs_back_azimuth_error_deg,median_trace_velocity_mps,median_f_stat,back_azimuth_edge_hits,trace_velocity_edge_hits
+short_high,0.25,"(4.0, 30.0)",153,200.83561147233948,1.525018174233054,369.8629613030763,3.566526918901707,0,33
+primary,0.5,"(2.0, 20.0)",153,200.67463474104176,1.4322039611076889,354.6041297736379,5.0358369312881734,2,7
+broad_low,1.0,"(1.0, 10.0)",153,201.42166214251134,2.8239019959179927,354.6975571710458,2.9026934124117636,7,49

@@ -1,0 +1,45 @@
+{
+  "producer_notebook": "100_measure_event_amplitudes_and_acoustic_seismic_coupling.ipynb",
+  "selection": "union of Notebook 080 A_high_quality and five named events",
+  "selected_unique_event_count": 51,
+  "a_quality_count": 51,
+  "named_event_count": 5,
+  "a_quality_named_overlap_count": 5,
+  "named_event_keys": [
+    "upper_stage",
+    "lower_stage",
+    "payload_impact",
+    "payload_explosion",
+    "event_024"
+  ],
+  "named_match_tolerance_s": 0.25,
+  "catalogue_epoch_timebase": "reference arrival at DD2",
+  "reference_channel": "DD2",
+  "reference_channel_distance_m": 1408.3384566901343,
+  "reference_channel_travel_time_s": 4.012623971357452,
+  "signal_window_overrides_s": {
+    "payload_impact": [
+      -0.04,
+      0.33
+    ]
+  },
+  "pressure_reference_pa": 2e-05,
+  "effective_sound_speed_mps": 350.97693348367756,
+  "differential_alignment_speed_mps": 352.0,
+  "atmospheric_pressure_pa_assumed": 101325.0,
+  "mean_temperature_c": 26.35780423280424,
+  "mean_relative_humidity_percent": 83.86904761904762,
+  "computed_air_density_kg_m3": 1.165921165831228,
+  "primary_radiation_solid_angle_sr": 6.283185307179586,
+  "sensitivity_radiation_solid_angle_sr": 12.566370614359172,
+  "joules_per_kg_tnt": 4184000.0,
+  "acoustic_efficiency_reference": 0.01,
+  "acoustic_efficiency_range": [
+    0.001,
+    0.1
+  ],
+  "interpretation_warning": "Radiated acoustic-energy TNT equivalent is not total explosive yield; efficiency-scaled equivalents are provisional scenarios only.",
+  "channel_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/a_quality_and_named_event_acoustic_energetics_by_channel.csv",
+  "summary_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/a_quality_and_named_event_acoustic_energetics_summary.csv",
+  "named_match_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/100_measure_event_amplitudes_and_acoustic_seismic_coupling/named_event_catalogue_matches.csv"
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 5,
+  "key_event_identifier_schema": "payload-v1",
+  "network": "1R",
+  "station": "BCHH",
+  "location": "10",
+  "channels": [
+    "DD1",
+    "DD2",
+    "DD3",
+    "DHE",
+    "DHN",
+    "DHZ"
+  ],
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "seismic_channels": [
+    "DHE",
+    "DHN",
+    "DHZ"
+  ],
+  "sampling_rate_hz": 250.0,
+  "analysis_start_epoch_s": 1472735051.9129999,
+  "analysis_end_epoch_s": 1472737031.9129999,
+  "actual_common_start_epoch_s": 1472735051.912,
+  "actual_common_end_epoch_s": 1472737031.912,
+  "physical_units_by_channel": {
+    "DD1": "Pa",
+    "DD2": "Pa",
+    "DD3": "Pa",
+    "DHE": "m/s",
+    "DHN": "m/s",
+    "DHZ": "m/s"
+  },
+  "slc40": {
+    "name": "SLC40",
+    "latitude": 28.56193580144674,
+    "longitude": -80.57720517592954,
+    "elevation_m": 14.03200591939605
+  },
+  "array_reference": {
+    "name": "BCHH seismometer",
+    "latitude": 28.5740172,
+    "longitude": -80.572376,
+    "easting_m": 541820.3777629737,
+    "northing_m": 3160866.5085189193,
+    "distance_m": 1419.88651062152,
+    "back_azimuth_to_slc40_deg": 199.43802624040572
+  },
+  "infrasound_reference_channel": "DD2",
+  "notebook_01_products": {
+    "channel_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_correction_summary.csv",
+    "corrected_pickle": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_response_corrected.pkl",
+    "calibrated_stationxml": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_empirically_calibrated.xml"
+  },
+  "geometry_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "physical_sensors_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_physical_sensors.csv",
+  "stream_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_analysis_window.pkl",
+  "baseline_removed_streams": {
+    "pickle": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+    "mseed": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.mseed"
+  },
+  "moving_median_baseline": {
+    "method": "centered moving median",
+    "window_s": 1.0,
+    "window_samples": 251,
+    "first_to_last_sample_span_s": 1.0,
+    "edge_mode": "nearest",
+    "nonlinear": true,
+    "applied_to_channels": [
+      "DD1",
+      "DD2",
+      "DD3"
+    ],
+    "unchanged_channels": [
+      "DHE",
+      "DHN",
+      "DHZ"
+    ],
+    "producer_notebook": "010_prepare_analysis_inputs.ipynb"
+  },
+  "key_events_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/key_events.csv"
+}

@@ -1,0 +1,38 @@
+{
+  "notebook": "080_analyze_planar_array_propagation.ipynb",
+  "geometry_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+  "reference_channel": "DD2",
+  "source_reduction_speed_mps": 351.0,
+  "azimuth_convention": "EPSG:32617 grid north; original nominal azimuth columns unchanged",
+  "grid_convergence_deg": 0.20450981430314683,
+  "configured_geographic_baz_deg": 199.43802624040572,
+  "comparison_grid_baz_deg": 199.23351642610257,
+  "overview_phase_intervals": [
+    [
+      "Phase I",
+      "2016-09-01T13:07:11.913000Z",
+      "2016-09-01T13:08:21.913000Z"
+    ],
+    [
+      "Phase II",
+      "2016-09-01T13:14:05.000000Z",
+      "2016-09-01T13:15:55.000000Z"
+    ],
+    [
+      "Phase III",
+      "2016-09-01T13:19:02.000000Z",
+      "2016-09-01T13:25:00.000000Z"
+    ],
+    [
+      "Phase IV",
+      "2016-09-01T13:29:39.000000Z",
+      "2016-09-01T13:34:54.000000Z"
+    ]
+  ],
+  "geometry_scenarios": "Single DD1 or DD3 offset of 1 or 2 m in eight directions; DD2 and inferred delays held fixed",
+  "geometry_scope": "Conditional scenarios, not confidence bounds; simultaneous sensor errors and waveform re-inversion omitted",
+  "window_stability_scope": "Scoring-window repeatability at fixed coordinates, not total parameter uncertainty",
+  "principal_row_scope": "Representative catalogue row 13; physical complex and named-event mapping require later review",
+  "nominal_results_changed_by_geometry_diagnostic": false
+}

@@ -1,0 +1,78 @@
+{
+  "producer_notebook": "140_search_for_direct_seismic_waves.ipynb",
+  "source_notebook12_zrt_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/130_analyze_seismic_polarization/seismic_zrt.pkl",
+  "reference_description": "source-to-BCHH seismometer distance; geographic Z/R/T orientation inherited from 130",
+  "source_epoch_policy": "named origins adopted from config; catalogue DD2 arrivals reduced by geometry/weather travel time before optional stack",
+  "phase_definitions": "none introduced or modified",
+  "gap_policy": "complete finite aligned samples; no interpolation",
+  "polarization_analytic_support": "Hilbert transform confined to each trailing window; finite-window edge effects remain",
+  "threshold_interpretation": "robust-MAD empirical levels; not Gaussian significance or calibrated false-alarm probability",
+  "search_controls": {
+    "low_0p8_3": {
+      "freqmin_hz": 0.8,
+      "freqmax_hz": 3.0,
+      "rms_smooth_s": 0.2,
+      "persistence_s": 0.2,
+      "polarization_window_s": 1.0
+    },
+    "mid_3_8": {
+      "freqmin_hz": 3.0,
+      "freqmax_hz": 8.0,
+      "rms_smooth_s": 0.1,
+      "persistence_s": 0.12,
+      "polarization_window_s": 0.4
+    },
+    "high_8_20": {
+      "freqmin_hz": 8.0,
+      "freqmax_hz": 20.0,
+      "rms_smooth_s": 0.05,
+      "persistence_s": 0.08,
+      "polarization_window_s": 0.2
+    },
+    "very_high_20_45": {
+      "freqmin_hz": 20.0,
+      "freqmax_hz": 45.0,
+      "rms_smooth_s": 0.025,
+      "persistence_s": 0.05,
+      "polarization_window_s": 0.1
+    }
+  },
+  "quadrature_minimum_z_and_r_energy_fraction": 0.1,
+  "noise_window_s": [
+    -5.0,
+    -0.5
+  ],
+  "amplitude_thresholds": [
+    4.0,
+    5.0,
+    6.0
+  ],
+  "event_key": "upper_stage",
+  "source_time_utc": "2016-09-01T13:07:11.913000Z",
+  "source_to_receiver_distance_m": 1419.88651062152,
+  "meteorological_effective_sound_speed_mps": 350.97693348367756,
+  "predicted_acoustic_delay_s": 4.0455265721545,
+  "next_named_source_offset_s": 3.6006,
+  "focused_search_end_s": 3.45,
+  "sampling_rate_hz": 250.0,
+  "filtering": {
+    "onset_authority": "causal two-corner Butterworth bandpass",
+    "zero_phase_use": "sensitivity and group-delay morphology only"
+  },
+  "interpretation_limit": "Single-station timing provides path-average apparent velocity or frequency-dependent group-delay proxies, not independent phase velocity.",
+  "stack_created": true,
+  "outputs": {
+    "onset_candidates": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/onset_candidates.csv",
+    "onset_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/onset_summary_by_band.csv",
+    "trailing_polarization": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/trailing_polarization.csv",
+    "polarization_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/polarization_confirmation_summary.csv",
+    "group_delay": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/frequency_dependent_group_delay.csv",
+    "onset_figure": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/upper_stage_onset_and_polarization.pdf",
+    "phase_diagnostic_figure": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/upper_stage_phase_discrimination.pdf",
+    "spectrogram_figure": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/upper_stage_noise_normalized_spectrogram.pdf",
+    "group_delay_figure": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/upper_stage_group_delay_proxy.pdf",
+    "stack_events": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/isolated_stack_events.csv",
+    "stack_long_table": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/isolated_event_stack.csv",
+    "stack_figure": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/140_search_for_direct_seismic_waves/isolated_event_source_aligned_stack.pdf"
+  }
+}

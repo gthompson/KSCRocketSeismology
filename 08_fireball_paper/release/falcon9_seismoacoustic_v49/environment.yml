@@ -1,0 +1,27 @@
+name: falcon9-seismoacoustics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - pillow
+  - obspy
+  - pyproj
+  - contextily
+  - openpyxl
+  - librosa
+  - h5py
+  - scikit-learn
+  - spectrum
+  - av
+  - ffmpeg
+  - pip
+  - pip:
+      - git+https://github.com/LANL-Seismoacoustics/infrapy.git
+      - git+https://github.com/solldavid/TwistPy.git

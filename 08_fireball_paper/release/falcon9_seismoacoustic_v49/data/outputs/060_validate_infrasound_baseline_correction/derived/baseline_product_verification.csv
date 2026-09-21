@@ -1,0 +1,7 @@
+channel,max_abs_difference,tolerance,exact_sample_match,passes
+DD1,0.0,1.3019572620954901e-09,True,True
+DD2,0.0,1.5075231869246448e-09,True,True
+DD3,0.0,1.38559766594443e-09,True,True
+DHE,0.0,0.0,True,True
+DHN,0.0,0.0,True,True
+DHZ,0.0,0.0,True,True

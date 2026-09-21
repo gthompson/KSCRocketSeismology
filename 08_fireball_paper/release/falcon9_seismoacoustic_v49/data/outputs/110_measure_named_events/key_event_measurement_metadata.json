@@ -1,0 +1,35 @@
+{
+  "sample_audit_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_channel_sample_and_baseline_audit.csv",
+  "pressure_summary_definition": "median of independent per-sensor extrema; not extrema of median waveform",
+  "local_baseline": "median of pre-signal samples after full-trace moving-median correction",
+  "window_time_convention": "internal offsets measured from actual sample-snapped trace start; requested UTC windows separately exported",
+  "pressure_squared_integral_interpretation": "fixed adopted signal support; before/after residual constant subtraction; not a blast yield or total uncertainty interval",
+  "physical_association_status": "manually adopted broad source windows; may include adjacent pulses/coda; compare catalogue mapping before assigning named PGVs",
+  "producer_notebook": "110_measure_named_events.ipynb",
+  "analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+  "geometry_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "waveform_product": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "sensor_distances_m": {
+    "DD1": 1439.9638305217552,
+    "DD2": 1408.3384566901343,
+    "DD3": 1412.8543304792386
+  },
+  "pressure_reduction_reference_distance_m": 1000.0,
+  "arrival_reference_channel": "DD2",
+  "arrival_reference_distance_m": 1408.3384566901343,
+  "acoustic_propagation_speed_mps": 351.0,
+  "predicted_reference_travel_time_s": 4.012360275470468,
+  "source_event_times_utc": {
+    "upper_stage": "2016-09-01T13:07:11.913000",
+    "lower_stage": "2016-09-01T13:07:15.513600",
+    "payload_impact": "2016-09-01T13:07:24.420000",
+    "payload_explosion": "2016-09-01T13:07:24.987500"
+  },
+  "pressure_measurements_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_pressure_measurements.csv",
+  "measurement_windows_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_windows.csv"
+}

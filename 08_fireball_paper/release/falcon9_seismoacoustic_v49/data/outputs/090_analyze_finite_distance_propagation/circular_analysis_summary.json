@@ -1,0 +1,56 @@
+{
+  "notebook": "090_analyze_finite_distance_propagation.ipynb",
+  "input_files": {
+    "planar_results": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/080_analyze_planar_array_propagation/planar_array_results.csv",
+    "geometry": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+    "analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json"
+  },
+  "source_coordinate_method": "canonical SLC-40 latitude/longitude",
+  "source_elevation_m": 0.0,
+  "coordinate_crs": "EPSG:32617",
+  "direction_reference": "Array centroid, projected grid north; configured reference is seismometer/geographic north",
+  "scoring_coverage": "All trials must retain every sample of the inherited score window",
+  "profile_interval_scope": "Score-drop widths on a fixed-speed grid; not confidence intervals or joint source/speed bounds",
+  "principal_row_scope": "Representative catalogue entry 13, not the entire physical explosion complex",
+  "speed_grid_mps": [
+    280.0,
+    440.0,
+    0.5
+  ],
+  "range_grid_m": [
+    500.0,
+    20.0,
+    150.0,
+    5.0
+  ],
+  "events_analyzed": 153,
+  "median_planar_speed_mps": 352.5,
+  "median_fixed_source_speed_mps": 355.5,
+  "median_fixed_minus_planar_speed_mps": 4.0,
+  "median_fixed_minus_planar_coherence": -0.005121840931481603,
+  "quality_class_counts": {
+    "C_weak_or_broad": 57,
+    "A_high_quality": 51,
+    "B_probable": 45
+  },
+  "slc40_east_m": 541352.8168606852,
+  "slc40_north_m": 3159526.382408857,
+  "slc40_back_azimuth_deg": 199.0249516362195,
+  "slc40_range_m": 1419.7914918301499,
+  "local_grid_speed_mps": 352.0,
+  "geometry_model": "Exact Euclidean source-to-sensor delays; sensor elevations used when available; source elevation fixed at 0 m",
+  "interpretation": "Finite-distance model-sensitivity test; fixed-source speed does not supersede the planar/Notebook-040 propagation estimate.",
+  "identifiability_warning": "Source east, source north, and speed are not jointly identifiable from three sensors using relative delays alone.",
+  "a_quality_events": 51,
+  "a_quality_median_planar_speed_mps": 352.5,
+  "a_quality_median_fixed_source_speed_mps": 356.0,
+  "a_quality_median_fixed_minus_planar_speed_mps": 4.0,
+  "a_quality_median_fixed_minus_planar_coherence": -0.005344286343057503,
+  "median_profile_cross_range_event_speed_m": 25.0,
+  "median_profile_cross_range_fixed_speed_m": 25.0,
+  "median_cross_range_speed_sensitivity_m": 0.0,
+  "event_speed_along_range_edge_events": 61,
+  "event_speed_cross_range_edge_events": 0,
+  "event_speed_along_profile_open_events_drop_0p01": 153,
+  "event_speed_cross_profile_open_events_drop_0p01": 8
+}

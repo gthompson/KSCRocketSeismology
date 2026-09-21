@@ -1,7 +1,9 @@
 __pycache__/
 .ipynb_checkpoints/
+08_fireball_paper/data/outputs/
 .DS_Store
-
+*.mseed
+*.pyc
 *.dataless
 rs1d_v4.xml
 rs3d_v5.xml

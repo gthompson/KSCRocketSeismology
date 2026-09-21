@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>EarthScope</Source>
+  <Sender>EarthScope</Sender>
+  <Module>EarthScope WEB SERVICE: fdsnws-station | version: 1.1.57</Module>
+  <ModuleURI>https://service.earthscope.org/fdsnws/station/1/query?starttime=2016-09-01T13%3A34%3A57.996000&amp;endtime=2016-09-01T16%3A17%3A18.196000&amp;network=OK&amp;station=X37A&amp;location=EP&amp;channel=BDF&amp;level=response</ModuleURI>
+  <Created>2026-09-17T19:50:21.422100Z</Created>
+  <Network code="OK" startDate="1978-01-01T00:00:00.000000Z" restrictedStatus="open">
+    <Description>Oklahoma Seismic Network ()</Description>
+    <Identifier type="DOI">10.7914/SN/OK
+   </Identifier>
+    <TotalNumberStations>138</TotalNumberStations>
+    <SelectedNumberStations>1</SelectedNumberStations>
+    <Station code="X37A" startDate="2012-02-24T00:00:00.000000Z" restrictedStatus="open">
+      <Latitude unit="DEGREES">34.5892</Latitude>
+      <Longitude unit="DEGREES">-95.3713</Longitude>
+      <Elevation>207.0</Elevation>
+      <Site>
+        <Name>Clayton, Oklahoma, USA</Name>
+      </Site>
+      <CreationDate>2012-02-24T00:00:00.000000Z</CreationDate>
+      <TotalNumberChannels>40</TotalNumberChannels>
+      <SelectedNumberChannels>1</SelectedNumberChannels>
+      <Channel code="BDF" startDate="2012-02-24T00:00:00.000000Z" restrictedStatus="open" locationCode="EP">
+        <Latitude unit="DEGREES">34.5892</Latitude>
+        <Longitude unit="DEGREES">-95.3713</Longitude>
+        <Elevation>207.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth unit="DEGREES">0.0</Azimuth>
+        <Dip unit="DEGREES">-90.0</Dip>
+        <Type>GEOPHYSICAL</Type>
+        <SampleRate unit="SAMPLES/S">40.0</SampleRate>
+        <ClockDrift unit="SECONDS/SAMPLE">0.00025</ClockDrift>
+        <CalibrationUnits>
+          <Name>V</Name>
+          <Description>emf in volts</Description>
+        </CalibrationUnits>
+        <Sensor>
+          <Description>NCPA microbarometer/Q330 w/Environmental Processor</Description>
+        </Sensor>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>15701.9</Value>
+            <Frequency>0.8</Frequency>
+            <InputUnits>
+              <Name>Pa</Name>
+              <Description>Pascals</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>counts</Name>
+              <Description>digital counts</Description>
+            </OutputUnits>
+          </InstrumentSensitivity>
+          <Stage number="1">
+            <PolesZeros>
+              <InputUnits>
+                <Name>Pa</Name>
+                <Description>Pascals</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>V</Name>
+                <Description>emf in volts</Description>
+              </OutputUnits>
+              <PzTransferFunctionType>LAPLACE (RADIANS/SECOND)</PzTransferFunctionType>
+              <NormalizationFactor>1.00003</NormalizationFactor>
+              <NormalizationFrequency unit="HERTZ">0.8</NormalizationFrequency>
+              <Zero number="0">
+                <Real minusError="0.0" plusError="0.0">0.0</Real>
+                <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+              </Zero>
+              <Pole number="0">
+                <Real minusError="0.0" plusError="0.0">-0.041281</Real>
+                <Imaginary minusError="0.0" plusError="0.0">0.0</Imaginary>
+              </Pole>
+            </PolesZeros>
+            <StageGain>
+              <Value>0.00492583</Value>
+              <Frequency>0.8</Frequency>
+            </StageGain>
+          </Stage>
+          <Stage number="2">
+            <Coefficients>
+              <InputUnits>
+                <Name>V</Name>
+                <Description>emf in volts</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>counts</Name>
+                <Description>digital counts</Description>
+              </OutputUnits>
+              <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+            </Coefficients>
+            <Decimation>
+              <InputSampleRate unit="HERTZ">40.0</InputSampleRate>
+              <Factor>1</Factor>
+              <Offset>0</Offset>
+              <Delay>0.0</Delay>
+              <Correction>0.0</Correction>
+            </Decimation>
+            <StageGain>
+              <Value>3187700.0</Value>
+              <Frequency>0.8</Frequency>
+            </StageGain>
+          </Stage>
+        </Response>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>

@@ -1,0 +1,7 @@
+query,error,network_count
+infrasound:?DF,,5
+infrasound:?DO,,6
+seismic:HHZ,,4
+seismic:BHZ,,4
+seismic:LHZ,,4
+forced:IU.DWPF,,1

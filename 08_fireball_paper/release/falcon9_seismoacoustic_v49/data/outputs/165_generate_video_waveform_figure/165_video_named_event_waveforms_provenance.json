@@ -1,0 +1,198 @@
+{
+  "producer_notebook": "165_generate_video_waveform_figure.ipynb",
+  "input_fingerprints": {
+    "/Users/glennthompson/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/02_KSC/spaceX_explosion_movie/SpaceX - Static Fire Anomaly - AMOS-6 - 09-01-2016.mov": {
+      "sha256": "5543a25b48d54f729cc9715f40eb0d7a7ad1a9875a1bad9ef67322d293576d39",
+      "size_bytes": 42263461
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl": {
+      "sha256": "665f868df68076ec9235f6e98ac6939fd994635c593f6bbbd0af32a309ecefb5",
+      "size_bytes": 23776810
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv": {
+      "sha256": "935e8ae260b8d7200e5a607c43f0eeb374c34cbea16decad18adeaaccc587be3",
+      "size_bytes": 5556
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv": {
+      "sha256": "47b4dc6c55882e44281bb0cf70394627012f7d7a3ee7804a1704908ba663906e",
+      "size_bytes": 748
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_windows.csv": {
+      "sha256": "47b1b60dfe8781e4582d8f83edb94af46c7c505e360191f05f32e32a1cc43a9e",
+      "size_bytes": 3397
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_metadata.json": {
+      "sha256": "d467e429d5dcbcf408235875f9942e2519279e0a598bba21c5e0256701718aa1",
+      "size_bytes": 2701
+    }
+  },
+  "figure_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/165_video_named_event_waveforms.pdf",
+  "figure_preview_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/165_video_named_event_waveforms.png",
+  "audit_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/165_video_named_event_waveforms_audit.csv",
+  "contact_sheet_files": [
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/frame_selection_contact_sheets/165_frame_candidates_upper_stage_after.png",
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/frame_selection_contact_sheets/165_frame_candidates_principal_explosion.png",
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/frame_selection_contact_sheets/165_frame_candidates_falling_payload.png",
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/165_generate_video_waveform_figure/frame_selection_contact_sheets/165_frame_candidates_payload_fragments.png"
+  ],
+  "video_file": "/Users/glennthompson/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/02_KSC/spaceX_explosion_movie/SpaceX - Static Fire Anomaly - AMOS-6 - 09-01-2016.mov",
+  "video_redistributed": false,
+  "video_anchor_movie_s": 71.72136666666667,
+  "video_anchor_utc": "2016-09-01T13:07:11.913000Z",
+  "video_nominal_fps_config": 29.97002997002997,
+  "video_nominal_fps_decoded": 29.97002997002997,
+  "waveform_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+  "geometry_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "weather_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv",
+  "measurement_windows_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_windows.csv",
+  "measurement_metadata_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_metadata.json",
+  "meteorological_effective_speed_mps": 350.97693348367756,
+  "adopted_acoustic_reduction_speed_mps": 351.0,
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "pressure_plot_order": [
+    "DD1",
+    "DD3",
+    "DD2"
+  ],
+  "pressure_line_styles": {
+    "DD1": {
+      "color": "#D55E00",
+      "lw": 0.65,
+      "ls": ":",
+      "alpha": 0.75,
+      "zorder": 1
+    },
+    "DD3": {
+      "color": "#009E73",
+      "lw": 0.7,
+      "ls": "-.",
+      "alpha": 0.8,
+      "zorder": 2
+    },
+    "DD2": {
+      "color": "#0072B2",
+      "lw": 1.1,
+      "ls": "-",
+      "alpha": 1.0,
+      "zorder": 3
+    }
+  },
+  "pressure_filter": null,
+  "pressure_processing": "010 calibrated moving-median baseline, then sensor-relative local median",
+  "baseline_endpoint_convention": "inclusive samples in sensor-relative 124-style display windows",
+  "time_zero": "each sensor predicted arrival, not DD2 observed time or movie frame",
+  "waveforms_are_display_products_not_replacement_110_measurements": true,
+  "include_seismic": false,
+  "seismic_channels": [],
+  "seismic_filter": null,
+  "seismic_constant_median_removed_for_display": false,
+  "source_event_times_utc": {
+    "upper_stage": "2016-09-01T13:07:11.913000Z",
+    "lower_stage": "2016-09-01T13:07:15.513600Z",
+    "payload_impact": "2016-09-01T13:07:24.420000Z",
+    "payload_explosion": "2016-09-01T13:07:24.987500Z"
+  },
+  "frame_selections": [
+    {
+      "key": "upper_stage_after",
+      "panel_label": "Upper-stage failure",
+      "description": "First visible upper-stage explosion",
+      "event_key": "upper_stage",
+      "selected_movie_pts_s": 71.738,
+      "candidate_half_width_s": 0.2
+    },
+    {
+      "key": "principal_explosion",
+      "panel_label": "Principal explosion",
+      "description": "Developed principal/lower-stage fireball",
+      "event_key": "lower_stage",
+      "selected_movie_pts_s": 75.842,
+      "candidate_half_width_s": 0.35
+    },
+    {
+      "key": "falling_payload",
+      "panel_label": "Payload fall and impact",
+      "description": "Payload/fairing close to the ground before impact",
+      "event_key": "payload_impact",
+      "selected_movie_pts_s": 83.35,
+      "candidate_half_width_s": 0.75
+    },
+    {
+      "key": "payload_fragments",
+      "panel_label": "Payload explosion",
+      "description": "Developed payload fireball and ejected fragments",
+      "event_key": "payload_explosion",
+      "selected_movie_pts_s": 84.885,
+      "candidate_half_width_s": 0.5
+    }
+  ],
+  "decoded_frame_selection": [
+    {
+      "record_type": "video_frame",
+      "panel": "a",
+      "selection_key": "upper_stage_after",
+      "label": "Upper-stage failure",
+      "description": "First visible upper-stage explosion",
+      "event_key": "upper_stage",
+      "selected_movie_pts_s": 71.738,
+      "requested_movie_pts_s": 71.738,
+      "actual_movie_pts_s": 71.73833333333333,
+      "frame_error_s": 0.000333333333330188,
+      "actual_event_offset_s": 0.016966666666661467,
+      "actual_source_offset_s": 0.016966666666661467
+    },
+    {
+      "record_type": "video_frame",
+      "panel": "b",
+      "selection_key": "principal_explosion",
+      "label": "Principal explosion",
+      "description": "Developed principal/lower-stage fireball",
+      "event_key": "lower_stage",
+      "selected_movie_pts_s": 75.842,
+      "requested_movie_pts_s": 75.842,
+      "actual_movie_pts_s": 75.84243333333333,
+      "frame_error_s": 0.00043333333333350765,
+      "actual_event_offset_s": 0.520466666666664,
+      "actual_source_offset_s": 4.121066666666664
+    },
+    {
+      "record_type": "video_frame",
+      "panel": "c",
+      "selection_key": "falling_payload",
+      "label": "Payload fall and impact",
+      "description": "Payload/fairing close to the ground before impact",
+      "event_key": "payload_impact",
+      "selected_movie_pts_s": 83.35,
+      "requested_movie_pts_s": 83.35,
+      "actual_movie_pts_s": 83.34993333333334,
+      "frame_error_s": 6.666666665466892e-05,
+      "actual_event_offset_s": -0.8784333333333283,
+      "actual_source_offset_s": 11.628566666666671
+    },
+    {
+      "record_type": "video_frame",
+      "panel": "d",
+      "selection_key": "payload_fragments",
+      "label": "Payload explosion",
+      "description": "Developed payload fireball and ejected fragments",
+      "event_key": "payload_explosion",
+      "selected_movie_pts_s": 84.885,
+      "requested_movie_pts_s": 84.885,
+      "actual_movie_pts_s": 84.8848,
+      "frame_error_s": 0.0002000000000066393,
+      "actual_event_offset_s": 0.08893333333332976,
+      "actual_source_offset_s": 13.16343333333333
+    }
+  ],
+  "event_xlim_overrides_s": {
+    "upper_stage": null,
+    "lower_stage": null,
+    "payload_impact": null,
+    "payload_explosion": null
+  },
+  "signal_start_offset_overrides_s": {}
+}

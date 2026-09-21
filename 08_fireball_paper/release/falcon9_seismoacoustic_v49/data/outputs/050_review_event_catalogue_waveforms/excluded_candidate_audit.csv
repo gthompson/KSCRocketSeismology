@@ -1,0 +1,2 @@
+reconstructed_event_number,reduced_event_epoch_s,reduced_event_time,channels,catalogue_decision,decision_basis,targeted_dd2_dd3_correlation,targeted_robust_stack_peak_snr,mean_stack_peak_absolute_pa,median_stack_peak_absolute_pa,unshifted_pdf,shifted_pdf
+148,1472736290.8309467,2016-09-01 13:24:50.830946684+00:00,"DD1,DD2",exclude_ambiguous,DD1-DD2 only; no DD3 pick or coherent DD3 counterpart,0.09233,5.19,10.39539085720135,11.375396714309849,excluded_reconstructed_148_unshifted.pdf,excluded_reconstructed_148_shifted.pdf

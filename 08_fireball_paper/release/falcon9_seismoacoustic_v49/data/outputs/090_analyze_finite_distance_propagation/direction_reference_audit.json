@@ -1,0 +1,8 @@
+{
+  "centroid_grid_baz_deg": 199.0249516362195,
+  "centroid_geographic_baz_deg": 199.2294218955091,
+  "configured_reference_name": "BCHH seismometer",
+  "configured_reference_geographic_baz_deg": 199.43802624040572,
+  "geographic_minus_grid_centroid_deg": 0.20447025928959306,
+  "scope": "Bearing convention audit; nominal inversions unchanged"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "notebook": "050_review_event_catalogue_waveforms.ipynb",
+  "purpose": "waveform review of Notebook 030 final catalogue",
+  "python_version": "3.12.11",
+  "input_files": {
+    "analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+    "weather_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv",
+    "final_catalogue": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/030_reconcile_manual_event_catalogues/final_153_event_catalogue.csv",
+    "pick_assignments": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/030_reconcile_manual_event_catalogues/reduced_time_pick_assignments.csv",
+    "catalogue_decisions": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/030_reconcile_manual_event_catalogues/event_catalogue_decisions.csv",
+    "review_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_analysis_window.pkl",
+    "baseline_pressure_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.mseed",
+    "geometry": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+    "s03_quality": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/040_validate_event_catalogue_with_array_processing/event_waveform_quality.csv"
+  },
+  "figure_format": "PDF",
+  "retained_pdf_export_enabled": true,
+  "excluded_pdf_export_enabled": true,
+  "stack_peak_scope": "Short visual-review window; not complete-pulse amplitude or energy",
+  "unshifted_window_note": "Nominal bounds expand to include observed picks",
+  "final_event_count": 153,
+  "excluded_candidate_count": 1,
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "seismic_channels": [
+    "DHZ",
+    "DHN",
+    "DHE"
+  ],
+  "reference_channel": "DD2",
+  "effective_sound_speed_mps": 350.97693348367756,
+  "differential_delays_s": {
+    "DD1": 0.09010670165049936,
+    "DD2": 0.0,
+    "DD3": 0.01286658283859636
+  },
+  "unshifted_window_s": [
+    -0.12,
+    0.45
+  ],
+  "shifted_window_s": [
+    -0.08,
+    0.25
+  ]
+}

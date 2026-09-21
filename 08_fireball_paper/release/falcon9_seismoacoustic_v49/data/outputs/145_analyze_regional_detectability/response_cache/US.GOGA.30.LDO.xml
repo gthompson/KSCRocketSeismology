@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>EarthScope</Source>
+  <Sender>EarthScope</Sender>
+  <Module>EarthScope WEB SERVICE: fdsnws-station | version: 1.1.57</Module>
+  <ModuleURI>https://service.earthscope.org/fdsnws/station/1/query?starttime=2016-09-01T13%3A16%3A50.000001&amp;endtime=2016-09-01T14%3A22%3A30.000001&amp;network=US&amp;station=GOGA&amp;location=30&amp;channel=LDO&amp;level=response</ModuleURI>
+  <Created>2026-09-17T19:49:14.816400Z</Created>
+  <Network code="US" startDate="1990-01-01T00:00:00.000000Z" restrictedStatus="open">
+    <Description>United States National Seismic Network (USNSN)</Description>
+    <Identifier type="DOI">10.7914/SN/US
+   </Identifier>
+    <TotalNumberStations>84</TotalNumberStations>
+    <SelectedNumberStations>1</SelectedNumberStations>
+    <Station code="GOGA" startDate="1993-03-09T00:00:00.000000Z" restrictedStatus="open">
+      <Latitude unit="DEGREES">33.41476</Latitude>
+      <Longitude unit="DEGREES">-83.47327</Longitude>
+      <Elevation>150.0</Elevation>
+      <Site>
+        <Name>Godfrey, Georgia, USA</Name>
+      </Site>
+      <CreationDate>1993-03-09T00:00:00.000000Z</CreationDate>
+      <TotalNumberChannels>234</TotalNumberChannels>
+      <SelectedNumberChannels>1</SelectedNumberChannels>
+      <Channel code="LDO" startDate="2011-05-02T21:40:00.000000Z" endDate="2022-12-04T14:00:00.000000Z" restrictedStatus="open" locationCode="30">
+        <Description>Config Change</Description>
+        <Comment>
+          <Value>[SENSOR::KS-54000::181], [SENSOR::PTB100A::Z4950012], [LOGGER::Q330HR::1640]</Value>
+          <BeginEffectiveTime>2011-05-02T21:40:00.000000Z</BeginEffectiveTime>
+          <EndEffectiveTime>2022-12-04T14:00:00.000000Z</EndEffectiveTime>
+        </Comment>
+        <Latitude unit="DEGREES">33.41476</Latitude>
+        <Longitude unit="DEGREES">-83.47327</Longitude>
+        <Elevation>150.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth unit="DEGREES">0.0</Azimuth>
+        <Dip unit="DEGREES">0.0</Dip>
+        <Type>CONTINUOUS</Type>
+        <Type>GEOPHYSICAL</Type>
+        <SampleRate unit="SAMPLES/S">1.0</SampleRate>
+        <Sensor>
+          <Type>VAISALA</Type>
+          <Description>Pressure</Description>
+          <Manufacturer>VAISALA</Manufacturer>
+          <Model>PTB100A</Model>
+          <SerialNumber>Z4950012</SerialNumber>
+        </Sensor>
+        <DataLogger>
+          <Type>QUANTERRA</Type>
+          <Manufacturer>QUANTERRA</Manufacturer>
+          <Model>Q330HR</Model>
+          <SerialNumber>1640</SerialNumber>
+        </DataLogger>
+        <Response>
+          <InstrumentPolynomial name="opoly-US.GOGA.LDO.30.2011-05-02 21:40:00">
+            <Description>None</Description>
+            <InputUnits>
+              <Name>Pa</Name>
+              <Description>Pressure in Pascals</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>counts</Name>
+              <Description>Digital Count in Digital counts</Description>
+            </OutputUnits>
+            <ApproximationType>MACLAURIN</ApproximationType>
+            <FrequencyLowerBound unit="HERTZ">0.0</FrequencyLowerBound>
+            <FrequencyUpperBound unit="HERTZ">0.5</FrequencyUpperBound>
+            <ApproximationLowerBound>80000.0</ApproximationLowerBound>
+            <ApproximationUpperBound>106000.0</ApproximationUpperBound>
+            <MaximumError>0.0</MaximumError>
+            <Coefficient number="1">80000.0</Coefficient>
+            <Coefficient number="2">4.76716e-06</Coefficient>
+          </InstrumentPolynomial>
+          <Stage number="1">
+            <Polynomial name="PTB100A with Q330AUX">
+              <Description>ASL Historical Metadata</Description>
+              <InputUnits>
+                <Name>Pa</Name>
+                <Description>Pressure in Pascals</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>V</Name>
+                <Description>Voltage in Volts</Description>
+              </OutputUnits>
+              <ApproximationType>MACLAURIN</ApproximationType>
+              <FrequencyLowerBound unit="HERTZ">0.0</FrequencyLowerBound>
+              <FrequencyUpperBound unit="HERTZ">0.5</FrequencyUpperBound>
+              <ApproximationLowerBound>80000.0</ApproximationLowerBound>
+              <ApproximationUpperBound>106000.0</ApproximationUpperBound>
+              <MaximumError>0.0</MaximumError>
+              <Coefficient number="0">80000.0</Coefficient>
+              <Coefficient number="1">4.76471e-06</Coefficient>
+            </Polynomial>
+          </Stage>
+          <Stage number="2">
+            <StageGain>
+              <Value>1.0</Value>
+              <Frequency>1.0</Frequency>
+            </StageGain>
+          </Stage>
+          <Stage number="3">
+            <Coefficients>
+              <InputUnits>
+                <Name>V</Name>
+                <Description>Voltage in Volts</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>counts</Name>
+                <Description>Digital Count in Digital counts</Description>
+              </OutputUnits>
+              <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+            </Coefficients>
+            <Decimation>
+              <InputSampleRate unit="HERTZ">1.0</InputSampleRate>
+              <Factor>1</Factor>
+              <Offset>0</Offset>
+              <Delay>0.0</Delay>
+              <Correction>0.0</Correction>
+            </Decimation>
+            <StageGain>
+              <Value>1.0</Value>
+              <Frequency>1.0</Frequency>
+            </StageGain>
+          </Stage>
+          <Stage number="4">
+            <FIR name="Q330_HR_1_1_all_4">
+              <Description>IRIS-NRL</Description>
+              <InputUnits>
+                <Name>counts</Name>
+                <Description>Digital Count in Digital counts</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>counts</Name>
+                <Description>Digital Count in Digital counts</Description>
+              </OutputUnits>
+              <Symmetry>NONE</Symmetry>
+              <NumeratorCoefficient i="1">-1.22004e-16</NumeratorCoefficient>
+              <NumeratorCoefficient i="2">3.37278e-11</NumeratorCoefficient>
+              <NumeratorCoefficient i="3">-3.19094e-07</NumeratorCoefficient>
+              <NumeratorCoefficient i="4">1.26313e-06</NumeratorCoefficient>
+              <NumeratorCoefficient i="5">-1.48491e-05</NumeratorCoefficient>
+              <NumeratorCoefficient i="6">0.00332199</NumeratorCoefficient>
+              <NumeratorCoefficient i="7">0.00108323</NumeratorCoefficient>
+              <NumeratorCoefficient i="8">-0.00624045</NumeratorCoefficient>
+              <NumeratorCoefficient i="9">0.0126566</NumeratorCoefficient>
+              <NumeratorCoefficient i="10">-0.0157663</NumeratorCoefficient>
+              <NumeratorCoefficient i="11">0.00956762</NumeratorCoefficient>
+              <NumeratorCoefficient i="12">0.010711</NumeratorCoefficient>
+              <NumeratorCoefficient i="13">-0.0456425</NumeratorCoefficient>
+              <NumeratorCoefficient i="14">0.0897523</NumeratorCoefficient>
+              <NumeratorCoefficient i="15">-0.132437</NumeratorCoefficient>
+              <NumeratorCoefficient i="16">0.155289</NumeratorCoefficient>
+              <NumeratorCoefficient i="17">0.81237</NumeratorCoefficient>
+              <NumeratorCoefficient i="18">0.185415</NumeratorCoefficient>
+              <NumeratorCoefficient i="19">-0.140609</NumeratorCoefficient>
+              <NumeratorCoefficient i="20">0.0897083</NumeratorCoefficient>
+              <NumeratorCoefficient i="21">-0.0424397</NumeratorCoefficient>
+              <NumeratorCoefficient i="22">0.00714001</NumeratorCoefficient>
+              <NumeratorCoefficient i="23">0.0121051</NumeratorCoefficient>
+              <NumeratorCoefficient i="24">-0.0169307</NumeratorCoefficient>
+              <NumeratorCoefficient i="25">0.0127735</NumeratorCoefficient>
+              <NumeratorCoefficient i="26">-0.00586424</NumeratorCoefficient>
+              <NumeratorCoefficient i="27">0.000645177</NumeratorCoefficient>
+              <NumeratorCoefficient i="28">0.00348713</NumeratorCoefficient>
+              <NumeratorCoefficient i="29">-8.53058e-05</NumeratorCoefficient>
+              <NumeratorCoefficient i="30">2.29713e-06</NumeratorCoefficient>
+              <NumeratorCoefficient i="31">-2.2583e-07</NumeratorCoefficient>
+            </FIR>
+            <Decimation>
+              <InputSampleRate unit="HERTZ">1.0</InputSampleRate>
+              <Factor>1</Factor>
+              <Offset>0</Offset>
+              <Delay>16.0</Delay>
+              <Correction>16.0</Correction>
+            </Decimation>
+            <StageGain>
+              <Value>1.0</Value>
+              <Frequency>0.0</Frequency>
+            </StageGain>
+          </Stage>
+        </Response>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>

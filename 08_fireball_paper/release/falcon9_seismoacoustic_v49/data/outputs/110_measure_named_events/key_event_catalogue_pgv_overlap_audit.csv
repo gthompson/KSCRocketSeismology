@@ -1,0 +1,11 @@
+source_event_key,event_number,named_signal_start_epoch_s,named_signal_end_epoch_s,catalogue_window_start_epoch_s,catalogue_window_end_epoch_s,pgv_vector_mps,pgv_peak_epoch_s,pgv_peak_within_named_signal,association
+upper_stage,1,1472735235.856,1472735236.404,1472735235.908,1472735236.064,0.0001334718920519,1472735235.976,True,overlapping measurement window; physical identity not established
+upper_stage,2,1472735235.856,1472735236.404,1472735236.0511336,1472735236.2271335,7.849926554458438e-05,1472735236.16,True,overlapping measurement window; physical identity not established
+upper_stage,3,1472735235.856,1472735236.404,1472735236.272,1472735236.3240001,0.0001360808185757,1472735236.316,True,overlapping measurement window; physical identity not established
+lower_stage,11,1472735238.828,1472735240.576,1472735239.0231333,1472735239.2191334,0.0006578864989907,1472735239.196,True,overlapping measurement window; physical identity not established
+lower_stage,12,1472735238.828,1472735240.576,1472735239.248,1472735239.344,0.0011564807315343,1472735239.312,True,overlapping measurement window; physical identity not established
+lower_stage,13,1472735238.828,1472735240.576,1472735239.3871336,1472735239.7771335,0.0035745032221146,1472735239.484,True,overlapping measurement window; physical identity not established
+lower_stage,14,1472735238.828,1472735240.576,1472735239.4258933,1472735239.7618933,0.0034049461161336,1472735239.484,True,overlapping measurement window; physical identity not established
+lower_stage,15,1472735238.828,1472735240.576,1472735239.588,1472735239.7640002,0.0027069430462756,1472735239.704,True,overlapping measurement window; physical identity not established
+payload_impact,22,1472735248.392,1472735248.76,1472735248.3991334,1472735248.5551333,0.0006977169853792,1472735248.48,True,overlapping measurement window; physical identity not established
+payload_explosion,23,1472735248.968,1472735249.2680001,1472735248.9831336,1472735249.1631336,0.0009024659817942,1472735249.152,True,overlapping measurement window; physical identity not established

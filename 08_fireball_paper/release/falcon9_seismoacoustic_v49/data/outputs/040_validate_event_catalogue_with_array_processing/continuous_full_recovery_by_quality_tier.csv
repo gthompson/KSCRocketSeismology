@@ -1,0 +1,6 @@
+quality_tier,catalogue_count,matched_count,recovery_percent
+Full catalogue,153,130,84.9673202614379
+Usable waveform,132,117,88.63636363636364
+Core waveform,100,89,89.0
+Event-centred $F \geq 5$,77,74,96.1038961038961
+Event-centred $F \geq 10$,42,41,97.61904761904762

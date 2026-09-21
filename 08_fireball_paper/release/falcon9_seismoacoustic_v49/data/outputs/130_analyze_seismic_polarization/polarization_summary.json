@@ -1,0 +1,132 @@
+{
+  "producer_notebook": "130_analyze_seismic_polarization.ipynb",
+  "gap_policy": "reject missing/nonfinite samples; no interpolation",
+  "azimuth_convention": "geographic north for ZNE; axial angles modulo 180; source reference at BCHH seismometer",
+  "waveform_normalization": "separate component maximum; display only, not used for polarization",
+  "polarization_interpretation": "recorded particle motion; no unique wave type or propagation direction; overlapping windows dependent; low-amplitude/filter-edge diagnostics require caution",
+  "spectrogram_units": "20 log10(magnitude spectrum / 1 m/s), Hann window; not PSD",
+  "spectrogram_color_scale": "common Z/R/T scale per FFT duration",
+  "spectrogram_fft_windows_s": [
+    0.4,
+    1.0
+  ],
+  "source_analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+  "source_weather_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv",
+  "source_geometry": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "source_waveform_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+  "stationxml": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_empirically_calibrated.xml",
+  "seismic_channels": [
+    "DHE",
+    "DHN",
+    "DHZ"
+  ],
+  "back_azimuth_to_slc40_deg": 199.43802624040572,
+  "source_times_utc": {
+    "Upper-stage explosion": "2016-09-01T13:07:11.913000Z",
+    "Lower-stage explosion": "2016-09-01T13:07:15.513600Z",
+    "Payload impact": "2016-09-01T13:07:24.420000Z",
+    "Payload explosion": "2016-09-01T13:07:24.987500Z",
+    "Event 024": "2016-09-01T13:07:26.458000Z"
+  },
+  "acoustic_timing": {
+    "reference": "BCHH seismometer reference",
+    "distance_m": 1419.88651062152,
+    "meteorological_effective_sound_speed_mps": 350.97693348367756,
+    "predicted_travel_time_s": 4.0455265721545,
+    "empirical_array_trace_speed_used": false
+  },
+  "zne_rotation_method": "input channels already Z/N/E",
+  "common_start_utc": "2016-09-01T13:04:11.912000Z",
+  "common_end_utc": "2016-09-01T13:37:11.912000Z",
+  "sampling_rate_hz": 250.0,
+  "npts": 495001,
+  "filter": {
+    "type": "bandpass",
+    "freqmin_hz": 0.5,
+    "freqmax_hz": 20.0,
+    "corners": 4,
+    "zerophase": true
+  },
+  "window_length_s": 0.4,
+  "window_overlap": 0.9,
+  "covariance_step_s": 0.04,
+  "definitions": {
+    "linearity": "(lambda1 - lambda2) / lambda1",
+    "rectilinearity": "1 - (lambda2 + lambda3) / (2 lambda1)",
+    "planarity": "(lambda2 - lambda3) / lambda1",
+    "ellipticity": "TwistPy complex-signal polarization ellipse attribute",
+    "source_relative_azimuth": "(geographic ellipse azimuth - SLC-40 back-azimuth) modulo 180 deg"
+  },
+  "outputs": {
+    "polarization_csv": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/130_analyze_seismic_polarization/polarization_timeseries.csv",
+    "polarization_npz": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/130_analyze_seismic_polarization/polarization_timeseries.npz",
+    "rotated_zne_pickle": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/130_analyze_seismic_polarization/seismic_zne.pkl",
+    "rotated_zrt_pickle": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/130_analyze_seismic_polarization/seismic_zrt.pkl"
+  },
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.3",
+    "scipy": "1.16.1",
+    "obspy": "1.5.1",
+    "matplotlib": "3.11.2",
+    "twistpy": "0.0.1"
+  },
+  "twistpy_source_file": "/Users/glennthompson/Developer/TwistPy/twistpy/polarization/time.py",
+  "multiband_settings": {
+    "broad_0p5_20": {
+      "requested_band_hz": [
+        0.5,
+        20.0
+      ],
+      "effective_band_hz": [
+        0.5,
+        20.0
+      ],
+      "window_length_s": 0.5
+    },
+    "low_0p5_3": {
+      "requested_band_hz": [
+        0.5,
+        3.0
+      ],
+      "effective_band_hz": [
+        0.5,
+        3.0
+      ],
+      "window_length_s": 1.0
+    },
+    "airwave_3_10": {
+      "requested_band_hz": [
+        3.0,
+        10.0
+      ],
+      "effective_band_hz": [
+        3.0,
+        10.0
+      ],
+      "window_length_s": 0.5
+    },
+    "high_10_25": {
+      "requested_band_hz": [
+        10.0,
+        25.0
+      ],
+      "effective_band_hz": [
+        10.0,
+        25.0
+      ],
+      "window_length_s": 0.25
+    },
+    "very_high_25_45": {
+      "requested_band_hz": [
+        25.0,
+        45.0
+      ],
+      "effective_band_hz": [
+        25.0,
+        45.0
+      ],
+      "window_length_s": 0.2
+    }
+  }
+}

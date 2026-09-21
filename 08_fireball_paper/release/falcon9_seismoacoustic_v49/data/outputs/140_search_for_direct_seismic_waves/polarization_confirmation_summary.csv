@@ -1,0 +1,5 @@
+band,polarization_window_s,confirmation_window_end_s,possible_onset_lower_bound_s,possible_onset_upper_bound_s,velocity_at_lower_time_bound_mps,velocity_at_upper_time_bound_mps,support_interpretation
+low_0p8_3,1.0,2.0949999999999998,1.0949999999999998,2.0949999999999998,1296.7000097000187,677.7501244016803,"legacy onset-bound columns describe confirmation-window support, not true-onset confidence bounds"
+mid_3_8,0.4,1.875,1.475,1.875,962.6349224552678,757.2728056648107,"legacy onset-bound columns describe confirmation-window support, not true-onset confidence bounds"
+high_8_20,0.2,2.5749999999999993,2.374999999999999,2.5749999999999993,597.8469518406403,551.412237134571,"legacy onset-bound columns describe confirmation-window support, not true-onset confidence bounds"
+very_high_20_45,0.1,,,,,,"legacy onset-bound columns describe confirmation-window support, not true-onset confidence bounds"

@@ -1,0 +1,64 @@
+{
+  "notebook": "000_correct_bchh_instrument_response.ipynb",
+  "waveform_source": {
+    "type": "ObsPy SDS Client fallback",
+    "sds_root": "/Volumes/haldata/remastered/SDS_KSC",
+    "output_path": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/miniseed/01_bchh_raw_event_window.mseed",
+    "sds_fallback_used": true,
+    "network": "1R",
+    "station": "BCHH",
+    "location": "10",
+    "channels": [
+      "DD1",
+      "DD2",
+      "DD3",
+      "DHE",
+      "DHN",
+      "DHZ"
+    ]
+  },
+  "raw_event_miniseed": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/miniseed/01_bchh_raw_event_window.mseed",
+  "original_stationxml": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/metadata/KSC.xml",
+  "event_stationxml": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/bchh_event_inventory_original.xml",
+  "event_time": "2016-09-01T13:07:11.913000Z",
+  "read_start": "2016-09-01T13:04:11.913000Z",
+  "read_end": "2016-09-01T13:37:11.913000Z",
+  "actual_common_read_start": "2016-09-01T13:04:11.912000Z",
+  "actual_common_read_end": "2016-09-01T13:37:11.912000Z",
+  "raw_boundary_shortfall_tolerance_s": 0.25,
+  "accepted_raw_boundary_shortfalls": [],
+  "pressure_baseline_start": "2016-09-01T13:06:51.913000Z",
+  "pressure_baseline_end": "2016-09-01T13:07:09.913000Z",
+  "empirical_calibrations_pa_per_count": {
+    "DD1": 0.1234,
+    "DD2": 1.4499,
+    "DD3": 0.1
+  },
+  "infrasound_method": "raw-count median baseline removal followed by complete response removal using empirically rescaled StationXML responses",
+  "seismic_method": "demean, linear detrend, taper, and complete StationXML response removal to velocity",
+  "infrasound_pre_filt_hz": [
+    0.02,
+    0.05,
+    80.0,
+    100.0
+  ],
+  "seismic_pre_filt_hz": [
+    0.02,
+    0.05,
+    80.0,
+    100.0
+  ],
+  "water_level_db": 60.0,
+  "authoritative_inventory": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_empirically_calibrated.xml",
+  "authoritative_corrected_mseed": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_response_corrected.mseed",
+  "authoritative_corrected_pickle": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_response_corrected.pkl",
+  "correction_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/000_correct_bchh_instrument_response/BCHH_20160901_correction_summary.csv",
+  "correction_summary_join_key": "seed_id",
+  "pickle_trace_metadata_groups": [
+    "coordinates",
+    "source_geometry",
+    "calibration",
+    "record_statistics",
+    "channel_processing_summary"
+  ]
+}

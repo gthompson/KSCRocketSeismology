@@ -1,0 +1,37 @@
+{
+  "notebook": "070_prepare_event_waveform_products.ipynb",
+  "segment_time_coordinate": "Observed receiver UTC; saved segments are not shifted",
+  "candidate_number_alias": "Final retained event number, not pre-decision reconstructed number",
+  "morphology_snr_scope": "Assigned-channel median stack and adaptive pulse interval; distinct from 040 standardized quality metrics",
+  "segment_scope": "Short analysis cache; does not establish complete pulse or seismic-coda capture",
+  "peak_search_window_s": [
+    -0.04,
+    0.25
+  ],
+  "noise_window_s": [
+    -0.4,
+    -0.1
+  ],
+  "excluded_associated_pick_count": 2,
+  "analysis_configuration_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+  "geometry_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "weather_summary_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv",
+  "baseline_removed_stream_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+  "baseline_correction_producer": "010_prepare_analysis_inputs.ipynb",
+  "provisional_effective_acoustic_speed_mps": 350.97693348367756,
+  "reference_channel": "DD2",
+  "differential_delays_s": {
+    "DD1": 0.09010670165049936,
+    "DD2": 0.0,
+    "DD3": 0.01286658283859636
+  },
+  "association_window_s": 0.04,
+  "minimum_channel_count": 2,
+  "minimum_positive_negative_lag_s": 0.01,
+  "maximum_positive_negative_lag_s": 0.18,
+  "saved_segment_pre_s": 0.5,
+  "saved_segment_post_s": 0.6,
+  "segment_coverage_validated": true,
+  "stack_uses_assigned_channels_only": true,
+  "morphology_labels_are_authoritative_quality": false
+}

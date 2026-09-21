@@ -1,0 +1,129 @@
+{
+  "producer_notebook": "170_generate_publication_figures_fixed.ipynb",
+  "figure1_basemap_provider": "Esri.WorldStreetMap",
+  "figure1_basemap_url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+  "figure1_basemap_attribution": "Tiles (C) Esri -- Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012",
+  "input_fingerprints": {
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json": {
+      "sha256": "b03513885f242c3e7b34963c0abfd23f63aab9d6c09f3f1a07029457e384b513",
+      "size_bytes": 3590
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv": {
+      "sha256": "47b4dc6c55882e44281bb0cf70394627012f7d7a3ee7804a1704908ba663906e",
+      "size_bytes": 748
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/030_reconcile_manual_event_catalogues/final_153_event_catalogue.csv": {
+      "sha256": "deac9e690e5f27e2db6b11696fd313db543142e4fbfeae2ec126f35df0598d0e",
+      "size_bytes": 48274
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv": {
+      "sha256": "935e8ae260b8d7200e5a607c43f0eeb374c34cbea16decad18adeaaccc587be3",
+      "size_bytes": 5556
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl": {
+      "sha256": "665f868df68076ec9235f6e98ac6939fd994635c593f6bbbd0af32a309ecefb5",
+      "size_bytes": 23776810
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_pressure_measurements.csv": {
+      "sha256": "27bdc6c4fdf8bf2873138cc1b13760e1faf57845ceb962a0482c8aeb2466bff0",
+      "size_bytes": 3390
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_windows.csv": {
+      "sha256": "47b1b60dfe8781e4582d8f83edb94af46c7c505e360191f05f32e32a1cc43a9e",
+      "size_bytes": 3397
+    },
+    "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_metadata.json": {
+      "sha256": "d467e429d5dcbcf408235875f9942e2519279e0a598bba21c5e0256701718aa1",
+      "size_bytes": 2701
+    }
+  },
+  "overview_phase_intervals": [
+    [
+      "Phase I",
+      "2016-09-01T13:07:11.913000Z",
+      "2016-09-01T13:08:21.913000Z"
+    ],
+    [
+      "Phase II",
+      "2016-09-01T13:14:05.000000Z",
+      "2016-09-01T13:15:55.000000Z"
+    ],
+    [
+      "Phase III",
+      "2016-09-01T13:19:02.000000Z",
+      "2016-09-01T13:25:00.000000Z"
+    ],
+    [
+      "Phase IV",
+      "2016-09-01T13:29:39.000000Z",
+      "2016-09-01T13:34:54.000000Z"
+    ]
+  ],
+  "static_named_frame_figure_producer": "165_generate_video_waveform_figure.ipynb",
+  "analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+  "weather_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv",
+  "catalogue": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/030_reconcile_manual_event_catalogues/final_153_event_catalogue.csv",
+  "geometry": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+  "waveform_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+  "planar_results": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/080_analyze_planar_array_propagation/planar_array_results.csv",
+  "planar_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/080_analyze_planar_array_propagation/planar_refined_solution_summaries.csv",
+  "polarization_picks": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/130_analyze_seismic_polarization/provisional_p_wave_picks.csv",
+  "key_event_pressures": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_pressure_measurements.csv",
+  "key_event_windows": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_windows.csv",
+  "key_event_metadata": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_metadata.json",
+  "video_sync": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/160_generate_synchronized_phase1_video/video_sync_configuration.json",
+  "publication_audio_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/170_generate_publication_figures/uslaunchreport_audio_source_aligned_12khz.wav",
+  "publication_audio_alignment_mode": "source_aligned",
+  "publication_audio_start_utc": "2016-09-01T13:05:48.028932Z",
+  "publication_audio_camera_travel_time_s": 12.162701713489046,
+  "publication_audio_metadata_source": "direct extraction from configured source movie",
+  "publication_audio_native_start_pts_s": 0.0,
+  "multimodal_event_figure_prefix": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/170_generate_publication_figures/fig04_multimodal_alignment_*",
+  "multimodal_event_frame_audit": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/170_generate_publication_figures/multimodal_event_frame_audit.csv",
+  "named_event_peak_alignment_diagnostic": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/170_generate_publication_figures/named_event_peak_alignment_diagnostic.csv",
+  "source_event_times_utc": {
+    "upper_stage": "2016-09-01T13:07:11.913000Z",
+    "lower_stage": "2016-09-01T13:07:15.513600Z",
+    "payload_impact": "2016-09-01T13:07:24.420000Z",
+    "payload_explosion": "2016-09-01T13:07:24.987500Z",
+    "event_024": "2016-09-01T13:07:26.458000Z"
+  },
+  "source_to_bchh_effective_sound_speed_mps": 351.0,
+  "source_to_bchh_speed_source": "Notebook 110 exact named-event reduction speed, derived from the Notebook 020 meteorological result",
+  "empirical_array_trace_speed_mps": 351.98328678906984,
+  "empirical_array_trace_speed_used_for_travel_time": false,
+  "camera_effective_speeds_mps": {
+    "youtube": 349.8015627975554,
+    "pad_nw": 352.87873546471013,
+    "pad_west": 351.6005529427005,
+    "pad_ne": 349.177199546062,
+    "ucs3": 351.35076007648587
+  },
+  "camera_travel_times_s": {
+    "youtube": 12.162701713489046,
+    "pad_nw": 0.2915002148732348,
+    "pad_west": 0.3832350014990712,
+    "pad_ne": 0.20239128804986078,
+    "ucs3": 4.272227145542882
+  },
+  "timing_configuration_source": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/modules/project_config.py",
+  "video_anchor_movie_s": 71.72136666666667,
+  "video_anchor_utc": "2016-09-01T13:07:11.913000Z",
+  "video_has_no_independent_absolute_clock": true,
+  "reduced_time_residual_shift_s": 0.0,
+  "zerophase": true,
+  "audio_filter_hz": [
+    300.0,
+    5000.0
+  ],
+  "channels": [
+    "DD1",
+    "DD2",
+    "DD3",
+    "DHE",
+    "DHN",
+    "DHZ"
+  ],
+  "prolonged_signal_start_utc": "2016-09-01T13:08:48.000000Z",
+  "prolonged_signal_end_utc": "2016-09-01T13:12:00.000000Z"
+}

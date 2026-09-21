@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>EarthScope</Source>
+  <Sender>EarthScope</Sender>
+  <Module>EarthScope WEB SERVICE: fdsnws-station | version: 1.1.57</Module>
+  <ModuleURI>https://service.earthscope.org/fdsnws/station/1/query?starttime=2016-09-01T13%3A28%3A22.666680&amp;endtime=2016-09-01T15%3A35%3A34.666680&amp;network=IU&amp;station=TEIG&amp;location=30&amp;channel=LDO&amp;level=response</ModuleURI>
+  <Created>2026-09-17T19:49:51.166700Z</Created>
+  <Network code="IU" startDate="1988-01-01T00:00:00.000000Z" restrictedStatus="open">
+    <Description>Global Seismograph Network (GSN - IRIS/USGS) (GSN)</Description>
+    <Identifier type="DOI">10.7914/SN/IU
+   </Identifier>
+    <TotalNumberStations>116</TotalNumberStations>
+    <SelectedNumberStations>1</SelectedNumberStations>
+    <Station code="TEIG" startDate="1996-11-01T00:00:00.000000Z" restrictedStatus="open">
+      <Description>(GSN) IRIS/USGS (IU) and UNAM</Description>
+      <Latitude unit="DEGREES">20.22624</Latitude>
+      <Longitude unit="DEGREES">-88.27633</Longitude>
+      <Elevation>32.0</Elevation>
+      <Site>
+        <Name>Tepich, Yucatan, Mexico</Name>
+      </Site>
+      <CreationDate>1996-11-01T00:00:00.000000Z</CreationDate>
+      <TotalNumberChannels>220</TotalNumberChannels>
+      <SelectedNumberChannels>1</SelectedNumberChannels>
+      <Channel code="LDO" startDate="2014-10-30T00:00:00.000000Z" restrictedStatus="open" locationCode="30">
+        <Latitude unit="DEGREES">20.22624</Latitude>
+        <Longitude unit="DEGREES">-88.27633</Longitude>
+        <Elevation>32.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth unit="DEGREES">0.0</Azimuth>
+        <Dip unit="DEGREES">0.0</Dip>
+        <Type>CONTINUOUS</Type>
+        <Type>WEATHER</Type>
+        <SampleRate unit="SAMPLES/S">1.0</SampleRate>
+        <ClockDrift unit="SECONDS/SAMPLE">0.0</ClockDrift>
+        <Sensor>
+          <Description>Chip sensor in Setra box</Description>
+        </Sensor>
+        <Response>
+          <InstrumentPolynomial>
+            <Description>None</Description>
+            <InputUnits>
+              <Name>Pa</Name>
+              <Description>Pressure in Pascals</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>counts</Name>
+              <Description>Digital Counts</Description>
+            </OutputUnits>
+            <ApproximationType>MACLAURIN</ApproximationType>
+            <FrequencyLowerBound unit="HERTZ">0.0</FrequencyLowerBound>
+            <FrequencyUpperBound unit="HERTZ">0.5</FrequencyUpperBound>
+            <ApproximationLowerBound>0.0</ApproximationLowerBound>
+            <ApproximationUpperBound>0.0</ApproximationUpperBound>
+            <MaximumError>0.0</MaximumError>
+            <Coefficient number="0">0.0</Coefficient>
+            <Coefficient number="1">0.1</Coefficient>
+          </InstrumentPolynomial>
+        </Response>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>

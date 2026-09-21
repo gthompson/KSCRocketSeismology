@@ -1,0 +1,27 @@
+{
+  "producer_notebook": "020_analyze_ksc_weather.ipynb",
+  "input_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/metadata/nasa_weather_tower_data.xls",
+  "analysis_start_utc": "2016-09-01T13:05:00+00:00",
+  "analysis_end_utc": "2016-09-01T13:35:00+00:00",
+  "interval_endpoints_inclusive": true,
+  "observation_rows": 105,
+  "temperature_humidity_weighting": "available observations across all included heights, towers and times",
+  "wind_weighting": "height-binned vector means; interpolated vertical average over 0\u201365 m",
+  "lowest_valid_wind_profile_height_m": 40.5384,
+  "below_observed_wind_profile": "constant nearest-value extension",
+  "height_bin_m": 10.0,
+  "maximum_path_height_m": 65.0,
+  "sound_speed_formula": "331.3 + 0.606*T_C + 1.26*RH_percent/100",
+  "sound_speed_reference_validation": "outstanding",
+  "propagation_receiver": "BCHH seismometer, not DD2",
+  "propagation_distance_m": 1419.88651062152,
+  "uncertainty_status": "observation scatter is not a propagated model confidence interval",
+  "cramer_comparison": {
+    "citation_doi": "10.1121/1.405827",
+    "coefficient_verification": "corroborated against pyfar 0.8.0; original PDF not checked",
+    "pressure_pa": 101325.0,
+    "co2_ppm": 400.0,
+    "input_status": "assumed, not measured",
+    "adopted_downstream_model": "legacy approximation"
+  }
+}

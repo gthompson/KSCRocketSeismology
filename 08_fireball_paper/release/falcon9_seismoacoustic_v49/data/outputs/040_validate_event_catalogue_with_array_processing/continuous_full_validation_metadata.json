@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "notebook": "040_validate_event_catalogue_with_array_processing.ipynb",
+  "run_mode": "continuous_full",
+  "infrapy_version": "4.2.0",
+  "infrapy_module_file": "/Users/glennthompson/Developer/infrapy/infrapy/__init__.py",
+  "python_version": "3.14.7",
+  "input_files": {
+    "analysis_configuration": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/analysis_configuration.json",
+    "baseline_corrected_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.mseed",
+    "geometry": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_channels.csv",
+    "catalogue": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/030_reconcile_manual_event_catalogues/final_153_event_catalogue.csv",
+    "weather_acoustic_summary": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv"
+  },
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "sampling_rate_hz": 250.0,
+  "method": "bartlett",
+  "frequency_band_hz": [
+    2.0,
+    20.0
+  ],
+  "window_length_s": 0.5,
+  "window_step_s": 0.1,
+  "back_azimuth_grid_deg": [
+    170.0,
+    230.0,
+    0.5
+  ],
+  "trace_velocity_grid_mps": [
+    280.0,
+    440.0,
+    2.0
+  ],
+  "continuous_back_azimuth_grid_deg": [
+    170.0,
+    230.0,
+    1.0
+  ],
+  "continuous_trace_velocity_grid_mps": [
+    280.0,
+    440.0,
+    5.0
+  ],
+  "expected_back_azimuth_deg": 199.43802624040572,
+  "meteorological_effective_speed_mps": 350.97693348367756,
+  "meteorological_effective_speed_display_mps": 351.0,
+  "background_f_quantile": 0.995,
+  "empirical_f_threshold": 2.8605227917443785,
+  "minimum_detection_windows": 2,
+  "catalogue_match_tolerance_s": 0.25,
+  "blind_peak_minimum_separation_s": 0.1,
+  "blind_peak_minimum_prominence_mad": 2.0,
+  "priority_back_azimuth_tolerance_deg": 10.0,
+  "priority_trace_velocity_range_mps": [
+    300.0,
+    400.0
+  ],
+  "background_sampling": {
+    "background_windows": 153,
+    "window_length_s": 0.5,
+    "first_centre_epoch_s": 1472735052.162,
+    "last_centre_epoch_s": 1472735235.1771336,
+    "minimum_centre_spacing_s": 1.2040467262268066,
+    "sampled_window_duration_sum_s": 76.5,
+    "independence_status": "nonoverlapping; statistical independence not established",
+    "threshold_status": "empirical screening threshold; not scan-wide false-alarm calibration",
+    "continuous_threshold_grid": "event fine grid retained; coarse-grid audit exported separately",
+    "source_screen_scope": "packaged accident window, not 48-hour precursor record"
+  }
+}

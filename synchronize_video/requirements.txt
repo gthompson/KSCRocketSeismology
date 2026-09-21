@@ -1,0 +1,7 @@
+numpy
+scipy
+matplotlib
+obspy
+av
+# Optional for complex-signal ellipticity:
+# twistpy

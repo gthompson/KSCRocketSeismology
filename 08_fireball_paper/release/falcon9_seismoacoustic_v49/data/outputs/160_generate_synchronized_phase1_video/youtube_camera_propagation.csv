@@ -1,0 +1,2 @@
+camera_id,name,latitude,longitude,distance_m,ray_azimuth_deg,still_air_sound_speed_mps,wind_speed_mps,wind_direction_from_deg,wind_along_ray_mps,effective_speed_mps,travel_time_s,source,used_fallback
+youtube,USLaunchReport/YouTube Video,28.5511400506791,-80.61892975152867,4254.532067218973,253.67670079958157,348.3295793650794,4.566164196835811,144.87053239958078,1.4719834324759924,349.8015627975554,12.162701713489046,Notebook 020 weather projected along SLC-40-to-camera azimuth,False

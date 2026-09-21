@@ -1,0 +1,22 @@
+{
+  "canonical_product": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.mseed",
+  "raw_stream": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_analysis_window.pkl",
+  "moving_median_window_s": 1.0,
+  "median_kernel_samples": {
+    "DD1": 251,
+    "DD2": 251,
+    "DD3": 251
+  },
+  "edge_mode": "nearest",
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "seismic_channels_unchanged": [
+    "DHZ",
+    "DHN",
+    "DHE"
+  ],
+  "all_channels_pass": true
+}

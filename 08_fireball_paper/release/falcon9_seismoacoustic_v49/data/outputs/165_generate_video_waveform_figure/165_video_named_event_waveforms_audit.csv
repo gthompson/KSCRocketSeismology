@@ -1,0 +1,9 @@
+actual_event_offset_s,actual_movie_pts_s,actual_source_offset_s,baseline_end_s,baseline_start_s,description,event_key,event_label,frame_error_s,label,panel,plot_end_s,plot_start_s,record_type,requested_movie_pts_s,selected_movie_pts_s,selection_key,signal_end_s,signal_start_s,source_offset_s,source_time_utc
+0.016966666666661467,71.73833333333333,0.016966666666661467,,,First visible upper-stage explosion,upper_stage,,0.000333333333330188,Upper-stage failure,a,,,video_frame,71.738,71.738,upper_stage_after,,,,
+0.520466666666664,75.84243333333333,4.121066666666664,,,Developed principal/lower-stage fireball,lower_stage,,0.00043333333333350765,Principal explosion,b,,,video_frame,75.842,75.842,principal_explosion,,,,
+-0.8784333333333283,83.34993333333334,11.628566666666671,,,Payload/fairing close to the ground before impact,payload_impact,,6.666666665466892e-05,Payload fall and impact,c,,,video_frame,83.35,83.35,falling_payload,,,,
+0.08893333333332976,84.8848,13.16343333333333,,,Developed payload fireball and ejected fragments,payload_explosion,,0.0002000000000066393,Payload explosion,d,,,video_frame,84.885,84.885,payload_fragments,,,,
+,,,-0.12,-0.8200000000000001,,upper_stage,Upper-stage failure,,,,0.48,-0.8200000000000001,event_window,,,,0.48,-0.07,0.0,2016-09-01T13:07:11.913000Z
+,,,-0.7,-1.3499999999999999,,lower_stage,Principal explosion,,,,1.05,-1.3499999999999999,event_window,,,,1.05,-0.7,3.6006,2016-09-01T13:07:15.513600Z
+,,,-0.04999999999999999,-0.12,,payload_impact,Payload impact,,,,0.33,-0.12,event_window,,,,0.33,-0.04,12.507,2016-09-01T13:07:24.420000Z
+,,,-0.03,-0.13,,payload_explosion,Payload explosion,,,,0.27,-0.13,event_window,,,,0.27,-0.03,13.0745,2016-09-01T13:07:24.987500Z

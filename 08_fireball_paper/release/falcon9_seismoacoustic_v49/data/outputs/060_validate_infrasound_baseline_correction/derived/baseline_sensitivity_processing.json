@@ -1,0 +1,50 @@
+{
+  "notebook": "060_validate_infrasound_baseline_correction.ipynb",
+  "processing_order": "whole-trace channel baseline subtraction, then extraction/alignment/stacking",
+  "test_windows_s": [
+    0.125,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "selected_final_events": [
+    24,
+    13,
+    22,
+    18,
+    75,
+    56,
+    54,
+    57,
+    25,
+    83,
+    37,
+    74,
+    32,
+    14,
+    73,
+    65,
+    1,
+    71,
+    95,
+    23,
+    62,
+    9,
+    15,
+    80
+  ],
+  "fixed_selected_window_s": [
+    -0.04,
+    0.25
+  ],
+  "principal_source_key": "lower_stage",
+  "principal_signal_offsets_s": [
+    -0.7,
+    1.05
+  ],
+  "principal_window_provenance": "Notebook 110 manually reviewed extraction/signal offsets; exploratory reuse",
+  "source_reduction_speed_mps": 351.0,
+  "differential_speed_mps": 350.97693348367756,
+  "interpretation": "Pressure-squared sensitivity only; not a replacement for named-event radiated energy or its full uncertainty"
+}

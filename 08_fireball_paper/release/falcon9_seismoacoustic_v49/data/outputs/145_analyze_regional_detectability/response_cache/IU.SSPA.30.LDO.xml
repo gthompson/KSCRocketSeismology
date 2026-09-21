@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>EarthScope</Source>
+  <Sender>EarthScope</Sender>
+  <Module>EarthScope WEB SERVICE: fdsnws-station | version: 1.1.57</Module>
+  <ModuleURI>https://service.earthscope.org/fdsnws/station/1/query?starttime=2016-09-01T13%3A31%3A18.666680&amp;endtime=2016-09-01T15%3A54%3A07.666680&amp;network=IU&amp;station=SSPA&amp;location=30&amp;channel=LDO&amp;level=response</ModuleURI>
+  <Created>2026-09-17T19:50:04.445300Z</Created>
+  <Network code="IU" startDate="1988-01-01T00:00:00.000000Z" restrictedStatus="open">
+    <Description>Global Seismograph Network (GSN - IRIS/USGS) (GSN)</Description>
+    <Identifier type="DOI">10.7914/SN/IU
+   </Identifier>
+    <TotalNumberStations>116</TotalNumberStations>
+    <SelectedNumberStations>1</SelectedNumberStations>
+    <Station code="SSPA" startDate="1994-12-01T00:00:00.000000Z" restrictedStatus="open">
+      <Description>(GSN) IRIS/USGS (IU), Penn. State Univ., and ANSS</Description>
+      <Latitude unit="DEGREES">40.6358</Latitude>
+      <Longitude unit="DEGREES">-77.8876</Longitude>
+      <Elevation>270.0</Elevation>
+      <Site>
+        <Name>Standing Stone, Pennsylvania</Name>
+      </Site>
+      <CreationDate>1994-12-01T00:00:00.000000Z</CreationDate>
+      <TotalNumberChannels>321</TotalNumberChannels>
+      <SelectedNumberChannels>1</SelectedNumberChannels>
+      <Channel code="LDO" startDate="2013-01-03T00:00:00.000000Z" endDate="2017-09-25T00:00:00.000000Z" restrictedStatus="open" locationCode="30">
+        <Comment>
+          <Value>[SENSOR::MODEL 270::SSPAloc30], [SENSOR::MODEL 270::116651], [LOGGER::QEP::116651]</Value>
+          <BeginEffectiveTime>2013-01-03T00:00:00.000000Z</BeginEffectiveTime>
+          <EndEffectiveTime>2017-09-25T00:00:00.000000Z</EndEffectiveTime>
+        </Comment>
+        <Latitude unit="DEGREES">40.6358</Latitude>
+        <Longitude unit="DEGREES">-77.8876</Longitude>
+        <Elevation>270.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth unit="DEGREES">0.0</Azimuth>
+        <Dip unit="DEGREES">0.0</Dip>
+        <Type>CONTINUOUS</Type>
+        <Type>GEOPHYSICAL</Type>
+        <SampleRate unit="SAMPLES/S">1.0</SampleRate>
+        <Sensor>
+          <Type>SETRA</Type>
+          <Description>Pressure</Description>
+          <Manufacturer>SETRA</Manufacturer>
+          <Model>MODEL 270</Model>
+          <SerialNumber>SSPAloc30</SerialNumber>
+        </Sensor>
+        <DataLogger>
+          <Type>QUANTERRA</Type>
+          <Manufacturer>QUANTERRA</Manufacturer>
+          <Model>QEP</Model>
+          <SerialNumber>116651</SerialNumber>
+        </DataLogger>
+        <Response>
+          <InstrumentPolynomial name="opoly-IU.SSPA.LDO.30.2013-01-03 00:00:00">
+            <Description>None</Description>
+            <InputUnits>
+              <Name>Pa</Name>
+              <Description>Pressure in Pascals</Description>
+            </InputUnits>
+            <OutputUnits>
+              <Name>counts</Name>
+              <Description>Digital Count in Digital counts</Description>
+            </OutputUnits>
+            <ApproximationType>MACLAURIN</ApproximationType>
+            <FrequencyLowerBound unit="HERTZ">0.0</FrequencyLowerBound>
+            <FrequencyUpperBound unit="HERTZ">0.05</FrequencyUpperBound>
+            <ApproximationLowerBound>0.0</ApproximationLowerBound>
+            <ApproximationUpperBound>8000000.0</ApproximationUpperBound>
+            <MaximumError>0.0</MaximumError>
+            <Coefficient number="1">0.0</Coefficient>
+            <Coefficient number="2">0.1</Coefficient>
+          </InstrumentPolynomial>
+          <Stage number="1">
+            <Polynomial name="Setra 270 MEMS loc 30 Standard Poly">
+              <InputUnits>
+                <Name>Pa</Name>
+                <Description>Pressure in Pascals</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>counts</Name>
+                <Description>Digital Count in Digital counts</Description>
+              </OutputUnits>
+              <ApproximationType>MACLAURIN</ApproximationType>
+              <FrequencyLowerBound unit="HERTZ">0.0</FrequencyLowerBound>
+              <FrequencyUpperBound unit="HERTZ">0.05</FrequencyUpperBound>
+              <ApproximationLowerBound>0.0</ApproximationLowerBound>
+              <ApproximationUpperBound>8000000.0</ApproximationUpperBound>
+              <MaximumError>0.0</MaximumError>
+              <Coefficient number="0">0.0</Coefficient>
+              <Coefficient number="1">0.1</Coefficient>
+            </Polynomial>
+          </Stage>
+          <Stage number="2">
+            <StageGain>
+              <Value>1.0</Value>
+              <Frequency>1.0</Frequency>
+            </StageGain>
+          </Stage>
+          <Stage number="3">
+            <Coefficients>
+              <InputUnits>
+                <Name>counts</Name>
+                <Description>Digital Count in Digital counts</Description>
+              </InputUnits>
+              <OutputUnits>
+                <Name>counts</Name>
+                <Description>Digital Count in Digital counts</Description>
+              </OutputUnits>
+              <CfTransferFunctionType>DIGITAL</CfTransferFunctionType>
+            </Coefficients>
+            <Decimation>
+              <InputSampleRate unit="HERTZ">1.0</InputSampleRate>
+              <Factor>1</Factor>
+              <Offset>0</Offset>
+              <Delay>0.0</Delay>
+              <Correction>0.0</Correction>
+            </Decimation>
+            <StageGain>
+              <Value>1.0</Value>
+              <Frequency>0.0</Frequency>
+            </StageGain>
+          </Stage>
+        </Response>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>

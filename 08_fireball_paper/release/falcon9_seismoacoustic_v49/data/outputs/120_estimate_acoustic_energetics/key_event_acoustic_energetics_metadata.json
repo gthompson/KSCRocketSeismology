@@ -1,0 +1,115 @@
+{
+  "output_path_compatibility": "shared config.NB120_DIR retained for downstream consumers",
+  "phase_definitions": "config.OVERVIEW_PHASE_INTERVALS; unchanged descriptive source-time intervals",
+  "named_window_convention": "per-sensor predicted arrivals, inclusive baseline endpoints; distinct from 110 unshifted snapped windows",
+  "channel_range_interpretation": "sensor dispersion, not confidence intervals; geometry, baseline, calibration and beyond-nominal-range linearity add uncertainty",
+  "median_interval_accounting": "interval/bin medians are not additive; use per-channel fractions for phase accounting",
+  "producer_notebook": "124_estimate_acoustic_energetics.ipynb",
+  "pressure_stream_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/010_prepare_analysis_inputs/bchh_corrected_moving_median_baseline_removed.pkl",
+  "notebook11_window_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_windows.csv",
+  "notebook11_metadata_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/110_measure_named_events/key_event_measurement_metadata.json",
+  "weather_summary_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/020_analyze_ksc_weather/weather_acoustic_summary.csv",
+  "pressure_channels": [
+    "DD1",
+    "DD2",
+    "DD3"
+  ],
+  "pressure_response_prefilters_hz": {
+    "DD1": [
+      0.02,
+      0.05,
+      80.0,
+      100.0
+    ],
+    "DD2": [
+      0.02,
+      0.05,
+      80.0,
+      100.0
+    ],
+    "DD3": [
+      0.02,
+      0.05,
+      80.0,
+      100.0
+    ]
+  },
+  "acoustic_results_are_passband_limited": true,
+  "seismic_channels": [
+    "DHE",
+    "DHN",
+    "DHZ"
+  ],
+  "sensor_distances_m": {
+    "DD1": 1439.9638305217552,
+    "DD2": 1408.3384566901343,
+    "DD3": 1412.8543304792386
+  },
+  "effective_sound_speed_mps": 351.0,
+  "atmospheric_pressure_pa_assumed": 101325.0,
+  "mean_temperature_c": 26.35780423280424,
+  "mean_relative_humidity_percent": 83.86904761904762,
+  "computed_air_density_kg_m3": 1.165921165831228,
+  "reference_pressure_pa": 2e-05,
+  "reference_exposure_time_s": 1.0,
+  "primary_radiation_solid_angle_sr": 6.283185307179586,
+  "sensitivity_radiation_solid_angle_sr": 12.566370614359172,
+  "joules_per_kg_tnt": 4184000.0,
+  "acoustic_efficiency_reference": 0.01,
+  "acoustic_efficiency_range": [
+    0.001,
+    0.1
+  ],
+  "signal_start_offset_overrides_s": {},
+  "ground_motion_energy_proxy_diagnostic": {
+    "coordinates": "ZRT",
+    "back_azimuth_to_slc40_deg": 199.43802624040572,
+    "freqmin_hz": 0.5,
+    "freqmax_hz": 20.0,
+    "filter_corners": 4,
+    "zerophase": true,
+    "quantity": "cumulative integral of squared ground velocity",
+    "units": "m^2 s^-1",
+    "radiated_seismic_energy_retrievable": false,
+    "reason": "Direct seismic radiation is masked by dominant local ground-coupled-airwave motion at the single station."
+  },
+  "continuous_integrations": {
+    "opening_sequence_duration_s": 30.0,
+    "opening_sequence_left_margin_s": 1.0,
+    "full_sequence_duration_s": 1662.087,
+    "bin_width_s": 5.0,
+    "pressure_highpass_hz": 0.5,
+    "pressure_filter_corners": 4,
+    "pressure_filter_zerophase": true,
+    "constant_baseline_window_source_reduced_s": [
+      -60.0,
+      -10.0
+    ],
+    "timebase": "source-reduced time from adopted initial upper-stage origin; origin time is inferred rather than directly recorded at source",
+    "acoustic_scope": "all samples in the continuous overview window after the declared 0.5 Hz high-pass; includes remaining in-band ambient energy",
+    "not_equivalent_to_deduplicated_catalogue_energy": true
+  },
+  "weak_shock_diagnostic": {
+    "principal_positive_overpressure_pa": 1390.2876073372252,
+    "ambient_pressure_pa": 101325.0,
+    "local_mach_at_array": 1.0058632704034085,
+    "local_shock_speed_at_array_still_air_mps": 350.3719298784024,
+    "path_average_speed_still_air_mps": 357.15673827832615,
+    "pressure_spreading_exponent": 1.0,
+    "minimum_model_distance_m": 10.0,
+    "true_source_pressure_retrievable": false,
+    "source_to_array_mean_speed_requires_known_source_onset": true
+  },
+  "interpretation_warning": "Acoustic results are limited to the usable infraBSU and processing passband. Radiated acoustic-energy TNT equivalent is not total explosive yield. ZRT ground-motion energy proxy (cumulative squared velocity) is not radiated seismic energy.",
+  "channel_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/key_event_acoustic_energetics_by_channel.csv",
+  "summary_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/key_event_acoustic_energetics_summary.csv",
+  "ground_motion_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/key_event_zrt_ground_motion_exposure.csv",
+  "ground_motion_figure_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/key_event_zrt_cumulative_squared_velocity.pdf",
+  "sequence_bin_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/continuous_sequence_5s_energy_bins.csv",
+  "sequence_interval_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/continuous_sequence_interval_totals.csv",
+  "opening_sequence_figure_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/opening_sequence_cumulative_acoustic_and_ground_motion.pdf",
+  "full_sequence_figure_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/full_sequence_cumulative_acoustic_and_ground_motion.pdf",
+  "shock_summary_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/principal_explosion_weak_shock_summary.csv",
+  "shock_profile_output_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/principal_explosion_weak_shock_profile.csv",
+  "shock_figure_file": "/Users/glennthompson/Developer/KSCRocketSeismoHydrology/08_fireball_paper/falcon9-seismoacoustic-workflow-1.0.0/data/outputs/120_estimate_acoustic_energetics/principal_explosion_weak_shock_sensitivity.pdf"
+}

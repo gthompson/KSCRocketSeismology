@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  If you use this workflow, please cite the archived software release and the
+  associated article.
+title: Near-field seismo-acoustic analysis of the 2016 Falcon 9 AMOS-6 failure
+type: software
+version: 1.0.0
+date-released: 2026-08-21
+license: MIT
+authors:
+  - family-names: Thompson
+    given-names: Glenn
+    orcid: https://orcid.org/0000-0002-9173-0097
+abstract: >-
+  Python and Jupyter workflow for response correction, catalogue construction,
+  array processing, acoustic and seismic amplitude measurement, coupling and
+  energetics analysis, polarization analysis, multimedia synchronization, and
+  figure generation for the 1 September 2016 Falcon 9 AMOS-6 static-fire
+  failure recorded near Space Launch Complex 40.
+keywords:
+  - seismo-acoustics
+  - infrasound
+  - rocket explosion
+  - Falcon 9
+  - Jupyter
+  - reproducible workflow

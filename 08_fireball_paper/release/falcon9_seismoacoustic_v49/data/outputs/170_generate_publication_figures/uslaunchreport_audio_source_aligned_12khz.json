@@ -1,0 +1,8 @@
+{
+  "video": {
+    "sha256": "5543a25b48d54f729cc9715f40eb0d7a7ad1a9875a1bad9ef67322d293576d39",
+    "size_bytes": 42263461
+  },
+  "sample_rate_hz": 12000,
+  "native_audio_start_pts_s": 0.0
+}

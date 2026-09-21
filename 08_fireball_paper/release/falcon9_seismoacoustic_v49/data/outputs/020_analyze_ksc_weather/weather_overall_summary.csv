@@ -1,0 +1,2 @@
+analysis_start_utc,analysis_end_utc,n_rows,n_locations,minimum_height_m,maximum_height_m,mean_temperature_f,std_temperature_f,n_temperature,mean_relative_humidity_percent,std_relative_humidity_percent,n_humidity,scalar_mean_wind_speed_knots,vector_mean_wind_speed_knots,vector_mean_wind_direction_from_deg
+2016-09-01 13:05:00+00:00,2016-09-01 13:35:00+00:00,105,3,16.4592,139.9032,79.44404761904761,0.4902301378603238,84,83.86904761904762,3.7312737639202465,84,10.591836734693878,10.4281382842048,143.99871516906353
