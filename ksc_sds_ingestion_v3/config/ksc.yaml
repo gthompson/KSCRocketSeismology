@@ -1,0 +1,12 @@
+project:
+  name: KSC
+  network: "1R"
+
+# Only machine/volume-specific path normally requiring a change.
+project_root: /Volumes/tachyon/KSC_DATA
+# project_root: /Volumes/haldata/KSC
+
+paths:
+  master_sds: SDS
+  database: database/ksc_archive.sqlite
+  logs: logs
