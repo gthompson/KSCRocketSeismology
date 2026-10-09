@@ -17,6 +17,7 @@ class Settings:
     website_output: Path
     analysis_output: Path
     launchpads: Path
+    event_waveforms: Path
     website_title: str
     website_subtitle: str
 
@@ -45,6 +46,7 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
         website_output=resolve(p["website_output"]),
         analysis_output=resolve(p["analysis_output"]),
         launchpads=resolve(p["launchpads"]),
+        event_waveforms=resolve(p["event_waveforms"]),
         website_title=cfg["website"]["title"],
         website_subtitle=cfg["website"]["subtitle"],
     )

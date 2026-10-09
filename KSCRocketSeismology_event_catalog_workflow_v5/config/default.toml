@@ -12,6 +12,8 @@ metrics_index = "data/raw/launch_metrics_index.csv"
 website_output = "outputs/website"
 analysis_output = "outputs/ensemble"
 launchpads = "data/raw/launchpads.csv"
+# Event waveform files and their extraction manifests are external to Git.
+event_waveforms = "/Volumes/tachyon/KSC_EVENTS"
 
 [catalog]
 dedupe_tolerance_seconds = 120

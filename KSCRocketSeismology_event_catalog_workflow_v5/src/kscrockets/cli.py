@@ -118,6 +118,24 @@ def main(argv=None):
     sp=p.add_subparsers(dest="command",required=True)
     for cmd in ("build-catalog","build-db","build-website","analyze","build-all","validate","info"):
         sp.add_parser(cmd)
+    ex=sp.add_parser("extract",help="Extract raw SDS waveforms for one or more catalog events")
+    ex.add_argument("--event-id")
+    ex.add_argument("--all",action="store_true")
+    ex.add_argument("--start")
+    ex.add_argument("--end")
+    ex.add_argument("--event-type",action="append",dest="event_types")
+    ex.add_argument("--sds-root",required=True)
+    ex.add_argument("--trace-id",action="append",dest="trace_ids",help="Explicit channel; omit to auto-discover")
+    ex.add_argument("--station",help="Limit automatic discovery to this station")
+    ex.add_argument("--skip-low-rate",action="store_true")
+    ex.add_argument("--retry-missing",action="store_true")
+    ex.add_argument("--no-availability",action="store_true",help="Skip potentially costly per-channel coverage checks")
+    ex.add_argument("--output-dir", help="External event waveform root (default from config/default.toml)")
+    ex.add_argument("--pre",type=float,default=30)
+    ex.add_argument("--post",type=float,default=240)
+    ex.add_argument("--ignore-catalog-window",action="store_true")
+    ex.add_argument("--overwrite",action="store_true")
+    ex.add_argument("--dry-run",action="store_true")
     c=sp.add_parser("clean",help="Remove generated products; preserve raw/curated inputs and caches by default")
     c.add_argument("--caches",action="store_true",help="Also remove LL2/GCAT external caches")
     f=sp.add_parser("fetch-ll2",help="Refresh the cached Launch Library 2 snapshot")
@@ -139,6 +157,32 @@ def main(argv=None):
     m.add_argument("event_type",choices=["orbital_launch","launch_failure","pad_explosion","static_fire","aborted_launch","booster_landing","aircraft_sonic_boom"])
     m.add_argument("time_utc"); m.add_argument("name"); m.add_argument("--pad",default=""); m.add_argument("--source",default="waveform_review"); m.add_argument("--notes",default="")
     a=p.parse_args(argv); s=load_settings(a.config)
+    if a.command == "extract":
+        if not (a.all or a.event_id or a.start or a.end or a.event_types):
+            p.error("extract requires --event-id, --all, or a catalog selection filter")
+        from .waveforms import extract_catalog
+        from flovopy.enhanced.sdsclient import EnhancedSDSClient
+        import json
+        client=EnhancedSDSClient(a.sds_root)
+        root=(Path(a.output_dir).expanduser() if a.output_dir else s.event_waveforms).resolve()
+        repo=s.root.resolve()
+        if root == repo or repo in root.parents:
+            p.error(f"Event waveform output must be outside the repository: {root}")
+        # Prevent silent writes to the Mac's internal disk if the volume is unmounted.
+        if not root.is_relative_to(Path("/Volumes")):
+            p.error(f"Expected an external volume under /Volumes, got: {root}")
+        volume=Path("/Volumes") / root.relative_to("/Volumes").parts[0]
+        if not volume.is_mount():
+            p.error(f"External volume is not mounted: {volume}")
+        for result in extract_catalog(s.database,client,root,a.trace_ids,
+                    event_id=a.event_id,start=a.start,end=a.end,event_types=a.event_types,
+                    pre=a.pre,post=a.post,overwrite=a.overwrite,dry_run=a.dry_run,
+                    use_catalog_window=not a.ignore_catalog_window, station=a.station,
+                    skip_low_rate=a.skip_low_rate, retry_missing=a.retry_missing,
+                    check_availability=not a.no_availability):
+            print(json.dumps({k:result.get(k) for k in ("event_id","status","n_traces","waveform","errors")},default=str))
+        return
+
     if a.command=="info":
         import kscrockets
         print(f"KSCRocketSeismology {__version__}"); print(f"package: {Path(kscrockets.__file__).resolve()}"); print(f"root: {s.root}"); print(f"database: {s.database}"); return
