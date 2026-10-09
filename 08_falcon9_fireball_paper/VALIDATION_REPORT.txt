@@ -1,0 +1,20 @@
+Notebook validation/syntax report
+
+project_config.py: syntax OK; streamlined output directory block active
+
+000_correct_bchh_instrument_response.ipynb: 18 cells; syntax_errors=[]
+010_prepare_analysis_inputs.ipynb: 15 cells; syntax_errors=[]
+020_analyze_ksc_weather.ipynb: 38 cells; syntax_errors=[]
+030_reconcile_manual_event_catalogues.ipynb: 41 cells; syntax_errors=[]
+040_validate_event_catalogue_with_array_processing.ipynb: 29 cells; syntax_errors=[]
+050_prepare_event_waveform_products.ipynb: 27 cells; syntax_errors=[]
+060_analyze_planar_array_propagation.ipynb: 25 cells; syntax_errors=[]
+070_measure_event_amplitudes_and_acoustic_seismic_coupling.ipynb: 49 cells; syntax_errors=[]
+080_analyze_named_events_and_timing.ipynb: 14 cells; syntax_errors=[]
+090_estimate_acoustic_energetics.ipynb: 21 cells; syntax_errors=[]
+100_analyze_seismic_polarization.ipynb: 29 cells; syntax_errors=[]
+110_search_for_direct_seismic_waves.ipynb: 26 cells; syntax_errors=[]
+120_analyze_regional_detectability.ipynb: 31 cells; syntax_errors=[]
+130_generate_supplement_event_table.ipynb: 10 cells; syntax_errors=[]
+140_generate_publication_figures.ipynb: 42 cells; syntax_errors=[]
+150_assemble_zenodo_release.ipynb: 11 cells; syntax_errors=[]

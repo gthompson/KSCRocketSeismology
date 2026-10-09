@@ -1,0 +1,206 @@
+[
+  {
+    "document": "main60.tex",
+    "figure": "fig01_slc40_bchh_location.pdf",
+    "source": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/writing/latex/figures/fig01_slc40_bchh_location.pdf",
+    "legacy": true
+  },
+  {
+    "document": "main60.tex",
+    "figure": "fig04_multimodal_alignment_upper_stage.pdf",
+    "source": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/writing/latex/figures/fig04_multimodal_alignment_upper_stage.pdf",
+    "legacy": true
+  },
+  {
+    "document": "main60.tex",
+    "figure": "fig_named_event_differential_timing.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/fig_named_event_differential_timing.pdf",
+    "legacy": false
+  },
+  {
+    "document": "main60.tex",
+    "figure": "fig03_bchh_30min_overview_zp_true.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/fig03_bchh_30min_overview_zp_true.pdf",
+    "legacy": false
+  },
+  {
+    "document": "main60.tex",
+    "figure": "full_sequence_cumulative_acoustic_and_ground_motion.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/full_sequence_cumulative_acoustic_and_ground_motion.pdf",
+    "legacy": false
+  },
+  {
+    "document": "main60.tex",
+    "figure": "high_quality_normalized_pressure_and_dhz_waveforms.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/high_quality_normalized_pressure_and_dhz_waveforms.pdf",
+    "legacy": false
+  },
+  {
+    "document": "main60.tex",
+    "figure": "combined_04b_08_array_summary.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/060_analyze_planar_array_propagation/combined_04b_08_array_summary.pdf",
+    "legacy": false
+  },
+  {
+    "document": "main60.tex",
+    "figure": "publication_pressure_pgv_regression.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/publication_pressure_pgv_regression.pdf",
+    "legacy": false
+  },
+  {
+    "document": "main60.tex",
+    "figure": "publication_pressure_dhz_transfer_and_coherence.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/publication_pressure_dhz_transfer_and_coherence.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "supplement_weather_wind_structure.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/020_analyze_ksc_weather/supplement_weather_wind_structure.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "supplement_weather_temporal_variability.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/020_analyze_ksc_weather/supplement_weather_temporal_variability.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "reduced_time_event_count_vs_window.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/030_reconcile_manual_event_catalogues/reduced_time_event_count_vs_window.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "key_event_window_review.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/080_analyze_named_events_and_timing/key_event_window_review.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "event_centred_bartlett_validation.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/040_validate_event_catalogue_with_array_processing/figures/event_centred_bartlett_validation.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "continuous_full_beam_results.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/040_validate_event_catalogue_with_array_processing/figures/continuous_full_beam_results.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "parameter_sensitivity_summary.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/040_validate_event_catalogue_with_array_processing/figures/parameter_sensitivity_summary.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "supplement_planar_vs_fixed_source_and_range_sensitivity.pdf",
+    "source": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/writing/latex/figures/supplement_planar_vs_fixed_source_and_range_sensitivity.pdf",
+    "legacy": true
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "supplement_transfer_robustness_tests.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/supplement_transfer_robustness_tests.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "named_event_timing_observed_vs_weak_shock.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/080_analyze_named_events_and_timing/named_event_timing_observed_vs_weak_shock.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "key_event_pressure_and_cumulative_acoustic_energy.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/key_event_pressure_and_cumulative_acoustic_energy.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "opening_sequence_cumulative_acoustic_and_ground_motion.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/opening_sequence_cumulative_acoustic_and_ground_motion.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "deduplicated_event_complex_and_cumulative_energy.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/deduplicated_event_complex_and_cumulative_energy.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "regional_best_candidate_zoom_audit.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/120_analyze_regional_detectability/regional_best_candidate_zoom_audit.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "regional_best_candidate_zoom_audit.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/120_analyze_regional_detectability/regional_best_candidate_zoom_audit.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "regional_best_candidate_zoom_audit.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/120_analyze_regional_detectability/regional_best_candidate_zoom_audit.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "145_bchh_dd2_regional_band_comparison.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/120_analyze_regional_detectability/145_bchh_dd2_regional_band_comparison.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "supplement_regional_station_map_best_candidates.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/120_analyze_regional_detectability/supplement_regional_station_map_best_candidates.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "145_northern_corridor_source_reduced_section.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/regional_detectability/145_northern_corridor_source_reduced_section.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "multiband_polarization_comparison.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/100_analyze_seismic_polarization/multiband_polarization_comparison.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "upper_stage_phase_discrimination.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/110_search_for_direct_seismic_waves/upper_stage_phase_discrimination.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "upper_stage_noise_normalized_spectrogram.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/110_search_for_direct_seismic_waves/upper_stage_noise_normalized_spectrogram.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "fig03_bchh_30s_zoom_with_audio_reduced_zp_true.pdf",
+    "source": "/Users/thompsong/Developer/KSCRocketSeismology/08_fireball_paper/writing/latex/figures/fig03_bchh_30s_zoom_with_audio_reduced_zp_true.pdf",
+    "legacy": true
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "principal_explosion_waveforms.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/principal_explosion_waveforms.pdf",
+    "legacy": false
+  },
+  {
+    "document": "supplement60.tex",
+    "figure": "payload_explosion_waveforms.pdf",
+    "source": "/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/payload_explosion_waveforms.pdf",
+    "legacy": false
+  }
+]

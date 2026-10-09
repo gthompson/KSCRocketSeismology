@@ -1,0 +1,194 @@
+segment_index,start_utc,class,window_kind
+0,2016-09-01T13:04:11.912000Z,pre-event noise,quiet
+1,2016-09-01T13:04:21.912000Z,pre-event noise,quiet
+2,2016-09-01T13:04:31.912000Z,pre-event noise,quiet
+3,2016-09-01T13:04:41.912000Z,pre-event noise,quiet
+4,2016-09-01T13:04:51.912000Z,pre-event noise,quiet
+5,2016-09-01T13:05:01.912000Z,pre-event noise,quiet
+6,2016-09-01T13:05:11.912000Z,pre-event noise,quiet
+7,2016-09-01T13:05:21.912000Z,pre-event noise,quiet
+8,2016-09-01T13:05:31.912000Z,pre-event noise,quiet
+9,2016-09-01T13:05:41.912000Z,pre-event noise,quiet
+10,2016-09-01T13:05:51.912000Z,pre-event noise,quiet
+11,2016-09-01T13:06:01.912000Z,pre-event noise,quiet
+12,2016-09-01T13:06:11.912000Z,pre-event noise,quiet
+13,2016-09-01T13:06:21.912000Z,pre-event noise,quiet
+14,2016-09-01T13:06:31.912000Z,pre-event noise,quiet
+15,2016-09-01T13:06:41.912000Z,pre-event noise,quiet
+16,2016-09-01T13:06:51.912000Z,pre-event noise,quiet
+17,2016-09-01T13:07:01.912000Z,pre-event noise,quiet
+18,2016-09-01T13:07:15.925360Z,Phase I,event
+19,2016-09-01T13:07:25.925360Z,Phase I,event
+20,2016-09-01T13:07:35.925360Z,Phase I,event
+21,2016-09-01T13:07:45.925360Z,Phase I,event
+22,2016-09-01T13:07:55.925360Z,Phase I,event
+23,2016-09-01T13:08:05.925360Z,Phase I,event
+24,2016-09-01T13:08:15.925360Z,Phase I,event
+25,2016-09-01T13:08:25.925360Z,quiet gap after Phase I,quiet
+26,2016-09-01T13:08:35.925360Z,quiet gap after Phase I,quiet
+27,2016-09-01T13:08:52.012360Z,Interphase tremor,event
+28,2016-09-01T13:09:02.012360Z,Interphase tremor,event
+29,2016-09-01T13:09:12.012360Z,Interphase tremor,event
+30,2016-09-01T13:09:22.012360Z,Interphase tremor,event
+31,2016-09-01T13:09:32.012360Z,Interphase tremor,event
+32,2016-09-01T13:09:42.012360Z,Interphase tremor,event
+33,2016-09-01T13:09:52.012360Z,Interphase tremor,event
+34,2016-09-01T13:10:02.012360Z,Interphase tremor,event
+35,2016-09-01T13:10:12.012360Z,Interphase tremor,event
+36,2016-09-01T13:10:22.012360Z,Interphase tremor,event
+37,2016-09-01T13:10:32.012360Z,Interphase tremor,event
+38,2016-09-01T13:10:42.012360Z,Interphase tremor,event
+39,2016-09-01T13:10:52.012360Z,Interphase tremor,event
+40,2016-09-01T13:11:02.012360Z,Interphase tremor,event
+41,2016-09-01T13:11:12.012360Z,Interphase tremor,event
+42,2016-09-01T13:11:22.012360Z,Interphase tremor,event
+43,2016-09-01T13:11:32.012360Z,Interphase tremor,event
+44,2016-09-01T13:11:42.012360Z,Interphase tremor,event
+45,2016-09-01T13:11:52.012360Z,Interphase tremor,event
+46,2016-09-01T13:12:04.012360Z,quiet gap after Interphase tremor,quiet
+47,2016-09-01T13:12:14.012360Z,quiet gap after Interphase tremor,quiet
+48,2016-09-01T13:12:24.012360Z,quiet gap after Interphase tremor,quiet
+49,2016-09-01T13:12:34.012360Z,quiet gap after Interphase tremor,quiet
+50,2016-09-01T13:12:44.012360Z,quiet gap after Interphase tremor,quiet
+51,2016-09-01T13:12:54.012360Z,quiet gap after Interphase tremor,quiet
+52,2016-09-01T13:13:04.012360Z,quiet gap after Interphase tremor,quiet
+53,2016-09-01T13:13:14.012360Z,quiet gap after Interphase tremor,quiet
+54,2016-09-01T13:13:24.012360Z,quiet gap after Interphase tremor,quiet
+55,2016-09-01T13:13:34.012360Z,quiet gap after Interphase tremor,quiet
+56,2016-09-01T13:13:44.012360Z,quiet gap after Interphase tremor,quiet
+57,2016-09-01T13:13:54.012360Z,quiet gap after Interphase tremor,quiet
+58,2016-09-01T13:14:09.012360Z,Phase II,event
+59,2016-09-01T13:14:19.012360Z,Phase II,event
+60,2016-09-01T13:14:29.012360Z,Phase II,event
+61,2016-09-01T13:14:39.012360Z,Phase II,event
+62,2016-09-01T13:14:49.012360Z,Phase II,event
+63,2016-09-01T13:14:59.012360Z,Phase II,event
+64,2016-09-01T13:15:09.012360Z,Phase II,event
+65,2016-09-01T13:15:19.012360Z,Phase II,event
+66,2016-09-01T13:15:29.012360Z,Phase II,event
+67,2016-09-01T13:15:39.012360Z,Phase II,event
+68,2016-09-01T13:15:49.012360Z,Phase II,event
+69,2016-09-01T13:15:59.012360Z,quiet gap after Phase II,quiet
+70,2016-09-01T13:16:09.012360Z,quiet gap after Phase II,quiet
+71,2016-09-01T13:16:19.012360Z,quiet gap after Phase II,quiet
+72,2016-09-01T13:16:29.012360Z,quiet gap after Phase II,quiet
+73,2016-09-01T13:16:39.012360Z,quiet gap after Phase II,quiet
+74,2016-09-01T13:16:49.012360Z,quiet gap after Phase II,quiet
+75,2016-09-01T13:16:59.012360Z,quiet gap after Phase II,quiet
+76,2016-09-01T13:17:09.012360Z,quiet gap after Phase II,quiet
+77,2016-09-01T13:17:19.012360Z,quiet gap after Phase II,quiet
+78,2016-09-01T13:17:29.012360Z,quiet gap after Phase II,quiet
+79,2016-09-01T13:17:39.012360Z,quiet gap after Phase II,quiet
+80,2016-09-01T13:17:49.012360Z,quiet gap after Phase II,quiet
+81,2016-09-01T13:17:59.012360Z,quiet gap after Phase II,quiet
+82,2016-09-01T13:18:09.012360Z,quiet gap after Phase II,quiet
+83,2016-09-01T13:18:19.012360Z,quiet gap after Phase II,quiet
+84,2016-09-01T13:18:29.012360Z,quiet gap after Phase II,quiet
+85,2016-09-01T13:18:39.012360Z,quiet gap after Phase II,quiet
+86,2016-09-01T13:18:49.012360Z,quiet gap after Phase II,quiet
+87,2016-09-01T13:19:06.012360Z,Phase III,event
+88,2016-09-01T13:19:16.012360Z,Phase III,event
+89,2016-09-01T13:19:26.012360Z,Phase III,event
+90,2016-09-01T13:19:36.012360Z,Phase III,event
+91,2016-09-01T13:19:46.012360Z,Phase III,event
+92,2016-09-01T13:19:56.012360Z,Phase III,event
+93,2016-09-01T13:20:06.012360Z,Phase III,event
+94,2016-09-01T13:20:16.012360Z,Phase III,event
+95,2016-09-01T13:20:26.012360Z,Phase III,event
+96,2016-09-01T13:20:36.012360Z,Phase III,event
+97,2016-09-01T13:20:46.012360Z,Phase III,event
+98,2016-09-01T13:20:56.012360Z,Phase III,event
+99,2016-09-01T13:21:06.012360Z,Phase III,event
+100,2016-09-01T13:21:16.012360Z,Phase III,event
+101,2016-09-01T13:21:26.012360Z,Phase III,event
+102,2016-09-01T13:21:36.012360Z,Phase III,event
+103,2016-09-01T13:21:46.012360Z,Phase III,event
+104,2016-09-01T13:21:56.012360Z,Phase III,event
+105,2016-09-01T13:22:06.012360Z,Phase III,event
+106,2016-09-01T13:22:16.012360Z,Phase III,event
+107,2016-09-01T13:22:26.012360Z,Phase III,event
+108,2016-09-01T13:22:36.012360Z,Phase III,event
+109,2016-09-01T13:22:46.012360Z,Phase III,event
+110,2016-09-01T13:22:56.012360Z,Phase III,event
+111,2016-09-01T13:23:06.012360Z,Phase III,event
+112,2016-09-01T13:23:16.012360Z,Phase III,event
+113,2016-09-01T13:23:26.012360Z,Phase III,event
+114,2016-09-01T13:23:36.012360Z,Phase III,event
+115,2016-09-01T13:23:46.012360Z,Phase III,event
+116,2016-09-01T13:23:56.012360Z,Phase III,event
+117,2016-09-01T13:24:06.012360Z,Phase III,event
+118,2016-09-01T13:24:16.012360Z,Phase III,event
+119,2016-09-01T13:24:26.012360Z,Phase III,event
+120,2016-09-01T13:24:36.012360Z,Phase III,event
+121,2016-09-01T13:24:46.012360Z,Phase III,event
+122,2016-09-01T13:25:04.012360Z,quiet gap after Phase III,quiet
+123,2016-09-01T13:25:14.012360Z,quiet gap after Phase III,quiet
+124,2016-09-01T13:25:24.012360Z,quiet gap after Phase III,quiet
+125,2016-09-01T13:25:34.012360Z,quiet gap after Phase III,quiet
+126,2016-09-01T13:25:44.012360Z,quiet gap after Phase III,quiet
+127,2016-09-01T13:25:54.012360Z,quiet gap after Phase III,quiet
+128,2016-09-01T13:26:04.012360Z,quiet gap after Phase III,quiet
+129,2016-09-01T13:26:14.012360Z,quiet gap after Phase III,quiet
+130,2016-09-01T13:26:24.012360Z,quiet gap after Phase III,quiet
+131,2016-09-01T13:26:34.012360Z,quiet gap after Phase III,quiet
+132,2016-09-01T13:26:44.012360Z,quiet gap after Phase III,quiet
+133,2016-09-01T13:26:54.012360Z,quiet gap after Phase III,quiet
+134,2016-09-01T13:27:04.012360Z,quiet gap after Phase III,quiet
+135,2016-09-01T13:27:14.012360Z,quiet gap after Phase III,quiet
+136,2016-09-01T13:27:24.012360Z,quiet gap after Phase III,quiet
+137,2016-09-01T13:27:34.012360Z,quiet gap after Phase III,quiet
+138,2016-09-01T13:27:44.012360Z,quiet gap after Phase III,quiet
+139,2016-09-01T13:27:54.012360Z,quiet gap after Phase III,quiet
+140,2016-09-01T13:28:04.012360Z,quiet gap after Phase III,quiet
+141,2016-09-01T13:28:14.012360Z,quiet gap after Phase III,quiet
+142,2016-09-01T13:28:24.012360Z,quiet gap after Phase III,quiet
+143,2016-09-01T13:28:34.012360Z,quiet gap after Phase III,quiet
+144,2016-09-01T13:28:44.012360Z,quiet gap after Phase III,quiet
+145,2016-09-01T13:28:54.012360Z,quiet gap after Phase III,quiet
+146,2016-09-01T13:29:04.012360Z,quiet gap after Phase III,quiet
+147,2016-09-01T13:29:14.012360Z,quiet gap after Phase III,quiet
+148,2016-09-01T13:29:24.012360Z,quiet gap after Phase III,quiet
+149,2016-09-01T13:29:43.012360Z,Phase IV,event
+150,2016-09-01T13:29:53.012360Z,Phase IV,event
+151,2016-09-01T13:30:03.012360Z,Phase IV,event
+152,2016-09-01T13:30:13.012360Z,Phase IV,event
+153,2016-09-01T13:30:23.012360Z,Phase IV,event
+154,2016-09-01T13:30:33.012360Z,Phase IV,event
+155,2016-09-01T13:30:43.012360Z,Phase IV,event
+156,2016-09-01T13:30:53.012360Z,Phase IV,event
+157,2016-09-01T13:31:03.012360Z,Phase IV,event
+158,2016-09-01T13:31:13.012360Z,Phase IV,event
+159,2016-09-01T13:31:23.012360Z,Phase IV,event
+160,2016-09-01T13:31:33.012360Z,Phase IV,event
+161,2016-09-01T13:31:43.012360Z,Phase IV,event
+162,2016-09-01T13:31:53.012360Z,Phase IV,event
+163,2016-09-01T13:32:03.012360Z,Phase IV,event
+164,2016-09-01T13:32:13.012360Z,Phase IV,event
+165,2016-09-01T13:32:23.012360Z,Phase IV,event
+166,2016-09-01T13:32:33.012360Z,Phase IV,event
+167,2016-09-01T13:32:43.012360Z,Phase IV,event
+168,2016-09-01T13:32:53.012360Z,Phase IV,event
+169,2016-09-01T13:33:03.012360Z,Phase IV,event
+170,2016-09-01T13:33:13.012360Z,Phase IV,event
+171,2016-09-01T13:33:23.012360Z,Phase IV,event
+172,2016-09-01T13:33:33.012360Z,Phase IV,event
+173,2016-09-01T13:33:43.012360Z,Phase IV,event
+174,2016-09-01T13:33:53.012360Z,Phase IV,event
+175,2016-09-01T13:34:03.012360Z,Phase IV,event
+176,2016-09-01T13:34:13.012360Z,Phase IV,event
+177,2016-09-01T13:34:23.012360Z,Phase IV,event
+178,2016-09-01T13:34:33.012360Z,Phase IV,event
+179,2016-09-01T13:34:43.012360Z,Phase IV,event
+180,2016-09-01T13:34:58.012360Z,post-event noise,quiet
+181,2016-09-01T13:35:08.012360Z,post-event noise,quiet
+182,2016-09-01T13:35:18.012360Z,post-event noise,quiet
+183,2016-09-01T13:35:28.012360Z,post-event noise,quiet
+184,2016-09-01T13:35:38.012360Z,post-event noise,quiet
+185,2016-09-01T13:35:48.012360Z,post-event noise,quiet
+186,2016-09-01T13:35:58.012360Z,post-event noise,quiet
+187,2016-09-01T13:36:08.012360Z,post-event noise,quiet
+188,2016-09-01T13:36:18.012360Z,post-event noise,quiet
+189,2016-09-01T13:36:28.012360Z,post-event noise,quiet
+190,2016-09-01T13:36:38.012360Z,post-event noise,quiet
+191,2016-09-01T13:36:48.012360Z,post-event noise,quiet
+192,2016-09-01T13:36:58.012360Z,post-event noise,quiet

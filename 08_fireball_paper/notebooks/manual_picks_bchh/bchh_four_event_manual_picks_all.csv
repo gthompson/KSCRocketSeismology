@@ -1,0 +1,9 @@
+event,trace_id,sensor_kind,pick_time_utc,pick_epoch_s,approx_event_centre_utc,offset_from_plot_centre_s,manual_uncertainty_s,notes,display_filter_applied,display_filter_hz,sampling_rate_hz,picked_at_utc
+upper_stage,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:15.927934Z,1472735236,2016-09-01T13:07:15.960000Z,-0.032066254,0.01,,TRUE,"(0.5, 80.0)",250,2026-10-06T02:54:17.423820+00:00
+upper_stage,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:15.935523Z,1472735236,2016-09-01T13:07:15.960000Z,-0.024477104,0.01,,TRUE,"(0.5, 80.0)",250,2026-10-06T02:54:05.608680+00:00
+principal,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:19.427235Z,1472735239,2016-09-01T13:07:19.560000Z,-0.13276504,0.01,,TRUE,"(0.5, 80.0)",250,2026-10-06T02:48:46.973697+00:00
+principal,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:19.438250Z,1472735239,2016-09-01T13:07:19.560000Z,-0.121749734,0.01,,TRUE,"(0.5, 80.0)",250,2026-10-06T02:49:02.216146+00:00
+,,,,,,,,,,,,
+difference,,,,,,,,,,,,
+,DD2,,#VALUE!,,,,,,,,,
+,DD3,,,,,,,,,,,

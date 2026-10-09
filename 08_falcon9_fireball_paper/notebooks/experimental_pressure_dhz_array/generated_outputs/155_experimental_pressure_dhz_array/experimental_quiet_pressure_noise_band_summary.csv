@@ -1,0 +1,13 @@
+noise_group,window_count,band_low_hz,band_high_hz,median_beam_to_DD2_power_ratio_db
+Pre-event baseline,18,1.0,3.0,13.31621305044532
+Pre-event baseline,18,3.5,5.5,10.563129458700134
+Pre-event baseline,18,5.0,10.0,8.986295910840758
+Pre-event baseline,18,10.0,15.0,6.445569691338328
+Pre-event baseline,18,15.0,25.0,3.974597027597161
+Pre-event baseline,18,25.0,40.0,1.1752016681486905
+Other quiet gaps/post-event,72,1.0,3.0,12.888909647305919
+Other quiet gaps/post-event,72,3.5,5.5,10.990930472903369
+Other quiet gaps/post-event,72,5.0,10.0,9.314098100789119
+Other quiet gaps/post-event,72,10.0,15.0,6.190205663153042
+Other quiet gaps/post-event,72,15.0,25.0,4.369327516877082
+Other quiet gaps/post-event,72,25.0,40.0,1.737730924940565

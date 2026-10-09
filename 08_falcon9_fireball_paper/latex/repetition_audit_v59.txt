@@ -1,0 +1,47 @@
+REPETITION AUDIT — main58/supplement57 -> main59/supplement58
+
+1 Precursor search — CUT. Removed the immediately repeated limitation on what
+the negative BCHH screen can exclude; retained one full Results caveat and the
+short interpretive recaps later.
+
+2 Video/BCHH timing — CUT/REBALANCED. Public USLaunchReport timing remains the
+primary main-text measurement. Detailed UCS-3 geometry/timecode/frame mechanics
+and predicted-UTC arithmetic are confined to Supplement S4. Main text retains
+the proprietary-video validation result.
+
+3 351 m/s reference speed — RETAINED SELECTIVELY. Its roles as meteorological
+reference, catalogue coordinate, and cancelling common travel time are distinct.
+
+4 Weak-shock/nonlinear propagation — CUT. Numerical model values remain in
+Results. Discussion interprets ordering/scale without listing all values again.
+Supplement S7 now refers back to S4 observational ranges.
+
+5 Waveform morphology — CUT. Results describe the Friedlander-like morphology;
+Discussion uses morphology as one strand of evidence without redescribing it.
+
+6 Array processing/back azimuth/apparent velocity — RETAINED. Time-domain and
+Bartlett estimates are independent validation, not duplication.
+
+7 Event catalogue/153 events/phases — RETAINED. Total, phase counts,
+waveform-quality subsets, and planar classes are different populations.
+
+8 Pressure amplitude/SPL — RETAINED. The 1.39-kPa value is legitimately reused
+as an input to weak-shock, local-Mach, and energy calculations.
+
+9 Seismic/acoustic coupling/H1 — CUT. Full regression/H1 numbers stay in
+Results; Discussion now emphasizes robustness, interpretation, transferability,
+and literature context.
+
+10 Acoustic energetics/New Glenn — CUT. Removed repeated exact principal versus
+cumulative energy numbers from Discussion; retained the energy-partition and
+New Glenn interpretation.
+
+11 Regional screening/atmosphere — CUT. Removed adjacent repetition of the
+celerity range/bins and removed detailed screening bookkeeping from Discussion.
+Corrected stale main-text cross-reference from Supplement S7 to S8.
+
+12 Monitoring implications/limitations — RETAINED. Discussion and Conclusions
+serve distinct purposes.
+
+Conclusions were tightened so they synthesize rather than reproduce timing
+mechanics and regional-screening bookkeeping.
