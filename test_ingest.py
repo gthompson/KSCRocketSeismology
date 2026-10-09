@@ -1,4 +1,4 @@
-from flovopy.sds.merge_sds_archives_improved import merge_sds_archives
+from flovopy.sds.merge_sds_archives import merge_sds_archives
 
 ROOT = "/Volumes/KSCGTdownld"
 MASTER = f"{ROOT}/SDS"

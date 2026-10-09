@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ksc-sds-ingest"
+version = "0.8.0"
+description = "KSC service-run waveform ingestion into a canonical SDS archive"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6", "flovopy"]
+
+[project.scripts]
+ksc-sds = "ksc_ingest.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ksc_ingest*"]
