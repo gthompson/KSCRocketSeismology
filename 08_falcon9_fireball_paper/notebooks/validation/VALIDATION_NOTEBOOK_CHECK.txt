@@ -1,0 +1,3 @@
+V005_validate_bchh_relative_calibration.ipynb: 8 cells; syntax_errors=[]
+V055_validate_waveform_morphology_non_circular.ipynb: 8 cells; syntax_errors=[]
+V085_audit_bchh_named_event_manual_picks.ipynb: 13 cells; syntax_errors=[]

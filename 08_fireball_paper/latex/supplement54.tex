@@ -28,6 +28,21 @@
   {figures/}
 }
 
+% Color and TODO command for manuscript annotations
+\usepackage{xcolor}
+
+\newcommand{\todo}[1]{%
+  \par\noindent
+  \colorbox{yellow!40}{%
+    \parbox{0.96\linewidth}{%
+      \textbf{\textcolor{red}{TODO:}} #1
+    }%
+  }%
+  \par
+}
+
+\newcommand{\checkme}[1]{\textcolor{red}{\textbf{[CHECK: #1]}}}
+
 \newcommand{\pendingfigure}[1]{%
   \fbox{\parbox[c][50mm][c]{0.92\textwidth}{\centering\textbf{Pending regenerated product}\par#1}}}
 
@@ -614,6 +629,8 @@ treated as model sensitivity rather than physical source locations.
 
 \FloatBarrier
 
+\FloatBarrier
+
 \section*{S5. Amplitude, spectra, coupling, and energetics}
 \label{sec:supp_energy}
 
@@ -673,7 +690,8 @@ Sound exposure level is
 
 Peak pressure level, used separately from SEL, is
 \begin{equation}
- L_{\mathrm{peak}}=20\log_{10}\left(\frac{|p_+|}{20~\mu\mathrm{Pa}}\right).
+ L_{\mathrm{peak}}=
+ 20\log_{10}\left(\frac{|p_+|}{20~\mu\mathrm{Pa}}\right).
 \end{equation}
 
 The hemispherical-equivalent acoustic-energy model assumes progressive-wave
@@ -688,16 +706,16 @@ acoustic TNT equivalent is obtained by dividing $E_{2\pi}$ by
 $4.184\times10^6$~J~kg$^{-1}$ and is only an energy-unit conversion, not an
 estimate of explosive yield.
 
-Conversion of measured acoustic energy to an effective explosive yield
-requires additional assumptions. In particular, the relevant denominator is
-not the total onboard propellant energy unless all of that energy participated
-promptly in the blast. We therefore distinguish among (1) measured radiated
-acoustic energy, (2) effective blast energy released on the impulsive
-timescale, and (3) the larger chemical-energy reservoir of the launch vehicle.
-Only the first is constrained directly by the BCHH measurements. Both the
-reported sound pressure levels and acoustic energies are limited to the
-processed infraBSU passband (approximately 0.05--80~Hz within the
-0.02, 0.05, 80, and 100~Hz response-removal prefilter), rather than
+It is useful to distinguish three different energy scales: (1) the
+chemical-energy reservoir of the loaded propellants, (2) the effective energy
+participating promptly in the impulsive blast, and (3) the smaller fraction
+radiated into the atmosphere as acoustic energy. The BCHH measurements
+constrain the third quantity directly but do not uniquely determine either of
+the first two. Thus, the ratio of radiated acoustic energy to total onboard
+chemical energy should not itself be interpreted as an acoustic efficiency of
+the blast. Both the reported sound pressure levels and acoustic energies are
+limited to the processed infraBSU passband (approximately 0.05--80~Hz within
+the 0.02, 0.05, 80, and 100~Hz response-removal prefilter), rather than
 representing a fully broadband source measurement.
 
 Main-manuscript Table~1 reports the named-event pressure medians. The
@@ -862,10 +880,10 @@ should not be interpreted as explosive yield.}
 \hline
 Signal & SEL (dB) & $E_{2\pi}$ (J) & Acoustic TNT (kg) \\
 \hline
-Upper-stage event       & 114.21 & $3.21\times10^6$ & 0.768 \\
-Principal explosion     & 142.54 & $2.20\times10^9$ & 525   \\
-Payload impact          & 126.44 & $5.40\times10^7$ & 12.9  \\
-Payload explosion       & 127.05 & $6.22\times10^7$ & 14.9  \\
+Upper-stage event   & 114.21 & $3.21\times10^6$ & 0.768 \\
+Principal explosion & 142.54 & $2.20\times10^9$ & 525   \\
+Payload impact      & 126.44 & $5.40\times10^7$ & 12.9  \\
+Payload explosion   & 127.05 & $6.22\times10^7$ & 14.9  \\
 \hline
 \end{tabularx}
 \end{table*}
@@ -877,20 +895,50 @@ for approximately 522.5~t of LOX/RP-1 at full load
 the heating value of RP-1 gives a full-load chemical-energy reservoir of order
 $6$--$7\times10^{12}$~J. The exact propellant inventory aboard AMOS-6 at the
 time of failure is not publicly documented, and the accident occurred during
-the propellant-loading sequence; the full-load value is therefore an upper
+the propellant-loading sequence; this full-load value is therefore an upper
 bound rather than an estimate of the instantaneous onboard energy.
 
 The principal-explosion radiated acoustic energy,
 $2.20\times10^9$~J, is approximately $3.3\times10^{-4}$, or 0.033\%, of a
-$6.7\times10^{12}$-J full-load chemical-energy reservoir. This ratio should
-not be interpreted as the acoustic efficiency of the explosion. Only an
-unknown fraction of the available chemical energy participated rapidly in the
-principal blast, while additional energy was released subsequently during the
-fireball and prolonged sequence. Conversely, converting the measured acoustic
-energy to effective blast energy would require assuming the fraction of that
-blast energy radiated acoustically. The close-range measurements therefore
-provide a direct radiated-energy constraint but do not uniquely determine
-explosive yield.
+$6.7\times10^{12}$-J full-load chemical-energy reservoir. This small fraction
+does not imply anomalously inefficient acoustic radiation because it compares
+the final radiated acoustic energy directly with the entire propellant
+chemical-energy reservoir and therefore spans two distinct conversion steps:
+chemical energy to effective impulsive blast energy, and blast energy to
+radiated acoustic energy.
+
+For comparison, the 2026 New Glenn static-fire explosion had an
+infrasound-derived effective blast yield of approximately 0.131~kt TNT,
+equivalent to about $5.5\times10^{11}$~J
+\citep{silber_scamfer_newglenn_2026}. Comparison of that inferred yield with
+plausible onboard chemical-energy reserves led
+\citet{silber_scamfer_newglenn_2026} to estimate that approximately 3--4\%
+of the available chemical energy participated in the rapid pressure-producing
+blast under a full-fill scenario. This quantity is an effective blast-coupling
+fraction, not a radiated acoustic-energy efficiency, and the New Glenn study
+did not report an integrated radiated acoustic-energy estimate directly
+comparable with $E_{2\pi}$ here.
+
+As an illustrative sensitivity comparison, if a fully loaded Falcon~9 had
+converted 3--4\% of its approximately $6.7\times10^{12}$-J chemical-energy
+reservoir into effective impulsive blast energy, the resulting blast energy
+would be approximately $(2.0$--$2.7)\times10^{11}$~J, or about 48--64~t TNT
+equivalent. The measured $2.20\times10^9$-J acoustic energy would then
+represent approximately 0.8--1.1\% of that effective blast energy. Neither the
+actual Falcon~9 propellant fill fraction nor its blast-coupling fraction is
+independently known, so these numbers are not a Falcon~9 yield estimate.
+Rather, they show that the measured close-range acoustic energy is compatible
+with a physically plausible two-stage energy partition and does not require an
+exceptionally small acoustic-radiation efficiency.
+
+The comparison also illustrates why the Falcon~9 acoustic-energy measurement
+and the New Glenn period--yield result should not be compared directly as if
+they were the same quantity. The New Glenn value represents an inferred
+effective blast energy, whereas the Falcon~9 value represents measured
+radiated acoustic energy. The ratio of those two reported quantities is
+approximately 250, but it should not be interpreted as a factor-of-250
+difference in total explosion energy or as implying a corresponding
+$\sqrt{250}$ difference in pressure amplitude.
 
 Notebook~124 also calculates cumulative squared ground velocity,
 $\int v_k^2\,dt$, for the response-corrected Z, radial, and transverse
@@ -972,11 +1020,13 @@ $2.27\times10^9$~J (range $1.95$--$2.55\times10^9$~J), equivalent to
 543~kg TNT as radiated acoustic energy (range 467--610~kg). Relative to a
 nominal full-load Falcon~9 chemical-energy reservoir of order
 $6$--$7\times10^{12}$~J, this measured cumulative acoustic energy corresponds
-to approximately 0.03--0.04\%. As for the principal explosion, this ratio is
-not an acoustic efficiency because the fraction of onboard chemical energy
-participating promptly in the measured blasts is unknown. These quantities
-cover only the union of the selected intervals and are not estimates of all
-acoustic energy radiated during the complete 26-min sequence.
+to approximately 0.03--0.04\%. As for the principal explosion, this is a
+chemical-to-acoustic ratio spanning both blast coupling and acoustic radiation,
+not an acoustic efficiency in the narrower sense. The near equality of the
+principal-event and cumulative values reflects the energetic dominance of the
+principal explosion. These quantities cover only the union of the selected
+intervals and are not estimates of all acoustic energy radiated during the
+complete 26-min sequence.
 
 \begin{figure*}[!tbp]
   \centering
@@ -997,8 +1047,11 @@ acoustic energy radiated during the complete 26-min sequence.
 
 \paragraph{Complete event measurements.}
 
+\todo{Two things still need resolution before this is publication-ready. TODO_FALCON9_DATASHEET needs an actual BibTeX entry, and ideally the \(6\)–\(7\times10^{12}\) J calculation should have an authoritative citation for both the LOX/RP-1 mixture ratio and RP-1 heating value rather than leaving that derivation unsupported.}
+
 The complete 153-event table is provided in Appendix~A. The machine-readable
 catalogue remains the authoritative archival product.
+
 \FloatBarrier
 \section*{S6. Regional detectability screening}
 \label{sec:supp_regional}

@@ -1,0 +1,4 @@
+event,trace_id,sensor_kind,pick_time_utc,pick_epoch_s,approx_event_centre_utc,offset_from_plot_centre_s,manual_uncertainty_s,notes,display_filter_applied,display_filter_hz,sampling_rate_hz,picked_at_utc
+principal,1R.BCHH.10.DD1,pressure,2016-09-01T13:07:19.355635Z,1472735239.3556354,2016-09-01T13:07:19.560000Z,-0.20436453142555644,0.01,,True,"(0.5, 80.0)",250.0,2026-10-06T02:48:39.545214+00:00
+principal,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:19.427235Z,1472735239.427235,2016-09-01T13:07:19.560000Z,-0.1327650399544077,0.01,,True,"(0.5, 80.0)",250.0,2026-10-06T02:48:46.973697+00:00
+principal,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:19.438250Z,1472735239.4382503,2016-09-01T13:07:19.560000Z,-0.12174973357423102,0.01,,True,"(0.5, 80.0)",250.0,2026-10-06T02:49:02.216146+00:00

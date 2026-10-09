@@ -1,0 +1,1214 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Seismica submission manuscript -- integrated analysis structure, version 60
+% Supporting detail and diagnostic figures are in supplement60.tex.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{seismica}
+\usepackage{tabularx}
+\usepackage{placeins}
+
+% Color and TODO command for manuscript annotations
+\usepackage{xcolor}
+
+\newcommand{\todo}[1]{%
+  \par\noindent
+  \colorbox{yellow!40}{%
+    \parbox{0.96\linewidth}{%
+      \textbf{\textcolor{red}{TODO:}} #1
+    }%
+  }%
+  \par
+}
+
+\newcommand{\checkme}[1]{\textcolor{red}{\textbf{[CHECK: #1]}}}
+
+% Compile from the repository latex/ directory.
+% Current external outputs are searched before bundled legacy assets.
+\graphicspath{
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/000_correct_bchh_instrument_response/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/010_prepare_analysis_inputs/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/020_analyze_ksc_weather/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/030_reconcile_manual_event_catalogues/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/040_validate_event_catalogue_with_array_processing/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/040_validate_event_catalogue_with_array_processing/figures/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/050_prepare_event_waveform_products/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/050_prepare_event_waveform_products/figures/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/060_analyze_planar_array_propagation/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/080_analyze_named_events_and_timing/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/100_analyze_seismic_polarization/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/110_search_for_direct_seismic_waves/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/120_analyze_regional_detectability/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/130_generate_supplement_event_table/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/}
+  {/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/150_assemble_zenodo_release/}
+  {figures/}
+}
+
+% These boxes keep the manuscript compilable while the two remaining main
+% figures are regenerated. They should not appear in a submitted PDF.
+\newcommand{\pendingfigure}[1]{%
+  \fbox{\parbox[c][55mm][c]{0.92\textwidth}{\centering\textbf{Pending figure}\par#1}}}
+
+\title{Close-Range Seismo-Acoustic Observations of the 2016 Falcon 9 AMOS-6 Failure at Cape Canaveral}
+\shorttitle{Close-range observations of the 2016 Falcon 9 explosion}
+
+% Confirm department-level present affiliations for Farrell and Mehta before
+% submission.
+\author[1]{Glenn Thompson\thanks{Corresponding author: \texttt{thompsong@usf.edu}; ORCID: 0000-0002-9173-0097}}
+\author[2,3]{Robert G. Brown}
+\author[1,4]{Alexandra Farrell}
+\author[2,3]{John Kiriazes}
+\author[1]{Stephen R. McNutt}
+\author[1,5]{Christopher Mehta}
+\affil[1]{School of Geosciences, University of South Florida, Tampa, Florida, USA}
+\affil[2]{NASA Kennedy Space Center, Florida, USA}
+\affil[3]{Present address: Florida Space Institute, University of Central Florida, Orlando, Florida, USA}
+\affil[4]{Present address: University of Alaska Fairbanks, Fairbanks, Alaska, USA}
+\affil[5]{Present address: Howard University, Washington, DC, USA}
+
+\credit{Conceptualization}{Glenn Thompson}
+\credit{Methodology}{Glenn Thompson}
+\credit{Software}{Glenn Thompson}
+\credit{Validation}{Glenn Thompson}
+\credit{Formal Analysis}{Glenn Thompson}
+\credit{Investigation}{Glenn Thompson, Robert G. Brown, Alexandra Farrell,
+John Kiriazes, Stephen R. McNutt, Christopher Mehta}
+\credit{Resources}{Robert G. Brown, John Kiriazes}
+\credit{Data Curation}{Glenn Thompson}
+\credit{Visualization}{Glenn Thompson}
+\credit{Project Administration}{Glenn Thompson, Robert G. Brown}
+\credit{Writing - Original draft}{Glenn Thompson}
+\credit{Writing - Review \& Editing}{Glenn Thompson, Robert G. Brown,
+John Kiriazes, Stephen R. McNutt}
+
+\begin{document}
+
+\makeseistitle{
+  \begin{summary}{Abstract}
+  On 1 September 2016, a Falcon~9 and its AMOS-6 payload were destroyed
+  during propellant loading before a planned static-fire test at Space Launch
+  Complex~40, Cape Canaveral. A broadband seismometer and three-element
+  infrasound array 1.4~km away recorded the complete sequence. A gap-free
+  48-h review found no seismo-acoustic precursor during the 37~h before the
+  first upper-stage event. We then compared relative source-event timing from
+  the public USLaunchReport video with independently picked BCHH pressure
+  arrivals. The principal explosion occurred about 3.57--3.64~s after the
+  first event in that recording, whereas its DD2--DD3 pressure arrivals
+  followed by only 3.501~s. The resulting 0.07--0.14-s differential travel-time
+  reduction is independent of absolute camera synchronization. Two later
+  payload-associated events give smaller reductions of about 0.034 and
+  0.054~s. Higher-frame-rate proprietary SpaceX recordings, including the
+  UCS-3 camera near BCHH and cameras at SLC-40, independently support the event
+  identifications and frame-scale timing. A simple weak-shock sensitivity
+  model predicts the same ordering and comparable differential advances. At BCHH, however, the
+  preferred local array-crossing speed of the principal blast was only
+  352.5~m~s$^{-1}$ and the measured 1.39-kPa positive overpressure corresponds
+  to $M\approx1.006$, consistent with a blast that was more nonlinear closer
+  to the vehicle and had decayed to a very weak shock by 1.4~km. The full
+  catalogue contains 153 accepted pressure transients over 26~min. The
+  principal explosion produced a peak level of about 157~dB re 20~$\mu$Pa and
+  a hemispherical-equivalent acoustic-energy estimate of $2.2\times10^9$~J.
+  Pressure and three-component peak ground velocity were nearly proportional,
+  with a median seismic/acoustic coupling coefficient of
+  $2.3\times10^{-6}$~(m~s$^{-1}$)~Pa$^{-1}$.
+  \end{summary}
+  %
+  \begin{summary}{Non-technical summary}
+  A seismic and low-frequency sound station approximately 1.4~km from the
+  launch pad recorded the 2016 Falcon~9 accident at Cape Canaveral. We found
+  no comparable signal in the 37~h before the first event. The accident was
+  not a single explosion: 153 accepted multichannel pressure transients
+  occurred over approximately 26~min. For the first few seconds, the public
+  USLaunchReport video provides an independent source-event clock. We use only
+  time differences measured within that recording, so the camera does not need
+  to be synchronized to the geophysical station. The strongest explosion
+  occurred about 3.57--3.64~s after the first visible event but reached the
+  BCHH microphones only 3.501~s after the first pressure arrival. Proprietary
+  SpaceX videos provide higher-frame-rate checks on these event identifications.
+  The difference indicates that the stronger blast propagated faster over part
+  of the path.
+  Its speed across the small BCHH array was nevertheless close to ordinary
+  sound speed, showing that the disturbance had weakened substantially by
+  1.4~km range. The observations provide an independently timed forensic record
+  of the failure when direct site access and engineering telemetry are not
+  available to outside investigators.
+  \end{summary}
+}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Rocket launches generate strong atmospheric and ground-motion signals, but
+catastrophic launch failures are rarely recorded at close range by calibrated
+seismic and infrasound instruments. Most seismo-acoustic studies of major
+technological explosions have instead used regional observations, for which
+atmospheric ducting and attenuation strongly influence arrival times and
+amplitudes \citep{ottemoller_2008,green_2008,ceranna_2009,smink_2019,
+pilger_beirut_2021,kim_pasyanos_2022}. Rocket-focused studies demonstrate
+complementary capabilities: routine launches are detectable infrasonically at
+large distances \citep{pilger_rocket_2021}, dense seismic deployments can
+resolve launch-generated body and surface waves
+\citep{schuster_rocketquake_2025}, and regional infrasound can locate and
+estimate the effective yield of a large static-fire explosion
+\citep{silber_scamfer_newglenn_2026}.
+
+On 1 September 2016, a Falcon~9 was destroyed during propellant loading in the
+countdown for a planned static-fire test at Space Launch Complex~40 (SLC-40),
+Cape Canaveral Air Force Station (now Cape Canaveral Space Force Station),
+Florida. The AMOS-6 payload was lost and the launch complex was extensively
+damaged. The only publicly available original recording is the 5-min-40-s raw
+USLaunchReport video and camera audio \citep{uslaunchreport_amos6_video_2016};
+an edited analysis by \citet{manley_spacex_explosion_2016} was used only for
+context. 
+
+The University of South Florida (USF) BCHH station, approximately 1.4~km from
+SLC-40 on adjacent Kennedy Space Center property, fortuitously recorded the
+complete sequence. The initial forensic analysis was documented in an
+unpublished USF technical report prepared for SpaceX in November~2016
+\citep{thompson_mcnutt_fireball_2016} and subsequently presented publicly at
+the 2017 AGU Fall Meeting \citep{thompson_agu_falcon9_2017}, before the
+present reanalysis. The geophysical chronology was developed independently of
+the later engineering root-cause determination.
+
+The central advantage of this dataset is the combination of continuous
+recording, empirical calibration, array geometry, and proximity. It provides
+subsecond timing and local pressure--ground comparisons that regional records
+rarely preserve, while public imagery supplies an independently inspectable
+record of selected stages. Its limits are equally clear: one compact array can
+constrain direction and apparent speed, but not source range or the origin of
+every later transient.
+
+Here we first test for a detectable energetic precursor and establish the
+initial event that anchors the chronology. We then compare event-to-event
+intervals measured independently in a single SpaceX video with the corresponding
+pressure-arrival intervals at BCHH. This differential comparison avoids the
+circularity of using source times obtained from the same pressure arrivals to
+test propagation speed. Array processing then constrains the wavefront locally
+at BCHH, while pressure, ground motion, coupling, and acoustic-energy estimates
+characterize the broader sequence. A separate regional search tests whether the
+principal explosion can be associated with publicly archived records at much
+greater distances. The broader objective is to show what a modest open
+geophysical deployment can establish independently, and what still requires
+engineering telemetry, denser spatial sampling, or detailed atmospheric
+modelling. We use \emph{close range}, rather than the strict acoustic term
+\emph{near field}: a 1.4-km wavelength at 350~m~s$^{-1}$ corresponds to
+approximately 0.25~Hz, below the principal analysis band. Supporting methods,
+diagnostics, frame picks, and sensitivity results are provided in the
+Supplementary Material.
+
+
+\section{Data and general processing}
+\label{sec:data}
+
+\subsection{BCHH array and geometry}
+
+BCHH comprised a three-component Nanometrics Trillium Compact Posthole
+broadband (>0.083 Hz) seismometer near the centre of a three-element infraBSU microphone (>0.048 Hz) array with an
+aperture of approximately 30~m (Figure~\ref{fig:site_array}). All six channels
+were recorded continuously at 250~Hz by a GPS-synchronized Nanometrics
+Centaur digitizer. The seismometer was buried approximately 0.5~m; the infrasound sensors
+were mounted ~30~cm above ground on garden stakes in shrubs to suppress wind noise.
+
+On 6 October 2016, as Hurricane Matthew approached KSC, co-author RGB 
+removed the three microphones and stakes, but the cables remained on 
+the ground. The cable ends were subsequently surveyed with precise GPS on
+2 November 2016. Position errors of approximately 1--2~m are therefore plausible.
+Source distances ranged from 1408.3 to 1440.0~m
+(Supplementary Table~S1). DD2 was used as the reference
+pressure channel, as it had the best signal-to-noise ratio.
+
+The USLaunchReport video camera was located on the roof of a building in the Fire Training Area, providing a clear view of the launch complex.
+We accessed this building to verify that the view matches that captured by the USLaunchReport video footage.
+\todo{Add recent photo to the supplement, and cite here}
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{fig01_slc40_bchh_location.pdf}
+  \caption{Locations used in the study (A) Position of the BCHH seismo-acoustic array
+   and the USLaunchReport camera. The launch complex was SLC-40 (yellow triangle).
+  (B) Three-component seismometer and three-element infrasound
+  array with an aperture of approximately 30~m.}
+  \label{fig:site_array}
+\end{figure*}
+\FloatBarrier
+
+\subsection{Calibration and waveform preparation}
+
+The seismic response was removed using the nominal calibration for the
+Trillium Compact Posthole--Centaur combination. 1-m lift tests (Supplementary Section~S1) were subsequently performed and 
+determined sensitivities of 8.10, 0.69, and
+10.0~counts~Pa$^{-1}$, respectively for infraBSU sensor channels DD1, DD2, and DD3 (Supplementary Table~S1).
+These empirical factors \citep{thompson_mcnutt_fireball_2016} are retained here (Supplementary Table~S1).
+Results from other launches reported here are consistent with these empirical factors.
+The $\pm20\%$ pressure uncertainty reflects the imprecision and repeatability of the empirical lift test procedure. 
+Manual arrival uncertainty was approximately 0.01~s for the clearest impulses and
+greater for weak, emergent, or overlapping signals.
+
+Response removal used a 0.02, 0.05, 80, and 100~Hz four-corner prefilter and a
+60-dB water level. A centred 1.0-s moving median was then removed independently
+from each pressure channel to suppress slow baseline variation without an
+additional physical-amplitude high-pass filter. Seismic traces remained in
+ground velocity and pressure traces in Pa.
+
+\subsection{Video, meteorological, and regional data}
+
+The USLaunchReport footage \citep{uslaunchreport_amos6_video_2016} provided the public visual and camera-audio record and is the primary video source for relative timing of the four opening events. Event intervals were measured from video presentation timestamps (PTS) within this single recording; its absolute clock need not be synchronized to BCHH. Four proprietary videos obtained from SpaceX were used as independent higher-quality checks on event identification and timing. These include the 60-fps UCS-3 remote camera at 28.575108$^\circ$N, 80.573638$^\circ$W, about 155~m from BCHH and between SLC-40 and SLC-41, and cameras at SLC-40. The UCS-3 burned-in timecode advances at 30 frames~s$^{-1}$, so each displayed timecode value occurs on two successive video images. No event interval is formed by mixing timestamps from different cameras. Data were sought from an infrasound array at CCAFS operated by the Air Force Technical Applications Center (AFTAC) but were ultimately inaccessible. Regional pressure records to 1800~km
+and vertical seismic records to 600~km were obtained through EarthScope FDSN
+services; IU.DWPF, 97.7~km from SLC-40, was the nearest permanent station
+examined \citep{asl_gsn_iu_1988}.
+
+Kennedy Space Center meteorological observations were examined at two spatial scales. Weather-tower measurements supplied temperature, relative humidity, and near-surface winds for the close-range SLC-40--BCHH propagation correction. To characterize the vertically extended atmosphere relevant to regional infrasound propagation, we additionally examined KSC 915-MHz and 48-MHz radar wind-profiler observations and a 12:00~UTC low-resolution AMPS radiosonde sounding. The profilers constrained winds through the lower and middle atmosphere, including 48-MHz profiles at 13:04 and 13:09~UTC bracketing the principal explosion, while the AMPS sounding supplied temperature and winds into the lower stratosphere. No atmospheric ray tracing was performed. Additional details are given in Supplementary Section~S2.
+
+The tower observations were used only for this close-range timing reference.
+Vertically extended KSC 915-MHz and 48-MHz wind-profiler observations and the
+AMPS radiosonde sounding were treated separately as regional-propagation
+diagnostics and were not used to alter the close-range reduction.
+
+\subsection{Analysis workflow and timing coordinates}
+
+The analysis was implemented in Python as a reproducible sequence of Jupyter
+notebooks \citep{kluyver2016jupyter}. Shared configuration and intermediate
+products supplied common geometry, receiver arrival picks, event metadata,
+propagation corrections, and analysis parameters. The reviewed BCHH arrival
+picks, public-video PTS picks, and proprietary SpaceX frame observations are
+stored as separate metadata products so that measured receiver timing, independent video timing, and
+model-derived source-time coordinates are not conflated. Additional
+implementation and sensitivity details are in Supplementary Sections~S1--S10.
+
+Three time coordinates were kept distinct: observed receiver UTC,
+DD2-referenced reduced arrival time, and model-derived source time. For sensor
+$i$, the DD2-referenced reduced arrival time was
+\begin{equation}
+ t_{i,\mathrm{red}}=t_i-\frac{r_i-r_{\mathrm{DD2}}}{c_{\mathrm{eff}}},
+ \label{eq:reduced_time}
+\end{equation}
+where $t_i$ is observed receiver time, $r_i$ the source-to-sensor distance,
+$r_{\mathrm{DD2}}$ the nominal source-to-DD2 distance, and
+$c_{\mathrm{eff}}$ the meteorologically derived effective speed. Catalogue
+times therefore represent arrivals reduced to DD2. Legacy source-time
+coordinates subtract the complete source-to-DD2 travel time as well; because
+those source times are derived from the BCHH arrivals, they are not used below
+as independent evidence for propagation speed.
+
+\FloatBarrier
+
+
+\section{Forensic chronology and precursor search}
+\label{sec:precursor}
+
+A gap-free 48-h interval extending from 37~h before to 11~h after the first
+upper-stage signal was manually scanned using Antelope's \texttt{dbpick}
+program (version~5.6) \citep{brtt_antelope}. All three pressure and all three
+seismic channels were viewed together. This review served two purposes: to
+look explicitly for a conspicuous precursor before the first accepted event,
+and to pick impulsive signals during the accident sequence.
+
+SpaceX were particularly attentive to any precursor signals. None was
+identified during the 37~h before the initial upper-stage explosion, and no
+additional explosion-related impulse was found in the remainder of the 48-h
+review window, which extends about 10.5~h beyond the last prominent activity
+phase. The six-channel screen constrains signals comparable to the accepted
+array-wide impulses under the observed background, but cannot exclude weak,
+spatially local, non-impulsive, internal, or poorly coupled processes. The
+result is therefore a negative geophysical observation, not a determination
+of the internal failure mechanism.
+
+
+\section{Opening sequence and propagation timing}
+\label{sec:opening_timing}
+
+\subsection{Close-range acoustic reference}
+
+For the close-range acoustic travel-time reference, still-air sound speed was
+calculated from the contemporaneous KSC weather-tower temperature and
+relative-humidity measurements described above. Wind vectors from the KSC weather-tower observations were
+projected onto the SLC-40--BCHH propagation direction. To characterize the wind
+over the nominal 0--65-m source-height interval, the available tower wind
+observations within that height range were combined as a vector mean. Because
+the lowest valid wind observations were near 40~m, the lowest measured wind
+vector was extended downward at a constant value to estimate the nominal
+0--65-m path average; the surface layer was therefore not directly sampled.
+The path-parallel wind component was added to the still-air sound speed to
+obtain the nominal effective acoustic speed, 351~m~s$^{-1}$, used for
+reference travel times and catalogue reduction.
+
+Seven 5-min weather-tower epochs from 13:05 to 13:35~UTC gave a mean
+temperature of 26.4$\pm0.3\,^{\circ}$C and mean relative humidity of
+83.9$\pm3.7\%$. The tower winds varied little, with an overall vector mean of
+5.4~m~s$^{-1}$ from 144$^\circ$. Averaging the available winds over the
+nominal 0--65-m source-height interval gave a path-representative vector mean
+of 4.6~m~s$^{-1}$ from 145$^\circ$, corresponding to a 2.6~m~s$^{-1}$
+tailwind component toward BCHH. Together with a still-air sound speed of
+348.3~m~s$^{-1}$, this gives the nominal effective acoustic speed of
+351.0~m~s$^{-1}$. The corresponding travel times are about 4.01~s to DD2
+(1408.3~m) and 4.05~s to the central seismometer (1419.9~m).
+
+\subsection{Independent video and BCHH event timing}
+
+The public USLaunchReport recording \citep{uslaunchreport_amos6_video_2016}
+provides the primary source-event timing because it is publicly accessible and
+therefore independently reproducible. Its absolute clock is not synchronized to
+BCHH, so only event-to-event intervals within that same recording are used. The
+first visible upper-stage flash, at PTS 71.7675~s, is the reference event. The
+first unmistakable frame of the principal explosion occurs at PTS 75.4048~s.
+Inspection of the immediately preceding frames indicates that the visual onset
+probably began no more than one or two frames earlier. At 29.97~frames~s$^{-1}$
+this gives a preferred principal source interval of 3.5706--3.6373~s after the
+initial event. The preferred payload-event picks are PTS 84.2813 and
+84.8819~s, giving intervals of 12.5138 and 13.1144~s, respectively.
+
+Four proprietary SpaceX recordings provide independent higher-quality checks
+on event identification and timing, including the 60-fps UCS-3 remote camera
+near BCHH/Astronaut Beach House and cameras at SLC-40. Their clocks are not
+assumed to be synchronized with one another or with BCHH, and no timestamps
+are mixed between cameras. Camera geometry, timecode handling, and the
+separate SpaceX timing measurements are documented in Supplementary
+Section~S4.
+
+DD2 and DD3 arrivals for the upper-stage event, principal explosion, payload
+impact, and payload explosion were manually reviewed and stored as direct
+receiver picks. For a later event $j$, the observed same-channel arrival
+interval is
+\begin{equation}
+ \Delta t_{\mathrm{BCHH},j}=t_{j,\mathrm{arr}}-t_{1,\mathrm{arr}},
+\end{equation}
+and the independent video source interval is
+$\Delta t_{\mathrm{video},j}$. For sources at the same nominal location, a
+constant 351~m~s$^{-1}$ travel time cancels from the interval comparison. The
+nominal arrival predicted from the first observed arrival is simply the first
+arrival plus $\Delta t_{\mathrm{video},j}$; a source-location correction
+$(r_j-r_1)/351$ can be added when justified. We define
+\begin{equation}
+ \delta t_j=\Delta t_{\mathrm{video},j}-\Delta t_{\mathrm{BCHH},j},
+ \label{eq:differential_advance}
+\end{equation}
+so positive $\delta t_j$ means that event $j$ required less propagation time
+to reach BCHH than the initial event. This differential construction is the
+main timing test; the 351~m~s$^{-1}$-reduced source times are retained only as
+a workflow coordinate.
+
+The median DD2--DD3 arrival interval from the first event to the principal
+explosion is 3.501014~s. The preferred USLaunchReport source interval of
+3.5706--3.6373~s therefore gives a differential propagation-time reduction of
+0.0696--0.1363~s. This comparison does not use the
+351~m~s$^{-1}$-reduced principal source time and is therefore independent of
+that reduction.
+
+For the payload impact, the public video gives a source interval of 12.5138~s,
+compared with a median BCHH interval of 12.480232~s, giving
+$\delta t=0.0336$~s. The payload-associated explosion occurs 13.1144~s after
+the initial event in the public video and 13.060170~s after the initial BCHH
+arrival, giving $\delta t=0.0542$~s. These values are based on a 29.97-fps
+recording and should be treated as frame-scale estimates rather than
+millisecond-accurate source times. The payload source positions are also less
+certain than those of the stage explosions, so source-range differences matter
+for residuals of a few hundredths of a second.
+
+The proprietary SpaceX videos independently reproduce the same qualitative
+timing pattern. UCS-3 gives a principal-event differential reduction of about
+0.10--0.17~s and smaller reductions of about 0.020 and 0.023~s for the two
+payload events; the SLC-40 views further support the event identifications and
+onset bounds. The underlying frame observations and within-camera intervals
+are given in Supplementary Section~S4.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{fig04_multimodal_alignment_upper_stage.pdf}
+  \caption{Video, camera audio, pressure, and ground-velocity alignment for
+  the first upper-stage event. Camera audio is corrected for its estimated
+  source-to-camera travel time and BCHH traces for sensor-specific reference
+  travel times. This figure establishes the visual identity of the first event;
+  it is not used to assign absolute UTC to subsequent video events. Video
+  frames copyright 2016 USLaunchReport.com/Michael Wagner; reproduced with
+  permission \citep{uslaunchreport_amos6_video_2016}.}
+  \label{fig:multimodal}
+\end{figure*}
+
+\begin{table*}[!tbp]
+\caption{Opening-sequence timing and pressure. Public-video intervals are
+measured within the USLaunchReport recording relative to PTS 71.7675~s; no
+absolute camera--BCHH synchronization is assumed. BCHH intervals are the
+median of same-channel DD2 and DD3 arrival differences. The differential
+advance is $\Delta t_{\rm video}-\Delta t_{\rm BCHH}$, so positive values mean
+the later signal required less propagation time than the initial event. The
+principal interval spans the preferred 0--2-frame onset range. Proprietary
+SpaceX timing checks are given in Supplementary Section~S4.}
+\label{tab:principal_events}
+\centering
+\small
+\begin{tabularx}{\textwidth}{Xccccc}
+\hline
+Signal &
+\shortstack{USLaunchReport interval\\from initial (s)} &
+\shortstack{Median BCHH interval\\from initial (s)} &
+\shortstack{Differential\\advance (s)} &
+$p_+$ (Pa) &
+\shortstack{$L_{\mathrm{peak}}$\\(dB)} \\
+\hline
+Upper-stage event & 0 & 0 & reference & 38.8 & 125.8 \\
+Principal explosion & 3.571--3.637 & 3.501014 & 0.070--0.136 & 1390 & 156.8 \\
+Payload impact & 12.5138 & 12.480232 & 0.0336 & 279.1 & 142.9 \\
+Payload-associated explosion & 13.1144 & 13.060170 & 0.0542 & 297.0 & 143.4 \\
+\hline
+\end{tabularx}
+\end{table*}
+
+\subsection{Weak-shock timing sensitivity}
+
+The positive overpressure of each named event was also used in a deliberately
+simple weak-shock sensitivity calculation. Local Mach number followed the
+normal-shock pressure-jump relation. To test whether faster propagation close
+to the source could be compatible with a nearly acoustic wave at BCHH, the
+measured pressure was extrapolated inward with $\Delta p\propto r^{-1}$ to a
+10-m cutoff and travel time integrated along the path. This is a sensitivity
+model, not a source-pressure inversion; the $1/r$ law is not validated in the
+near-source region. The quantity compared with Equation~\ref{eq:differential_advance}
+was the modeled propagation advance relative to the initial event, rather than
+an absolute source time.
+
+The pressure dependence of these timing differences is consistent with the
+weak-shock sensitivity calculation. Using the measured positive pressures and
+the simple inward $1/r$ model, the modeled propagation advance relative to the
+initial event is approximately 0.095~s for the principal explosion,
+0.019~s for the payload impact, and 0.021~s for the payload explosion. The
+principal prediction lies within the preferred public-video range. The two
+public-video payload residuals are somewhat larger than the simple model, while
+the proprietary UCS-3 estimates (about 0.020 and 0.023~s) are closer. Given the
+frame scale and uncertain payload source locations, we regard the common
+ordering and order of magnitude as more significant than the event-by-event
+numerical agreement (Figure~\ref{fig:differential_timing}).
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/fig_named_event_differential_timing.pdf}{%
+    \includegraphics[width=0.86\textwidth]{fig_named_event_differential_timing.pdf}%
+  }{%
+    \pendingfigure{Differential public-video--BCHH timing and weak-shock
+    comparison from Notebooks 080 and 140.}%
+  }
+  \caption{Differential timing of the three later named events relative to the
+  initial upper-stage event. Circles or brackets show the public
+  USLaunchReport source interval minus the median same-channel DD2/DD3 arrival
+  interval. The square markers show the simple weak-shock sensitivity model
+  derived from the measured positive pressures. Positive values indicate
+  reduced propagation time relative to the initial event. The principal source
+  onset spans the preferred 0--2-frame visual range; proprietary SpaceX
+  recordings provide independent higher-frame-rate checks.}
+  \label{fig:differential_timing}
+\end{figure*}
+\FloatBarrier
+
+
+\section{Event catalogue and temporal evolution}
+\label{sec:temporal_evolution}
+
+Conspicuous impulsive pressure signals readily visible across the microphone
+array were manually picked, usually giving one candidate arrival on each
+microphone. The rest of the catalogue pipeline was automated. For association,
+each candidate arrival was reduced to the DD2 reference by subtracting the
+predicted differential travel time from SLC-40 to that sensor using
+351~m~s$^{-1}$. A moving 0.04-s window, the smallest coincidence window on a
+stable association-count plateau, was then applied to identify coincident
+arrivals across the array and group them into events. This simple time-based
+event association was performed using GISMO \citep{thompson_gismo_2017}.
+
+Catalogue membership was separated from subsequent waveform-quality
+classification. Associated multichannel pressure transients constituted the
+event catalogue; the catalogue therefore records accepted multichannel
+pressure transients rather than independently verified physical explosions.
+DD1 was sporadically noisier and, overall, correlated less consistently with
+the other two pressure channels, so DD2 and DD3 provided the most stable
+waveform-quality pair. The usable-waveform subset required robust peak
+SNR $\geq3$ and DD2--DD3 correlation $\geq0.5$, whereas the core subset
+required SNR $\geq5$ and correlation $\geq0.7$. These waveform-quality labels
+did not determine catalogue membership.
+
+The final catalogue contains 153 accepted multichannel pressure transients.
+These occur in four descriptive phases containing 39, 4, 90, and 6 entries,
+respectively; 14 entries fall outside those intervals
+(Figure~\ref{fig:overview}). Phase~I spans the first 70~s of activity;
+Phases~II--IV mark later visually separated clusters. They are not inferred
+source regimes. Of the 153 entries, 138 met usable-waveform and 107 met core
+criteria. The independently defined planar classes contained 51 high-quality,
+45 intermediate, and 57 weak or broad solutions. Median robust peak SNR was
+7.86, median DD2--DD3 correlation 0.876, and median corrected span among
+associated picks 4.87~ms. These nested counts serve different analytical
+purposes and should not be interpreted as counts of independent explosions.
+
+A prolonged signal lasting approximately 3.2~min followed Phase~I; it is
+visible on DD2 pressure as well as the seismic channels, and the public footage
+shows vigorous fire across SLC-40 during this interval.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{fig03_bchh_30min_overview_zp_true.pdf}
+  \caption{Thirty-minute six-channel BCHH raw-data overview (no time reduction).
+  The upper traces are pressure and the lower traces are three-component ground
+  velocity. All traces use a zero-phase four-pole 0.5--25-Hz display filter and
+  are independently scaled by their robust 99.3rd-percentile amplitude;
+  amplitudes therefore cannot be compared between rows. The shaded Phase-I--IV
+  intervals contain 39, 4, 90, and 6 catalogue transients, respectively; 14
+  transients fall outside those intervals. The prolonged post-Phase-I signal is
+  marked descriptively rather than as a source classification.}
+  \label{fig:overview}
+\end{figure*}
+
+The phase structure is also evident in continuous energetic diagnostics from
+the same records (Figure~\ref{fig:sequence_energy_rates}). Five-second
+increments of high-pass-filtered DD2 acoustic energy emphasize the principal
+explosion and later bursts, whereas the three-component ground-motion energy
+proxy separates Phases~II--IV particularly clearly. The proxy is the
+band-limited increment of $\int(v_Z^2+v_R^2+v_T^2)\,dt$ and is not interpreted
+as radiated seismic energy.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/full_sequence_cumulative_acoustic_and_ground_motion.pdf}{%
+    \includegraphics[width=0.98\textwidth]{full_sequence_cumulative_acoustic_and_ground_motion.pdf}%
+  }{%
+    \pendingfigure{Continuous sequence acoustic-energy and ground-motion-proxy
+    rates from Notebook 090.}%
+  }
+  \caption{Continuous energetic evolution of the 26-min accident sequence in
+  5-s bins. (a) Hemispherical acoustic-energy increments from DD2 after a
+  zero-phase 0.5-Hz high-pass filter. (b) Three-component ground-motion energy
+  proxy after 0.5--20-Hz filtering. The latter is a local measure of recorded
+  ground motion, not radiated seismic energy. Shading marks the four descriptive
+  phase windows and hatching the prolonged post-Phase-I signal.}
+  \label{fig:sequence_energy_rates}
+\end{figure*}
+\FloatBarrier
+
+
+\section{Waveform morphology and array propagation}
+\label{sec:array_propagation}
+
+For the high-quality planar subset, pressure and vertical-ground-velocity
+waveforms were aligned to the event reference and normalized independently
+before calculating pointwise medians and percentile envelopes. The waveform
+ensemble is used to describe repeatable morphology, not to infer source timing
+or Mach number.
+
+The 51 high-quality planar events show broadly repeatable impulsive compression
+followed by a smaller and longer rarefaction, whereas vertical ground velocity
+has a substantially longer oscillatory coda
+(Figure~\ref{fig:waveform_ensemble}). The strongest pressure pulses are
+Friedlander-like in form; classical symmetric N-wave morphology was not
+observed. Many weaker pressure impulses approach the seismic and acoustic noise
+floors. Waveform shape is therefore consistent with blast-wave propagation but
+is not by itself a Mach-number measurement.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.88\textwidth]{high_quality_normalized_pressure_and_dhz_waveforms.pdf}
+  \caption{Independently normalized pressure and vertical-ground-velocity
+  waveforms for the 51 events in the high-quality planar class. Pale curves
+  are individual events, the dark curve is the pointwise median, and shading
+  spans the 16th--84th percentiles.}
+  \label{fig:waveform_ensemble}
+\end{figure*}
+
+A time-domain planar-wave grid search estimated back azimuth and apparent
+velocity by maximizing multichannel waveform agreement. All catalogue entries
+were processed, while physical interpretation emphasized quality-controlled
+solutions. A fixed-source circular-wavefront calculation tested sensitivity to
+the 1.4-km source range; because the three-element array provides only two
+independent relative delays, it was not expected to resolve both source range
+and propagation speed.
+
+Time-domain propagation quality was classified independently. The high-quality
+planar class required maximum coherence $\geq0.90$, back-azimuth standard
+deviation $\leq0.5^\circ$, and apparent-speed standard deviation
+$\leq3.0$~m~s$^{-1}$ across nine perturbations of the event scoring window.
+Intermediate solutions used corresponding thresholds of 0.75, 1.0$^\circ$,
+and 8.0~m~s$^{-1}$; remaining solutions were classified as weak or broad.
+
+Independent frequency-domain Bartlett beamforming was performed using InfraPy
+version~0.4.1.0, developed at Los Alamos National Laboratory (LANL)
+\citep{webster_infrapy_2025}, with all three pressure channels. The primary
+validation used 0.5-s windows centred on the catalogue times and a 2--20-Hz
+band. If $C$ denotes multichannel coherence for $N=3$ sensors, the Bartlett
+statistic was
+\begin{equation}
+ F=\frac{(N-1)C}{1-C}.
+\end{equation}
+It is a monotonic transformation of coherence, not a measure of pressure,
+energy, or yield. An empirical screening threshold was the 99.5th percentile
+of one nonoverlapping 0.5-s pre-event background window for each catalogue
+entry. A separate scan of 17,839 overlapping windows, positioned without
+reference to catalogue times, tested catalogue recovery and searched for
+additional coherent activity.
+
+Source-to-array integrated travel time and array-crossing apparent velocity are
+different measurements. The timing comparison above tests integrated
+propagation over the approximately 1.4-km path, whereas array processing
+measures the wavefront locally across the approximately 30-m BCHH aperture and
+is sensitive to metre-scale reconstructed-position errors.
+
+In the event-centred InfraPy Bartlett analysis, median back azimuth was
+200.7$^\circ$ compared with the geometric 199.4$^\circ$; 145 of 153 events
+were within 5$^\circ$ of SLC-40. Median apparent velocity was
+354.6~m~s$^{-1}$, and 113 events exceeded the empirical background threshold
+$F=3.02$. The blind scan matched 129 catalogue entries (84.3\%) one-to-one;
+recovery increased to 75 of 77 entries with event-centred $F\geq5$ and 41 of
+42 with $F\geq10$.
+
+The independent time-domain analysis gave a high-quality coherence-weighted
+direction of 200.7$^\circ$ from projected grid north and an apparent velocity
+of 352.0~m~s$^{-1}$. Conditional sensor-position tests show that 1--2-m
+reconstruction errors across the aperture can exceed the observed direction
+and velocity dispersions (Supplementary Section~S5). The finite-distance
+calculation did not resolve range and slightly reduced coherence; the planar
+result is therefore preferred.
+
+For the principal explosion, the preferred time-domain array-crossing solution
+was 352.5~m~s$^{-1}$ with coherence 0.9984. A separate short-window Bartlett
+solution gave approximately 369.4~m~s$^{-1}$ with $F\simeq4.49$. The measured
+1.39-kPa positive overpressure provides an independent constraint: interpreted
+as a normal-shock pressure jump, it gives $M=1.0059$ at BCHH and a local speed
+of about 353.0~m~s$^{-1}$ after adding the path-parallel tailwind. A local
+shock speed of 369.4~m~s$^{-1}$ would require overpressure of order 13~kPa,
+about an order of magnitude larger than measured. The higher Bartlett value is
+therefore unlikely to be the true local shock speed.
+
+\begin{figure*}[!tbp]
+  \centering
+  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/060_analyze_planar_array_propagation/combined_04b_08_array_summary.pdf}{%
+    \includegraphics[width=0.98\textwidth]{combined_04b_08_array_summary.pdf}%
+  }{%
+    \pendingfigure{Combined time-domain planar and event-centred Bartlett
+    array summary from the streamlined propagation notebooks.}%
+  }
+  \caption{Array-processing results through the 153-transient sequence.
+  Time-domain planar back azimuth and apparent velocity are shown with the
+  independent event-centred Bartlett statistic. Dashed lines mark the geometric
+  SLC-40 direction, meteorologically predicted effective acoustic speed, and
+  empirical Bartlett background threshold. Bartlett $F$ measures coherent
+  plane-wave fit and is not a pressure or energy measure.}
+  \label{fig:array_summary}
+\end{figure*}
+\FloatBarrier
+
+
+\section{Seismic/acoustic coupling}
+\label{sec:coupling}
+
+Catalogue and regression pressures were peak-to-peak amplitudes of the
+differentially aligned median waveform; named-event pressures were medians of
+independently measured channel extrema. Three-component vector peak ground
+velocity (PGV) was measured over a pressure-defined seismic window. A log--log
+model
+\begin{equation}
+ \log_{10}p_{\mathrm{p2p}}=a+b\log_{10}(\mathrm{PGV})
+ \label{eq:power_law}
+\end{equation}
+was fitted to entries with pressure-stack and vector-PGV SNR both $\geq5$ and
+event-window PGV at least 70\% of the maximum in the saved approximately
+1.1-s segment. This criterion does not establish full event/coda capture.
+Conditional percentile ranges were obtained by resampling overlapping
+measurement groups together, with catalogue-entry resampling retained as a
+comparison.
+
+Forty-six catalogue entries occupying 45 overlapping-measurement groups met
+the joint criteria for pressure--PGV regression. The fitted slope was 0.962
+(overlap-group bootstrap 2.5--97.5 percentiles 0.871--1.011), $R^2=0.953$,
+and Spearman correlation 0.931 (Figure~\ref{fig:pressure_pgv}). Excluding all
+selected rows in the principal measurement group gave $b=0.943$ and
+$R^2=0.905$ for 44 entries. The median selected-entry pressure-to-vector-PGV
+ratio was $4.34\times10^5$~Pa per (m~s$^{-1}$), equivalently
+$2.31\times10^{-6}$~(m~s$^{-1}$)~Pa$^{-1}$.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.82\textwidth]{publication_pressure_pgv_regression.pdf}
+  \caption{Peak-to-peak pressure versus three-component vector PGV for 46
+  measurement-quality catalogue entries. The solid curve is the fitted power
+  law. The dashed line shows the median proportional relation,
+  $p_{\mathrm{p2p}}=4.34\times10^5\,\mathrm{PGV}$, equivalently
+  $\mathrm{PGV}=2.31\times10^{-6}p_{\mathrm{p2p}}$, in SI units.}
+  \label{fig:pressure_pgv}
+\end{figure*}
+
+Frequency-dependent coupling was described by the H1 pressure-to-vertical-
+velocity transfer-function estimator
+\begin{equation}
+ H_1(f)=\frac{S_{pv}(f)}{S_{pp}(f)},
+ \label{eq:h1_transfer}
+\end{equation}
+where $S_{pv}(f)$ is the cross-spectral density between pressure $p$ and
+vertical ground velocity $v$, and $S_{pp}(f)$ is the pressure autospectral
+density. The H1 estimator treats pressure as input and vertical velocity as
+output, so $|H_1|$ has units of m~s$^{-1}$~Pa$^{-1}$ and represents the
+frequency-dependent seismic/acoustic coupling coefficient. Magnitude-squared
+coherence was calculated alongside $H_1$. Continuous estimates used the
+opening activity interval (Phase~I; see Section~\ref{sec:temporal_evolution});
+event and continuous estimates overlap in time and were treated as
+complementary rather than independent.
+
+Event-window and continuous analyses both showed enhanced vertical response per
+unit pressure near 4--5 and 20--24~Hz, with a weaker 13--14-Hz feature
+(Figure~\ref{fig:transfer}). The H1 pressure-to-vertical-ground-velocity
+transfer-function magnitude reached approximately
+$5$--$7\times10^{-6}$~(m~s$^{-1}$)~Pa$^{-1}$ in the principal coupling bands,
+with elevated coherence across parts of the same frequency ranges.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]{publication_pressure_dhz_transfer_and_coherence.pdf}
+  \caption{Empirical frequency-dependent seismic/acoustic coupling coefficient
+  at BCHH. H1 pressure-to-vertical-ground-velocity magnitude is shown for the
+  high-quality event ensemble and continuous Phase~I, together with
+  magnitude-squared coherence.}
+  \label{fig:transfer}
+\end{figure*}
+
+
+The focused upper-stage analysis also identified a candidate seismic arrival
+before the predicted ground-coupled airwave (Supplementary Section~S9).
+Median persistent causal threshold crossings occurred at 1.863 and 1.895~s
+in the 0.8--3- and 3--8-Hz bands, respectively, relative to the adopted
+351~m~s$^{-1}$-reduced upper-stage time coordinate; the predicted acoustic
+arrival at the seismometer was approximately 4.046~s. At 1.420~km range,
+these onsets imply conditional path-average apparent speeds of approximately
+0.75--0.76~km~s$^{-1}$. Their agreement across adjacent bands and the
+amplitude-gated radial-plane polarization are suggestive of a direct
+ground-propagating contribution. However, the source-time reference is
+inferred, upstream response correction and preprocessing are not entirely
+causal, and a single seismic station cannot uniquely identify P, S, or
+Rayleigh waves. A seven-event stack did not corroborate a repeatable early
+arrival (Supplementary Section~S9).
+
+\section{Acoustic energetics}
+\label{sec:energetics}
+
+For the four named opening signals, acoustic exposure was integrated over
+manually reviewed windows. For a progressive acoustic wave, intensity is
+proportional to $p^2/(\rho c)$; assuming hemispherical spreading and no
+atmospheric attenuation gives
+\begin{equation}
+ E_{2\pi}=\frac{2\pi r^2}{\rho c}\int p^2(t)\,dt,
+ \label{eq:acoustic_energy}
+\end{equation}
+following standard acoustic-energy treatments
+\citep[e.g.,][]{johnson_aster_2005}. The model does not explicitly correct
+receiver ground reflection, source directivity, or local obstacles; changing
+$2\pi$ to $4\pi$ does not resolve those effects. Acoustic TNT equivalence is
+$E_{2\pi}/(4.184\times10^6~\mathrm{J\,kg^{-1}})$, an energy-unit conversion
+rather than a blast-yield estimate. No confirmed regional Falcon~9 branch with
+a stable dominant period was available, so efficiency-dependent yield scenarios
+are confined to the Supplementary Material.
+
+The continuous sequence-rate view in
+Figure~\ref{fig:sequence_energy_rates} complements the event-window
+measurements below by showing when acoustic energy and the local ground-motion
+proxy accumulated, without treating every catalogue pick as an independent
+energy release.
+
+Within the processed infraBSU passband (approximately 0.05--80~Hz), the
+manually reviewed principal-explosion window had a median positive-peak sound
+pressure level of 156.8~dB re 20~$\mu$Pa and a median
+hemispherical-equivalent radiated acoustic energy of
+$2.2\times10^9$~J across DD1--DD3
+(range $1.93$--$2.51\times10^9$~J). Expressed only as an energy-unit
+conversion, this is equivalent to approximately 525~kg TNT.
+
+In the separate de-duplicated sequence analysis, 51 selected event windows
+merged into 47 nonoverlapping complexes. Their cumulative median radiated
+acoustic energy was $2.27\times10^9$~J
+(range $1.95$--$2.55\times10^9$~J), equivalent to 543~kg TNT
+(range 467--610~kg). The cumulative value covers only the selected
+measurement intervals rather than the complete 26-min sequence. A separate
+source of uncertainty is the approximately $\pm20\%$ reproducibility of the
+pressure calibration procedure; because acoustic energy scales with squared
+pressure, this corresponds to a median-energy range of approximately
+$(1.4\text{--}3.2)\times10^9$~J.
+
+These acoustic-energy estimates can be compared with, but should not be
+equated to, the chemical-energy reservoir of the launch vehicle. Published
+Falcon~9 v1.2 specifications give nominal propellant masses of approximately
+411~t for the first stage and 111.5~t for the second stage, for approximately
+522.5~t of LOX/RP-1 at full load
+\citep{<Falcon9_datasheet_key>}. Using the nominal LOX/RP-1 mixture ratio and
+the heating value of RP-1 gives a full-load chemical-energy reservoir of order
+$6$--$7\times10^{12}$~J. The exact propellant inventory aboard AMOS-6 at the
+time of failure is not publicly documented, and the accident occurred during
+the propellant-loading sequence; the full-load value is therefore an upper
+bound rather than an estimate of the instantaneous onboard energy.
+
+
+\section{Regional detectability and atmospheric propagation}
+\label{sec:regional}
+
+Regional screening used broad physically plausible acoustic-celerity and
+seismic-velocity windows. Pressure waveforms were band-pass filtered from 0.2
+to 1.0~Hz and evaluated within apparent-celerity windows of
+180--350~m~s$^{-1}$, subdivided for candidate generation into nominal
+thermospheric-or-slow (180--260~m~s$^{-1}$), stratospheric
+(260--310~m~s$^{-1}$), and tropospheric (310--350~m~s$^{-1}$) windows. These
+labels do not identify actual atmospheric propagation paths. For each pressure
+phase window, the maximum absolute pressure was compared with equal-duration
+pre- and post-event controls. Robust background noise was
+$\sigma=1.4826\,\mathrm{MAD}$. Candidates required SNR $\geq2.5$, an event
+peak at least 1.25 times the larger control peak, complete waveform coverage,
+and a 120-s guard between controls and the expected-arrival interval. Candidate
+arrival time was the maximum Hilbert-envelope amplitude within the phase
+window. These permissive criteria generated candidates for visual and
+network-coherence review rather than formal detections.
+
+Regional screening began with 171 station--sensor targets, of which 165
+produced usable waveform records. The current run flagged 94 candidate phase
+windows at 68 stations. An earlier candidate set was visually reviewed; the
+current exported review table does not retain those decisions, so completion
+of manual classification for all current windows is not asserted here.
+
+Three prominent 0.2--1.0-Hz pressure packets at N4.257A.EP.BDF,
+N4.S54A.EP.BDF, and N4.R55A.EP.BDF (381--1079~km) stand above the surrounding
+background and are retained as possible regional arrivals from the Falcon~9
+failure. Their peak amplitudes are 0.162--0.352~Pa and apparent celerities
+192.7--224.7~m~s$^{-1}$. The packets at S54A and R55A are particularly
+distinctive; 257A contains more competing transient activity. Their occurrence
+within the slow-celerity screening window does not establish a thermospheric
+path. Source association remains uncertain because coherent network moveout
+has not been established. They are not used for period--yield analysis.
+Waveform panels, maps, and screening details are in Supplementary Section~S8.
+
+The upper-air observations showed strongly height-dependent winds, with
+southerly to southwesterly flow through much of the lower troposphere, stronger
+westerly flow near 10--15~km altitude, and a reversal to easterly flow in the
+lower stratosphere. The AMPS temperature profile showed decreasing sound speed
+through the troposphere followed by recovery above the tropopause, producing a
+strongly height- and azimuth-dependent effective sound-speed structure. These
+conditions are consistent with substantial directional refraction and possible
+regional acoustic shadowing, but no atmospheric propagation model was used to
+predict specific return ranges.
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Forensic chronology and the precursor question}
+
+The BCHH record supplies a chronology independent of vehicle telemetry. One
+question posed during the initial forensic review was whether the record
+contained an external precursory acoustic or seismic signal that might indicate
+an externally initiated event. The 48-h six-channel review found no such signal
+before the initial upper-stage explosion, consistent with the November~2016
+forensic report \citep{thompson_mcnutt_fireball_2016} and the 2017 AGU
+presentation \citep{thompson_agu_falcon9_2017}. This result does not exclude
+weak, internal, non-impulsive, or poorly coupled processes, but it provides no
+geophysical evidence for a conspicuous external precursor.
+
+The opening chronology is now constrained without assigning absolute UTC to the
+video. The first event is common to the BCHH record and the public
+USLaunchReport recording and defines the reference. Later source intervals are
+measured within that same public recording, while later arrivals are measured
+independently on DD2 and DD3. Proprietary SpaceX views, including UCS-3 near
+BCHH and cameras at SLC-40, provide higher-frame-rate validation without being
+mixed into the public-video clock. This is a stronger construction than
+comparing BCHH arrivals with source times obtained by reducing those same
+arrivals at 351~m~s$^{-1}$. SpaceX later attributed the
+initiating failure to a composite overwrapped pressure vessel in the
+second-stage liquid-oxygen tank \citep{spacex_anomaly_2017,nasa_sma_falcon9}.
+BCHH cannot identify that internal mechanism. Its abrupt onset is compatible
+with, but does not prove, the reported rapid transition from anomalous telemetry
+to second-stage loss.
+
+\subsection{Differential timing and weak-shock propagation}
+
+The independent event intervals provide the strongest evidence for
+propagation faster than the nominal acoustic speed. The public recording gives
+a 0.07--0.14-s differential reduction for the principal explosion, with
+substantially smaller reductions for the payload events; the proprietary UCS-3
+record independently gives the same ordering and scale. The principal range
+reflects the preferred 0--2-frame visual-onset uncertainty. Agreement between
+independent camera views is more important here than small differences between
+their frame-scale residuals.
+
+This comparison does not require the camera clock to be synchronized to BCHH.
+Nor, for events at the same nominal source position, does it depend strongly on
+the exact value of the 351~m~s$^{-1}$ reference speed: the common linear travel
+time cancels when event intervals are differenced. The reference speed remains
+useful for catalogue reduction and for expressing nominal predicted arrivals.
+For the payload events, source position is less certain, and a displacement of
+only several metres begins to matter for residuals of a few hundredths of a
+second. Their timing is therefore supporting rather than decisive evidence.
+
+The amplitude dependence strengthens this interpretation: the weak-shock
+sensitivity calculation reproduces the observed ordering and approximate scale
+without using the video timing to set its parameters. The agreement should not
+be overinterpreted, because extrapolating $1/r$ pressure growth inward to 10~m
+is a sensitivity calculation rather than a source-pressure inversion.
+
+The integrated source-to-receiver timing should also not be confused with the
+local array-crossing velocity. The preferred principal-event array solution is
+352.5~m~s$^{-1}$, close to the meteorological effective sound speed at BCHH.
+The measured positive overpressure corresponds to only $M\approx1.006$ if
+interpreted as a normal-shock jump. These local observations are consistent
+with a wave that was only weakly nonlinear by 1.4~km. They do not argue against
+faster propagation earlier on the path: a blast wave decelerates as its
+overpressure decreases. Conversely, the approximately 369~m~s$^{-1}$
+short-window Bartlett value would require an overpressure of order 13~kPa if
+interpreted literally as the local shock speed, and is therefore unlikely to
+represent the true wavefront velocity at BCHH.
+
+Waveform morphology is compatible with this blast-wave interpretation but
+does not independently establish Mach number. Taken together, the differential
+timing, measured pressure, local array speed, waveform shape, and weak-shock
+sensitivity calculation favor a nonlinear blast that propagated supersonically
+closer to the vehicle and decayed toward ordinary acoustic propagation before
+reaching BCHH. The data do not require a strongly supersonic front at the
+receiver.
+
+\subsection{Seismic/acoustic coupling and energy partition}
+
+One of the more transferable results is the empirical local
+seismic/acoustic coupling coefficient. Pressure scaled nearly linearly with
+three-component vector PGV across the measurement-quality subset, and removing
+the principal measurement group changed the fitted relation only modestly. The
+result therefore does not arise solely from the largest event, although it
+remains an empirical BCHH relation rather than a universal
+pressure-to-ground-motion conversion. This velocity-to-pressure ratio is
+directly comparable in form to seismic/acoustic coupling coefficients derived
+from Hunga Tonga--Hunga Ha'apai pressure waves
+\citep{anthony_hunga_coupling_2023,macpherson_hunga_coupling_2025}, while
+remaining conceptually distinct from energy-partition metrics such as the
+volcano acoustic-to-seismic ratio (VASR) \citep{johnson_aster_2005}.
+
+The H1 analysis reveals frequency dependence hidden by the broadband
+peak-amplitude relation, with repeatable enhanced response in the bands
+identified above. Its spectral magnitude need not equal the broadband coupling
+coefficient because H1 uses vertical motion and spectral averages within
+individual frequency bands. Agreement between event-window and continuous
+estimates supports a repeatable local seismic/acoustic response, comparable in
+scale to controlled-explosion, volcanic, and Hunga Tonga--Hunga Ha'apai
+measurements \citep{novoselov_ground_coupling_2020,anthony_hunga_coupling_2023,
+macpherson_hunga_coupling_2025}. A second seismic station and a shallow
+velocity model would be needed to relate this response more directly to local
+material properties and subsurface structure.
+
+The pressure calibration remains an important limitation on both the
+coupling and energetic estimates, but the lift-test calibration is supported
+by the independent launch comparison. For the likely 1-inch DD3 head, its
+nominal sensitivity of 9.2~counts~Pa$^{-1}$ is close to the adopted
+10.0~counts~Pa$^{-1}$ lift-test value: using the nominal value would raise
+DD3-derived pressures by only 8.7\%. This agreement does not establish an
+absolute laboratory calibration, and the anomalously low DD2 sensitivity
+remains an important qualification, but it supports use of the empirical
+factors within the stated $\pm20\%$ pressure uncertainty.
+
+The principal explosion accounts for nearly all of the selected
+acoustic-energy budget under the adopted processing and $2\pi$ radiation
+model. These quantities are finite-passband, model-equivalent radiated acoustic
+energies rather than blast yields. Absolute calibration, possible sensor
+over-range response, baseline choice, receiver reflection, source directivity,
+and local obstacles are correspondingly more important than the reported
+numerical precision.
+
+A useful interpretation requires separating three energy scales:
+the chemical energy stored in the propellants, the fraction participating
+promptly in the pressure-producing blast, and the still smaller fraction
+radiated acoustically. Nominal Falcon~9 Full Thrust propellant capacity
+corresponds to a full-load chemical-energy reservoir of order
+$6$--$7\times10^{12}$~J. The measured principal-explosion acoustic energy is
+therefore only about $3\times10^{-4}$, or 0.03\%, of that reservoir. This
+chemical-to-acoustic ratio spans both conversion steps and should not be
+interpreted as an acoustic efficiency. Moreover, the vehicle failed during
+propellant loading, so the actual onboard chemical-energy reservoir was below,
+or at most equal to, the nominal full-load value.
+
+The distinction is illustrated by the 2026 New Glenn static-fire explosion.
+Regional infrasound observations gave an effective blast yield of approximately
+0.131~kt TNT, or $5.5\times10^{11}$~J, and comparison with plausible onboard
+chemical-energy reserves implied a blast-coupling fraction of approximately
+3--4\% for a full-fill scenario
+\citep{silber_scamfer_newglenn_2026}. This is the fraction of chemical energy
+represented by the inferred impulsive blast, not the fraction radiated as
+acoustic energy. The New Glenn study therefore constrains a different step in
+the energy partition from the close-range Falcon~9 measurement.
+
+As a sensitivity comparison, applying the same 3--4\% blast-coupling fraction
+to a fully loaded Falcon~9 would give an effective impulsive blast energy of
+approximately $(2.0$--$2.7)\times10^{11}$~J, or about 48--64~t TNT
+equivalent. The measured $2.2\times10^9$-J radiated acoustic energy would then
+correspond to approximately 0.8--1.1\% of that effective blast energy. These
+values are not an independent Falcon~9 yield estimate: neither the actual
+propellant fill fraction nor the chemical-to-blast coupling is known. They do,
+however, demonstrate that the apparently small 0.03\% chemical-to-acoustic
+ratio does not require an exceptionally inefficient acoustic source. A
+two-stage partition,
+\[
+ E_{\mathrm{chemical}}
+ \rightarrow E_{\mathrm{blast}}
+ \rightarrow E_{\mathrm{acoustic}},
+\]
+with a few percent entering the impulsive blast and of order one percent of
+that blast energy appearing in the present radiated-acoustic estimate, is
+consistent with both the Falcon~9 measurements and the New Glenn comparison.
+The detailed sensitivity calculation is given in Supplementary Section~S7.
+
+\subsection{Regional propagation and candidate arrivals}
+
+No regional counterpart to the Falcon~9 explosion was confirmed. The
+permissive screen produced numerous candidates, but manual review and the
+northern record section found no coherent regional moveout; the three
+prominent pressure packets remained possible arrivals with uncertain source association. The event therefore
+cannot support a regional period--yield analysis of the kind applied to New
+Glenn \citep{silber_scamfer_newglenn_2026}.
+
+The absence of a confirmed regional association is not necessarily inconsistent with the strong
+close-range signal. Contemporaneous KSC wind-profiler and AMPS sounding data
+show a strongly height- and azimuth-dependent atmosphere, including decreasing
+temperature-dependent sound speed through the troposphere, strong westerly
+flow near 10--15~km, and a wind reversal in the lower stratosphere. These
+observations indicate conditions favorable for substantial directional
+refraction and are consistent with possible acoustic shadowing or strongly
+favored propagation corridors. Because the measured sounding extends only
+through the lower stratosphere and no ray-tracing or full-wave propagation
+calculation is included here, we do not use the atmospheric structure to
+predict specific return ranges or explain individual station
+non-detections. Wind-dependent spectral filtering provides an additional
+reason not to transfer regional period--yield relations without propagation
+modelling \citep{silber_wind_filtering_2026}.
+
+\subsection{Monitoring implications and limitations}
+
+A single stand-off site constrained onset, chronology, relative amplitude,
+source direction, acoustic speed, and local seismic/acoustic coupling while pad
+access was restricted. A permanent KSC seismo-acoustic network could build on
+that result. Several compact pressure arrays paired with separated
+three-component seismic stations would provide triangulation and path sampling,
+separate direct ground waves from local seismic/acoustic conversion, and test
+whether the BCHH seismic/acoustic coupling coefficient transfers between sites. Continuous
+recording would preserve the background needed for both real-time situational
+awareness and later forensic analysis.
+
+The main limitations are the single site, metre-scale reconstructed sensor
+positions, empirical pressure calibration, pressures beyond nominal sensor
+ranges, manual event identification, uncertain absolute video timing, and
+first-order radiation assumptions. The provisional $\pm20\%$ pressure
+calibration uncertainty affects all absolute pressure-dependent results.
+Baseline, geometry, propagation, and possible over-range nonlinearity add
+uncertainties outside that percentage. Nearby-launch raw-count checks support
+relative DD2/DD3 stability, but do not identify DD2's nominal head or establish
+an absolute calibration. The timing, direction, and scaling results remain
+useful; absolute energy, yield, and seismic-phase interpretations require more
+caution.
+
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+The BCHH array captured an unusually complete close-range record of the 2016
+Falcon~9 AMOS-6 failure. A gap-free six-channel review found no precursor
+signal during the 37~h before the initial upper-stage event, although weak,
+internal, non-impulsive, or poorly coupled processes remain outside that
+constraint. The subsequent 26-min sequence contains 153 accepted multichannel
+pressure transients distributed among four prominent activity phases.
+
+Independent public-video and BCHH timing shows that the principal explosion
+gained about 0.07--0.14~s of propagation time relative to the initial event
+over the 1.4-km path, while the smaller payload events show smaller positive
+residuals. Higher-frame-rate proprietary SpaceX recordings independently
+support the event identifications and the same pressure-dependent ordering,
+which is also reproduced in scale by the weak-shock sensitivity calculation.
+
+The principal event did not remain strongly supersonic to BCHH. Its preferred
+local array-crossing speed was 352.5~m~s$^{-1}$ and its 1.39-kPa positive
+overpressure corresponds to only $M\approx1.006$ under a normal-shock
+interpretation. The combination is consistent with a stronger nonlinear blast
+closer to the vehicle that decayed toward the ambient acoustic speed by
+1.4~km. Its strongest pressure waveform is Friedlander-like, but waveform
+shape alone is not used to establish the Mach number.
+
+Within the processed infraBSU passband, the principal explosion reached a
+median positive-peak sound pressure level of 156.8~dB re 20~$\mu$Pa and a
+median hemispherical-equivalent radiated acoustic energy of
+$2.2\times10^9$~J. That energy is distinct from explosive yield. A fully loaded
+Falcon~9 contains of order $6$--$7\times10^{12}$~J of propellant chemical
+energy, so the measured acoustic energy is only about 0.03\% of that nominal
+reservoir and spans both chemical-to-blast and blast-to-acoustic conversion.
+
+Array back azimuths independently support SLC-40 as the source. Event
+pressures scaled nearly proportionally with vector PGV, giving a median
+seismic/acoustic coupling coefficient of
+$2.3\times10^{-6}$~(m~s$^{-1}$)~Pa$^{-1}$, while H1 analysis identified
+repeatable coupling bands near 4--5 and 20--24~Hz. No coherent regional
+counterpart was confirmed despite systematic screening and manual review.
+Contemporaneous upper-air observations indicate strongly direction-dependent
+propagation, but detailed regional ray paths were not modelled.
+
+These observations show the value of close-range, continuously recording
+seismo-acoustic instrumentation for reconstructing complex launch-vehicle
+failures when engineering telemetry and direct site access are limited. A
+permanent distributed KSC seismo-acoustic network would improve source
+triangulation, constrain blast-wave decay, and provide repeat measurements of
+local seismic/acoustic coupling. The archived waveforms, direct arrival picks,
+same-camera frame-timing metadata, catalogue, and reproducible workflow provide
+a reference dataset for that monitoring design and for future studies of
+complex atmospheric explosions.
+
+\begin{acknowledgements}
+We thank Michael Wagner and USLaunchReport for recording the accident and for
+written permission to use selected material in presentations and publications.
+We thank SpaceX for providing additional camera recordings used to check the
+opening chronology.
+We thank Kennedy Space Center personnel for facilitating the BCHH deployment
+and access to meteorological observations. Regional waveform data were
+accessed through FDSN services; the IU Global Seismographic Network is cited
+in the reference list \citep{asl_gsn_iu_1988}.
+\end{acknowledgements}
+
+
+\section*{Funding}
+
+The present reanalysis and manuscript received no dedicated funding. SpaceX
+provided US\$5,000 to USF in September 2016 for the original forensic analysis
+and report. A contemporaneous US\$25,000 Florida Space Grant Consortium award
+supported the broader research program, comprising US\$12,500 from the
+Consortium and US\$12,500 in USF matching funds. Neither funder influenced the
+present reanalysis, interpretation, manuscript, or decision to submit.
+
+
+\section*{Data and code availability}
+
+The Python notebooks, project modules, shared configuration, environment
+specification, data manifest, output conventions, and derived products will be
+archived as a versioned release in a repository issuing a persistent DOI. BCHH
+waveforms, metadata, calibration information, manual picks, meteorological
+inputs, event catalogue, and derived tables will be deposited in the same or a
+linked record. The 48-h six-channel input used for the precursor screen is
+separate from the short accident-analysis record and will be identified with
+its exact coverage and processing provenance. The DOI and repository URL will be inserted before submission.
+
+Regional waveforms remain available from their FDSN data centres and network
+operators. The archive will include the station/channel manifest, availability
+audit, screening metrics, and manual-review status/decisions. Selected regional
+waveforms used for candidate validation will be retained as MiniSEED with
+event-epoch StationXML and exact request/coverage metadata. The November~2016
+technical report is cited as an unpublished historical source and is not
+publicly available \citep{thompson_mcnutt_fireball_2016}; the 2017 AGU
+presentation abstract is publicly archived \citep{thompson_agu_falcon9_2017}. The USLaunchReport and
+Scott Manley videos remain at their cited URLs
+\citep{uslaunchreport_amos6_video_2016,manley_spacex_explosion_2016}. Copyright
+in the source footage remains with USLaunchReport.com/Michael Wagner; the
+archive will provide synchronization metadata and code rather than redistribute
+the video. The proprietary SpaceX camera files cannot be redistributed; the archive
+will instead include the reviewed UCS-3/SLC-40 frame and timecode observations,
+together with code used to calculate intervals within each camera separately.
+The public USLaunchReport PTS picks used for the primary timing analysis will
+also be archived.
+
+
+\section*{Competing interests}
+
+The authors declare no competing interests. SpaceX support was limited to the
+original 2016 forensic work; SpaceX had no role in the present reanalysis,
+interpretation, manuscript preparation, or submission decision.
+
+% The Seismica class selects abbrvnat_seismica_upcasetitle automatically.
+\bibliography{falcon9_bibfile}
+
+\end{document}

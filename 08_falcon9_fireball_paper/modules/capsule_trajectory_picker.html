@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Capsule trajectory picker</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2937;background:#f8fafc}
+body{margin:0;padding:20px}.wrap{max-width:1100px;margin:auto}.grid{display:grid;gap:12px}.controls{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.panel{background:#fff;border:1px solid #d1d5db;border-radius:10px;padding:14px;margin:12px 0}
+label{font-size:14px} input,button{font:inherit} input[type=number],input[type=file]{width:100%;box-sizing:border-box;padding:8px;margin-top:5px}
+button{padding:9px 12px;border:1px solid #9ca3af;border-radius:7px;background:white;cursor:pointer} button:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.stage{position:relative;background:#000;aspect-ratio:16/9;overflow:hidden;border-radius:8px}
+video,canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain} canvas{cursor:crosshair}
+table{border-collapse:collapse;width:100%;font-size:13px} th,td{text-align:left;padding:5px;border-bottom:1px solid #e5e7eb}
+small,.muted{color:#6b7280}.result{line-height:1.5}.good{font-weight:700;font-size:18px}
+</style>
+</head>
+<body><div class="wrap">
+<h1>Capsule trajectory picker</h1>
+<p>Load the original video locally, step frame-by-frame, click the capsule centroid, set the impact level, and fit a quadratic image-space trajectory to estimate impact PTS. The video never leaves your browser.</p>
+
+<div class="panel">
+<label>Video file<input id="videoFile" type="file" accept="video/*"></label>
+<div class="grid controls" style="margin-top:12px">
+<label>Start PTS (s)<input id="startPts" type="number" step="0.001" value="82.5"></label>
+<label>End PTS (s)<input id="endPts" type="number" step="0.001" value="84.5"></label>
+<label>Frame interval (s)<input id="frameDt" type="number" step="0.00001" value="0.03337"></label>
+</div>
+<div class="actions" style="margin-top:12px">
+<button id="goBtn" disabled>Go to start</button>
+<button id="prevBtn" disabled>◀ Previous frame</button>
+<button id="nextBtn" disabled>Next frame ▶</button>
+<button id="undoBtn" disabled>Undo pick</button>
+<button id="groundBtn" disabled>Set impact level</button>
+<button id="resetBtn" disabled>Reset</button>
+<span id="status" class="muted">Load a video to begin.</span>
+</div>
+</div>
+
+<div class="panel">
+<div class="stage"><video id="video" muted playsinline></video><canvas id="overlay"></canvas></div>
+<p><small>Click the center of the capsule on each useful frame. Click “Set impact level” and then click the vertical image level representing impact/ground. Picks are stored as normalized image coordinates.</small></p>
+</div>
+
+<div class="grid controls">
+<div class="panel">
+<h2>Picks</h2>
+<div style="overflow:auto;max-height:330px"><table><thead><tr><th>PTS (s)</th><th>x</th><th>y</th></tr></thead><tbody id="pickRows"></tbody></table></div>
+<div class="actions" style="margin-top:10px"><button id="downloadBtn" disabled>Download CSV</button></div>
+</div>
+<div class="panel">
+<h2>Fit</h2><div id="fitResult" class="result muted">Pick at least 3 positions and set the impact level.</div>
+</div>
+</div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const video=$('#video'),canvas=$('#overlay'),ctx=canvas.getContext('2d');
+const file=$('#videoFile'),start=$('#startPts'),end=$('#endPts'),dt=$('#frameDt');
+const go=$('#goBtn'),prev=$('#prevBtn'),next=$('#nextBtn'),undo=$('#undoBtn'),groundBtn=$('#groundBtn'),reset=$('#resetBtn'),download=$('#downloadBtn');
+const rows=$('#pickRows'),status=$('#status'),fit=$('#fitResult');
+let picks=[],groundY=null,groundMode=false,url=null;
+const num=(el,d)=>{const v=Number(el.value);return Number.isFinite(v)?v:d};
+function resize(){const r=canvas.getBoundingClientRect();canvas.width=Math.max(1,Math.round(r.width*devicePixelRatio));canvas.height=Math.max(1,Math.round(r.height*devicePixelRatio));draw()}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);const sx=canvas.width,sy=canvas.height;
+ if(groundY!==null){ctx.strokeStyle='white';ctx.lineWidth=2*devicePixelRatio;ctx.setLineDash([8*devicePixelRatio,5*devicePixelRatio]);ctx.beginPath();ctx.moveTo(0,groundY*sy);ctx.lineTo(sx,groundY*sy);ctx.stroke();ctx.setLineDash([])}
+ for(const p of picks){const now=Math.abs(p.t-video.currentTime)<Math.max(.018,num(dt,.03337)/2);ctx.beginPath();ctx.arc(p.x*sx,p.y*sy,(now?6:4)*devicePixelRatio,0,2*Math.PI);ctx.fillStyle=now?'white':'rgba(255,255,255,.55)';ctx.fill();ctx.strokeStyle='black';ctx.lineWidth=devicePixelRatio;ctx.stroke()}
+}
+function seek(t){const lo=num(start,0),hi=num(end,video.duration||1e9);video.currentTime=Math.min(hi,Math.max(lo,t))}
+function buttons(){const ok=!!video.src;[go,prev,next,groundBtn,reset].forEach(b=>b.disabled=!ok);undo.disabled=!picks.length;download.disabled=!picks.length}
+function solve3(A,b){A=A.map((r,i)=>[...r,b[i]]);for(let i=0;i<3;i++){let m=i;for(let j=i+1;j<3;j++)if(Math.abs(A[j][i])>Math.abs(A[m][i]))m=j;[A[i],A[m]]=[A[m],A[i]];let d=A[i][i];if(Math.abs(d)<1e-12)return null;for(let k=i;k<4;k++)A[i][k]/=d;for(let j=0;j<3;j++)if(j!==i){let f=A[j][i];for(let k=i;k<4;k++)A[j][k]-=f*A[i][k]}}return[A[0][3],A[1][3],A[2][3]]}
+function qfit(ps){const t0=ps[0].t;let s0=0,s1=0,s2=0,s3=0,s4=0,sy=0,sty=0,st2y=0;for(const p of ps){const x=p.t-t0,y=p.y,x2=x*x;s0++;s1+=x;s2+=x2;s3+=x2*x;s4+=x2*x2;sy+=y;sty+=x*y;st2y+=x2*y}const c=solve3([[s4,s3,s2],[s3,s2,s1],[s2,s1,s0]],[st2y,sty,sy]);return c?{a:c[0],b:c[1],c:c[2],t0}:null}
+function roots(q,y){const A=q.a,B=q.b,C=q.c-y,D=B*B-4*A*C;if(D<0)return[];if(Math.abs(A)<1e-12)return Math.abs(B)<1e-12?[]:[q.t0-C/B];const d=Math.sqrt(D);return[q.t0+(-B-d)/(2*A),q.t0+(-B+d)/(2*A)]}
+function updateFit(){if(picks.length<3||groundY===null){fit.textContent='Pick at least 3 positions and set the impact level.';return}
+ const ps=[...picks].sort((a,b)=>a.t-b.t),q=qfit(ps);if(!q){fit.textContent='Fit failed.';return}
+ const rr=roots(q,groundY).filter(x=>x>=ps[0].t-.1).sort((a,b)=>a-b),impact=rr.find(x=>x>=ps[ps.length-1].t-.05)??rr[rr.length-1];
+ let ss=0;for(const p of ps){const u=p.t-q.t0,y=q.a*u*u+q.b*u+q.c;ss+=(p.y-y)*(p.y-y)}const rms=Math.sqrt(ss/ps.length);
+ if(!Number.isFinite(impact)){fit.innerHTML=`No forward intersection.<br>RMS = ${rms.toFixed(5)} image heights`;return}
+ fit.innerHTML=`<div class="good">Estimated impact PTS: ${impact.toFixed(4)} s</div><div>Number of picks: ${ps.length}</div><div>RMS residual: ${rms.toFixed(5)} image heights</div><p><small>Image-space quadratic extrapolation only; repeat picks and vary the impact-level click to assess manual uncertainty. Drag and perspective are not explicitly modeled.</small></p>`;
+}
+function render(){rows.innerHTML=[...picks].sort((a,b)=>a.t-b.t).map(p=>`<tr><td>${p.t.toFixed(5)}</td><td>${p.x.toFixed(5)}</td><td>${p.y.toFixed(5)}</td></tr>`).join('');updateFit();buttons();draw()}
+file.addEventListener('change',()=>{const f=file.files?.[0];if(!f)return;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);video.src=url;video.load();status.textContent='Loading…'});
+video.addEventListener('loadedmetadata',()=>{status.textContent=`Loaded ${video.duration.toFixed(2)} s video`;buttons();seek(num(start,0));resize()});
+video.addEventListener('seeked',()=>{status.textContent=`PTS ${video.currentTime.toFixed(5)} s`;draw()});
+go.addEventListener('click',()=>seek(num(start,0)));prev.addEventListener('click',()=>seek(video.currentTime-num(dt,.03337)));next.addEventListener('click',()=>seek(video.currentTime+num(dt,.03337)));
+undo.addEventListener('click',()=>{picks.pop();render()});reset.addEventListener('click',()=>{picks=[];groundY=null;groundMode=false;groundBtn.textContent='Set impact level';render()});
+groundBtn.addEventListener('click',()=>{groundMode=true;groundBtn.textContent='Click impact level…';status.textContent='Click the vertical impact/ground level'});
+canvas.addEventListener('pointerdown',e=>{if(!video.src)return;const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;if(groundMode){groundY=Math.max(0,Math.min(1,y));groundMode=false;groundBtn.textContent='Set impact level';render();return}const tol=Math.max(.018,num(dt,.03337)/2);picks=picks.filter(p=>Math.abs(p.t-video.currentTime)>tol);picks.push({t:video.currentTime,x:Math.max(0,Math.min(1,x)),y:Math.max(0,Math.min(1,y))});picks.sort((a,b)=>a.t-b.t);render()});
+download.addEventListener('click',()=>{const csv='pts_s,x_norm,y_norm\n'+picks.map(p=>`${p.t.toFixed(6)},${p.x.toFixed(6)},${p.y.toFixed(6)}`).join('\n');const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='capsule_picks.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+window.addEventListener('resize',resize);resize();buttons();
+})();
+</script>
+</div></body></html>

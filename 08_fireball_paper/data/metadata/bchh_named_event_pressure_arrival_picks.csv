@@ -1,0 +1,9 @@
+event,trace_id,sensor_kind,pick_time_utc
+upper_stage,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:15.927934Z
+upper_stage,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:15.935523Z
+lower_stage,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:19.427235Z
+lower_stage,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:19.438250Z
+payload_impact,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:28.407995Z
+payload_impact,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:28.415926Z
+payload_explosion,1R.BCHH.10.DD2,pressure,2016-09-01T13:07:28.987823Z
+payload_explosion,1R.BCHH.10.DD3,pressure,2016-09-01T13:07:28.995974Z

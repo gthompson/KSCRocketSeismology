@@ -1,0 +1,12 @@
+window_kind,class,complete_10s_windows
+event,Interphase tremor,19
+event,Phase I,7
+event,Phase II,11
+event,Phase III,35
+event,Phase IV,31
+quiet,post-event noise,13
+quiet,pre-event noise,18
+quiet,quiet gap after Interphase tremor,12
+quiet,quiet gap after Phase I,2
+quiet,quiet gap after Phase II,18
+quiet,quiet gap after Phase III,27

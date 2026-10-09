@@ -1,0 +1,122 @@
+Falcon 9 manuscript reorganization: main57.tex / supplement56.tex
+
+PURPOSE
+-------
+The manuscript has been reorganized from a conventional long Methods -> long
+Results sequence into topic-based analysis sections. Within each scientific
+question, the minimum method needed to understand the analysis is followed
+immediately by the corresponding measurements/results. Interpretation remains
+in a separate Discussion.
+
+MAIN57 STRUCTURE
+----------------
+1. Introduction
+2. Data and general processing
+   - BCHH array and geometry
+   - Calibration and waveform preparation
+   - Video, meteorological, and regional data
+   - Analysis workflow and timing coordinates
+3. Forensic chronology and precursor search
+4. Opening sequence and propagation timing
+   - Close-range acoustic reference
+   - Independent video and BCHH event timing
+   - Weak-shock timing sensitivity
+5. Event catalogue and temporal evolution
+6. Waveform morphology and array propagation
+7. Seismic/acoustic coupling
+8. Acoustic energetics
+9. Regional detectability and atmospheric propagation
+10. Discussion
+    - Forensic chronology and the precursor question
+    - Differential timing and weak-shock propagation
+    - Seismic/acoustic coupling and energy partition
+    - Regional propagation and non-detection
+    - Monitoring implications and limitations
+11. Conclusions
+
+SUPPLEMENT56 STRUCTURE
+----------------------
+S1. Response correction, calibration, and baseline validation
+S2. Geometry, weather, and timing coordinates
+S3. Forensic precursor search, catalogue association, and waveform review
+S4. Independent Pad 39A video and BCHH timing
+S5. Waveform morphology, array processing, and finite-range sensitivity
+S6. Amplitude and seismic/acoustic coupling
+S7. Named-event pressure, weak-shock sensitivity, and acoustic energetics
+S8. Regional detectability and atmospheric propagation
+S9. Polarization, direct-seismic diagnostics, and multimedia synchronization
+S10. Additional engineering and operational context
+Zenodo release contents
+Appendix A. Complete event measurements
+
+EDITORIAL CHANGES
+-----------------
+- Removed the top-level Methods and Results sections.
+- Moved method paragraphs next to the results they support.
+- Kept Discussion separate so observation/measurement remains distinct from
+  interpretation.
+- Put the precursor search before the opening-event timing analysis.
+- Put the same-camera Pad 39A timing method immediately before the observed
+  DD2/DD3 differential timing results.
+- Put the weak-shock sensitivity calculation immediately after the timing
+  measurements, while retaining the broader physical interpretation in
+  Discussion.
+- Moved catalogue association/QC immediately before the 153-event catalogue
+  and temporal-evolution results.
+- Put array-processing definitions immediately beside the waveform and local
+  array-propagation results.
+- Put pressure-PGV and H1 definitions immediately beside their regression and
+  transfer-function results.
+- Separated acoustic energetics from regional screening in the main paper.
+- Split the old supplementary S6 into a dedicated coupling section and a
+  dedicated named-event/weak-shock/energetics section.
+- Split regional interpretation into its own Discussion subsection.
+
+CONTENT PRESERVATION
+--------------------
+- All nine main-manuscript figures were retained.
+- All supplementary figures were retained.
+- The New Glenn energy-partition comparison remains in the Discussion and in
+  detailed form in Supplementary Section S7.
+- The pressure-PGV coupling and H1 transfer-function material is retained in
+  both the main manuscript and supplement.
+- The 37-h precursor result, 48-h review method, exact DD2/DD3 picks, Pad 39A
+  same-camera frame timing, weak-shock model, array velocities, 153-event
+  catalogue, energetics, regional search, and atmospheric interpretation are
+  all retained.
+- The nearby-launch DD2/DD3 relative-calibration check remains in S1.
+- The old 351 m/s-reduced source-time coordinate is retained as a workflow
+  coordinate but is not used as independent evidence for anomalously fast
+  propagation.
+- No scientific numerical result was intentionally changed during this
+  reorganization.
+
+FIGURE PATHS
+------------
+All \\includegraphics commands now use figure basenames only. The existing
+\\graphicspath declarations provide the search directories. Explicit paths are
+retained only in \\IfFileExists checks, where they are useful for testing
+whether generated products exist.
+
+VALIDATION
+----------
+- Main and supplement have balanced ordinary LaTeX environments/labels under
+  static checks (the supplement contains a pre-existing commented reference to
+  \\end{landscape}, which can confuse naive text counters but is not a new
+  structural error).
+- No main-manuscript \\ref targets were lost.
+- All original main and supplementary included figure filenames are preserved.
+- chktex reports only the existing style/typography warnings, not a new
+  structural error from the reorganization.
+- A full PDF build was not possible in this runtime because seismica.cls is not
+  installed.
+
+KNOWN TODOs RETAINED
+--------------------
+- main57.tex still contains the unresolved bibliography key
+  <Falcon9_datasheet_key>.
+- supplement56.tex still contains TODO_FALCON9_DATASHEET and the associated
+  note requesting authoritative LOX/RP-1 mixture-ratio and RP-1 heating-value
+  sources.
+- The existing TODO for the recent USLaunchReport camera-location photograph
+  remains.
