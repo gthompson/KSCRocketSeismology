@@ -620,24 +620,21 @@ have avoided the Gem overflow within 3.4~km.
 
 
 %% ============================================================
-\section{Forward Model}
-\label{sec:modeling}
+\section{Trajectory Model and Source-Time Mapping}
+\label{sec:trajectory}
 
-\subsection{Model Overview}
+To relate each station's record to the part of the flight that produced
+it, we use an idealized model of the trajectory: the vehicle ascends
+vertically and then pitches over downrange in a gravity turn. Sound is
+assumed to travel along straight rays at a constant 343~m~s$^{-1}$,
+neglecting stratification and wind, which is reasonable while the
+vehicle is below $\sim$10~km (the first $\sim$60~s) and increasingly
+approximate afterwards. The trajectory is 2-D (downrange distance and
+altitude); we place it on the map along a launch azimuth of
+90$^{\circ}$, which the infrasound arrays support
+(Section~\ref{sec:arrays}).
 
-To interpret the observations we use a simplified model of the rocket
-as a moving, time-dependent acoustic source. The trajectory is an
-idealized gravity turn: the vehicle ascends vertically and then pitches
-over downrange. Propagation is along straight rays at a constant sound
-speed of 343~m~s$^{-1}$, neglecting stratification and wind, which is
-reasonable while the vehicle is below $\sim$10~km (the first
-$\sim$60~s) and increasingly approximate afterwards. The source is a
-point at the vehicle with directional radiation described by a conical
-emission pattern. The model is 2-D (downrange distance and altitude);
-we place it on the map along a launch azimuth of 90$^{\circ}$, which the
-infrasound arrays support (Section~\ref{sec:arrays}).
-
-\subsection{Rocket Trajectory Model}
+\subsection{Trajectory}
 
 Model parameters were selected to approximate the early flight profile
 of the Artemis~II launch. The nominal thrust is 37.4~MN (corresponding
@@ -674,63 +671,17 @@ The modeled vehicle reaches 1~km altitude at 20~s, 2.3~km at 30~s,
   \label{fig:trajectory}
 \end{figure}
 
-\subsection{Acoustic Source Model}
+\subsection{Source-Time Mapping}
 
-The amplitude observed at a station is:
-\begin{equation}
-  A(t) \propto \frac{Q(t)\,D(\phi)}{R(t)}
-  \label{eq:source}
-\end{equation}
-where $Q(t)$ is the source strength, $D(\phi)$ is a directional
-radiation function, and $R(t)$ is the instantaneous source--receiver
-distance. The angle $\phi$ is measured between the exhaust direction
-(anti-parallel to the velocity vector) and the direction from the
-source to the receiver. Directional radiation is represented by a
-Gaussian cone model:
-\begin{equation}
-  D(\phi) = \exp\!\left[-\frac{1}{2}\left(\frac{\phi - \phi_0}{\sigma}\right)^2\right]
-  \label{eq:directivity}
-\end{equation}
-with $\phi_0 = 30^{\circ}$ and $\sigma = 20^{\circ}$. The source
-strength $Q(t)$ rises from zero following launch with a time constant
-$\tau_\mathrm{rise} = 8$~s. A sound emitted at source time $t_s$ arrives
-at time $t_s + R(t_s)/c$. Within the first 150~s, $dt_\text{obs}/dt_s$
-remains positive at every station, so each arrival time corresponds to a
-single source time.
-
-\subsection{Synthetic Predictions}
-\label{sec:synthetics}
-
-Along idealized east (downrange) and west (uprange) lines of virtual
-stations at 0.5--16~km (\suppfig{8}), the model predicts broad peaks
-arriving well after the direct travel time from the pad, and a strong
-east--west asymmetry: west stations peak earlier and 1.2--1.45 times
-louder than east stations at the same distance, because they lie behind
-the rocket and inside the aft-directed lobe early in the flight.
-Synthetic peak amplitude decays as $R^{-0.96}$
-(Figure~\ref{fig:synthetic_amplitude}), and synthetic peak arrival time
-increases with distance at an apparent speed of $\sim$125~m~s$^{-1}$
-(Figure~\ref{fig:synthetics}; $t = 29.6 + 8.0\,R$, $R$ in km), with
-6.2~s~km$^{-1}$ on the west line and 9.8~s~km$^{-1}$ on the east line.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{figures/synthetic_amplitude_vs_distance}
-  \caption{Synthetic peak amplitude versus distance from SLC-39B for
-    west (circles) and east (triangles) virtual stations, with the
-    best-fit power law (exponent $-0.96$).}
-  \label{fig:synthetic_amplitude}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{figures/synthetic_peaktime_vs_distance}
-  \caption{Synthetic peak arrival time versus distance from SLC-39B.
-    East stations (triangles) arrive later than west stations (circles)
-    at the same distance. Red: linear fit $t = 29.6 + 8.0\,r$~s ($r$ in
-    km, apparent speed 125~m~s$^{-1}$); green dashed: quadratic fit.}
-  \label{fig:synthetics}
-\end{figure}
+For each station and each source time $t_s$, the model gives the
+source--receiver distance $R(t_s)$, the arrival time
+$t_\text{obs} = t_s + R(t_s)/c$, the emission angle $\phi$ between the
+exhaust direction (anti-parallel to the velocity) and the ray to the
+station, and the ray's elevation angle. Within the first 150~s,
+$dt_\text{obs}/dt_s$ remains positive at every station, so each arrival
+time corresponds to a single source time, and any measurement made on a
+record can be assigned to the time, altitude and emission angle at which
+the sound left the vehicle.
 
 
 %% ============================================================
@@ -756,7 +707,7 @@ the scatter about both fits is 0.09 log units (17 pressure and 12
 velocity channels). The largest recorded pressure was 512~Pa
 (148~dB peak) at B01, 1.5~km from the pad; the overflowed Gems at
 B14 (0.7~km) would have recorded more. Pressure decays considerably
-faster than $1/r$ and faster than the model ($R^{-0.96}$), whereas peak
+faster than $1/r$, whereas peak
 ground velocity decays close to $1/r$. Part of the pressure decay
 reflects source motion: the closest stations peak early, when the
 vehicle is near the ground and close to them, whereas the farthest peak
@@ -768,8 +719,7 @@ the farther stations are all Gems. A previous fit to these data
 Residuals about Equation~\ref{eq:amplitude_decay} differ by azimuth:
 uprange (west) channels average $+0.08$ log units and downrange (east)
 channels $-0.07$, so at a given distance uprange stations are
-$\sim$1.4 times louder, within the 1.2--1.45 range predicted by the
-model.
+$\sim$1.4 times louder in peak pressure.
 
 \begin{figure}[htbp]
   \centering
@@ -846,14 +796,14 @@ model.
 Peak pressure arrival times (Table~\ref{tab:amplitudes}, excluding
 overflowed channels) increase with distance as $t = 2.6 + 7.9\,r$~s
 ($r$ in km), an apparent speed of 127~m~s$^{-1}$, far below the sound
-speed and close to the model's 125~m~s$^{-1}$. The slowness arises
-because the loudest sound reaching distant stations was emitted later,
+speed. The slowness arises because the loudest sound reaching distant stations was emitted later,
 from higher on the trajectory. At similar distances uprange stations
 peak earlier than downrange ones (38.7--39.0~s at B24 and B29 versus
-45.5~s at B23, all at 5.5~km), as the model predicts. The record
+45.5~s at B23, all at 5.5~km). The record
 section of pressure envelopes (Figure~\ref{fig:record_section}) shows
-that the model's arrival curves for successive source times track the
-evolution of the observed envelopes.
+that the arrival curves predicted for successive source times track the
+evolution of the observed envelopes. Peak times are compared with a
+source model in Section~\ref{sec:model}.
 
 Signal onsets reveal a second source. Interpreted as straight-ray
 arrivals from the pad, the onsets at the nearer and quieter stations
@@ -920,8 +870,11 @@ stations and source times gives an empirical radiation pattern
 $\phi \approx 60$--70$^{\circ}$ from the exhaust axis and falls by a
 factor of $\sim$5 towards $\phi \approx 10^{\circ}$; the binned
 medians for source times 20--60~s and 60--150~s agree closely where
-they overlap. The observed maximum lies at a larger angle than the
-$\phi_0 = 30^{\circ}$ assumed in the model. In this geometry, small
+they overlap. Fitting a Gaussian cone (Equation~\ref{eq:directivity}) to the reduced
+pressures for source times after the pad phase gives
+$\phi_0 = 57^{\circ}$ and $\sigma = 26^{\circ}$ (source times
+15--60~s; 58$^{\circ}$ and 29$^{\circ}$ for 15--120~s), with a scatter
+of 0.12--0.13 log units. In this geometry, small
 $\phi$ is reached only late in the flight, when the source is high and
 far, so part of the decrease at small $\phi$ may reflect propagation
 losses not in the model; the agreement between the two source-time
@@ -935,6 +888,66 @@ groups argues for a directivity effect.
     source time. Right: medians in 10$^{\circ}$ bins for three ranges
     of source time.}
   \label{fig:directivity}
+\end{figure}
+
+
+%% ============================================================
+\section{Forward Model with Data-Derived Directivity}
+\label{sec:model}
+\label{sec:modeling}
+\label{sec:synthetics}
+
+We represent the rocket as a point source on the trajectory of
+Section~\ref{sec:trajectory}, with amplitude at a station
+\begin{equation}
+  A(t_s) \propto \frac{Q(t_s)\,D(\phi)}{R(t_s)},
+  \label{eq:source}
+\end{equation}
+where $Q(t_s) = 1 - e^{-t_s/8\,\mathrm{s}}$ represents the build-up of
+engine noise and $D(\phi)$ is a Gaussian cone,
+\begin{equation}
+  D(\phi) = \exp\!\left[-\frac{1}{2}\left(\frac{\phi - \phi_0}{\sigma}\right)^2\right].
+  \label{eq:directivity}
+\end{equation}
+Our initial model assumed $\phi_0 = 30^{\circ}$ and $\sigma = 20^{\circ}$;
+on idealized east and west station lines it predicts uprange stations
+peaking earlier and 1.2--1.45 times louder than downrange stations, an
+apparent speed of $\sim$125~m~s$^{-1}$ and amplitude decay as
+$R^{-0.96}$ (\suppfig{8}, \suppfig{10}, \suppfig{11}). Here we instead use the
+directivity measured in Section~\ref{sec:moving} ($\phi_0 = 57^{\circ}$,
+$\sigma = 26^{\circ}$) and evaluate the model at the real station
+positions. For each station we compare the time and amplitude of the
+synthetic envelope peak with those of the observed RMS envelope (source
+times $\geq$~10~s, overflow masked; amplitudes after one common scale
+factor).
+
+With the original cone, synthetic peaks arrive on average 21~s too late
+(RMS error 25~s), because a 30$^{\circ}$ lobe sweeps across the stations
+only once the vehicle is high and far. With the measured cone the RMS
+error falls to 7~s with a mean bias of $-1$~s
+(Figure~\ref{fig:model_data}), and the model's apparent speed (138~m~s$^{-1}$
+for envelope peaks) approaches the observed value. Because the
+directivity was fitted to amplitudes and not to times, this improvement
+in timing is an independent test of the measured radiation pattern. The
+relative amplitudes are matched equally well by both cones (0.20 log
+units RMS); neither reproduces the full uprange/downrange contrast
+(distance-corrected ratio 1.05 in the model versus 1.3 observed), nor the
+pad phase, which the model does not include. The remaining misfit points
+to the missing physics: the flame-trench source, an extended plume,
+propagation through a real atmosphere, and the flown rather than the
+nominal trajectory.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{model_data_directivity}
+  \caption{Left: reduced pressure against emission angle for source
+    times 15--120~s, with the fitted Gaussian cone (black;
+    $\phi_0 = 57^{\circ}$, $\sigma = 26^{\circ}$) and the originally
+    assumed cone (orange dashed; 30$^{\circ}$, 20$^{\circ}$). Centre and
+    right: synthetic versus observed envelope peak time and amplitude at
+    each station for the two cones. The B14 observation is a lower bound
+    (Gem overflow).}
+  \label{fig:model_data}
 \end{figure}
 
 
@@ -1046,36 +1059,27 @@ recordings.
 \section{Waveform and Spectral Characteristics}
 \label{sec:spectral}
 
-Figures~\ref{fig:waveforms} and \ref{fig:spectrograms} compare a near
-(B01, 1.5~km) and a far (B29, 5.6~km) station. Both record broadband
-pressure and ground motion extending to the top of the 500~samples~s$^{-1}$
-band. The near station's record is dominated by the first $\sim$40~s
-of flight; the far station's is lower, later and broader. In both,
-high frequencies decline as the vehicle climbs, while the low-frequency
-content above 0.5~Hz persists, consistent with the frequency-dependent
-losses implied by the steeper-than-$1/r$ pressure decay.
-\todo{Quantify the frequency roll-off with source time (spectral
-centroid or high/low energy ratio), using the source-time mapping of
-Section~\ref{sec:moving}.}
+Figure~\ref{fig:nearfar} compares a near (B01, 1.5~km) and a far
+(B29, 5.6~km) station. Both record broadband pressure and ground motion
+extending to the top of the 500~samples~s$^{-1}$ band. The near
+station's record is dominated by the first $\sim$40~s of flight; the far
+station's is lower, later and broader. As the vehicle climbs, high
+frequencies decline. The spectral centroid of pressure (4-s windows,
+mapped to source time) peaks at $\sim$40--45~Hz at B01 and
+$\sim$30~Hz at B29 for sound emitted 12--18~s after liftoff, and falls to
+6--9~Hz at B01 but 2--5~Hz at B29 for sound emitted 60--100~s after
+liftoff (\suppfig{12}). The stronger loss of high frequencies along the
+longer paths to the far station is consistent with the
+steeper-than-$1/r$ decay of peak pressure.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/near_far_waveforms}
-  \caption{Infrasound (left) and seismic vertical (right) waveforms
-    recorded at stations B01 (1.53~km from SLC-39B; peak $\sim$510~Pa)
-    and B29 (5.58~km; peak $\sim$120~Pa) during the Artemis~II launch.
-    Time window: 22:34:42--22:37:12 UTC.}
-  \label{fig:waveforms}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/near_far_spectrograms}
-  \caption{Infrasound (left columns) and seismic vertical (right
-    columns) spectrograms at stations B01 (top panels) and B29 (bottom
-    panels) during the Artemis~II launch. Time is seconds after
-    22:34:00~UTC.}
-  \label{fig:spectrograms}
+  \includegraphics[width=\textwidth]{near_far}
+  \caption{Pressure (infraBSU DD0, $>$0.5~Hz; left) and vertical ground
+    velocity (Trillium DHZ, $>$1~Hz; right) at B01 (1.5~km from
+    SLC-39B) and B29 (5.6~km), each with its spectrogram (512-sample
+    windows).}
+  \label{fig:nearfar}
 \end{figure}
 
 
@@ -1184,9 +1188,10 @@ exhaust axis, uprange stations are $\sim$1.4 times louder at a given
 distance in peak pressure, and downrange stations remain louder later in
 the flight. Third, the pad: the earliest and, at northern stations, the
 strongest radiation comes from ignition and the flame trench, before the
-vehicle has moved. A model with a single point source on the vehicle
-and a fixed directivity cone reproduces the timing and the sense of the
-asymmetry but not the angle of maximum radiation or the decay rate.
+vehicle has moved. A point source on the vehicle with the measured
+directivity cone (57$^{\circ}$) reproduces peak arrival times to
+$\sim$7~s, much better than the 30$^{\circ}$ cone initially assumed,
+but not the full azimuthal contrast or the pad phase.
 
 \subsection{Recording Requirements}
 
@@ -1248,7 +1253,9 @@ acoustics; companion seismic-wavefield study.}
   \item \textit{Source-time mapping.} Ignition overpressure dominates to
     the north of the pad; most stations record their strongest
     distance-corrected sound from source times of 17--30~s; radiation
-    peaks at 60--70$^{\circ}$ from the exhaust axis.
+    peaks at $\sim$57$^{\circ}$ from the exhaust axis, and a source
+    model with this directivity predicts peak arrival times to $\sim$7~s
+    (versus 25~s with a 30$^{\circ}$ cone).
   \item \textit{Arrays.} Two small Gem arrays track the vehicle's
     bearing from $\sim$20 to 180~s and locate its ground track.
   \item \textit{Crackle.} Shock-dominated waveforms are emitted while
@@ -1269,7 +1276,7 @@ Waveform data will be archived through EarthScope upon publication.
 Analysis code (notebooks 05--60 in \texttt{09\_artemis2\_paper}) is
 available at
 \textcolor{orange}{\texttt{https://github.com/[USERNAME]/KSCRocketSeismoHydrology}} \todo{replace with actual URL}.
-Supplementary Figures S1--S9 are provided in a separate file.
+Supplementary Figures S1--S12 are provided in a separate file.
 
 \begin{acknowledgements}
 The SmartSolo instruments were provided by the EarthScope Primary
