@@ -49,7 +49,8 @@
   amplitude scales with distance, apparent propagation speed $\sim$136~m/s
   (consistent with moving directional source at $\sim$125~m/s in model);
   east--west asymmetry indicates non-isotropic source; seismo-acoustic
-  coupling measured at co-located sites.}
+  coupling measured at co-located sites; nodal comparison establishes
+  which permanent stations are reliable.}
   \end{summary}
   %
   \begin{summary}{Non-technical summary}
@@ -119,10 +120,12 @@ individual sites.
 The central premise of this study is that a single, densely instrumented
 launch can provide greater insight into source characteristics and
 propagation processes than a large number of sparsely recorded events.
-We therefore focus on the Artemis~II dataset as a case study to quantify
-the dependence of infrasound amplitude and arrival time on distance from
-the launchpad, to assess directional asymmetry in the radiated
-wavefield, and to estimate frequency-dependent coupling between
+We therefore focus on the Artemis~II dataset as a case study to
+(1)~validate the permanent network against co-located temporary
+instruments, (2)~quantify the dependence of infrasound and seismic
+amplitude on distance from the launchpad, (3)~characterize the
+arrival-time structure, (4)~assess directional asymmetry in the radiated
+wavefield, and (5)~estimate frequency-dependent coupling between
 atmospheric pressure and ground motion at co-located stations.
 
 While we also consider a simplified forward model of a moving,
@@ -427,10 +430,16 @@ is converted to sound pressure level (SPL):
 
 
 %% ============================================================
-\section{Observations}
+%% Results are organized around the campaign's six first-order results
+%% (validation, amplitude field, arrival times, directionality, coupling,
+%% forward model) plus two short add-ons (enclosure effects, spectral
+%% evolution). Detailed seismic-wavefield analyses (polarization, H/V,
+%% attenuation, beamforming, site response) are left to a companion paper.
+%% ============================================================
+\section{Network Validation and Data Quality}
 \label{sec:observations}
 
-\subsection{Data Quality and Station Performance}
+\subsection{Station Performance}
 \label{sec:quality}
 
 The pre-deployment huddle test conducted in January 2026 revealed
@@ -556,7 +565,40 @@ dataset for the analyses below.
   \end{tabular}
 \end{table}
 
-\subsection{Amplitude versus Distance}
+\subsection{Broadband--Nodal Comparison at Co-located Sites}
+\label{sec:nodal_validation}
+
+\todo{Quantify the nodal calibration control: at sites with both a
+Trillium Compact (DH?) and a SmartSolo node (DP?) --- B01, B03 and B29 ---
+compare instrument-corrected vertical and horizontal velocity: peak and
+RMS amplitude ratios, timing offsets (cross-correlation lag), polarity,
+and spectral ratios over the common passband ($>$5~Hz). Use the result
+to state which broadband channels are trusted, and quantify the B03
+deficit (expected $\sim$100$\times$) and the B14/B20/B24 failures. B29
+DHZ is zero-filled in the SDS archive for days 082--093; use the
+launch-window counts recovered from the 8~April extract.}
+
+\subsection{Enclosure Effects: Tote versus Free-field Gem Sensors}
+\label{sec:enclosure}
+
+\todo{Compare paired Gem sensors inside a tote (HDI) and free-field
+(HDF) at B03, B14, B20, B24 and B29: amplitude ratio, spectral ratio,
+and waveform similarity during the launch. Preliminary values from
+Table~\ref{tab:infrasound_amplitudes} suggest little effect
+(abs\_peak HDI/HDF $\approx$ 1.06 at B14, 0.94 at B29, 0.96 at B20).
+State the implication for the permanent-network enclosure design.}
+
+\subsection{Outliers and Variability}
+
+\todo{Identify anomalous channels; discuss possible causes: instrument
+issues (B03), local site effects, directionality.}
+
+
+%% ============================================================
+\section{Amplitude Field}
+\label{sec:amplitude_field}
+
+\subsection{Infrasound Amplitude versus Distance}
 
 \begin{figure}[htbp]
   \centering
@@ -583,7 +625,19 @@ decay than the $1/R$ expected for a stationary, isotropic point source
 (exponent $-1.0$). This is consistent with an accelerating, anisotropic
 source moving away from the network.
 
-\subsection{Peak Arrival Time versus Distance}
+\subsection{Seismic Amplitude versus Distance}
+\label{sec:pgv}
+
+\todo{Peak ground velocity (and optionally peak ground acceleration)
+versus distance for the trusted broadband stations (B01, B05, B29) and
+the SmartSolo nodes; fit a power law and compare the exponent with the
+infrasound value. Keep this first-order: detailed attenuation and
+site-response analysis is beyond the scope of this paper.}
+
+
+%% ============================================================
+\section{Arrival-Time Structure}
+\label{sec:arrival_times}
 
 \begin{figure}[htbp]
   \centering
@@ -613,19 +667,31 @@ the speed of sound. This apparent slowness reflects the geometry of a
 moving, elevated source: the dominant signal arrives not from the pad
 but from a point along the trajectory at some time after launch.
 
-\subsection{Outliers and Variability}
 
-\todo{Identify anomalous channels; discuss possible causes: instrument
-issues (B03), local site effects, directionality.}
+%% ============================================================
+\section{Directional Radiation}
+\label{sec:directivity}
 
-\subsection{East--West Asymmetry}
+\subsection{Distance-corrected Amplitude Residuals versus Azimuth}
 
-\todo{Compare east (downrange) vs.\ west (uprange) stations in
-amplitude and timing. Early indication of non-isotropic source.}
+\todo{Remove the distance trend (Equation~\ref{eq:amplitude_decay}) and
+plot amplitude residuals against station azimuth from SLC-39B; compare
+downrange (east, azimuth 0--180$^{\circ}$: B14, B01, B07, B23, B20) and
+uprange (west, azimuth 180--360$^{\circ}$: B24, B12, B29, B05, B03)
+groups (azimuths from Table~\ref{tab:stations}). B03 (351$^{\circ}$) and
+B14 (41$^{\circ}$) lie close to the north--south divide.}
+
+\subsection{Downrange versus Uprange Timing}
+
+\todo{Fit arrival time against distance separately for the east and west
+groups. The forward model predicts that uprange (west) stations peak
+earlier and with higher amplitude than downrange stations at the same
+distance (Section~\ref{sec:synthetics}); test this directly.}
 
 
 %% ============================================================
-\section{Anatomy of a Rocket Seismogram}
+\section{Waveform and Spectral Characteristics}
+\label{sec:spectral}
 
 \begin{figure}[htbp]
   \centering
@@ -653,16 +719,36 @@ amplitude and timing. Early indication of non-isotropic source.}
   \label{fig:spectrograms}
 \end{figure}
 
-\todo{Write prose for this section.}
+\todo{Write prose for this section, and quantify the frequency roll-off:
+spectral centroid, dominant frequency, or a high/low-frequency energy
+ratio versus time after launch for a few stations at different
+distances (e.g.\ B14, B01, B29, B20).}
 
 
 %% ============================================================
-\section{Infrasound-to-Seismic Coupling}
+\section{Air-to-Ground Coupling}
+\label{sec:coupling}
 
-\todo{Add spectral ratio plots of seismic to infrasound data, yielding
-coupling coefficients as a function of frequency in
-m~s$^{-1}$~Pa$^{-1}$. Consider comparing velocity and acceleration
-seismograms (pressure = force/area; acceleration = force/mass).}
+\subsection{Coupling Transfer Function}
+
+\todo{Compute the frequency-dependent coupling coefficient
+$C(f) = |V(f)|/|P(f)|$ (m~s$^{-1}$~Pa$^{-1}$) over the peak signal window
+at co-located pressure--seismic pairs: broadband pairs B01 (DHZ+DD0),
+B05 (DHZ+DD0) and B29 (DHZ+DD0, using the recovered DHZ), and nodal
+pairs (SmartSolo DPZ + Gem HDF/HDI) at sites such as B14 and B03 where
+the broadband channels failed. Consider comparing velocity and
+acceleration (pressure = force/area; acceleration = force/mass).}
+
+\subsection{Coherence and Phase}
+
+\todo{Magnitude-squared coherence and phase between pressure and
+vertical ground motion as a function of frequency, to identify the band
+over which the seismic signal is air-coupled.}
+
+\subsection{Site Comparison}
+
+\todo{Compare coupling spectra between sites and instrument types;
+relate differences to site conditions only at first order.}
 
 
 %% ============================================================
@@ -780,6 +866,7 @@ is intended to reproduce relative variations in arrival time and
 amplitude as a function of station geometry.
 
 \subsection{Synthetic Predictions}
+\label{sec:synthetics}
 
 To isolate the effect of source motion and directivity from
 site-specific complications, we computed synthetic infrasound envelopes
@@ -888,8 +975,18 @@ Section~\ref{sec:model_data}.
 fits. Intercept mismatch may indicate a source timing issue.}
 
 \subsection{Amplitude Comparison}
-\todo{Compare amplitude decay rate; discuss east--west asymmetry and
-sensitivity to cone model parameters.}
+\todo{Compare amplitude decay rate (synthetic $-0.96$, observed
+$-1.22$) and its sensitivity to cone model parameters.}
+
+\subsection{Directionality}
+\todo{Compare observed azimuthal residuals and east/west timing
+(Section~\ref{sec:directivity}) with the model's east--west asymmetry.}
+
+\subsection{Source Region along the Trajectory}
+\todo{For each station, report the source time and altitude on the
+trajectory that dominates the peak arrival (model output
+\texttt{peak\_source\_time\_s}), and show how source motion changes the
+observed distance relation.}
 
 \subsection{Interpretation}
 \todo{What is controlled by trajectory, source strength, and
@@ -913,26 +1010,34 @@ modelling.
 
 \subsection{Implications}
 \todo{Rocket launches as controlled geophysical sources; relevance to
-volcano infrasound and atmospheric acoustics.}
+volcano infrasound and atmospheric acoustics. Reliability of the
+permanent network as established by the nodal comparison. Artemis~II
+as the methodological template for the 2016--2026 multi-launch
+ensemble; detailed seismic-wavefield analysis of the dense nodal data
+in a companion study.}
 
 
 %% ============================================================
 \section{Conclusions}
 
-\todo{Write prose conclusions. Key points from outline:}
+\todo{Write prose conclusions. Key points, one per result:}
 \begin{itemize}
-  \item The dense array enables new quantitative insights into
-    near-field seismo-acoustic signals from a super-heavy launch
-    vehicle.
-  \item A single, well-instrumented launch yields greater insight into
-    source characteristics and propagation than a large number of
-    sparsely recorded events.
-  \item The observed amplitude decay and apparent propagation speed are
-    inconsistent with a stationary, isotropic source; a directional,
-    moving source model is essential for interpretation.
-  \item The combined seismo-acoustic dataset provides a framework for
-    future studies of both individual launches and the multi-year KSC
-    launch record.
+  \item Network validation: co-located nodes identify which permanent
+    broadband channels are reliable (B03 low gain; B14, B20, B24
+    failed) and show whether tote enclosures alter the waveform.
+  \item Amplitude field: infrasound decays as $R^{-1.22}$, faster than a
+    stationary isotropic source; seismic amplitude scaling at first order.
+  \item Arrival times: an apparent speed of $\sim$136~m~s$^{-1}$ reflects
+    the moving, elevated source rather than atmospheric sound speed.
+  \item Directional radiation: distance-corrected amplitudes and arrival
+    times vary systematically between uprange and downrange stations.
+  \item Air-to-ground coupling: frequency-dependent coupling coefficients,
+    coherence and phase at co-located pressure--seismic pairs.
+  \item Forward model: a simple moving, directional source reproduces the
+    apparent slowness and the sense of the azimuthal asymmetry.
+  \item A single, densely instrumented launch yields more insight into
+    source and propagation than many sparsely recorded events, and
+    provides a template for the multi-year KSC launch record.
 \end{itemize}
 
 

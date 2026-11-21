@@ -7,6 +7,7 @@ Edit this file, not the notebooks, when a drive or folder moves.
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from obspy import Stream, UTCDateTime
@@ -43,7 +44,8 @@ EVENT_WAV_DIR = PROJECT_ROOT / "30_eventwav"
 BOX_WRITING = (Path("~").expanduser() / "Library" / "CloudStorage" / "Box-Box"
                / "thompsong" / "3_Project_Documents" / "NASAprojects"
                / "201602_Rocket_Seismology" / "writing")
-OUT_DIR = BOX_WRITING / "Artemis2"
+# Set ARTEMIS2_OUT_DIR to send products elsewhere (e.g. a test run).
+OUT_DIR = Path(os.environ.get("ARTEMIS2_OUT_DIR", BOX_WRITING / "Artemis2")).expanduser()
 STATION_XLS = BOX_WRITING / "KSC_seismic_network_2016_2022.xls"
 
 # Shared plotting helpers (plot_station_map_tiles, save_figures).
@@ -84,12 +86,40 @@ def sds_client(sds_root=MASTER_SDS):
     return EnhancedSDSClient(str(root))
 
 
+SKIPPED_FILES = []   # unreadable SDS files met by get_group_stream (path, error)
+
+
+def _read_sds_files(net, sta, loc, cha, starttime, endtime, sds_root=MASTER_SDS):
+    """Read matching SDS day files one by one, skipping (and recording) unreadable ones."""
+    import warnings
+    from obspy import read
+    st = Stream()
+    day = UTCDateTime(starttime.date)
+    while day <= endtime:
+        pattern = f"{day.year}/{net}/{sta}/{cha}.D/{net}.{sta}.{loc}.{cha}.D.{day.year}.{day.julday:03d}"
+        for path in sorted(Path(sds_root).glob(pattern)):
+            try:
+                st += read(str(path), format="MSEED", starttime=starttime, endtime=endtime)
+            except Exception as exc:
+                SKIPPED_FILES.append((str(path), f"{type(exc).__name__}: {exc}"))
+                warnings.warn(f"SKIPPED unreadable SDS file {path} ({type(exc).__name__})")
+        day += 86400
+    return st
+
+
 def get_group_stream(group, client=None, starttime=STARTTIME, endtime=ENDTIME):
-    """Waveforms for one CHANNEL_GROUPS entry from the master SDS."""
+    """Waveforms for one CHANNEL_GROUPS entry from the master SDS.
+
+    If any file in the group is unreadable, the group is re-read file by file and the
+    bad files are skipped with a warning and listed in SKIPPED_FILES.
+    """
     client = client or sds_client()
     net, sta, loc, cha = CHANNEL_GROUPS[group]
-    return client.get_waveforms(network=net, station=sta, location=loc, channel=cha,
-                                starttime=starttime, endtime=endtime)
+    try:
+        return client.get_waveforms(network=net, station=sta, location=loc, channel=cha,
+                                    starttime=starttime, endtime=endtime)
+    except Exception:
+        return _read_sds_files(net, sta, loc, cha, starttime, endtime)
 
 
 def get_launch_stream(client=None, groups=None, starttime=STARTTIME, endtime=ENDTIME):
