@@ -3,9 +3,11 @@
 %%
 %% Compile from this directory:  ./compile2.sh Artemis2paper.tex
 %% Needs seismica.cls, abbrvnat_seismica_upcasetitle.bst and banner.png here.
-%% The class loads natbib, hyperref, graphicx, siunitx, amsmath, lineno and
-%% xcolor, sets the bibliography style, and (default "review" option) gives
-%% one column, double spacing and line numbers.
+%% Supplement: Artemis2supplement.tex (Figures S1-S9).
+%%
+%% Numbers in this draft come from the notebooks in this folder (run 2026-11-21):
+%%   20 clipping, 30 enclosure, 40 moving source + amplitude field, 42 spectral
+%%   ratios, 45 sampling rate/bandwidth, 50 coupling, 55 crackle, 60 arrays.
 
 \documentclass[]{seismica}
 
@@ -19,6 +21,7 @@
 %% ---- Custom commands ----
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
 \newcommand{\placeholder}[1]{\textcolor{orange}{\textbf{[#1]}}}
+\newcommand{\suppfig}[1]{Figure~S#1}
 
 %% ---- Figure path ----
 \graphicspath{{figures/}}
@@ -44,17 +47,50 @@
 
 \makeseistitle{
   \begin{summary}{Abstract}
-  \todo{Write abstract. Key points: dense multi-instrument seismo-acoustic
-  network at KSC; Artemis~II (SLS) launch 1~April~2026; infrasound
-  amplitude scales with distance, apparent propagation speed $\sim$136~m/s
-  (consistent with moving directional source at $\sim$125~m/s in model);
-  east--west asymmetry indicates non-isotropic source; seismo-acoustic
-  coupling measured at co-located sites; nodal comparison establishes
-  which permanent stations are reliable.}
+  %% DRAFT abstract -- revise once the text settles.
+  The Artemis~II launch of the Space Launch System from Kennedy Space
+  Center on 1~April~2026 was recorded by about 40 seismic and infrasound
+  sensors at 0.7--7.6~km from the pad, including co-located broadband,
+  nodal and infrasound instruments and two small infrasound arrays. We
+  use the redundancy to validate the network: 16-bit infrasound loggers
+  within 3.4~km overflowed for 14--29~s above $\sim$100--140~Pa but
+  recorded faithfully outside those intervals; tote enclosures did not
+  alter the launch signal but reduced wind noise; and the nodal
+  geophones, once corrected for their 5~Hz response, matched the
+  broadband sensors within 4\% but with reversed vertical polarity.
+  Rocket signal lies almost entirely above 0.5~Hz in pressure and 1~Hz
+  in ground motion, so a 0.5~Hz high-pass removes background without
+  losing launch energy; sampling at 250~samples~s$^{-1}$ preserves
+  seismic signals, but near-pad infrasound loses 30\% of its energy at
+  100~samples~s$^{-1}$, and a 5~Hz geophone loses a third of the
+  seismic energy. Peak pressure decays as $r^{-1.40}$ and peak ground
+  velocity as $r^{-1.05}$, with uprange stations $\sim$1.4 times louder
+  than downrange ones. Mapping each station's record to the time of
+  emission along a modeled trajectory shows ignition overpressure to
+  the north of the pad, maximum radiation at 60--70$^{\circ}$ from the
+  exhaust axis, and crackle (shock-dominated waveforms) emitted while
+  the vehicle was at 0.2--6~km altitude. Two small arrays track the
+  vehicle's bearing to 180~s. Air-to-ground coupling is
+  5--10~\si{\micro\metre\per\second\per\pascal} above 5~Hz at most
+  sites.
   \end{summary}
   %
   \begin{summary}{Non-technical summary}
-  \todo{Write non-technical summary (required by Seismica).}
+  %% DRAFT
+  A rocket launch is one of the loudest controlled sound sources on
+  Earth, and its sound also shakes the ground. We placed several dozen
+  microphones and seismometers around the launch pad for NASA's first
+  crewed Artemis flight and compared instruments side by side. Some
+  low-cost microphones near the pad were overwhelmed for up to half a
+  minute, but worked well before and after; protective boxes did not
+  change the rocket signal; and the low-cost seismic sensors agreed
+  with research-grade ones once their response was accounted for. We
+  show which frequencies and sampling rates are needed to record a
+  launch, how the sound weakens with distance and differs by direction,
+  when along the flight the loudest sound and the characteristic
+  ``crackle'' were produced, and how strongly the air pressure moved
+  the ground. Two clusters of microphones were able to follow the
+  rocket across the sky using sound alone.
   \end{summary}
 }
 
@@ -109,33 +145,32 @@ also highlighting the limitations imposed by sparse spatial sampling.
 In anticipation of Artemis~II, we conducted a dedicated observational
 campaign designed to capture a dense, multi-instrument seismo-acoustic
 dataset. This deployment combined permanent broadband seismic stations
-with temporary nodal seismic arrays and distributed infrasound sensors,
-including multiple co-located seismic and infrasound instruments. The
-resulting dataset provides substantially improved spatial coverage
-compared to previous observations and enables detailed analysis of
-amplitude scaling, arrival-time structure, and directional source
-effects, as well as direct estimation of seismo-acoustic coupling at
-individual sites.
+with temporary nodal seismic sensors and distributed infrasound
+sensors, including multiple co-located seismic and infrasound
+instruments and two small infrasound arrays.
 
 The central premise of this study is that a single, densely instrumented
 launch can provide greater insight into source characteristics and
 propagation processes than a large number of sparsely recorded events.
-We therefore focus on the Artemis~II dataset as a case study to
-(1)~validate the permanent network against co-located temporary
-instruments, (2)~quantify the dependence of infrasound and seismic
-amplitude on distance from the launchpad, (3)~characterize the
-arrival-time structure, (4)~assess directional asymmetry in the radiated
-wavefield, and (5)~estimate frequency-dependent coupling between
-atmospheric pressure and ground motion at co-located stations.
-
-While we also consider a simplified forward model of a moving,
-directional acoustic source to aid interpretation, the emphasis of this
-paper is on direct observational constraints derived from the dense
-network. By combining high-quality seismo-acoustic measurements with a
-well-characterized, energetic source, this study provides new insight
-into the generation and propagation of rocket-induced signals and
-establishes a framework for future analyses of both individual launches
-and long-term datasets.
+We use the Artemis~II dataset to
+(1)~validate the network through co-located instruments, including the
+saturation of low-cost infrasound loggers near the pad and the effect of
+protective enclosures;
+(2)~determine the frequency band and sampling rate that rocket signals
+actually require, which sets the design of future deployments;
+(3)~quantify the amplitude field of pressure and ground motion with
+distance and azimuth;
+(4)~relate each station's record to the point on the trajectory where it
+was emitted, using a simple moving-source model, to separate source
+strength, distance and directivity;
+(5)~track the vehicle with two small infrasound arrays;
+(6)~quantify crackle, the shock-dominated component of rocket noise; and
+(7)~measure frequency-dependent air-to-ground coupling at co-located
+sites.
+Detailed analysis of the seismic wavefield (polarization, site
+response, separation of air-coupled and ground-coupled arrivals) is left
+to a companion study, and the 2016--2026 multi-launch record to a
+separate paper.
 
 The timely nature of this dataset and its relevance to an ongoing
 exploration program motivate the rapid presentation of these results.
@@ -149,34 +184,24 @@ exploration program motivate the rapid presentation of these results.
 A regional broadband seismo-acoustic network was deployed between 7 and
 12~January~2026 at Kennedy Space Center. The network consisted of ten
 stations, including seven operated by USF and three contributed by NASA
-Marshall Space Flight Center (MSFC). All broadband stations remained
-operational through the Artemis~II launch on 1~April~2026
-(22:35:12~UTC).
+Marshall Space Flight Center (MSFC).
 
 The USF stations were equipped with Nanometrics Trillium Compact PH-120
 broadband seismometers and Nanometrics Centaur 6-channel digitizers,
-recording continuously at 500~Hz. Each USF site included a co-located
-infraBSU 0.5-inch microbarometer with a low-frequency corner
-near 0.048~Hz and approximately flat response to $\sim$100~Hz
-(sensitivity $\sim$\SI{46}{\micro\volt\per\pascal}). One site (B20)
-additionally hosted a Chaparral M25 infrasound sensor, providing an
-independent measurement of atmospheric pressure over a comparable
-frequency band.
+recording continuously at 500~samples~s$^{-1}$. The seismometer was
+connected to the Centaur's Sensor~A input at the 40~V$_\text{pp}$ input
+range. Each USF site included a co-located infraBSU 0.5-inch
+microbarometer (sensitivity \SI{46}{\micro\volt\per\pascal},
+low-frequency corner near 0.048~Hz) on Sensor~B at the 1~V$_\text{pp}$
+range, giving 735~counts~Pa$^{-1}$. One site (B20) additionally hosted a
+Chaparral M25 infrasound sensor.
 
 The MSFC contribution comprised two broadband stations equipped with
 G\"{u}ralp Certimus digital seismometers and one station equipped with a
-Silicon Audio accelerometer, also recording at 500~Hz. These stations
-extended the spatial coverage of the network and provided complementary
-sensor characteristics.
+Silicon Audio accelerometer, also recording at 500~samples~s$^{-1}$.
 
 An on-site huddle test was conducted prior to the nodal deployment to
-verify instrument performance and network consistency. This test
-confirmed timing accuracy, sensor polarity, and overall data quality
-across stations, ensuring reliable multi-instrument comparisons.
-
-The co-location of broadband seismic and infrasound sensors at multiple
-sites enables direct estimation of frequency-dependent seismo-acoustic
-coupling, providing a key observational constraint in this study.
+verify instrument performance and network consistency.
 
 \subsection{Dense Temporary Deployment (March--April 2026)}
 
@@ -187,82 +212,46 @@ this event and were recovered on 3--4~April~2026 following the
 successful launch.
 
 The deployment included eleven three-component SmartSolo IGU-16HR-3C
-seismic nodes (5~Hz natural frequency) on loan from the EarthScope
-Primary Instrument Center (EPIC), and twenty-two Gem infrasound nodes
-provided by Boise State University. The Gem infrasound systems have
-nominal corner frequencies of approximately 0.039~Hz and 27.1~Hz, with
-a sensitivity of $\sim$\SI{3.5}{\milli\pascal\per\text{count}}; after
-instrument correction, the usable bandwidth extends approximately from
-0.02~Hz to the Nyquist frequency (50~Hz for the 100~Hz sampling rate).
+seismic nodes (5~Hz geophones, damping 0.7, nominal sensitivity
+76.7~V~m$^{-1}$~s; \citealp{SmartSolo2023}) on loan from the EarthScope
+Primary Instrument Center (EPIC), and twenty-two Gem infrasound loggers
+provided by Boise State University. The Gems digitize at 16~bits and
+100~samples~s$^{-1}$ with nominal corner frequencies of approximately
+0.039~Hz and 27.1~Hz.
 
-Although a primary goal of the nodal deployment was to enhance spatial
-sampling, permitting constraints associated with the Artemis~II mission
-limited the installation of new sites. As a result, the nodal
-instruments were deployed predominantly at or near existing broadband
-stations, forming clusters of co-located sensors rather than expanding
-the overall network footprint. Consequently, the principal value of the
-nodal deployment lies not in increased spatial coverage, but in improved
-calibration and validation of the broadband network.
-
-In particular, the pre-deployment huddle test and subsequent analysis
-revealed inconsistencies in amplitude response at several broadband
-sites, including signals that were significantly lower than expected and
-evidence of at least one malfunctioning broadband sensor. The co-located
-nodal instruments therefore provided an essential reference for
-assessing data quality, verifying sensor performance, and ensuring that
-reliable measurements were obtained at each site during the launch.
+Permitting constraints associated with the Artemis~II mission limited
+the installation of new sites. The nodal instruments were therefore
+deployed predominantly at or near existing broadband stations, forming
+clusters of co-located sensors rather than expanding the network
+footprint. The principal value of the nodal deployment lies in
+calibration and validation of the broadband network, in redundancy, and
+in two small arrays of Gems: at B20 (five Gems within $\sim$35~m) and at
+B24 (four Gems within $\sim$250~m).
 
 A secondary objective of the infrasound deployment was to evaluate
-sensor installation methods. At several locations, paired Gem sensors
-were deployed both inside existing protective enclosures and in
-free-field configurations to assess the influence of enclosure geometry
-on recorded signals. This design enables comparison of enclosure effects
-on amplitude and spectral content. Channel codes ending in \texttt{HDI}
-indicate sensors deployed inside a protective tote enclosure; those
-ending in \texttt{HDF} indicate free-field installations without
-enclosure.
+installation methods. At several sites a Gem was deployed inside an
+existing protective tote enclosure (channel code \texttt{HDI}) next to a
+free-field Gem (\texttt{HDF}).
 
 One broadband site (B05) was not instrumented with nodal equipment due
 to access restrictions requiring a security escort, which could not be
 arranged during the March deployment period.
 
-The resulting configuration represents a hybrid network in which
-permanent broadband stations provide continuous, high-fidelity
-recordings, while temporary nodal instruments supply calibration
-control, redundancy, and site-specific validation. This combined
-approach ensures the reliability of the dataset used in the analyses
-presented in this study.
-
 \subsection{Network Geometry}
 
-The spatial distribution of stations relative to the primary launch site
-at Space Launch Complex 39B (28.6272$^{\circ}$~N, 80.6208$^{\circ}$~W)
-is shown in Figure~\ref{fig:station_map}, and station coordinates are
-provided in Table~\ref{tab:stations}. During the Artemis~II launch, the
-network spanned source--receiver distances ranging from approximately
-0.7~km to 7.6~km.
-
-This geometry provides sensitivity to both radial and azimuthal
-variations in the radiated wavefield. Stations located east of the
-launchpad sample the downrange portion of the trajectory, while stations
-to the west provide complementary coverage of the up-range acoustic
-field. The inclusion of multiple co-located instruments at selected
-sites further enables assessment of local variability, calibration
-consistency, and site-specific seismo-acoustic coupling.
-
-Although not all stations were active simultaneously throughout the
-broader deployment period, the configuration during the Artemis~II
-launch represents a substantial increase in observational coverage
-relative to previous measurements. This dense, partially redundant
-network forms the basis for the analyses presented here, including
-distance-dependent amplitude scaling, arrival-time structure,
-directional asymmetry, and site-specific estimates of seismo-acoustic
-coupling.
+The spatial distribution of stations relative to Space Launch Complex
+39B (28.6272$^{\circ}$~N, 80.6208$^{\circ}$~W) is shown in
+Figure~\ref{fig:station_map}, and station coordinates are provided in
+Table~\ref{tab:stations}. During the launch the network spanned
+source--receiver distances of 0.7--7.6~km. Stations east of the pad
+(azimuth 0--180$^{\circ}$; B14, B01, B07, B23, B20) lie downrange, and
+stations to the west (B03, B05, B12, B24, B29) uprange.
 
 \begin{table}[htbp]
   \centering
   \caption{Station locations and instrumentation, sorted by distance
-    from SLC-39B.}
+    from SLC-39B. Gem 363, recorded under the provisional code
+    \texttt{1R.UNK..HD1}, was 8~m from B20 according to its GPS log.}
   \label{tab:stations}
   \small
   \begin{tabular}{lrrrrl}
@@ -270,31 +259,32 @@ coupling.
     Station & Lat ($^{\circ}$) & Lon ($^{\circ}$) & Distance (km) &
       Azimuth ($^{\circ}$) & Instrumentation \\
     \midrule
-    B14  & 28.6322 & $-$80.6158 & 0.74 & 41.2  &
+    B14  & 28.6322 & $-$80.6158 & 0.74 & 41.4  &
       Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B01  & 28.6214 & $-$80.6067 & 1.53 & 115.1 &
+    B01  & 28.6214 & $-$80.6067 & 1.53 & 115.0 &
       Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B03  & 28.6428 & $-$80.6236 & 1.75 & 351.1 &
+    B03  & 28.6428 & $-$80.6236 & 1.75 & 351.0 &
       Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B12  & 28.6217 & $-$80.6472 & 2.65 & 256.5 &
+    B12  & 28.6217 & $-$80.6472 & 2.65 & 256.6 &
       G\"{u}ralp Certimus, Gem, SmartSolo \\
-    B05  & 28.6400 & $-$80.6450 & 2.75 & 301.1 &
+    B05  & 28.6400 & $-$80.6450 & 2.76 & 300.9 &
       Trillium/Centaur, infraBSU \\
-    B07  & 28.6072 & $-$80.5942 & 3.42 & 130.5 &
-      G\"{u}ralp Certimus, Gem, SmartSolo \\
-    B24  & 28.5806 & $-$80.6408 & 5.54 & 200.6 &
-      Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B23  & 28.5786 & $-$80.6078 & 5.55 & 166.7 &
+    B07  & 28.6072 & $-$80.5942 & 3.42 & 130.4 &
+      G\"{u}ralp Certimus, Gem (2), SmartSolo \\
+    B24  & 28.5806 & $-$80.6408 & 5.53 & 200.7 &
+      Trillium/Centaur, infraBSU, Gem (2), SmartSolo \\
+    B23  & 28.5786 & $-$80.6078 & 5.54 & 166.7 &
       Silicon Audio accel., Gem, SmartSolo \\
-    B24RE& 28.5812 & $-$80.6433 & 5.57 & 203.2 & Gem \\
-    B29  & 28.6181 & $-$80.6769 & 5.57 & 259.5 &
-      Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B24LT& 28.5805 & $-$80.6429 & 5.62 & 202.5 & Gem \\
-    B20W & 28.5737 & $-$80.5725 & 7.59 & 141.6 & Gem, SmartSolo \\
-    B20  & 28.5736 & $-$80.5722 & 7.62 & 141.5 &
-      Trillium/Centaur, infraBSU, Chaparral M25, Gem, SmartSolo \\
-    B20S & 28.5733 & $-$80.5722 & 7.64 & 141.6 & Gem, SmartSolo \\
+    B24RE& 28.5812 & $-$80.6433 & 5.56 & 203.3 & Gem \\
+    B29  & 28.6181 & $-$80.6769 & 5.58 & 259.5 &
+      Trillium/Centaur, infraBSU, Gem (2), SmartSolo$^{a}$ \\
+    B24LT& 28.5805 & $-$80.6429 & 5.61 & 202.6 & Gem \\
+    B20W & 28.5737 & $-$80.5725 & 7.58 & 141.4 & Gem, SmartSolo \\
+    B20  & 28.5736 & $-$80.5722 & 7.61 & 141.3 &
+      Trillium/Centaur, infraBSU, Chaparral M25, Gem (3), SmartSolo \\
+    B20S & 28.5733 & $-$80.5722 & 7.63 & 141.5 & Gem, SmartSolo \\
     \bottomrule
+    \multicolumn{6}{l}{$^{a}$ No data during the launch.}
   \end{tabular}
 \end{table}
 
@@ -305,7 +295,8 @@ coupling.
   \caption{Map of infrasound stations (circles) and active launch
     complexes (yellow triangles) for the Artemis~II launch from
     SLC-39B. Station symbols are scaled by peak absolute infrasound
-    amplitude.}
+    amplitude. \todo{Regenerate with overflowed Gem channels shown as
+    lower bounds (notebook 25).}}
   \label{fig:station_map}
 \end{figure}
 
@@ -313,128 +304,97 @@ coupling.
 %% ============================================================
 \section{Data and Processing}
 
-\subsection{Data Acquisition and Preprocessing}
+\subsection{Data Acquisition and Archiving}
 \label{sec:instruments}
 
-Continuous waveform data were recorded at all stations throughout the
-deployment period using a combination of broadband seismic and
-infrasound instrumentation (Section~2). Rather than
-repeating instrument specifications here, we focus on data retrieval,
-preprocessing, and archival procedures used to produce a consistent,
-analysis-ready dataset.
-
 At USF broadband sites, Nanometrics Centaur digitizers recorded
-continuously to 32--64~GB SD cards using the SeisComP Data Structure
-(SDS) format, in which waveform data are organized as daily MiniSEED
-files for each SEED identifier. The Silicon Audio accelerometer system
-likewise recorded directly to an accessible SD card, producing
-one-minute MiniSEED files. In contrast, the G\"{u}ralp Certimus
-dataloggers were installed in buried configurations, making physical
-access to onboard 128~GB storage impractical during the campaign; only a
-targeted time window surrounding the Artemis~II launch was therefore
-retrieved via web interface.
+continuously to SD cards in the SeisComP Data Structure (SDS), with
+daily MiniSEED files for each SEED identifier. The Silicon Audio
+accelerometer recorded one-minute MiniSEED files. The G\"{u}ralp
+Certimus dataloggers were buried, so only a targeted window around the
+launch was retrieved via web interface. Gem data were converted to
+MiniSEED with \texttt{gemconvert}. All data were ingested into a single
+SDS archive with the \texttt{flovopy.ingest} tools, which validate
+each file and map logger serial numbers to SEED identifiers. The archive
+will be deposited with EarthScope.
 
-The temporary Gem infrasound nodes were recovered following the
-deployment and their data converted to MiniSEED using the
-\texttt{gemconvert} utility prior to further processing. To ensure
-consistency across heterogeneous data sources, all MiniSEED
-files---including those from Silicon Audio, Certimus, and Gem
-systems---were ingested into a unified SDS archive. The resulting
-archive will be deposited with EarthScope to ensure long-term
-accessibility and reuse.
+One channel was damaged in archiving: the B29 vertical (1R.B29.00.DHZ)
+day files for 2026 days 082--093 contain only zero bytes in every copy
+of the archive. The launch window was recovered exactly from an extract
+written on 8~April; the recovery reproduces two intact channels sample
+for sample.
 
-\subsection{Signal Preprocessing and Instrument Correction}
+\subsection{Instrument Correction}
+\label{sec:response}
 
-Waveform data were processed using the ObsPy framework
-\citep{Beyreuther2010} in a standardized workflow
-designed to produce consistent, instrument-corrected time series across
-all stations.
-
-For each station, waveform segments were extracted from the SDS archive
-over a window spanning 30~minutes prior to and 45~minutes following the
-Artemis~II launch (22:35:12~UTC on 1~April~2026).
-
-All data were converted to physically meaningful units through
-instrument response correction:
+Waveforms were processed with ObsPy \citep{Beyreuther2010} over a window
+from 30~minutes before to 45~minutes after the launch (22:35:12~UTC on
+1~April~2026).
 
 \begin{itemize}
-  \item \textit{Gem infrasound nodes.}  Corrected to pressure (Pa)
-    using the \texttt{gemlog} response functions; effective passband
-    $\sim$0.05--50~Hz.
-  \item \textit{Nanometrics Trillium Compact seismometers.}  Corrected
-    to ground velocity (m~s$^{-1}$) using responses constructed from
-    the Nominal Response Library (NRL), specifying the Centaur
-    datalogger at 40~V$_\text{pp}$ and the Trillium Compact sensor;
-    passband 0.02--235~Hz. A cosine-taper pre-filter of
-    (0.01, 0.02, 0.94\,$f_\text{Nyq}$, 0.98\,$f_\text{Nyq}$)~Hz was
-    applied.
-  \item \textit{infraBSU microbarometers.}  Corrected to pressure (Pa)
-    using nominal infraBSU response characteristics at 1~V$_\text{pp}$
-    (standard configuration), except at B20 where the DD0 channel
-    shares the Centaur Sensor~B input with the Chaparral~M25 and was
-    therefore corrected using a 40~V$_\text{pp}$ setting.
-  \item \textit{SmartSolo IGU-16HR-3C nodes \citep{SmartSolo2023}.}
-    These three-component digital geophone nodes have a natural
-    frequency of 5~Hz ($\pm$7.5\%), a damping ratio of $\approx$0.7
-    ($\pm$7.5\%), and a geophone sensitivity of approximately
-    76.7--80~V~m$^{-1}$~s. The spurious frequency is $>$170~Hz on
-    the vertical component. Units were corrected to ground velocity
-    (m~s$^{-1}$) using StationXML response files constructed from a
-    template response obtained for a representative unit (serial
-    number 453013851). Individual station response objects were
-    programmatically assigned to each of the 11~units using their
-    serial numbers and deployment coordinates. A cosine-taper
-    pre-filter of (0.01, 0.02, 0.94\,$f_\text{Nyq}$,
-    0.98\,$f_\text{Nyq}$)~Hz was applied.
-  \item \textit{G\"{u}ralp Certimus and Silicon Audio systems.}
-    Instrument response information was not available at the time of
-    analysis; these data were therefore excluded from quantitative
-    amplitude comparisons but retained for qualitative assessment.
+  \item \textit{Trillium Compact seismometers and infraBSU
+    microbarometers.} Each Centaur writes a StationXML response file
+    whenever its configuration changes; we used the latest file written
+    before the launch for each station. These files hold the full
+    Trillium Compact response (Sensor~A, 40~V$_\text{pp}$;
+    $2.995\times10^{8}$~counts per m~s$^{-1}$). For the infraBSU
+    channels (Sensor~B, 1~V$_\text{pp}$) the files contain only the
+    digitizer, so we prepended the infraBSU sensor stage
+    (\SI{46}{\micro\volt\per\pascal}, one high-pass pole at 0.048~Hz),
+    giving 735.2~counts~Pa$^{-1}$. Configurations were identical at all
+    stations. Pre-filter corners were 0.01, 0.02,
+    0.94\,$f_\text{Nyq}$ and 0.98\,$f_\text{Nyq}$.
+  \item \textit{Gem infrasound loggers.} Corrected to pressure with the
+    \texttt{gemlog} high-gain response after a 0.05~Hz high-pass, and
+    after repair of overflow intervals (Section~\ref{sec:overflow}).
+  \item \textit{SmartSolo nodes.} The harvested MiniSEED is the
+    geophone output voltage in mV, not ground velocity
+    (Section~\ref{sec:nodal_validation}). We removed a nominal geophone
+    response (5~Hz, damping 0.7, 76.7~V~m$^{-1}$~s) with a pre-filter
+    of 0.5--1~Hz at the low end, so SmartSolo results are used only
+    above 1~Hz.
+  \item \textit{G\"{u}ralp Certimus and Silicon Audio.} Response files
+    exist for both Certimus stations, but the B12 response gives
+    amplitudes $\sim$10 times higher than neighbouring sensors and was
+    written two weeks before the launch configuration; these channels
+    are not used quantitatively here.
 \end{itemize}
 
-Traces exhibiting effectively constant amplitudes (corresponding to
-inactive or unconnected digitizer channels) were identified and removed.
-All remaining traces were linearly detrended to remove mean offsets.
+Unconnected digitizer inputs (DD1 and DD2 at B03, B05 and B29) and
+channels with no launch signal were identified from their spectral
+ratios (Section~\ref{sec:snr}) and removed.
 
-\subsection{Amplitude Metrics}
+\subsection{Gem Overflow: Detection and Repair}
+\label{sec:overflow}
 
-The processed data were trimmed to an analysis window extending from
-30~s before to 270~s after the launch time, capturing the primary
-acoustic and seismic signals while minimizing contamination from
-background noise.
+Close to the pad the launch exceeded the Gems' 16-bit range. While a
+Gem overflows, consecutive raw samples jump by more than 20{,}000~counts
+and the baseline then walks off by $6.6\times10^{4}$ to
+$2\times10^{6}$~counts, a step that persists after the overflow. Steep
+shock fronts in the signal produce one-sample jumps of similar size
+(for example $-71$ to $+122$~Pa within 4~ms at B29, confirmed by the
+co-located 500~samples~s$^{-1}$ infraBSU) but leave no persistent step.
+We therefore cluster large jumps (2~s gap) and classify each cluster by
+the median baseline offset across it: an offset larger than
+32{,}768~counts marks an overflow interval (or, for a single jump, a
+baseline reset), and smaller offsets mark shocks, which are real signal
+and are kept. Overflow intervals, padded by 0.25~s, are masked in all
+analyses. Before instrument correction each interval is bridged by a
+straight line and the baseline step is removed from the samples after
+it; without this repair the step leaks through the 0.05~Hz high-pass as
+a slow swing of up to 170~Pa lasting tens of seconds.
 
-To characterize signal amplitudes in a consistent and robust manner, the
-mean was first removed from each trace, and then a sliding 1-second
-window analysis was applied to identify the loudest portion of the
-signal. The ``peak window'' is defined as the contiguous 1-second
-interval whose summed absolute amplitude is largest. Its start time is
-recorded as \texttt{peak\_time}.
+\subsection{Amplitude and Spectral Metrics}
 
-Amplitude metrics are computed in two ways. The maximum positive
-amplitude (\texttt{pos\_max}), maximum negative amplitude
-(\texttt{neg\_max}), and maximum absolute amplitude
-(\texttt{abs\_peak}) are computed over the entire trimmed trace
-(i.e., over the full 300-second analysis window). The median absolute
-amplitude (\texttt{median\_abs}), mean absolute amplitude
-(\texttt{mean\_abs}), root-mean-square amplitude (\texttt{rms}), and
-standard deviation (\texttt{std}) are computed over the peak 1-second
-window only. This distinction is preserved in the amplitude tables
-below.
-
-For infrasound channels, the RMS amplitude of the peak 1-second window
-is converted to sound pressure level (SPL):
-\begin{equation}
-  L_p = 20\log_{10}\!\left(\frac{p_\mathrm{rms}}{\SI{20}{\micro\pascal}}\right)
-  \label{eq:spl}
-\end{equation}
+Peak amplitudes are measured in the first 180~s after launch over
+unmasked samples only, after a 0.5~Hz (pressure) or 1~Hz (ground
+velocity) high-pass, choices justified in Section~\ref{sec:bandwidth}.
+Peak level is expressed as $L_\text{pk} =
+20\log_{10}(p_\text{pk}/\SI{20}{\micro\pascal})$. Spectra are Welch
+estimates over a 180~s launch window and a pre-launch noise window of
+equal length, 15~minutes before launch.
 
 
-%% ============================================================
-%% Results are organized around the campaign's six first-order results
-%% (validation, amplitude field, arrival times, directionality, coupling,
-%% forward model) plus two short add-ons (enclosure effects, spectral
-%% evolution). Detailed seismic-wavefield analyses (polarization, H/V,
-%% attenuation, beamforming, site response) are left to a companion paper.
 %% ============================================================
 \section{Network Validation and Data Quality}
 \label{sec:observations}
@@ -442,350 +402,242 @@ is converted to sound pressure level (SPL):
 \subsection{Station Performance}
 \label{sec:quality}
 
-The pre-deployment huddle test conducted in January 2026 revealed
-amplitude inconsistencies at several broadband sites, motivating the
-subsequent temporary nodal deployment as an independent calibration
-reference. Analysis of the Artemis~II recordings confirmed these
-concerns.
+Of the seven USF Centaur stations, four (B01, B03, B05 and B29) recorded
+the launch. The Centaurs at B14, B20 and B24 have no data on launch day
+(B20's record resumes on 4~April), so the Chaparral sensor at B20
+produced no launch record; the co-located Gems and SmartSolos at those
+sites did record.
 
-Three broadband stations --- B14, B20, and B24 --- yielded no usable
-instrument-corrected seismic recordings despite being nominally
-operational through the launch. The cause is not fully resolved; likely
-contributors include a defective sensor at one or more sites and
-preamplifier issues in the Centaur digitizers identified during the
-huddle test. At these stations the co-located Gem infrasound nodes did
-record the launch successfully, and those data are included in the
-infrasound analysis.
+No Centaur channel approached full scale during the launch: the
+largest was B01 DHZ at 10\% of the 24-bit range. B03 recorded the launch
+on all channels but $\sim$100 times too low relative to its neighbours
+on both its seismometer and its infraBSU, while its configuration was
+identical to the other stations; we attribute this to a hardware fault
+in the B03 digitizer and exclude its Centaur channels. At B05 the
+Trillium's horizontal channels sat at 79\% and 98\% of full scale
+before the launch, indicating an off-centre sensor mass. B05's vertical
+drifts by $\sim$1~mm~s$^{-1}$ over minutes from before the launch; its
+seismic channels are used only above 1~Hz and excluded from fits.
 
-Station B03 recorded the launch seismically, but its amplitudes are
-anomalously low by approximately two orders of magnitude relative to
-the distance-amplitude trend established by B01, B05, and B29. The
-same low-gain signature appears in the B03 infrasound channel
-1R.B03.00.DD0 (Table~\ref{tab:infrasound_amplitudes}), which is
-consistent with a degraded or low-gain preamplifier in the Centaur
-digitizer at B03 affecting all channels on that unit. The 1R.B03.00.DD0
-infrasound channel and the B03 seismic channels are excluded from
-regression and quantitative amplitude comparisons. The co-located Gem
-nodes at B03 (1R.B03..HDI) recorded normally and are retained.
+\subsection{Infrasound Clipping}
+\label{sec:clipping}
 
-The stations that clearly produced useful broadband seismic recordings
-of the Artemis~II launch are B01, B05, and B29. Together with the Gem
-infrasound nodes at all sites, these form the primary observational
-dataset for the analyses below.
+Six Gem channels overflowed during the launch
+(Figure~\ref{fig:clipping}): B14~HDF and HDI (0.7~km; 2--31~s after
+launch), B01~HDI (1.5~km; 13--35~s), B03~HDI (1.7~km; 16--31~s), B12~HDF
+(2.7~km; 23--37~s) and B07.10~HDF (3.4~km; 26--42~s, a single
+wraparound). Gems at 5.5~km and beyond did not overflow, although
+several recorded individual shock fronts large enough to resemble
+overflow in the raw counts. Comparison with the infraBSU at B01 shows
+that the Gem begins to overflow when pressure reaches
+$\sim$100--140~Pa at high gain.
 
-\begin{table}[htbp]
+The co-located infraBSU at B01 also validates the Gem record outside
+the overflow interval (\suppfig{1}). In 5-s windows outside the
+interval, the corrected Gem and infraBSU waveforms correlate at 0.99
+(1--20~Hz) with an RMS amplitude ratio of 0.96; after the repair, the
+broadband (0.05--40~Hz) correlation is 0.94--0.95. Below 1~Hz a residual
+of the overflow persists for $\sim$15~s after the interval. Overflowed
+Gems therefore remain usable before and after their overflow
+intervals, above $\sim$0.5~Hz, and we retain them in all analyses with
+the intervals masked.
+
+\begin{figure}[htbp]
   \centering
-  \caption{Infrasound amplitude metrics for all analysed channels during
-    the Artemis~II launch, sorted by descending \texttt{abs\_peak}.
-    \texttt{peak\_time} (UTC) is the start of the loudest 1-second
-    window. \texttt{pos\_max}, \texttt{neg\_max}, and \texttt{abs\_peak}
-    are the maximum positive, minimum (most negative), and maximum
-    absolute pressure over the entire 300-second analysis window.
-    \texttt{median\_abs}, \texttt{mean\_abs}, \texttt{rms}, and
-    \texttt{std} are computed within the peak 1-second window only.
-    \texttt{spl\_db} is the sound pressure level (dB re
-    \SI{20}{\micro\pascal}) derived from the peak-window RMS.
-    All pressure values in Pa; SPL in dB.
-    Channel codes \texttt{HDI}: sensor inside a protective tote
-    enclosure; \texttt{HDF}: free-field installation.}
-  \label{tab:infrasound_amplitudes}
-  \scriptsize
-  \setlength{\tabcolsep}{4pt}
-  \begin{tabular}{lrrrrrrrrr}
-    \toprule
-    \textbf{SEED\_id} & \textbf{peak\_time} & \textbf{pos\_max} &
-      \textbf{neg\_max} & \textbf{abs\_peak} & \textbf{median\_abs} &
-      \textbf{mean\_abs} & \textbf{rms} & \textbf{std} &
-      \textbf{spl\_db} \\
-    \midrule
-    1R.B14..HDI   & 22:35:27.6 & 569.4  & $-$501.6 & 569.4 & 158.7 & 191.4 & 234.2 & 234.2 & 141.4 \\
-    1R.B14..HDF   & 22:35:23.3 & 537.5  & $-$514.3 & 537.5 & 195.0 & 198.0 & 231.3 & 224.1 & 141.3 \\
-    1R.B01.00.DD0 & 22:35:33.1 & 507.0  & $-$352.2 & 507.0 & 84.2  & 102.4 & 131.4 & 131.4 & 136.4 \\
-    1R.B01..HDI   & 22:35:33.5 & 417.8  & $-$492.1 & 492.1 & 199.2 & 206.2 & 231.0 & 230.8 & 141.3 \\
-    1R.B01.00.DD1 & 22:35:33.0 & 475.3  & $-$336.1 & 475.3 & 78.8  & 98.0  & 127.3 & 125.6 & 136.1 \\
-    1R.B01.00.DD2 & 22:35:33.6 & 443.4  & $-$330.3 & 443.4 & 79.0  & 95.6  & 121.9 & 121.3 & 135.7 \\
-    1R.B05.00.DD0 & 22:35:20.1 & 359.5  & $-$169.4 & 359.5 & 79.8  & 89.0  & 110.6 & 104.4 & 134.9 \\
-    1R.B12..HDF   & 22:35:38.6 & 272.7  & $-$293.8 & 293.8 & 93.3  & 100.7 & 118.9 & 118.0 & 135.5 \\
-    1R.B03..HDI   & 22:35:34.5 & 210.7  & $-$279.0 & 279.0 & 79.9  & 90.3  & 110.4 & 108.6 & 134.8 \\
-    1R.B07.10.HDF & 22:35:47.3 & 166.1  & $-$278.5 & 278.5 & 53.3  & 63.1  & 79.2  & 77.5  & 132.0 \\
-    1R.B07..HDF   & 22:35:49.1 & 124.6  & $-$116.1 & 124.6 & 28.0  & 31.9  & 39.7  & 39.7  & 126.0 \\
-    1R.B29.00.DD0 & 22:35:52.8 & 108.2  & $-$110.7 & 110.7 & 21.2  & 27.0  & 35.6  & 32.3  & 125.0 \\
-    1R.B24LT..HDF & 22:35:48.1 & 108.1  & $-$75.0  & 108.1 & 17.6  & 23.1  & 28.2  & 28.2  & 123.0 \\
-    1R.B29..HDF   & 22:35:52.8 & 103.2  & $-$82.0  & 103.2 & 22.6  & 26.6  & 32.5  & 32.5  & 124.2 \\
-    1R.B24RE..HDF & 22:35:48.9 & 100.8  & $-$67.9  & 100.8 & 19.6  & 21.5  & 25.7  & 25.7  & 122.2 \\
-    1R.B29..HDI   & 22:35:52.8 & 96.9   & $-$89.0  & 96.9  & 20.1  & 24.9  & 31.1  & 31.1  & 123.8 \\
-    1R.B23..HDF   & 22:35:57.7 & 83.4   & $-$62.1  & 83.4  & 17.8  & 23.5  & 30.5  & 30.5  & 123.7 \\
-    1R.B24..HDF   & 22:35:51.1 & 82.5   & $-$62.2  & 82.5  & 17.4  & 21.1  & 25.7  & 25.7  & 122.2 \\
-    1R.B20..HDF   & 22:36:25.2 & 45.1   & $-$40.6  & 45.1  & 10.4  & 12.4  & 15.5  & 15.4  & 117.8 \\
-    1R.B20W..HDF  & 22:36:08.2 & 44.6   & $-$36.4  & 44.6  & 11.0  & 12.5  & 14.9  & 14.9  & 117.5 \\
-    1R.B20.10.HDI & 22:36:25.0 & 42.4   & $-$43.3  & 43.3  & 10.1  & 12.4  & 15.4  & 15.4  & 117.7 \\
-    1R.B20S..HDF  & 22:36:25.9 & 41.7   & $-$38.2  & 41.7  & 10.0  & 11.4  & 14.4  & 14.3  & 117.1 \\
-    1R.B03.00.DD0$^{\dagger}$ & 22:35:17.0 & 0.3 & $-$0.6 & 0.6 & 0.1 & 0.2 & 0.2 & 0.2 & 80.7 \\
-    \bottomrule
-    \multicolumn{10}{l}{$^{\dagger}$ Anomalously low; excluded from
-      quantitative analyses. See Section~\ref{sec:quality}.}
-  \end{tabular}
-\end{table}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Seismic amplitude metrics for all analysed channels during
-    the Artemis~II launch, sorted by descending \texttt{abs\_peak}.
-    Column definitions as in Table~\ref{tab:infrasound_amplitudes}
-    except all values are ground velocity (m~s$^{-1}$) and there is no
-    SPL column. Only stations that yielded usable instrument-corrected
-    seismic recordings are included. Broadband stations B14, B20, and
-    B24 produced no usable seismic result despite being nominally
-    operational (see Section~\ref{sec:quality}); B03 recorded the
-    launch but at anomalously low amplitude, consistent with a
-    degraded Centaur preamplifier gain (also flagged in
-    Table~\ref{tab:infrasound_amplitudes}).}
-  \label{tab:seismic_amplitudes}
-  \scriptsize
-  \setlength{\tabcolsep}{4pt}
-  \begin{tabular}{lrrrrrrrr}
-    \toprule
-    \textbf{SEED\_id} & \textbf{peak\_time} & \textbf{pos\_max} &
-      \textbf{neg\_max} & \textbf{abs\_peak} & \textbf{median\_abs} &
-      \textbf{mean\_abs} & \textbf{rms} & \textbf{std} \\
-    \midrule
-    1R.B01.00.DHZ & 22:35:37.2 & $2.62\times10^{-3}$ & $-2.91\times10^{-3}$ & $2.91\times10^{-3}$ & $6.91\times10^{-4}$ & $7.47\times10^{-4}$ & $9.18\times10^{-4}$ & $9.16\times10^{-4}$ \\
-    1R.B01.00.DH2 & 22:35:33.9 & $1.85\times10^{-3}$ & $-2.20\times10^{-3}$ & $2.20\times10^{-3}$ & $5.89\times10^{-4}$ & $6.43\times10^{-4}$ & $7.74\times10^{-4}$ & $7.72\times10^{-4}$ \\
-    1R.B01.00.DH1 & 22:35:30.2 & $1.80\times10^{-3}$ & $-2.04\times10^{-3}$ & $2.04\times10^{-3}$ & $5.16\times10^{-4}$ & $5.74\times10^{-4}$ & $6.78\times10^{-4}$ & $6.74\times10^{-4}$ \\
-    1R.B05.00.DHZ & 22:35:21.2 & $1.70\times10^{-3}$ & $-7.52\times10^{-4}$ & $1.70\times10^{-3}$ & $2.33\times10^{-4}$ & $2.45\times10^{-4}$ & $2.86\times10^{-4}$ & $2.86\times10^{-4}$ \\
-    1R.B29.00.DH2 & 22:35:53.4 & $1.29\times10^{-3}$ & $-1.21\times10^{-3}$ & $1.29\times10^{-3}$ & $3.66\times10^{-4}$ & $4.00\times10^{-4}$ & $4.77\times10^{-4}$ & $4.77\times10^{-4}$ \\
-    1R.B29.00.DHZ & 22:35:53.3 & $9.79\times10^{-4}$ & $-8.47\times10^{-4}$ & $9.79\times10^{-4}$ & $2.70\times10^{-4}$ & $2.91\times10^{-4}$ & $3.52\times10^{-4}$ & $3.52\times10^{-4}$ \\
-    1R.B05.00.DH1 & 22:35:21.2 & $9.18\times10^{-4}$ & $-8.63\times10^{-4}$ & $9.18\times10^{-4}$ & $2.83\times10^{-4}$ & $2.98\times10^{-4}$ & $3.47\times10^{-4}$ & $3.47\times10^{-4}$ \\
-    1R.B29.00.DH1 & 22:35:53.3 & $6.66\times10^{-4}$ & $-6.57\times10^{-4}$ & $6.66\times10^{-4}$ & $1.84\times10^{-4}$ & $1.98\times10^{-4}$ & $2.40\times10^{-4}$ & $2.40\times10^{-4}$ \\
-    1R.B03.00.DH1 & 22:35:32.0 & $7.27\times10^{-5}$ & $-4.43\times10^{-5}$ & $7.27\times10^{-5}$ & $6.18\times10^{-6}$ & $9.03\times10^{-6}$ & $1.32\times10^{-5}$ & $1.32\times10^{-5}$ \\
-    1R.B03.00.DHZ & 22:35:34.3 & $6.62\times10^{-5}$ & $-7.17\times10^{-5}$ & $7.17\times10^{-5}$ & $5.74\times10^{-6}$ & $9.90\times10^{-6}$ & $1.45\times10^{-5}$ & $1.45\times10^{-5}$ \\
-    1R.B05.00.DH2 & 22:35:34.9 & $3.53\times10^{-5}$ & $-2.32\times10^{-5}$ & $3.53\times10^{-5}$ & $4.04\times10^{-6}$ & $5.43\times10^{-6}$ & $7.35\times10^{-6}$ & $7.05\times10^{-6}$ \\
-    1R.B03.00.DH2 & 22:35:34.3 & $1.96\times10^{-5}$ & $-1.68\times10^{-5}$ & $1.96\times10^{-5}$ & $1.88\times10^{-6}$ & $2.68\times10^{-6}$ & $3.78\times10^{-6}$ & $3.78\times10^{-6}$ \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+  \includegraphics[width=\textwidth]{clipping_timeline}
+  \caption{Gem overflow during the launch. Top: absolute pressure at
+    B01 (infraBSU, 1.5~km), with the pressure at which the B01 Gem
+    began to overflow (dashed). Bottom: overflow intervals (dark bars,
+    with total duration at right) and steep shock fronts that are not
+    overflow (orange ticks) for every Gem, sorted by distance from
+    SLC-39B.}
+  \label{fig:clipping}
+\end{figure}
 
 \subsection{Broadband--Nodal Comparison at Co-located Sites}
 \label{sec:nodal_validation}
 
-\todo{Quantify the nodal calibration control: at sites with both a
-Trillium Compact (DH?) and a SmartSolo node (DP?) --- B01, B03 and B29 ---
-compare instrument-corrected vertical and horizontal velocity: peak and
-RMS amplitude ratios, timing offsets (cross-correlation lag), polarity,
-and spectral ratios over the common passband ($>$5~Hz). Use the result
-to state which broadband channels are trusted, and quantify the B03
-deficit (expected $\sim$100$\times$) and the B14/B20/B24 failures. B29
-DHZ is zero-filled in the SDS archive for days 082--093; use the
-launch-window counts recovered from the 8~April extract.}
+At B01, where a SmartSolo node sits beside a working Trillium Compact,
+the spectral ratio of the raw SmartSolo record to the Trillium velocity
+levels off at 74{,}000~mV per m~s$^{-1}$ above $\sim$10~Hz, close to
+the nominal geophone sensitivity (76{,}700), and rolls off below 5~Hz
+with a $90^{\circ}$ phase shift at 5~Hz (Figure~\ref{fig:smartsolo}).
+The harvested SmartSolo data are therefore geophone output voltage and
+require the geophone response to be removed. After correction, the
+SmartSolo and Trillium peak velocities at B01 agree within 4\% (1--100~Hz;
+\suppfig{3}), and the network-wide peak ground velocities from the two
+instrument types fall on a single trend (Section~\ref{sec:amplitude}).
+
+The SmartSolo vertical has reversed polarity relative to the Trillium
+(zero-lag correlation $-0.94$). The air-to-ground coupling
+(Section~\ref{sec:coupling}) shows which is standard: compression should
+push the ground down, and the Trillium verticals at B01 and B29 indeed
+correlate negatively with pressure, whereas every SmartSolo vertical
+correlates positively. The SmartSolo verticals are therefore reversed
+with respect to the up-positive convention; their sign is flipped in
+waveform comparisons. The polarity of the horizontal components has not
+been checked.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{smartsolo_vs_trillium_B01_transfer}
+  \caption{SmartSolo DPZ (raw, mV) relative to Trillium Compact DHZ
+    velocity at B01 during the launch: amplitude and phase of the
+    transfer function, with the nominal 5~Hz geophone response for
+    comparison.}
+  \label{fig:smartsolo}
+\end{figure}
 
 \subsection{Enclosure Effects: Tote versus Free-field Gem Sensors}
 \label{sec:enclosure}
 
-\todo{Compare paired Gem sensors inside a tote (HDI) and free-field
-(HDF) at B03, B14, B20, B24 and B29: amplitude ratio, spectral ratio,
-and waveform similarity during the launch. Preliminary values from
-Table~\ref{tab:infrasound_amplitudes} suggest little effect
-(abs\_peak HDI/HDF $\approx$ 1.06 at B14, 0.94 at B29, 0.96 at B20).
-State the implication for the permanent-network enclosure design.}
-
-\subsection{Outliers and Variability}
-
-\todo{Identify anomalous channels; discuss possible causes: instrument
-issues (B03), local site effects, directionality.}
-
-
-%% ============================================================
-\section{Amplitude Field}
-\label{sec:amplitude_field}
-
-\subsection{Infrasound Amplitude versus Distance}
+Three tote--free-field pairs were usable (at B14 both overflowed and at
+B03 the free-field Gem stopped before launch). During the launch the
+tote and free-field records are indistinguishable: peak ratios
+HDI/HDF are 1.05 (B20), 1.08 (B24) and 0.94 (B29), RMS ratios
+0.96--1.04, and coherence 0.998--0.999 over 0.5--20~Hz
+(Figure~\ref{fig:enclosure}, \suppfig{2}). These differences are no
+larger than those between free-field Gems a few metres to tens of
+metres apart at B20 (peak ratios 0.94--1.03). Before the launch, the
+tote reduced noise at B29 (median PSD ratio 0.33 over 0.5--20~Hz) and
+B24 (0.74), but not at B20 (1.23). Coherence between free-field Gems
+falls from 0.98 at 9~m separation to 0.6 at 36~m and 0.4 at 30~m (the
+latter in a noisier position), which sets the useful band of the B20
+array (Section~\ref{sec:arrays}). Tote enclosures can therefore be used
+for launch recording without correction, with a possible gain in
+wind-noise reduction.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/infrasound_amplitude_vs_distance}
-  \caption{Peak infrasound RMS amplitude (Pa) versus sensor distance
-    from SLC-39B. Each point represents one SEED channel, coloured by
-    channel type: DD0/1/2 (infraBSU), HDF (Gem free-field), HDI (Gem
-    inside tote enclosure). The dashed line shows a reference $A
-    \propto 1/R$ curve fitted to the data. The best-fit power law
-    (Equation~\ref{eq:amplitude_decay}) has a steeper decay exponent
-    of $-1.22$. Channel 1R.B03.00.DD0 (anomalously low; Centaur
-    preamplifier failure) is excluded.}
-  \label{fig:amplitude_distance}
+  \includegraphics[width=0.9\textwidth]{enclosure_summary}
+  \caption{Second sensor relative to the first for tote (HDI) versus
+    free-field (HDF) Gem pairs (blue), free-field control pairs at B20
+    (squares) and Gem 363 next to B20 (triangle): RMS ratio, peak ratio
+    and median PSD ratio (0.5--20~Hz) during the launch, and RMS ratio of
+    pre-launch noise.}
+  \label{fig:enclosure}
 \end{figure}
-
-The best-fit power-law relationship between peak RMS infrasound
-amplitude $A_\text{RMS}$ and source--receiver distance $R$ is:
-\begin{equation}
-  \log_{10}(A_\text{RMS}) = 2.36 - 1.22\,\log_{10}(R)
-  \label{eq:amplitude_decay}
-\end{equation}
-where $R$ is in km. The exponent of $-1.22$ implies somewhat faster
-decay than the $1/R$ expected for a stationary, isotropic point source
-(exponent $-1.0$). This is consistent with an accelerating, anisotropic
-source moving away from the network.
-
-\subsection{Seismic Amplitude versus Distance}
-\label{sec:pgv}
-
-\todo{Peak ground velocity (and optionally peak ground acceleration)
-versus distance for the trusted broadband stations (B01, B05, B29) and
-the SmartSolo nodes; fit a power law and compare the exponent with the
-infrasound value. Keep this first-order: detailed attenuation and
-site-response analysis is beyond the scope of this paper.}
 
 
 %% ============================================================
-\section{Arrival-Time Structure}
-\label{sec:arrival_times}
+\section{Signal Bandwidth and Recording Requirements}
+\label{sec:bandwidth}
+
+\subsection{Launch-to-Noise Spectral Ratios}
+\label{sec:snr}
+
+The ratio of launch to pre-launch power spectral density
+(Figure~\ref{fig:snr}) shows where the rocket signal lies. For pressure,
+the ratio first exceeds 10 at a median of 0.5~Hz and remains above it to
+the top of each sensor's band (45~Hz for the Gems, 225~Hz for the
+infraBSUs), peaking at $\sim$13~Hz. For ground velocity the ratio exceeds
+10 from $\sim$1~Hz, peaks at a median of 28~Hz and remains high to
+225~Hz. Below 0.5~Hz the launch adds almost nothing: on the Centaur
+channels at most 0.5\% of the excess pressure energy (launch minus noise)
+and at most 0.3\% of the excess seismic energy lies below 0.5~Hz,
+whereas 87\% of the pre-launch pressure noise and up to 42\% of the
+seismic noise (B29) does. Most rocket energy is in the 1--20~Hz band in
+both pressure and ground motion, with 20--50\% above 20~Hz at the near
+infraBSUs (\suppfig{5}). A 0.5~Hz high-pass filter therefore removes
+background, mostly wind noise and microseisms, without removing launch
+signal, and we apply it throughout.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/infrasound_arrival_time_vs_distance}
-  \caption{Peak infrasound arrival time (s after launch) versus
-    station distance from SLC-39B (km). The solid red line shows the
-    best linear fit ($t = 5.31 + 7.37\times10^{-3}\,r$, $r$ in~m;
-    apparent speed 136~m~s$^{-1}$); the dashed green line shows the
-    quadratic fit; the dotted black line shows the expected travel time
-    at the ambient sound speed (343~m~s$^{-1}$) for reference.
-    The much lower apparent speed reflects source motion and the fact
-    that the dominant signal arrives from a point along the ascent
-    trajectory rather than from the launchpad itself.}
-  \label{fig:arrival_time}
+  \includegraphics[width=\textwidth]{snr_spectra}
+  \caption{Ratio of launch to pre-launch power spectral density for
+    every pressure (left) and vertical and horizontal velocity (right)
+    channel, coloured by distance from SLC-39B. Dashed: Gems that
+    overflowed, with the launch window starting after their overflow.
+    Orange line: 0.5~Hz. Dotted line: ratio of 10. SmartSolo spectra are
+    shown above 1~Hz only.}
+  \label{fig:snr}
 \end{figure}
 
-The observed arrival times do not conform to propagation at the ambient
-sound speed (343~m~s$^{-1}$). The best-fit linear and quadratic
-relationships are:
-\begin{align}
-  t &= 5.3 + 7.4\,R \label{eq:tlin} \\
-  t &= 17.8 - 1.3\,R + 0.001\,R^2 \label{eq:tquad}
-\end{align}
-where $t$ is in seconds and $R$ is in km. The linear fit yields an
-apparent propagation speed of approximately 136~m~s$^{-1}$, well below
-the speed of sound. This apparent slowness reflects the geometry of a
-moving, elevated source: the dominant signal arrives not from the pad
-but from a point along the trajectory at some time after launch.
+\subsection{Sampling Rate}
 
-
-%% ============================================================
-\section{Directional Radiation}
-\label{sec:directivity}
-
-\subsection{Distance-corrected Amplitude Residuals versus Azimuth}
-
-\todo{Remove the distance trend (Equation~\ref{eq:amplitude_decay}) and
-plot amplitude residuals against station azimuth from SLC-39B; compare
-downrange (east, azimuth 0--180$^{\circ}$: B14, B01, B07, B23, B20) and
-uprange (west, azimuth 180--360$^{\circ}$: B24, B12, B29, B05, B03)
-groups (azimuths from Table~\ref{tab:stations}). B03 (351$^{\circ}$) and
-B14 (41$^{\circ}$) lie close to the north--south divide.}
-
-\subsection{Downrange versus Uprange Timing}
-
-\todo{Fit arrival time against distance separately for the east and west
-groups. The forward model predicts that uprange (west) stations peak
-earlier and with higher amplitude than downrange stations at the same
-distance (Section~\ref{sec:synthetics}); test this directly.}
-
-
-%% ============================================================
-\section{Waveform and Spectral Characteristics}
-\label{sec:spectral}
+We decimated the 500~samples~s$^{-1}$ Centaur records (with
+anti-alias filtering) and measured what is lost
+(Figure~\ref{fig:bandwidth}; spectra in \suppfig{4}). For ground velocity at B01 and B29,
+250~samples~s$^{-1}$ discards 1--6\% of the rocket energy and retains
+97--98\% of the peak; 100~samples~s$^{-1}$ discards 6--10\% and retains
+83--92\% of the peak. Pressure near the pad is more demanding: at B01
+(1.5~km), 250~samples~s$^{-1}$ discards 11\% of the energy and 19\% of
+the peak, and 100~samples~s$^{-1}$, the Gem rate, discards 30\% of the
+energy and 43\% of the peak. At 2.8--5.6~km the losses at
+100~samples~s$^{-1}$ fall to 11--14\% of the energy. Consistent with
+this, the Gems at B29 record peak pressures $\sim$20\% below the
+co-located infraBSU (93--100 versus 121~Pa). Crackle metrics are even
+more sensitive to sampling rate (Section~\ref{sec:crackle}).
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/near_far_waveforms}
-  \caption{Infrasound (left) and seismic vertical (right) waveforms
-    recorded at stations B01 (1.53~km from SLC-39B; peak 507~Pa,
-    145~dB) and B29 (5.57~km; peak 111~Pa, 125~dB) during the
-    Artemis~II launch on 1~April~2026. Time window: 22:34:42--22:37:12
-    UTC. The signal onset at B01 arrives approximately 11~s after
-    launch; the more distant B29 shows a later, lower-amplitude arrival
-    with a broader envelope.}
-  \label{fig:waveforms}
+  \includegraphics[width=\textwidth]{bandwidth_cumulative_energy}
+  \caption{Cumulative share of rocket-signal energy (launch minus noise
+    PSD) below each frequency for vertical velocity (left) and pressure
+    (right) at B01, B05 and B29. Shading: below 0.5~Hz and 0.5--5~Hz
+    (energy lost by sensors with those corners). Dotted lines: Nyquist
+    frequencies of 100, 200 and 250~samples~s$^{-1}$ (energy to their
+    right is lost at that rate). The B05 seismic curve is dominated by
+    instrument drift below 0.05~Hz.}
+  \label{fig:bandwidth}
 \end{figure}
+
+\subsection{Sensor Corner Frequency}
+
+To test what different seismometers would have recorded, we passed
+the Trillium velocity records through the responses of a 0.5~Hz and a
+1~Hz short-period sensor and a 5~Hz geophone (Figure~\ref{fig:sensors}).
+A 0.5~Hz sensor retains 96--100\% of the peak and 85--100\% of the
+energy; what it removes is mostly noise, plus, at B01, a small rise
+below 0.2~Hz that may be tilt. A 5~Hz geophone loses real rocket signal:
+31--38\% of the energy and 12--14\% of the peak, because the launch
+spectrum has a pronounced peak at 4--5~Hz at both stations. Nodal
+geophones are therefore adequate for peak amplitudes and timing but
+underestimate low-frequency ground motion unless corrected
+(Section~\ref{sec:nodal_validation}).
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/near_far_spectrograms}
-  \caption{Infrasound (left columns) and seismic vertical (right
-    columns) spectrograms at stations B01 (top panels) and B29 (bottom
-    panels) during the Artemis~II launch. Time is seconds after
-    22:34:00~UTC. Broadband energy extends to $>$250~Hz. The
-    high-amplitude broadband onset, coinciding with the main acoustic
-    arrival, is followed by a gradual frequency roll-off as the rocket
-    ascends and the source moves away from the network.}
-  \label{fig:spectrograms}
+  \includegraphics[width=\textwidth]{bandwidth_simulated_sensors_B01}
+  \caption{B01 vertical velocity during the launch as recorded by the
+    Trillium Compact (top) and as it would have been recorded by a
+    0.5~Hz short-period sensor (middle) and a 5~Hz geophone (bottom);
+    the broadband record is repeated in gray for comparison.}
+  \label{fig:sensors}
 \end{figure}
 
-\todo{Write prose for this section, and quantify the frequency roll-off:
-spectral centroid, dominant frequency, or a high/low-frequency energy
-ratio versus time after launch for a few stations at different
-distances (e.g.\ B14, B01, B29, B20).}
+\subsection{Implications for Network Design}
+
+For launch recording at these distances, 250~samples~s$^{-1}$ is
+sufficient for ground motion and nearly sufficient for pressure;
+pressure within $\sim$3~km of a heavy-lift launch benefits from
+500~samples~s$^{-1}$ and from at least 24-bit resolution, since 16-bit
+loggers at high gain overflow above $\sim$100~Pa. Seismometers with
+corners at or below 1~Hz capture essentially all of the rocket's ground
+motion. A low-gain setting, or a co-located higher-range sensor, would
+have avoided the Gem overflow within 3.4~km.
 
 
 %% ============================================================
-\section{Air-to-Ground Coupling}
-\label{sec:coupling}
-
-\subsection{Coupling Transfer Function}
-
-\todo{Compute the frequency-dependent coupling coefficient
-$C(f) = |V(f)|/|P(f)|$ (m~s$^{-1}$~Pa$^{-1}$) over the peak signal window
-at co-located pressure--seismic pairs: broadband pairs B01 (DHZ+DD0),
-B05 (DHZ+DD0) and B29 (DHZ+DD0, using the recovered DHZ), and nodal
-pairs (SmartSolo DPZ + Gem HDF/HDI) at sites such as B14 and B03 where
-the broadband channels failed. Consider comparing velocity and
-acceleration (pressure = force/area; acceleration = force/mass).}
-
-\subsection{Coherence and Phase}
-
-\todo{Magnitude-squared coherence and phase between pressure and
-vertical ground motion as a function of frequency, to identify the band
-over which the seismic signal is air-coupled.}
-
-\subsection{Site Comparison}
-
-\todo{Compare coupling spectra between sites and instrument types;
-relate differences to site conditions only at first order.}
-
-
-%% ============================================================
-\section{Forward Modeling}
+\section{Forward Model}
 \label{sec:modeling}
 
 \subsection{Model Overview}
 
-To aid interpretation of the observed seismo-acoustic signals, we
-implement a simplified forward model representing the rocket as a
-moving, time-dependent acoustic source. The model is designed to capture
-first-order effects associated with source motion, directional
-radiation, and geometric spreading, while remaining computationally
-efficient and consistent with the available observational constraints.
-
-The rocket trajectory is represented using an idealized gravity-turn
-formulation in which the vehicle initially ascends vertically before
-progressively pitching over into a downrange trajectory. Acoustic
-propagation from the source to each station is modeled assuming a
-constant sound speed, neglecting atmospheric stratification and wind
-effects. While this assumption limits accuracy at longer ranges, it
-provides a useful baseline for interpreting apparent propagation
-velocities derived from the data.
-
-The acoustic source is modeled as a point source with directional
-radiation described by a conical emission pattern, capturing the strong
-anisotropy associated with rocket exhaust noise. As an extension, the
-framework also allows for a distributed source representation along the
-exhaust plume, although this is not required for the primary comparisons
-presented here.
+To interpret the observations we use a simplified model of the rocket
+as a moving, time-dependent acoustic source. The trajectory is an
+idealized gravity turn: the vehicle ascends vertically and then pitches
+over downrange. Propagation is along straight rays at a constant sound
+speed of 343~m~s$^{-1}$, neglecting stratification and wind, which is
+reasonable while the vehicle is below $\sim$10~km (the first
+$\sim$60~s) and increasingly approximate afterwards. The source is a
+point at the vehicle with directional radiation described by a conical
+emission pattern. The model is 2-D (downrange distance and altitude);
+we place it on the map along a launch azimuth of 90$^{\circ}$, which the
+infrasound arrays support (Section~\ref{sec:arrays}).
 
 \subsection{Rocket Trajectory Model}
-
-The rocket trajectory is parameterized in terms of time-dependent
-position, velocity, and orientation, following a simplified gravity-turn
-model. The trajectory is divided into three phases: an initial vertical
-ascent, a controlled pitchover maneuver, and a gravity-driven turn.
 
 Model parameters were selected to approximate the early flight profile
 of the Artemis~II launch. The nominal thrust is 37.4~MN (corresponding
@@ -810,11 +662,21 @@ exponentially decreasing atmospheric density profile (sea-level density
 Mach number calculation uses a tropospheric temperature lapse rate of
 6.5~K~km$^{-1}$, constant below 11~km.
 
+The modeled vehicle reaches 1~km altitude at 20~s, 2.3~km at 30~s,
+10~km at 60~s and 45~km at 120~s, passing Mach~1 at $\sim$48~s
+(Figure~\ref{fig:trajectory}; velocity components in \suppfig{9}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/trajectory}
+  \caption{Modeled rocket trajectory during the first 120~s of flight,
+    showing altitude as a function of downrange distance.}
+  \label{fig:trajectory}
+\end{figure}
+
 \subsection{Acoustic Source Model}
 
-The acoustic source is modeled as a time-dependent emitter whose
-amplitude and directivity vary with source strength and geometry. The
-amplitude observed at a station is:
+The amplitude observed at a station is:
 \begin{equation}
   A(t) \propto \frac{Q(t)\,D(\phi)}{R(t)}
   \label{eq:source}
@@ -829,224 +691,585 @@ Gaussian cone model:
   D(\phi) = \exp\!\left[-\frac{1}{2}\left(\frac{\phi - \phi_0}{\sigma}\right)^2\right]
   \label{eq:directivity}
 \end{equation}
-in which acoustic energy is preferentially emitted at angle $\phi_0$
-relative to the exhaust axis, with angular width $\sigma$. The source
+with $\phi_0 = 30^{\circ}$ and $\sigma = 20^{\circ}$. The source
 strength $Q(t)$ rises from zero following launch with a time constant
-$\tau_\mathrm{rise} = 8$~s, reflecting the ramp-up of engine noise.
-
-\subsection{Trajectory Validation}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/trajectory}
-  \caption{Modeled rocket trajectory during the first 120~s of flight,
-    showing altitude as a function of downrange distance.}
-  \label{fig:trajectory}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\textwidth]{figures/velocity_vs_time}
-  \caption{Modeled rocket velocity components and total speed versus
-    time since liftoff. The rocket transitions from predominantly
-    vertical (orange) to predominantly horizontal (blue) motion around
-    T+90~s, with total speed (green) reaching $\sim$1\,440~m~s$^{-1}$
-    at T+128~s, consistent with solid rocket booster separation.}
-  \label{fig:speed}
-\end{figure}
-
-The simulated trajectory reproduces the expected qualitative features of
-a gravity-turn ascent: an initial near-vertical rise followed by a
-gradual transition to downrange motion. Quantitatively, the model
-reproduces (i)~transonic conditions at approximately 60--70~s,
-(ii)~rapid acceleration through the lower atmosphere, and
-(iii)~altitudes of order 40--50~km by approximately 120~s. This level
-of agreement is sufficient for the purposes of the forward model, which
-is intended to reproduce relative variations in arrival time and
-amplitude as a function of station geometry.
+$\tau_\mathrm{rise} = 8$~s. A sound emitted at source time $t_s$ arrives
+at time $t_s + R(t_s)/c$. Within the first 150~s, $dt_\text{obs}/dt_s$
+remains positive at every station, so each arrival time corresponds to a
+single source time.
 
 \subsection{Synthetic Predictions}
 \label{sec:synthetics}
 
-To isolate the effect of source motion and directivity from
-site-specific complications, we computed synthetic infrasound envelopes
-along two idealized station lines extending due east (downrange) and
-due west (uprange) of SLC-39B, at 0.5~km spacing out to 16~km
-(64~virtual stations in total). Each point on the modeled trajectory,
-emitted at source time $t_s$, contributes an amplitude given by
-Equation~\ref{eq:source} at observed time $t_s + R/c$, where
-$c = 343$~m~s$^{-1}$ is the ambient sound speed; the synthetic envelope
-is this amplitude as a function of observed time. Because $Q(t)$ is not calibrated in
-absolute units, synthetic amplitudes are normalized and only their
-relative variation with distance and azimuth is interpreted.
-
-Figure~\ref{fig:synthetic_envelopes} shows envelopes at 1, 4, and 8~km
-on each line. At all distances the peak is broad (tens of seconds) and
-arrives well after the direct travel time from the pad, because the
-dominant contribution comes from a point on the ascent trajectory where
-the receiver lies within the directivity lobe. The model predicts a
-strong east--west asymmetry. West stations peak earlier and louder than
-east stations at the same distance: the delay grows from 5~s at 1~km
-to 35~s at 8~km, and the west/east amplitude ratio grows from 1.2 to
-1.45. This follows from the geometry of an aft-directed lobe on a
-downrange trajectory. West stations lie behind the rocket from the
-start and are illuminated early in the flight (source times of
-22--48~s for stations at 1--8~km). East stations are crossed by the
-lobe only after the rocket has climbed and moved downrange of them
-(source times of 27--74~s), so the sound travels further and arrives
-later. The angle $\phi$ at the time of peak contribution is nearly
-constant along each line ($35$--$37^\circ$ west, $39$--$42^\circ$ east),
-confirming that the peak is controlled by the directivity function
-rather than by the minimum source--receiver distance.
-
-Synthetic peak amplitude decays with distance as a power law with
-exponent $-0.96$ for both lines combined ($-0.92$ west, $-1.00$ east;
-Figure~\ref{fig:synthetic_amplitude}), close to the $1/R$ term in
-Equation~\ref{eq:source}. This is shallower than the observed exponent
-of $-1.22$ (Equation~\ref{eq:amplitude_decay}), indicating that the
-current model omits a distance-dependent loss mechanism such as
-atmospheric absorption, ground interaction or refraction.
-
-Synthetic peak arrival time increases approximately linearly with
-distance (Figure~\ref{fig:synthetics}). A single linear fit to both
-lines gives
+Along idealized east (downrange) and west (uprange) lines of virtual
+stations at 0.5--16~km (\suppfig{8}), the model predicts broad peaks
+arriving well after the direct travel time from the pad, and a strong
+east--west asymmetry: west stations peak earlier and 1.2--1.45 times
+louder than east stations at the same distance, because they lie behind
+the rocket and inside the aft-directed lobe early in the flight.
+Synthetic peak amplitude decays as $R^{-0.96}$
+(Figure~\ref{fig:synthetic_amplitude}), and synthetic peak arrival time
+increases with distance at an apparent speed of $\sim$125~m~s$^{-1}$
+(Figure~\ref{fig:synthetics}; $t = 29.6 + 8.0\,R$, $R$ in km), with
+6.2~s~km$^{-1}$ on the west line and 9.8~s~km$^{-1}$ on the east line.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/synthetic_envelopes}
-  \caption{Synthetic infrasound amplitude envelopes at selected west
-    (W) and east (E) stations as a function of observed time (s after
-    launch). Closer stations show earlier, sharper peaks. At a given
-    distance, west stations peak earlier and with higher amplitude
-    than east stations, reflecting the aft-directed source on a
-    downrange trajectory.}
-  \label{fig:synthetic_envelopes}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/synthetic_amplitude_vs_distance}
-  \caption{Synthetic peak amplitude versus station distance from
-    SLC-39B for west (circles) and east (triangles) stations. The
-    dashed line shows the best-fit power-law decay (exponent $-0.96$).
-    West (uprange) stations consistently show higher amplitudes than
-    east (downrange) stations at the same distance, reflecting the
-    aft-directed directivity of the acoustic source.}
+  \includegraphics[width=0.85\textwidth]{figures/synthetic_amplitude_vs_distance}
+  \caption{Synthetic peak amplitude versus distance from SLC-39B for
+    west (circles) and east (triangles) virtual stations, with the
+    best-fit power law (exponent $-0.96$).}
   \label{fig:synthetic_amplitude}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{figures/synthetic_peaktime_vs_distance}
-  \caption{Synthetic peak arrival time versus station distance from
-    SLC-39B. East stations (triangles) show systematically later
-    arrivals than west stations (circles) at the same distance.
-    The solid red line is the linear fit
-    $t = 29.6 + 8.0\,r$~s ($r$ in km, apparent speed 125~m~s$^{-1}$);
-    the dashed green line is the quadratic fit.}
+  \includegraphics[width=0.85\textwidth]{figures/synthetic_peaktime_vs_distance}
+  \caption{Synthetic peak arrival time versus distance from SLC-39B.
+    East stations (triangles) arrive later than west stations (circles)
+    at the same distance. Red: linear fit $t = 29.6 + 8.0\,r$~s ($r$ in
+    km, apparent speed 125~m~s$^{-1}$); green dashed: quadratic fit.}
   \label{fig:synthetics}
 \end{figure}
 
+
+%% ============================================================
+\section{Amplitude Field and Arrival Times}
+\label{sec:amplitude}
+
+\subsection{Peak Pressure and Ground Velocity versus Distance}
+\label{sec:pgv}
+
+Excluding overflowed Gems (whose unclipped peaks are lower bounds) and
+faulty channels, peak pressure decays as
 \begin{equation}
-  t = 29.57 + 8.00\,R
-  \label{eq:tsyn}
+  p_\text{pk} = 927\,r^{-1.40}~\text{Pa}
+  \label{eq:amplitude_decay}
 \end{equation}
-($t$ in s, $R$ in km), an apparent propagation speed of
-$\sim$125~m~s$^{-1}$. This is close to the 136~m~s$^{-1}$ derived from
-the observations (Equation~\ref{eq:tlin}), so the forward model
-reproduces the observed slowness without any adjustment. The slowness
-comes entirely from source motion and directivity, not from a slow
-propagation medium. The combined fit hides a large azimuthal
-difference: fitted separately, the west line gives 6.2~s~km$^{-1}$
-($\sim$162~m~s$^{-1}$) and the east line 9.8~s~km$^{-1}$
-($\sim$102~m~s$^{-1}$). The synthetic intercept (29.6~s) is much
-larger than the observed one (5.3~s), and the synthetic fit spans
-0.5--16~km compared with $\lesssim$8~km for the real network. A
-like-for-like comparison at the actual station coordinates is made in
-Section~\ref{sec:model_data}.
+and peak vertical ground velocity as
+\begin{equation}
+  v_\text{pk} = 4.9\times10^{-3}\,r^{-1.05}~\text{m~s}^{-1}
+  \label{eq:pgv_decay}
+\end{equation}
+with $r$ in km (Figure~\ref{fig:amplitude}, Table~\ref{tab:amplitudes});
+the scatter about both fits is 0.09 log units (17 pressure and 12
+velocity channels). The largest recorded pressure was 512~Pa
+(148~dB peak) at B01, 1.5~km from the pad; the overflowed Gems at
+B14 (0.7~km) would have recorded more. Pressure decays considerably
+faster than $1/r$ and faster than the model ($R^{-0.96}$), whereas peak
+ground velocity decays close to $1/r$. Part of the pressure decay
+reflects source motion: the closest stations peak early, when the
+vehicle is near the ground and close to them, whereas the farthest peak
+later from a source several kilometres up (Section~\ref{sec:moving}).
+Part reflects the loss of high frequencies at 100~samples~s$^{-1}$, since
+the farther stations are all Gems. A previous fit to these data
+($R^{-1.22}$) included overflowed Gem channels and is superseded.
+
+Residuals about Equation~\ref{eq:amplitude_decay} differ by azimuth:
+uprange (west) channels average $+0.08$ log units and downrange (east)
+channels $-0.07$, so at a given distance uprange stations are
+$\sim$1.4 times louder, within the 1.2--1.45 range predicted by the
+model.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{amplitude_field}
+  \caption{Left: peak pressure ($>$0.5~Hz) versus distance; open
+    symbols are overflowed Gems, whose unclipped peak is a lower bound.
+    Right: peak vertical ground velocity ($>$1~Hz) for Trillium and
+    SmartSolo sensors; open symbols are the faulty B03 and drifting B05
+    Trillium channels. Lines: power-law fits to the filled symbols.}
+  \label{fig:amplitude}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Peak pressure ($>$0.5~Hz) and peak vertical ground velocity
+    ($>$1~Hz) in the first 180~s after launch, over unclipped samples.
+    $\geq$: overflowed Gem, value is the peak outside the overflow
+    interval. $t_\text{pk}$: time of the peak after launch.
+    $L_\text{pk}$: peak level, dB re \SI{20}{\micro\pascal}. B03's
+    infraBSU (DD0) is omitted (hardware fault).}
+  \label{tab:amplitudes}
+  \scriptsize
+  \begin{tabular}{lrrlrrrl}
+    \toprule
+    Channel & $r$ (km) & Az ($^{\circ}$) & Sensor & $p_\text{pk}$ (Pa) & $L_\text{pk}$ (dB) & $t_\text{pk}$ (s) & Note \\
+    \midrule
+    B14..HDF & 0.74 & 41 & Gem & $\geq$95 & 134 & 31.5 & overflow \\
+    B14..HDI & 0.74 & 41 & Gem & $\geq$90 & 133 & 31.5 & overflow \\
+    B01..HDI & 1.53 & 115 & Gem & $\geq$99 & 134 & 35.6 & overflow \\
+    B01.00.DD0 & 1.53 & 115 & infraBSU & 512 & 148 & 22.0 &  \\
+    B01.00.DD1 & 1.53 & 115 & infraBSU & 454 & 147 & 22.2 &  \\
+    B01.00.DD2 & 1.53 & 115 & infraBSU & 434 & 147 & 23.2 &  \\
+    B03..HDI & 1.75 & 351 & Gem & $\geq$128 & 136 & 5.6 & overflow \\
+    B12..HDF & 2.65 & 257 & Gem & $\geq$98 & 134 & 38.0 & overflow \\
+    B05.00.DD0 & 2.76 & 301 & infraBSU & 329 & 144 & 12.0 &  \\
+    B07..HDF & 3.42 & 130 & Gem & 121 & 136 & 35.3 &  \\
+    B07.10.HDF & 3.42 & 130 & Gem & $\geq$114 & 135 & 42.9 & overflow \\
+    B24..HDI & 5.53 & 201 & Gem & 87 & 133 & 38.8 &  \\
+    B24..HDF & 5.53 & 201 & Gem & 81 & 132 & 38.8 &  \\
+    B23..HDF & 5.54 & 167 & Gem & 82 & 132 & 45.5 &  \\
+    B24RE..HDF & 5.56 & 203 & Gem & 98 & 134 & 38.9 &  \\
+    B29..HDF & 5.58 & 260 & Gem & 100 & 134 & 38.8 &  \\
+    B29..HDI & 5.58 & 260 & Gem & 93 & 133 & 38.8 &  \\
+    B29.00.DD0 & 5.58 & 260 & infraBSU & 121 & 136 & 38.7 &  \\
+    B24LT..HDF & 5.61 & 203 & Gem & 105 & 134 & 39.0 &  \\
+    B20W..HDF & 7.58 & 141 & Gem & 45 & 127 & 71.3 &  \\
+    B20..HDF & 7.61 & 141 & Gem & 45 & 127 & 71.4 &  \\
+    B20.10.HDI & 7.61 & 141 & Gem & 45 & 127 & 71.3 &  \\
+    B20S..HDF & 7.63 & 141 & Gem & 42 & 126 & 71.5 &  \\
+    \midrule
+    Channel & $r$ (km) & Az ($^{\circ}$) & Sensor & $v_\text{pk}$ (mm~s$^{-1}$) & & $t_\text{pk}$ (s) & Note \\
+    \midrule
+    B14..DPZ & 0.74 & 41 & SmartSolo & 7.45 & & 4.9 &  \\
+    B01..DPZ & 1.53 & 115 & SmartSolo & 2.98 & & 23.2 &  \\
+    B01.00.DHZ & 1.53 & 115 & Trillium & 2.91 & & 23.2 &  \\
+    B03..DPZ & 1.75 & 351 & SmartSolo & 2.50 & & 23.2 &  \\
+    B03.00.DHZ & 1.75 & 351 & Trillium & 0.072 & & 23.3 & faulty \\
+    B12..DPZ & 2.65 & 257 & SmartSolo & 2.57 & & 27.0 &  \\
+    B05.00.DHZ & 2.76 & 301 & Trillium & 1.60 & & 24.5 & drift \\
+    B07..DPZ & 3.42 & 130 & SmartSolo & 0.84 & & 49.0 &  \\
+    B24..DPZ & 5.53 & 201 & SmartSolo & 0.92 & & 34.6 &  \\
+    B23..DPZ & 5.54 & 167 & SmartSolo & 0.75 & & 48.5 &  \\
+    B29.00.DHZ & 5.58 & 260 & Trillium & 0.99 & & 41.3 &  \\
+    B20W..DPZ & 7.58 & 141 & SmartSolo & 0.57 & & 57.8 &  \\
+    B20..DPZ & 7.61 & 141 & SmartSolo & 0.66 & & 56.5 &  \\
+    B20S..DPZ & 7.63 & 141 & SmartSolo & 0.53 & & 59.4 &  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Arrival Times}
+\label{sec:arrival_times}
+
+Peak pressure arrival times (Table~\ref{tab:amplitudes}, excluding
+overflowed channels) increase with distance as $t = 2.6 + 7.9\,r$~s
+($r$ in km), an apparent speed of 127~m~s$^{-1}$, far below the sound
+speed and close to the model's 125~m~s$^{-1}$. The slowness arises
+because the loudest sound reaching distant stations was emitted later,
+from higher on the trajectory. At similar distances uprange stations
+peak earlier than downrange ones (38.7--39.0~s at B24 and B29 versus
+45.5~s at B23, all at 5.5~km), as the model predicts. The record
+section of pressure envelopes (Figure~\ref{fig:record_section}) shows
+that the model's arrival curves for successive source times track the
+evolution of the observed envelopes.
+
+Signal onsets reveal a second source. Interpreted as straight-ray
+arrivals from the pad, the onsets at the nearer and quieter stations
+imply emission 3--6~s before liftoff, consistent with the start of the
+core-stage engines, whereas the farthest stations (B20, B07, B23) first
+detect the louder booster ignition at $\sim$0~s. Onset detection depends
+on each sensor's noise level (Gems at the same site differ by up to
+4~s), so onsets are used only qualitatively.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{moving_source_record_section}
+  \caption{Pressure envelopes (RMS in 1-s windows, 0.5--40~Hz; gaps are
+    Gem overflow intervals) plotted at each station's distance, with
+    the arrival times predicted for sound emitted at the source times
+    shown (orange; straight rays, $c = 343$~m~s$^{-1}$, launch azimuth
+    90$^{\circ}$). Blue dots: detected onsets.}
+  \label{fig:record_section}
+\end{figure}
 
 
 %% ============================================================
-\section{Model--Data Comparison}
-\label{sec:model_data}
+\section{Moving-Source Analysis}
+\label{sec:moving}
 
-\subsection{Timing Comparison}
-\todo{Compare slope and intercept of model vs.\ observed arrival-time
-fits. Intercept mismatch may indicate a source timing issue.}
+\subsection{Amplitude in Source Time}
 
-\subsection{Amplitude Comparison}
-\todo{Compare amplitude decay rate (synthetic $-0.96$, observed
-$-1.22$) and its sensitivity to cone model parameters.}
+Each station's pressure envelope was read at the arrival time predicted
+for every source time $t_s$ (0.5~s steps), giving an amplitude history in
+source time; multiplying by $R(t_s)$ removes spherical spreading
+(``reduced pressure'', Pa~km). Overflow intervals and windows with a
+signal-to-noise ratio below 3 are omitted, so the near stations
+contribute only for source times when they were not saturated, and the
+overlap with farther stations ties the network together without a
+separate amplitude calibration ladder.
 
-\subsection{Directionality}
-\todo{Compare observed azimuthal residuals and east/west timing
-(Section~\ref{sec:directivity}) with the model's east--west asymmetry.}
+The result (Figure~\ref{fig:reduced}) separates three phases. At
+$t_s \lesssim 5$~s, the stations north of the pad (B03 and B05) record
+their largest reduced pressures, up to 270~Pa~km, while stations to the
+south-east (the B20 cluster) record their weakest; this is ignition
+overpressure and pad noise, radiated preferentially northward,
+consistent with the orientation of the flame trench. Between
+$t_s \approx 17$ and 30~s, with the vehicle at 0.8--2.3~km, nearly every
+station reaches its maximum reduced pressure of 130--175~Pa~km. After
+$t_s \approx 45$~s the downrange stations remain up to twice as loud as
+the uprange stations, until the two groups converge at
+$t_s \approx 100$~s.
 
-\subsection{Source Region along the Trajectory}
-\todo{For each station, report the source time and altitude on the
-trajectory that dominates the peak arrival (model output
-\texttt{peak\_source\_time\_s}), and show how source motion changes the
-observed distance relation.}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{moving_source_reduced_pressure}
+  \caption{Amplitude history in source time. Top: RMS pressure at the
+    predicted arrival time for each source time. Bottom: reduced
+    pressure $R(t_s)\,p$. Blue: stations east of the pad; orange:
+    west. Gem overflow intervals and SNR~$<$~3 omitted.}
+  \label{fig:reduced}
+\end{figure}
 
-\subsection{Interpretation}
-\todo{What is controlled by trajectory, source strength, and
-directivity?}
+\subsection{Empirical Directivity}
+
+Plotting reduced pressure against the emission angle $\phi$ for all
+stations and source times gives an empirical radiation pattern
+(Figure~\ref{fig:directivity}). Reduced pressure is largest at
+$\phi \approx 60$--70$^{\circ}$ from the exhaust axis and falls by a
+factor of $\sim$5 towards $\phi \approx 10^{\circ}$; the binned
+medians for source times 20--60~s and 60--150~s agree closely where
+they overlap. The observed maximum lies at a larger angle than the
+$\phi_0 = 30^{\circ}$ assumed in the model. In this geometry, small
+$\phi$ is reached only late in the flight, when the source is high and
+far, so part of the decrease at small $\phi$ may reflect propagation
+losses not in the model; the agreement between the two source-time
+groups argues for a directivity effect.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{moving_source_directivity}
+  \caption{Reduced pressure against emission angle $\phi$ from the
+    exhaust axis. Left: all stations and source times, coloured by
+    source time. Right: medians in 10$^{\circ}$ bins for three ranges
+    of source time.}
+  \label{fig:directivity}
+\end{figure}
+
+
+%% ============================================================
+\section{Tracking the Vehicle with Small Infrasound Arrays}
+\label{sec:arrays}
+
+The B20 cluster (five Gems, aperture $\sim$35~m, element positions from
+their own GPS logs, including Gem 363) and the B24 cluster (four Gems,
+aperture $\sim$250~m) were analysed as arrays. In sliding windows (B20:
+2~s, 2--10~Hz; B24: 4~s, 0.5--3~Hz), pairwise cross-correlation lags
+were fitted with a plane wave to give the back-azimuth and trace
+velocity, and the elevation angle $e$ from $\cos e = c/v_\text{trace}$.
+Windows were accepted when the mean pairwise correlation exceeded 0.7;
+median correlations were 0.98 (B20) and 0.95 (B24), with lag residuals
+of 2.5 and 4.0~ms.
+
+Both arrays track the vehicle from the first arrivals at $\sim$20~s to
+180~s after launch (Figure~\ref{fig:arrays}). Back-azimuths follow the
+model for a launch azimuth of 90$^{\circ}$ throughout, including the
+passage of the source to the north of B20 at $\sim$110~s. Elevation
+angles agree with the model after $\sim$60~s, reaching 55--68$^{\circ}$;
+before that the arrays measure $\sim$20$^{\circ}$ where the model predicts
+near-grazing rays, a bias that could arise from near-surface wind or
+temperature gradients changing the apparent sound speed, from sound
+radiated by the extended plume above the vehicle, or from the small
+aperture. Intersecting the two arrays' back-azimuths at common arrival
+times locates the source in map view (Figure~\ref{fig:array_map}): the
+intersections begin within a few hundred metres of SLC-39B and follow a
+track due east to $\sim$15~km downrange, within $\sim$0.5~km of the
+model ground track. Two small arrays of low-cost sensors therefore
+suffice to follow the ascent acoustically.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{array_backazimuth}
+  \caption{Back-azimuth (top) and elevation angle (bottom) from the B20
+    (left) and B24 (right) arrays, coloured by mean pairwise
+    correlation, against the straight-ray model for a launch azimuth of
+    90$^{\circ}$ (orange).}
+  \label{fig:arrays}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{array_map}
+  \caption{Intersections of the B20 and B24 back-azimuths at common
+    arrival times (coloured by arrival time), with the model ground
+    track for a launch azimuth of 90$^{\circ}$ (orange) and the array
+    centres (blue).}
+  \label{fig:array_map}
+\end{figure}
+
+
+%% ============================================================
+\section{Crackle}
+\label{sec:crackle}
+
+Crackle is the impulsive, popping component of jet and rocket noise
+produced by steep shock fronts, which make the pressure waveform and
+especially its time derivative positively skewed
+\citep{FfowcsWilliams1975,Gee2013,McInerny1996}. Using the
+500~samples~s$^{-1}$ infraBSUs at B01, B05 and B29 (high-passed at
+1~Hz), we computed in 4-s windows the overall sound pressure level, the
+skewness of pressure $Sk(p)$, the skewness of its time derivative
+$Sk(\partial p/\partial t)$, and the rate of steep fronts (positive
+derivative excursions above five times its RMS), and mapped each window
+to its source time (Figure~\ref{fig:crackle}). Windows within 15~dB of
+the pre-launch noise level were discarded; in pre-launch noise both
+skewnesses are $\sim$0.
+
+Derivative skewness rises from $\sim$0 during the first 8~s at B01 and
+B29 to 1.1--1.9 (median) for source times of 10--45~s, with maxima of
+2.0--2.4, and declines afterwards (Figure~\ref{fig:crackle}). Pressure
+skewness reaches 0.3 (median) and exceeds the conventional crackle
+threshold of $\sim$0.4 \citep{FfowcsWilliams1975} in many windows at
+B01 in this interval. The crackle-producing interval corresponds to the
+vehicle at $\sim$0.2--6~km altitude and subsonic (the model passes
+Mach~1 only at $\sim$48~s), so the crackle arises in the supersonic
+exhaust jet rather than from the vehicle's motion. At B05, the
+first $\sim$9~s also exceed $Sk(p) = 0.4$, associated with the impulsive
+ignition overpressure. Derivative skewness is larger at B29 (5.6~km;
+median 1.9) than at B01 (1.5~km; 1.3) for the same source times, while
+pressure skewness decreases with distance, consistent with nonlinear
+steepening of the waveform during propagation \citep{Gee2008}; example
+waveforms are shown in \suppfig{7}. This is the crackle heard by
+observers: at 5.6~km it arrives 25--70~s after liftoff.
+
+Derivative skewness depends strongly on sampling rate because the shock
+rise is not resolved: after decimation to 100~samples~s$^{-1}$, median
+$Sk(\partial p/\partial t)$ in the loudest minute falls to
+$\sim$40\% of its 500~samples~s$^{-1}$ value, whereas $Sk(p)$ is less
+affected. Crackle therefore cannot be quantified from the Gem
+recordings.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{crackle_vs_source_time}
+  \caption{Crackle metrics in 4-s windows at the three infraBSU
+    stations, plotted at the source time of emission: overall sound
+    pressure level, pressure skewness (dotted: 0.4), derivative
+    skewness, steep-front rate, and the model altitude with Mach-number
+    crossings. Shaded: source times 10--45~s used for summary values.}
+  \label{fig:crackle}
+\end{figure}
+
+
+%% ============================================================
+\section{Waveform and Spectral Characteristics}
+\label{sec:spectral}
+
+Figures~\ref{fig:waveforms} and \ref{fig:spectrograms} compare a near
+(B01, 1.5~km) and a far (B29, 5.6~km) station. Both record broadband
+pressure and ground motion extending to the top of the 500~samples~s$^{-1}$
+band. The near station's record is dominated by the first $\sim$40~s
+of flight; the far station's is lower, later and broader. In both,
+high frequencies decline as the vehicle climbs, while the low-frequency
+content above 0.5~Hz persists, consistent with the frequency-dependent
+losses implied by the steeper-than-$1/r$ pressure decay.
+\todo{Quantify the frequency roll-off with source time (spectral
+centroid or high/low energy ratio), using the source-time mapping of
+Section~\ref{sec:moving}.}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/near_far_waveforms}
+  \caption{Infrasound (left) and seismic vertical (right) waveforms
+    recorded at stations B01 (1.53~km from SLC-39B; peak $\sim$510~Pa)
+    and B29 (5.58~km; peak $\sim$120~Pa) during the Artemis~II launch.
+    Time window: 22:34:42--22:37:12 UTC.}
+  \label{fig:waveforms}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/near_far_spectrograms}
+  \caption{Infrasound (left columns) and seismic vertical (right
+    columns) spectrograms at stations B01 (top panels) and B29 (bottom
+    panels) during the Artemis~II launch. Time is seconds after
+    22:34:00~UTC.}
+  \label{fig:spectrograms}
+\end{figure}
+
+
+%% ============================================================
+\section{Air-to-Ground Coupling}
+\label{sec:coupling}
+
+At 14 sites a pressure sensor and a vertical seismometer were
+co-located: infraBSU and Trillium at B01, B03, B05 and B29
+(500~samples~s$^{-1}$) and a Gem and a SmartSolo at the nodal sites
+(100~samples~s$^{-1}$). For each pair we computed, over the first 180~s
+with Gem overflow intervals masked, the RMS ratio of vertical velocity to
+pressure in the 1--40~Hz band, the least-squares regression coefficient
+$k$ in $v = k\,p$ at the best lag, and the transfer function
+$H(f) = P_{pv}/P_{pp}$ with its coherence and phase from Welch spectra
+using only segments free of overflow (Table~\ref{tab:coupling},
+Figures~\ref{fig:coupling_tf} and \ref{fig:coupling_summary}).
+
+RMS coupling ratios are 3--11~\si{\micro\metre\per\second\per\pascal}
+at all sites with working sensors, with no systematic trend with
+distance. The coherent part of the coupling, $|H|$ where coherence
+exceeds 0.5, is $\lesssim$1~\si{\micro\metre\per\second\per\pascal} at
+1--5~Hz and 2--11~\si{\micro\metre\per\second\per\pascal} at 5--40~Hz,
+increasing with frequency at most sites. The phase of $H$ at the
+Trillium sites is close to 180$^{\circ}$ at 5--20~Hz ($-170^{\circ}$ at
+B01, $157^{\circ}$ at B29), so the ground moves down under compression,
+as expected for local loading of a compliant surface. Coherence is
+moderate (0.1--0.7 at 5--20~Hz), and the RMS ratios exceed the coherent
+$|H|$, so a substantial part of the ground motion is not explained by
+the local pressure: it includes seismic energy coupled into the ground
+elsewhere, notably near the pad. At the B20 sites, ground motion
+precedes the air wave and coupling ratios in the first 40~s reach
+17--63~\si{\micro\metre\per\second\per\pascal}, falling to
+$\sim$5~\si{\micro\metre\per\second\per\pascal} once the air wave
+arrives (\suppfig{6}). The two independent instrument pairs at B01
+(infraBSU with Trillium and with SmartSolo) give identical coupling
+magnitudes with opposite sign, confirming the SmartSolo polarity
+reversal.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Air-to-ground coupling at co-located sites, first 180~s after
+    launch. $k_\text{rms}$: RMS ratio of vertical velocity to pressure,
+    1--40~Hz. $k$: regression coefficient at the best lag ($v = k\,p$;
+    negative means downward motion under compression; SmartSolo signs
+    are as recorded, i.e.\ reversed). $r$: correlation at that lag.
+    $|H|$: median transfer-function magnitude where coherence
+    $\geq$~0.5 (--: none). $\gamma^2$: median coherence, 5--20~Hz.
+    Units \si{\micro\metre\per\second\per\pascal}. B03's Centaur pair is
+    faulty.}
+  \label{tab:coupling}
+  \scriptsize
+  \begin{tabular}{lrrrrrrrr}
+    \toprule
+    Pair (pressure / velocity) & $r$ (km) & $k_\text{rms}$ & $k$ & corr. & $|H|_{1-5}$ & $|H|_{5-20}$ & $|H|_{20-40}$ & $\gamma^2_{5-20}$ \\
+    \midrule
+    B14..HDF / B14..DPZ & 0.74 & 4.5 & +1.3 & +0.28 & 0.72 & 2.2 & 8.2 & 0.71 \\
+    B01.00.DD0 / B01.00.DHZ & 1.53 & 7.5 & $-$2.6 & $-$0.35 & 0.58 & 5.1 & 7.1 & 0.30 \\
+    B01.00.DD0 / B01..DPZ & 1.53 & 7.5 & +2.7 & +0.35 & -- & 5.3 & 7.1 & 0.32 \\
+    B01..HDI / B01..DPZ & 1.53 & 5.1 & +1.4 & +0.28 & 0.59 & 3.8 & 5.5 & 0.27 \\
+    B03.00.DD0 / B03.00.DHZ & 1.75 & 54.7 & +5.0 & +0.09 & -- & -- & -- & 0.10 \\
+    B03..HDI / B03..DPZ & 1.75 & 6.9 & $-$1.4 & $-$0.21 & 1.3 & 2.8 & 3.5 & 0.16 \\
+    B12..HDF / B12..DPZ & 2.65 & 9.5 & +3.2 & +0.33 & -- & 11 & 6.4 & 0.41 \\
+    B05.00.DD0 / B05.00.DHZ & 2.76 & 3.2 & +0.8 & +0.24 & -- & 1.6 & 2.4 & 0.26 \\
+    B07..HDF / B07..DPZ & 3.42 & 6.0 & +1.4 & +0.24 & -- & 2.0 & 1.5 & 0.36 \\
+    B24..HDF / B24..DPZ & 5.53 & 7.5 & +2.1 & +0.29 & -- & 5.3 & 6.0 & 0.50 \\
+    B23..HDF / B23..DPZ & 5.54 & 9.8 & +2.2 & +0.22 & -- & 3.4 & 3.2 & 0.28 \\
+    B29.00.DD0 / B29.00.DHZ & 5.58 & 10.5 & $-$3.0 & $-$0.29 & -- & 5.9 & 6.5 & 0.42 \\
+    B20W..HDF / B20W..DPZ & 7.58 & 10.2 & +2.3 & +0.22 & -- & -- & 6.9 & 0.16 \\
+    B20..HDF / B20..DPZ & 7.61 & 11.2 & +2.1 & +0.19 & -- & -- & 9.8 & 0.10 \\
+    B20S..HDF / B20S..DPZ & 7.63 & 10.4 & +2.3 & +0.22 & -- & -- & 8.2 & 0.13 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{coupling_transfer_functions}
+  \caption{Pressure-to-vertical-velocity transfer-function magnitude
+    (top of each panel; blue where coherence $\geq$~0.5) and coherence
+    (bottom) at each co-located pair, sorted by distance.}
+  \label{fig:coupling_tf}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{coupling_summary}
+  \caption{Left: RMS coupling ratio (1--40~Hz) by site and instrument
+    pair against distance. Right: median coherent transfer-function
+    magnitude in three frequency bands.}
+  \label{fig:coupling_summary}
+\end{figure}
 
 
 %% ============================================================
 \section{Discussion}
 
-\subsection{What Controls Infrasound Observations?}
-\todo{Geometry, moving source, directional radiation, plume physics.}
+\subsection{What Controls the Infrasound Observations?}
+
+Three factors dominate. First, the moving source: peak amplitudes and
+arrival times at different distances sample different parts of the
+trajectory, which produces the slow apparent speed (127~m~s$^{-1}$) and
+contributes to the steep pressure decay ($r^{-1.40}$). Second,
+directivity: the empirical pattern peaks at 60--70$^{\circ}$ from the
+exhaust axis, uprange stations are $\sim$1.4 times louder at a given
+distance in peak pressure, and downrange stations remain louder later in
+the flight. Third, the pad: the earliest and, at northern stations, the
+strongest radiation comes from ignition and the flame trench, before the
+vehicle has moved. A model with a single point source on the vehicle
+and a fixed directivity cone reproduces the timing and the sense of the
+asymmetry but not the angle of maximum radiation or the decay rate.
+
+\subsection{Recording Requirements}
+
+The bandwidth analysis gives concrete guidance. Rocket signal at
+0.7--7.6~km lies above 0.5~Hz in pressure and above 1~Hz in ground
+motion. 250~samples~s$^{-1}$ suffices for ground motion; near-pad
+pressure, crackle and shock fronts need 500~samples~s$^{-1}$. Sensors
+need the dynamic range of 24-bit digitizers or low-gain settings within
+$\sim$3~km of a heavy-lift launch. Low-cost 5~Hz nodes are adequate for
+peak ground velocity and timing once their response is removed, but
+underestimate the rocket's ground motion at 4--5~Hz unless corrected,
+and their polarity must be checked. Small arrays of low-cost infrasound
+sensors provide source tracking at little additional cost.
 
 \subsection{Limitations}
 
-The principal simplifications of the forward model include the
-assumption of a constant sound speed, neglect of atmospheric
-stratification and wind refraction, and the use of a simplified
-point-source representation. Future work could address these by
-incorporating atmospheric ray-tracing or full-waveform propagation
-modelling.
+The forward model assumes a constant sound speed, straight rays, no
+wind, a point source with a fixed directivity cone, and a nominal
+trajectory rather than the flown one; the launch azimuth was supported
+by the arrays but not fitted. Straight rays become increasingly
+approximate after $\sim$60~s. The Gem and infraBSU responses above
+$\sim$100~Hz and the SmartSolo responses are nominal. The coupling
+analysis does not separate air-coupled from ground-coupled seismic
+energy, which is left to the companion study.
 
 \subsection{Implications}
-\todo{Rocket launches as controlled geophysical sources; relevance to
-volcano infrasound and atmospheric acoustics. Reliability of the
-permanent network as established by the nodal comparison. Artemis~II
-as the methodological template for the 2016--2026 multi-launch
-ensemble; detailed seismic-wavefield analysis of the dense nodal data
-in a companion study.}
+
+Rocket launches are controlled geophysical sources with known origin
+time and location; Artemis~II shows how much a dense, redundant network
+can extract from a single event, and supplies a template, with
+validated processing and recording requirements, for analysing the
+multi-year record of launches from Kennedy Space Center. The same
+techniques of source-time mapping and small-array tracking apply to
+other moving or extended sources such as bolides and volcanic jets.
+\todo{Expand: relevance to volcano infrasound and atmospheric
+acoustics; companion seismic-wavefield study.}
 
 
 %% ============================================================
 \section{Conclusions}
 
-\todo{Write prose conclusions. Key points, one per result:}
+%% DRAFT conclusions, one per result.
 \begin{itemize}
-  \item Network validation: co-located nodes identify which permanent
-    broadband channels are reliable (B03 low gain; B14, B20, B24
-    failed) and show whether tote enclosures alter the waveform.
-  \item Amplitude field: infrasound decays as $R^{-1.22}$, faster than a
-    stationary isotropic source; seismic amplitude scaling at first order.
-  \item Arrival times: an apparent speed of $\sim$136~m~s$^{-1}$ reflects
-    the moving, elevated source rather than atmospheric sound speed.
-  \item Directional radiation: distance-corrected amplitudes and arrival
-    times vary systematically between uprange and downrange stations.
-  \item Air-to-ground coupling: frequency-dependent coupling coefficients,
-    coherence and phase at co-located pressure--seismic pairs.
-  \item Forward model: a simple moving, directional source reproduces the
-    apparent slowness and the sense of the azimuthal asymmetry.
-  \item A single, densely instrumented launch yields more insight into
-    source and propagation than many sparsely recorded events, and
-    provides a template for the multi-year KSC launch record.
+  \item \textit{Validation.} Six 16-bit Gem channels within 3.4~km of
+    the pad overflowed for 14--29~s above $\sim$100--140~Pa but recorded
+    faithfully outside those intervals once the overflow offset was
+    repaired. Tote enclosures did not change the launch signal. Nodal
+    SmartSolo data are geophone voltage with reversed vertical
+    polarity; corrected, they agree with broadband sensors within 4\%.
+  \item \textit{Bandwidth.} Rocket signal lies above 0.5~Hz in pressure
+    and 1~Hz in ground motion; a 0.5~Hz high-pass removes noise only.
+    250~samples~s$^{-1}$ suffices for ground motion, but near-pad
+    pressure loses 30\% of its energy at 100~samples~s$^{-1}$, and a
+    5~Hz geophone loses a third of the seismic energy.
+  \item \textit{Amplitude field.} Peak pressure decays as $r^{-1.40}$
+    and peak ground velocity as $r^{-1.05}$; uprange stations are
+    $\sim$1.4 times louder in peak pressure; peak arrival times give an
+    apparent speed of 127~m~s$^{-1}$, matching a moving-source model.
+  \item \textit{Source-time mapping.} Ignition overpressure dominates to
+    the north of the pad; most stations record their strongest
+    distance-corrected sound from source times of 17--30~s; radiation
+    peaks at 60--70$^{\circ}$ from the exhaust axis.
+  \item \textit{Arrays.} Two small Gem arrays track the vehicle's
+    bearing from $\sim$20 to 180~s and locate its ground track.
+  \item \textit{Crackle.} Shock-dominated waveforms are emitted while
+    the vehicle is at $\sim$0.2--6~km and subsonic, steepen with
+    distance, and require 500~samples~s$^{-1}$ to quantify.
+  \item \textit{Coupling.} Air-to-ground coupling is
+    3--11~\si{\micro\metre\per\second\per\pascal} (RMS) and
+    2--11~\si{\micro\metre\per\second\per\pascal} coherently above
+    5~Hz, with downward ground motion under compression.
 \end{itemize}
+\todo{Convert to prose.}
 
 
 %% ============================================================
 \section*{Data and Code Availability}
 
 Waveform data will be archived through EarthScope upon publication.
-Analysis code is available at
+Analysis code (notebooks 05--60 in \texttt{09\_artemis2\_paper}) is
+available at
 \textcolor{orange}{\texttt{https://github.com/[USERNAME]/KSCRocketSeismoHydrology}} \todo{replace with actual URL}.
+Supplementary Figures S1--S9 are provided in a separate file.
 
 \begin{acknowledgements}
 The SmartSolo instruments were provided by the EarthScope Primary
@@ -1062,17 +1285,5 @@ Robert, John?, others? NASA MSFC. Any grants to acknowledge?}
 %% ============================================================
 %% Bibliography style is set by seismica.cls (abbrvnat_seismica_upcasetitle.bst)
 \bibliography{artemis2}  %% references go in artemis2.bib
-
-%% ---- Placeholder bibliography until .bib file is built ----
-%% Remove the two lines above and uncomment the block below
-%% to use a manual list while the .bib file is being assembled.
-%
-% \begin{thebibliography}{9}
-% \bibitem{Beyreuther2010}
-%   Beyreuther, M., Barsch, R., Krischer, L., Megies, T., Behr, Y., \& Wassermann, J. (2010).
-%   ObsPy: A Python Toolbox for Seismology.
-%   \textit{Seismological Research Letters}, 81(3), 530--533.
-%   \url{https://doi.org/10.1785/gssrl.81.3.530}
-% \end{thebibliography}
 
 \end{document}
