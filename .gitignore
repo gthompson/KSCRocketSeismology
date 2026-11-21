@@ -20,4 +20,5 @@ ksc_availability_2019-01.png
 *.fls
 *.log
 *.blg
+*.out
 08_fireball_paper/writing/latex/mybibfile_old.bib

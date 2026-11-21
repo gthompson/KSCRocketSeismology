@@ -1,34 +1,20 @@
-%% Artemis II seismo-acoustic paper
-%% Authors: Glenn Thompson (USF), Paul Bremner (USF), Han Byul Woo (USF), Sue Bilek (NMT) + others
+%% Artemis II seismo-acoustic paper -- Seismica submission format
+%% Authors: Glenn Thompson (USF), Paul Bremner (NASA MSFC), Han Byul Woo (NASA MSFC), Sue Bilek (NMT) + others
 %%
-%% To adapt for Seismica: replace \documentclass line with \documentclass{seismica}
-%%   and download the class from https://github.com/seismica/seismica-template
-%% To adapt for SRL (AGU): replace with \documentclass[draft]{agujournal2019}
-%%   and download the class from https://www.agu.org/Publish-with-AGU/Publish/Author-Resources/
+%% Compile from this directory:  ./compile2.sh Artemis2paper.tex
+%% Needs seismica.cls, abbrvnat_seismica_upcasetitle.bst and banner.png here.
+%% The class loads natbib, hyperref, graphicx, siunitx, amsmath, lineno and
+%% xcolor, sets the bibliography style, and (default "review" option) gives
+%% one column, double spacing and line numbers.
 
-\documentclass[12pt]{article}
+\documentclass[]{seismica}
 
-%% ---- Packages ----
-\usepackage[T1]{fontenc}     % fixes textquotedbl and other glyphs
-\usepackage[utf8]{inputenc}
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{lineno}          % line numbers for review
-\usepackage{amsmath, amssymb}
-\usepackage{siunitx}         % SI units
+%% ---- Extra packages ----
+\usepackage{amssymb}
 \usepackage{booktabs}        % professional tables
 \usepackage{longtable}       % multi-page tables
 \usepackage{array}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
-\usepackage{natbib}          % author-year citations; switch to \usepackage{cite} for numbered
-\usepackage{setspace}
-\usepackage{caption}
 \usepackage{subcaption}
-
-%% ---- Line spacing for review ----
-\doublespacing
-\linenumbers
 
 %% ---- Custom commands ----
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
@@ -37,57 +23,39 @@
 %% ---- Figure path ----
 \graphicspath{{figures/}}
 
+%% ---- Title and authors ----
+\title{Seismo-acoustic observations of the Artemis~II launch:
+  Insights from a dense ground-based network at Kennedy Space Center}
+\shorttitle{Seismo-acoustic observations of the Artemis~II launch}
+
+%% TODO: + other authors? Authors or acknowledgements?: Jake Anderson,
+%% Pati, Dallin, Erin. Acknowledgements: EPIC, Katherine, Don?, Robert,
+%% John?, others?
+\author[1]{Glenn Thompson\thanks{Corresponding author: \texttt{thompsong@usf.edu}; ORCID: 0000-0002-9173-0097}}
+\author[2]{Paul Bremner}
+\author[2]{Han Byul Woo}
+\author[3]{Sue Bilek}
+\affil[1]{University of South Florida, Tampa, Florida, USA}
+\affil[2]{NASA Marshall Space Flight Center, Huntsville, Alabama, USA}
+\affil[3]{New Mexico Institute of Mining and Technology, Socorro, New Mexico, USA}
+
 %% ---- Document ----
 \begin{document}
 
-\begin{titlepage}
-  \vspace*{2cm}
-  \begin{center}
-    {\LARGE\bfseries Seismo-acoustic observations of the Artemis~II launch:
-      Insights from a dense ground-based network at Kennedy Space Center}
-
-    \vspace{1.5cm}
-
-    {\large
-      Glenn Thompson\textsuperscript{1},
-      Paul Bremner\textsuperscript{1},
-      Han Byul Woo\textsuperscript{1},
-      Sue Bilek\textsuperscript{2}%
-      \placeholder{+ others?}%
-      \footnote{Authors or Acknowledgements?: Jake Anderson, Pati,
-        Dallin, Erin. Acknowledgements: EPIC, Katherine, Don?, Robert,
-        John?, others?}
-    }
-
-    \vspace{1cm}
-
-    {\normalsize
-      \textsuperscript{1}University of South Florida, Tampa, FL, USA \\
-      \textsuperscript{2}New Mexico Institute of Mining and Technology, Socorro, NM, USA
-    }
-
-    \vspace{1cm}
-
-    {\normalsize
-      Corresponding author: Glenn Thompson
-      (\href{mailto:glennthompson@usf.edu}{glennthompson@usf.edu})
-    }
-
-    \vspace{1cm}
-
-    {\normalsize\textit{Manuscript in preparation --- \today}}
-  \end{center}
-\end{titlepage}
-
-%% ============================================================
-\begin{abstract}
-\todo{Write abstract. Key points: dense multi-instrument seismo-acoustic
-network at KSC; Artemis~II (SLS) launch 1~April~2026; infrasound
-amplitude scales with distance, apparent propagation speed $\sim$136~m/s
-(consistent with moving directional source at $\sim$125~m/s in model);
-east--west asymmetry indicates non-isotropic source; seismo-acoustic
-coupling measured at co-located sites.}
-\end{abstract}
+\makeseistitle{
+  \begin{summary}{Abstract}
+  \todo{Write abstract. Key points: dense multi-instrument seismo-acoustic
+  network at KSC; Artemis~II (SLS) launch 1~April~2026; infrasound
+  amplitude scales with distance, apparent propagation speed $\sim$136~m/s
+  (consistent with moving directional source at $\sim$125~m/s in model);
+  east--west asymmetry indicates non-isotropic source; seismo-acoustic
+  coupling measured at co-located sites.}
+  \end{summary}
+  %
+  \begin{summary}{Non-technical summary}
+  \todo{Write non-technical summary (required by Seismica).}
+  \end{summary}
+}
 
 %% ============================================================
 \section{Introduction}
@@ -975,19 +943,19 @@ Waveform data will be archived through EarthScope upon publication.
 Analysis code is available at
 \textcolor{orange}{\texttt{https://github.com/[USERNAME]/KSCRocketSeismoHydrology}} \todo{replace with actual URL}.
 
-\section*{Acknowledgements}
-
+\begin{acknowledgements}
 The SmartSolo instruments were provided by the EarthScope Primary
 Instrument Center (EPIC). Gem infrasound nodes were provided by Boise
 State University. \todo{Complete acknowledgements: Katherine, Don?,
 Robert, John?, others? NASA MSFC. Any grants to acknowledge?}
+\end{acknowledgements}
 
 \section*{Author Contributions}
 
 \todo{Complete CRediT author contributions statement.}
 
 %% ============================================================
-\bibliographystyle{agu}  %% switch to seismica or plainnat as needed
+%% Bibliography style is set by seismica.cls (abbrvnat_seismica_upcasetitle.bst)
 \bibliography{artemis2}  %% references go in artemis2.bib
 
 %% ---- Placeholder bibliography until .bib file is built ----
