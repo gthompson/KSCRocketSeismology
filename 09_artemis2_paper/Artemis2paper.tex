@@ -55,7 +55,7 @@
   use the redundancy to validate the network: 16-bit infrasound loggers
   within 3.4~km overflowed for 14--29~s above $\sim$100--140~Pa but
   recorded faithfully outside those intervals; tote enclosures did not
-  alter the launch signal but reduced wind noise; and the nodal
+  alter the launch signal below $\sim$10~Hz but reduced wind noise; and the nodal
   geophones, once corrected for their 5~Hz response, matched the
   broadband sensors within 4\% but with reversed vertical polarity.
   Rocket signal lies almost entirely above 0.5~Hz in pressure and 1~Hz
@@ -191,7 +191,8 @@ broadband seismometers and Nanometrics Centaur 6-channel digitizers,
 recording continuously at 500~samples~s$^{-1}$. The seismometer was
 connected to the Centaur's Sensor~A input at the 40~V$_\text{pp}$ input
 range. Each USF site included a co-located infraBSU 0.5-inch
-microbarometer (sensitivity \SI{46}{\micro\volt\per\pascal},
+microbarometer, housed in the 27-gallon plastic tote that also served as the
+electronics enclosure (sensitivity \SI{46}{\micro\volt\per\pascal},
 low-frequency corner near 0.048~Hz) on Sensor~B at the 1~V$_\text{pp}$
 range, giving 735~counts~Pa$^{-1}$. One site (B20) additionally hosted a
 Chaparral M25 infrasound sensor.
@@ -492,20 +493,44 @@ been checked.
 \label{sec:enclosure}
 
 Three tote--free-field pairs were usable (at B14 both overflowed and at
-B03 the free-field Gem stopped before launch). During the launch the
-tote and free-field records are indistinguishable: peak ratios
-HDI/HDF are 1.05 (B20), 1.08 (B24) and 0.94 (B29), RMS ratios
-0.96--1.04, and coherence 0.998--0.999 over 0.5--20~Hz
-(Figure~\ref{fig:enclosure}, \suppfig{2}). These differences are no
-larger than those between free-field Gems a few metres to tens of
-metres apart at B20 (peak ratios 0.94--1.03). Before the launch, the
-tote reduced noise at B29 (median PSD ratio 0.33 over 0.5--20~Hz) and
-B24 (0.74), but not at B20 (1.23). Coherence between free-field Gems
-falls from 0.98 at 9~m separation to 0.6 at 36~m and 0.4 at 30~m (the
-latter in a noisier position), which sets the useful band of the B20
-array (Section~\ref{sec:arrays}). Tote enclosures can therefore be used
-for launch recording without correction, with a possible gain in
-wind-noise reduction.
+B03 the free-field Gem stopped before launch); the Gems in each pair were
+3--6~m apart. In broadband terms the tote and free-field records are
+nearly indistinguishable: peak ratios HDI/HDF are 1.05 (B20), 1.08 (B24)
+and 0.94 (B29), RMS ratios 0.96--1.04, and coherence 0.998--0.999 over
+0.5--20~Hz (Figure~\ref{fig:enclosure}). Coherence remains above 0.98
+when the band is extended to 45~Hz (0.9 times the Nyquist frequency),
+and RMS ratios remain within 0.96--1.06 for any upper limit from 20 to
+45~Hz, because most launch energy at the Gems lies below 20~Hz. In
+separate frequency bands, however, the totes alter the spectrum above
+$\sim$10~Hz (\suppfig{13}): at B20 the tote record is 1.1~dB higher
+at 10--20~Hz and 2.4--4.2~dB lower at 20--45~Hz, at B29 it is
+0.4--0.9~dB lower above 10~Hz, and at B24 0.2--1.2~dB higher. For
+comparison, two free-field Gems 9~m apart at B20 agree within 0.2~dB in
+every band up to 45~Hz, whereas free-field Gems 30--36~m apart differ by
+up to 1.3~dB below 40~Hz and lose coherence (0.2--0.5 above 10~Hz),
+which sets the useful band of the B20 array. Before the launch, the tote
+reduced noise at B29 (median PSD ratio 0.33 over 0.5--20~Hz) and B24
+(0.74), but not at B20 (1.23). Tote enclosures can therefore be used
+without correction for amplitudes, timing and spectra below $\sim$10~Hz,
+with a possible gain in wind-noise reduction; above $\sim$10~Hz they
+introduce site-dependent spectral changes of up to $\pm$4~dB, which
+matter for spectral and crackle analyses.
+A simple acoustic model of the 27-gallon HDPE tote (Text~S1) explains
+this pattern. Standing waves in the enclosed air require frequencies
+above $\sim$260~Hz, and leakage around the snap-fit lid may produce a
+Helmholtz resonance near $\sim$100~Hz, but the bending modes of the
+$\sim$2~mm walls begin at $\sim$10--30~Hz. Because the walls are about 20
+times more compliant than the enclosed air, the interior pressure follows
+the exterior within a few per cent below the panel modes, even with a
+sealed lid, so the tote is transparent at low frequencies; above
+$\sim$10~Hz panel resonances amplify or attenuate the signal by amounts
+that depend on lid fit, leakage and how the tote sits on the ground,
+consistent with the site-to-site differences observed.
+The infraBSU microbarometers at the Centaur sites were installed in the
+same type of tote, which also housed the digitizer, battery and other
+electronics. At B29 the infraBSU record is 0.3--0.5~dB below that of the
+adjacent free-field Gem below 10~Hz and 1.6--2.9~dB below it at
+10--40~Hz; no free-field reference exists above 50~Hz (Text~S1).
 
 \begin{figure}[htbp]
   \centering
@@ -1041,7 +1066,13 @@ rise is not resolved: after decimation to 100~samples~s$^{-1}$, median
 $Sk(\partial p/\partial t)$ in the loudest minute falls to
 $\sim$40\% of its 500~samples~s$^{-1}$ value, whereas $Sk(p)$ is less
 affected. Crackle therefore cannot be quantified from the Gem
-recordings.
+recordings. The infraBSUs were themselves housed in plastic totes that also
+contained the station electronics; the totes' wall resonances alter the
+spectrum above $\sim$10~Hz by up to $\sim$3~dB at 10--40~Hz at B29, and
+their effect above 50~Hz, where the derivative skewness draws much of its
+weight, could not be measured. The crackle metrics are therefore best
+compared between these three stations, which share the same enclosure
+design, rather than taken as absolute free-field values.
 
 \begin{figure}[htbp]
   \centering
@@ -1238,7 +1269,8 @@ acoustics; companion seismic-wavefield study.}
   \item \textit{Validation.} Six 16-bit Gem channels within 3.4~km of
     the pad overflowed for 14--29~s above $\sim$100--140~Pa but recorded
     faithfully outside those intervals once the overflow offset was
-    repaired. Tote enclosures did not change the launch signal. Nodal
+    repaired. Tote enclosures did not change the launch signal below
+    $\sim$10~Hz but altered the spectrum by up to $\pm$4~dB above it. Nodal
     SmartSolo data are geophone voltage with reversed vertical
     polarity; corrected, they agree with broadband sensors within 4\%.
   \item \textit{Bandwidth.} Rocket signal lies above 0.5~Hz in pressure
@@ -1276,7 +1308,7 @@ Waveform data will be archived through EarthScope upon publication.
 Analysis code (notebooks 05--60 in \texttt{09\_artemis2\_paper}) is
 available at
 \textcolor{orange}{\texttt{https://github.com/[USERNAME]/KSCRocketSeismoHydrology}} \todo{replace with actual URL}.
-Supplementary Figures S1--S12 are provided in a separate file.
+Supplementary Text S1, Figures S1--S13 and Table S1 are provided in a separate file.
 
 \begin{acknowledgements}
 The SmartSolo instruments were provided by the EarthScope Primary
