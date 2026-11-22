@@ -49,8 +49,7 @@
 
 \newcommand{\checkme}[1]{\textcolor{red}{\textbf{[CHECK: #1]}}}
 
-\newcommand{\pendingfigure}[1]{%
-  \fbox{\parbox[c][50mm][c]{0.92\textwidth}{\centering\textbf{Pending regenerated product}\par#1}}}
+
 
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -86,6 +85,29 @@
 }
 
 \section*{Supplementary analyses and validation}
+
+\section*{USLaunchReport camera viewpoint check}
+
+The camera position used in the main-text site map was supplied by
+Michael Wagner of USLaunchReport. A photograph taken on 24 September 2026
+from a location believed to approximate that viewpoint was compared with a
+frame from the 1 September 2016 recording (Figure~\ref{fig:supp_camera_viewpoint}).
+The weather tower and dome provide recognizable correspondence between the
+views and qualitatively support the reported viewpoint. The launch tower
+appears displaced northward; this may reflect its reconstruction after the
+2016 accident, so it is not treated as a fixed landmark. The comparison is a
+qualitative line-of-sight check, not a survey or an independent determination
+of the camera coordinates.
+
+\begin{figure*}[!tbp]
+  \centering
+  % Trim the white margins around the supplied panels.
+  \includegraphics[width=0.98\textwidth]{uslaunchreport_camera_position_verification_without_caption.pdf}
+  \caption{Visual verification of the USLaunchReport camera viewpoint. (A) Photograph taken on 24 September 2026 from the camera coordinates supplied by Mike Wagner in 2016. (B) Enlarged crop of panel A, aligned for comparison with (C), a frame from the 1 September 2016 USLaunchReport video. The weather tower and dome align closely, providing a strong visual match to the reported viewpoint. The tower visible in panel B is the crew ingress/egress tower, which was not present in 2016; it is distinct from the launch erector and is not used as a reference point. The launch erector was destroyed and rebuilt, but is not shown in this comparison. Video frame copyright 2016 USLaunchReport.com/Michael Wagner; reproduced with permission.}
+  \label{fig:supp_camera_viewpoint}
+\end{figure*}
+\FloatBarrier
+
 
 \section*{S1. Response correction, calibration, and baseline validation}
 \label{sec:supp_response}
@@ -640,12 +662,7 @@ same BCHH arrivals were early.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/080_analyze_named_events_and_timing/key_event_window_review.pdf}{%
-    \includegraphics[width=0.94\textwidth]{key_event_window_review.pdf}%
-  }{%
-    \pendingfigure{Receiver-aligned review windows for the four named events
-    from Notebook 080.}%
-  }
+    \includegraphics[width=0.94\textwidth]{key_event_window_review.pdf}
   \caption{Named-event pressure windows centered on the reviewed DD2 receiver
   arrivals. These windows are defined from measured receiver timing rather than
   from the legacy 351~m~s$^{-1}$ source-time coordinate.}
@@ -764,12 +781,7 @@ rather than compared without qualification.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/040_validate_event_catalogue_with_array_processing/figures/parameter_sensitivity_summary.pdf}{%
-    \includegraphics[width=0.94\textwidth]{parameter_sensitivity_summary.pdf}%
-  }{%
-    \pendingfigure{Bartlett window-and-band parameter sensitivity. Re-run
-    Notebook 040 to generate this new product.}%
-  }
+    \includegraphics[width=0.94\textwidth]{parameter_sensitivity_summary.pdf}
   \caption{Sensitivity of event-centred Bartlett results to window length and
   frequency band. (a) Median absolute back-azimuth error. (b) Median apparent
   trace velocity; the dotted line is the meteorological prediction.
@@ -779,6 +791,28 @@ rather than compared without qualification.
 \end{figure*}
 
 \FloatBarrier
+
+The three-microphone geometry also has a frequency-dependent directional
+response. Figure~\ref{fig:supp_array_response} shows the normalized coherent
+response for an ideal plane wave at 351~m~s$^{-1}$, using the surveyed sensor
+coordinates and the SLC-40 steering direction. Sensitivity is broad at low
+frequencies and develops off-axis lobes and nulls as frequency increases.
+This calculation describes the array's theoretical directional sensitivity;
+it is not an observation of event energy or an event-specific confidence
+bound. The event estimates below are interpreted together with their
+coherence and window-stability diagnostics.
+
+\begin{figure*}[!tbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]{experimental_steered_array_response_frequency_azimuth.png}
+  \caption{Frequency-dependent back-azimuth response of the three-microphone
+  array, calculated from surveyed sensor coordinates for a plane-wave speed of
+  351~m~s$^{-1}$. Color shows normalized coherent response; the dashed line
+  marks the SLC-40 back azimuth. Off-axis high-response lobes indicate
+  directions to which the steered array may also be sensitive; they are not
+  observed arrivals or event-specific uncertainty bounds.}
+  \label{fig:supp_array_response}
+\end{figure*}
 
 The time-domain inversion classified solutions independently of waveform
 morphology. Applying the coherence and stability criteria in
@@ -929,13 +963,7 @@ equalizing pressure RMS, and changing pressure-beam construction.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/supplement_transfer_robustness_tests.pdf}{%
-    \includegraphics[width=0.94\textwidth]{supplement_transfer_robustness_tests.pdf}%
-  }{%
-    \pendingfigure{Seismic/acoustic coupling robustness tests from Notebook 100,
-    including exclusion of dominant events, equal event weighting, and
-    alternative pressure-beam definitions.}%
-  }
+    \includegraphics[width=0.94\textwidth]{supplement_transfer_robustness_tests.pdf}
   \caption{Sensitivity of the empirical frequency-dependent seismic/acoustic
   coupling estimate. The tests exclude progressively more of the strongest
   events and vary event weighting and pressure-beam construction. Persistence
@@ -1055,11 +1083,7 @@ nor source onset is recovered by this calculation.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/080_analyze_named_events_and_timing/named_event_timing_observed_vs_weak_shock.pdf}{%
-    \includegraphics[width=0.86\textwidth]{named_event_timing_observed_vs_weak_shock.pdf}%
-  }{%
-    \pendingfigure{Observed differential timing and weak-shock sensitivity from Notebook 080.}%
-  }
+    \includegraphics[width=0.86\textwidth]{named_event_timing_observed_vs_weak_shock.pdf}
   \caption{Observed and modeled differential propagation advances relative to
   the initial upper-stage event. The observed principal value is bracketed by
   the preferred USLaunchReport 0--2-frame visual onset range; payload values
@@ -1130,9 +1154,9 @@ Payload explosion   & 127.05 & $6.22\times10^7$ & 14.9  \\
 Published Falcon~9 Full Thrust specifications give nominal propellant masses
 of approximately 411~t in the first stage and 111.5~t in the second stage,
 for approximately 522.5~t of LOX/RP-1 at full load
-\citep{TODO_FALCON9_DATASHEET}. Using the nominal LOX/RP-1 mixture ratio and
-the heating value of RP-1 gives a full-load chemical-energy reservoir of order
-$6$--$7\times10^{12}$~J. The exact propellant inventory aboard AMOS-6 at the
+\citep{falcon9_userguide_2015}. Using the nominal LOX/RP-1 mixture ratio and
+the lower heating value of RP-1 \citep{sutton_biblarz_2017} gives a
+full-load chemical-energy reservoir of order $6$--$7\times10^{12}$~J. The exact propellant inventory aboard AMOS-6 at the
 time of failure is not publicly documented, and the accident occurred during
 the propellant-loading sequence; this full-load value is therefore an upper
 bound rather than an estimate of the instantaneous onboard energy.
@@ -1203,12 +1227,7 @@ independent estimate of a second physical explosion.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/key_event_pressure_and_cumulative_acoustic_energy.pdf}{%
-    \includegraphics[width=0.96\textwidth]{key_event_pressure_and_cumulative_acoustic_energy.pdf}%
-  }{%
-    \pendingfigure{Channel-specific named-event pressure waveforms and
-    cumulative hemispherical acoustic-energy curves from Notebook 124.}%
-  }
+    \includegraphics[width=0.96\textwidth]{key_event_pressure_and_cumulative_acoustic_energy.pdf}
   \caption{Channel-specific pressure and cumulative hemispherical acoustic
   energy for the four manually reviewed opening-sequence windows. Time is
   relative to the predicted arrival at each sensor, and grey shading marks the
@@ -1223,12 +1242,7 @@ signals remain identifiable (Figure~\ref{fig:supp_opening_cumulative}).
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/090_estimate_acoustic_energetics/opening_sequence_cumulative_acoustic_and_ground_motion.pdf}{%
-    \includegraphics[width=0.97\textwidth]{opening_sequence_cumulative_acoustic_and_ground_motion.pdf}%
-  }{%
-    \pendingfigure{Opening-sequence cumulative acoustic energy and
-    ground-motion energy proxy from Notebook 090.}%
-  }
+    \includegraphics[width=0.97\textwidth]{opening_sequence_cumulative_acoustic_and_ground_motion.pdf}
   \caption{Cumulative energetics during the opening 30~s, plotted against time
   from the adopted initial-failure origin after source--receiver travel-time
   reduction. (a) Cumulative hemispherical acoustic energy for DD1--DD3 from
@@ -1269,13 +1283,7 @@ complete 26-min sequence.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/070_measure_event_amplitudes_and_acoustic_seismic_coupling/figures/deduplicated_event_complex_and_cumulative_energy.pdf}{%
-    \includegraphics[width=0.94\textwidth]{deduplicated_event_complex_and_cumulative_energy.pdf}%
-  }{%
-    \pendingfigure{De-duplicated event-complex energies and running cumulative
-    acoustic energy. Regenerate Notebook 100 before finalizing the cumulative
-    numerical result.}%
-  }
+    \includegraphics[width=0.94\textwidth]{deduplicated_event_complex_and_cumulative_energy.pdf}
   \caption{Selected nonoverlapping event-complex acoustic energies and their
   cumulative sum. Overlapping catalogue windows are integrated only once.
   The cumulative value refers only to the union of the selected measurement
@@ -1285,8 +1293,6 @@ complete 26-min sequence.
 \end{figure*}
 
 \paragraph{Complete event measurements.}
-
-\todo{Two things still need resolution before this is publication-ready. TODO\_FALCON9\_DATASHEET needs an actual BibTeX entry, and ideally the \(6\)–\(7\times10^{12}\) J calculation should have an authoritative citation for both the LOX/RP-1 mixture ratio and RP-1 heating value rather than leaving that derivation unsupported.}
 
 The complete 153-event table is provided in Appendix~A. The machine-readable
 catalogue remains the authoritative archival product.
@@ -1590,12 +1596,7 @@ display; it does not imply that all seismic energy propagated acoustically.
 
 \begin{figure*}[!tbp]
   \centering
-  \IfFileExists{/Users/thompsong/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/falcon9_fireball_paper/outputs/140_generate_publication_figures/payload_explosion_waveforms.pdf}{%
-    \includegraphics[width=0.92\textwidth]{payload_explosion_waveforms.pdf}%
-  }{%
-    \pendingfigure{Payload-impact and payload-explosion waveform panels.
-    Regenerate Notebook 170 before finalizing this figure.}%
-  }
+    \includegraphics[width=0.92\textwidth]{payload_explosion_waveforms.pdf}
   \caption{Calibrated waveforms for the payload impact and the payload explosion. Their reviewed BCHH pressure arrivals are separated by 0.580~s. The public USLaunchReport picks are separated by 0.601~s, while the proprietary UCS-3 frames are separated by 0.583~s. Event labels are based on the consistent within-camera chronology; timestamps are not mixed between cameras.}
   \label{fig:supp_payload}
 \end{figure*}
@@ -1713,6 +1714,6 @@ remain authoritative for the four named events.
 }{}
 
 % The Seismica class selects abbrvnat_seismica_upcasetitle automatically.
-\bibliography{falcon9_bibfile}
+\bibliography{references}
 
 \end{document}

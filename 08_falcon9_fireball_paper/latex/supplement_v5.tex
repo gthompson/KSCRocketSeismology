@@ -87,6 +87,29 @@
 
 \section*{Supplementary analyses and validation}
 
+\section*{USLaunchReport camera viewpoint check}
+
+The camera position used in the main-text site map was supplied by
+Michael Wagner of USLaunchReport. A photograph taken on 24 September 2026
+from a location believed to approximate that viewpoint was compared with a
+frame from the 1 September 2016 recording (Figure~\ref{fig:supp_camera_viewpoint}).
+The weather tower and dome provide recognizable correspondence between the
+views and qualitatively support the reported viewpoint. The launch tower
+appears displaced northward; this may reflect its reconstruction after the
+2016 accident, so it is not treated as a fixed landmark. The comparison is a
+qualitative line-of-sight check, not a survey or an independent determination
+of the camera coordinates.
+
+\begin{figure*}[!tbp]
+  \centering
+  % Trim the white margins around the supplied panels.
+  \includegraphics[width=0.98\textwidth]{uslaunchreport_camera_position_verification_without_caption.pdf}
+  \caption{Visual verification of the USLaunchReport camera viewpoint. (A) Photograph taken on 24 September 2026 from the camera coordinates supplied by Mike Wagner in 2016. (B) Enlarged crop of panel A, aligned for comparison with (C), a frame from the 1 September 2016 USLaunchReport video. The weather tower and dome align closely, providing a strong visual match to the reported viewpoint. The tower visible in panel B is the crew ingress/egress tower, which was not present in 2016; it is distinct from the launch erector and is not used as a reference point. The launch erector was destroyed and rebuilt, but is not shown in this comparison. Video frame copyright 2016 USLaunchReport.com/Michael Wagner; reproduced with permission.}
+  \label{fig:supp_camera_viewpoint}
+\end{figure*}
+\FloatBarrier
+
+
 \section*{S1. Response correction, calibration, and baseline validation}
 \label{sec:supp_response}
 
@@ -1152,9 +1175,9 @@ Payload explosion   & 127.05 & $6.22\times10^7$ & 14.9  \\
 Published Falcon~9 Full Thrust specifications give nominal propellant masses
 of approximately 411~t in the first stage and 111.5~t in the second stage,
 for approximately 522.5~t of LOX/RP-1 at full load
-\citep{TODO_FALCON9_DATASHEET}. Using the nominal LOX/RP-1 mixture ratio and
-the heating value of RP-1 gives a full-load chemical-energy reservoir of order
-$6$--$7\times10^{12}$~J. The exact propellant inventory aboard AMOS-6 at the
+\citep{falcon9_userguide_2015}. Using the nominal LOX/RP-1 mixture ratio and
+the lower heating value of RP-1 \citep{sutton_biblarz_2017} gives a
+full-load chemical-energy reservoir of order $6$--$7\times10^{12}$~J. The exact propellant inventory aboard AMOS-6 at the
 time of failure is not publicly documented, and the accident occurred during
 the propellant-loading sequence; this full-load value is therefore an upper
 bound rather than an estimate of the instantaneous onboard energy.
@@ -1307,8 +1330,6 @@ complete 26-min sequence.
 \end{figure*}
 
 \paragraph{Complete event measurements.}
-
-\todo{Two things still need resolution before this is publication-ready. TODO\_FALCON9\_DATASHEET needs an actual BibTeX entry, and ideally the \(6\)–\(7\times10^{12}\) J calculation should have an authoritative citation for both the LOX/RP-1 mixture ratio and RP-1 heating value rather than leaving that derivation unsupported.}
 
 The complete 153-event table is provided in Appendix~A. The machine-readable
 catalogue remains the authoritative archival product.
