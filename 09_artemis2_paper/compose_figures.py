@@ -1,5 +1,8 @@
 """Combine notebook figures into labelled multi-panel figures for the two papers.
 
+The crackle and arrays figures are drawn natively by notebooks 55 and 60
+(crackle_figure.png, arrays_figure.png) and are not built here.
+
 Each composite stacks (or places side by side) PNGs from the figures/ folder and adds
 panel letters. Run after copying the notebook outputs into figures/:
 
@@ -18,8 +21,6 @@ COMPOSITES = {
     "composite_overflow": ("row", ["clipping_timeline", "clipping_validation_B01"]),
     "composite_enclosure": ("column", ["enclosure_summary", "enclosure_vs_frequency"]),
     "composite_bandwidth": ("column", ["bandwidth_cumulative_energy", "bandwidth_simulated_sensors_B01"]),
-    "composite_arrays": ("row", ["array_backazimuth", "array_map"]),
-    "composite_crackle": ("row", ["crackle_waveforms", "crackle_vs_source_time"]),
     "composite_near_far": ("column", ["near_far", "near_far_centroid"]),
 }
 
