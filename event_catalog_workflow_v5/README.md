@@ -7,7 +7,7 @@ This tree consolidates the former `04_event_catalog`, `05_website`, and `07_ense
 `data/raw/merged_launches.csv` → **canonical catalog** (`data/processed/launch_catalog.csv`) → two consumers:
 
 1. **Static event-catalog website** (`outputs/website/`) — no ObsPy or FLOVOpy required.
-2. **Ensemble-paper analysis** (`outputs/ensemble/`) — reproducible tables and figures for the 2016–2022 launch population.
+2. **Ensemble-paper analysis** (`outputs/ensemble/`) — reproducible tables and figures for the 2016–present launch population.
 
 Waveform/physical-metric generation remains a separate scientific-processing layer. Existing FLOVOpy/ObsPy experiments are retained under `legacy/04_event_catalog`; their output index can be joined to the canonical catalog without making the website dependent on waveform-processing software.
 
@@ -33,7 +33,7 @@ ksc-rockets validate
 ksc-rockets build-all
 ```
 
-All paths and the 2016–2022 analysis interval are controlled from `config/default.toml`; there are no hard-coded `/raid`, `/shares`, Dropbox, or `/var/www` paths in the new stack.
+All paths and the analysis interval (2016 to present) are controlled from `config/default.toml`; there are no hard-coded `/raid`, `/shares`, Dropbox, or `/var/www` paths in the new stack.
 
 ## What changed
 
@@ -119,3 +119,36 @@ also removes the external LL2/GCAT cache directory. A subsequent `rebuild` then 
 * Preferred event time is chosen by independent-source consensus. Manual values remain provenance and are not silently overwritten.
 * Cape-origin runway/air launches (e.g. Pegasus) are excluded from the pad-launch population by default. Use `--include-air-launches` to retain them.
 * Scheduled launch times such as the AMOS-6 planned T-0 remain provenance and do not create physical waveform events.
+
+## 2016 to present (catalog extension, Nov 2026)
+
+`config/default.toml` sets `year_max = "present"`: `fetch-ll2`, `reconcile-events` and `rebuild` default to
+2016-01-01 through now.
+
+* **LL2** is fetched in `mode=detailed`, filtered server-side to Cape Canaveral SFS + KSC
+  (`location__ids=12,27`; about 8 requests for 2016-2026 plus 2 for static fires; unauthenticated
+  limit 15 per hour). Each launch row carries the LL2 rocket name, COSPAR designator, provider and
+  landing fields. Two kinds of rows are derived:
+  * `booster_landing` for return-to-launch-site landings on the Cape (LZ-1, LZ-2, LZ-40): time = NET +
+    LL2 timeline 'Stage 1 Landing' offset (`precision=second`), or + the median RTLS offset
+    (`precision=estimated`) when LL2 has no timeline. Droneship landings make no local event.
+  * `static_fire` from LL2 `/events/` (type 5) on the Cape/KSC. LL2 lists few static fires and gives
+    approximate times (`precision=approximate`).
+* **GCAT** `E` tags / `OE` codes (e.g. `2026-E01`, the New Glenn static-fire explosion) are `pad_explosion`.
+* **Reconciliation**: a cluster holds at most one record per source (two launches a few hours apart stay
+  two events); landings, static fires and aircraft booms only cluster with their own type; curated
+  manual events win time/name ties. `vehicle` (via `classify_vehicle`) and `pad` (via `normalize_pad`:
+  one form `LC40`, `LC39A`, `LC36`, `LZ1`, ...) are filled for every event.
+* **Stable ids**: `data/curated/reconciled_event_ids.csv` maps every source alias (source + id, or
+  source + time for the workbook) to its event id. It was seeded from the 2016-2022 sqlite, so those
+  202 ids are unchanged, and it is rewritten by each reconciliation. Commit it with the sqlite.
+* **Waveform availability**:
+
+  ```bash
+  ksc-rockets availability --sds 2016-01-01:2023-01-01:/Volumes/classdata/remastered/SDS_KSC \
+                           --sds 2026-01-01:2027-01-01:/Volumes/KSCGTdownld/SDS
+  ```
+
+  writes `data/availability/event_waveform_availability.csv` (stations with an SDS day file for every
+  day touched by event ±600 s), `data/availability/sds_coverage_gaps.csv` (days with no day file in any
+  archive) and the `event_waveform_availability` table in the sqlite (re-attached on `rebuild`).

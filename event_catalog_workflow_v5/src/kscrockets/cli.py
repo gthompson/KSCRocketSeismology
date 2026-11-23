@@ -10,7 +10,8 @@ from .database import build_database
 from .website import build_website
 from .analysis import build_ensemble_products
 from .event_catalog import (add_manual_event, read_manual_excel, manual_events_as_source,
-    reconcile_sources, write_reconciliation, read_source_cache, refresh_ll2_cache, refresh_gcat_cache)
+    reconcile_sources, write_reconciliation, read_source_cache, refresh_ll2_cache, refresh_gcat_cache,
+    read_id_registry, assign_persistent_ids, id_registry_from_sources)
 
 
 def _build_catalog(s):
@@ -78,6 +79,14 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
 
     print("Reconciling source records...",flush=True)
     ev,src=reconcile_sources(sources,progress=True)
+    # Keep reconciled ids stable across rebuilds (see data/curated/reconciled_event_ids.csv).
+    registry_path=s.root/"data/curated/reconciled_event_ids.csv"
+    registry=read_id_registry(registry_path)
+    ev,src,report=assign_persistent_ids(ev,src,registry)
+    print(f"Event ids: {report['kept']} kept from {registry_path.name}, {report['new']} new",flush=True)
+    for new_id,old_id in report["contested"]:
+        print(f"  WARNING: {new_id} also matched registered id {old_id}, which went to another event",flush=True)
+    id_registry_from_sources(src,registry).to_csv(registry_path,index=False)
     processed=s.root/"data/processed"; processed.mkdir(parents=True,exist_ok=True)
     out=processed/"event_reconciliation.csv"; sout=processed/"event_time_sources.csv"
     ev.to_csv(out,index=False); src.to_csv(sout,index=False)
@@ -87,9 +96,44 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
     if not s.canonical_catalog.exists(): _build_catalog(s)
     build_database(s.canonical_catalog,s.database)
     write_reconciliation(s.database,ev,src,replace_events=replace_events)
+    _load_availability(s)
     print(f"reconciled events: {len(ev)} -> {out}",flush=True)
     print(f"database updated from reconciled catalog: {s.database}",flush=True)
     return ev,src
+
+
+AVAILABILITY_CSV="data/availability/event_waveform_availability.csv"
+
+
+def _availability(s, a):
+    import sqlite3
+    from .availability import Archive, sds_day_index, event_availability, coverage_gaps, write_availability_table
+    archives=[Archive.parse(x) for x in a.sds]
+    with sqlite3.connect(s.database) as con:
+        events=pd.read_sql("SELECT event_id,event_time_utc,event_type,name,vehicle,pad FROM events ORDER BY event_time_utc",con)
+    indexes={}
+    for arch in archives:
+        years=set(range(arch.start.year,(arch.end-pd.Timedelta(seconds=1)).year+1))
+        indexes[str(arch.root)]=sds_day_index(arch.root,years=years,progress=True)
+        print(f"availability: {arch.root}: {len(indexes[str(arch.root)])} day files",flush=True)
+    table=event_availability(events,archives,indexes,pre=a.pre,post=a.post)
+    out=(s.root/a.out_dir); out.mkdir(parents=True,exist_ok=True)
+    table.to_csv(out/"event_waveform_availability.csv",index=False)
+    t0=pd.Timestamp(f"{s.year_min}-01-01",tz="UTC"); t1=pd.Timestamp(s.interval[1])
+    gaps=coverage_gaps(indexes,t0,t1)
+    gaps.to_csv(out/"sds_coverage_gaps.csv",index=False)
+    write_availability_table(s.database,table)
+    print(f"availability: {len(table)} events, {int((table.n_stations>0).sum())} with data -> {out}",flush=True)
+    print(f"availability: {len(gaps)} gap(s) with no day file in any archive -> {out/'sds_coverage_gaps.csv'}",flush=True)
+
+
+def _load_availability(s):
+    """Re-attach the last availability table (kept outside data/processed) to a rebuilt database."""
+    p=s.root/AVAILABILITY_CSV
+    if p.exists():
+        from .availability import write_availability_table
+        write_availability_table(s.database,pd.read_csv(p,dtype=str).fillna(""))
+        print(f"availability table re-attached from {p}",flush=True)
 
 
 def _clean(s, caches=False):
@@ -139,24 +183,31 @@ def main(argv=None):
     c=sp.add_parser("clean",help="Remove generated products; preserve raw/curated inputs and caches by default")
     c.add_argument("--caches",action="store_true",help="Also remove LL2/GCAT external caches")
     f=sp.add_parser("fetch-ll2",help="Refresh the cached Launch Library 2 snapshot")
-    f.add_argument("--start",default="2016-01-01T00:00:00Z"); f.add_argument("--end",default="2022-12-31T23:59:59Z")
+    f.add_argument("--start",default=None,help="default: config interval start"); f.add_argument("--end",default=None,help="default: config interval end (now when year_max = \"present\")")
     sp.add_parser("fetch-gcat",help="Refresh cached GCAT launch snapshot")
     r=sp.add_parser("reconcile-events")
     r.add_argument("--excel",default="data/raw/All_KSC_Rocket_Launches.xlsx",help="Hand-curated workbook")
     r.add_argument("--fetch-ll2",action="store_true",help="Refresh LL2 before reconciling")
     r.add_argument("--no-ll2-cache",action="store_true"); r.add_argument("--no-gcat-cache",action="store_true")
-    r.add_argument("--start",default="2016-01-01T00:00:00Z"); r.add_argument("--end",default="2022-12-31T23:59:59Z")
+    r.add_argument("--start",default=None); r.add_argument("--end",default=None)
     r.add_argument("--replace-events",action="store_true",help="Compatibility option; v5 reconciliation already replaces canonical DB events")
     r.add_argument("--include-air-launches",action="store_true",help="Include Cape-origin runway/air launches such as Pegasus")
     rb=sp.add_parser("rebuild",help="Clean generated products and rebuild catalog, reconciliation, and database")
     rb.add_argument("--excel",default="data/raw/All_KSC_Rocket_Launches.xlsx")
     rb.add_argument("--refresh-external",action="store_true",help="Delete/refetch LL2 and GCAT caches before rebuilding (slower)")
     rb.add_argument("--include-air-launches",action="store_true")
-    rb.add_argument("--start",default="2016-01-01T00:00:00Z"); rb.add_argument("--end",default="2022-12-31T23:59:59Z")
+    rb.add_argument("--start",default=None); rb.add_argument("--end",default=None)
+    av=sp.add_parser("availability",help="Per-event station availability from SDS day files; gaps with no archive")
+    av.add_argument("--sds",action="append",required=True,metavar="START:END:ROOT",
+                    help="SDS root used for events START <= t < END (repeatable)")
+    av.add_argument("--pre",type=float,default=600); av.add_argument("--post",type=float,default=600)
+    av.add_argument("--out-dir",default="data/availability")
     m=sp.add_parser("add-event")
     m.add_argument("event_type",choices=["orbital_launch","launch_failure","pad_explosion","static_fire","aborted_launch","booster_landing","aircraft_sonic_boom"])
     m.add_argument("time_utc"); m.add_argument("name"); m.add_argument("--pad",default=""); m.add_argument("--source",default="waveform_review"); m.add_argument("--notes",default="")
     a=p.parse_args(argv); s=load_settings(a.config)
+    if a.command in {"fetch-ll2","reconcile-events","rebuild"}:
+        a.start=a.start or s.interval[0]; a.end=a.end or s.interval[1]
     if a.command == "extract":
         if not (a.all or a.event_id or a.start or a.end or a.event_types):
             p.error("extract requires --event-id, --all, or a catalog selection filter")
@@ -187,6 +238,8 @@ def main(argv=None):
         import kscrockets
         print(f"KSCRocketSeismology {__version__}"); print(f"package: {Path(kscrockets.__file__).resolve()}"); print(f"root: {s.root}"); print(f"database: {s.database}"); return
     ll2_cache,gcat_cache=_cache_paths(s)
+    if a.command=="availability":
+        _availability(s,a); return
     if a.command=="clean": _clean(s,a.caches); return
     if a.command=="fetch-ll2":
         df,status=refresh_ll2_cache(a.start,a.end,ll2_cache); print(f"LL2 cache: {ll2_cache} ({len(df)} KSC/Cape records; {status})"); return

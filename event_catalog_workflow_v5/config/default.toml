@@ -1,6 +1,7 @@
 [project]
 year_min = 2016
-year_max = 2022
+# "present" = through the current UTC date (the reconciled catalog extends to today).
+year_max = "present"
 
 [paths]
 raw_catalog = "data/raw/merged_launches.csv"

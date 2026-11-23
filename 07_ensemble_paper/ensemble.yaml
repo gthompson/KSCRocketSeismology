@@ -67,11 +67,5 @@ eras:
       infrabsu_channels: [DD0, DD1, DD2]
       smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
 
-# Events not (yet) in the launch catalog, which ends in 2022.
-extra_events:
-  - event_id: artemis2-20260401
-    event_type: orbital_launch
-    event_time_utc: 2026-04-01T22:35:12Z
-    event_time_precision: second
-    name: SLS Block 1 | Artemis II
-    pad: LC39B
+# extra_events: (none) - the reconciled catalog now runs from 2016 to the present and includes
+# Artemis II (ksc-f8f81d1cba9a) and the New Glenn explosion (ksc-newglenn-explosion-20260529).
