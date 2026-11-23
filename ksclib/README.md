@@ -32,6 +32,7 @@ geo = ksclib.source_geometry(ev, "B29")        # source-time mapping along the t
 | `pressure` | baseline-corrected pressure peaks and distance-reduced pressures (from AMOS-6) |
 | `kml` | named points from KML files (from AMOS-6) |
 | `clipping` | clipping found against a co-located unclipped reference sensor, and raw-count saturation |
+| `surfacewaves` | Rayleigh dispersion (disba if installed, else a thin-layer solver), head-wave times, layer resonance |
 
 Event kinds: `launch` (moving source along a trajectory and launch azimuth) and `static`
 (source fixed at the site, e.g. an explosion on the pad). See `09_artemis2_paper/artemis2.yaml`

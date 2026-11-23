@@ -11,6 +11,7 @@ dependencies = ["numpy", "pandas", "scipy", "matplotlib", "obspy>=1.4", "pyyaml"
 
 [project.optional-dependencies]
 gem = ["gemlog"]
+seismic = ["disba"]
 dev = ["pytest>=8"]
 
 [tool.setuptools.packages.find]
