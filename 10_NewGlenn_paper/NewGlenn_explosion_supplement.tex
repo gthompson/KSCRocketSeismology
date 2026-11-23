@@ -11,16 +11,40 @@
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
 \setlength{\parindent}{0pt}
+% Shrink a table to the text width only when it is wider (tables/*.tex use this).
+\newsavebox{\fitbox}
+\newcommand{\fitwidth}[1]{\sbox{\fitbox}{#1}\ifdim\wd\fitbox>\textwidth\resizebox{\textwidth}{!}{\usebox{\fitbox}}\else\usebox{\fitbox}\fi}
 
 \title{Supplementary material for\\ ``Seismo-acoustic recordings of the May~2026 New~Glenn static-fire explosion at Cape~Canaveral''}
-\author{Glenn Thompson, Paul Bremner, Han Byul Woo, Sue Bilek}
+\author{Glenn Thompson, Robert G. Brown, John Kiriazes, Paul Bremner, Han Byul Woo, Sue Bilek}
 \date{}
 
 \begin{document}
 \maketitle
 
-Figures S1--S7 support the main text. They were produced by the notebooks in
-\texttt{10\_NewGlenn\_paper} (numbers in brackets).
+Tables S1--S14 and Figures S1--S7 support the main text. They were produced by the notebooks in
+\texttt{10\_NewGlenn\_paper} (numbers in brackets); the tables are written by notebook 40 from the other
+notebooks' output files.
+
+\section*{Tables}
+
+\input{tables/S1_stations}
+\input{tables/S2_channel_status}
+\input{tables/S3_weather}
+\input{tables/S3b_speeds}
+\input{tables/S4_onsets}
+\input{tables/S4b_origin_fits}
+\input{tables/S5_blast}
+\input{tables/S5b_decay}
+\input{tables/S6_coupling}
+\input{tables/S6b_artemis}
+\input{tables/S7_seismic}
+\input{tables/S8_chaparral}
+\input{tables/S9_models}
+\input{tables/S10_dispersion}
+
+\clearpage
+\section*{Figures}
 
 \begin{figure}[h]
   \centering
