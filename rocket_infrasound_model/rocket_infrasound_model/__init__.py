@@ -1,13 +1,3 @@
-from .trajectory import RocketTrajectoryParameters, rocket_state
-from .directivity import gaussian_cone_directivity, doppler_shift
-from .model import Station, RocketModel, NetworkResult
-
-__all__ = [
-    "RocketTrajectoryParameters",
-    "rocket_state",
-    "gaussian_cone_directivity",
-    "doppler_shift",
-    "Station",
-    "RocketModel",
-    "NetworkResult",
-]
+"""Deprecated location: the forward model now lives in ksclib.model (KSCRocketSeismoHydrology/ksclib)."""
+from ksclib.model import *  # noqa: F401,F403
+from ksclib.model import __all__  # noqa: F401

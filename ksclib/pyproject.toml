@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ksclib"
+version = "0.1.0"
+description = "Shared seismo-acoustic tools for KSC rocket launch and explosion studies"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scipy", "matplotlib", "obspy>=1.4", "pyyaml", "openpyxl", "xlrd", "flovopy"]
+
+[project.optional-dependencies]
+gem = ["gemlog"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

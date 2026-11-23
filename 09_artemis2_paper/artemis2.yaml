@@ -1,0 +1,61 @@
+# Artemis II launch: event configuration for ksclib (loaded by artemis2_config.py).
+# Edit this file, not the notebooks, when a drive or folder moves.
+name: Artemis II
+kind: launch
+origin_time: 2026-04-01T22:35:12
+
+site:
+  name: LC39B                       # looked up in the station file's site sheet
+
+window:                             # seconds
+  pretrigger: 1800
+  duration: 900
+  posttrigger: 1800
+  trim_before: 30                   # plotting / amplitude window
+  trim_after: 270
+
+ingest:                             # flovopy.ingest project (master SDS) and service run
+  project_yaml: "{repo_root}/2026_ingest_service_runs/config/ksc.yaml"
+  run_id: 20260403_service
+
+stations:
+  file: ~/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/KSC_seismic_network_2016_2022.xls
+  sheet: artemis2
+  site_sheet: launchpads_2026
+
+output:
+  dir: ~/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/Artemis2
+  env: ARTEMIS2_OUT_DIR             # set to send products elsewhere (e.g. a test run)
+
+channel_groups:                     # name: [network, station, location, channel]
+  USF: ["1R", "*", "*", "D[DH]?"]
+  BSU: ["1R", "*", "*", "HD?"]
+  SmartSolo: ["1R", "*", "*", "DP?"]
+  MSFC: ["DG", "*", "*", "C*"]
+
+responses:
+  centaur_dirs:
+    - "{run_dir}/00_download/Centaur0/responses"
+    - /Volumes/haldata/KSC/20260310_service/responses
+    - /Volumes/haldata/KSC/20260605_service/responses
+  infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
+  infrabsu_channels: [DD0, DD1, DD2]
+  smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
+
+# 1R.B29.00.DHZ days 082-093 are zero-filled in the SDS; the launch window was
+# recovered (exact counts) by restore_B29_DHZ.py into this SDS-style folder.
+restored:
+  1R.B29.00.DHZ: "{run_dir}/30_qc/B29_DHZ_restored/SDS"
+
+source:
+  launch_azimuth_deg: 90.0          # supported by the B20/B24 arrays (notebook 60)
+  trajectory: {}                    # GravityTurnParameters overrides (defaults approximate SLS)
+
+paths:
+  gem_mapping_csv: "{repo_root}/2026_ingest_service_runs/config/gem_mapping_artemis2_example.csv"
+  smartsolo_mapping_csv: "{repo_root}/2026_ingest_service_runs/config/smartsolo_mapping_artemis2.csv"
+  event_wav_dir: "{project_root}/30_eventwav"
+  qc_dir: "{run_dir}/30_qc"
+  gem_convert_dir: "{run_dir}/10_gemconvert"
+  guralp_B07: "{run_dir}/00_download/Guralp/B07/DG_B07.dataless"
+  guralp_B12: "{project_root}/20260310_service/00_download/Guralp/Sensor1.xml"
