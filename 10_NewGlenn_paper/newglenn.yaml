@@ -49,8 +49,10 @@ responses:
   infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
   infrabsu_channels: [DD0, DD1, DD2]
   # B20 DDF is a Chaparral M25 on Centaur Sensor B (1 Vpp until the 2026-09-23 field visit).
-  # Sensitivity is uncertain: the NRL entry used before is "Low: 0.4 V/Pa"; flovopy's station
-  # table assumes 0.05 V/Pa. 22_data_overview.ipynb checks it against B20's infraBSUs (DD1/DD2).
+  # 32_chaparral_sensitivity.ipynb: 0.39-0.44 V/Pa relative to the infraBSU in normal operation
+  # (Jan-4 Apr and 14 Jun-Sep 2026), matching the NRL "Low: 0.4 V/Pa". Between the field visits of
+  # 4 Apr and 14 Jun it was faulty (0.005-0.19 V/Pa, unstable; ~0.02-0.04 at the explosion), so DDF
+  # is not used for the explosion (it also clipped).
   chaparral: {channels: [DDF], V_per_Pa: 0.4}
   smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
 
