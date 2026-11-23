@@ -33,3 +33,20 @@ for a complete example.
 
 Each paper folder stays thin (event YAML, numbered notebooks, LaTeX). At publication, copy the
 paper folder and the `ksclib` version it used into a frozen release repository.
+
+## Launch-catalog ensembles
+
+`ksclib.catalog_events` turns a row of the launch catalog (`event_catalog_workflow_v5`) into an
+`Event`, choosing the network *era* from the event time: `stationxml` eras (2016–2022 campaigns:
+`03_stationxml/KSC.xml` for coordinates and responses, `/Volumes/classdata/remastered/SDS_KSC`)
+or `centaur` eras (2026 network, configured as in `artemis2.yaml`). See
+`07_ensemble_paper/ensemble.yaml`.
+
+```python
+from ksclib import catalog_events as ce
+ens = ce.load_ensemble("07_ensemble_paper/ensemble.yaml")
+cat = ce.load_catalog(ens)                       # sqlite events + extra_events, with vehicle/pad_code/era
+ev = ce.event_from_row(cat.iloc[0], ens)
+raw = ce.read_raw(ev); st = ce.correct(raw, ev)
+peaks = ce.peak_amplitudes(st, ev, ce.station_table(ev), ce.clip_intervals(raw, ev))
+```
