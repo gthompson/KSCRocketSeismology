@@ -400,3 +400,22 @@ def event_airwave_speeds(event, temperature_c, relative_humidity_percent, wind_u
     return pd.DataFrame({"distance_m": d, "azimuth_deg": tab["azimuth_deg"].to_numpy(float), "c0_mps": c0,
                          "wind_along_ray_mps": w, "c_eff_mps": c0 + w, "travel_time_s": d / (c0 + w)},
                         index=tab.index)
+
+
+def atmospheric_absorption_db_per_m(f_hz, temperature_c, relative_humidity_percent, pressure_pa=101325.0):
+    """Pure-tone atmospheric absorption coefficient (dB/m), ISO 9613-1:1993 (Eqs. 3-5, B.1).
+
+    Classical, rotational and O2/N2 vibrational relaxation losses for still air. Valid roughly
+    50 Hz-10 kHz in the standard; below 50 Hz it is an extrapolation (losses are tiny there).
+    """
+    f = np.asarray(f_hz, dtype=float)
+    T = float(temperature_c) + 273.15
+    pa = float(pressure_pa) / 1000.0           # kPa
+    pr, T0, T01 = 101.325, 293.15, 273.16
+    psat_pr = 10 ** (-6.8346 * (T01 / T) ** 1.261 + 4.6151)
+    h = float(relative_humidity_percent) * psat_pr * (pr / pa)   # molar concentration of water vapour (%)
+    frO = (pa / pr) * (24 + 4.04e4 * h * (0.02 + h) / (0.391 + h))
+    frN = (pa / pr) * (T / T0) ** -0.5 * (9 + 280 * h * np.exp(-4.170 * ((T / T0) ** (-1 / 3) - 1)))
+    return 8.686 * f ** 2 * (1.84e-11 * (pr / pa) * (T / T0) ** 0.5
+                             + (T / T0) ** -2.5 * (0.01275 * np.exp(-2239.1 / T) / (frO + f ** 2 / frO)
+                                                   + 0.1068 * np.exp(-3352.0 / T) / (frN + f ** 2 / frN)))

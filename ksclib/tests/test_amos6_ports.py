@@ -142,3 +142,10 @@ def test_reference_clipping():
     assert iv and all(s >= t0 and e <= t0 + 20.01 for s, e in iv)       # only the large first half
     raw = Trace(np.clip(ref * 1e5, -2e6, 2e6), header=hdr)
     assert clipping.count_saturation_intervals(raw, full_scale=2e6)
+
+
+def test_atmospheric_absorption():
+    # ISO 9613-1 tabulated values at 20 C, 70% RH, 101.325 kPa: 250 Hz 1.13, 1 kHz 4.98, 4 kHz 22.9 dB/km
+    a = physics.atmospheric_absorption_db_per_m([250.0, 1000.0, 4000.0], 20.0, 70.0) * 1000
+    assert a == pytest.approx([1.13, 4.98, 22.9], rel=0.02)
+    assert np.all(np.diff(physics.atmospheric_absorption_db_per_m([10, 50, 100, 500], 26.0, 87.0)) > 0)
