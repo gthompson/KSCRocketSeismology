@@ -91,13 +91,15 @@ try:
 except ImportError:          # optional dependency
     _disba = None
 
+DISBA_DC = 0.001             # km/s root-search step: disba's default (0.005) can miss roots in strong-contrast models
+
 
 def _disba_curve(model, freqs, nmodes, kind):
     thick, vp, vs, rho = (np.asarray(x, float) / 1000 for x in model)
     f = np.atleast_1d(np.asarray(freqs, float))
     T = np.sort(1 / f)
     cls = _disba.PhaseDispersion if kind == "phase" else _disba.GroupDispersion
-    D = cls(thick, vp, vs, rho)
+    D = cls(thick, vp, vs, rho, dc=DISBA_DC)
     out = np.full((len(f), nmodes), np.nan)
     for k in range(nmodes):
         try:
@@ -172,3 +174,37 @@ def vertical_resonance_hz(model, wave="P"):
     thick, vp, vs, rho = (np.asarray(m, float) for m in model)
     v = vp if wave == "P" else vs
     return 1.0 / (4 * np.sum(thick[:-1] / v[:-1]))
+
+
+def _disba_required(what):
+    if _disba is None:
+        raise ImportError(f"{what} needs disba (pip install disba)")
+
+
+def love_group(model, freqs, nmodes=1):
+    """Love-wave group velocities (m/s), shape (len(freqs), nmodes); needs disba."""
+    _disba_required("love_group")
+    thick, vp, vs, rho = (np.asarray(x, float) / 1000 for x in model)
+    f = np.atleast_1d(np.asarray(freqs, float))
+    T = np.sort(1 / f)
+    D = _disba.GroupDispersion(thick, vp, vs, rho, dc=DISBA_DC)
+    out = np.full((len(f), nmodes), np.nan)
+    for k in range(nmodes):
+        try:
+            r = D(T, mode=k, wave="love")
+        except Exception:
+            continue
+        v = dict(zip(np.round(r.period, 10), r.velocity * 1000))
+        out[:, k] = [v.get(np.round(1 / fi, 10), np.nan) for fi in f]
+    return out
+
+
+def rayleigh_ellipticity(model, freqs):
+    """Fundamental-mode Rayleigh H/V amplitude ratio (|horizontal|/|vertical|) at the surface; needs disba."""
+    _disba_required("rayleigh_ellipticity")
+    thick, vp, vs, rho = (np.asarray(x, float) / 1000 for x in model)
+    f = np.atleast_1d(np.asarray(freqs, float))
+    T = np.sort(1 / f)
+    r = _disba.Ellipticity(thick, vp, vs, rho)(T, mode=0)
+    v = dict(zip(np.round(r.period, 10), np.abs(r.ellipticity)))
+    return np.array([v.get(np.round(1 / fi, 10), np.nan) for fi in f])

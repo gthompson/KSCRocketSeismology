@@ -48,3 +48,14 @@ def test_backends_agree():
     ga = sw.rayleigh_group(m, f, backend="disba").ravel()
     gb = sw.rayleigh_group(m, f, backend="thinlayer").ravel()
     assert np.nanmax(np.abs(gb / ga - 1)) < 0.05
+
+
+def test_love_and_ellipticity():
+    pytest.importorskip("disba")
+    m = ([20.0, 0.0], [600.0, 2000.0], [300.0, 1000.0], [1800.0, 2100.0])
+    f = np.array([0.5, 4.0, 32.0])
+    L = sw.love_group(m, f).ravel()
+    assert L[0] == pytest.approx(1000.0, rel=0.02)          # low f: half-space Vs
+    assert L[2] == pytest.approx(300.0, rel=0.02)           # high f: layer Vs
+    e = sw.rayleigh_ellipticity(([100.0, 0.0], [1732.05, 1732.05], [1000.0, 1000.0], [2000.0, 2000.0]), [1.0])
+    assert e[0] == pytest.approx(0.6812, rel=0.01)          # Poisson half-space H/V
