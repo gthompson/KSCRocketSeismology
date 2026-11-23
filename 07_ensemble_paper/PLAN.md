@@ -105,6 +105,10 @@ still from `~/Dropbox/KSC_paper`), `10_rocket_barcharts` (launch statistics; sti
    *Geophones:* the EH? channels (BHP1–8, FIREP, TANKP, 2018–2021; RT130 + L-22 in the master sheet) also
    read ≈ 40–50× high against Trilliums. `KSC.xml` gives 3.96×10⁷ counts/(m/s), which matches an RT130 at
    gain 1; L-22s on RT130s are often run at gain 32, which would explain a factor of ≈ 32. Not yet audited.
+   **Done (2026-11-23):** `03_stationxml/KSC.xml` rebuilt 2016–2026 from `ksc_stations_master_v3.xlsx`
+   (`make_master_v3.py` → `build_ksc_stationxml.py`, which rejects a blank vpp); evidence and every changed epoch in
+   `03_stationxml/audit/` (`AUDIT_REPORT.md`, `changed_epochs.csv`). Geophones confirmed at RT130 gain 32; also
+   found SON2 DD4–6 at 40 Vpp, BCHH3 at 1 Vpp, Chaparral M25 = 0.4 V/Pa (not 0.05), BCHH1 degraded from 2020-01-31.
    *Known and stable:* BCHH DD2 (2016) reads ≈ 16× low against DD1/DD3 (also seen for AMOS-6); apply a
    fixed correction in the metadata.
 4. **`KSC.xml` has no datalogger or sensor descriptions.** Gems were deployed only in 2026, so every
