@@ -1,0 +1,53 @@
+% Written by a notebook; edit the notebook, not this file.
+\begin{table}[p]
+  \centering
+  \caption{Peak pressure ($>$0.5~Hz) and peak vertical ground velocity ($>$1~Hz) in the first 180~s after launch, over unclipped samples. $\geq$: overflowed Gem, value is the peak outside the overflow interval. $t_\text{pk}$: time of the peak after launch. $L_\text{pk}$: peak level, dB re \SI{20}{\micro\pascal}. B03's infraBSU (DD0) is omitted (hardware fault).}
+  \label{tab:amplitudes}
+  \scriptsize
+  \begin{tabular}{lrrlrrrl}
+  \toprule
+  Channel & $r$ (km) & Az ($^{\circ}$) & Sensor & $p_\text{pk}$ (Pa) & $L_\text{pk}$ (dB) & $t_\text{pk}$ (s) & Note \\
+  \midrule
+  B14..HDF & 0.74 & 41 & Gem & $\geq$95 & 134 & 31.5 & overflow \\
+  B14..HDI & 0.74 & 41 & Gem & $\geq$90 & 133 & 31.5 & overflow \\
+  B01..HDI & 1.53 & 115 & Gem & $\geq$99 & 134 & 35.6 & overflow \\
+  B01.00.DD0 & 1.53 & 115 & infraBSU & 512 & 148 & 22.0 &  \\
+  B01.00.DD1 & 1.53 & 115 & infraBSU & 454 & 147 & 22.2 &  \\
+  B01.00.DD2 & 1.53 & 115 & infraBSU & 434 & 147 & 23.2 &  \\
+  B03..HDI & 1.75 & 351 & Gem & $\geq$128 & 136 & 5.6 & overflow \\
+  B12..HDF & 2.65 & 257 & Gem & $\geq$98 & 134 & 38.0 & overflow \\
+  B05.00.DD0 & 2.76 & 301 & infraBSU & 329 & 144 & 12.0 &  \\
+  B07..HDF & 3.42 & 130 & Gem & 121 & 136 & 35.3 &  \\
+  B07.10.HDF & 3.42 & 130 & Gem & $\geq$114 & 135 & 42.9 & overflow \\
+  B24..HDF & 5.53 & 201 & Gem & 81 & 132 & 38.8 &  \\
+  B24..HDI & 5.53 & 201 & Gem & 87 & 133 & 38.8 &  \\
+  B23..HDF & 5.54 & 167 & Gem & 82 & 132 & 45.5 &  \\
+  B24RE..HDF & 5.56 & 203 & Gem & 98 & 134 & 38.9 &  \\
+  B29..HDF & 5.58 & 260 & Gem & 100 & 134 & 38.8 &  \\
+  B29..HDI & 5.58 & 260 & Gem & 93 & 133 & 38.8 &  \\
+  B29.00.DD0 & 5.58 & 260 & infraBSU & 121 & 136 & 38.7 &  \\
+  B24LT..HDF & 5.61 & 203 & Gem & 105 & 134 & 39.0 &  \\
+  B20W..HDF & 7.58 & 141 & Gem & 45 & 127 & 71.3 &  \\
+  B20..HDF & 7.61 & 141 & Gem & 45 & 127 & 71.4 &  \\
+  B20.10.HDI & 7.61 & 141 & Gem & 45 & 127 & 71.3 &  \\
+  B20S..HDF & 7.63 & 141 & Gem & 42 & 126 & 71.5 &  \\
+  \midrule
+  Channel & $r$ (km) & Az ($^{\circ}$) & Sensor & $v_\text{pk}$ (mm~s$^{-1}$) & & $t_\text{pk}$ (s) & Note \\
+  \midrule
+  B14..DPZ & 0.74 & 41 & SmartSolo & 7.45 &  & 4.9 &  \\
+  B01..DPZ & 1.53 & 115 & SmartSolo & 2.98 &  & 23.2 &  \\
+  B01.00.DHZ & 1.53 & 115 & Trillium & 2.91 &  & 23.2 &  \\
+  B03..DPZ & 1.75 & 351 & SmartSolo & 2.50 &  & 23.2 &  \\
+  B03.00.DHZ & 1.75 & 351 & Trillium & 0.072 &  & 23.3 & faulty \\
+  B12..DPZ & 2.65 & 257 & SmartSolo & 2.57 &  & 27.0 &  \\
+  B05.00.DHZ & 2.76 & 301 & Trillium & 1.60 &  & 24.5 & drift \\
+  B07..DPZ & 3.42 & 130 & SmartSolo & 0.84 &  & 49.0 &  \\
+  B24..DPZ & 5.53 & 201 & SmartSolo & 0.92 &  & 34.6 &  \\
+  B23..DPZ & 5.54 & 167 & SmartSolo & 0.75 &  & 48.5 &  \\
+  B29.00.DHZ & 5.58 & 260 & Trillium & 0.99 &  & 41.3 &  \\
+  B20W..DPZ & 7.58 & 141 & SmartSolo & 0.57 &  & 57.8 &  \\
+  B20..DPZ & 7.61 & 141 & SmartSolo & 0.66 &  & 56.5 &  \\
+  B20S..DPZ & 7.63 & 141 & SmartSolo & 0.53 &  & 59.4 &  \\
+  \bottomrule
+  \end{tabular}
+\end{table}

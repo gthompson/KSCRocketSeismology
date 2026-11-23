@@ -666,41 +666,7 @@ between acoustic and seismic channels is discussed by
 for the 2022 Hunga Tonga--Hunga Ha'apai eruption; the Artemis~II
 coefficients fall within the range spanned by those datasets.
 
-\begin{table}[htbp]
-  \centering
-  \caption{Air-to-ground coupling at co-located sites, first 180~s after
-    launch. $k_\text{rms}$: RMS ratio of vertical velocity to pressure,
-    1--40~Hz. $k$: regression coefficient at the best lag ($v = k\,p$;
-    negative means downward motion under compression; SmartSolo signs
-    are as recorded, i.e.\ reversed). $r$: correlation at that lag.
-    $|H|$: median transfer-function magnitude where coherence
-    $\geq$~0.5 (--: none). $\gamma^2$: median coherence, 5--20~Hz.
-    Units \si{\micro\metre\per\second\per\pascal}. B03's Centaur pair is
-    faulty.}
-  \label{tab:coupling}
-  \scriptsize
-  \begin{tabular}{lrrrrrrrr}
-    \toprule
-    Pair (pressure / velocity) & $r$ (km) & $k_\text{rms}$ & $k$ & corr. & $|H|_{1-5}$ & $|H|_{5-20}$ & $|H|_{20-40}$ & $\gamma^2_{5-20}$ \\
-    \midrule
-    B14..HDF / B14..DPZ & 0.74 & 4.5 & +1.3 & +0.28 & 0.72 & 2.2 & 8.2 & 0.71 \\
-    B01.00.DD0 / B01.00.DHZ & 1.53 & 7.5 & $-$2.6 & $-$0.35 & 0.58 & 5.1 & 7.1 & 0.30 \\
-    B01.00.DD0 / B01..DPZ & 1.53 & 7.5 & +2.7 & +0.35 & -- & 5.3 & 7.1 & 0.32 \\
-    B01..HDI / B01..DPZ & 1.53 & 5.1 & +1.4 & +0.28 & 0.59 & 3.8 & 5.5 & 0.27 \\
-    B03.00.DD0 / B03.00.DHZ & 1.75 & 54.7 & +5.0 & +0.09 & -- & -- & -- & 0.10 \\
-    B03..HDI / B03..DPZ & 1.75 & 6.9 & $-$1.4 & $-$0.21 & 1.3 & 2.8 & 3.5 & 0.16 \\
-    B12..HDF / B12..DPZ & 2.65 & 9.5 & +3.2 & +0.33 & -- & 11 & 6.4 & 0.41 \\
-    B05.00.DD0 / B05.00.DHZ & 2.76 & 3.2 & +0.8 & +0.24 & -- & 1.6 & 2.4 & 0.26 \\
-    B07..HDF / B07..DPZ & 3.42 & 6.0 & +1.4 & +0.24 & -- & 2.0 & 1.5 & 0.36 \\
-    B24..HDF / B24..DPZ & 5.53 & 7.5 & +2.1 & +0.29 & -- & 5.3 & 6.0 & 0.50 \\
-    B23..HDF / B23..DPZ & 5.54 & 9.8 & +2.2 & +0.22 & -- & 3.4 & 3.2 & 0.28 \\
-    B29.00.DD0 / B29.00.DHZ & 5.58 & 10.5 & $-$3.0 & $-$0.29 & -- & 5.9 & 6.5 & 0.42 \\
-    B20W..HDF / B20W..DPZ & 7.58 & 10.2 & +2.3 & +0.22 & -- & -- & 6.9 & 0.16 \\
-    B20..HDF / B20..DPZ & 7.61 & 11.2 & +2.1 & +0.19 & -- & -- & 9.8 & 0.10 \\
-    B20S..HDF / B20S..DPZ & 7.63 & 10.4 & +2.3 & +0.22 & -- & -- & 8.2 & 0.13 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\input{tables/coupling}  % written by notebook 65
 
 \begin{figure}[htbp]
   \centering
