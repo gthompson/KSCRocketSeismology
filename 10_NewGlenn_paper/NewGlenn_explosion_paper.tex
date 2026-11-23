@@ -1,0 +1,651 @@
+%% New Glenn static-fire explosion seismo-acoustic paper -- Seismica submission format (FIRST DRAFT)
+%% Compile from this directory:  ./compile2.sh NewGlenn_explosion_paper.tex
+%% Needs seismica.cls, abbrvnat_seismica_upcasetitle.bst and banner.png here.
+%%
+%% Numbers in this draft come from the notebooks in this folder (run 2026-11-23):
+%%   21 station map, 22 data overview, 24 origin time, 26 seismic arrivals, 28 coupling,
+%%   30 spectral ratios, 32 Chaparral sensitivity, 34 amplitude vs distance,
+%%   36 velocity model (verticals), 38 horizontals and joint model.
+
+\documentclass[]{seismica}
+
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{subcaption}
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\newcommand{\placeholder}[1]{\textcolor{orange}{\textbf{[#1]}}}
+\newcommand{\suppfig}[1]{Figure~S#1}
+\newcommand{\supptab}[1]{Table~S#1}
+
+\graphicspath{{figures/}}
+
+\title{Seismo-acoustic recordings of the May~2026 New~Glenn static-fire explosion at Cape~Canaveral: blast wave, air-to-ground coupling and seismic waves ahead of the airwave}
+\shorttitle{The New Glenn static-fire explosion}
+
+%% TODO: confirm author list and order (same team as Artemis II?)
+\author[1]{Glenn Thompson\thanks{Corresponding author: \texttt{thompsong@usf.edu}; ORCID: 0000-0002-9173-0097}}
+\author[2]{Paul Bremner}
+\author[2]{Han Byul Woo}
+\author[3]{Sue Bilek}
+\affil[1]{University of South Florida, Tampa, Florida, USA}
+\affil[2]{NASA Marshall Space Flight Center, Huntsville, Alabama, USA}
+\affil[3]{New Mexico Institute of Mining and Technology, Socorro, New Mexico, USA}
+
+\begin{document}
+
+\makeseistitle{
+  \begin{summary}{Abstract}
+  %% DRAFT
+  A Blue Origin New~Glenn rocket exploded on Launch Complex~36 at Cape
+  Canaveral during a static-fire test at about 01:00~UTC on 29~May~2026.
+  Seven broadband seismo-acoustic stations of a network installed for
+  the Artemis~II launch were still recording 11.8--21.3~km away; four had
+  working sensors. Using the airwave arrival times and the speed of sound
+  predicted from surface weather, we place the origin at
+  01:00:02.4~UTC~$\pm$~1~s. Peak overpressures were 407~Pa at 11.8~km and
+  264--342~Pa at 19--21~km. Below 4~Hz the airwave decays close to
+  spherical spreading, but above 4~Hz it barely decays over this range,
+  so peak pressure falls only as $r^{-0.6}$; positive impulse (28--61~Pa~s)
+  follows $1/r$. The Kinney--Graham relation applied to the peak
+  overpressures gives a TNT equivalent of about 145~t, in close agreement
+  with the 131~t estimated independently from regional infrasound. The
+  explosion is the first source at Kennedy Space Center to separate the
+  seismic and acoustic wavefields cleanly: P waves arrive 5.5--9~s after
+  the origin (2.1--3.8~km~s$^{-1}$) and a dispersed Rayleigh and Love
+  wavetrain follows, 47--55~s ahead of the airwave. Joint inversion of
+  Rayleigh and Love group velocities gives shear-wave speeds rising from
+  330--560~m~s$^{-1}$ near the surface to about 1600~m~s$^{-1}$ below
+  305--385~m. The airwave loads the ground quasi-statically: vertical
+  displacement follows pressure with a compliance of 17--78~nm~Pa$^{-1}$,
+  the same at two sites to within 6\% for the Artemis~II launch, which
+  makes compliance a site property. The recordings also expose
+  instrument problems that matter for any unattended launch network:
+  disconnected sensors, reversed infrasound polarity, a clipped and
+  faulty Chaparral sensor, and a miswired seismometer.
+  \end{summary}
+  %
+  \begin{summary}{Non-technical summary}
+  %% DRAFT
+  In May 2026 a large rocket exploded on its launch pad at Cape Canaveral
+  while its engines were being tested. Seismometers and infrasound
+  microphones that we had left in place after NASA's Artemis~II launch
+  recorded both the sound of the explosion and the vibrations it sent
+  through the ground, 12--21~km away. Because the explosion was a single
+  sudden event, rather than the long roar of a launch, the ground
+  vibrations arrived well before the sound, for the first time in our
+  recordings from Kennedy Space Center. We use the sound to time the
+  explosion and estimate its size, about 145 tonnes of TNT, in good
+  agreement with an independent estimate from microphones across the
+  United States. We use the ground vibrations to map how stiff the
+  ground is down to about 400~m, and we show how the passing sound wave
+  presses the ground down by an amount that depends on the site and not
+  on the source.
+  \end{summary}
+}
+
+%% ============================================================
+\section{Introduction}
+
+Rocket launches from Kennedy Space Center (KSC) and Cape Canaveral Space
+Force Station generate powerful, repeatable seismo-acoustic signals
+\citep{Kanamori1991,Hupe2019,schuster_rocketquake_2025}. Since 2016 the
+University of South Florida has recorded launches from this coast with
+broadband seismometers and infrasound sensors, including close-range
+records of the 2016 Falcon~9 AMOS-6 failure on SLC-40
+\citep{thompson_amos6_2026} and, in 2026, a dense multi-instrument
+network around the Artemis~II launch
+\citep{thompson_artemis2_recording_2026,thompson_artemis2_source_2026}.
+Launch signals are, however, emergent and long: the source moves, its
+output changes over minutes, and at the few-kilometre distances typical
+of launch monitoring, seismic waves travelling through the ground and
+the acoustic wave travelling through the air overlap in time. That has
+so far prevented the seismic wavefield from being separated from the air-coupled
+ground motion in our recordings.
+
+On 28~May~2026 (local time) a New~Glenn first stage exploded on Launch
+Complex~36 (LC-36) during a static-fire test, about 01:00~UTC on
+29~May. \citet{silber_scamfer_newglenn_2026} detected the explosion on
+infrasound stations up to $\sim$1700~km away and estimated its yield at
+0.131~kt of TNT. Seven stations of the Artemis~II network, left
+recording after the launch, were 11.8--21.3~km from the pad. For the
+first time at KSC, a single impulsive source was recorded far enough
+away for the seismic and acoustic arrivals to separate by tens of
+seconds.
+
+This paper describes those recordings. We (1)~document which channels
+worked, and the instrument problems the explosion revealed; (2)~determine
+the origin time from the airwave and the weather; (3)~measure the blast
+wave and how it decays with distance, and estimate the yield; (4)~measure
+how the airwave drives the ground; and (5)~use the seismic waves that
+precede the airwave to build a first shear-wave velocity model of the
+upper few hundred metres between LC-36 and the network.
+
+%% ============================================================
+\section{Event, Network and Data}
+
+\subsection{The explosion}
+
+LC-36 (28.4706$^{\circ}$~N, 80.5422$^{\circ}$~W) lies 12--21~km
+south-south-east of the stations (Figure~\ref{fig:map}). The explosion
+occurred at night, during a static-fire test of the vehicle's first
+stage; its cause has been attributed to a valve in one of the BE-4
+engines \todo{cite the Blue Origin statement or a news report}. The
+propellant load at the time was not public
+\citep{silber_scamfer_newglenn_2026}.
+
+\subsection{Network and instruments}
+
+The network was installed in January~2026 for the Artemis~II launch
+\citep{thompson_artemis2_recording_2026}. By 29~May the temporary Gem
+infrasound loggers and SmartSolo nodes had been recovered, and no data
+from the three NASA Marshall Space Flight Center (MSFC) stations for
+that day are yet in our archive. Seven University of South Florida (USF)
+stations remained (Table~\ref{tab:stations}). Each has a Nanometrics
+Trillium Compact broadband seismometer on Sensor~A of a Nanometrics
+Centaur digitizer (40~V$_\text{pp}$) and up to three 0.5-inch infraBSU
+microbarometers on Sensor~B (1~V$_\text{pp}$, 735~counts~Pa$^{-1}$),
+housed in the plastic tote that also holds the electronics. B20 also has
+a Chaparral M25 microbarometer on Sensor~B. All stations recorded at
+500~samples~s$^{-1}$ except B20, which recorded at 100~samples~s$^{-1}$
+between field visits on 4~April and 14~June.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.62\textwidth]{station_map}
+  \caption{Stations recording on 29~May~2026 (circles; open: digitizer
+    recording but no sensors connected) and launch complexes (triangles).
+    The explosion was at LC-36. Dotted circles: distance from LC-36.
+    Grey dots: Artemis~II nodal sites, recovered in April.}
+  \label{fig:map}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Stations, distances and azimuths from LC-36, and channel status
+    for the explosion.}
+  \label{tab:stations}
+  \small
+  \begin{tabular}{lrrp{0.55\textwidth}}
+    \toprule
+    Station & Distance (km) & Azimuth ($^{\circ}$) & Working channels \\
+    \midrule
+    B20 & 11.79 & 345.6 & infraBSU DD1; Trillium (noisy; horizontals identical); Chaparral (clipped, faulty) \\
+    B24 & 15.55 & 321.6 & none (no sensors connected) \\
+    B01 & 17.87 & 339.3 & none (no sensors connected) \\
+    B14 & 19.31 & 338.1 & infraBSUs DD0, DD1, DD2; Trillium \\
+    B03 & 20.68 & 337.4 & none (no sensors; Centaur faulty) \\
+    B29 & 21.00 & 321.1 & infraBSU DD0; Trillium \\
+    B05 & 21.30 & 331.8 & infraBSU DD0; Trillium (DH2 at its stop) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Processing}
+
+Waveforms were read from the network's SeisComP Data Structure archive
+and corrected to pressure and ground velocity with the response of each
+station's Centaur at the time, with the infraBSU sensor stage
+(\SI{46}{\micro\volt\per\pascal}) prepended to the infrasound channels.
+The Centaur at B14 wrote no response file between January and
+14~June~2026; we used its first later file, whose settings are identical
+to those of B01 two days before the explosion. Processing used ObsPy
+\citep{Beyreuther2010,krischer_obspy_2015}, FlovoPy
+\citep{flovopy_2026} and a shared library for the KSC papers
+(\texttt{ksclib}; Data and Code Availability).
+
+%% ============================================================
+\section{Channel Status and Instrument Problems}
+\label{sec:status}
+
+An unattended network records whatever is connected to it. The
+explosion, a large and well-located signal on every channel, is a
+stringent test of what was.
+
+\paragraph{Disconnected sensors.} B01, B03 and B24 recorded only
+digitizer noise on all six channels: about 2~counts rms on the
+seismometer inputs and 14~counts on the infrasound inputs, with flat
+spectra and no microseism peak, two to five orders of magnitude below
+the connected inputs (Figure~\ref{fig:dead}). Small airwave-timed
+excursions of a few hundred counts appear on these inputs, as they do on
+unconnected inputs at working stations (B20 DD2; DD1 and DD2 at B05 and
+B29). With no sensor attached they are most likely pressure or vibration
+acting on the digitizer and cabling.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{dead_station_evidence}
+  \caption{Evidence for the disconnected sensors. (a,b)~Pre-event noise
+    spectra, in raw counts, of the seismometer and infrasound inputs;
+    inputs without sensors (grey) are flat, at the digitizer's own level.
+    (c)~Raw counts at B01 around the predicted airwave arrival (line).}
+  \label{fig:dead}
+\end{figure}
+
+\paragraph{Reversed infrasound polarity.} A blast wave begins with a
+compression. B14 DD1, B14 DD2 and B05 DD0 begin with a rarefaction, and
+B14 DD1 and DD2 are mirror images of the co-located DD0 (correlation
+$-0.99$). The likely cause is a capillary tube fitted to the inner
+rather than the outer nipple of the sensor. We reverse these channels
+throughout.
+
+\paragraph{Sensor-to-sensor differences.} The three infraBSUs at B14 sat
+in the same tote. DD1 and DD2 record the airwave identically (coherence
+1.00 from 0.5 to $\sim$200~Hz), with a constant amplitude ratio
+DD2/DD1~=~0.776 below 40~Hz, a relative calibration difference of 22\%.
+Above 100~Hz their ratio rises to $+10$~dB near 170~Hz and falls to
+$-13$~dB near 234~Hz, a resonance of one sensor's inlet that the other
+lacks (\suppfig{1}). Their noise levels above 0.5~Hz differ by almost
+two orders of magnitude (4.7, 1.2 and 0.06~Pa rms for DD0, DD1 and DD2).
+Because the three shared one tote, none of these differences is a tote
+effect; they lie in each sensor's inlet or electronics. The peak
+pressures below are therefore uncertain by up to $\sim$20\% until the
+relative calibrations from the Artemis~II comparison
+\citep{thompson_artemis2_recording_2026} are applied.
+
+\paragraph{The B20 Chaparral.} The M25 clipped at the digitizer's
+24-bit rail in 19 intervals between the shock (34.25~s after the origin)
+and 43.7~s (\suppfig{2}). It shares Centaur Sensor~B and its filters with
+the co-located infraBSU, so the ratio of their raw counts in a band where
+both are flat gives its sensitivity directly. Over 354 coherent,
+unclipped windows after 42 launches in 2026 (Figure~\ref{fig:chaparral}),
+it was 0.36--0.42~V~Pa$^{-1}$ from January to 4~April and
+0.39--0.46~V~Pa$^{-1}$ from 14~June to September, matching its nominal
+0.4~V~Pa$^{-1}$. Between the field visits of 4~April and 14~June,
+however, its apparent sensitivity jumped between $\sim$0.006,
+$\sim$0.17 and 0.02--0.04~V~Pa$^{-1}$, and rose within single events as
+the signal decayed. At the explosion it read about 0.022~V~Pa$^{-1}$.
+The sensor was faulty or mis-set during that interval, and we do not use
+it.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{chaparral_sensitivity}
+  \caption{Sensitivity of the B20 Chaparral M25 relative to the
+    co-located infraBSU through 2026, from coherent, unclipped windows
+    after launches and around the explosion (star). Dashed lines: field
+    visits. (b)~Dependence on signal level.}
+  \label{fig:chaparral}
+\end{figure}
+
+\paragraph{The B20 Trillium.} Its two horizontal channels correlate at
+0.9999 on every day sampled from February to August, so they record one
+signal twice. Its vertical is dominated by tones near 15 and 35~Hz from
+nearby machinery, and its air-to-ground coupling has the opposite sign to
+every other site (Section~\ref{sec:coupling}). We use B20's vertical only
+where noted, and treat its polarity as uncertain.
+
+\paragraph{Sampling rate.} B20 recorded at 100~samples~s$^{-1}$. Low-pass
+filtering and decimating the 500~samples~s$^{-1}$ records to
+100~samples~s$^{-1}$ lowers the B14 peaks by 26--28\% (B14's shock front
+is very steep), but those at B29 and B05 by only 1--4\%; impulse and
+duration change by less than 2\%.
+
+The working channels are therefore infraBSUs at B20 (DD1, 11.8~km), B14
+(DD0--DD2, 19.3~km), B29 (DD0, 21.0~km) and B05 (DD0, 21.3~km), and
+seismometers at B14, B29 and B05 (and B20's vertical).
+
+%% ============================================================
+\section{Overview of the Recordings and Origin Time}
+
+The airwave is a sharp N-like pulse at every station, followed by a
+coda of several seconds (Figure~\ref{fig:overview}a). Vertical ground
+velocity peaks with the airwave, but at B14, B29 and B05 a weaker,
+dispersed seismic wavetrain begins within 10~s of the origin, tens of
+seconds before the airwave (Figure~\ref{fig:overview}b). The airwave is
+very broadband: its power exceeds the noise tenfold from 0.5 to 225~Hz at
+the quieter infraBSUs (\suppfig{3}), but 81--95\% of its energy lies
+below 5~Hz.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{data_overview}
+  \caption{Record sections of (a)~pressure ($>$0.5~Hz) and (b)~vertical
+    ground velocity (1--30~Hz), sorted by distance and scaled to each
+    trace's peak (right). Triangles: airwave arrival predicted from the
+    weather. (c,d)~Spectrograms at B20.}
+  \label{fig:overview}
+\end{figure*}
+
+The origin time was not known to the second. We take the airwave onset
+at each working infraBSU as the first sample above 5\% of the peak (and
+above five times the noise), and the speed of sound from surface weather
+at the Cape Canaveral Skid Strip (XMR, 2~km from LC-36) and the Shuttle
+Landing Facility (TTS, within the network) within 30~minutes of the event
+\citep{iem_asos}: 26.4~$^{\circ}$C, 87\% relative humidity, 1014~hPa and
+a 2.2~m~s$^{-1}$ wind from 298$^{\circ}$. The still-air sound speed
+\citep{cramer1993} is 348.7~m~s$^{-1}$, and the wind is a
+1.5--2.0~m~s$^{-1}$ headwind on every ray, giving
+346.7--347.3~m~s$^{-1}$. The six onsets then give an origin of
+01:00:02.37~UTC with a station spread of 0.27~s (Figure~\ref{fig:origin}).
+Other onset definitions and weather choices give 01:00:02.2--03.2, and a
+fit with the speed left free gives 01:00:01.2 at 339~m~s$^{-1}$: the far
+stations are slightly late relative to the surface weather, perhaps
+through a cooler layer near the ground or the wind profile above 10~m.
+We adopt 01:00:02.4~$\pm$~1~s.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{origin_time}
+  \caption{Airwave onsets against distance after the preferred origin,
+    with the weather-based (solid) and free-speed (dashed) fits, and the
+    residuals of the 5\% onsets.}
+  \label{fig:origin}
+\end{figure}
+
+%% ============================================================
+\section{The Blast Wave}
+
+\subsection{Amplitudes and decay with distance}
+
+Positive peak overpressures (high-passed at 0.05~Hz) are 407~Pa at B20,
+264--342~Pa across the three sensors at B14, 315~Pa at B29 and 273~Pa at
+B05 (Table~\ref{tab:blast}). Positive phases last 0.36--0.44~s and carry
+impulses of 28--61~Pa~s; negative phases are three to seven times weaker
+than positive ones (\suppfig{4}).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Blast-wave parameters ($>$0.05~Hz). B14: range over its three
+    infraBSUs.}
+  \label{tab:blast}
+  \begin{tabular}{lrrrrr}
+    \toprule
+    Station & $r$ (km) & $P_+$ (Pa) & $P_-$ (Pa) & $t_+$ (s) & $I_+$ (Pa~s) \\
+    \midrule
+    B20 & 11.8 & 407 & $-125$ & 0.44 & 61 \\
+    B14 & 19.3 & 264--342 & $-86$ to $-111$ & 0.38 & 42--54 \\
+    B29 & 21.0 & 315 & $-43$ & 0.36 & 28 \\
+    B05 & 21.3 & 273 & $-61$ & 0.37 & 30 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Peak pressure falls only as $r^{-0.58 \pm 0.15}$ between 11.8 and
+21.3~km (Figure~\ref{fig:amp}). Splitting the band shows why: below 4~Hz
+the peak falls as $r^{-1.23 \pm 0.09}$, close to spherical spreading,
+whereas above 4~Hz it hardly falls at all. Positive impulse, dominated
+by the low frequencies, falls as $r^{-1.2 \pm 0.5}$, and $I_+ r$ is
+580--1050~Pa~s~km at every station. Pressure spectra reduced to 1~km by
+spherical spreading and ISO~9613-1 absorption \citep{iso9613_1} agree to
+$\pm$3~dB below 4~Hz, but differ by 5--10~dB between stations above it
+(\suppfig{5}). The slow decay of the peak is therefore carried by the
+higher frequencies. Two effects may contribute: B20's 100~samples~s$^{-1}$,
+which may under-record its peak by up to $\sim$28\% (if so, the peak
+decays as $r^{-1.15}$), and night-time refraction, which can favour the
+higher frequencies at the far stations. The positive-phase duration also
+shortens slightly with distance, which weak-shock theory does not
+predict; propagation modelling is needed.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{amplitude_vs_distance}
+  \caption{(a)~Peak pressure, broadband and in two bands, against
+    distance (open symbols: individual B14 sensors; ring: B20 corrected
+    for decimation; dotted: $1/r$). (b)~Positive impulse and duration.
+    (c)~Peak vertical velocity of the air-coupled motion and of the
+    seismic waves ahead of the airwave.}
+  \label{fig:amp}
+\end{figure*}
+
+\subsection{Yield}
+
+The Kinney--Graham relations for TNT \citep{kinney1985}, treating the
+explosion as a surface burst (twice the free-air yield), give a TNT
+equivalent of about 145~t from the peak overpressures (94--246~t across
+the six sensors) and about 375~t from the positive-phase durations
+(307--573~t). The estimate from peak overpressure agrees closely with
+the 131~t (0.131~kt) of \citet{silber_scamfer_newglenn_2026}, derived
+from infrasound at regional and continental distances. The longer
+positive phase is consistent with a propellant explosion, which releases
+energy more slowly than TNT and so produces a longer, weaker pulse. Both
+estimates rest on relations fitted at much smaller scaled distances (here
+$Z \approx 200$--320~m~kg$^{-1/3}$) and on uncalibrated relative
+sensitivities, so we regard the agreement as confirming a yield of
+order 100--200~t rather than refining it.
+
+%% ============================================================
+\section{Air-to-Ground Coupling}
+\label{sec:coupling}
+
+At each site with an infraBSU and a Trillium, the airwave presses the
+ground down as it passes. Vertical displacement follows pressure with no
+measurable lag ($\leq$0.02~s; Figure~\ref{fig:coupling}): the
+correlation is $-0.75$ at B14 for all three sensors, $-0.54$ at B29 and
+$-0.40$ at B05, with the sign expected for loading. Vertical velocity
+therefore follows $-C\,\mathrm{d}p/\mathrm{d}t$, where $C$ is the
+compliance, which is why regressing velocity on pressure, as for
+Artemis~II and AMOS-6 \citep{thompson_amos6_2026}, correlates poorly
+here ($|r| \approx 0.3$). The compliance is $-75$~nm~Pa$^{-1}$ at B14
+($-60$ to $-78$ across its sensors), $-68$~nm~Pa$^{-1}$ at B29 and
+$-17$~nm~Pa$^{-1}$ at B05. Conventional coupling ratios are
+1.8--5.3~\si{\micro\metre\per\second\per\pascal} (rms) and
+1.1--3.9~\si{\micro\metre\per\second\per\pascal} (peak) at 1--40~Hz, the
+same order as the 2.31~\si{\micro\metre\per\second\per\pascal} found for
+AMOS-6 at 1.4~km \citep{thompson_amos6_2026}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{coupling_waveforms}
+  \caption{Pressure (black) and vertical displacement divided by the
+    fitted compliance (orange) at each site; vertical velocity (grey,
+    scaled) for reference. Times after the predicted airwave arrival.}
+  \label{fig:coupling}
+\end{figure}
+
+Applying the same code to the Artemis~II launch at the two sites
+recorded by both events gives compliances of $-15.9$~nm~Pa$^{-1}$ at B05
+and $-65.9$~nm~Pa$^{-1}$ at B29, within 6\% of the explosion's values,
+whereas the rms coupling ratios differ by a factor of two (B05: 3.2 and
+1.8; B29: 10.5 and 5.3~\si{\micro\metre\per\second\per\pascal}). The
+coupling ratio depends on the source spectrum, but the compliance
+describes the site.
+
+The spectral compliance $|C(f)|$ is flat at 70--110~nm~Pa$^{-1}$ below
+2.5~Hz (22~nm~Pa$^{-1}$ at B05), peaks near the frequency at which the
+shock sets the ground ringing (4.5~Hz at B14, 5.5~Hz at B29, 4.8~Hz at
+B05), and falls above $\sim$15~Hz (\suppfig{6}). This is not the
+$1/f$ behaviour of a uniform half-space loaded by a moving pressure wave,
+but resembles a soft layer over stiffer ground. The same 4--5~Hz band is
+where the AMOS-6 transfer function peaked at BCHH
+\citep{thompson_amos6_2026}. B20 is the exception: its compliance is
+positive ($+28$~nm~Pa$^{-1}$, correlation $+0.48$), which together with
+its other problems (Section~\ref{sec:status}) suggests a reversed or
+faulty vertical.
+
+%% ============================================================
+\section{Seismic Waves Ahead of the Airwave}
+
+\subsection{Arrivals}
+
+At B14, B29 and B05 the first seismic arrivals come 5.5--9~s after the
+origin (Figure~\ref{fig:seismic}), giving apparent velocities of
+2.1--3.8~km~s$^{-1}$ (AIC picks in two bands, differing by 0.8--1.3~s
+because the arrivals are emergent), 47--55~s ahead of the airwave. A
+long wavetrain follows, with most of its energy at 1--4~Hz and its
+envelope peaking at 19--26~s (0.8--1.0~km~s$^{-1}$), and lasts until
+the airwave arrives. Its peak vertical velocity is 5--18~\si{\micro\metre\per\second},
+11--56 times smaller than the air-coupled motion. At B20 the noise is
+about ten times higher, and only a burst at 17--19~s
+(0.6--0.7~km~s$^{-1}$) stands out.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{seismic_record_section}
+  \caption{Three-component ground velocity (2--12~Hz) from the origin to
+    just after the airwave (blue line), each station scaled to its
+    largest seismic amplitude before the airwave.}
+  \label{fig:seismic}
+\end{figure*}
+
+Our previous recordings at KSC did not show such a separation, for two
+reasons: the stations were within a few kilometres of the source, and
+launches are emergent. An impulsive source 12--21~km away separates the
+two wavefields by tens of seconds.
+
+\subsection{Dispersion}
+
+Multiple-filter analysis of the verticals at B14, B29 and B05 gives a
+fundamental-mode Rayleigh group velocity falling from 1.35~km~s$^{-1}$
+at 0.5~Hz to 0.6--0.8~km~s$^{-1}$ at 1.5--3~Hz
+(Figure~\ref{fig:ftan}). The horizontals at B14 and B29 were rotated to
+radial and transverse assuming the usual installation (DH1 north),
+which the 1--3~Hz Rayleigh polarisation supports (DH1 at
+357--358$^{\circ}$). With this orientation the radial dispersion matches
+the vertical's, and the transverse shows a distinct Love-wave curve,
+nearly identical at the two stations: 1.2--1.3~km~s$^{-1}$ at 0.5~Hz,
+falling to 0.58~km~s$^{-1}$ at 1.2--1.7~Hz. Above 1.8~Hz the transverse
+ridge jumps to 0.75--0.92~km~s$^{-1}$, close to the first higher Love
+mode of the models below. The Love waves are strong: the transverse
+ridge is 1.2--1.3 times the radial at 0.5--3~Hz. Along the
+fundamental Rayleigh ridge the horizontal-to-vertical amplitude ratio
+rises from about 1 at 0.5~Hz to 3--4 at 1.4--1.7~Hz.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{ftan_ZRT}
+  \caption{Multiple-filter analysis of the vertical (Z), radial (R) and
+    transverse (T) components at B14 and B29: normalised envelope against
+    group velocity and frequency, with the ridge (white).}
+  \label{fig:ftan}
+\end{figure*}
+
+\subsection{A first velocity model}
+
+We fitted the Rayleigh group velocities (0.5--3.4~Hz), the fundamental
+Love group velocities (0.5--1.8~Hz) and the P first arrivals with flat
+models of three layers over a half-space, with $V_P = \max(1600\
+\mathrm{m\,s^{-1}}, 1.9V_S)$ and densities rising from 1800 to
+2250~kg~m$^{-3}$, by differential evolution. Dispersion was computed
+with \texttt{disba} \citep{luu2021disba}, checked against an independent
+thin-layer solver \citep{lysmer1970}. Two fits, without and with the H/V
+ratio, agree on the main structure (Figure~\ref{fig:model}): a surface
+layer 30--50~m thick with $V_S = 330$--560~m~s$^{-1}$, a layer of about
+100--115~m at $V_S \approx 770$~m~s$^{-1}$, a layer of 170--220~m at
+1070--1230~m~s$^{-1}$, and a half-space at $V_S \approx
+1610$~m~s$^{-1}$ ($V_P \approx 3.1$~km~s$^{-1}$) from 305--385~m depth.
+The half-space P speed matches the first arrivals. Fitting Love and
+Rayleigh waves together removes much of the trade-off of a fit to the
+verticals alone, which gives a single layer of $V_S \approx
+1$~km~s$^{-1}$ down to $\sim$290~m (\suppfig{7}).
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{joint_model}
+  \caption{Joint velocity model. Data and model predictions for Rayleigh
+    group velocity, Love group velocity (open squares: above 1.8~Hz, not
+    fitted; dashed: first higher mode) and Rayleigh H/V; shear-wave
+    velocity profiles from fits without (orange) and with (blue) H/V, and
+    from the verticals only (grey dashed); and P first arrivals.}
+  \label{fig:model}
+\end{figure*}
+
+These shear-wave speeds point to lithified carbonate within a few tens
+of metres of the surface and a stiffer unit near 300--400~m. Assigning
+them to the Hawthorn Group, the Ocala Limestone and the Avon Park
+Formation needs borehole logs. From Rayleigh waves of the Artemis~I
+launch recorded 2.87~km from LC-39A, \citet{woo2024geoconvention} placed
+the Anastasia Formation/surficial-aquifer boundary near 9~m and the
+Ocala/Hawthorn boundary near 50~m. Their group velocities
+(0.09--0.16~km~s$^{-1}$ at 1--25~s) are an order of magnitude below ours,
+plausibly because travel times measured from lift-off of a moving,
+long-lasting source give lower bounds, whereas the explosion has an
+impulsive origin. The 4.5--5.5~Hz ground resonance (Section~\ref{sec:coupling})
+is too high for the surface layer of our models, and may reflect a
+thinner, slower layer, such as that near 9~m, which waves below 3.4~Hz
+cannot resolve.
+
+%% ============================================================
+\section{Discussion}
+
+\paragraph{Yield from near-field infrasound.} Four working infraBSUs at
+12--21~km, with a weather-based origin time, give a yield within 10\% of
+an estimate from dozens of regional stations, using only the peak
+overpressure and a standard blast relation. The positive-phase duration
+gives a larger value, as expected for a propellant explosion. The main
+near-field uncertainties are instrumental: relative calibration (up to
+$\sim$20\% between co-located sensors), the sampling rate (up to 28\% on
+peaks at 100~samples~s$^{-1}$) and polarity, all of which the network
+can now correct.
+
+\paragraph{The seismic wavefield.} The explosion shows that the shallow
+structure around KSC can be studied with the network's own sources when
+they are impulsive and distant. A precise orientation of the
+horizontals from many sources at known pads, the MSFC stations if their
+data can be recovered, and launch-generated surface waves recorded
+across the network would extend the single-path model presented here.
+The 2.7~s scatter of the P picks at 19--21~km is larger than any flat
+model allows and suggests lateral variation.
+
+\paragraph{Compliance as a site property.} The air-coupled ground motion
+at 12--21~km is a quasi-static response to the pressure load. Its
+compliance agrees between a launch and an explosion at the same sites,
+unlike the conventional coupling ratio, and can be compared directly
+with models of the near-surface \citep{novoselov_ground_coupling_2020}.
+
+\paragraph{Lessons for unattended networks.} Three of seven stations had
+no sensors connected; three infrasound channels had reversed polarity; a
+Chaparral sensor clipped and was faulty for ten weeks; and a seismometer
+recorded identical horizontals all year. Each was found only because a
+large, well-located signal arrived at every station. Routine checks of
+noise spectra, inter-channel correlation and co-located sensor ratios
+would find them earlier.
+
+\paragraph{Limitations.} Four working stations, three of them at nearly
+the same distance, constrain amplitude decay and structure only along a
+narrow range of paths. The relative infraBSU calibrations, the yield
+relations' extrapolation, and the 1D velocity model's assumptions (fixed
+$V_P$ and density) are the main uncertainties.
+
+%% ============================================================
+\section{Conclusions}
+
+\begin{itemize}
+  \item Seven broadband stations at 11.8--21.3~km recorded the New~Glenn
+    static-fire explosion; four had working sensors. The airwave and
+    surface weather place the origin at 01:00:02.4~UTC~$\pm$~1~s on
+    29~May~2026.
+  \item Peak overpressures were 407~Pa at 11.8~km and 264--342~Pa at
+    19--21~km. Below 4~Hz the airwave decays close to spherical
+    spreading; above 4~Hz it barely decays. The peak-overpressure yield,
+    about 145~t TNT, agrees with the 131~t estimated from regional
+    infrasound.
+  \item The airwave loads the ground quasi-statically. The compliance
+    (17--78~nm~Pa$^{-1}$) is the same for a launch and an explosion at
+    the same site, and is the quantity to compare between events.
+  \item P waves (2.1--3.8~km~s$^{-1}$) and dispersed Rayleigh and Love
+    waves arrive 47--55~s ahead of the airwave, the first clean
+    separation of the two wavefields at KSC. They give shear-wave speeds
+    rising from 330--560~m~s$^{-1}$ near the surface to about
+    1600~m~s$^{-1}$ below 305--385~m.
+  \item The explosion exposed disconnected sensors, reversed infrasound
+    polarity, a faulty Chaparral sensor and a miswired seismometer,
+    problems that routine checks of an unattended network should catch.
+\end{itemize}
+
+%% ============================================================
+\section*{Data and Code Availability}
+
+Waveform data will be archived through EarthScope upon publication.
+The analysis (notebooks 21--38 in \texttt{10\_NewGlenn\_paper}, built on
+the shared \texttt{ksclib} package in the same repository) is available
+at \textcolor{orange}{\url{https://github.com/gthompson/KSCRocketSeismoHydrology}}
+\todo{confirm final URL and tag before submission}. Weather observations
+are from the Iowa Environmental Mesonet \citep{iem_asos}, and the 2026
+launch list from Launch Library~2 \citep{launchlibrary2}. The analysis
+builds on ObsPy \citep{Beyreuther2010,krischer_obspy_2015}, FlovoPy
+\citep{flovopy_2026} and \texttt{disba} \citep{luu2021disba}.
+
+\begin{acknowledgements}
+\todo{Complete acknowledgements: KSC access and escorts, NASA MSFC,
+EPIC and Boise State (Artemis II deployment), funding.}
+\end{acknowledgements}
+
+\section*{Author Contributions}
+
+\todo{Complete CRediT author contributions statement.}
+
+\bibliography{references}
+
+\end{document}
