@@ -36,7 +36,7 @@ eras:
     channel_groups:                 # name: [network, station, location, channel]
       USF: ["1R", "*", "*", "[DHE][DH]?"]     # DH?/DD? 250 sps; HH?/HD? 100 sps; EH? geophones
       Shake: ["AM", "*", "*", "[SEH][HD]?"]   # Raspberry Shake / Boom
-    gem_channel_prefix: null        # no Gem loggers in this era's archive (to be confirmed)
+    gem_channel_prefix: null        # Gems were only deployed in 2026; H-band channels here are Centaurs at 100 sps
 
   # 2026 network (Artemis II, New Glenn): as 09_artemis2_paper/artemis2.yaml.
   - name: network_2026

@@ -88,34 +88,46 @@ still from `~/Dropbox/KSC_paper`), `10_rocket_barcharts` (launch statistics; sti
    calibration outputs use reconciled ids (`ksc-14e6273111f1`). This paper uses the sqlite ids.
    Decide which is canonical before ids are written into products, and whether the untracked CSVs
    move into git.
-3. **Gains in `KSC.xml` are wrong for some epochs (most important; notebook 20 §Findings).**
-   infraBSU channels carry either 18.4 or 736 counts/Pa (40 Vpp vs 1 Vpp Centaur input range, a
-   factor of 40). Where an 18.4 and a 736 channel share a site they agree (BCHH1 vs BCHH2 for Falcon
-   Heavy 2018 and AA-2 2019; BCHH4 vs BCHH2 for Artemis I 2022), but **DVEL1, DVEL2, RBLAB (Feb 2018)
-   and DVEL3 (2019) read ≈ 35–40× too high** (AA-2: 340–400 Pa at 15 km vs ≈ 10 Pa at 13.5 km;
-   Falcon Heavy: up to 6.9 kPa at 3.3 km) — as if those Centaurs ran at 1 Vpp. The **EH? geophones
-   (BHP1–8, FIREP, TANKP, 2018–2021) also read ≈ 40–50× high** (AA-2: 2–4 mm/s at 12–13 km vs
-   0.05 mm/s on the DVEL3 Trillium at 15 km; Atlas V AEHF-4: 4–8 cm/s at 1.5 km). **BCHH DD2 (2016)**
-   reads ≈ 16× low against DD1/DD3 (SES-9, NROL-37; also in the 2016 relative-calibration outputs).
-   Needs a per-epoch audit of Centaur gain settings (Centaur config files or response XMLs written
-   at the time, as in 2026) and a corrected `KSC.xml` before absolute amplitudes are published.
-   Meanwhile, co-located channel ratios (notebook 20 §7) give a cheap automatic check for every launch.
-4. **`KSC.xml` has no datalogger or sensor descriptions.** Which 2016–2022 `HD?`/`DD?` channels are
-   infraBSU on Centaur, Chaparral M25 (`DDF`), or Gem loggers is inferred from channel code and gain.
-   `ensemble.yaml` assumes no Gems before 2026 (`gem_channel_prefix: null`) — please confirm (e.g. the
-   2018 DVEL1 `HD1–HD6` and 2021 Riverbend `HD1–HD3` at 100 sps).
+3. **Gains in `KSC.xml` are wrong for some epochs (most important).** infraBSU sensors were only
+   ever recorded at two Centaur settings: 40 Vpp (18.4 counts/Pa) or 1 Vpp (×40 preamp, 736 counts/Pa).
+   *Cause:* `vpp` is blank in the master sheet (`ksc_stations_master*.csv/xlsx`) for every DVEL, DVEL1–3,
+   RBLAB and RB166/268/383 row, and flovopy's builder (`flovopy/stationmetadata/build.py:330`) turns
+   anything other than 1 or 40 into 40.
+   *Audit done for DVEL/RBLAB* (notebook 15, proposed values in `03_stationxml/vpp_audit_DVEL_RBLAB.csv`):
+   **DVEL1, DVEL2, RBLAB (Feb 2018) and DVEL3 (Feb 2019–Jan 2020) ran at 1 Vpp.** Evidence: Centaur 166's
+   own dataless files for DVEL3 (×40 preamp on the infrasound inputs; BCHH1 control ×1); launch p·r against
+   the beach-house references is ≈ 1.0–1.1 under 1 Vpp and ≈ 43 under 40 Vpp for DVEL3 over 8 launches, and
+   ≈ 1–2 for the live DVEL1/DVEL2/RBLAB channels on the Falcon Heavy demo; night-time 0.15–0.35 Hz levels are
+   only plausible under 1 Vpp. The references agree with each other (BCHH1 40 Vpp / BCHH2 1 Vpp: median 0.93
+   over 17 launches). Still to do: put `vpp=1` in the master sheet for these rows, audit every other blank-`vpp`
+   row (RB166/268/383 in 2021; the 2017 `DVEL` epoch, which has no SDS data and an end date of 2018-12-31
+   that overlaps DVEL1–3), and rebuild `KSC.xml`.
+   *Geophones:* the EH? channels (BHP1–8, FIREP, TANKP, 2018–2021; RT130 + L-22 in the master sheet) also
+   read ≈ 40–50× high against Trilliums. `KSC.xml` gives 3.96×10⁷ counts/(m/s), which matches an RT130 at
+   gain 1; L-22s on RT130s are often run at gain 32, which would explain a factor of ≈ 32. Not yet audited.
+   *Known and stable:* BCHH DD2 (2016) reads ≈ 16× low against DD1/DD3 (also seen for AMOS-6); apply a
+   fixed correction in the metadata.
+4. **`KSC.xml` has no datalogger or sensor descriptions.** Gems were deployed only in 2026, so every
+   2016–2022 `HD?`/`HH?` channel is a Centaur at 100 sps (`ensemble.yaml: gem_channel_prefix: null`).
+   The rebuilt StationXML should carry datalogger, sensor and input range per channel epoch, so the
+   setting is visible rather than implied by a number.
 5. **Dead or unconnected channels and unmapped sensors.** SNR ≈ 1 with ≈ 0.1 Pa peaks: BCHH2 DD7
-   (2018), DD8 (2019), HD5 (2022), DVEL1 DD4–6 (2018), FIRE DD1–3 (2016), 2026 B03 DD0–2, B05 DD1–2,
-   B29 DD1–2. Riverbend infrasound (RB166/RB383 HD1–3, RB268 DDF) shows no Lucy signal at 9.6 km
-   while RB383 HHZ does — check channel mapping. `1R.UNK..HD1` (2026) is an unmapped Gem. Proposal:
-   a per-channel bad-epoch list in `ensemble.yaml` (or the catalog's `qc_intervals` table, which
-   exists but is empty), applied in `peak_amplitudes`.
+   (2018), DD8 (2019), HD5 (2022), DVEL1 DD3–DD6 (2018; DD4–6 sit at the digitizer floor, ≈ 1.5 counts),
+   RBLAB DD1 (2018), FIRE DD1–3 (2016), 2026 B03 DD0–2, B05 DD1–2, B29 DD1–2. DVEL3 DD3 was cut by a
+   lawnmower on 2019-07-01 (field notes). At RBLAB in 2021 (RB166/RB383 HD1–3, RB268 DDF) the infrasound
+   shows no signal from Atlas V Lucy at 9.6 km while RB383 HHZ does — check channel mapping and `vpp`.
+   `1R.UNK..HD1` (2026) is Gem 363, which the ingest mapping (`gem_mapping_artemis2_example.csv`) has not
+   yet assigned to a station. Proposal: a per-channel bad-epoch list in `ensemble.yaml` (or the
+   catalog's `qc_intervals` table, which exists but is empty), applied in `peak_amplitudes`.
 6. **Stations without responses.** `XA.MTEGL` (2022, CN? channels) is in the SDS but not in `KSC.xml`;
    Raspberry Shake/Boom (`AM`) responses are nominal. B14 (2026) has no Centaur response before
    2026-06-14 (New Glenn session; `ksclib.centaur` fallback on that branch).
-7. **Station sets for 2026 campaigns.** The 2026 era uses the `artemis2` sheet for coordinates.
-   Other 2026 launches (New Glenn, later service runs) need per-campaign sheets, or the bridge should
-   read `SDS2026_metadata` (per-channel Start/End DOY) instead.
+7. **Station coordinates for 2026.** The 2026 era currently takes coordinates from one sheet
+   (`artemis2`) of the Box spreadsheet, i.e. the Artemis II layout. Gems and SmartSolos were only out
+   for part of 2026 and Centaur sites changed between service runs, so a launch in, say, September
+   would be given stations that were not there. Better: build a 2026 StationXML with epochs
+   (`03_stationxml/1R_2026_2030/1R_stations.xml` has the Centaur sites but no dates, Gems or SmartSolos)
+   and treat 2026 like 2016–2022, or read the `SDS2026_metadata` sheet's per-channel day ranges.
 8. **Data gaps in 2016–2022.** 57 of 202 catalog events (28%) have no SDS files on the launch day (e.g.
    May–Aug 2016, Feb–Aug 2017 apart from R37BE, Apr–Aug 2018, late 2021–Mar 2022). Some may exist in
    `BUD_KSC` or `unmatched/` on `classdata`, or on older drives; worth one search before declaring them
@@ -128,7 +140,7 @@ still from `~/Dropbox/KSC_paper`), `10_rocket_barcharts` (launch statistics; sti
 
 ## Next steps
 
-1. Resolve decisions 1–5 above (catalog ids and coverage; KSC.xml gains; Gem presence pre-2026; bad-channel list).
+1. Fix the StationXML (item 3: master-sheet `vpp`, geophone gains, BCHH DD2; one StationXML with epochs for 2016–2026) and extend the catalog to the present (item 1). These come first.
 2. Run notebook 20 over every catalog event with data (add a cache of per-event peak tables,
    keyed by `event_id`, written to `ensemble.yaml: output`), then fits by vehicle/pad (Fig. 3–4).
 3. Event-time refinement notebook (airwave onset at the nearest station).
