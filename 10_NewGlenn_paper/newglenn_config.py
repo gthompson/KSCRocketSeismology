@@ -53,6 +53,30 @@ def instrument_correct(st, pre_filt_low=(0.01, 0.02), fix_polarity=True):
     return out
 
 
+def weather_at_origin():
+    """Per-station means of the surface observations within weather.window_s of the origin,
+    and their mean over weather.stations (temperature_c, rh, u, v, pressure_pa)."""
+    from ksclib import weather
+    w = EVENT.raw["weather"]
+    wx = weather.load_iem_asos_csv(Path(str(w["file"]).replace("{base_dir}", str(PAPER_DIR))))
+    sub = weather.event_weather_window(wx, EVENT, w.get("window_s", 1800), w.get("window_s", 1800))
+    per = sub.groupby("station").agg(temperature_c=("temperature_c", "mean"),
+                                     rh=("relative_humidity_percent", "mean"),
+                                     u=("wind_u_east_mps", "mean"), v=("wind_v_north_mps", "mean"),
+                                     pressure_pa=("sea_level_pressure_pa", "mean"),
+                                     n=("temperature_c", "count"))
+    return sub, per, per.loc[list(w["stations"])].mean()
+
+
+def airwave_speeds(mean=None, wind=True):
+    """Predicted airwave speed and travel time to every station (ksclib.physics.event_airwave_speeds)."""
+    from ksclib import physics
+    m = weather_at_origin()[2] if mean is None else mean
+    return physics.event_airwave_speeds(EVENT, m["temperature_c"], m["rh"], m["u"] if wind else 0.0,
+                                        m["v"] if wind else 0.0, stations=station_table(),
+                                        pressure_pa=m["pressure_pa"])
+
+
 def output_dir(name):
     d = OUT_DIR / name
     d.mkdir(parents=True, exist_ok=True)

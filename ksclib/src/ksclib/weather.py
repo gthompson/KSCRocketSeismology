@@ -500,3 +500,34 @@ def event_acoustic_summary(dataframe: pd.DataFrame, event, station, *, stations=
         propagation_distance_m=float(row.distance_km) * 1000.0, **kwargs)
     out["station"] = station
     return out
+
+
+def load_iem_asos_csv(filename: str | Path, *, sensor_height_m: float = 10.0) -> pd.DataFrame:
+    """Load an Iowa Environmental Mesonet ASOS/METAR download into the same columns as
+    `load_ksc_weather_excel` (one height level, `sensor_height_m`).
+
+    Expects the IEM `asos.py` comma format with columns station, valid, lon, lat, tmpf,
+    relh, drct, sknt (optionally dwpf, mslp, alti). Calm (drct 0, sknt 0) gives zero wind;
+    missing values ("M") become NaN. Times are UTC.
+    """
+    df = pd.read_csv(filename, na_values=["M", "T"])
+    out = pd.DataFrame({
+        "station": df["station"],
+        "datetime_utc": pd.to_datetime(df["valid"], utc=True),
+        "tower_latitude": pd.to_numeric(df.get("lat"), errors="coerce"),
+        "tower_longitude": pd.to_numeric(df.get("lon"), errors="coerce"),
+        "height_m": float(sensor_height_m),
+        "temperature_f": pd.to_numeric(df["tmpf"], errors="coerce"),
+        "relative_humidity_percent": pd.to_numeric(df["relh"], errors="coerce"),
+        "wind_direction_from_deg": pd.to_numeric(df["drct"], errors="coerce") % 360.0,
+        "wind_speed_knots": pd.to_numeric(df["sknt"], errors="coerce"),
+    })
+    if "mslp" in df:
+        out["sea_level_pressure_pa"] = pd.to_numeric(df["mslp"], errors="coerce") * 100.0
+    out["height_ft"] = out["height_m"] / FOOT_TO_M
+    out["temperature_c"] = (out["temperature_f"] - 32.0) * 5.0 / 9.0
+    out["wind_speed_mps"] = out["wind_speed_knots"] * KNOT_TO_MPS
+    d = np.deg2rad(out["wind_direction_from_deg"])
+    out["wind_u_east_mps"] = -out["wind_speed_mps"] * np.sin(d)
+    out["wind_v_north_mps"] = -out["wind_speed_mps"] * np.cos(d)
+    return out

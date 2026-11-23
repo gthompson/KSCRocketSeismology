@@ -103,3 +103,42 @@ def test_kml(tmp_path):
                  '</Point></Placemark></Document></kml>')
     pts = read_kml_points(p)
     assert pts["LC36"]["lat"] == pytest.approx(28.470556) and pts["LC36"]["lon"] == pytest.approx(-80.5422)
+
+
+def test_iem_asos(tmp_path):
+    p = tmp_path / "a.csv"
+    p.write_text("station,valid,lon,lat,tmpf,dwpf,relh,drct,sknt,mslp,alti\n"
+                 "XMR,2026-05-29 00:55,-80.5668,28.4677,81.00,75.70,84.01,300.00,9.00,1013.50,29.92\n"
+                 "TTS,2026-05-29 01:00,-80.6944,28.6149,78.80,75.20,88.78,0.00,0.00,1014.30,29.94\n")
+    df = weather.load_iem_asos_csv(p)
+    assert df.temperature_c.iloc[0] == pytest.approx(27.222, abs=1e-3)
+    assert df.wind_u_east_mps.iloc[0] > 0 and df.wind_v_north_mps.iloc[0] < 0   # from WNW -> toward ESE
+    assert df.wind_speed_mps.iloc[1] == 0
+    assert df.sea_level_pressure_pa.iloc[0] == pytest.approx(101350.0)
+
+
+def test_event_airwave_speeds():
+    stations = pd.DataFrame({"distance_km": [10.0, 10.0], "azimuth_deg": [0.0, 180.0]}, index=["N", "S"])
+    out = physics.event_airwave_speeds(None, 20.0, 0.0, wind_v_north_mps=5.0, stations=stations)
+    assert out.loc["N", "wind_along_ray_mps"] == pytest.approx(5.0)
+    assert out.loc["S", "c_eff_mps"] == pytest.approx(out.loc["S", "c0_mps"] - 5.0)
+    assert out.loc["N", "travel_time_s"] < out.loc["S", "travel_time_s"]
+    c = physics.event_airwave_speeds(None, 20.0, 0.0, stations=stations, pressure_pa=101325.0).c0_mps.iloc[0]
+    assert 342.8 < c < 343.6
+
+
+def test_reference_clipping():
+    from ksclib import clipping
+    t0 = UTCDateTime(2026, 5, 29)
+    rng = np.random.default_rng(0)
+    ref = np.sin(np.linspace(0, 40 * np.pi, 4000)) * np.r_[np.ones(2000) * 50, np.ones(2000)] \
+        + 0.01 * rng.standard_normal(4000)
+    clipped = np.clip(0.05 * ref, -1.5, 1.5)                    # sensor at 1/20 the scale, clips at 1.5
+    hdr = dict(sampling_rate=100.0, starttime=t0)
+    a, b = Trace(clipped, header=hdr), Trace(ref, header=hdr)
+    g, lag, r = clipping.fit_reference_gain(a, b, t0 + 25, t0 + 39)
+    assert g == pytest.approx(0.05, rel=0.02) and lag == 0 and r > 0.99
+    iv = clipping.reference_clip_intervals(a, b, g, (t0 + 25, t0 + 39))
+    assert iv and all(s >= t0 and e <= t0 + 20.01 for s, e in iv)       # only the large first half
+    raw = Trace(np.clip(ref * 1e5, -2e6, 2e6), header=hdr)
+    assert clipping.count_saturation_intervals(raw, full_scale=2e6)

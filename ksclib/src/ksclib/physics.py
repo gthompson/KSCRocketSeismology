@@ -376,3 +376,27 @@ def event_effective_sound_speed(event, station, temperature_f, relative_humidity
     out["still_air_travel_time_s"] = distance_m / float(out["speed_of_sound_still_air_mps"])
     out["acoustic_travel_time_with_wind_s"] = distance_m / float(out["acoustic_speed_with_wind_mps"])
     return out
+
+
+def event_airwave_speeds(event, temperature_c, relative_humidity_percent, wind_u_east_mps=0.0,
+                         wind_v_north_mps=0.0, *, stations=None, pressure_pa=None, co2_ppm=425.0):
+    """Predicted airwave speed and travel time from the event site to every station.
+
+    Still-air speed from Cramer (1993) when `pressure_pa` is given, else the simple
+    331.3 + 0.606 T + 1.26 RH/100 formula; plus the component of the (u, v) wind along
+    each source-station azimuth. Returns a DataFrame indexed by station with
+    distance_m, azimuth_deg, c0_mps, wind_along_ray_mps, c_eff_mps and travel_time_s.
+    """
+    import pandas as pd
+    from .geometry import station_table
+    tab = stations if stations is not None else station_table(event)
+    if pressure_pa is None:
+        c0 = float(compute_speed_of_sound(temperature_c, relative_humidity_percent))
+    else:
+        c0 = float(compute_speed_of_sound_cramer(temperature_c, relative_humidity_percent, pressure_pa, co2_ppm))
+    az = np.radians(tab["azimuth_deg"].to_numpy(float))
+    w = wind_u_east_mps * np.sin(az) + wind_v_north_mps * np.cos(az)
+    d = tab["distance_km"].to_numpy(float) * 1000.0
+    return pd.DataFrame({"distance_m": d, "azimuth_deg": tab["azimuth_deg"].to_numpy(float), "c0_mps": c0,
+                         "wind_along_ray_mps": w, "c_eff_mps": c0 + w, "travel_time_s": d / (c0 + w)},
+                        index=tab.index)

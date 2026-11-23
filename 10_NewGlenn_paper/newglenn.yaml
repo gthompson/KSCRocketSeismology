@@ -3,9 +3,11 @@
 name: New Glenn explosion
 kind: static                        # source fixed at the pad
 
-# Provisional: 01:00:30 is the time used in read_newglenn_improved_v3.ipynb (window 00:59-01:03,
-# zoom 01:00:30-01:01:30). 22_data_overview.ipynb refines it from the airwave arrival times.
-origin_time: 2026-05-29T01:00:30
+# From the airwave (24_origin_time.ipynb): 5% onsets at the six working infraBSUs and the airwave speed
+# predicted from the XMR/TTS weather with the mean wind (347.0 m/s); station spread 0.27 s. Other onset
+# definitions and weather choices give 01:00:02.2-03.2; a free-speed fit gives 01:00:01.2 (339 m/s).
+# (read_newglenn_improved_v3.ipynb used a provisional 01:00:30.)
+origin_time: 2026-05-29T01:00:02.37
 
 site:
   name: LC36                        # launchpads_2026 sheet: 28.470556, -80.542200
@@ -53,11 +55,17 @@ responses:
   smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
 
 # infraBSU channels whose airwave starts with a rarefaction while co-located or neighbouring
-# sensors start with the compression (correlation -0.98 with B14 DD0): wired with reversed
-# polarity. newglenn_config.instrument_correct flips them (see 22_data_overview.ipynb).
+# sensors start with the compression (B14 DD1/DD2 correlate at -0.99 with B14 DD0). The likely
+# cause is the capillary tube mounted on the inner rather than the outer nipple.
+# newglenn_config.instrument_correct flips them (evidence in 22_data_overview.ipynb).
 polarity_reversed: [1R.B14.00.DD1, 1R.B14.00.DD2, 1R.B05.00.DD0]
 
 source: {}                          # static source: no trajectory
+
+weather:                            # surface observations around the origin (Iowa Environmental Mesonet ASOS)
+  file: "{base_dir}/data/iem_asos_XMR_TTS_COF_20260528T22_20260529T04.csv"
+  stations: [XMR, TTS]              # XMR: Cape Canaveral Skid Strip, 2 km from LC36; TTS: Shuttle Landing Facility, in the network
+  window_s: 1800                    # +/- around the origin
 
 paths:
   old_notebook_data: ~/mybox/KSC_USF_UCF/Day 149 Data   # day files used by read_newglenn_improved_v3
