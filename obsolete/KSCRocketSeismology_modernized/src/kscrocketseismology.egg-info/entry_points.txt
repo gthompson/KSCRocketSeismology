@@ -1,2 +1,0 @@
-[console_scripts]
-ksc-rockets = kscrockets.cli:main
