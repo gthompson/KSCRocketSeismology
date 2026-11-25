@@ -18,6 +18,7 @@ EVENT_TYPES = (
     "orbital_launch", "launch_failure", "pad_explosion", "static_fire",
     "aborted_launch", "booster_landing", "aircraft_sonic_boom",
     # Added with the 2016-present expansion (see 04_event_catalog/SQLITE_CATALOG.md):
+    "suborbital_launch",    # GCAT S/A launches: Trident D-5 off the Cape, LRHW hypersonic tests at LC-46
     "air_launch",           # launch dropped from an aircraft that took off from the Cape/KSC (Pegasus)
     "pad_abort",            # launch attempt with engine ignition, shut down on the pad
     "scrub",                # launch-day scrub without ignition (often after propellant loading)
@@ -1032,6 +1033,9 @@ def read_gcat_launch_tsv_bytes(data: bytes, source_url: str = "", progress: bool
         tag=_first_present(r,"Launch_Tag","LaunchTag")
         # GCAT gives pad explosions (no launch) 'E' tags (2026-E01) and an 'E' outcome code ('OE').
         if lc.startswith("E") or lc[1:2] == "E" or re.search(r"-E\d", tag): etype="pad_explosion"
+        # GCAT tags suborbital launches YYYY-Snnn / YYYY-Annn (missile tests, abort tests); a failed
+        # one stays suborbital_launch (the F is kept in quality/status).
+        elif re.search(r"-[SA]\d", tag): etype="suborbital_launch"
         elif "F" in lc[:3]: etype="launch_failure"
         else: etype="orbital_launch"
         name=" | ".join(x for x in [
@@ -1070,17 +1074,22 @@ def read_gcat_tsv_bytes(data: bytes, list_code: str = "", source_url: str = "") 
     """Backward-compatible wrapper; list_code is ignored for canonical launch.tsv rows."""
     return read_gcat_launch_tsv_bytes(data, source_url=source_url, progress=False)
 
-def filter_gcat_ksc(df: pd.DataFrame) -> pd.DataFrame:
-    """Return GCAT records whose *Launch_Site* is Cape Canaveral or KSC.
+GCAT_FLORIDA_SITES = {"CC", "KSC", "SPFLA", "ETR"}
 
-    GCAT uses the site codes ``CC`` and ``KSC`` for these two launch sites.
+
+def filter_gcat_ksc(df: pd.DataFrame) -> pd.DataFrame:
+    """Return GCAT records launched from Cape Canaveral, KSC, or just off the Cape.
+
+    GCAT site codes: ``CC`` (Cape Canaveral SFS), ``KSC``, ``SPFLA`` (Space Florida's
+    LC-46 on the Cape: Minotaur ORS-5, Orion AA-2, Astra, Army hypersonic LRHW tests) and ``ETR``
+    (Eastern Test Range: Trident D-5 launches from submarines off the Cape).
     Do not infer geography from Launch_Pad: pad identifiers/numbers are not
     globally unique and previously admitted records from unrelated sites.
     """
     if df is None or df.empty:
         return pd.DataFrame()
     site = df.get("location", pd.Series("", index=df.index)).astype(str).str.strip().str.upper()
-    return df[site.isin({"CC", "KSC"})].copy()
+    return df[site.isin(GCAT_FLORIDA_SITES)].copy()
 
 def _count_gcat_project_interval(df: pd.DataFrame, start: str = "2016-02-24", end: str = "2022-12-02") -> int:
     """Diagnostic count for the historical USF deployment interval, inclusive."""

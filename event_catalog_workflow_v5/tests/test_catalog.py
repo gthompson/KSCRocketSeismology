@@ -65,7 +65,7 @@ def test_reconciled_database_2016_to_present():
     assert ng.event_type=='pad_explosion' and ng.pad=='LC36' and ng.event_time_utc.startswith('2026-05-29T01:00:0')
     assert (ev.vehicle.fillna('')!='').all()
     assert ev.pad.isin(['LC40','LC39A','LC39B','LC41','LC37B','LC46','LC36','LC16','LZ1','LZ2','LZ40',
-                        'SLF','L1011','Unknown']).all()
+                        'SLF','L1011','ETR','Unknown']).all()
 
 
 def test_launchpads_cover_catalog_pads_and_kml():
@@ -76,10 +76,23 @@ def test_launchpads_cover_catalog_pads_and_kml():
     pads = pd.read_csv(root/"data/raw/launchpads.csv")
     assert pads.pad.is_unique
     used = {r[0] for r in sqlite3.connect(root/"data/processed/ksc_rockets.sqlite").execute("select distinct pad from events")}
-    assert used - set(pads.pad) <= {"SLF", "L1011", "Unknown"}   # runway/air launch/unknown have no pad point
+    assert used - set(pads.pad) <= {"SLF", "L1011", "ETR", "Unknown"}   # runway/air launch/offshore (Trident)/unknown: no pad point
     doc = ET.fromstring(launchpads_kml(pads))
     ns = {"k": "http://www.opengis.net/kml/2.2"}
     marks = doc.findall(".//k:Placemark", ns)
     assert [m.find("k:name", ns).text for m in marks] == list(pads.pad)
     lon, lat, _ = marks[0].find(".//k:coordinates", ns).text.split(",")
     assert abs(float(lat) - pads.lat[0]) < 1e-6 and abs(float(lon) - pads.lon[0]) < 1e-6
+
+
+def test_completeness_table_covers_every_month_and_explains_differences():
+    """data/availability/catalog_completeness.csv: one row per month from 2016-02, nothing unexplained."""
+    root = Path(__file__).resolve().parents[1]
+    d = pd.read_csv(root/"data/availability/catalog_completeness.csv", dtype=str).fillna("")
+    months = pd.period_range("2016-02", d.month.max(), freq="M").strftime("%Y-%m").tolist()
+    assert d.month.tolist() == months
+    assert not d.explanation.str.contains("CHECK").any()
+    n = d[["catalog_launches", "gcat_launches", "ll2_launches", "catalog_events_all_types"]].astype(int)
+    differs = (n.catalog_launches != n.gcat_launches) | (n.catalog_launches != n.ll2_launches) | (n.catalog_events_all_types == 0)
+    assert (d.explanation[differs] != "").all()
+    assert (d.gcat_not_in_catalog == "").all()   # every GCAT Cape/KSC launch is in the catalog

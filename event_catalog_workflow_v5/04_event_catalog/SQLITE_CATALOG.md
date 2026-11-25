@@ -25,6 +25,7 @@ Each type clusters only with its own family during reconciliation (`_type_family
 | `launch_failure` | launch | liftoff, then vehicle lost | LL2, GCAT |
 | `pad_explosion` | launch | vehicle destroyed on the pad (AMOS-6, New Glenn 2026-05-29) | GCAT, curated |
 | `aborted_launch` | launch | legacy workbook label (SES-9 2016-02-29, Ascent Abort-2); kept for id stability | workbook |
+| `suborbital_launch` | launch | GCAT S/A launches from the Cape or just off it: Trident D-5 launches from submarines (site ETR, pad `ETR`, offshore, no coordinates; often date-only) and Army LRHW "Dark Eagle" hypersonic tests at LC-46 (GCAT site SPFLA) | GCAT |
 | `air_launch` | launch | Pegasus dropped from the L-1011 after takeoff from the Cape Skid Strip (CYGNSS, ICON); pad `L1011` | GCAT, curated |
 | `scrub` | scrub | launch-day scrub with no ignition | LL2 launch `updates`, curated |
 | `pad_abort` | scrub | launch attempt with engine ignition then shutdown on the pad; wins over `scrub` if any source reports ignition | curated, LL2 |
@@ -74,3 +75,9 @@ ksc-rockets load-times --detected path/to/run.csv     # another detection run
 ## LL2 snapshot
 
 `ksc-rockets fetch-ll2 [--wait]` keeps every raw LL2 page (gzip JSON) in `data/raw/external/ll2_raw/` and never requests a page it already has, so a fetch stopped by the 15-requests-per-hour limit resumes where it stopped (`--wait` sits the limit out). `ksc-rockets fetch-ll2 --from-raw` rebuilds `ll2_events.csv` offline from those pages. Air launches are now kept by default (`--exclude-air-launches` drops them).
+
+## Completeness check
+
+`ksc-rockets completeness` (also run by `rebuild`) writes `data/availability/catalog_completeness.csv`, with one row per month from 2016-02 to the current month. Each row gives catalog launches (orbital, failure, air, suborbital, pad explosion, legacy aborted_launch), GCAT launches (sites CC, KSC, SPFLA, ETR), LL2 launches, and counts of every other event type. It also names every launch that one source has and the catalog or another source lacks, plus an `explanation` for each month where the counts differ or nothing happened. GCAT is the independent reference: every GCAT Cape/KSC record since 2016 is in the catalog. Waveform availability never filters the catalog; events with no recordings stay in.
+
+GCAT site codes: `CC` Cape Canaveral SFS, `KSC`, `SPFLA` (Space Florida's LC-46: ORS-5, Orion AA-2, Astra, LRHW), `ETR` (Eastern Test Range, Trident off the Cape). The filter used to keep only CC and KSC, which missed 30 SPFLA/ETR launches since 2016.

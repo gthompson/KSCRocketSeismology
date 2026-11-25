@@ -77,6 +77,8 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
                 raise RuntimeError(f"GCAT cache is missing at {gcat_cache}. Run `ksc-rockets fetch-gcat` or use `rebuild --refresh-external`.")
             print(f"GCAT cache: using {gcat_cache} ({len(gcat)} records total)",flush=True)
         gcat=_subset_times(gcat,start,end)
+        # Trident launches from submarines off the Cape have no pad: 'ETR' (Eastern Test Range, offshore).
+        gcat.loc[gcat.get("location",pd.Series("",index=gcat.index)).astype(str).str.strip().eq("ETR"),"pad"]="ETR"
         air=_is_gcat_air_launch(gcat); n=int(air.sum())
         if not include_air_launches:
             gcat=gcat.loc[~air].copy()
@@ -112,12 +114,25 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
     build_database(s.canonical_catalog,s.database)
     write_reconciliation(s.database,ev,src,replace_events=replace_events)
     _load_availability(s)
+    _completeness(s)
     print(f"reconciled events: {len(ev)} -> {out}",flush=True)
     print(f"database updated from reconciled catalog: {s.database}",flush=True)
     return ev,src
 
 
 AVAILABILITY_CSV="data/availability/event_waveform_availability.csv"
+COMPLETENESS_CSV="data/availability/catalog_completeness.csv"
+
+
+def _completeness(s):
+    """Month-by-month launch counts against GCAT and LL2 (never filters the catalog)."""
+    from .completeness import catalog_completeness
+    ll2_cache,gcat_cache=_cache_paths(s)
+    t=catalog_completeness(s.database,gcat_cache,ll2_cache)
+    t.to_csv(s.root/COMPLETENESS_CSV,index=False)
+    n_diff=int((t.launch_diff_vs_gcat!=0).sum()); n_check=int(t.explanation.str.contains("CHECK").sum())
+    print(f"completeness: {len(t)} months, {n_diff} with catalog != GCAT launches, {n_check} flagged CHECK -> {s.root/COMPLETENESS_CSV}",flush=True)
+    return t
 
 
 def _availability(s, a):
@@ -205,6 +220,7 @@ def main(argv=None):
     lt.add_argument("--known",default=None,help=f"default: {KNOWN_TIMES_CSV}")
     lt.add_argument("--detected",default=None,help=f"default: {DETECTED_TIMES_CSV}")
     sp.add_parser("fetch-gcat",help="Refresh cached GCAT launch snapshot")
+    sp.add_parser("completeness",help=f"Month-by-month launch counts vs GCAT and LL2 -> {COMPLETENESS_CSV}")
     r=sp.add_parser("reconcile-events")
     r.add_argument("--excel",default="data/raw/All_KSC_Rocket_Launches.xlsx",help="Hand-curated workbook")
     r.add_argument("--fetch-ll2",action="store_true",help="Refresh LL2 before reconciling")
@@ -268,6 +284,7 @@ def main(argv=None):
         from .kml import write_launchpads_kml
         print(f"KML: {write_launchpads_kml(s.launchpads,a.out)}"); return
     if a.command=="clean": _clean(s,a.caches); return
+    if a.command=="completeness": _completeness(s); return
     if a.command=="fetch-ll2":
         raw=s.root/LL2_RAW_DIR
         if not a.from_raw:

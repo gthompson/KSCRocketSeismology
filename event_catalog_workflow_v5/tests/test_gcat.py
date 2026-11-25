@@ -20,8 +20,9 @@ def test_gcat_filter_uses_site_not_pad_number():
     df = pd.DataFrame([
         {"location": "CC", "pad": "SLC-40", "time_utc": "2020-01-01T00:00:00Z"},
         {"location": "KSC", "pad": "LC39A", "time_utc": "2020-01-02T00:00:00Z"},
+        {"location": "SPFLA", "pad": "SLC46", "time_utc": "2020-01-03T00:00:00Z"},
         # A Cape-looking/potentially colliding pad at another GCAT site must not pass.
         {"location": "NIIP-5", "pad": "LC176/46", "time_utc": "2020-01-03T00:00:00Z"},
     ])
     out = filter_gcat_ksc(df)
-    assert out["location"].tolist() == ["CC", "KSC"]
+    assert out["location"].tolist() == ["CC", "KSC", "SPFLA"]

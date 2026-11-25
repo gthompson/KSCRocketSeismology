@@ -47,7 +47,8 @@ def classify_vehicle(text) -> str:
         (r"\bsls\b|space launch system|artemis", "SLS"), (r"vulcan", "Vulcan"), (r"new\s*glenn", "New Glenn"),
         (r"starship|super\s*heavy", "Starship"), (r"terran", "Terran 1"),
         (r"minotaur", "Minotaur"), (r"astra", "Astra"), (r"electron", "Electron"),
-        (r"orion abort|ascent abort|\baa-2\b", "Orion AA-2 booster"),
+        (r"orion abort|ascent abort|\baa-2\b|^atb\b", "Orion AA-2 booster"),
+        (r"trident", "Trident D-5"), (r"chgb|lrhw|dark eagle", "LRHW (hypersonic)"), (r"pegasus", "Pegasus XL"),
         (r"x-?37", "X-37B"), (r"f-18|f/a-18|sonicbat", "F/A-18"),
     ]
     for pattern, label in rules:
