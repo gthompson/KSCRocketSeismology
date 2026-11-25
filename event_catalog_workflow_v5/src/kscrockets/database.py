@@ -15,7 +15,15 @@ CREATE TABLE IF NOT EXISTS events (
     event_time_quality TEXT,
     event_time_precision TEXT,
     time_definition TEXT,
-    window_start TEXT,
+    event_time_basis TEXT,            -- known | detected | consensus (see SQLITE_CATALOG.md)
+    consensus_time_utc TEXT, consensus_time_source TEXT, consensus_time_precision TEXT,
+    known_time_utc TEXT, known_time_source TEXT,
+    detected_time_utc TEXT, detected_time_method TEXT,
+    window_start_utc TEXT,            -- launch window (LL2/curated); may be hours long
+    window_end_utc TEXT,
+    event_end_utc TEXT,               -- end of an extended event (rollout arrival at the pad)
+    route TEXT,                       -- e.g. VAB->LC39B for rollouts
+    window_start TEXT,                -- waveform extraction window (unrelated to the launch window)
     window_end TEXT,
     name TEXT,
     mission TEXT,
@@ -28,6 +36,7 @@ CREATE TABLE IF NOT EXISTS events (
     landing_pad TEXT,
     landing_type TEXT,
     source TEXT,
+    source_url TEXT,
     notes TEXT,
     time_spread_s REAL,
     time_conflict INTEGER DEFAULT 0,

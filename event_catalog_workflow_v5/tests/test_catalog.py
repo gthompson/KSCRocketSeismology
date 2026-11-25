@@ -59,7 +59,7 @@ def test_reconciled_database_2016_to_present():
     assert ev.event_time_utc.min().startswith('2016') and ev.event_time_utc.max() >= '2026-11'
     # ids from the 2016-2022 reconciled catalog are unchanged
     assert ev.set_index('event_id').loc['ksc-14e6273111f1','event_time_utc'] == '2016-02-05T13:38:00Z'
-    art=ev[ev.name.str.contains('Artemis II',na=False) & ~ev.name.str.contains('Artemis III',na=False)]
+    art=ev[ev.name.str.contains('Artemis II',na=False) & ~ev.name.str.contains('Artemis III',na=False) & ev.event_type.eq('orbital_launch')]
     assert len(art)==1 and art.iloc[0].event_time_utc=='2026-04-01T22:35:12Z' and art.iloc[0].pad=='LC39B'
     ng=ev[ev.event_id=='ksc-newglenn-explosion-20260529'].iloc[0]
     assert ng.event_type=='pad_explosion' and ng.pad=='LC36' and ng.event_time_utc.startswith('2026-05-29T01:00:0')

@@ -31,6 +31,8 @@ def normalize_pad(value) -> str:
         s = "36"
     if re.fullmatch(r"\d{2}[A-Z]?", s):
         return "LC" + s
+    if re.fullmatch(r"RW ?\d{2}", s) or s in {"SKID", "SKID STRIP"}:   # GCAT: Pegasus carrier takeoff runway
+        return "L1011"
     return raw
 
 

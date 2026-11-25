@@ -69,7 +69,7 @@ ksc-4b9c9d604638,ksc-353b309f4555,2019-044,Falcon 9 Block 5 | SpX CRS-18,SLC-40,
 ksc-ac1b8564627f,ksc-62ae4d0960be,2019-050,Falcon 9 Block 5 | Amos-17,SLC-40,2019-08-06T22:53:00Z,launch_designator
 ksc-c76b7e413e85,ksc-3f066959a7be,2019-051,Atlas V 551 | AEHF-5 (USA 292),SLC-41,2019-08-08T09:44:00Z,launch_designator
 ksc-f5d8933a6280,ksc-b30323f5edba,2019-056,"Delta IV M+(4,2) | GPS III SV02",SLC-37B,2019-08-22T13:00:30Z,launch_designator
-ksc-01f6a847a690,,2019-068,Pegasus XL | Ionospheric Connection Explorer (ICON),Cape Canaveral,2019-10-11T01:30:00Z,"none: Pegasus air launch, excluded by rebuild unless --include-air-launches"
+ksc-01f6a847a690,ksc-c01a108986ae,2019-068,Pegasus XL | Ionospheric Connection Explorer (ICON),Cape Canaveral,2019-10-11T01:30:00Z,launch_designator (air launches kept by default since the 2016-present expansion)
 ksc-ccb9c597c4c6,ksc-17277fe09dc7,2019-074,Falcon 9 Block 5 | Starlink 1,SLC-40,2019-11-11T14:50:00Z,launch_designator
 ksc-0a3be0762ac4,ksc-81a0ae2484cc,2019-083,Falcon 9 Block 5 | SpX CRS-19,SLC-40,2019-12-05T17:29:24Z,launch_designator
 ksc-232e1b8c0ec1,ksc-7c20412d349e,2019-091,Falcon 9 Block 5 | JCSAT-18/KACIFIC-1,SLC-40,2019-12-17T00:10:00Z,launch_designator
