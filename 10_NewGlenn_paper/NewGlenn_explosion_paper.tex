@@ -59,7 +59,7 @@
   working sensors. Using the airwave arrival times and the speed of sound
   predicted from surface weather, we place the origin at
   \NGorigin~UTC~$\pm$~1~s; allowing for the supersonic blast front near the
-  pad moves it to \NGoriginCorr, \NGflashGap~s before the main flash seen on video.
+  pad moves it to \NGoriginCorrRange, \NGflashGapRange~s before the main flash seen on video.
   Peak overpressures were \NGpBtwenty~Pa at \NGdistBtwenty~km and
   \NGpFar~Pa at \NGfarRange~km. Below 4~Hz the airwave decays close to
   spherical spreading, but above 4~Hz it barely decays over this range,
@@ -338,13 +338,19 @@ We adopt \NGorigin~$\pm$~1~s.
 This origin assumes that the airwave travels at the speed of sound all
 the way from the pad. Near the pad, however, the blast front is a shock
 that moves faster than sound. Integrating the excess speed along each
-ray, with the Kinney--Graham overpressure for the yield of
-Section~\ref{sec:yield} and the normal-shock Mach number
-\citep{kinney1985}, the front reaches the stations \NGadvance~s earlier than a
-sound wave would (\NGadvanceRange~s over the range of yield estimates).
-Allowing for this moves the origin to \NGoriginCorr~UTC: \NGfireballGap~s after
-the first fireball seen on video and \NGflashGap~s before the main flash
+ray with the normal-shock Mach number, as for AMOS-6
+\citep{thompson_amos6_2026}, the front reaches the stations
+\NGadvanceSph~s earlier than a sound wave would if each station's peak
+overpressure is extrapolated inward by spherical spreading to 10~m, and
+\NGadvance~s earlier with the Kinney--Graham overpressure for the yield of
+Section~\ref{sec:yield} \citep{kinney1985}. Spherical spreading
+underestimates the pressure close to the source, so the first is a lower
+bound. Allowing for the advance moves the origin to
+\NGoriginCorrRange~UTC: about \NGfireballGap~s after the first fireball seen on
+video and \NGflashGapRange~s before the main flash
 \citep{silber_scamfer_newglenn_2026}, which is within our uncertainty.
+The video's clock is the weaker link: the footage is identified only in
+their supplement, and the accuracy of its timestamp is not stated.
 The airwave we record therefore comes from the main flash. An origin at
 the first fireball, \NGflashFireballSep~s earlier, would need an airwave far
 faster than the \NGceff~m~s$^{-1}$ that the weather gives. The pad position
@@ -591,8 +597,8 @@ can now correct.
 \paragraph{Timing the source.} Near-field airwave onsets with a
 weather-based sound speed time the explosion to about a second. That is
 precise enough to compare with video, but only after allowing for the
-supersonic blast front, which at this yield advances the arrivals by more
-than half a second even at 12--21~km. With that correction the airwave
+supersonic blast front, which at this yield advances the arrivals by
+\NGadvanceAll~s, even at 12--21~km. With that correction the airwave
 comes from the main flash \citep{silber_scamfer_newglenn_2026}, not from
 the fireball that preceded it by several seconds.
 
@@ -632,7 +638,7 @@ $V_P$ and density) are the main uncertainties.
   \item \NGnStationsCap{} broadband stations at \NGdistRange~km recorded the New~Glenn
     static-fire explosion; \NGnWorking{} had working sensors. The airwave and
     surface weather place the origin at \NGorigin~UTC~$\pm$~1~s on
-    29~May~2026, or \NGoriginCorr{} after allowing for the supersonic blast
+    29~May~2026, or \NGoriginCorrRange{} after allowing for the supersonic blast
     front, matching the main flash seen on video.
   \item Peak overpressures were \NGpBtwenty~Pa at \NGdistBtwenty~km and \NGpFar~Pa at
     \NGfarRange~km. Below 4~Hz the airwave decays close to spherical
