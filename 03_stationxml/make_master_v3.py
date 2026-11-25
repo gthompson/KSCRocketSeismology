@@ -539,6 +539,28 @@ def rows_2026():
                                       "vertical polarity reversed (Artemis II coupling sign vs Trillium) -> dip +90",
                              notes="harvested data are geophone output in mV (FLOAT32), not velocity",
                              source_row="2026"))
+    # DG.B12, DG.B07: MSFC Guralp Certimus (SDS location 1L). Response from the Certimus-written
+    # StationXML downloaded at B12 on 2026-03-10; user: same for B07, config unchanged since Jan 2026.
+    certimus_xml = "/Volumes/classdata/KSC/20260310_service/Guralp_day1/Sensor1.xml"
+    for sta, chans, sr, t0, t1, la, lo, note in (
+            ("B12", ("CHE", "CHN", "CHZ"), 250.0, "2026-01-10T00:00:00", "2026-04-02T00:00:00", 28.621725, -80.647263,
+             "SDS has 250 sps under location 1L, which Sensor1.xml defines at 500 sps; the 250 sps response "
+             "(Sensor1.xml location 1N, same sensitivity) is used. Coordinates from Sensor1.xml"),
+            ("B07", ("CHZ",), 500.0, "2026-03-30T00:00:00", "2026-04-05T00:00:00", 28.60727, -80.59418,
+             "B07 has its own Certimus but its StationXML was not downloaded; B12's response (per-axis factory "
+             "calibration differs by <1% between units) is used, per the user. SDS has only CHZ. Coordinates of "
+             "the B07 Gem/SmartSolo")):
+        for cha in chans:
+            az, dip = {"CHE": (90.0, 0.0), "CHN": (0.0, 0.0), "CHZ": (0.0, -90.0)}[cha]
+            rows.append(dict(network="DG", station=sta, location="1L", channel=cha, start=t0, end=t1,
+                             latitude=la, longitude=lo, elevation=0.0, depth=0.0, azimuth=az, dip=dip,
+                             sample_rate=sr, datalogger="Certimus", datalogger_serial="", vpp=np.nan,
+                             datalogger_gain=np.nan, sensor="Certimus", sensor_serial="",
+                             sensor_V_per_unit=np.nan, sensitivity_correction=1.0, units="m/s",
+                             polarity="normal", status="ok", include=True,
+                             response_source=f"certimus:{certimus_xml}", change="added (2026)",
+                             evidence="Certimus-written Sensor1.xml (20260310_service Guralp_day1); SDS day range",
+                             notes=note, source_row="2026"))
     # DG.B23: MSFC Silicon Audio accelerometer on a Kelunji-format recorder (DG SDS, location 01)
     for cha, az, dip in (("CLE", 90.0, 0.0), ("CLN", 0.0, 0.0), ("CLZ", 0.0, -90.0)):
         rows.append(dict(network="DG", station="B23", location="01", channel=cha,

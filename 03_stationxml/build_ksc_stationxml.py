@@ -108,6 +108,15 @@ class Templates:
             raise SheetError(f"no Centaur template for {kind} at {sr} sps")
         return self.old_response(*key[(kind, sr)])
 
+    def certimus(self, path, sr, cha):
+        """Guralp Certimus response for channel code cha at sample rate sr from a Certimus StationXML."""
+        if path not in self._centaur:
+            self._centaur[path] = read_inventory(path)
+        c = [c for n in self._centaur[path] for st in n for c in st if c.code == cha and c.sample_rate == sr]
+        if not c:
+            raise SheetError(f"no {cha} at {sr} sps in {path}")
+        return copy.deepcopy(c[0].response), c[0].location_code
+
     def centaur_file(self, path, cha):
         if path not in self._centaur:
             self._centaur[path] = read_inventory(path)
@@ -178,6 +187,9 @@ def build_response(r, tpl):
                                             decimation_factor=1, decimation_offset=0, decimation_delay=0.0,
                                             decimation_correction=0.0, description="harvested output in mV (1 count = 1 mV)")
         return finish(Response(response_stages=[st1, st2]), "M/S", f)
+    if r.datalogger == "Certimus":
+        resp, _ = tpl.certimus(src.split(":", 1)[1], float(r.sample_rate), r.channel)
+        return resp
     if r.datalogger == "SiliconAudio":
         # flat accelerometer (V per m/s^2) into a Kelunji-format recorder (419430.4 counts/V x gain)
         st1 = PolesZerosResponseStage(1, float(r.sensor_V_per_unit), 1.0, "M/S**2", "V",
@@ -197,11 +209,13 @@ def build_response(r, tpl):
 # ---------------------------------------------------------------------------------------------
 DATALOGGER = {"Centaur": ("Nanometrics", "Centaur"), "RT130": ("Reftek", "RT130"), "Gem": ("Anderson", "Gem v1"),
               "SmartSolo": ("DTCC", "SmartSolo IGU-16HR"),
-              "SiliconAudio": ("", "Kelunji-format recorder (MSFC)")}
+              "SiliconAudio": ("", "Kelunji-format recorder (MSFC)"),
+              "Certimus": ("Guralp", "Certimus")}
 SENSOR = {"infraBSU": ("Boise State University", 'infraBSU 0.5"'), "Chaparral": ("Chaparral Physics", "Model 25"),
           "TCP": ("Nanometrics", "Trillium Compact Posthole 120 s"), "L-22": ("Sercel/Mark Products", "L-22D 2 Hz"),
           "Gem": ("Anderson", "Gem v1 MEMS pressure sensor"), "SmartSolo": ("DTCC", "5 Hz geophone"),
-          "SiliconAudio": ("Silicon Audio", "accelerometer, 15 V/g")}
+          "SiliconAudio": ("Silicon Audio", "accelerometer, 15 V/g"),
+          "Certimus": ("Guralp", "Certimus broadband seismometer")}
 
 
 def describe(r):
@@ -216,6 +230,8 @@ def describe(r):
         dl = "Gem infrasound logger, high gain, 16-bit"
     elif r.datalogger == "SmartSolo":
         dl = "SmartSolo node, harvested in mV"
+    elif r.datalogger == "Certimus":
+        dl = f"Guralp Certimus integrated digitizer, {r.sample_rate:g} sps (response from {r.response_source.rsplit('/', 1)[-1]})"
     elif r.datalogger == "SiliconAudio":
         dl = f"Kelunji-format recorder, gain x{r.datalogger_gain:g} (419430.4 counts/V at x1)"
     else:

@@ -22,7 +22,7 @@ serials where known, and comments for status, change, evidence and notes.
 |---|---|
 | `validate_stationxml.py` (flovopy) | only issue: B20 is open-ended from 2026-09-23 (intentional, see below) |
 | blank `vpp` on DVEL3 DD1 (negative test) | builder refuses: "Centaur rows without vpp 1 or 40" |
-| SDS coverage (`30_check_coverage.py`, now also scanning the DG network and `SDS_KSC/unmatched/`) | main SDS trees: 92 of 30,984 channel-days have no response (old KSC.xml: 12,934). `unmatched/`: 2,407 more channel-days (2,434 files, 76 GB) that the remastering never matched to metadata. Both are triaged in *Data still without an epoch* below |
+| SDS coverage (`30_check_coverage.py`, now also scanning the DG network and `SDS_KSC/unmatched/`) | main SDS trees: 49 of 30,984 channel-days have no response (old KSC.xml: 12,934). `unmatched/`: 2,407 more channel-days (2,434 files, 76 GB) that the remastering never matched to metadata. Both are triaged in *Data still without an epoch* below |
 | 2026 against ksclib (`40_compare_2026.py`, Artemis II) | Centaur 1.000 on every channel, SmartSolo 0.997–1.000, Gem 0.94–1.02 (different deconvolution path; Gem peaks are overflow lower bounds) |
 | BCHH1 DD2 (40 Vpp) against BCHH2 (1 Vpp) | median p·r ratio 0.86 over 24 launches |
 | notebook 20 re-run | see the final cell of `07_ensemble_paper/20_ensemble_subset_amplitudes.ipynb` |
@@ -79,7 +79,10 @@ serials where known, and comments for status, change, evidence and notes.
   * at ×1, Artemis I reads 2.3× S39A1 (MTEGL is nearer 39B) and the 2022-11-12 SLC-40 launch reads 0.8× S39A1. At ×8 it would read 3.5× and 10× low.
   * **Archive problem:** each MTEGL SDS file named day N holds day N+1, because its records start about 0.25 s before midnight. ObsPy's SDS client returns nothing for Artemis I unless the files are re-filed.
 * **DG.B23.01.CL? (2026-03-10..04-05)**: added. The recorder `settings.ss` gives network DG, location 01, 500 sps, gain ×8 and 419,430.4 counts/V. Its sensor preset says "LE-3Dlite MKII" (a 400 V/(m/s) velocity sensor), but the output is proportional to **acceleration**. Against the co-located SmartSolo on Artemis II (`70_silicon_audio_calibration.py`), counts/(m/s²) is flat from 1 to 20 Hz with coherence above 0.95: 1.51 V/(m/s²) on Z and 1.57 on N, i.e. **15 V/g**. CLE is poorly coherent, so its orientation is unknown.
-* **DG.B07 (1L.CHZ) and DG.B12 (1L.CH?)** (2026): not included. No metadata found.
+* **DG.B12 (1L.CH?, 2026-01-10..04-01) and DG.B07 (1L.CHZ, 2026-03-30..04-04)**: Guralp Certimus. The response comes from the Certimus-written `Sensor1.xml`, downloaded at B12 on the 2026-03-10 service (`classdata/KSC/20260310_service/Guralp_day1`). The user says B07 has the same configuration, unchanged since January 2026.
+  * B12's SDS data are 250 sps under location `1L`, but `Sensor1.xml` defines `1L` as 500 sps. The 250 sps stream (`1N`) has the same 3.35×10⁹ counts/(m/s), so its response is used.
+  * B07 is 500 sps and uses B12's `1L` response. Each unit's factory per-axis calibration differs by less than 1%.
+  * Check against the co-located SmartSolos on Artemis II (`80_smartsolo_units.py`, `certimus_vs_smartsolo.csv`): SmartSolo/Certimus is 1.14 (Z), 1.02 (N) and 1.19 (E) at B12, and 1.11 (Z) at B07, over 5–20 Hz.
 * **Remaining uncovered SDS days**: see *Data still without an epoch* below.
 
 ### 2026 network (new)
@@ -105,7 +108,6 @@ From `coverage_KSC.csv` (column `in_unmatched_folder`) and `unmatched_sds.csv` (
 **Main SDS trees (92 channel-days)**
 * Excluded because their response cannot be known: DVEL1 DD4–6/HD4–6 (2018-02-06/07), DVEL3 DD1–3 (2020-11-05..12-11), RB166/RB268/RB383 infrasound (2021-10-16).
 * Test or install days before the first epoch: BCHH3 2022-03-24, S39A3 2022-03-25, TANK 2016-02-24.
-* DG.B07 and DG.B12 (2026).
 
 **`unmatched/` (2,407 channel-days), by what they are**
 | group | what it is | days |
@@ -122,6 +124,17 @@ From `coverage_KSC.csv` (column `in_unmatched_folder`) and `unmatched_sds.csv` (
 | BCHH 2016-02-20..23, CARL1 2016-02-20..25, JPK1/JPK2 2016-02-05, SCMN 2016-05-23..31 | 2016 tests. JPK1/2 are in `ksc_stations_master.csv` (28.4077, −80.5932, Centaur 40 Vpp); CARL1 and SCMN have no coordinates anywhere | 99 |
 | AM.R095E, R17FC, R976A, RC57A, RCC6E (2022), R37BE 2017-01-25 | other Raspberry Shakes (R976A already in m/s) | 1,149 |
 | SF.LLS02 2018-02-06 | unknown, 1-count values | 3 |
+
+## SmartSolo units (checked 2026-11-25)
+
+The user recalled choosing *microvolt* output in SoloLite. However, the user's own email to George Egert (2026-06-03) says "millivolt", and the data agree with millivolts. Read with 1 count = 1 mV, the B01 SmartSolo vertical gives 1.03× the co-located Trillium on Artemis II (coherence 0.99, 5–20 Hz; `smartsolo_units.csv`). Microvolts would make it read 1000× high. KSC.xml keeps mV. (The B03 SmartSolo reads 76× its Trillium because the B03 Centaur is about 100× low.)
+
+## From the EarthScope (EPIC) emails, 2025-09 to 2026-06
+
+* The DMC archive of 1R 2016–2023 (PIC 201850, archived 2025-12; FDSN `1R_2016`) was built from the **old** KSC.xml that the user sent on 2025-11-12. Its responses therefore have RT130 gain 1, the L-22 at 62.95, no Chaparral, and 40 Vpp where this audit found 1 Vpp. They should be replaced with this KSC.xml. The user had so far uploaded only the PASSCAL (RT130) stations' waveforms.
+* Stephen listed spans the old metadata did not describe: BHP3 2019-035, BHP5.10 2019-183, and BHP8 2019-039..043 and 2019-100..176. The new KSC.xml covers all of them except BHP8 2019-100..176, which is DAS 9BC5 after it moved to BHP7. **The DMC holds those days as BHP8**; they should be withdrawn or relabelled to BHP7.10.
+* Stephen also asked whether these share a location: JPK1/JPK2; R1E5E, R37BE, RB268, RB383, RBLAB, RC304, RCD29; BHP7/BHP8; BHP5/BHP6; BCHH1, BCHH3, BCHH4, SON1; BHP3/BHP4; BCHH2/SON2; S39A1/S39A3. This audit did not check coordinates; they are taken from the master sheet.
+* SmartSolo: George Egert says the mV output is technically "counts", and Stephen recommends the NRL response, which turns them into m/s. The archive will need the raw node data and a `ph5` mobilization (PIC 202666).
 
 ## Open questions for the user
 

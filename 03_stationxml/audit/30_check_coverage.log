@@ -1,4 +1,4 @@
-03_stationxml/KSC.xml: 36476 SDS channel-days, 2499 without a response (106 of 371 channels)
+03_stationxml/KSC.xml: 36476 SDS channel-days, 2456 without a response (102 of 371 channels)
         seed_id  sds_days  covered  uncovered      first       last  in_unmatched_folder
  1R.BCHH.00.DD1        31       28          3 2016-02-20 2016-04-08                 True
  1R.BCHH.00.DD2        31       28          3 2016-02-20 2016-04-08                 True
@@ -87,10 +87,6 @@ AM.R976A.00.EHZ        60        0         60 2022-09-23 2022-11-26             
 AM.RC57A.00.EHZ       141        0        141 2022-06-30 2022-11-26                 True
 AM.RCC6E.00.EHZ       136        0        136 2022-06-30 2022-11-25                 True
 AM.RCC6E.00.HDF       136        0        136 2022-06-30 2022-11-25                 True
-  DG.B07.1L.CHZ         5        0          5 2026-03-30 2026-04-04                False
-  DG.B12.1L.CHE        13        0         13 2026-01-10 2026-04-01                False
-  DG.B12.1L.CHN        13        0         13 2026-01-10 2026-04-01                False
-  DG.B12.1L.CHZ        12        0         12 2026-01-10 2026-04-01                False
   SF.LLS02..HHE         1        0          1 2018-02-06 2018-02-06                 True
   SF.LLS02..HHN         1        0          1 2018-02-06 2018-02-06                 True
   SF.LLS02..HHZ         1        0          1 2018-02-06 2018-02-06                 True
@@ -106,5 +102,5 @@ AM.RCC6E.00.HDF       136        0        136 2022-06-30 2022-11-25             
    XX.9BC5..H01         1        0          1 2019-04-10 2019-04-10                 True
    XX.9BC5..H02         1        0          1 2019-04-10 2019-04-10                 True
    XX.9BC5..H03         1        0          1 2019-04-10 2019-04-10                 True
-excluding unmatched/: 92 of 30984 channel-days uncovered
+excluding unmatched/: 49 of 30984 channel-days uncovered
 
