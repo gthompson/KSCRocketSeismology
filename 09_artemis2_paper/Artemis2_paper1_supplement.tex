@@ -1,5 +1,5 @@
 %% Supplementary material for the Artemis II seismo-acoustic paper.
-%% Compile:  latexmk -pdf Artemis2supplement.tex
+%% Compile:  bash compile2.sh Artemis2_paper1_supplement.tex
 \documentclass[11pt]{article}
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{graphicx}
@@ -22,46 +22,7 @@
 Table S1 (stations), Text S1 with Table S2, and Figures S1--S5 support the main text. They were produced by the notebooks in
 \texttt{09\_artemis2\_paper} (numbers in brackets).
 
-\begin{table}[h]
-  \centering
-  \caption{Station locations and instrumentation, sorted by distance
-    from SLC-39B. Gem 363, recorded under the provisional code
-    \texttt{1R.UNK..HD1}, was 8~m from B20 according to its GPS log.}
-  \label{tab:stations}
-  \small
-  \begin{tabular}{lrrrrl}
-    \toprule
-    Station & Lat ($^{\circ}$) & Lon ($^{\circ}$) & Distance (km) &
-      Azimuth ($^{\circ}$) & Instrumentation \\
-    \midrule
-    B14  & 28.6322 & $-$80.6158 & 0.74 & 41.4  &
-      Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B01  & 28.6214 & $-$80.6067 & 1.53 & 115.0 &
-      Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B03  & 28.6428 & $-$80.6236 & 1.75 & 351.0 &
-      Trillium/Centaur, infraBSU, Gem, SmartSolo \\
-    B12  & 28.6217 & $-$80.6472 & 2.65 & 256.6 &
-      G\"{u}ralp Certimus, Gem, SmartSolo \\
-    B05  & 28.6400 & $-$80.6450 & 2.76 & 300.9 &
-      Trillium/Centaur, infraBSU \\
-    B07  & 28.6072 & $-$80.5942 & 3.42 & 130.4 &
-      G\"{u}ralp Certimus, Gem (2), SmartSolo \\
-    B24  & 28.5806 & $-$80.6408 & 5.53 & 200.7 &
-      Trillium/Centaur, infraBSU, Gem (2), SmartSolo \\
-    B23  & 28.5786 & $-$80.6078 & 5.54 & 166.7 &
-      Silicon Audio accel., Gem, SmartSolo \\
-    B24RE& 28.5812 & $-$80.6433 & 5.56 & 203.3 & Gem \\
-    B29  & 28.6181 & $-$80.6769 & 5.58 & 259.5 &
-      Trillium/Centaur, infraBSU, Gem (2), SmartSolo$^{a}$ \\
-    B24LT& 28.5805 & $-$80.6429 & 5.61 & 202.6 & Gem \\
-    B20W & 28.5737 & $-$80.5725 & 7.58 & 141.4 & Gem, SmartSolo \\
-    B20  & 28.5736 & $-$80.5722 & 7.61 & 141.3 &
-      Trillium/Centaur, infraBSU, Chaparral M25, Gem (3), SmartSolo \\
-    B20S & 28.5733 & $-$80.5722 & 7.63 & 141.5 & Gem, SmartSolo \\
-    \bottomrule
-    \multicolumn{6}{l}{$^{a}$ No data during the launch.}
-  \end{tabular}
-\end{table}
+\input{tables/stations}  % written by notebook 65
 
 \section*{Text S1. Acoustic response of the 27-gallon tote enclosure}
 \label{text:tote}
@@ -105,26 +66,15 @@ Table~S2 gives the resulting ranges, from simply supported edges with $h = 2.0$~
 with $h = 2.6$~mm. Ribs, the taper, the lid rim and the logger resting on the base will shift these
 values.
 
-\begin{table}[h]
-  \centering
-  \caption{Estimated in-vacuo bending-mode frequencies (Hz) of the tote panels.}
-  \small
-  \begin{tabular}{lrrr}
-    \toprule
-    Panel & (1,1) & (2,1) & (1,2) \\
-    \midrule
-    Base or lid ($0.66 \times 0.43$~m) & 8--19 & 15--36 & 24--58 \\
-    Long wall ($0.66 \times 0.375$~m) & 10--23 & 17--40 & 31--75 \\
-    Short wall ($0.43 \times 0.375$~m) & 13--31 & 29--70 & 34--83 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+\input{tables/tote_modes}  % written by notebook 65
 
 \paragraph{Transmission at low frequency.} Even with a perfectly sealed lid, external pressure
 deflects the walls and changes the interior volume. For a wall of volume compliance $C_w$, the
 interior pressure is $p_\text{in}/p_\text{out} = C_w/(C_w + C_a)$. The lid alone, treated as a simply
-supported plate, has $C_w \approx 1.7\times10^{-5}$~m$^3$~Pa$^{-1}$, $\sim$20 times $C_a$, so below the
-panel resonances the interior pressure follows the exterior to within $\sim$4\% even without leakage,
+supported plate (double sine series), has $C_w \approx 3.5\times10^{-5}$~m$^3$~Pa$^{-1}$ for the
+2.1~mm wall implied by the tote's mass ($1.9$--$4.1\times10^{-5}$~m$^3$~Pa$^{-1}$ for $h = 2.6$--2.0~mm),
+25--55 times $C_a$, so below the panel resonances the interior pressure follows the exterior to within
+2--4\% even without leakage,
 and more closely with all walls and the leak acting together. The enclosed air also stiffens the
 volume-displacing panel modes, raising them above the in-vacuo values in Table~S2.
 

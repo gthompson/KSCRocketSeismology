@@ -1,0 +1,73 @@
+# New Glenn explosion at LC-36 (2026-05-29, UTC day 149): event configuration for ksclib
+# (loaded by newglenn_config.py). Edit this file, not the notebooks, when a drive or folder moves.
+name: New Glenn explosion
+kind: static                        # source fixed at the pad
+
+# From the airwave (24_origin_time.ipynb): 5% onsets at the six working infraBSUs and the airwave speed
+# predicted from the XMR/TTS weather with the mean wind (347.0 m/s); station spread 0.27 s. Other onset
+# definitions and weather choices give 01:00:02.2-03.2; a free-speed fit gives 01:00:01.2 (339 m/s).
+# (read_newglenn_improved_v3.ipynb used a provisional 01:00:30.)
+origin_time: 2026-05-29T01:00:02.37
+
+site:
+  name: LC36                        # launchpads_2026 sheet: 28.470556, -80.542200
+
+window:                             # seconds
+  pretrigger: 600
+  duration: 300
+  posttrigger: 600
+  trim_before: 30                   # plotting / amplitude window
+  trim_after: 150                   # stations are 12-20 km away: airwave arrives after ~35-60 s
+
+ingest:                             # flovopy.ingest project (master SDS) and the service run
+  project_yaml: "{repo_root}/2026_ingest_service_runs/config/ksc.yaml"
+  run_id: 20260613_service          # first service after the explosion
+
+stations:
+  file: ~/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/KSC_seismic_network_2016_2022.xls
+  sheet: artemis2                   # the 2026 network; there is no separate New Glenn sheet
+  site_sheet: launchpads_2026
+
+output:
+  dir: ~/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/NewGlenn
+  env: NEWGLENN_OUT_DIR             # set to send products elsewhere (e.g. a test run)
+
+# Only the Centaur stations (B01 B03 B05 B14 B20 B24 B29) recorded on day 149; the Gems and
+# SmartSolos were recovered after Artemis II. The other groups are kept so the same code runs.
+channel_groups:                     # name: [network, station, location, channel]
+  USF: ["1R", "*", "*", "D[DH]?"]
+  BSU: ["1R", "*", "*", "HD?"]
+  SmartSolo: ["1R", "*", "*", "DP?"]
+  MSFC: ["DG", "*", "*", "C*"]
+
+responses:
+  centaur_dirs:                     # searched for the latest 1R.<STA>_<time>Z.xml before the origin
+    - "{run_dir}/00_download/Centaur/responses"
+    - "{project_root}/20260922_service/00_download/Centaur/responses"   # B14's first file (2026-06-14)
+    - /Volumes/haldata/KSC/20260605_service/responses                    # B29
+    - /Volumes/haldata/KSC/20260403_service/00_download/Nanometrics/responses   # B03
+  infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
+  infrabsu_channels: [DD0, DD1, DD2]
+  # B20 DDF is a Chaparral M25 on Centaur Sensor B (1 Vpp until the 2026-09-23 field visit).
+  # 32_chaparral_sensitivity.ipynb: 0.39-0.44 V/Pa relative to the infraBSU in normal operation
+  # (Jan-4 Apr and 14 Jun-Sep 2026), matching the NRL "Low: 0.4 V/Pa". Between the field visits of
+  # 4 Apr and 14 Jun it was faulty (0.005-0.19 V/Pa, unstable; ~0.02-0.04 at the explosion), so DDF
+  # is not used for the explosion (it also clipped).
+  chaparral: {channels: [DDF], V_per_Pa: 0.4}
+  smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
+
+# infraBSU channels whose airwave starts with a rarefaction while co-located or neighbouring
+# sensors start with the compression (B14 DD1/DD2 correlate at -0.99 with B14 DD0). The likely
+# cause is the capillary tube mounted on the inner rather than the outer nipple.
+# newglenn_config.instrument_correct flips them (evidence in 22_data_overview.ipynb).
+polarity_reversed: [1R.B14.00.DD1, 1R.B14.00.DD2, 1R.B05.00.DD0]
+
+source: {}                          # static source: no trajectory
+
+weather:                            # surface observations around the origin (Iowa Environmental Mesonet ASOS)
+  file: "{base_dir}/data/iem_asos_XMR_TTS_COF_20260528T22_20260529T04.csv"
+  stations: [XMR, TTS]              # XMR: Cape Canaveral Skid Strip, 2 km from LC36; TTS: Shuttle Landing Facility, in the network
+  window_s: 1800                    # +/- around the origin
+
+paths:
+  old_notebook_data: ~/mybox/KSC_USF_UCF/Day 149 Data   # day files used by read_newglenn_improved_v3

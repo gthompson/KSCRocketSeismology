@@ -1,0 +1,101 @@
+%% Supplementary material for the New Glenn explosion paper (FIRST DRAFT).
+%% Compile:  latexmk -pdf NewGlenn_explosion_supplement.tex
+\documentclass[11pt]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage[font=small]{caption}
+\graphicspath{{figures/}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\setlength{\parindent}{0pt}
+% Shrink a table to the text width only when it is wider (tables/*.tex use this).
+\newsavebox{\fitbox}
+\newcommand{\fitwidth}[1]{\sbox{\fitbox}{#1}\ifdim\wd\fitbox>\textwidth\resizebox{\textwidth}{!}{\usebox{\fitbox}}\else\usebox{\fitbox}\fi}
+
+\title{Supplementary material for\\ ``Seismo-acoustic recordings of the May~2026 New~Glenn static-fire explosion at Cape~Canaveral''}
+\author{Glenn Thompson, Paul Bremner, Han Byul Woo, Sue Bilek}
+\date{}
+
+\begin{document}
+\maketitle
+
+Tables S1--S14 and Figures S1--S7 support the main text. They were produced by the notebooks in
+\texttt{10\_NewGlenn\_paper} (numbers in brackets); the tables are written by notebook 40 from the other
+notebooks' output files.
+
+\section*{Tables}
+
+\input{tables/S1_stations}
+\input{tables/S2_channel_status}
+\input{tables/S3_weather}
+\input{tables/S3b_speeds}
+\input{tables/S4_onsets}
+\input{tables/S4b_origin_fits}
+\input{tables/S5_blast}
+\input{tables/S5b_decay}
+\input{tables/S6_coupling}
+\input{tables/S6b_artemis}
+\input{tables/S7_seismic}
+\input{tables/S8_chaparral}
+\input{tables/S9_models}
+\input{tables/S10_dispersion}
+
+\clearpage
+\section*{Figures}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{b14_sensor_ratios}
+  \caption{The three infraBSUs at B14, which shared one tote: PSD ratio and coherence of each pair in the first
+    10~s of the airwave (solid) and in the 240~s before the origin (dotted) [30].}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.85\textwidth]{b20_chaparral_clipping}
+  \caption{Clipping of the B20 Chaparral M25 (DDF): (a,b)~DDF against the co-located infraBSU (DD1) scaled by
+    their gain in the late coda (1--10~Hz, causal filter); shaded, where DDF departs from the scaled DD1
+    (orange) and where its raw counts are at the 24-bit rail (blue); (c)~raw DDF counts [22].}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{snr_spectra}
+  \caption{Ratio of the power spectral density in the airwave window (1~s before to 29~s after arrival) to that
+    in the 240~s before the origin, for pressure and vertical velocity [30].}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{blast_waveforms}
+  \caption{Blast waveforms ($>$0.05~Hz) at each working infraBSU, with the positive phase shaded [34].}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{reduced_pressure_spectra}
+  \caption{(a)~Pressure amplitude spectra in the airwave window, reduced to 1~km by spherical spreading and
+    ISO~9613-1 absorption. (b)~Ratios between stations (solid: relative to B29; dotted: relative to B20, to 45~Hz)
+    [30].}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.75\textwidth]{coupling_transfer_functions}
+  \caption{Pressure-to-vertical-velocity transfer functions $|H_v|$, spectral compliance $|C(f)|$ and coherence
+    in the airwave window, where coherence $\geq$ 0.5. Dashed: $1/f$ (uniform half-space); dotted: frequency of
+    the ground ringing after the shock [28].}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{velocity_model}
+  \caption{Velocity model from the verticals only: multiple-filter analysis at each station with the model's
+    first three Rayleigh modes, fit to the group velocities and P first arrivals, and shear-wave profiles without
+    (orange) and with (blue) the ground resonance as a constraint [36].}
+\end{figure}
+
+\end{document}

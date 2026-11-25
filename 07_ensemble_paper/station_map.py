@@ -401,7 +401,9 @@ def plot_station_map_tiles(
     # --------------------
     gdf_launch3857 = None
     if launchpad_sheet is not None:
-        df_launch = _load_table(excelfile, sheet_name=launchpad_sheet)
+        # a sheet name, or a ready-made table (e.g. a subset of the pads)
+        df_launch = (launchpad_sheet.copy() if isinstance(launchpad_sheet, pd.DataFrame)
+                     else _load_table(excelfile, sheet_name=launchpad_sheet))
 
         df_launch = df_launch.rename(columns={
             launchpad_lon_col: "lon",

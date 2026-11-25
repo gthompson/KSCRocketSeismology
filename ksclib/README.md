@@ -26,10 +26,19 @@ geo = ksclib.source_geometry(ev, "B29")        # source-time mapping along the t
 | `correct` | `instrument_correct` for Trillium, infraBSU, Gem and SmartSolo |
 | `geometry` | station table relative to the site; moving- or static-source geometry |
 | `model` | gravity-turn trajectory and directional point-source model (was `rocket_infrasound_model`) |
+| `centaur` | Centaur-only correction with a response-file fallback (earliest file after the event) and the Chaparral M25 stage |
+| `physics` | sound speed (simple, Cramer 1993), standard atmosphere, weak-shock speed, wind along a ray (from AMOS-6) |
+| `weather` | KSC weather-tower loading, wind vectors, height profiles, along-ray acoustic summary (from AMOS-6) |
+| `pressure` | baseline-corrected pressure peaks and distance-reduced pressures (from AMOS-6) |
+| `kml` | named points from KML files (from AMOS-6) |
+| `clipping` | clipping found against a co-located unclipped reference sensor, and raw-count saturation |
+| `surfacewaves` | Rayleigh dispersion (disba if installed, else a thin-layer solver), head-wave times, layer resonance |
 
 Event kinds: `launch` (moving source along a trajectory and launch azimuth) and `static`
 (source fixed at the site, e.g. an explosion on the pad). See `09_artemis2_paper/artemis2.yaml`
-for a complete example.
+for a complete example, and `10_NewGlenn_paper/newglenn.yaml` for a static source.
+The AMOS-6 ports are imported as submodules (`from ksclib import physics`) and take a ksclib `Event`
+in place of AMOS-6's `project_config`.
 
 Each paper folder stays thin (event YAML, numbered notebooks, LaTeX). At publication, copy the
 paper folder and the `ksclib` version it used into a frozen release repository.
