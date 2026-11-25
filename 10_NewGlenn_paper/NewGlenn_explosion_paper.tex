@@ -58,7 +58,9 @@
   the Artemis~II launch were still recording \NGdistRange~km away; \NGnWorking{} had
   working sensors. Using the airwave arrival times and the speed of sound
   predicted from surface weather, we place the origin at
-  \NGorigin~UTC~$\pm$~1~s. Peak overpressures were \NGpBtwenty~Pa at \NGdistBtwenty~km and
+  \NGorigin~UTC~$\pm$~1~s; allowing for the supersonic blast front near the
+  pad moves it to \NGoriginCorr, \NGflashGap~s before the main flash seen on video.
+  Peak overpressures were \NGpBtwenty~Pa at \NGdistBtwenty~km and
   \NGpFar~Pa at \NGfarRange~km. Below 4~Hz the airwave decays close to
   spherical spreading, but above 4~Hz it barely decays over this range,
   so peak pressure falls only as $r^{-\NGnPeakRound}$; positive impulse (\NGipos~Pa~s)
@@ -145,7 +147,13 @@ LC-36 (28.4706$^{\circ}$~N, 80.5422$^{\circ}$~W) lies \NGdistRangeRound~km
 south-south-east of the stations (Figure~\ref{fig:map}). The explosion
 occurred at night, during a static-fire test of the vehicle's first
 stage; its cause has been attributed to a valve in one of the BE-4
-engines \citep{aiaa_be4_2026}. The
+engines \citep{aiaa_be4_2026}. From timestamped public video,
+\citet{silber_scamfer_newglenn_2026} found that a fireball first grows
+at the base of the vehicle at 00:59:59.9~UTC, and that a second, larger
+flash, probably the main release of energy, follows at
+01:00:03.6--04.4~UTC, with burning continuing afterwards. They place the
+pad at 28.4706$^{\circ}$~N, 80.5400$^{\circ}$~W, \NGpadSep~m from the position
+we use. The
 propellant load at the time was not public
 \citep{silber_scamfer_newglenn_2026}.
 
@@ -327,6 +335,23 @@ stations are slightly late relative to the surface weather, perhaps
 through a cooler layer near the ground or the wind profile above 10~m.
 We adopt \NGorigin~$\pm$~1~s.
 
+This origin assumes that the airwave travels at the speed of sound all
+the way from the pad. Near the pad, however, the blast front is a shock
+that moves faster than sound. Integrating the excess speed along each
+ray, with the Kinney--Graham overpressure for the yield of
+Section~\ref{sec:yield} and the normal-shock Mach number
+\citep{kinney1985}, the front reaches the stations \NGadvance~s earlier than a
+sound wave would (\NGadvanceRange~s over the range of yield estimates).
+Allowing for this moves the origin to \NGoriginCorr~UTC: \NGfireballGap~s after
+the first fireball seen on video and \NGflashGap~s before the main flash
+\citep{silber_scamfer_newglenn_2026}, which is within our uncertainty.
+The airwave we record therefore comes from the main flash. An origin at
+the first fireball, \NGflashFireballSep~s earlier, would need an airwave far
+faster than the \NGceff~m~s$^{-1}$ that the weather gives. The pad position
+adds a smaller uncertainty: with the coordinates of
+\citet{silber_scamfer_newglenn_2026} the origin would move \NGpadShift~s
+\NGpadShiftDir.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{origin_time}
@@ -383,6 +408,7 @@ predict; propagation modelling is needed.
 \end{figure*}
 
 \subsection{Yield}
+\label{sec:yield}
 
 The Kinney--Graham relations for TNT \citep{kinney1985}, treating the
 explosion as a surface burst (twice the free-air yield), give a TNT
@@ -562,6 +588,14 @@ $\sim$\NGbCal\% between co-located sensors), the sampling rate (up to \NGdecMax\
 peaks at 100~samples~s$^{-1}$) and polarity, all of which the network
 can now correct.
 
+\paragraph{Timing the source.} Near-field airwave onsets with a
+weather-based sound speed time the explosion to about a second. That is
+precise enough to compare with video, but only after allowing for the
+supersonic blast front, which at this yield advances the arrivals by more
+than half a second even at 12--21~km. With that correction the airwave
+comes from the main flash \citep{silber_scamfer_newglenn_2026}, not from
+the fireball that preceded it by several seconds.
+
 \paragraph{The seismic wavefield.} The explosion shows that the shallow
 structure around KSC can be studied with the network's own sources when
 they are impulsive and distant. A precise orientation of the
@@ -598,7 +632,8 @@ $V_P$ and density) are the main uncertainties.
   \item \NGnStationsCap{} broadband stations at \NGdistRange~km recorded the New~Glenn
     static-fire explosion; \NGnWorking{} had working sensors. The airwave and
     surface weather place the origin at \NGorigin~UTC~$\pm$~1~s on
-    29~May~2026.
+    29~May~2026, or \NGoriginCorr{} after allowing for the supersonic blast
+    front, matching the main flash seen on video.
   \item Peak overpressures were \NGpBtwenty~Pa at \NGdistBtwenty~km and \NGpFar~Pa at
     \NGfarRange~km. Below 4~Hz the airwave decays close to spherical
     spreading; above 4~Hz it barely decays. The peak-overpressure yield,

@@ -419,3 +419,40 @@ def atmospheric_absorption_db_per_m(f_hz, temperature_c, relative_humidity_perce
     return 8.686 * f ** 2 * (1.84e-11 * (pr / pa) * (T / T0) ** 0.5
                              + (T / T0) ** -2.5 * (0.01275 * np.exp(-2239.1 / T) / (frO + f ** 2 / frO)
                                                    + 0.1068 * np.exp(-3352.0 / T) / (frN + f ** 2 / frN)))
+
+
+def kinney_graham_overpressure_ratio(scaled_distance):
+    """Peak overpressure ratio P+/P0 for a free-air TNT burst (Kinney & Graham, 1985).
+
+    ``scaled_distance`` is Z = r / W**(1/3) in m kg**(-1/3), with W the free-air TNT mass in kg
+    (a surface burst behaves roughly like twice its TNT mass in free air).
+    """
+    z = np.asarray(scaled_distance, dtype=float)
+    return 808.0 * (1.0 + (z / 4.5) ** 2) / np.sqrt(
+        (1.0 + (z / 0.048) ** 2) * (1.0 + (z / 0.32) ** 2) * (1.0 + (z / 1.35) ** 2)
+    )
+
+
+def blast_front_time_advance(distance_m, tnt_free_air_kg, speed_of_sound=343.0,
+                             ambient_pressure_pa=101325.0, gamma=1.4, r_min_m=1.0, n=20000):
+    """Time (s) by which a blast front arrives ahead of a sound wave over ``distance_m``.
+
+    Near the source the front is a shock that travels at Mach M(r) > 1. With the Kinney-Graham
+    overpressure for a free-air TNT mass and the normal-shock Mach number (``shock_mach_number``),
+    the advance is the integral of (1 - 1/M) / c from ``r_min_m`` to the receiver. An origin time
+    found by back-projecting the arrival at the speed of sound is early by this amount.
+    """
+    d = np.atleast_1d(np.asarray(distance_m, dtype=float))
+    if np.any(d <= r_min_m):
+        raise ValueError("distance_m must exceed r_min_m")
+    if tnt_free_air_kg <= 0.0:
+        raise ValueError("tnt_free_air_kg must be positive")
+    s = tnt_free_air_kg ** (1.0 / 3.0)
+    out = []
+    for di in d:
+        r = np.logspace(np.log10(r_min_m), np.log10(di), n)
+        p = kinney_graham_overpressure_ratio(r / s) * ambient_pressure_pa
+        m = shock_mach_number(p, ambient_pressure_pa, gamma)
+        out.append(float(np.trapezoid((1.0 - 1.0 / m) / speed_of_sound, r)))
+    out = np.array(out)
+    return out[0] if np.ndim(distance_m) == 0 else out

@@ -49,3 +49,14 @@ def test_response_fallback(ev):
     ddf = inv.select(channel="DDF")[0][0][0].response
     assert ddf.instrument_sensitivity.input_units == "Pa"
     assert ddf.instrument_sensitivity.value == pytest.approx(0.4 * 16e6, rel=1e-3)
+
+
+def test_blast_front_advance():
+    from ksclib.physics import blast_front_time_advance, kinney_graham_overpressure_ratio
+    # Kinney-Graham: about 1 bar at Z ~ 2.8 m/kg^(1/3), 0.1 bar at Z ~ 10
+    assert 0.9 < kinney_graham_overpressure_ratio(2.8) < 1.1
+    assert 0.09 < kinney_graham_overpressure_ratio(10.0) < 0.11
+    a = blast_front_time_advance([12000.0, 21000.0], 2 * 131e3, 347.0)
+    assert np.all((a > 0.4) & (a < 0.8))
+    assert a[1] > a[0]                       # still accumulating, slowly
+    assert blast_front_time_advance(12000.0, 2 * 1e3, 347.0) < a[0]   # smaller charge, less advance
