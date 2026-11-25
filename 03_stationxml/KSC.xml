@@ -3,7 +3,7 @@
   <Source>build_ksc_stationxml.py (ksc_stations_master_v3.xlsx)</Source>
   <Module>ObsPy 1.5.1</Module>
   <ModuleURI>https://www.obspy.org</ModuleURI>
-  <Created>2026-11-25T19:37:03.196447Z</Created>
+  <Created>2026-11-25T20:21:56.996475Z</Created>
   <Network code="1R">
     <Description>USF / KSC rocket seismo-acoustic network</Description>
     <Station code="B01" startDate="2026-01-08T00:00:00.000000Z" endDate="2026-08-20T00:00:00.000000Z">
@@ -115124,12 +115124,12 @@
       </Site>
       <CreationDate>2018-08-10T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-08-10T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: Battery stolen on 20200131 because BCHH was dead. 20 degrees east until 2019/02/03. Digitizer says 28.573467, 80.572338 on installation date</Value>
@@ -115143,7 +115143,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>225-L</SerialNumber>
@@ -115157,7 +115157,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -115197,7 +115197,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -115598,12 +115598,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-08-10T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: Battery stolen on 20200131 because BCHH was dead. 20 degrees east until 2019/02/03. Digitizer says 28.573467, 80.572338 on installation date</Value>
@@ -115617,7 +115617,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>225-L</SerialNumber>
@@ -115631,7 +115631,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -115671,7 +115671,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -116072,12 +116072,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-08-10T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: Battery stolen on 20200131 because BCHH was dead. 20 degrees east until 2019/02/03. Digitizer says 28.573467, 80.572338 on installation date</Value>
@@ -116091,7 +116091,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>225-L</SerialNumber>
@@ -116105,7 +116105,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -116145,7 +116145,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -116556,12 +116556,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: kept</Value>
@@ -116575,7 +116575,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>973-L</SerialNumber>
@@ -116589,7 +116589,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -116629,7 +116629,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -117030,12 +117030,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: kept</Value>
@@ -117049,7 +117049,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>973-L</SerialNumber>
@@ -117063,7 +117063,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -117103,7 +117103,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -117504,12 +117504,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: kept</Value>
@@ -117523,7 +117523,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>973-L</SerialNumber>
@@ -117537,7 +117537,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -117577,7 +117577,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -117988,12 +117988,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-05T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: removed at 12:32. orientation good</Value>
@@ -118007,7 +118007,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>247-L</SerialNumber>
@@ -118021,7 +118021,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -118061,7 +118061,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -118462,12 +118462,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-05T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: removed at 12:32. orientation good</Value>
@@ -118481,7 +118481,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>247-L</SerialNumber>
@@ -118495,7 +118495,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -118535,7 +118535,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -118936,12 +118936,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-05T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: removed at 12:32. orientation good</Value>
@@ -118955,7 +118955,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>247-L</SerialNumber>
@@ -118969,7 +118969,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -119009,7 +119009,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -119420,12 +119420,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: moved seismoter or swapped digitizer on 2019-02-04? . orientation good</Value>
@@ -119439,7 +119439,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>494-L</SerialNumber>
@@ -119453,7 +119453,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -119493,7 +119493,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -119894,12 +119894,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: moved seismoter or swapped digitizer on 2019-02-04? . orientation good</Value>
@@ -119913,7 +119913,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>494-L</SerialNumber>
@@ -119927,7 +119927,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -119967,7 +119967,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -120368,12 +120368,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: moved seismoter or swapped digitizer on 2019-02-04? . orientation good</Value>
@@ -120387,7 +120387,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>494-L</SerialNumber>
@@ -120401,7 +120401,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -120441,7 +120441,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -120842,12 +120842,12 @@
         </Response>
       </Channel>
       <Channel code="EH1" startDate="2019-02-04T00:00:00.000000Z" endDate="2021-02-28T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: orientation good</Value>
@@ -120861,7 +120861,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>494-L</SerialNumber>
@@ -120875,7 +120875,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -120915,7 +120915,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -121316,12 +121316,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2019-02-04T00:00:00.000000Z" endDate="2021-02-28T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: orientation good</Value>
@@ -121335,7 +121335,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>494-L</SerialNumber>
@@ -121349,7 +121349,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -121389,7 +121389,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -121790,12 +121790,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2019-02-04T00:00:00.000000Z" endDate="2021-02-28T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: orientation good</Value>
@@ -121809,7 +121809,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>494-L</SerialNumber>
@@ -121823,7 +121823,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -121863,7 +121863,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -122274,12 +122274,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: 60 degrees east until 2019/02/03</Value>
@@ -122293,7 +122293,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>966-L</SerialNumber>
@@ -122307,7 +122307,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -122347,7 +122347,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -122748,12 +122748,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: 60 degrees east until 2019/02/03</Value>
@@ -122767,7 +122767,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>966-L</SerialNumber>
@@ -122781,7 +122781,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -122821,7 +122821,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -123222,12 +123222,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: 60 degrees east until 2019/02/03</Value>
@@ -123241,7 +123241,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>966-L</SerialNumber>
@@ -123255,7 +123255,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -123295,7 +123295,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -123696,12 +123696,12 @@
         </Response>
       </Channel>
       <Channel code="EH1" startDate="2019-02-04T00:00:00.000000Z" endDate="2019-07-03T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: notes from mitch 2019-04-11 shows BHP6 is actual seismometer location, so using those coordinates here, but may not be correct</Value>
@@ -123715,7 +123715,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>966-L</SerialNumber>
@@ -123729,7 +123729,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -123769,7 +123769,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -124170,12 +124170,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2019-02-04T00:00:00.000000Z" endDate="2019-07-03T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: notes from mitch 2019-04-11 shows BHP6 is actual seismometer location, so using those coordinates here, but may not be correct</Value>
@@ -124189,7 +124189,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>966-L</SerialNumber>
@@ -124203,7 +124203,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -124243,7 +124243,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -124644,12 +124644,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2019-02-04T00:00:00.000000Z" endDate="2019-07-03T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: notes from mitch 2019-04-11 shows BHP6 is actual seismometer location, so using those coordinates here, but may not be correct</Value>
@@ -124663,7 +124663,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>966-L</SerialNumber>
@@ -124677,7 +124677,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -124717,7 +124717,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -125118,12 +125118,12 @@
         </Response>
       </Channel>
       <Channel code="EH1" startDate="2019-07-02T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="20">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.573265</Latitude>
         <Longitude unit="DEGREES">-80.572165</Longitude>
@@ -125134,7 +125134,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
         </Sensor>
@@ -125146,7 +125146,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -125186,7 +125186,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -125587,12 +125587,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2019-07-02T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="20">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.573265</Latitude>
         <Longitude unit="DEGREES">-80.572165</Longitude>
@@ -125603,7 +125603,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
         </Sensor>
@@ -125615,7 +125615,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -125655,7 +125655,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -126056,12 +126056,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2019-07-02T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="20">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.573265</Latitude>
         <Longitude unit="DEGREES">-80.572165</Longitude>
@@ -126072,7 +126072,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
         </Sensor>
@@ -126084,7 +126084,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -126124,7 +126124,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -126535,12 +126535,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-28T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: 26 degrees west</Value>
@@ -126554,7 +126554,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>977-L</SerialNumber>
@@ -126568,7 +126568,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -126608,7 +126608,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -127009,12 +127009,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-28T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: 26 degrees west</Value>
@@ -127028,7 +127028,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>977-L</SerialNumber>
@@ -127042,7 +127042,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -127082,7 +127082,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -127483,12 +127483,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-28T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: 26 degrees west</Value>
@@ -127502,7 +127502,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>977-L</SerialNumber>
@@ -127516,7 +127516,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -127556,7 +127556,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -127967,12 +127967,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-04-10T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: DAS swapped on 20190410 with 9BC5. removed 20190701 and parts used for BHP5</Value>
@@ -127986,7 +127986,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>732-L</SerialNumber>
@@ -128000,7 +128000,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -128040,7 +128040,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -128441,12 +128441,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-04-10T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: DAS swapped on 20190410 with 9BC5. removed 20190701 and parts used for BHP5</Value>
@@ -128460,7 +128460,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>732-L</SerialNumber>
@@ -128474,7 +128474,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -128514,7 +128514,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -128915,12 +128915,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-04-10T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: DAS swapped on 20190410 with 9BC5. removed 20190701 and parts used for BHP5</Value>
@@ -128934,7 +128934,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>732-L</SerialNumber>
@@ -128948,7 +128948,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -128988,7 +128988,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -129389,12 +129389,12 @@
         </Response>
       </Channel>
       <Channel code="EH1" startDate="2019-04-11T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: XML says remoevd 2019-06-25</Value>
@@ -129408,7 +129408,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>732-L</SerialNumber>
@@ -129422,7 +129422,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -129462,7 +129462,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -129863,12 +129863,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2019-04-11T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: XML says remoevd 2019-06-25</Value>
@@ -129882,7 +129882,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>732-L</SerialNumber>
@@ -129896,7 +129896,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -129936,7 +129936,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -130337,12 +130337,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2019-04-11T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: XML says remoevd 2019-06-25</Value>
@@ -130356,7 +130356,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>732-L</SerialNumber>
@@ -130370,7 +130370,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -130410,7 +130410,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -130821,12 +130821,12 @@
       </Site>
       <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-13T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end 2019-02-05 -&gt; 2019-02-13 (data to 2019-02-12; notes: 'removed on 2019-02-12?')</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: removed on 2019-02-12? 10 degrees west until 2/3/2019 and east side high; SDS also has BHP8 2019-04-10..06-25 = DAS 9BC5 after it moved to BHP7 (BHP7.10 covers the same days); not given an epoch</Value>
@@ -130840,7 +130840,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>222-L</SerialNumber>
@@ -130854,7 +130854,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -130894,7 +130894,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -131295,12 +131295,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-13T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end 2019-02-05 -&gt; 2019-02-13 (data to 2019-02-12; notes: 'removed on 2019-02-12?')</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: removed on 2019-02-12? 10 degrees west until 2/3/2019 and east side high; SDS also has BHP8 2019-04-10..06-25 = DAS 9BC5 after it moved to BHP7 (BHP7.10 covers the same days); not given an epoch</Value>
@@ -131314,7 +131314,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>222-L</SerialNumber>
@@ -131328,7 +131328,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -131368,7 +131368,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -131769,12 +131769,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2019-02-13T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); end 2019-02-05 -&gt; 2019-02-13 (data to 2019-02-12; notes: 'removed on 2019-02-12?')</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Comment>
           <Value>notes: removed on 2019-02-12? 10 degrees west until 2/3/2019 and east side high; SDS also has BHP8 2019-04-10..06-25 = DAS 9BC5 after it moved to BHP7 (BHP7.10 covers the same days); not given an epoch</Value>
@@ -131788,7 +131788,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>222-L</SerialNumber>
@@ -131802,7 +131802,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -131842,7 +131842,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -190346,12 +190346,12 @@
       </Site>
       <CreationDate>2019-02-13T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2019-02-13T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.550034</Latitude>
         <Longitude unit="DEGREES">-80.618477</Longitude>
@@ -190362,7 +190362,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>977-L</SerialNumber>
@@ -190376,7 +190376,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -190416,7 +190416,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -190817,12 +190817,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2019-02-13T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.550034</Latitude>
         <Longitude unit="DEGREES">-80.618477</Longitude>
@@ -190833,7 +190833,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>977-L</SerialNumber>
@@ -190847,7 +190847,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -190887,7 +190887,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -191288,12 +191288,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2019-02-13T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.550034</Latitude>
         <Longitude unit="DEGREES">-80.618477</Longitude>
@@ -191304,7 +191304,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>977-L</SerialNumber>
@@ -191318,7 +191318,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -191358,7 +191358,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -231130,12 +231130,12 @@
       </Site>
       <CreationDate>2019-02-13T00:00:00.000000Z</CreationDate>
       <Channel code="EH1" startDate="2019-02-13T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.516966</Latitude>
         <Longitude unit="DEGREES">-80.636707</Longitude>
@@ -231146,7 +231146,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>247-L</SerialNumber>
@@ -231160,7 +231160,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -231200,7 +231200,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -231601,12 +231601,12 @@
         </Response>
       </Channel>
       <Channel code="EH2" startDate="2019-02-13T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.516966</Latitude>
         <Longitude unit="DEGREES">-80.636707</Longitude>
@@ -231617,7 +231617,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>247-L</SerialNumber>
@@ -231631,7 +231631,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -231671,7 +231671,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>
@@ -232072,12 +232072,12 @@
         </Response>
       </Channel>
       <Channel code="EHZ" startDate="2019-02-13T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
-        <Description>L-22D 2 Hz, 62.95 V/(m/s) | RT130, preamp gain x32</Description>
+        <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
           <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
         </Comment>
         <Latitude unit="DEGREES">28.516966</Latitude>
         <Longitude unit="DEGREES">-80.636707</Longitude>
@@ -232088,7 +232088,7 @@
         <SampleRate>200.0</SampleRate>
         <Sensor>
           <Type>sensor</Type>
-          <Description>L-22D 2 Hz, 62.95 V/(m/s)</Description>
+          <Description>L-22D 2 Hz, 88 V/(m/s)</Description>
           <Manufacturer>Sercel/Mark Products</Manufacturer>
           <Model>L-22D 2 Hz</Model>
           <SerialNumber>247-L</SerialNumber>
@@ -232102,7 +232102,7 @@
         </DataLogger>
         <Response>
           <InstrumentSensitivity>
-            <Value>1267345823.2108126</Value>
+            <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
               <Name>M/S</Name>
@@ -232142,7 +232142,7 @@
               </Pole>
             </PolesZeros>
             <StageGain>
-              <Value>62.95</Value>
+              <Value>88.0</Value>
               <Frequency>10.0</Frequency>
             </StageGain>
           </Stage>

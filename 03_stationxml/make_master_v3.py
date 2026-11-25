@@ -44,7 +44,11 @@ OUT = HERE / "ksc_stations_master_v3.xlsx"
 # ---------------------------------------------------------------------------------------------
 INFRABSU_V_PER_PA = 4.6e-5          # infraBSU 0.5" (infraBSU_21s_0.5inch.xml)
 TRILLIUM_V_PER_MPS = 754.3          # Trillium Compact 120 s Posthole
-L22_V_PER_MPS = 62.95               # Sercel/Mark L-22D, 2200 Ohm coil, 10854 Ohm shunt (NRL)
+# Sercel/Mark L-22D 2 Hz, 2200 Ohm coil. NRL gives 62.95 V/(m/s) with a 10854 Ohm damping shunt; 88 is
+# the unshunted generator constant. At RT130 gain 32 the geophone/Trillium launch ratio is 1.47 (median,
+# IQR 1.29-1.93, 68 pairs; audit/T1_geophone_vs_trillium.csv) with 62.95, and 1.05 with 88. User chose
+# 88 on 2026-11-25. The PAZ (poles, damping) is still the NRL shunted one; only the gain changed.
+L22_V_PER_MPS = 88.0
 SMARTSOLO_V_PER_MPS = 76.7          # SmartSolo IGU-16HR 5 Hz geophone (data harvested in mV)
 # Silicon Audio accelerometer on a Kelunji-format recorder (MSFC unit; XA.MTEGL 2022, DG.B23 2026).
 # 15 V/g: measured 1.51 (Z) and 1.57 (N) V/(m/s^2) against the B23 SmartSolo on Artemis II
@@ -166,6 +170,8 @@ def rows_2016_2022():
 
     # --- RT130 + L-22 geophones -------------------------------------------------------------
     rt = df.datalogger == "RT130"
+    setv(rt, evidence="L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -> 1.05 "
+                      "(audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25")
     setv(rt, datalogger_gain=float(AUDIT["rt130_gain"]), response_source="template:KSC.xml(haldata) RT130 FIR",
          change=f"RT130 gain 1 -> {AUDIT['rt130_gain']} (sensitivity x{AUDIT['rt130_gain']})",
          evidence="duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; "

@@ -48,7 +48,7 @@ serials where known, and comments for status, change, evidence and notes.
 
 * `duringPASSCAL/CONFIG/network2018222…2019183.par` and `parfile.txt` give gain 32 on every EH? channel. Only the superseded draft `network20181016.par` says ×1.
 * Launch peaks at 5–20 Hz against the co-located Trillium BCHH1 DHZ (T1), 2018-08..2019-08: the median ratio is **47 at gain 1 and 1.47 at gain 32** (n = 68). By channel at gain 32 the ratios are 1.36–1.48 for BHP1/2/4/6/7/8, 1.9 for BHP3 and 1.5–1.9 for BHP5.20.
-* The leftover factor of ≈ 1.45 is the same on every geophone, so it is not a gain setting. It could be the L-22D generator constant: the NRL 62.95 V/(m/s) assumes the 10.8 kΩ shunt, while an unshunted 2200 Ω coil gives ≈ 88 V/(m/s), which would make the ratio ≈ 1.05. It could also be shallow installation against a posthole. **Not applied**; this is a question for the user.
+* The leftover factor of ≈ 1.45 is the same on every geophone, so it is not a gain setting. It could be the L-22D generator constant: the NRL 62.95 V/(m/s) assumes the 10.8 kΩ shunt, while an unshunted 2200 Ω coil gives ≈ 88 V/(m/s), which would make the ratio ≈ 1.05. It could also be shallow installation against a posthole. **Applied 2026-11-25 at the user's decision: 88 V/(m/s).** With RT130 gain 32, geophone sensitivities are now ×44.73 the old KSC.xml (32 × 88/62.95). The poles and damping are still the NRL shunted ones.
 
 ### 2016 beach house: low-gain infraBSU 295
 
@@ -125,7 +125,7 @@ From `coverage_KSC.csv` (column `in_unmatched_folder`) and `unmatched_sds.csv` (
 
 ## Open questions for the user
 
-1. **L-22 constant.** Is it 62.95 (NRL, shunted) or ≈ 88 V/(m/s) (no shunt)? At gain 32 the geophone/Trillium ratio has a median of 1.47 (IQR 1.29–1.93) over 68 launch pairs. With 88 it becomes 1.05, so the data favour 88. Not applied yet.
+1. **L-22 constant.** Resolved: 88 V/(m/s) applied (median ratio to the Trillium 1.47 → 1.05). Whether the PASSCAL L-22s had a damping shunt is still unconfirmed; if they did, the damping in the PAZ should change too.
 2. **BCHH1 in 2020.** Is the ≈ 70× drop of the Trillium (and the low DD2) a known hardware fault? The data are flagged, not corrected.
 3. **B20 and other 2026 stations after the 2026-09-22 service.** Only B20's 40 Vpp change is known. The other 2026 epochs end at the last downloaded day.
 4. **flovopy.** Fixed on flovopy branch `fix/chaparral-0p4-strict-vpp` (not merged or pushed): the Chaparral is 0.4 V/Pa, with the evidence in a comment, and a blank or unexpected Centaur vpp now raises an error. `librockets.py` still has 0.05.
