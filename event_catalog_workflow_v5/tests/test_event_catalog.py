@@ -227,6 +227,15 @@ def test_ll2_event_types_and_location_filter():
                           "location": "Kennedy Space Center", "duration": "PT10H"})
     assert rb["event_type"] == "rollback" and rb["route"] == "LC39B->VAB" and rb["pad"] == "LC39B"
     assert rb["event_end_utc"] == "2022-07-02T18:12:00Z"
+    fh = parse_ll2_event({"id": 6, "name": "Falcon Heavy - Static Fire", "type": {"id": 5}, "date": "2019-04-05T16:00:00Z",
+                          "location": "Kennedy Space Center"})
+    assert fh["pad"] == "LC39A"
+    wdr = parse_ll2_event({"id": 7, "name": "Artemis I SLS Wet Dress Rehearsal", "type": {"id": 22},
+                           "date": "2022-06-20T20:30:00Z", "location": "Kennedy Space Center, FL, USA"})
+    assert wdr["pad"] == "LC39B"
+    atlas = parse_ll2_event({"id": 8, "name": "Atlas V Rollout for Starliner", "type": {"id": 27}, "date": "2024-05-04T14:00:00Z",
+                             "location": "Space Launch Complex 41, Cape Canaveral Space Force Station"})
+    assert atlas["pad"] == "LC41"
     assert parse_ll2_event({"id": 2, "name": "Mengzhou abort", "type": {"id": 10}, "date": "2026-02-11T03:00:00Z",
                             "location": "LC-301, Wenchang Space Launch Site, China"}) is None
     assert parse_ll2_event({"id": 3, "name": "Starship static fire", "type": {"id": 5}, "date": "2024-01-01T00:00:00Z",

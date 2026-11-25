@@ -382,9 +382,13 @@ def parse_ll2_event(x: dict) -> dict | None:
     if etype == "reentry_sonic_boom":
         if not _FLORIDA_WATERS_RE.search(loc) or re.search(r"Pacific", loc, re.I): return None
     elif not _FLORIDA_RE.search(loc): return None
-    m = re.search(r"\b(?:S?LC)-?(\d{2}[AB]?)\b", loc)
+    m = re.search(r"\b(?:S?LC|Launch Complex)[ -]?(\d{2}[AB]?)\b", loc)
     name = str(x.get("name") or "")
     pad = ("LC" + m.group(1)) if m else ""
+    if not pad and re.search(r"Kennedy|\bKSC\b", loc):
+        # LL2 often gives only 'Kennedy Space Center'; KSC has two pads and each vehicle uses one.
+        if re.search(r"Artemis|\bSLS\b", name): pad = "LC39B"
+        elif re.search(r"Falcon|Dragon|Crew-\d", name): pad = "LC39A"
     route = ""
     if etype in {"rollout", "rollback"} and re.search(r"Artemis|SLS", name):
         pad = pad or "LC39B"; route = "VAB->LC39B" if etype == "rollout" else "LC39B->VAB"
