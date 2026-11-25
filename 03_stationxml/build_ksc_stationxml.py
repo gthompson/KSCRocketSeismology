@@ -68,7 +68,10 @@ def check(df):
     rt = df[df.datalogger == "RT130"]
     if rt.datalogger_gain.isna().any():
         errs.append("RT130 rows without datalogger_gain:\n" + rt[rt.datalogger_gain.isna()].to_string())
-    need = df[df.datalogger.isin(["Centaur", "RT130", "SmartSolo"])]
+    sa = df[df.datalogger == "SiliconAudio"]
+    if sa.datalogger_gain.isna().any():
+        errs.append("SiliconAudio rows without recorder gain:\n" + sa[sa.datalogger_gain.isna()].to_string())
+    need = df[df.datalogger.isin(["Centaur", "RT130", "SmartSolo", "SiliconAudio"])]
     if need.sensor_V_per_unit.isna().any():
         errs.append("rows without sensor sensitivity:\n"
                     + need[need.sensor_V_per_unit.isna()][["station", "channel", "start", "sensor"]].to_string())
@@ -175,6 +178,17 @@ def build_response(r, tpl):
                                             decimation_factor=1, decimation_offset=0, decimation_delay=0.0,
                                             decimation_correction=0.0, description="harvested output in mV (1 count = 1 mV)")
         return finish(Response(response_stages=[st1, st2]), "M/S", f)
+    if r.datalogger == "SiliconAudio":
+        # flat accelerometer (V per m/s^2) into a Kelunji-format recorder (419430.4 counts/V x gain)
+        st1 = PolesZerosResponseStage(1, float(r.sensor_V_per_unit), 1.0, "M/S**2", "V",
+                                      "LAPLACE (RADIANS/SECOND)", 1.0, [], [], normalization_factor=1.0,
+                                      description="Silicon Audio accelerometer, 15 V/g (flat)")
+        st2 = CoefficientsTypeResponseStage(2, 419430.4 * float(r.datalogger_gain), 1.0, "V", "COUNTS", "DIGITAL",
+                                            numerator=[1.0], denominator=[],
+                                            decimation_input_sample_rate=float(r.sample_rate), decimation_factor=1,
+                                            decimation_offset=0, decimation_delay=0.0, decimation_correction=0.0,
+                                            description=f"Kelunji-format recorder, 419430.4 counts/V x gain {r.datalogger_gain:g}")
+        return finish(Response(response_stages=[st1, st2]), "M/S**2", 1.0)
     raise SheetError(f"no response rule for datalogger {r.datalogger}")
 
 
@@ -182,10 +196,12 @@ def build_response(r, tpl):
 # Equipment and comments
 # ---------------------------------------------------------------------------------------------
 DATALOGGER = {"Centaur": ("Nanometrics", "Centaur"), "RT130": ("Reftek", "RT130"), "Gem": ("Anderson", "Gem v1"),
-              "SmartSolo": ("DTCC", "SmartSolo IGU-16HR")}
+              "SmartSolo": ("DTCC", "SmartSolo IGU-16HR"),
+              "SiliconAudio": ("", "Kelunji-format recorder (MSFC)")}
 SENSOR = {"infraBSU": ("Boise State University", 'infraBSU 0.5"'), "Chaparral": ("Chaparral Physics", "Model 25"),
           "TCP": ("Nanometrics", "Trillium Compact Posthole 120 s"), "L-22": ("Sercel/Mark Products", "L-22D 2 Hz"),
-          "Gem": ("Anderson", "Gem v1 MEMS pressure sensor"), "SmartSolo": ("DTCC", "5 Hz geophone")}
+          "Gem": ("Anderson", "Gem v1 MEMS pressure sensor"), "SmartSolo": ("DTCC", "5 Hz geophone"),
+          "SiliconAudio": ("Silicon Audio", "accelerometer, 15 V/g")}
 
 
 def describe(r):
@@ -200,6 +216,8 @@ def describe(r):
         dl = "Gem infrasound logger, high gain, 16-bit"
     elif r.datalogger == "SmartSolo":
         dl = "SmartSolo node, harvested in mV"
+    elif r.datalogger == "SiliconAudio":
+        dl = f"Kelunji-format recorder, gain x{r.datalogger_gain:g} (419430.4 counts/V at x1)"
     else:
         dl = r.datalogger
     sens = SENSOR.get(r.sensor, ("", r.sensor))[1]
@@ -275,7 +293,8 @@ def build(sheet, out):
                 st.channels.append(make_channel(r, tpl))
             nets.setdefault(net, []).append(st)
     inv = Inventory(networks=[Network(code=n, stations=s, description={
-        "1R": "USF / KSC rocket seismo-acoustic network", "AM": "Raspberry Shake"}.get(n, ""))
+        "1R": "USF / KSC rocket seismo-acoustic network", "AM": "Raspberry Shake",
+        "XA": "MSFC accelerometer (temporary, 2022)", "DG": "MSFC instruments co-located with the KSC network"}.get(n, ""))
         for n, s in sorted(nets.items())], source="build_ksc_stationxml.py (ksc_stations_master_v3.xlsx)")
     inv.write(str(out), format="STATIONXML", validate=True)
     n = sum(len(s.channels) for net in inv for s in net)

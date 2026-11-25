@@ -1,4 +1,5 @@
-"""Which SDS channel-days (2016-2022 remastered SDS and 2026 SDS) have no response in a StationXML?
+"""Which SDS channel-days (2016-2022 remastered SDS, its unmatched/ folder, and 2026 SDS) have no
+response in a StationXML?
 
     python 03_stationxml/audit/30_check_coverage.py 03_stationxml/KSC.xml [old.xml]
 
@@ -17,14 +18,16 @@ HERE = Path(__file__).resolve().parent
 ROOTS = ["/Volumes/classdata/remastered/SDS_KSC", "/Volumes/KSCGTdownld/SDS"]
 
 
+UNMATCHED = "/Volumes/classdata/remastered/SDS_KSC/unmatched"   # files the remastering could not match
+
+
 def sds_days():
-    out = defaultdict(set)
+    """{NSLC: {(year, julday)}} and the set of NSLC found only/also under unmatched/."""
+    out, unmatched = defaultdict(set), set()
     L = lambda p: [x for x in sorted(os.listdir(p)) if not x.startswith(".")]
-    for root in ROOTS:
+    for root in ROOTS + [UNMATCHED]:
         for y in [d for d in L(root) if d.isdigit()]:
             for net in L(f"{root}/{y}"):
-                if net == "DG":                  # MSFC instruments, not part of this network
-                    continue
                 for sta in L(f"{root}/{y}/{net}"):
                     for cd in L(f"{root}/{y}/{net}/{sta}"):
                         if cd.startswith(("L", "SOH", "V")):
@@ -32,8 +35,11 @@ def sds_days():
                         for f in L(f"{root}/{y}/{net}/{sta}/{cd}"):
                             p = f.split(".")
                             if len(p) >= 7:
-                                out[(p[0], p[1], '' if p[2] == '--' else p[2], p[3])].add((int(p[5]), int(p[6])))
-    return out
+                                key = (p[0], p[1], '' if p[2] == '--' else p[2], p[3])
+                                out[key].add((int(p[5]), int(p[6])))
+                                if root == UNMATCHED:
+                                    unmatched.add(key)
+    return out, unmatched
 
 
 def coverage(xml):
@@ -45,7 +51,8 @@ def coverage(xml):
                 epochs[(n.code, s.code, c.location_code, c.code)].append(
                     (c.start_date, c.end_date or UTCDateTime(2600, 1, 1)))
     rows = []
-    for key, days in sorted(sds_days().items()):
+    days_by_key, unmatched = sds_days()
+    for key, days in sorted(days_by_key.items()):
         cov = 0
         for y, j in days:
             d0 = UTCDateTime(year=y, julday=j)
@@ -53,7 +60,8 @@ def coverage(xml):
                 cov += 1
         rows.append(dict(seed_id=".".join(key), sds_days=len(days), covered=cov, uncovered=len(days) - cov,
                          first=str(UTCDateTime(year=min(days)[0], julday=min(days)[1]).date),
-                         last=str(UTCDateTime(year=max(days)[0], julday=max(days)[1]).date)))
+                         last=str(UTCDateTime(year=max(days)[0], julday=max(days)[1]).date),
+                         in_unmatched_folder=key in unmatched))
     return pd.DataFrame(rows)
 
 
@@ -64,3 +72,5 @@ if __name__ == "__main__":
         print(f"{xml}: {df.sds_days.sum()} SDS channel-days, {df.uncovered.sum()} without a response "
               f"({(df.uncovered > 0).sum()} of {len(df)} channels)")
         print(df[df.uncovered > 0].to_string(index=False))
+        m = ~df.in_unmatched_folder
+        print(f"excluding unmatched/: {df[m].uncovered.sum()} of {df[m].sds_days.sum()} channel-days uncovered")

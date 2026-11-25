@@ -22,7 +22,7 @@ serials where known, and comments for status, change, evidence and notes.
 |---|---|
 | `validate_stationxml.py` (flovopy) | only issue: B20 is open-ended from 2026-09-23 (intentional, see below) |
 | blank `vpp` on DVEL3 DD1 (negative test) | builder refuses: "Centaur rows without vpp 1 or 40" |
-| SDS coverage (`30_check_coverage.py`) | 316 of 34,167 SDS channel-days have no response (old KSC.xml: 12,934); every gap is a deliberate exclusion, listed below |
+| SDS coverage (`30_check_coverage.py`, now also scanning the DG network and `SDS_KSC/unmatched/`) | main SDS trees: 92 of 30,984 channel-days have no response (old KSC.xml: 12,934). `unmatched/`: 2,407 more channel-days (2,434 files, 76 GB) that the remastering never matched to metadata. Both are triaged in *Data still without an epoch* below |
 | 2026 against ksclib (`40_compare_2026.py`, Artemis II) | Centaur 1.000 on every channel, SmartSolo 0.997–1.000, Gem 0.94–1.02 (different deconvolution path; Gem peaks are overflow lower bounds) |
 | BCHH1 DD2 (40 Vpp) against BCHH2 (1 Vpp) | median p·r ratio 0.86 over 24 launches |
 | notebook 20 re-run | see the final cell of `07_ensemble_paper/20_ensemble_subset_amplitudes.ipynb` |
@@ -74,9 +74,13 @@ serials where known, and comments for status, change, evidence and notes.
 * **DVEL3 2020-11-05..12-11** (data beyond the master epoch): Trillium epoch added at 40 Vpp; it recorded the 2020-12-11 Delta IV (SNR 12). Infrasound excluded: SNR ≈ 1 on 5 launches that BCHH2 recorded.
 * **DVEL1 DD4–6 / HD4–6** (Sensor B port): excluded. They sit at the digitizer floor, with no launch signal and no evidence of their setting.
 * **Raspberry Shakes**: R37BE extended to 2019-05-21..2021-05-20 and RCD29 to 2019-08-28..2021-05-20, where the SDS has data. Responses are copied from KSC.xml.
-* **XA.MTEGL**: excluded. The Silicon Audio response is unknown, and the SDS channels are CN?.01, not EN?.
-* **DG (2026 Certimus/Silicon Audio, MSFC)**: not included.
-* **Remaining uncovered SDS days**: pre-deployment test days (BCHH3 2022-03-24, S39A3 03-25, TANK 02-24) and the exclusions above.
+* **XA.MTEGL (2022-11-08..22)**: now included as `XA.MTEGL.01.CN?` at 250 sps, as in the SDS. This is the MSFC Silicon Audio accelerometer that went to B23 in 2026 (user), so it has the same 15 V/g sensor. The recorder gain is set to ×1 (641,550 counts/(m/s²)), status `estimated`:
+  * the unit's own settings at the 2026-01 huddle say ×1;
+  * at ×1, Artemis I reads 2.3× S39A1 (MTEGL is nearer 39B) and the 2022-11-12 SLC-40 launch reads 0.8× S39A1. At ×8 it would read 3.5× and 10× low.
+  * **Archive problem:** each MTEGL SDS file named day N holds day N+1, because its records start about 0.25 s before midnight. ObsPy's SDS client returns nothing for Artemis I unless the files are re-filed.
+* **DG.B23.01.CL? (2026-03-10..04-05)**: added. The recorder `settings.ss` gives network DG, location 01, 500 sps, gain ×8 and 419,430.4 counts/V. Its sensor preset says "LE-3Dlite MKII" (a 400 V/(m/s) velocity sensor), but the output is proportional to **acceleration**. Against the co-located SmartSolo on Artemis II (`70_silicon_audio_calibration.py`), counts/(m/s²) is flat from 1 to 20 Hz with coherence above 0.95: 1.51 V/(m/s²) on Z and 1.57 on N, i.e. **15 V/g**. CLE is poorly coherent, so its orientation is unknown.
+* **DG.B07 (1L.CHZ) and DG.B12 (1L.CH?)** (2026): not included. No metadata found.
+* **Remaining uncovered SDS days**: see *Data still without an epoch* below.
 
 ### 2026 network (new)
 
@@ -94,9 +98,34 @@ serials where known, and comments for status, change, evidence and notes.
 * FIRE DD1–3 (2016): no signal. TANK DD1: no signal after early March 2016. RB166 HH? and RB268 DH? (2021): no signal.
 * 2026: B03 Centaur ≈ 100× low (hardware); B03 DD0–2, B05 DD1–2 and B29 DD1–2 show no infrasound at Artemis II; B05 Trillium mass off-centre; Gem overflow above ≈ 100–140 Pa.
 
+## Data still without an epoch
+
+From `coverage_KSC.csv` (column `in_unmatched_folder`) and `unmatched_sds.csv` (`60_unmatched_sds.py`: level of a sample day and of the matched channels at the same station that day).
+
+**Main SDS trees (92 channel-days)**
+* Excluded because their response cannot be known: DVEL1 DD4–6/HD4–6 (2018-02-06/07), DVEL3 DD1–3 (2020-11-05..12-11), RB166/RB268/RB383 infrasound (2021-10-16).
+* Test or install days before the first epoch: BCHH3 2022-03-24, S39A3 2022-03-25, TANK 2016-02-24.
+* DG.B07 and DG.B12 (2026).
+
+**`unmatched/` (2,407 channel-days), by what they are**
+| group | what it is | days |
+|---|---|---|
+| BCHH1 DD3 2017-11-14..2021-02-05 | third Sensor B input with nothing on it: 3 counts MAD, 34 counts at 99.9% (DD1/DD2 have 45,000/8,100) | 551 |
+| BCHH4 HD3 2022-05-26..12-02 | possibly a live infraBSU: 24 counts MAD vs 36 on HD2 | 191 |
+| S39A3 HD2, HD3 2022-04-01..05-25 | possibly live: 102 and 32 counts MAD (HDF at 1 Vpp: 502) | 110 |
+| BHP8 2019-02..06 | DAS 9BC5 after it moved to BHP7; duplicates BHP7.10 | 231 |
+| XX.91F8 / 9338 / 9406 / 9BC5 (2018-19) | RT130 data still under the DAS serial; 91F8 = BHP2 2018-10-15, identical samples | 54 |
+| FIREP EL? 2020-12-11 | same samples as FIREP EH? that day | 3 |
+| BCHH2 HD7–HDC 2017-11-14 | install day, 100 sps H-codes | 6 |
+| RB268 HDF/HH? 2021-10-16 | 16 minutes, already-converted floats | 4 |
+| SON1 DD2/DD3 2017 | days outside the SON1 epochs | 3 |
+| BCHH 2016-02-20..23, CARL1 2016-02-20..25, JPK1/JPK2 2016-02-05, SCMN 2016-05-23..31 | 2016 tests. JPK1/2 are in `ksc_stations_master.csv` (28.4077, −80.5932, Centaur 40 Vpp); CARL1 and SCMN have no coordinates anywhere | 99 |
+| AM.R095E, R17FC, R976A, RC57A, RCC6E (2022), R37BE 2017-01-25 | other Raspberry Shakes (R976A already in m/s) | 1,149 |
+| SF.LLS02 2018-02-06 | unknown, 1-count values | 3 |
+
 ## Open questions for the user
 
-1. **L-22 constant.** Is it 62.95 (NRL, shunted) or ≈ 88 V/(m/s) (no shunt)? The geophones read 1.45× the Trillium at gain 32.
+1. **L-22 constant.** Is it 62.95 (NRL, shunted) or ≈ 88 V/(m/s) (no shunt)? At gain 32 the geophone/Trillium ratio has a median of 1.47 (IQR 1.29–1.93) over 68 launch pairs. With 88 it becomes 1.05, so the data favour 88. Not applied yet.
 2. **BCHH1 in 2020.** Is the ≈ 70× drop of the Trillium (and the low DD2) a known hardware fault? The data are flagged, not corrected.
 3. **B20 and other 2026 stations after the 2026-09-22 service.** Only B20's 40 Vpp change is known. The other 2026 epochs end at the last downloaded day.
-4. **flovopy.** `stationmetadata/build.py` uses 0.05 V/Pa for the Chaparral (should be 0.4) and maps a blank vpp to 40. Not edited.
+4. **flovopy.** Fixed on flovopy branch `fix/chaparral-0p4-strict-vpp` (not merged or pushed): the Chaparral is 0.4 V/Pa, with the evidence in a comment, and a blank or unexpected Centaur vpp now raises an error. `librockets.py` still has 0.05.

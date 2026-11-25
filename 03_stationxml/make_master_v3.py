@@ -46,6 +46,11 @@ INFRABSU_V_PER_PA = 4.6e-5          # infraBSU 0.5" (infraBSU_21s_0.5inch.xml)
 TRILLIUM_V_PER_MPS = 754.3          # Trillium Compact 120 s Posthole
 L22_V_PER_MPS = 62.95               # Sercel/Mark L-22D, 2200 Ohm coil, 10854 Ohm shunt (NRL)
 SMARTSOLO_V_PER_MPS = 76.7          # SmartSolo IGU-16HR 5 Hz geophone (data harvested in mV)
+# Silicon Audio accelerometer on a Kelunji-format recorder (MSFC unit; XA.MTEGL 2022, DG.B23 2026).
+# 15 V/g: measured 1.51 (Z) and 1.57 (N) V/(m/s^2) against the B23 SmartSolo on Artemis II
+# (audit/70_silicon_audio_calibration.py). Recorder: 419430.4 counts/V x gain (settings.ss).
+SILICON_AUDIO_V_PER_MPS2 = 15.0 / 9.80665
+KELUNJI_COUNTS_PER_V = 419430.4
 
 # Filled from the audit (03_stationxml/audit/AUDIT_REPORT.md); see the evidence column of each row.
 AUDIT = {
@@ -270,9 +275,21 @@ def rows_2016_2022():
     # FIRE: no infrasound signal in 2016 (bad cable)
     setv(S("FIRE", ["DD1", "DD2", "DD3"]), status="dead",
          evidence="notebook 20: no launch signal; notes: 'still no infrasound data by 2016/03/23 so probably bad cable'")
-    # XA.MTEGL: no response information
-    setv(df.network == "XA", include=False, status="no_response",
-         change="excluded: Silicon Audio response unknown; SDS channels are CN?.01, not EN?")
+    # XA.MTEGL: the MSFC Silicon Audio accelerometer later deployed at B23 (2026); same response.
+    xa = df.network == "XA"
+    df.loc[xa, "channel"] = df.loc[xa, "channel"].str.replace("EN", "CN", regex=False)
+    df.loc[xa, "location"] = "01"
+    setv(xa, sample_rate=250.0, datalogger="SiliconAudio", datalogger_gain=1.0, vpp=np.nan,
+         sensor="SiliconAudio", sensor_V_per_unit=SILICON_AUDIO_V_PER_MPS2, sensitivity_correction=1.0,
+         units="m/s**2", polarity="normal", status="estimated", include=True,
+         response_source=f"flat: 15 V/g x {KELUNJI_COUNTS_PER_V} counts/V x gain",
+         change="added: was excluded (no response); channels EN?.00 -> CN?.01 and 200 -> 250 Hz as in the SDS",
+         evidence=("user: same Silicon Audio accelerometer as B23 2026; sensor 15 V/g from the B23 calibration "
+                   "(audit/silicon_audio_calibration.csv). Recorder gain x1: the unit's 2026-01 huddle "
+                   "settings say x1, and with x1 MTEGL reads 2.3x S39A1 (Artemis I, closer to 39B) and "
+                   "0.8x S39A1 (2022-11-12 SLC-40); with x8 it would read 3.5x and 10x low"),
+         notes=("SDS files are filed one day late: the file for day N holds day N+1 (records start "
+                "~0.25 s before midnight); ObsPy's SDS client misses them unless the archive is re-filed"))
     # AM Raspberry Shakes: copy from the old KSC.xml; extend to cover the SDS
     am = df.network == "AM"
     setv(am, response_source="copy:KSC.xml(haldata) AM channel", vpp=np.nan,
@@ -516,6 +533,24 @@ def rows_2026():
                                       "vertical polarity reversed (Artemis II coupling sign vs Trillium) -> dip +90",
                              notes="harvested data are geophone output in mV (FLOAT32), not velocity",
                              source_row="2026"))
+    # DG.B23: MSFC Silicon Audio accelerometer on a Kelunji-format recorder (DG SDS, location 01)
+    for cha, az, dip in (("CLE", 90.0, 0.0), ("CLN", 0.0, 0.0), ("CLZ", 0.0, -90.0)):
+        rows.append(dict(network="DG", station="B23", location="01", channel=cha,
+                         start="2026-03-10T00:00:00", end="2026-04-05T00:00:00",
+                         latitude=28.57879, longitude=-80.60780, elevation=0.0, depth=0.0,
+                         azimuth=az, dip=dip, sample_rate=500.0, datalogger="SiliconAudio",
+                         datalogger_serial="02000160", vpp=np.nan, datalogger_gain=8.0,
+                         sensor="SiliconAudio", sensor_serial="", sensor_V_per_unit=SILICON_AUDIO_V_PER_MPS2,
+                         sensitivity_correction=1.0, units="m/s**2", polarity="normal", status="ok",
+                         include=True, response_source=f"flat: 15 V/g x {KELUNJI_COUNTS_PER_V} counts/V x gain",
+                         change="added (2026)",
+                         evidence=("settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, "
+                                   "network DG, location 01, serial 02000160; calibrated against the B23 "
+                                   "SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094"),
+                         notes=("settings.ss names the sensor 'LE-3Dlite MKII' (400 V/(m/s)), but the output is "
+                                "proportional to acceleration, so that preset is wrong; GPS from the recorder "
+                                "histogram. CLE is poorly coherent with the SmartSolo (orientation unknown)"),
+                         source_row="2026"))
     return pd.DataFrame(rows, columns=COLUMNS)
 
 
