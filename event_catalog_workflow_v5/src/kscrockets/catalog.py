@@ -62,7 +62,8 @@ def classify_event_type(mission) -> str:
 
 
 def _legacy_event_id(row: pd.Series) -> str:
-    """Fallback only. Existing IDs are frozen in event_id_registry.csv."""
+    """Legacy CSV-path id (not canonical). Canonical ids: data/curated/reconciled_event_ids.csv;
+    data/curated/legacy_event_id_map.csv maps event_id_registry.csv ids to them."""
     designator = str(row.get("launch_designator", "") or "").strip()
     identity = designator or f"{row.get('mission','')}|{row.get('pad','')}"
     return "ksc-" + hashlib.sha1(identity.encode()).hexdigest()[:12]

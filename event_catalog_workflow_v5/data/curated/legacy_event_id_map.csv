@@ -1,0 +1,196 @@
+legacy_event_id,event_id,launch_designator,mission,legacy_pad,legacy_time_utc,matched_by
+ksc-0a37d378c793,ksc-14e6273111f1,2016-007,Atlas V 401 | GPS IIF-12 (USA-266),SLC-41,2016-02-05T13:38:00Z,launch_designator
+ksc-0be735cb3f5e,ksc-4d8977e0556d,2016-013,Falcon 9 Full Thrust | SES-9,SLC-40,2016-03-04T23:35:00Z,launch_designator
+ksc-8e58c2658acc,ksc-d45a00cdbfb9,2016-019,Atlas V 401 | Cygnus CRS OA-6 (S.S. Rick Husband),SLC-41,2016-03-23T03:05:52Z,launch_designator
+ksc-8aa9b54b04b3,ksc-e3bdbf905459,2016-024,Falcon 9 Full Thrust | SpX CRS-8,SLC-40,2016-04-08T20:43:32Z,launch_designator
+ksc-b635ff80bec4,ksc-14710f9bcc22,2016-028,Falcon 9 Full Thrust | JCSAT-14,SLC-40,2016-05-06T05:21:00Z,launch_designator
+ksc-152b8a4e80b3,ksc-c18e8b8aed39,2016-031,Falcon 9 Full Thrust | Thaicom 8,SLC-40,2016-05-27T21:39:00Z,launch_designator
+ksc-f4e6bfd6b80a,ksc-84ff2d3935e5,2016-036,Delta IV Heavy | NROL-37,SLC-37A,2016-06-11T17:51:00Z,launch_designator
+ksc-f03498f967c1,ksc-ffc076382361,2016-038,Falcon 9 Full Thrust | Eutelsat 117 West B & ABS-2A,SLC-40,2016-06-15T14:29:00Z,launch_designator
+ksc-1d06004c76ff,ksc-27031ce8da6f,2016-041,Atlas V 551 | MUOS-5,SLC-41,2016-06-24T14:30:00Z,launch_designator
+ksc-661a5a67e4b2,ksc-ecc6d9e04f0e,2016-046,Falcon 9 Full Thrust | SpX CRS-9,SLC-40,2016-07-18T04:45:29Z,launch_designator
+ksc-81cfc0530cc7,ksc-74a3bdfdf731,2016-047,Atlas V 421 | NROL-61,SLC-41,2016-07-28T12:00:00Z,launch_designator
+ksc-2e795d04c05e,ksc-bb9fcefb0a9c,2016-050,Falcon 9 Full Thrust | JCSAT-16,SLC-40,2016-08-14T05:26:00Z,launch_designator
+ksc-b391787ae525,ksc-4bf555bb8599,2016-052,"Delta IV M+(4,2) | AFSPC-6",SLC-41,2016-08-19T04:47:00Z,launch_designator
+ksc-48988fddd1fa,ksc-d79e38ae7638,,Falcon 9 Full Thrust | Amos 6 (Failure before launch),SLC-40,2016-09-01T13:07:11.913000Z,nearest_time (3 s)
+ksc-ba59e6ac6c4f,ksc-db1cc89a1aaf,2016-055,Atlas V 411 | OSIRIS-REx,SLC-41,2016-09-08T23:05:00Z,launch_designator
+ksc-dfc38a9ce879,ksc-b7033f1639c0,2016-071,Atlas V 541 | GOES-R,SLC-41,2016-11-19T22:42:00Z,launch_designator
+ksc-733bc3039ef3,ksc-4095b73d99c9,2016-075,"Delta IV M+(5,4) | WGS-8 (USA-272)",SLC-37B,2016-12-07T23:53:00Z,launch_designator
+ksc-c2fe1c964407,ksc-e952fc8048a1,2016-078,Pegasus XL | 8 x CYGNSS,Cape Canaveral,2016-12-15T13:21:00Z,nearest_time (981 s)
+ksc-7a7641f86188,ksc-880d981f0e46,2016-079,Atlas V 431 | Echostar 19 (Jupiter-2),SLC-41,2016-12-18T18:27:00Z,launch_designator
+ksc-5e9a9e4f3d75,ksc-64169f3b3568,2017-004,Atlas V 401 | SBIRS GEO Flight 3 (SBIRS GEO-4),SLC-41,2017-01-21T00:42:00Z,launch_designator
+ksc-c788979cec23,ksc-c349ddb9666e,2017-009,Falcon 9 Full Thrust | SpX CRS-10,SLC-39A,2017-02-19T14:39:00Z,launch_designator
+ksc-91884d55ab36,ksc-e3f83dbb2221,2017-014,Falcon 9 Full Thrust | Echostar 23,SLC-39A,2017-03-16T05:35:00Z,launch_designator
+ksc-a35e217c6b81,ksc-1f1493f0855e,2017-016,"Delta IV M+(5,4) | WGS-9 (USA-275)",SLC-37B,2017-03-18T23:44:00Z,launch_designator
+ksc-7e5ce767f406,ksc-5d9ffe28d302,2017-017,Falcon 9 Full Thrust | SES-10,SLC-39A,2017-03-30T22:27:00Z,launch_designator
+ksc-8b954b41511e,ksc-e79f1b8fc880,2017-019,Atlas V 401 | Cygnus CRS OA-7 (S.S. John Glenn),SLC-41,2017-04-18T15:11:00Z,launch_designator
+ksc-cb6a8a934efd,ksc-256702fce902,2017-022,Falcon 9 Full Thrust | NROL-76,SLC-39A,2017-05-01T11:00:00Z,launch_designator
+ksc-4824fa475ec5,ksc-2e16d4c7534b,2017-025,Falcon 9 Full Thrust | Inmarsat-5 F4,SLC-39A,2017-05-15T23:21:00Z,launch_designator
+ksc-25b76fac2813,ksc-c8d64f00a791,2017-030,Falcon 9 Full Thrust | SpX CRS-11,SLC-39A,2017-06-03T21:07:38Z,launch_designator
+ksc-427594bdbe15,ksc-d3cfe60c6ca4,2017-038,Falcon 9 Full Thrust | BulgariaSat-1,SLC-39A,2017-06-23T18:10:00Z,launch_designator
+ksc-e0cad9eb2a42,ksc-f55c3d5b37c9,2017-041,Falcon 9 Full Thrust | Intelsat 35e,SLC-39A,2017-07-05T23:38:00Z,launch_designator
+ksc-9fc8a4c035dc,ksc-3c98c36cd0b0,2017-045,Falcon 9 Block 4 | SpX CRS-12,SLC-39A,2017-08-14T16:31:37Z,launch_designator
+ksc-93cbd453a6fc,ksc-7ec4f2234787,2017-047,Atlas V 401 | TDRS-M,SLC-41,2017-08-18T12:03:00Z,launch_designator
+ksc-fa8fc794845f,ksc-c946f42ef8e7,2017-050,Minotaur IV | ORS-5,SLC-46,2017-08-26T03:15:00Z,nearest_time (10140 s)
+ksc-c64672d650d9,ksc-4c42c9333673,2017-052,Falcon 9 Block 4 | OTV-5 (X-37B),SLC-39A,2017-09-07T13:50:00Z,launch_designator
+ksc-dbe52659178b,ksc-0f70984f7d1c,2017-063,Falcon 9 Full Thrust | Echostar 105/SES-11,SLC-39A,2017-10-11T22:53:00Z,launch_designator
+ksc-c0294499f127,ksc-cdd66819910e,2017-066,Atlas V 421 | NROL-52,SLC-41,2017-10-15T07:28:00Z,launch_designator
+ksc-b7b92c115d6b,ksc-f9798f79f987,2017-067,Falcon 9 Block 4 | Koreasat 5A,SLC-39A,2017-10-30T19:34:00Z,launch_designator
+ksc-48a1d467b91f,ksc-c0709acef978,2017-080,Falcon 9 Full Thrust | SpX CRS-13,SLC-40,2017-12-15T15:36:09Z,launch_designator
+ksc-3c0b80b135cf,ksc-5b1dafae053d,2018-001,Falcon 9 Block 4 | Zuma,SLC-40,2018-01-08T01:00:00Z,launch_designator
+ksc-c216f118f0c7,ksc-f021776404e6,2018-009,Atlas V 411 | SBIRS GEO Flight 4 (SBIRS GEO-3),SLC-41,2018-01-20T00:48:00Z,launch_designator
+ksc-c040c221d0a2,ksc-e86b33ed7974,2018-013,Falcon 9 Full Thrust | GovSat (SES-16),SLC-40,2018-01-31T21:25:00Z,launch_designator
+ksc-00f4ad9fda57,ksc-63e156ef62c2,2018-017,Falcon Heavy | Demo (Test Flight),SLC-39A,2018-02-06T18:30:00Z,launch_designator
+ksc-6105e93e606b,ksc-3ea9a4401df7,2018-022,Atlas V 541 | GOES-S,SLC-41,2018-03-01T22:02:00Z,launch_designator
+ksc-6df8dbe128bd,ksc-e3ca44d5ad9c,2018-023,Falcon 9 Block 4 | Hispasat 30W-6 (Hispasat 1F),SLC-40,2018-03-06T05:33:00Z,launch_designator
+ksc-8edffa65bd17,ksc-a0596ef5aa20,2018-032,Falcon 9 Block 4 | SpX CRS-14,SLC-40,2018-04-02T20:30:38Z,launch_designator
+ksc-55d611b97b7b,ksc-3531abe1bae5,2018-036,Atlas V 551 | AFSPC-11,SLC-41,2018-04-14T23:13:00Z,launch_designator
+ksc-27e107673734,ksc-c214ae941ba7,2018-038,Falcon 9 Block 4 | TESS (Transiting Exoplanet Survey Satellite),SLC-40,2018-04-18T22:51:31Z,launch_designator
+ksc-1f57c3ae020a,ksc-91e449446c6f,2018-044,Falcon 9 Block 5 | Bangabandhu-1,SLC-39A,2018-05-11T20:14:00Z,launch_designator
+ksc-b59020fe5a5f,ksc-01faeae7fe39,2018-049,Falcon 9 Block 4 | SES-12,SLC-40,2018-06-04T04:29:00Z,launch_designator
+ksc-250f16337fa0,ksc-631fca0ccac1,2018-055,Falcon 9 Block 4 | SpX CRS-15,SLC-40,2018-06-29T09:42:41Z,launch_designator
+ksc-5650fb2434f9,ksc-dafdfb295ed9,2018-059,Falcon 9 Block 5 | Telstar 19 VANTAGE,SLC-40,2018-07-22T05:50:00Z,launch_designator
+ksc-db67534f3a1f,ksc-c76ce6fa40fb,2018-064,Falcon 9 Block 5 | Merah Putih (Telkom-4),SLC-40,2018-08-07T05:18:00Z,launch_designator
+ksc-213bb577c3dc,ksc-3a9cfc5c5934,2018-065,Delta IV Heavy | Parker Solar Probe,SLC-37B,2018-08-12T07:31:00Z,launch_designator
+ksc-35f420e0bf95,ksc-3ab75c1ac0da,2018-069,Falcon 9 Block 5 | Telstar 18 VANTAGE,SLC-40,2018-09-10T03:28:00Z,launch_designator
+ksc-9bda610c6dc9,ksc-0eaa94e13c72,2018-079,Atlas V 551 | AEHF-4 (USA 288),SLC-41,2018-10-17T04:15:00Z,launch_designator
+ksc-bfeaac1d853d,ksc-c5edad4a847a,2018-090,Falcon 9 Block 5 | Es'hail 2,SLC-39A,2018-11-15T20:46:00Z,launch_designator
+ksc-aab48c178427,ksc-19e728e91a43,2018-101,Falcon 9 Block 5 | SpX CRS-16,SLC-40,2018-12-05T18:16:16Z,launch_designator
+ksc-e07c7f0c08f1,ksc-4283b8e966db,2018-109,Falcon 9 Block 5 | GPS III SV01,SLC-40,2018-12-23T13:51:00Z,launch_designator
+ksc-81b63edcd1c7,ksc-fbf6b68502b2,2019-009,"Falcon 9 Block 5 | Nusantara Satu & GTO-1 (Beresheet, S5)",SLC-40,2019-02-22T01:45:00Z,launch_designator
+ksc-1dbbd25c8739,ksc-0b748e8e4dfd,2019-011,Falcon 9 Block 5 | SpX-DM1 (Demonstration Mission 1),SLC-39A,2019-03-02T07:49:00Z,launch_designator
+ksc-74d6194e38bd,ksc-1f9301c330aa,2019-014,"Delta IV M+(5,4) | WGS-10",SLC-37B,2019-03-15T22:56:00Z,launch_designator
+ksc-46ad81aaf348,ksc-add3bac27747,2019-021,Falcon Heavy | Arabsat-6A,SLC-39A,2019-04-11T22:35:00Z,launch_designator
+ksc-c497c043cf09,ksc-5e4f89c04009,2019-025,Falcon 9 Block 5 | SpX CRS-17,SLC-40,2019-05-04T06:48:58Z,launch_designator
+ksc-04708eb3f87c,ksc-87d1ff820859,2019-029,Falcon 9 Block 5 | Starlink Demo (0.9),SLC-40,2019-05-24T02:30:00Z,launch_designator
+ksc-d027c26deab2,ksc-73e84f97b16c,2019-036,Falcon Heavy | STP-2,SLC-39A,2019-06-25T03:30:00Z,launch_designator
+ksc-a952293668ff,ksc-da8b52e60732,,Orion Test Booster | Ascent Abort-2,SLC-46,2019-07-02T11:00:00Z,nearest_time (0 s)
+ksc-4b9c9d604638,ksc-353b309f4555,2019-044,Falcon 9 Block 5 | SpX CRS-18,SLC-40,2019-07-25T22:01:56Z,launch_designator
+ksc-ac1b8564627f,ksc-62ae4d0960be,2019-050,Falcon 9 Block 5 | Amos-17,SLC-40,2019-08-06T22:53:00Z,launch_designator
+ksc-c76b7e413e85,ksc-3f066959a7be,2019-051,Atlas V 551 | AEHF-5 (USA 292),SLC-41,2019-08-08T09:44:00Z,launch_designator
+ksc-f5d8933a6280,ksc-b30323f5edba,2019-056,"Delta IV M+(4,2) | GPS III SV02",SLC-37B,2019-08-22T13:00:30Z,launch_designator
+ksc-01f6a847a690,,2019-068,Pegasus XL | Ionospheric Connection Explorer (ICON),Cape Canaveral,2019-10-11T01:30:00Z,"none: Pegasus air launch, excluded by rebuild unless --include-air-launches"
+ksc-ccb9c597c4c6,ksc-17277fe09dc7,2019-074,Falcon 9 Block 5 | Starlink 1,SLC-40,2019-11-11T14:50:00Z,launch_designator
+ksc-0a3be0762ac4,ksc-81a0ae2484cc,2019-083,Falcon 9 Block 5 | SpX CRS-19,SLC-40,2019-12-05T17:29:24Z,launch_designator
+ksc-232e1b8c0ec1,ksc-7c20412d349e,2019-091,Falcon 9 Block 5 | JCSAT-18/KACIFIC-1,SLC-40,2019-12-17T00:10:00Z,launch_designator
+ksc-731e36a1708c,ksc-e5e8312f0b52,2019-094,Atlas V N22 | CST-100 Starliner Orbital Flight Test,SLC-41,2019-12-20T11:36:43Z,launch_designator
+ksc-9601d973b79a,ksc-ca7ab2e67f9c,2020-001,Falcon 9 Block 5 | Starlink 2,SLC-40,2020-01-07T02:19:21Z,launch_designator
+ksc-425fc127e754,ksc-cc8bd6c9a710,,Falcon 9 Block 5 | Dragon In-Flight Abort Test,SLC-39A,2020-01-19T13:00:00Z,nearest_time (9000 s)
+ksc-347398715352,ksc-ab1c4ec16d6c,2020-006,Falcon 9 Block 5 | Starlink 3,SLC-40,2020-01-29T14:06:00Z,launch_designator
+ksc-eeb62a1a9461,ksc-997a55c82571,2020-010,Atlas V 411 | Solar Orbiter,SLC-41,2020-02-10T04:03:00Z,launch_designator
+ksc-e8b18312b20e,ksc-34f3f213b0ca,2020-012,Falcon 9 Block 5 | Starlink 4,SLC-40,2020-02-17T15:05:55Z,launch_designator
+ksc-cf7d9e205683,ksc-35e9ac64b784,2020-016,Falcon 9 Block 5 | SpX CRS-20,SLC-40,2020-03-07T04:50:31Z,launch_designator
+ksc-a11dbee58c75,ksc-2b94a8f02226,2020-019,Falcon 9 Block 5 | Starlink 5,SLC-39A,2020-03-18T12:16:39Z,launch_designator
+ksc-94e8b45c085b,ksc-0242cb7fe442,2020-022,Atlas V 551 | AEHF-6,SLC-41,2020-03-26T18:57:00Z,launch_designator
+ksc-2411c172888d,ksc-3e65565b8b82,2020-025,Falcon 9 Block 5 | Starlink 6,SLC-39A,2020-04-22T19:30:00Z,launch_designator
+ksc-3ce8885ab781,ksc-c44630aff2b4,2020-029,Atlas V 501 | OTV-6 (X-37B) (USSF-7),SLC-41,2020-05-17T13:14:00Z,launch_designator
+ksc-631f61668af9,ksc-651d7502079f,2020-033,Falcon 9 Block 5 | SpX-DM2 (Demonstration Mission 2),SLC-39A,2020-05-30T19:22:45Z,launch_designator
+ksc-b47b5e5568ea,ksc-cf570eeacbbf,2020-035,Falcon 9 Block 5 | Starlink 7,SLC-40,2020-06-04T01:25:33Z,launch_designator
+ksc-f7f1f7c18c2d,ksc-1dc0c595cdf3,2020-038,Falcon 9 Block 5 | Starlink 8,SLC-40,2020-06-13T09:21:18Z,launch_designator
+ksc-f3675757bff3,ksc-ee894f5d3f5a,2020-041,Falcon 9 Block 5 | GPS III SV03,SLC-40,2020-06-30T19:55:00Z,launch_designator
+ksc-93f3220b1063,ksc-9bae262ada35,2020-048,Falcon 9 Block 5 | ANASIS-II,SLC-40,2020-07-20T21:00:00Z,launch_designator
+ksc-c9fa233b6dc9,ksc-3f868333c54c,2020-052,Atlas V 541 | Mars 2020 (Perseverance rover & Ingenuity helicopter),SLC-41,2020-07-30T11:50:00Z,launch_designator
+ksc-396f1289200a,ksc-c057681a59cc,2020-055,Falcon 9 Block 5 | Starlink 9,SLC-39A,2020-08-07T05:12:00Z,launch_designator
+ksc-28bb06a61407,ksc-adfa5117e7fc,2020-057,Falcon 9 Block 5 | Starlink 10,SLC-40,2020-08-18T14:31:00Z,launch_designator
+ksc-3c49c1832c28,ksc-b7c32722f608,2020-059,Falcon 9 Block 5 | SAOCOM 1B,SLC-40,2020-08-30T23:18:00Z,launch_designator
+ksc-0dc0880dbdb7,,2020-060,Electron | I Can‚Äôt Believe It‚Äôs Not Optical (Capella 2 & First Light),Rocket Lab  1A,2020-08-31T03:05:47Z,"none: Rocket Lab LC-1A (New Zealand), not a Cape launch"
+ksc-39516251cf8a,ksc-a5cb7a98dab3,2020-062,Falcon 9 Block 5 | Starlink 11,SLC-39A,2020-09-03T12:46:14Z,launch_designator
+ksc-71742dc6b806,ksc-be5e4c3d962a,2020-070,Falcon 9 Block 5 | Starlink 12,SLC-39A,2020-10-06T11:29:34Z,launch_designator
+ksc-285ec238f51a,ksc-13c32e06e5ae,2020-073,Falcon 9 Block 5 | Starlink 13,SLC-39A,2020-10-18T12:25:57Z,launch_designator
+ksc-332b95466172,ksc-b9f50420ecd0,2020-074,Falcon 9 Block 5 | Starlink 14,SLC-40,2020-10-24T15:31:34Z,launch_designator
+ksc-5b2a4f7bd097,ksc-6f9b65176fd6,2020-078,Falcon 9 Block 5 | GPS III SV04,SLC-40,2020-11-05T23:24:00Z,launch_designator
+ksc-cf2bb0a977de,ksc-3d4702072f5c,2020-083,Atlas V 531 | NROL-101,SLC-41,2020-11-13T22:13:00Z,launch_designator
+ksc-59de0286fa8f,ksc-bc526d033abd,2020-084,Falcon 9 Block 5 | Crew-1,SLC-39A,2020-11-16T00:27:17Z,launch_designator
+ksc-ed4a8c0a33af,ksc-c456f0864016,2020-088,Falcon 9 Block 5 | Starlink 15,SLC-40,2020-11-25T02:13:12Z,launch_designator
+ksc-7da6c06fe906,ksc-e83d4e0742b5,2020-093,Falcon 9 Block 5 | Dragon CRS-2 SpX-21,SLC-39A,2020-12-06T16:17:08Z,launch_designator
+ksc-d7989a8c8927,ksc-965a5104eee2,2020-095,Delta IV Heavy | NROL-44,SLC-37B,2020-12-10T22:50:00Z,launch_designator
+ksc-d74bfb7b4eee,ksc-91187be865b2,2020-096,Falcon 9 Block 5 | Sirius SXM-7,SLC-40,2020-12-13T16:22:00Z,launch_designator
+ksc-1e0ac1f69bc8,ksc-949049d36235,2020-101,Falcon 9 Block 5 | NROL-108,SLC-39A,2020-12-19T14:00:00Z,launch_designator
+ksc-9bae123404f2,ksc-7e5f0a06e30e,2021-001,Falcon 9 Block 5 | T√ºrksat 5A,SLC-40,2021-01-08T01:28:00Z,launch_designator
+ksc-46024359876d,ksc-29521a8ee8d4,2021-005,Falcon 9 Block 5 | Starlink 16,SLC-39A,2021-01-20T13:02:00Z,launch_designator
+ksc-2568e503f929,ksc-4066f14aafd6,2021-006,Falcon 9 Block 5 | Transporter 1 (Dedicated SSO Rideshare),SLC-40,2021-01-24T15:00:00Z,launch_designator
+ksc-2b58e5e7fc83,ksc-aa39eac76885,2021-009,Falcon 9 Block 5 | Starlink 18,SLC-40,2021-02-04T06:19:54Z,launch_designator
+ksc-b907dc9b6cbf,ksc-76bddbc06dcb,2021-012,Falcon 9 Block 5 | Starlink 19,SLC-40,2021-02-16T03:59:37Z,launch_designator
+ksc-0e318689233f,ksc-0e6776860e38,2021-017,Falcon 9 Block 5 | Starlink 17,SLC-39A,2021-03-04T08:24:54Z,launch_designator
+ksc-891af05693da,ksc-5dbc576a4434,2021-018,Falcon 9 Block 5 | Starlink 20,SLC-40,2021-03-11T08:13:29Z,launch_designator
+ksc-bfb3912deb8b,ksc-83df38a2affa,2021-021,Falcon 9 Block 5 | Starlink 21,SLC-39A,2021-03-14T10:01:26Z,launch_designator
+ksc-79c3cfdc9bed,ksc-50a254f713ed,2021-024,Falcon 9 Block 5 | Starlink 22,SLC-40,2021-03-24T08:28:00Z,launch_designator
+ksc-534b80d38aac,ksc-4edd07b16afe,2021-027,Falcon 9 Block 5 | Starlink 23,SLC-40,2021-04-07T16:34:00Z,launch_designator
+ksc-d4c57032c033,ksc-30b6fdc5fd76,2021-030,Falcon 9 Block 5 | Crew-2,SLC-39A,2021-04-23T09:49:02Z,launch_designator
+ksc-53596663d31a,ksc-0f0533403299,2021-036,Falcon 9 Block 5 | Starlink 24,SLC-40,2021-04-29T03:44:30Z,launch_designator
+ksc-25d4fe1f6ed2,ksc-38ca94637fc3,2021-038,Falcon 9 Block 5 | Starlink 25,SLC-39A,2021-05-04T19:01:00Z,launch_designator
+ksc-a82de0778c7b,ksc-e25f0f483856,2021-040,Falcon 9 Block 5 | Starlink 27,SLC-40,2021-05-09T06:42:00Z,launch_designator
+ksc-7aed61ddee26,ksc-d270e5310acd,2021-041,Falcon 9 Block 5 | Starlink 26,SLC-39A,2021-05-15T22:56:00Z,launch_designator
+ksc-a4dd195255f3,ksc-1282fccf3c15,2021-042,Atlas V 421 | SBIRS GEO-5,SLC-41,2021-05-18T17:31:00Z,launch_designator
+ksc-dff12d7bab9b,ksc-87c5dfe613db,2021-044,Falcon 9 Block 5 | Starlink 28,SLC-40,2021-05-26T18:59:00Z,launch_designator
+ksc-2338f2e26fab,ksc-bc5abc5f5b9d,2021-048,Falcon 9 Block 5 | Dragon CRS-2 SpX-22,SLC-39A,2021-06-03T17:29:15Z,launch_designator
+ksc-14a63b5605f4,ksc-50dea4a6b06c,2021-049,Falcon 9 Block 5 | Sirius SXM-8,SLC-40,2021-06-06T04:26:00Z,launch_designator
+ksc-c9e1281dfdca,ksc-a9b7c7b4b658,2021-054,Falcon 9 Block 5 | GPS III SV05,SLC-40,2021-06-17T16:09:00Z,launch_designator
+ksc-b67f80c7b834,ksc-e68f93478e5c,2021-059,Falcon 9 Block 5 | Transporter 2 (Dedicated SSO Rideshare),SLC-40,2021-06-30T18:56:00Z,launch_designator
+ksc-54939754a9f7,ksc-8063fd15735a,2021-078,Falcon 9 Block 5 | Dragon CRS-2 SpX-23,SLC-39A,2021-08-29T07:14:49Z,launch_designator
+ksc-d325d82ac640,ksc-2c4d7732d9e5,2021-084,Falcon 9 Block 5 | Inspiration4,SLC-39A,2021-09-16T00:02:00Z,launch_designator
+ksc-ddb4cdf2174a,ksc-38ab2b5b43b8,2021-093,Atlas V 401 | Lucy,SLC-41,2021-10-16T09:34:00Z,launch_designator
+ksc-4881da3ffda3,ksc-e3118304780e,2021-103,Falcon 9 Block 5 | Crew-3,SLC-39A,2021-11-11T02:03:31Z,launch_designator
+ksc-d922dec94bbb,ksc-b01c519803f1,2021-104,Falcon 9 Block 5 | Starlink Group 4-1,SLC-40,2021-11-13T12:18:56Z,launch_designator
+ksc-c2024856d96b,ksc-159ad67e5713,2021-115,Falcon 9 Block 5 | Starlink Group 4-3,SLC-40,2021-12-02T23:12:00Z,launch_designator
+ksc-accd3ec7c942,ksc-185662247566,2021-118,Atlas V 551 | STP-3,SLC-41,2021-12-07T09:04:00Z,launch_designator
+ksc-85b834c45c6c,ksc-df5100e4df0c,2021-121,Falcon 9 Block 5 | X-Ray Polarimetry Explorer (IXPE),SLC-39A,2021-12-09T06:00:00Z,launch_designator
+ksc-a956d0985696,ksc-b4ca969a4baf,2021-126,Falcon 9 Block 5 | T√ºrksat 5B,SLC-40,2021-12-19T03:58:00Z,launch_designator
+ksc-634dc8dbd66d,ksc-439e4f7bd9bf,2021-127,Falcon 9 Block 5 | Dragon CRS-2 SpX-24,SLC-39A,2021-12-21T10:07:08Z,launch_designator
+ksc-240394645e90,ksc-66560ebd683e,2022-001,Falcon 9 Block 5 | Starlink Group 4-5,SLC-39A,2022-01-06T21:49:10Z,launch_designator
+ksc-81adb5459329,ksc-db98bbfd543f,2022-002,Falcon 9 Block 5 | Transporter 3 (Dedicated SSO Rideshare),SLC-40,2022-01-13T15:25:39Z,launch_designator
+ksc-4db95ced2e9a,ksc-48d592e57292,2022-005,Falcon 9 Block 5 | Starlink Group 4-6,SLC-39A,2022-01-19T02:02:40Z,launch_designator
+ksc-23bd31cf046c,ksc-d6b195fcabcf,2022-006,Atlas V 511 | USSF-8,SLC-41,2022-01-21T18:15:00Z,launch_designator
+ksc-233d205c5d9f,ksc-609f203eaf44,2022-008,Falcon 9 Block 5 | CSG-2,SLC-40,2022-01-31T23:11:14Z,launch_designator
+ksc-25409c9457ca,ksc-25e6292e8a0d,2022-010,Falcon 9 Block 5 | Starlink Group 4-7,SLC-39A,2022-02-03T18:13:20Z,launch_designator
+ksc-0d3cc1263a3f,ksc-07d7efa132c3,,Astra Rocket 3 | ELaNa 41,SLC-46,2022-02-10T20:00:00Z,nearest_time (0 s)
+ksc-4ceaf81d48ed,ksc-f4e3bca54be0,2022-016,Falcon 9 Block 5 | Starlink Group 4-8,SLC-40,2022-02-21T14:44:20Z,launch_designator
+ksc-54e1b5835b97,ksc-65841be724f8,2022-021,Atlas V 541 | GOES-T,SLC-41,2022-03-01T21:38:00Z,launch_designator
+ksc-547348d6fab4,ksc-6cc5bfafca80,2022-022,Falcon 9 Block 5 | Starlink Group 4-9,SLC-39A,2022-03-03T14:25:00Z,launch_designator
+ksc-a67a35637fdf,ksc-7f2da887025a,2022-025,Falcon 9 Block 5 | Starlink Group 4-10,SLC-40,2022-03-09T13:45:00Z,launch_designator
+ksc-e14974f20b94,ksc-25c1218b994b,2022-029,Falcon 9 Block 5 | Starlink Group 4-12,SLC-40,2022-03-19T04:42:30Z,launch_designator
+ksc-f4123d3f4c82,ksc-4dc65b0b084a,2022-033,Falcon 9 Block 5 | Transporter 4 (Dedicated SSO Rideshare),SLC-40,2022-04-01T16:24:17Z,launch_designator
+ksc-09931fc24769,ksc-3e5a698eda37,2022-037,Falcon 9 Block 5 | Axiom Space Mission 1,SLC-39A,2022-04-08T15:17:11Z,launch_designator
+ksc-f54c4879ff19,ksc-f3c25dba729d,2022-041,Falcon 9 Block 5 | Starlink Group 4-14,SLC-40,2022-04-21T17:51:40Z,launch_designator
+ksc-0b8ca18bdd83,ksc-88dd5fda3033,2022-042,Falcon 9 Block 5 | Crew-4,SLC-39A,2022-04-27T07:52:55Z,launch_designator
+ksc-b39a90b80b5b,ksc-1b95aff7cb3b,2022-045,Falcon 9 Block 5 | Starlink Group 4-16,SLC-40,2022-04-29T21:27:10Z,launch_designator
+ksc-860de573e37a,ksc-2c2cdf5c62ef,2022-049,Falcon 9 Block 5 | Starlink Group 4-17,SLC-39A,2022-05-06T09:42:00Z,launch_designator
+ksc-0a8dfa9a58b8,ksc-38ca0e1b8059,2022-052,Falcon 9 Block 5 | Starlink Group 4-15,SLC-40,2022-05-14T20:40:50Z,launch_designator
+ksc-efebd68de0e8,ksc-505d74c71c02,2022-053,Falcon 9 Block 5 | Starlink Group 4-18,SLC-39A,2022-05-18T10:59:40Z,launch_designator
+ksc-13427e3ad196,ksc-58269f424863,2022-055,Atlas V N22 | CST-100 Starliner Orbital Flight Test 2 (OFT-2),SLC-41,2022-05-19T22:54:47Z,launch_designator
+ksc-3b5dc9b76e9f,ksc-106502db3b04,2022-057,Falcon 9 Block 5 | Transporter 5 (Dedicated SSO Rideshare),SLC-40,2022-05-25T18:27:00Z,launch_designator
+ksc-47ddc5dcc2ee,ksc-c33f4eba5f00,2022-061,Falcon 9 Block 5 | Nilesat-301,SLC-40,2022-06-08T21:04:00Z,launch_designator
+ksc-0e38323a1a3f,ksc-ce35156ac693,,Astra Rocket 3 | TROPICS-1,SLC-46,2022-06-12T16:00:00Z,nearest_time (6180 s)
+ksc-226081ffb04d,ksc-84767f4b69e3,2022-062,Falcon 9 Block 5 | Starlink Group 4-19,SLC-39A,2022-06-17T16:08:50Z,launch_designator
+ksc-6e9baa7ab501,ksc-c5c6011f556e,2022-064,Falcon 9 Block 5 | Globalstar-2 FM15 & USA 328-331,SLC-40,2022-06-19T04:27:36Z,launch_designator
+ksc-231b1ca0daf5,ksc-c9ea9563b00b,2022-071,Falcon 9 Block 5 | SES-22,SLC-40,2022-06-29T21:04:00Z,launch_designator
+ksc-64ebedc725ef,ksc-85279473c81d,2022-073,Atlas V 541 | USSF-12,SLC-41,2022-07-01T22:00:00Z,launch_designator
+ksc-eede73975211,ksc-d570437824f8,2022-076,Falcon 9 Block 5 | Starlink Group 4-21,SLC-40,2022-07-07T13:11:00Z,launch_designator
+ksc-980f8417038b,ksc-022303d013c5,2022-081,Falcon 9 Block 5 | Dragon CRS-2 SpX-25,SLC-39A,2022-07-15T00:44:20Z,launch_designator
+ksc-18c01cb90d94,ksc-cdabd3f6be1c,2022-083,Falcon 9 Block 5 | Starlink Group 4-22,SLC-40,2022-07-17T14:20:00Z,launch_designator
+ksc-6dff4f421698,ksc-7e3f36c8ba33,2022-086,Falcon 9 Block 5 | Starlink Group 4-25,SLC-39A,2022-07-24T13:38:20Z,launch_designator
+ksc-a2c8e9593093,ksc-97ed12ae30a2,2022-092,Atlas V 421 | SBIRS GEO-6,SLC-41,2022-08-04T10:29:00Z,launch_designator
+ksc-222b4cc6c7eb,ksc-dd71ea21cd24,2022-094,Falcon 9 Block 5 | Danuri (KPLO - Korean Pathfinder Lunar Orbiter),SLC-40,2022-08-04T23:08:48Z,launch_designator
+ksc-2cd2950ed64a,ksc-1daa1f92047c,2022-097,Falcon 9 Block 5 | Starlink Group 4-26,SLC-39A,2022-08-10T02:14:40Z,launch_designator
+ksc-8c24086cda76,ksc-86014f22e840,2022-101,Falcon 9 Block 5 | Starlink Group 4-27,SLC-40,2022-08-19T19:21:20Z,launch_designator
+ksc-8e55973ad427,ksc-699302f186a9,2022-104,Falcon 9 Block 5 | Starlink Group 4-23,SLC-40,2022-08-28T03:41:20Z,launch_designator
+ksc-a2436c68e731,ksc-307e90e5c27b,2022-107,Falcon 9 Block 5 | Starlink Group 4-20 & Varuna-TDM,SLC-40,2022-09-05T02:09:40Z,launch_designator
+ksc-fd77878baff5,ksc-875e884ee56e,2022-111,Falcon 9 Block 5 | Starlink Group 4-2 & BlueWalker 3,SLC-39A,2022-09-11T01:20:00Z,launch_designator
+ksc-0fd2b272469d,ksc-5f83851332fb,2022-114,Falcon 9 Block 5 | Starlink Group 4-34,SLC-40,2022-09-19T00:18:40Z,launch_designator
+ksc-cb481541ac0d,ksc-c7f20e13c525,2022-119,Falcon 9 Block 5 | Starlink Group 4-35,SLC-40,2022-09-24T23:32:10Z,launch_designator
+ksc-32f523625483,ksc-6ac1384fc0a4,2022-123,Atlas V 531 | SES-20 & SES-21,SLC-41,2022-10-04T21:36:00Z,launch_designator
+ksc-40e8954489f9,ksc-09e69a8c55ca,2022-124,Falcon 9 Block 5 | Crew-5,SLC-39A,2022-10-05T16:00:57Z,launch_designator
+ksc-57b01b71602e,ksc-891f4b47f867,2022-128,Falcon 9 Block 5 | Galaxy 33 & 34,SLC-40,2022-10-08T23:05:00Z,launch_designator
+ksc-fcbcd53684b1,ksc-7558b85b3070,2022-134,Falcon 9 Block 5 | Hotbird 13F,SLC-40,2022-10-15T03:26:00Z,launch_designator
+ksc-06d3962205c6,ksc-124f9bd6bb36,2022-136,Falcon 9 Block 5 | Starlink Group 4-36,SLC-40,2022-10-20T14:50:40Z,launch_designator
+ksc-b44d7abdc59d,ksc-1e56e88ae668,2022-144,Falcon Heavy | USSF-44,SLC-39A,2022-11-01T13:41:00Z,launch_designator
+ksc-ebedb667c751,ksc-d00be2a4706c,2022-146,Falcon 9 Block 5 | Hotbird 13G,SLC-40,2022-11-03T03:26:00Z,launch_designator
+ksc-877bad0d8813,ksc-30281c4d703e,2022-153,Falcon 9 Block 5 | Galaxy 31 & 32,SLC-40,2022-11-12T16:06:00Z,launch_designator
+ksc-62c93f9515cb,ksc-893bace1e8c8,2022-156,SLS Block 1 | Artemis I,SLC-39B,2022-11-16T06:04:00Z,launch_designator
+ksc-4c6b39701ae5,ksc-5f5d4f21bfa5,2022-157,Falcon 9 Block 5 | Eutelsat 10B,SLC-40,2022-11-23T02:57:00Z,launch_designator
+ksc-36b0c3a78b44,ksc-1fd9117d10d8,2022-159,Falcon 9 Block 5 | Dragon CRS-2 SpX-26,SLC-39A,2022-11-26T19:20:43Z,launch_designator
+ksc-3a91a200c9ef,ksc-082941b19618,2022-166,Falcon 9 Block 5 | OneWeb 15,SLC-39A,2022-12-08T22:27:48Z,launch_designator
+ksc-7a85835a744e,ksc-d63541dc352e,2022-168,Falcon 9 Block 5 | Hakuto-R M1 & Lunar Flashlight,SLC-40,2022-12-11T07:38:13Z,launch_designator
+ksc-e68ec2e52520,ksc-aba498818ace,2022-174,Falcon 9 Block 5 | O3b mPower 1 & 2,SLC-40,2022-12-16T21:21:00Z,launch_designator
+ksc-3a666a7cef93,ksc-49c4df544f7e,2022-175,Falcon 9 Block 5 | Starlink Group 4-37,SLC-39A,2022-12-17T21:32:30Z,launch_designator
+ksc-0cab05211d45,ksc-6b9aa008c410,2022-177,Falcon 9 Block 5 | Starlink Group 5-1,SLC-40,2022-12-28T09:30:00Z,launch_designator

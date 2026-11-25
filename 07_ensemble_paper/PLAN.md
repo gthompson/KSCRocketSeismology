@@ -77,17 +77,17 @@ still from `~/Dropbox/KSC_paper`), `10_rocket_barcharts` (launch statistics; sti
 
 ## Data gaps and calibration issues to resolve (decisions for the user)
 
-1. **Catalog coverage stops at 2022-12-28.** 2023–2026 launches (≈ 400 from the Cape) are not in the
+1. ~~**Catalog coverage stops at 2022-12-28.**~~ *Done: the catalog now runs 2016–present; see
+   `event_catalog_workflow_v5/data/availability/README.md` for waveform gaps.* 2023–2026 launches (≈ 400 from the Cape) are not in the
    reconciled catalog; only Artemis II is added by hand (`ensemble.yaml: extra_events`). Extend the
    catalog (LL2/GCAT caches already cover these years) and decide which 2023–2025 periods have any
    waveform data at all — the master SDS on `KSCGTdownld` starts in 2026, and the 2016–2022 SDS on
    `classdata` stops at 2022.
-2. **Two catalogs disagree on event ids.** The untracked `data/processed/launch_catalog.csv` (in the
-   main checkout's `KSCRocketSeismology_event_catalog_workflow_v5/`) uses registry ids
-   (e.g. `ksc-0a37d378c793` for 2016-02-05), while the sqlite database in git and the 2016
-   calibration outputs use reconciled ids (`ksc-14e6273111f1`). This paper uses the sqlite ids.
-   Decide which is canonical before ids are written into products, and whether the untracked CSVs
-   move into git.
+2. ~~**Two catalogs disagree on event ids.**~~ *Decided 2026-11-25: the reconciled sqlite ids are
+   canonical* (e.g. `ksc-14e6273111f1` for 2016-02-05), frozen in
+   `event_catalog_workflow_v5/data/curated/reconciled_event_ids.csv`. Old registry ids
+   (`ksc-0a37d378c793`, used by the untracked `launch_catalog.csv`) map to them through
+   `data/curated/legacy_event_id_map.csv`.
 3. **Gains in `KSC.xml` are wrong for some epochs (most important).** infraBSU sensors were only
    ever recorded at two Centaur settings: 40 Vpp (18.4 counts/Pa) or 1 Vpp (×40 preamp, 736 counts/Pa).
    *Cause:* `vpp` is blank in the master sheet (`ksc_stations_master*.csv/xlsx`) for every DVEL, DVEL1–3,
