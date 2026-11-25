@@ -11,7 +11,13 @@ from .website import build_website
 from .analysis import build_ensemble_products
 from .event_catalog import (add_manual_event, read_manual_excel, manual_events_as_source,
     reconcile_sources, write_reconciliation, read_source_cache, refresh_ll2_cache, refresh_gcat_cache,
-    read_id_registry, assign_persistent_ids, id_registry_from_sources)
+    read_id_registry, assign_persistent_ids, id_registry_from_sources, EVENT_TYPES,
+    ll2_rows_from_raw_dir, write_source_cache, fetch_ll2)
+from .event_times import read_known_times, read_detected_times, resolve_event_times, apply_times_to_db
+
+KNOWN_TIMES_CSV="data/curated/known_times.csv"
+DETECTED_TIMES_CSV="data/curated/detected_times.csv"
+LL2_RAW_DIR="data/raw/external/ll2_raw"
 
 
 def _build_catalog(s):
@@ -42,8 +48,8 @@ def _is_gcat_air_launch(df):
 
 
 def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
-                        refresh_external=False, include_air_launches=False,
-                        replace_events=True):
+                        refresh_external=False, include_air_launches=True,
+                        replace_events=True, detected_times=None):
     ll2_cache,gcat_cache=_cache_paths(s)
     manual=read_manual_excel(excel); sources=[manual]
     curated=manual_events_as_source(s.root/"data/curated/manual_events.csv")
@@ -71,9 +77,15 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
                 raise RuntimeError(f"GCAT cache is missing at {gcat_cache}. Run `ksc-rockets fetch-gcat` or use `rebuild --refresh-external`.")
             print(f"GCAT cache: using {gcat_cache} ({len(gcat)} records total)",flush=True)
         gcat=_subset_times(gcat,start,end)
+        # Trident launches from submarines off the Cape have no pad: 'ETR' (Eastern Test Range, offshore).
+        gcat.loc[gcat.get("location",pd.Series("",index=gcat.index)).astype(str).str.strip().eq("ETR"),"pad"]="ETR"
+        air=_is_gcat_air_launch(gcat); n=int(air.sum())
         if not include_air_launches:
-            air=_is_gcat_air_launch(gcat); n=int(air.sum()); gcat=gcat.loc[~air].copy()
-            if n: print(f"GCAT: excluded {n} Cape-origin air-launch record(s) (use --include-air-launches to retain)",flush=True)
+            gcat=gcat.loc[~air].copy()
+            if n: print(f"GCAT: excluded {n} Cape-origin air-launch record(s) (--exclude-air-launches)",flush=True)
+        elif n:
+            gcat.loc[air & gcat.event_type.eq("orbital_launch"),"event_type"]="air_launch"
+            print(f"GCAT: kept {n} Cape-origin air-launch record(s) as air_launch",flush=True)
         print(f"GCAT reconciliation subset: {len(gcat)} records ({pd.Timestamp(start).date()} through {pd.Timestamp(end).date()})",flush=True)
         if not gcat.empty: sources.append(gcat)
 
@@ -87,6 +99,11 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
     for new_id,old_id in report["contested"]:
         print(f"  WARNING: {new_id} also matched registered id {old_id}, which went to another event",flush=True)
     id_registry_from_sources(src,registry).to_csv(registry_path,index=False)
+    # Best time: known > consensus (to the second) > detected > consensus (SQLITE_CATALOG.md).
+    known=read_known_times(s.root/KNOWN_TIMES_CSV)
+    detected=read_detected_times(Path(detected_times) if detected_times else s.root/DETECTED_TIMES_CSV)
+    ev=resolve_event_times(ev,known,detected,strict=True)
+    print(f"Event times: {len(known)} known, {len(detected)} detected; basis {ev.event_time_basis.value_counts().to_dict()}",flush=True)
     processed=s.root/"data/processed"; processed.mkdir(parents=True,exist_ok=True)
     out=processed/"event_reconciliation.csv"; sout=processed/"event_time_sources.csv"
     ev.to_csv(out,index=False); src.to_csv(sout,index=False)
@@ -98,12 +115,25 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
     write_reconciliation(s.database,ev,src,replace_events=replace_events)
     _load_availability(s)
     _load_products(s)
+    _completeness(s)
     print(f"reconciled events: {len(ev)} -> {out}",flush=True)
     print(f"database updated from reconciled catalog: {s.database}",flush=True)
     return ev,src
 
 
 AVAILABILITY_CSV="data/availability/event_waveform_availability.csv"
+COMPLETENESS_CSV="data/availability/catalog_completeness.csv"
+
+
+def _completeness(s):
+    """Month-by-month launch counts against GCAT and LL2 (never filters the catalog)."""
+    from .completeness import catalog_completeness
+    ll2_cache,gcat_cache=_cache_paths(s)
+    t=catalog_completeness(s.database,gcat_cache,ll2_cache)
+    t.to_csv(s.root/COMPLETENESS_CSV,index=False)
+    n_diff=int((t.launch_diff_vs_gcat!=0).sum()); n_check=int(t.explanation.str.contains("CHECK").sum())
+    print(f"completeness: {len(t)} months, {n_diff} with catalog != GCAT launches, {n_check} flagged CHECK -> {s.root/COMPLETENESS_CSV}",flush=True)
+    return t
 
 
 def _availability(s, a):
@@ -241,18 +271,26 @@ def main(argv=None):
     c.add_argument("--caches",action="store_true",help="Also remove LL2/GCAT external caches")
     f=sp.add_parser("fetch-ll2",help="Refresh the cached Launch Library 2 snapshot")
     f.add_argument("--start",default=None,help="default: config interval start"); f.add_argument("--end",default=None,help="default: config interval end (now when year_max = \"present\")")
+    f.add_argument("--from-raw",action="store_true",help=f"Only rebuild ll2_events.csv from the raw pages in {LL2_RAW_DIR}")
+    f.add_argument("--wait",action="store_true",help="Sit out the hourly LL2 rate limit instead of failing")
+    lt=sp.add_parser("load-times",help="Load known/detected event times into the database and recompute event_time_utc")
+    lt.add_argument("--known",default=None,help=f"default: {KNOWN_TIMES_CSV}")
+    lt.add_argument("--detected",default=None,help=f"default: {DETECTED_TIMES_CSV}")
     sp.add_parser("fetch-gcat",help="Refresh cached GCAT launch snapshot")
+    sp.add_parser("completeness",help=f"Month-by-month launch counts vs GCAT and LL2 -> {COMPLETENESS_CSV}")
     r=sp.add_parser("reconcile-events")
     r.add_argument("--excel",default="data/raw/All_KSC_Rocket_Launches.xlsx",help="Hand-curated workbook")
     r.add_argument("--fetch-ll2",action="store_true",help="Refresh LL2 before reconciling")
     r.add_argument("--no-ll2-cache",action="store_true"); r.add_argument("--no-gcat-cache",action="store_true")
     r.add_argument("--start",default=None); r.add_argument("--end",default=None)
     r.add_argument("--replace-events",action="store_true",help="Compatibility option; v5 reconciliation already replaces canonical DB events")
-    r.add_argument("--include-air-launches",action="store_true",help="Include Cape-origin runway/air launches such as Pegasus")
+    r.add_argument("--exclude-air-launches",action="store_true",help="Drop Cape-origin runway/air launches such as Pegasus (kept by default)")
+    r.add_argument("--detected-times",default=None,help=f"CSV keyed by event_id (default: {DETECTED_TIMES_CSV})")
     rb=sp.add_parser("rebuild",help="Clean generated products and rebuild catalog, reconciliation, and database")
     rb.add_argument("--excel",default="data/raw/All_KSC_Rocket_Launches.xlsx")
     rb.add_argument("--refresh-external",action="store_true",help="Delete/refetch LL2 and GCAT caches before rebuilding (slower)")
-    rb.add_argument("--include-air-launches",action="store_true")
+    rb.add_argument("--exclude-air-launches",action="store_true")
+    rb.add_argument("--detected-times",default=None)
     rb.add_argument("--start",default=None); rb.add_argument("--end",default=None)
     av=sp.add_parser("availability",help="Per-event station availability from SDS day files; gaps with no archive")
     av.add_argument("--sds",action="append",required=True,metavar="START:END:ROOT",
@@ -269,7 +307,7 @@ def main(argv=None):
     kp=sp.add_parser("launchpads-kml",help="Write a Google Earth KML of the pad table (launchpads.csv)")
     kp.add_argument("--out",default=None,help="default: launchpads.csv with a .kml suffix")
     m=sp.add_parser("add-event")
-    m.add_argument("event_type",choices=["orbital_launch","launch_failure","pad_explosion","static_fire","aborted_launch","booster_landing","aircraft_sonic_boom"])
+    m.add_argument("event_type",choices=list(EVENT_TYPES))
     m.add_argument("time_utc"); m.add_argument("name"); m.add_argument("--pad",default=""); m.add_argument("--source",default="waveform_review"); m.add_argument("--notes",default="")
     a=p.parse_args(argv); s=load_settings(a.config)
     if a.command in {"fetch-ll2","reconcile-events","rebuild"}:
@@ -312,20 +350,33 @@ def main(argv=None):
         from .kml import write_launchpads_kml
         print(f"KML: {write_launchpads_kml(s.launchpads,a.out)}"); return
     if a.command=="clean": _clean(s,a.caches); return
+    if a.command=="completeness": _completeness(s); return
     if a.command=="fetch-ll2":
-        df,status=refresh_ll2_cache(a.start,a.end,ll2_cache); print(f"LL2 cache: {ll2_cache} ({len(df)} KSC/Cape records; {status})"); return
+        raw=s.root/LL2_RAW_DIR
+        if not a.from_raw:
+            # Raw pages are kept; a page already in the raw cache is not requested again.
+            fetch_ll2(a.start,a.end,raw_dir=raw,max_wait_s=3700 if a.wait else 60)
+        df=ll2_rows_from_raw_dir(raw); write_source_cache(df,ll2_cache,"launch_library_2")
+        print(f"LL2 cache: {ll2_cache} ({len(df)} KSC/Cape records from {raw})"); return
+    if a.command=="load-times":
+        known=read_known_times(Path(a.known) if a.known else s.root/KNOWN_TIMES_CSV)
+        detected=read_detected_times(Path(a.detected) if a.detected else s.root/DETECTED_TIMES_CSV)
+        counts=apply_times_to_db(s.database,known,detected)
+        print(f"load-times: {len(known)} known, {len(detected)} detected -> event_time_basis {counts}"); return
     if a.command=="fetch-gcat":
         df,status=refresh_gcat_cache(gcat_cache); print(f"GCAT cache: {gcat_cache} ({len(df)} KSC/Cape records; {status})"); return
     if a.command=="add-event":
         eid=add_manual_event(s.root/"data/curated/manual_events.csv",a.event_type,a.time_utc,a.name,a.pad,a.source,a.notes); print(f"manual event: {eid}"); return
     if a.command=="reconcile-events":
         _run_reconciliation(s,a.excel,a.start,a.end,use_ll2=not a.no_ll2_cache,use_gcat=not a.no_gcat_cache,
-                            refresh_external=a.fetch_ll2,include_air_launches=a.include_air_launches,replace_events=True); return
+                            refresh_external=a.fetch_ll2,include_air_launches=not a.exclude_air_launches,replace_events=True,
+                            detected_times=a.detected_times); return
     if a.command=="rebuild":
         _clean(s,caches=a.refresh_external)
         df=_build_catalog(s); print(f"catalog: {s.canonical_catalog} ({len(df)} events)",flush=True)
         _run_reconciliation(s,a.excel,a.start,a.end,refresh_external=a.refresh_external,
-                            include_air_launches=a.include_air_launches,replace_events=True)
+                            include_air_launches=not a.exclude_air_launches,replace_events=True,
+                            detected_times=a.detected_times)
         print("Rebuild complete.",flush=True); return
     if a.command in {"build-catalog","build-all"}:
         df=_build_catalog(s); print(f"catalog: {s.canonical_catalog} ({len(df)} events)")

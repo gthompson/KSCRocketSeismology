@@ -28,9 +28,18 @@ every `rebuild`). Reprocessing an event replaces its rows.
 | `event_links` | external links (webcasts, weather, regional data) — empty, for later |
 | `event_tiers` (view) | usability tiers of the science plan §3.3 |
 
-`../curated/detected_times.csv`: event origin from the largest group of pressure onsets that agree
-within 3 s (read by the catalog into `events.detected_time_utc`). `nearest_km` matters: far from
-the pad the first clear arrival of a launch comes from the rising vehicle, so the time is late.
+`../curated/detected_times.csv`: event origin from the best group of pressure onsets that agree
+within 3 s (most stations, then strongest STA/LTA). Read by the catalog into
+`events.detected_time_utc`, which becomes the event time only when the source time is coarser than
+a second (rule in `04_event_catalog/SQLITE_CATALOG.md`). Only detections that are source times at
+the pad are written (`ksclib.event_products.catalog_usable`); every detection, with the reason when
+it is not used, is in `event_processing` (`detected_*` columns). Not used:
+
+* booms (landings, reentries) and moving events (rollouts): onset − r/c is not their source time;
+* launches whose nearest detecting station is > 5 km from the pad: the first clear arrival there
+  comes from the rising vehicle, so the time is late (AA-2 2019: +23 s from 13.5 km);
+* one-station detections with a competing arrival ≥ 0.8 × as strong (Falcon Heavy static fire
+  2019-04-05: two bursts 65 s apart on every BCHH channel; Delta IV Heavy NROL-37 2016).
 
 **Metrics** (science plan §2.1–2.2, band-limited: high-pass 0.5 Hz pressure / 1 Hz seismic up to
 0.4 × sampling rate; signal window −30 s to +300 s, noise window the 300 s before):

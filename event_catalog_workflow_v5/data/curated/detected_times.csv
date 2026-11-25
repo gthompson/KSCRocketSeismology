@@ -1,17 +1,11 @@
 event_id,detected_time_utc,detected_time_method,offset_from_catalog_s,mad_s,n_stations,n_channels,run_id,n_channels_disagree,nearest_km
 ksc-0eaa94e13c72,2018-10-17T04:14:58.748234Z,stalta_onset_minus_r_over_343ms_all_cluster3s,-1.252,0.152,7,21,pilot-20261125,0,1.42
-ksc-38ab2b5b43b8,2021-10-16T09:33:59.965931Z,stalta_onset_minus_r_over_343ms_all_cluster3s,-0.034,0.279,2,4,pilot-20261125,0,9.64
 ksc-4d8977e0556d,2016-03-04T23:34:58.782631Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-1.217,0.04,2,3,pilot-20261125,3,1.42
 ksc-60d2d5d7be04,2016-02-29T00:20:58.638630Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-1.361,0.246,2,5,pilot-20261125,0,1.42
 ksc-63e156ef62c2,2018-02-06T20:44:53.656072Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-6.344,0.468,3,9,pilot-20261125,6,3.28
 ksc-78476cda7658,2026-03-14T12:37:08.228253Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-1.772,0.226,12,17,pilot-20261125,7,1.34
-ksc-84ff2d3935e5,2016-06-11T17:50:58.411982Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-1.588,,1,1,pilot-20261125,1,4.71
-ksc-86a25aa51338,2026-02-13T10:23:14.786564Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-23.213,1.38,1,2,pilot-20261125,2,1.38
 ksc-893bace1e8c8,2022-11-16T06:47:38.143044Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-5.857,0.02,3,7,pilot-20261125,0,3.1
 ksc-8f843154ba0f,2026-02-12T09:21:58.163504Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-1.836,0.914,2,3,pilot-20261125,1,1.51
-ksc-cb36ac7b481d,2026-04-19T11:25:05.288430Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,5.288,0.2,1,2,pilot-20261125,3,17.87
 ksc-d79e38ae7638,2016-09-01T13:07:14.128178Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-0.872,0.02,1,2,pilot-20261125,1,1.42
-ksc-da8b52e60732,2019-07-02T11:00:22.743954Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,22.744,0.288,2,7,pilot-20261125,0,13.48
 ksc-f8f81d1cba9a,2026-04-01T22:35:07.440855Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-4.559,1.172,11,17,pilot-20261125,7,0.74
-ksc-fdb28ac4bbd2,2019-04-11T22:42:18.479594Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,-27.52,0.166,3,10,pilot-20261125,0,10.15
 ksc-newglenn-explosion-20260529,2026-05-29T01:00:02.236366Z,stalta_onset_minus_r_over_343ms_pressure_cluster3s,0.236,0.001,3,3,pilot-20261125,2,11.79

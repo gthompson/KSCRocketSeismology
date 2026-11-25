@@ -13,7 +13,8 @@ everything needed to query and publish them is small and lives here, in ``data/p
 =========================  ================================================================
 
 Detected origin times go to ``data/curated/detected_times.csv`` (keyed by ``event_id``), which
-the catalog reads into ``events.detected_time_utc``.
+the catalog reads into ``events.detected_time_utc`` — only those that are source times at the pad
+(``ksclib.event_products.catalog_usable``); all detections are in ``event_processing``.
 
 Rows from a newer run replace the rows of older runs for the same event, so re-processing an
 event (e.g. after a StationXML fix) never leaves stale metrics behind. ``data_source`` says where
@@ -79,7 +80,15 @@ def save_results(root: Path, run: dict, results: list) -> dict:
     status = pd.DataFrame([dict(event_id=r.event_id, run_id=run["run_id"], status=r.status, error=r.error,
                                 data_source=r.data_source, n_raw=r.n_raw, n_corrected=r.n_corrected,
                                 n_metric_channels=(r.metrics.seed_id.nunique() if len(r.metrics) else 0),
-                                n_onsets=len(r.onsets), warnings=" | ".join(r.warnings)[:2000]) for r in results])
+                                n_onsets=len(r.onsets),
+                                detected_time_utc=r.detected.get("detected_time_utc", ""),
+                                detected_offset_s=r.detected.get("offset_s", ""),
+                                detected_nearest_km=r.detected.get("nearest_km", ""),
+                                detected_n_stations=r.detected.get("n_stations", ""),
+                                detected_rival_ratio=r.detected.get("rival_ratio", ""),
+                                detected_used_by_catalog=r.detected.get("catalog_usable", ""),
+                                detected_not_used_reason=r.detected.get("not_usable_reason", ""),
+                                warnings=" | ".join(r.warnings)[:2000]) for r in results])
     _upsert(d / "event_processing.csv", status)
     ok = [r for r in results if r.status == "ok"]
     done = pd.DataFrame({"event_id": [r.event_id for r in ok]})
@@ -106,7 +115,8 @@ def save_results(root: Path, run: dict, results: list) -> dict:
                              n_stations=r.detected["n_stations"], n_channels=r.detected["n_channels"],
                              n_channels_disagree=r.detected.get("n_channels_disagree", ""),
                              nearest_km=round(r.detected.get("nearest_km", float("nan")), 2),
-                             run_id=run["run_id"]) for r in ok if r.detected], columns=DETECTED_COLUMNS)
+                             run_id=run["run_id"]) for r in ok if r.detected and r.detected.get("catalog_usable", True)],
+                       columns=DETECTED_COLUMNS)
     # events with no detection lose an older detected time from an earlier run
     detp = Path(root) / "data/curated/detected_times.csv"
     if detp.exists() and len(done):

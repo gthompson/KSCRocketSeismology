@@ -51,6 +51,28 @@ DEFAULTS = dict(
 )
 
 
+# Event types whose detected time is a source time at the pad (ignition, explosion, static fire).
+# Booms are made aloft (landings, reentries) and rollouts move, so onset - r/c is not their time.
+PAD_SOURCE_TYPES = {"orbital_launch", "launch", "launch_failure", "pad_explosion", "explosion", "static_fire",
+                    "pad_abort", "aborted_launch", "suborbital_launch"}
+MOVING_SOURCE_TYPES = {"orbital_launch", "launch", "launch_failure", "aborted_launch", "suborbital_launch"}
+AMBIGUOUS_RIVAL = 0.8   # one-station detections with a rival arrival this strong are not used
+MAX_NEAREST_KM = 5.0     # farther, a launch's first clear arrival comes from the rising vehicle
+
+
+def catalog_usable(event_type, det: dict) -> tuple[bool, str]:
+    """Whether a detected origin may be used as the catalog event time, and why not."""
+    if not det:
+        return False, "no detection"
+    if str(event_type) not in PAD_SOURCE_TYPES:
+        return False, f"{event_type}: source not at the pad"
+    if det.get("n_stations", 0) < 2 and det.get("rival_ratio", 0) >= AMBIGUOUS_RIVAL:
+        return False, f"one station with a competing arrival ({det['rival_ratio']:.2f} x as strong)"
+    if str(event_type) in MOVING_SOURCE_TYPES and not (det.get("nearest_km", np.inf) <= MAX_NEAREST_KM):
+        return False, f"nearest station {det.get('nearest_km', np.nan):.1f} km > {MAX_NEAREST_KM:g} km"
+    return True, ""
+
+
 @dataclass
 class EventResult:
     event_id: str
@@ -331,7 +353,8 @@ def detected_origin(onsets: pd.DataFrame, min_ratio=8.0, c=SOUND_SPEED, agree_s=
     """Event origin estimate from onsets: onset - r/c, taken from the largest group of channels
     whose estimates agree within `agree_s` (pressure channels; all channels if none).
 
-    Ties go to the group with the larger summed STA/LTA ratio. ``nearest_km`` is the distance of
+    Groups are ranked by number of stations, then by their strongest STA/LTA ratio, then by number
+    of channels. ``nearest_km`` is the distance of
     the nearest station in the group: for launches, onsets far from the pad tend to come from the
     rising vehicle, so the estimate is biased late when ``nearest_km`` is more than a few km.
     """
@@ -344,12 +367,18 @@ def detected_origin(onsets: pd.DataFrame, min_ratio=8.0, c=SOUND_SPEED, agree_s=
             continue
         x = g.origin_est_s.to_numpy()
         groups = [np.abs(x - xi) <= agree_s for xi in x]
-        best = max(groups, key=lambda m: (m.sum(), g.max_ratio[m].sum()))
+        # rank: distinct stations, then the strongest pick, then channel count (co-located
+        # channels of one station often share the same noise burst)
+        best = max(groups, key=lambda m: (g.station[m].nunique(), g.max_ratio[m].max(), m.sum()))
         sel = g[best]
+        # strongest pick that disagrees with the chosen group: a comparable competing arrival
+        # makes a one-station detection ambiguous (e.g. two bursts 65 s apart, which is the event?)
+        rival = g[~best & (np.abs(g.origin_est_s - np.median(sel.origin_est_s)) > agree_s)]
+        rival_ratio = float(rival.max_ratio.max()) / float(sel.max_ratio.max()) if len(rival) else 0.0
         med = float(np.median(sel.origin_est_s))
         spread = float(np.median(np.abs(sel.origin_est_s - med))) if len(sel) > 1 else np.nan
         return dict(offset_s=med, mad_s=spread, n_channels=int(len(sel)), n_stations=int(sel.station.nunique()),
-                    n_channels_disagree=int(len(g) - len(sel)),
+                    n_channels_disagree=int(len(g) - len(sel)), rival_ratio=rival_ratio,
                     nearest_km=float(sel.distance_km.min()) if "distance_km" in sel else np.nan,
                     method=f"stalta_onset_minus_r_over_{c:.0f}ms_{label}_cluster{agree_s:g}s")
     return {}
@@ -434,6 +463,7 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
         det = detected_origin(res.onsets)
         if det:
             det["detected_time_utc"] = str(t0 + det["offset_s"])
+            det["catalog_usable"], det["not_usable_reason"] = catalog_usable(row.get("event_type"), det)
         res.detected = det
 
         if write_waveforms:

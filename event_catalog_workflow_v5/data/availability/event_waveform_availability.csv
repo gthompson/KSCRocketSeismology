@@ -1,16 +1,25 @@
 event_id,event_time_utc,event_type,name,vehicle,pad,archive,n_stations,n_channels,stations,networks
 ksc-14e6273111f1,2016-02-05T13:38:00Z,orbital_launch,Atlas V 401|AV057 GPS 2F-12,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-23b65a42fdf9,2016-02-22T00:00:00Z,static_fire,Falcon 9 static fire for SES-9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-0ebd95943cf6,2016-02-26T00:00:00Z,scrub,SES-9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,12,1R.BCHH;1R.FIRE,1R
 ksc-60d2d5d7be04,2016-02-29T00:21:00Z,aborted_launch,Falcon 9 1.2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,18,1R.BCHH;1R.FIRE;1R.TANK,1R
 ksc-4d8977e0556d,2016-03-04T23:35:00Z,orbital_launch,Falcon 9 1.2|F9-22 SES-9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,18,1R.BCHH;1R.FIRE;1R.TANK,1R
+ksc-4d07a87519b6,2016-03-14T00:00:00Z,suborbital_launch,FCET-52 | -    (158s) | - | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-9bfca88dc604,2016-03-15T00:00:00Z,suborbital_launch,FCET-52 | -    (159s) | - | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-433c1d2d10a7,2016-03-16T00:00:00Z,suborbital_launch,FCET-52 | -    (160s) | - | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-42316abf3328,2016-03-22T00:00:00Z,crawler_move,CT-2 post-upgrade trek to LC-39B,CT-2 (no load),LC39B,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-d45a00cdbfb9,2016-03-23T03:05:52Z,orbital_launch,Atlas V 401|AV064 Cygnus OA-6,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,3,18,1R.BCHH;1R.FIRE;1R.TANK,1R
 ksc-31ff81af78f6,2016-04-05T20:43:31Z,static_fire,Falcon 9 1.2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,18,1R.BCHH;1R.FIRE;1R.TANK,1R
 ksc-e3bdbf905459,2016-04-08T20:43:31Z,orbital_launch,Falcon 9 1.2|F9-023 Dragon/CRS 8,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,18,1R.BCHH;1R.FIRE;1R.TANK,1R
 ksc-3eac5696b262,2016-05-01T05:21:00Z,static_fire,Falcon 9 1.2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-14710f9bcc22,2016-05-06T05:21:00Z,orbital_launch,Falcon 9 1.2|F9-24 JCSAT 14,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-73de3c783f60,2016-05-25T01:00:00Z,static_fire,Falcon 9 static fire for Thaicom 8,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
+ksc-bd686da81986,2016-05-26T22:40:00Z,scrub,Thaicom 8,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,12,1R.BCHH;1R.FIRE,1R
 ksc-c18e8b8aed39,2016-05-27T21:39:00Z,orbital_launch,Falcon 9 1.2|F9-25 Thaicom 8,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-84ff2d3935e5,2016-06-11T17:51:00Z,orbital_launch,Delta IV Heavy|D374 NROL 37,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-b93b80d1db60,2016-06-12T14:15:00Z,static_fire,Falcon 9 1.2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-ffc076382361,2016-06-15T14:29:00Z,orbital_launch,Falcon 9 1.2|F9-26 Eutelsat 117WB/ABS2A,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
+ksc-0546b43be57b,2016-06-20T00:00:00Z,suborbital_launch,DASO-11 | -    - | - | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-27031ce8da6f,2016-06-24T14:30:00Z,orbital_launch,Atlas V 551|AV063 MUOS 5,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-ece933e3a11b,2016-07-16T04:45:00Z,static_fire,Falcon 9 1.2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-ecc6d9e04f0e,2016-07-18T04:45:29Z,orbital_launch,Falcon 9 1.2|F9-27 Dragon/CRS-9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
@@ -19,141 +28,276 @@ ksc-74a3bdfdf731,2016-07-28T12:37:00Z,orbital_launch,Atlas V 421|AV065 NROL-61,A
 ksc-846e0481c2e9,2016-08-10T05:26:00Z,static_fire,Falcon 9 1.2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-bb9fcefb0a9c,2016-08-14T05:26:00Z,orbital_launch,Falcon 9 1.2|F9-28 JCSAT 16,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-4bf555bb8599,2016-08-19T04:52:00Z,orbital_launch,Delta IV  |AFSPC-6,Delta IV,LC37B,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
+ksc-3400662cf044,2016-08-31T00:00:00Z,suborbital_launch,DASO-27 | -    (161s) | - | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-d79e38ae7638,2016-09-01T13:07:15Z,pad_explosion,Falcon 9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-db1cc89a1aaf,2016-09-08T23:05:00Z,orbital_launch,Atlas V 411|AV067 OSIRIS-Rex,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH,1R
 ksc-b7033f1639c0,2016-11-19T23:42:00Z,orbital_launch,Atlas V 541 |AV069 GOES-R,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-4095b73d99c9,2016-12-07T23:53:00Z,orbital_launch,Delta IV Medium|D376 WGS 8,Delta IV,LC37B,/Volumes/classdata/remastered/SDS_KSC,0,0,,
-ksc-e952fc8048a1,2016-12-15T13:37:21Z,orbital_launch,Pegasus XL|F43 CYGNSS,Pegasus XL,L1011,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-e952fc8048a1,2016-12-15T13:37:21Z,air_launch,Pegasus XL|F43 CYGNSS,Pegasus XL,L1011,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-880d981f0e46,2016-12-18T19:13:00Z,orbital_launch,Atlas V 431|AV071 EchoStar 19,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-64169f3b3568,2017-01-21T00:42:00Z,orbital_launch,nan,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-a31c335f2a74,2017-02-12T21:30:00Z,static_fire,Falcon 9 static fire for CRS-10,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-7d675ff46708,2017-02-18T15:01:19Z,scrub,SpaceX CRS-10,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-c349ddb9666e,2017-02-19T14:38:59Z,orbital_launch,Falcon 9 FT|F9-32 Dragon/CRS-10,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-268135899437,2017-02-19T14:46:46Z,booster_landing,Falcon 9 Full Thrust | SpX CRS-10 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-e1c99b7e59d8,2017-03-09T23:00:00Z,static_fire,Falcon 9 static fire for EchoStar 23,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-8587793df591,2017-03-14T04:55:05Z,scrub,EchoStar 23,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-e3f83dbb2221,2017-03-16T06:00:00Z,orbital_launch,Falcon 9 FT|F9-31 EchoStar 23,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-1f1493f0855e,2017-03-19T00:18:00Z,orbital_launch,nan,Delta IV,LC37B,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-563c36f8a659,2017-03-21T00:00:00Z,crawler_move,CT-2 test drive to Pad A/B split with MLP-1,CT-2 + MLP-1,Unknown,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-47776023502d,2017-03-27T18:00:00Z,static_fire,Falcon 9 static fire for SES-10,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-5d9ffe28d302,2017-03-30T22:27:00Z,orbital_launch,Falcon 9 FT|F9-33 SES-10,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-e79f1b8fc880,2017-04-18T15:11:26Z,orbital_launch,Atlas V 401|Cygnus OA-7,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-b5ee0e2b9c4a,2017-04-25T00:00:00Z,static_fire,Falcon 9 static fire for NROL-76,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-e473c6e06256,2017-04-30T11:14:08Z,scrub,NROL-76,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-256702fce902,2017-05-01T11:15:00Z,orbital_launch,Falcon 9 FT|F9-34 NROL 76,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-e0dd84f8a244,2017-05-01T11:22:46Z,booster_landing,Falcon 9 Full Thrust | NROL-76 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-483c726fd5e0,2017-05-07T11:47:00Z,reentry_sonic_boom,X-37B OTV-4 landing,X-37B,SLF,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-97a863683238,2017-05-11T16:45:00Z,static_fire,Falcon 9 static fire for Inmarsat-5 F4,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-2e16d4c7534b,2017-05-15T23:21:00Z,orbital_launch,Falcon 9 FT|F9-35 Inmarsat 5 F4,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-8c60b4afa867,2017-05-28T16:00:00Z,static_fire,Falcon 9 static fire for CRS-11,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-15aa3f48547e,2017-06-01T21:55:00Z,scrub,SpaceX CRS-11,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-c8d64f00a791,2017-06-03T21:07:38Z,orbital_launch,Falcon 9 FT|F9-36 Dragon 6/CRS-11,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-8edb2d389f41,2017-06-03T21:15:24Z,booster_landing,Falcon 9 Full Thrust | SpX CRS-11 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-84e57a34a898,2017-06-15T22:25:00Z,static_fire,Falcon 9 static fire for BulgariaSat-1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-d3cfe60c6ca4,2017-06-23T19:10:00Z,orbital_launch,Falcon 9 FT|F9-37 BulgariaSat 1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-22b27e64d580,2017-06-30T00:30:00Z,static_fire,Falcon 9 static fire for Intelsat 35e,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-4cdaeb14a7c8,2017-07-02T23:35:50Z,scrub,Intelsat 35e,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-90ac9725a974,2017-07-04T00:34:50Z,scrub,Intelsat 35e,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-f55c3d5b37c9,2017-07-05T23:38:00Z,orbital_launch,Falcon 9 FT|F9-39 Intelsat 35e,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-103d25a081c0,2017-08-10T13:10:00Z,static_fire,Falcon 9 static fire for CRS-12,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-3c98c36cd0b0,2017-08-14T16:31:37Z,orbital_launch,Falcon 9 FT|F9-41 CRS-12,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-1a7a3cc6c216,2017-08-14T16:39:23Z,booster_landing,Falcon 9 Block 4 | SpX CRS-12 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-7ec4f2234787,2017-08-18T12:29:00Z,orbital_launch,Atlas V |TDRS-M,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,2,12,1R.SON1;1R.SON2,1R
 ksc-sonicbat-20170822,2017-08-22T00:00:00Z,aircraft_sonic_boom,F-18 planes,F/A-18,SLF,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-c946f42ef8e7,2017-08-26T06:04:00Z,orbital_launch,Minotaur IV|Orion 38,Minotaur,LC46,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.SON1;1R.SON2,1R
+ksc-46efa5fce226,2017-08-31T20:30:00Z,static_fire,Falcon 9 static fire for OTV-5 (X-37B),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
 ksc-4c42c9333673,2017-09-07T14:00:00Z,orbital_launch,Falcon 9 FT|F9-42 OTV-5 (X-37B),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
 ksc-455057382beb,2017-09-07T14:07:46Z,booster_landing,Falcon 9 Block 4 | OTV-5 (X-37B) booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-d5cecd8b9a9b,2017-10-02T20:30:00Z,static_fire,Falcon 9 static fire for SES-11/EchoStar 105,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-5d1feec69070,2017-10-05T08:07:00Z,scrub,NROL-52,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-da1be3f15702,2017-10-06T08:30:00Z,scrub,NROL-52,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-a920454fcb2b,2017-10-07T05:12:00Z,scrub,NROL-52,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
 ksc-0f70984f7d1c,2017-10-11T22:53:00Z,orbital_launch,Falcon 9 FT|EchoStar 105/SES-11,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-1b0d30ee39db,2017-10-14T07:31:00Z,scrub,NROL-52,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
 ksc-cdd66819910e,2017-10-15T07:28:00Z,orbital_launch,Atlas V 421|NROL-52,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-8b3fd1a75c1a,2017-10-26T16:00:00Z,static_fire,Falcon 9 static fire for Koreasat 5A,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
 ksc-f9798f79f987,2017-10-30T19:34:00Z,orbital_launch,Falcon 9 FT|Koreasat 5A,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-7780ea781f34,2017-11-11T23:00:00Z,static_fire,Falcon 9 static fire for Zuma,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,1,AM.R37BE,AM
+ksc-dec2348d107c,2017-11-17T01:00:00Z,scrub,Zuma,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,12,1R.BCHH1;1R.BCHH2;AM.R37BE,1R;AM
 ksc-c227bb9674c4,2017-12-06T15:36:00Z,static_fire,Falcon 9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-c0709acef978,2017-12-15T15:36:09Z,orbital_launch,Falcon 9|CRS 13,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-fc88e09ec9f2,2017-12-15T15:43:55Z,booster_landing,Falcon 9 Full Thrust | SpX CRS-13 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-5b1dafae053d,2018-01-08T01:00:00Z,orbital_launch,Falcon 9|Zuma,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
 ksc-52c251593614,2018-01-08T01:07:46Z,booster_landing,Falcon 9 Block 4 | Zuma booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
+ksc-7aa1115629e4,2018-01-19T00:15:00Z,scrub,SBIRS GEO Flight 4,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
 ksc-f021776404e6,2018-01-20T00:48:00Z,orbital_launch,Atlas V|SBIRS geo flight 4,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
+ksc-c1334696deef,2018-01-24T17:30:00Z,static_fire,Falcon Heavy static fire for Falcon Heavy Demo,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
+ksc-e2c097f6488e,2018-01-26T00:00:00Z,static_fire,Falcon 9 static fire for SES-16/GovSat-1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
 ksc-e86b33ed7974,2018-01-31T21:25:00Z,orbital_launch,Falcon9|GovSAT 1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,5,1R.BCHH1,1R
 ksc-63e156ef62c2,2018-02-06T20:45:00Z,orbital_launch,Falcon Heavy|Demo flight,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,29,1R.BCHH1;1R.BCHH2;1R.DVEL1;1R.DVEL2;1R.RBLAB,1R
 ksc-0e1c6c7de1ee,2018-02-06T20:52:46Z,booster_landing,"Falcon Heavy | Demo (Test Flight) booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,/Volumes/classdata/remastered/SDS_KSC,5,29,1R.BCHH1;1R.BCHH2;1R.DVEL1;1R.DVEL2;1R.RBLAB,1R
+ksc-86b8a1d9a44b,2018-02-21T00:00:00Z,static_fire,Falcon 9 static fire for Hispasat 30W-6,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-3ea9a4401df7,2018-03-01T22:02:00Z,orbital_launch,Atlas V|GOES-S,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-e3ca44d5ad9c,2018-03-06T05:33:00Z,orbital_launch,Falcon9|Hispasat 30W-6,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-a0596ef5aa20,2018-04-02T20:30:38Z,orbital_launch,Falcon9 |CRS-14,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-2c0580caeb19,2018-04-11T18:30:00Z,static_fire,Falcon 9 static fire for TESS,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-3531abe1bae5,2018-04-14T23:13:00Z,orbital_launch,Atlas V|AFSPC 11,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-e07b5776444d,2018-04-16T22:32:07Z,scrub,TESS,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-c214ae941ba7,2018-04-18T22:51:30Z,orbital_launch,Falcon 9|TESS,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-d8ca6562bfbe,2018-05-04T23:25:00Z,static_fire,Falcon 9 static fire for Bangabandhu-1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-7609a43178ff,2018-05-10T21:46:02Z,scrub,Bangabandhu-1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-91e449446c6f,2018-05-11T20:14:00Z,orbital_launch,Falcon 9|Bangabandhu 1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-19bac41c7cda,2018-05-22T00:00:00Z,crawler_move,CT-2 up ramp to LC-39B for fit check,CT-2 (no load),LC39B,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-2e3b9a2de076,2018-05-25T01:30:00Z,static_fire,Falcon 9 static fire for SES-12,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-01faeae7fe39,2018-06-04T04:45:00Z,orbital_launch,Falcon 9|SES-12,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-17980be073b0,2018-06-18T00:00:00Z,suborbital_launch,D5LE CET-1 | -    (171s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-30be7aa006a2,2018-06-18T00:00:00Z,suborbital_launch,D5LE CET-1 | -    (170s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-b4af8b7e65fd,2018-06-18T00:00:00Z,suborbital_launch,D5LE CET-1 | -    (169s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-fca5d8fce109,2018-06-18T00:00:00Z,suborbital_launch,D5LE CET-1 | -    (168s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-e61bd960d403,2018-06-23T21:30:00Z,static_fire,Falcon 9 static fire for CRS-15,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-631fca0ccac1,2018-06-29T09:42:42Z,orbital_launch,Falcon 9|CRS 15,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-864b78578ff3,2018-07-18T21:00:00Z,static_fire,Falcon 9 static fire for Telstar 19 Vantage,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-dafdfb295ed9,2018-07-22T05:50:00Z,orbital_launch,Falcon 9|TelStar 19 VANTAGE,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-954758080130,2018-08-02T16:45:00Z,static_fire,Falcon 9 static fire for Merah Putih (Telkom-4),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-c76ce6fa40fb,2018-08-07T05:18:00Z,orbital_launch,Falcon 9|Merah Putah,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-d5f919eb85a9,2018-08-11T08:26:05Z,scrub,Parker Solar Probe,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,3,14,1R.BCHH1;1R.BCHH2;1R.BHP1,1R
 ksc-3a9cfc5c5934,2018-08-12T07:31:00Z,orbital_launch,Delta IV Heavy|Parker Solar Probe,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,3,14,1R.BCHH1;1R.BCHH2;1R.BHP1,1R
+ksc-f1c90d7e7c7e,2018-08-30T00:00:00Z,crawler_move,ML-1 first trek to LC-39B (fit check),ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
+ksc-7e07ef42d9f0,2018-09-05T14:00:00Z,static_fire,Falcon 9 static fire for Telstar 18 Vantage,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
+ksc-801bbdf25453,2018-09-08T00:00:00Z,crawler_move,ML-1 returns to VAB after pad fit check,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-3ab75c1ac0da,2018-09-10T04:45:00Z,orbital_launch,Falcon 9|TelStar 18 VANTAGE,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-0eaa94e13c72,2018-10-17T04:15:00Z,orbital_launch,Atlas V 551|AEHF-4,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,9,32,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP3;1R.BHP4;1R.BHP5;1R.BHP6;1R.BHP7;1R.BHP8,1R
+ksc-049df96d4d19,2018-11-13T01:30:00Z,static_fire,Falcon 9 static fire for Es'hail 2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,14,1R.BCHH1;1R.BCHH2;1R.BHP2,1R
 ksc-c5edad4a847a,2018-11-15T20:46:00Z,orbital_launch,Falcon 9|Es'hail 2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,14,1R.BCHH1;1R.BCHH2;1R.BHP2,1R
+ksc-b565dc9bca21,2018-12-01T03:20:00Z,static_fire,Falcon 9 static fire for CRS-16,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,14,1R.BCHH1;1R.BCHH2;1R.BHP2,1R
 ksc-19e728e91a43,2018-12-05T18:16:16Z,orbital_launch,Falcon 9|CRS 16,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4;1R.BHP6,1R
 ksc-a22904206bab,2018-12-05T18:24:02Z,booster_landing,Falcon 9 Block 5 | SpX CRS-16 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4;1R.BHP6,1R
+ksc-4fa5c36dfda7,2018-12-18T00:00:00Z,scrub,GPS III SV01,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4,1R
+ksc-dde4f667edae,2018-12-20T14:03:00Z,scrub,GPS III SV01,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4,1R
+ksc-4bfdb448a59b,2018-12-22T14:21:00Z,scrub,GPS III SV01,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4,1R
 ksc-4283b8e966db,2018-12-23T13:51:00Z,orbital_launch,Falcon 9|GPS 3SV01,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4,1R
+ksc-5d29dcf5c89d,2019-01-24T21:00:00Z,static_fire,Falcon 9 static fire for Crew Dragon Demo-1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP3;1R.BHP4,1R
 ksc-fbf6b68502b2,2019-02-22T01:45:00Z,orbital_launch,Falcon 9|Nusantara Satu,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.FIREP;1R.TANKP,1R
 ksc-0b748e8e4dfd,2019-03-02T07:49:03Z,orbital_launch,Falcon 9|Crew Dragon Demo 1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.FIREP;1R.TANKP,1R
+ksc-1921d483c9bb,2019-03-08T13:45:08Z,reentry_sonic_boom,Crew Dragon Demo-1 splashdown,Crew Dragon C204,Unknown,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.FIREP;1R.TANKP,1R
 ksc-1f9301c330aa,2019-03-16T00:26:00Z,orbital_launch,Delta IV|WGS 10,Delta IV,LC37B,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.FIREP;1R.TANKP,1R
-ksc-dfc06a930fe5,2019-04-05T16:00:00Z,static_fire,Falcon Heavy - Static Fire,Falcon Heavy,Unknown,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.FIREP;1R.TANKP,1R
+ksc-dfc06a930fe5,2019-04-05T16:00:00Z,static_fire,Falcon Heavy - Static Fire,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.FIREP;1R.TANKP,1R
+ksc-e403f18d138f,2019-04-11T00:36:00Z,scrub,Arabsat-6A,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
 ksc-add3bac27747,2019-04-11T22:35:00Z,orbital_launch,Falcon Heavy|Arabsat 6A,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
 ksc-fdb28ac4bbd2,2019-04-11T22:42:46Z,booster_landing,"Falcon Heavy | Arabsat-6A booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
+ksc-6b3825efc6bb,2019-04-27T14:00:00Z,static_fire,Falcon 9 static fire for CRS-17,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,8,30,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
+ksc-b479d9bef8d5,2019-05-03T07:11:00Z,scrub,SpaceX CRS-17,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,8,30,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
 ksc-5e4f89c04009,2019-05-04T06:48:58Z,orbital_launch,Falcon 9|SpaceX CRS17,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,8,30,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
+ksc-e54c34ecf0d6,2019-05-09T00:00:00Z,suborbital_launch,DASO-29 | -    (172s) | D5 | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,8,30,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
+ksc-fa8d61046adb,2019-05-13T00:00:00Z,static_fire,Falcon 9 static fire for Starlink v0.9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,8,30,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP,1R
+ksc-41846294d929,2019-05-16T02:30:00Z,scrub,Starlink v0.9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,27,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3,1R
+ksc-5fd16d2777a4,2019-05-17T00:29:00Z,scrub,Starlink v0.9,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,27,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3,1R
 ksc-87d1ff820859,2019-05-24T02:30:00Z,orbital_launch,Falcon 9|Starlink 1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,27,1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP7;1R.BHP8;1R.DVEL3,1R
+ksc-9c8ced0e85cb,2019-06-20T03:30:00Z,static_fire,Falcon Heavy static fire for STP-2,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,18,1R.BCHH2;1R.BHP7;1R.BHP8;1R.DVEL3,1R
 ksc-73e84f97b16c,2019-06-25T06:30:00Z,orbital_launch,Falcon Heavy|STP-2,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP5;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-e12a38241057,2019-06-25T06:37:46Z,booster_landing,"Falcon Heavy | STP-2 booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP5;1R.BHP7;1R.BHP8;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-a4a46570d4b4,2019-06-27T04:00:00Z,crawler_move,ML-1 last solo trek to LC-39B for V&V testing,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,7,29,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-da8b52e60732,2019-07-02T11:00:00Z,aborted_launch,Orion Test Booster | Ascent Abort-2,Orion AA-2 booster,LC46,/Volumes/classdata/remastered/SDS_KSC,7,29,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-755e3657d9a2,2019-07-19T22:00:00Z,static_fire,Falcon 9 static fire for CRS-18,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-eb56fd58c67d,2019-07-24T22:24:00Z,scrub,SpaceX CRS-18,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-353b309f4555,2019-07-25T22:01:56Z,orbital_launch,Falcon 9|SpaceX CRS18,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-980cbf6aa922,2019-07-25T22:09:42Z,booster_landing,Falcon 9 Block 5 | SpX CRS-18 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-bf8323f4c3d1,2019-07-31T00:00:00Z,static_fire,Falcon 9 static fire for Amos-17 (1st),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-0a69fabcc93c,2019-08-04T03:30:00Z,static_fire,Falcon 9 static fire for Amos-17 (2nd),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-62ae4d0960be,2019-08-06T23:23:00Z,orbital_launch,Falcon 9|AMOS-17,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-3f066959a7be,2019-08-08T10:13:00Z,orbital_launch,Atlas V|AEHF 5,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
 ksc-b30323f5edba,2019-08-22T13:06:00Z,orbital_launch,Delta IV|GPS 3SV02,Delta IV,LC37B,/Volumes/classdata/remastered/SDS_KSC,9,35,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-e73391d068e5,2019-08-30T00:00:00Z,crawler_move,ML-1 moved to VAB ahead of Hurricane Dorian,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,11,38,1R.BCHH1;1R.BCHH2;1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-e59ff9c10fe6,2019-09-10T13:30:00Z,crawler_move,ML-1 returns to LC-39B after Dorian,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,3,6,1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-c01a108986ae,2019-10-11T01:59:00Z,air_launch,Pegasus XL / ICON,Pegasus XL,L1011,/Volumes/classdata/remastered/SDS_KSC,7,24,1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP;1R.TANKP,1R
+ksc-e5cfd6604f72,2019-10-27T07:51:00Z,reentry_sonic_boom,X-37B OTV-5 landing,X-37B,SLF,/Volumes/classdata/remastered/SDS_KSC,6,21,1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP,1R
+ksc-c7eb7510b5f6,2019-11-05T17:30:00Z,static_fire,Falcon 9 static fire for Starlink-1 (v1.0 L1),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,21,1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP,1R
 ksc-17277fe09dc7,2019-11-11T14:56:00Z,orbital_launch,Falcon 9|F9-075 Starlink 60,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,21,1R.BHP1;1R.BHP2;1R.BHP4;1R.BHP5;1R.DVEL3;1R.FIREP,1R
+ksc-a00f52bbe477,2019-11-26T22:30:00Z,static_fire,Falcon 9 static fire for CRS-19,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.DVEL3,1R
+ksc-38c8f892c992,2019-12-04T17:51:00Z,scrub,SpaceX CRS-19,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.DVEL3,1R
 ksc-81a0ae2484cc,2019-12-05T17:29:24Z,orbital_launch,Falcon 9|F9-076 CRS 19,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.DVEL3,1R
+ksc-29ee7fde1ac8,2019-12-13T18:20:00Z,static_fire,Falcon 9 static fire for JCSAT-18/Kacific-1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.DVEL3,1R
 ksc-7c20412d349e,2019-12-17T00:10:00Z,orbital_launch,Falcon 9|F9-077 CRS JCSAT-18,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.DVEL3,1R
+ksc-372b685506c2,2019-12-20T00:00:00Z,crawler_move,ML-1 returns to VAB after months of pad testing,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
 ksc-e5e8312f0b52,2019-12-20T11:36:43Z,orbital_launch,Atlas V|AV-080,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
+ksc-dc906589921b,2020-01-04T17:00:00Z,static_fire,Falcon 9 static fire for Starlink-2 (v1.0 L2),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
 ksc-ca7ab2e67f9c,2020-01-07T02:19:21Z,orbital_launch,Falcon 9|Starlink V1.0-L2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
+ksc-3b5b70e052d3,2020-01-11T15:10:00Z,static_fire,Falcon 9 static fire for Crew Dragon In-Flight Abort,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
 ksc-cc8bd6c9a710,2020-01-19T15:30:00Z,orbital_launch,Falcon 9|Space Dragon 2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
+ksc-b50a9632022b,2020-01-20T19:00:00Z,static_fire,Falcon 9 static fire for Starlink-3 (v1.0 L3),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
+ksc-91d7957d1fc8,2020-01-27T14:49:00Z,scrub,Starlink (4th Starlink launch; 60 sats),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
 ksc-ab1c4ec16d6c,2020-01-29T14:06:00Z,orbital_launch,Falcon 9|Starlink V1.0-L3,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
 ksc-997a55c82571,2020-02-10T04:03:00Z,orbital_launch,Atlas V 411|AV-087,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
 ksc-34f3f213b0ca,2020-02-17T15:05:55Z,orbital_launch,Falcon 9|Starlink V1.0-L3,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
+ksc-abcd1c85155c,2020-03-01T16:00:00Z,static_fire,Falcon 9 static fire for CRS-20,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
 ksc-35e9ac64b784,2020-03-07T04:50:31Z,orbital_launch,Falcon 9|F9-082 CRS-20,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
 ksc-d8c623b2cf91,2020-03-07T04:58:17Z,booster_landing,Falcon 9 Block 5 | SpX CRS-20 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
+ksc-4978ec35f02f,2020-03-15T13:22:00Z,pad_abort,Starlink V1.0-L6 (60 sats),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
 ksc-2b94a8f02226,2020-03-18T12:16:39Z,orbital_launch,Falcon 9 Block 5 | Starlink 5,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,20,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE;AM.RCD29,1R;AM
 ksc-0242cb7fe442,2020-03-26T20:18:00Z,orbital_launch,Atlas V 551|AV-086 AEHF-6,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,5,18,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;AM.R37BE,1R;AM
+ksc-4c928afd154c,2020-04-17T16:00:00Z,static_fire,Falcon 9 static fire for Starlink-6 (v1.0 L6),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-3e65565b8b82,2020-04-22T19:30:00Z,orbital_launch,Falcon 9|Starlink V1.0-L6,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
+ksc-eedec1fa6fa9,2020-05-13T14:00:00Z,static_fire,Falcon 9 static fire for Starlink-7 (v1.0 L7),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
+ksc-b8a2290d9651,2020-05-16T14:21:20Z,scrub,OTV-6 / X-37B (USSF-7),Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-c44630aff2b4,2020-05-17T13:14:00Z,orbital_launch,Atlas V 501|AV-081,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
+ksc-c39437a44248,2020-05-22T20:33:00Z,static_fire,Falcon 9 static fire for Crew Dragon Demo-2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
+ksc-88fde7d011f4,2020-05-27T00:00:00Z,scrub,Crew Dragon Demo-2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,2,11,1R.BCHH1;1R.BCHH2,1R
 ksc-651d7502079f,2020-05-30T19:22:45Z,orbital_launch,Falcon 9|F9-085 Spx-DM2 Endeavor,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH1;1R.BCHH2;1R.BHP5;1R.FIREP;AM.RCD29,1R;AM
 ksc-cf570eeacbbf,2020-06-04T01:25:33Z,orbital_launch,Falcon 9|Starlink V1.0-L7,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH1;1R.BCHH2;1R.BHP5;1R.FIREP;AM.RCD29,1R;AM
 ksc-1dc0c595cdf3,2020-06-13T09:21:18Z,orbital_launch,Falcon 9|Starlink V1.0-L8,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,8,1R.BHP5;1R.FIREP;AM.RCD29,1R;AM
+ksc-5f860994ff83,2020-06-24T00:00:00Z,static_fire,Falcon 9 static fire for Starlink-9 (v1.0 L9) + BlackSky,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,8,1R.BHP5;1R.FIREP;AM.RCD29,1R;AM
+ksc-18f67ac5a2ed,2020-06-25T00:00:00Z,static_fire,Falcon 9 static fire for GPS III SV03,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,8,1R.BHP5;1R.FIREP;AM.RCD29,1R;AM
 ksc-ee894f5d3f5a,2020-06-30T20:10:46Z,orbital_launch,Falcon 9|F9-088,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.BHP5;1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
+ksc-47b4c58fd208,2020-07-08T15:59:00Z,scrub,Starlink V1.0-L9 + 2 BlackSky,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.BHP5;1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
+ksc-42625909af20,2020-07-11T14:54:00Z,scrub,Starlink V1.0-L9 + 2 BlackSky,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.BHP5;1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
+ksc-deb2ef15f618,2020-07-11T22:00:00Z,static_fire,Falcon 9 static fire for ANASIS-II,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.BHP5;1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
 ksc-9bae262ada35,2020-07-20T21:30:00Z,orbital_launch,Falcon 9|F9-089,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.BHP5;1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
 ksc-3f868333c54c,2020-07-30T11:50:00Z,orbital_launch,Altas V 541|AV-088,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.BHP5;1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
+ksc-175beefd3df6,2020-08-02T18:48:06Z,reentry_sonic_boom,Crew Dragon Demo-2 splashdown,SpaceX DM-2 Crew Dragon Splashdown,Unknown,/Volumes/classdata/remastered/SDS_KSC,3,6,1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
 ksc-c057681a59cc,2020-08-07T05:12:05Z,orbital_launch,Falcon 9|Starlink V1.0-L9,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,6,1R.FIREP;AM.R37BE;AM.RCD29,1R;AM
 ksc-adfa5117e7fc,2020-08-18T14:31:00Z,orbital_launch,Falcon 9|Starlink V1.0-L10,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
+ksc-a2b545550440,2020-08-27T05:20:00Z,scrub,NROL-44,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
+ksc-d03a7f4f9552,2020-08-29T07:27:57Z,pad_abort,NROL-44,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
 ksc-b7c32722f608,2020-08-30T23:18:00Z,orbital_launch,Falcon 9|F9-092,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
 ksc-13e486598e3a,2020-08-30T23:25:46Z,booster_landing,Falcon 9 Block 5 | SAOCOM 1B booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
 ksc-a5cb7a98dab3,2020-09-03T12:46:14Z,orbital_launch,Falcon 9|Starlink V1.0-L11,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
+ksc-8657e51abd3c,2020-09-28T14:21:29Z,scrub,Starlink V1.0-L12,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-7aa57431e5d8,2020-10-01T03:53:53Z,scrub,NROL-44,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-1c9b27b7a221,2020-10-01T13:16:42Z,scrub,Starlink V1.0-L12,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-f4c40abea163,2020-10-03T01:43:00Z,pad_abort,GPS III SV04,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-be5e4c3d962a,2020-10-06T11:29:34Z,orbital_launch,Falcon 9|Starlink V1.0-L12,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-13c32e06e5ae,2020-10-18T12:25:57Z,orbital_launch,Falcon 9|Starlink V1.0-L13,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,8,26,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-06814360fb41,2020-10-20T04:00:00Z,crawler_move,ML-1 to LC-39B for countdown/washdown tests pre-Artemis I,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-186c4f302b67,2020-10-22T16:14:00Z,scrub,Starlink (60 sats),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,15,1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-b9f50420ecd0,2020-10-24T15:31:34Z,orbital_launch,Falcon 9|Starlink V1.0-L14,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,8,26,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.BHP5;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-b8332942e8b3,2020-10-30T00:00:00Z,crawler_move,ML-1 returns to VAB for Artemis I stacking,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,5,12,1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-7eb6923d8c40,2020-10-31T23:00:00Z,static_fire,Falcon 9 static fire for GPS III SV04,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,12,1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-3b368f938903,2020-11-04T23:00:00Z,scrub,NROL-101,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,5,12,1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-6f9b65176fd6,2020-11-05T23:24:23Z,orbital_launch,Falcon 9|F9-097,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,24,1R.BCHH2;1R.BHP2;1R.DVEL3;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-4e0adeb2d12a,2020-11-11T20:49:00Z,static_fire,Falcon 9 static fire for Crew-1,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,12,1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-3d4702072f5c,2020-11-13T22:32:00Z,orbital_launch,Atlas V 531|AV-090,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,5,12,1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-bc526d033abd,2020-11-16T00:27:17Z,orbital_launch,Falcon 9|F9-098,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,7,24,1R.BCHH2;1R.BHP2;1R.DVEL3;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-558c1c451152,2020-11-23T02:56:00Z,scrub,Starlink (60 sats; record 7th booster flight),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,9,1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-c456f0864016,2020-11-25T02:13:12Z,orbital_launch,Falcon 9|Starlink V1.0-L15,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,15,1R.DVEL3;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-af9bd730d964,2020-12-05T16:39:00Z,scrub,CRS-21 (Cargo Dragon),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,2,3,AM.R37BE;AM.RCD29,AM
 ksc-e83d4e0742b5,2020-12-06T16:17:08Z,orbital_launch,Falcon 9|F9-101,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,15,1R.BCHH2;1R.DVEL3;AM.R37BE;AM.RCD29,1R;AM
 ksc-965a5104eee2,2020-12-11T01:09:00Z,orbital_launch,Delta IV Heavy|NROL-44,Delta IV Heavy,LC37B,/Volumes/classdata/remastered/SDS_KSC,8,29,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.DVEL3;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-2c37e1e78638,2020-12-11T17:54:30Z,scrub,SXM-7,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,8,29,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.DVEL3;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-91187be865b2,2020-12-13T17:30:00Z,orbital_launch,Falcon 9|F9-102,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-abe78af737a9,2020-12-17T14:43:07Z,scrub,NROL-108,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,7,23,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-949049d36235,2020-12-19T14:00:00Z,orbital_launch,Falcon 9|F9-103,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-c13875735712,2020-12-19T14:07:46Z,booster_landing,Falcon 9 Block 5 | NROL-108 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-7e5f0a06e30e,2021-01-08T02:15:00Z,orbital_launch,Falcon 9|F9-104,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-49188538f336,2021-01-14T01:26:00Z,reentry_sonic_boom,SpaceX CRS-21 splashdown,Cargo Dragon C208,Unknown,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-29521a8ee8d4,2021-01-20T13:02:00Z,orbital_launch,Falcon 9|Starlink V1.0-L16,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-b719427cd5e4,2021-01-23T14:40:00Z,scrub,Transporter-1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-4066f14aafd6,2021-01-24T15:00:00Z,orbital_launch,Falcon 9|F9-106,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,18,1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
 ksc-aa39eac76885,2021-02-04T06:19:00Z,orbital_launch,Falcon 9|Starlink V1.0-L18,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,7,23,1R.BCHH1;1R.BCHH2;1R.BHP2;1R.FIREP;1R.TANKP;AM.R37BE;AM.RCD29,1R;AM
+ksc-523c841417ff,2021-02-09T23:30:00Z,suborbital_launch,D5LE CET-3 | -    (179s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-2cb235695a9b,2021-02-10T00:00:00Z,suborbital_launch,D5LE CET-3 | -    (180s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-9b4ba19d2efc,2021-02-11T00:00:00Z,suborbital_launch,D5LE CET-3 | -    (181s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-2c8b4477a5e7,2021-02-11T00:00:00Z,suborbital_launch,D5LE CET-3 | -    (182s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-42033c74c6b3,2021-02-15T04:21:00Z,scrub,Starlink V1.0-L19,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-76bddbc06dcb,2021-02-16T03:59:37Z,orbital_launch,Falcon 9|Starlink V1.0-L19,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-b84256e0fcc0,2021-03-01T01:35:36Z,scrub,Starlink V1.0-L17,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-0e6776860e38,2021-03-04T08:24:54Z,orbital_launch,Falcon 9|Starlink V1.0-L17,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-0366ded82012,2021-03-08T23:00:00Z,static_fire,Falcon 9 static fire for Starlink (v1.0 L20),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-5dbc576a4434,2021-03-11T08:13:29Z,orbital_launch,Falcon 9|Starlink V1.0-L20,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-83df38a2affa,2021-03-14T10:01:26Z,orbital_launch,Falcon 9|Starlink V1.0-L21,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-50a254f713ed,2021-03-24T08:28:00Z,orbital_launch,Falcon 9|Starlink V1.0-L22,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-4edd07b16afe,2021-04-07T16:34:00Z,orbital_launch,Falcon 9|Starlink V1.0-L23,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-bc9d7bf56391,2021-04-13T02:15:00Z,bolide,Florida fireball 2021-04-12,meteoroid,Unknown,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-8c71265b199f,2021-04-17T10:11:00Z,static_fire,Falcon 9 static fire for Crew-2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-30b6fdc5fd76,2021-04-23T09:49:02Z,orbital_launch,Falcon 9|F9-114 Crew 2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-0f0533403299,2021-04-29T03:44:30Z,orbital_launch,Falcon 9|Starlink V1.0-L24,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-7ad17225f745,2021-05-02T06:56:33Z,reentry_sonic_boom,SpaceX Crew-1 splashdown,"SpaceX Crew-1 ""Resilience"" Crew Dragon Splashdown",Unknown,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-38ca94637fc3,2021-05-04T19:01:00Z,orbital_launch,Falcon 9|Starlink V1.0-L25,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-e25f0f483856,2021-05-09T06:42:00Z,orbital_launch,Falcon 9|Starlink V1.0-L27,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-d270e5310acd,2021-05-15T22:56:00Z,orbital_launch,Falcon 9|Starlink V1.0-L26,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
+ksc-22f6858115f9,2021-05-17T16:39:18Z,scrub,Atlas V 421 | SBIRS GEO-5 scrub,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-1282fccf3c15,2021-05-18T17:37:00Z,orbital_launch,Atlas V 421|AV-091 SBRIS GEO 5,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,3,9,1R.BCHH2;AM.R37BE;AM.RCD29,1R;AM
 ksc-87c5dfe613db,2021-05-26T18:59:00Z,orbital_launch,Falcon 9|Starlink V1.0-L28,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
 ksc-bc5abc5f5b9d,2021-06-03T17:29:15Z,orbital_launch,Falcon 9|F9-120 SpaceX CRS-22,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
 ksc-50dea4a6b06c,2021-06-06T04:26:00Z,orbital_launch,Falcon 9|F9-121,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
+ksc-443bf886fa45,2021-06-12T00:00:00Z,static_fire,Falcon 9 static fire for GPS III SV05,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
 ksc-a9b7c7b4b658,2021-06-17T16:09:35Z,orbital_launch,Falcon 9|F9-122,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
+ksc-63b42c45ffe0,2021-06-29T18:55:49Z,scrub,Transporter-2,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
 ksc-e68f93478e5c,2021-06-30T19:31:00Z,orbital_launch,Falcon 9|F9-123,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
 ksc-0740400d8f80,2021-06-30T19:38:46Z,booster_landing,Falcon 9 Block 5 | Transporter 2 (Dedicated SSO Rideshare) booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
+ksc-d9f88a53d21a,2021-07-10T03:29:00Z,reentry_sonic_boom,SpaceX CRS-22 splashdown,Cargo Dragon C209,Unknown,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
+ksc-fdc611f4f7d0,2021-08-03T15:05:00Z,scrub,Boeing OFT-2 (Starliner),Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,1,6,1R.BCHH2,1R
+ksc-c59c7aaa1f80,2021-08-28T07:32:00Z,scrub,CRS-23 (Cargo Dragon),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-8063fd15735a,2021-08-29T07:14:49Z,orbital_launch,Falcon 9|F9-124,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-dcf7cbac9ee9,2021-09-13T06:30:00Z,static_fire,Falcon 9 static fire for Inspiration4,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-2c4d7732d9e5,2021-09-16T00:02:56Z,orbital_launch,Falcon 9|F9-126,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-cc15fd030c90,2021-09-17T00:00:00Z,suborbital_launch,DASO-31 | -    (183s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-0784f1bb13ae,2021-09-17T00:00:00Z,suborbital_launch,DASO-31 | -    (184s) | D5LE | -,Trident D-5,ETR,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-4b3fbe01dc7f,2021-09-18T23:06:49Z,reentry_sonic_boom,Inspiration4 splashdown,"Inspiration4 ""Resilience"" Crew Dragon Splashdown",Unknown,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-37613481b4a4,2021-10-01T02:57:00Z,reentry_sonic_boom,SpaceX CRS-23 splashdown,Cargo Dragon C208,Unknown,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-38ab2b5b43b8,2021-10-16T09:34:00Z,orbital_launch,Atlas V 401|AV-096 Lucy,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,3,16,1R.RB166;1R.RB268;1R.RB383,1R
+ksc-d5b21ab570b7,2021-10-28T00:00:00Z,static_fire,Falcon 9 static fire for Crew-3,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-62efdb7ee916,2021-11-09T03:33:15Z,reentry_sonic_boom,SpaceX Crew-2 splashdown,"SpaceX Crew-2 ""Endeavour"" Crew Dragon Splashdown",Unknown,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-e3118304780e,2021-11-11T02:03:31Z,orbital_launch,Falcon 9|F9-127 Crew 3,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-b01c519803f1,2021-11-13T12:19:00Z,orbital_launch,Falcon 9|Starlink Group 4-1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-159ad67e5713,2021-12-02T23:12:00Z,orbital_launch,Falcon 9|Starlink Group 4-3,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
@@ -166,32 +310,48 @@ ksc-db98bbfd543f,2022-01-13T15:25:39Z,orbital_launch,Falcon 9|Transporter-3,Falc
 ksc-0b869ef49013,2022-01-13T15:33:25Z,booster_landing,Falcon 9 Block 5 | Transporter 3 (Dedicated SSO Rideshare) booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-48d592e57292,2022-01-19T02:02:40Z,orbital_launch,Falcon 9|Starlink Group 4-6,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-d6b195fcabcf,2022-01-21T19:00:00Z,orbital_launch,Atlas V 511|AV-084,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-c382c68a557c,2022-01-24T21:05:00Z,reentry_sonic_boom,SpaceX CRS-24 splashdown,Cargo Dragon C209,Unknown,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-0ba7ce77a89d,2022-01-27T22:44:05Z,scrub,Falcon 9 Block 5 | CSG-2 scrub,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-859dec27eab0,2022-01-28T23:11:00Z,scrub,CSG-2 (COSMO-SkyMed FM2),Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-67cd247c3a5d,2022-01-30T23:12:09Z,scrub,Falcon 9 Block 5 | CSG-2 scrub,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-609f203eaf44,2022-01-31T23:11:14Z,orbital_launch,Falcon 9|F9-138,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-80a6ce73b6f4,2022-01-31T23:19:00Z,booster_landing,Falcon 9 Block 5 | CSG-2 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-25e6292e8a0d,2022-02-03T18:13:20Z,orbital_launch,Falcon 9|Starlink Group 4-7,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-13289440f27b,2022-02-05T20:21:26Z,scrub,Astra Rocket 3 | ELaNa 41 scrub,Astra,LC46,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-fa8d661d005c,2022-02-07T20:16:01Z,scrub,Astra Rocket 3 | ELaNa 41 scrub,Astra,LC46,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-07d7efa132c3,2022-02-10T20:00:00Z,orbital_launch,Rocket 3.3|LV0008,Astra,LC46,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-f4e3bca54be0,2022-02-21T14:44:20Z,orbital_launch,Falcon 9|Starlink Group 4-8,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-65841be724f8,2022-03-01T21:38:00Z,orbital_launch,Atlas V 541|AV-095 GOES-18,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-6cc5bfafca80,2022-03-03T14:25:00Z,orbital_launch,Falcon 9|Starlink Group 4-9,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-7f2da887025a,2022-03-09T13:45:00Z,orbital_launch,Falcon 9|Starlink Group 4-10,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
+ksc-c3493db9882b,2022-03-17T21:47:00Z,rollout,Artemis I rollout 1 (WDR),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-25c1218b994b,2022-03-19T04:42:30Z,orbital_launch,Falcon 9|Starlink Group 4-12,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-4dc65b0b084a,2022-04-01T16:24:16Z,orbital_launch,Falcon 9 Block 5 | Transporter 4,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,22,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
+ksc-ec4577391cf1,2022-04-06T18:00:00Z,static_fire,Falcon 9 static fire for Axiom Mission 1 (Ax-1),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-3e5a698eda37,2022-04-08T15:17:12Z,orbital_launch,Falcon 9 Block 5 | F9-147 Axiom Mission 1 (Ax-1),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
+ksc-1de59e15f4c7,2022-04-20T00:00:00Z,static_fire,Falcon 9 static fire for Crew-4,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-f3c25dba729d,2022-04-21T17:51:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-14,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
+ksc-413d32e5cc89,2022-04-25T17:06:00Z,reentry_sonic_boom,Axiom Mission 1 (Ax-1) splashdown,SpaceX AX-1 Crew Dragon Splashdown,Unknown,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
+ksc-5b8dd29b8d27,2022-04-25T23:54:00Z,rollback,Artemis I rollback 1 (after WDR attempts),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-88dd5fda3033,2022-04-27T07:52:55Z,orbital_launch,Falcon 9 Block 5 | SpaceX Crew-4,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-1b95aff7cb3b,2022-04-29T21:27:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-16,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
+ksc-de259a505f9a,2022-05-06T04:43:23Z,reentry_sonic_boom,SpaceX Crew-3 splashdown,SpaceX Crew-3 Crew Dragon Splashdown,Unknown,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-2c2cdf5c62ef,2022-05-06T09:42:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-17,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-38ca0e1b8059,2022-05-14T20:40:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-15,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-505d74c71c02,2022-05-18T10:59:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-18,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-58269f424863,2022-05-19T22:54:47Z,orbital_launch,Atlas V N22 | AV-082 Starliner OFT-2,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-106502db3b04,2022-05-25T18:35:00Z,orbital_launch,Falcon 9 Block 5 | Transporter 5,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
 ksc-65e691698309,2022-05-25T18:42:46Z,booster_landing,Falcon 9 Block 5 | Transporter 5 (Dedicated SSO Rideshare) booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,5,19,1R.BCHH2;1R.BCHH3;1R.S39A1;1R.S39A2;1R.S39A3,1R
+ksc-071d747bcd44,2022-06-06T04:10:00Z,rollout,Artemis I rollout 2 (WDR),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-c33f4eba5f00,2022-06-08T21:04:00Z,orbital_launch,Falcon 9 Block 5 | F9-157 Nilesat-301,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-ce35156ac693,2022-06-12T17:43:00Z,orbital_launch,Rocket 3.3 | LV0010,Astra,LC46,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-84767f4b69e3,2022-06-17T16:08:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-19,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-c5c6011f556e,2022-06-19T04:27:36Z,orbital_launch,Falcon 9 Block 5 | F9-160,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
+ksc-8e442c72e711,2022-06-20T20:30:00Z,wet_dress_rehearsal,Artemis I SLS Wet Dress Rehearsal,SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-c9ea9563b00b,2022-06-29T21:04:00Z,orbital_launch,Falcon 9 Block 5 | F9-161,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
+ksc-2005bc0ebd26,2022-06-30T23:35:09Z,scrub,Atlas V 541 | USSF-12 scrub,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-85279473c81d,2022-07-01T23:15:00Z,orbital_launch,Atlas V 541 | AV-094,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
+ksc-eaebddaafb2a,2022-07-02T08:12:00Z,rollback,Artemis I rollback 2 (post-WDR),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-d570437824f8,2022-07-07T13:11:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-21,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-022303d013c5,2022-07-15T00:44:22Z,orbital_launch,Falcon 9 Block 5 | F9-164,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-cdabd3f6be1c,2022-07-17T14:20:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-22,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
@@ -199,25 +359,43 @@ ksc-7e3f36c8ba33,2022-07-24T13:38:20Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-97ed12ae30a2,2022-08-04T10:29:00Z,orbital_launch,Atlas V 421 | AV-097,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-dd71ea21cd24,2022-08-04T23:08:48Z,orbital_launch,Falcon 9 Block 5 | F9-168,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-1daa1f92047c,2022-08-10T02:14:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-26,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
+ksc-9befa667e132,2022-08-17T01:55:00Z,rollout,Artemis I rollout 3 (launch campaign),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-86014f22e840,2022-08-19T19:21:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-27,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
+ksc-7bb47cb5d792,2022-08-20T18:53:00Z,reentry_sonic_boom,SpaceX CRS-25 splashdown,Cargo Dragon C211,Unknown,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-699302f186a9,2022-08-28T03:41:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-23,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
+ksc-a7163dbc2aa4,2022-08-29T12:34:00Z,scrub,Artemis I,SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
+ksc-3b154022bfd8,2022-09-03T15:17:00Z,scrub,Artemis I,SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-307e90e5c27b,2022-09-05T02:09:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-20,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-875e884ee56e,2022-09-11T01:20:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-2,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
+ksc-03bdfa31952e,2022-09-14T01:30:00Z,scrub,Starlink 4-34,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
+ksc-a23c68ed3f0b,2022-09-16T00:00:00Z,scrub,Starlink 4-34,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
+ksc-a4c768c3d466,2022-09-17T01:05:00Z,scrub,Starlink 4-34,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-5f83851332fb,2022-09-19T00:18:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-34,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,22,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E,1R;AM
+ksc-7483ab3dc723,2022-09-21T11:15:00Z,ground_test,Artemis I Tanking Test,SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-c7f20e13c525,2022-09-24T23:32:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-35,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,22,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E,1R;AM
+ksc-a625e4ffb3bb,2022-09-27T03:21:00Z,rollback,Artemis I rollback 3 (Hurricane Ian),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
+ksc-a2c7af64533c,2022-10-02T00:00:00Z,static_fire,Falcon 9 static fire for Crew-5,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-6ac1384fc0a4,2022-10-04T21:36:00Z,orbital_launch,Atlas V 531 | AV-099,Atlas V,LC41,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-09e69a8c55ca,2022-10-05T16:00:57Z,orbital_launch,Falcon 9 Block 5 | F9-178,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
+ksc-51ba07427514,2022-10-06T23:31:42Z,scrub,Falcon 9 Block 5 | Galaxy 33 & 34 scrub,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
+ksc-97221ec184c0,2022-10-07T22:12:52Z,scrub,Falcon 9 Block 5 | Galaxy 33 & 34 scrub,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-891f4b47f867,2022-10-08T23:05:00Z,orbital_launch,Falcon 9 Block 5 | F9-180,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
+ksc-468ac26796e8,2022-10-14T20:55:27Z,reentry_sonic_boom,SpaceX Crew-4 splashdown,SpaceX Crew-4 Crew Dragon Splashdown,Unknown,/Volumes/classdata/remastered/SDS_KSC,5,22,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E,1R;AM
 ksc-7558b85b3070,2022-10-15T05:22:00Z,orbital_launch,Falcon 9 Block 5 | F9-181,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-124f9bd6bb36,2022-10-20T14:50:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 4-36,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
+ksc-ae9042094c3d,2022-10-28T00:00:00Z,static_fire,Falcon Heavy static fire for USSF-44,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,5,22,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E,1R;AM
 ksc-1e56e88ae668,2022-11-01T13:41:00Z,orbital_launch,Falcon Heavy | FH-004,Falcon Heavy,LC39A,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-69ada0550a6f,2022-11-01T13:48:46Z,booster_landing,"Falcon Heavy | USSF-44 booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-d00be2a4706c,2022-11-03T05:22:00Z,orbital_launch,Falcon 9 Block 5 | F9-184,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
+ksc-590517b61f7e,2022-11-04T03:17:00Z,rollout,Artemis I rollout 4 (launched Nov 16),SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,6,23,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304,1R;AM
 ksc-51877e99fc4f,2022-11-12T05:22:00Z,booster_landing,X37-B USSF Orbital Test Vehicle,X-37B,SLF,/Volumes/classdata/remastered/SDS_KSC,6,22,1R.BCHH2;1R.BCHH4;1R.S39A1;AM.R1E5E;AM.RC304;XA.MTEGL,1R;AM;XA
+ksc-428b9cb48071,2022-11-12T10:22:00Z,reentry_sonic_boom,X-37B OTV-6 landing,X-37B,SLF,/Volumes/classdata/remastered/SDS_KSC,6,22,1R.BCHH2;1R.BCHH4;1R.S39A1;AM.R1E5E;AM.RC304;XA.MTEGL,1R;AM;XA
 ksc-30281c4d703e,2022-11-12T16:06:00Z,orbital_launch,Falcon 9 Block 5 | F9-185,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,6,22,1R.BCHH2;1R.BCHH4;1R.S39A1;AM.R1E5E;AM.RC304;XA.MTEGL,1R;AM;XA
 ksc-893bace1e8c8,2022-11-16T06:47:44Z,orbital_launch,SLS Block 1 | Artemis 1 ,SLS,LC39B,/Volumes/classdata/remastered/SDS_KSC,7,26,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.R1E5E;AM.RC304;XA.MTEGL,1R;AM;XA
+ksc-35741e6bd872,2022-11-22T20:54:00Z,scrub,CRS-26 (Cargo Dragon),Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
 ksc-5f5d4f21bfa5,2022-11-23T02:57:00Z,orbital_launch,Falcon 9 Block 5 | F9-186,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,5,20,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2;AM.RC304,1R;AM
 ksc-1fd9117d10d8,2022-11-26T19:20:43Z,orbital_launch,Falcon 9 Block 5 | F9-187,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,4,19,1R.BCHH2;1R.BCHH4;1R.S39A1;1R.S39A2,1R
+ksc-120adb34804e,2022-12-08T11:40:00Z,crawler_move,ML-1 returns to VAB after Artemis I launch,ML-1 on CT-2,LC39B,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-082941b19618,2022-12-08T22:27:48Z,orbital_launch,Falcon 9 Block 5 | OneWeb 15,Falcon 9,LC39A,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-aa626747d4a1,2022-12-08T22:35:34Z,booster_landing,Falcon 9 Block 5 | OneWeb 15 booster landing (LZ-1),Falcon 9,LZ1,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-d63541dc352e,2022-12-11T07:38:13Z,orbital_launch,Falcon 9 Block 5 | Hakuto-R M1 & Lunar Flashlight,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
@@ -227,8 +405,10 @@ ksc-49c4df544f7e,2022-12-17T21:32:30Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-6b9aa008c410,2022-12-28T09:34:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-1,Falcon 9,LC40,/Volumes/classdata/remastered/SDS_KSC,0,0,,
 ksc-55b8c2d72250,2023-01-03T14:55:56Z,orbital_launch,Falcon 9 Block 5 | Transporter 6 (Dedicated SSO Rideshare),Falcon 9,LC40,,0,0,,
 ksc-39145fb4f011,2023-01-03T15:03:42Z,booster_landing,Falcon 9 Block 5 | Transporter 6 (Dedicated SSO Rideshare) booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-277811bd21a7,2023-01-10T00:00:00Z,static_fire,Falcon Heavy static fire for USSF-67,Falcon Heavy,LC39A,,0,0,,
 ksc-5b3c90a73d8e,2023-01-10T04:50:17Z,orbital_launch,Falcon 9 Block 5 | OneWeb 16,Falcon 9,LC40,,0,0,,
 ksc-dae81500a810,2023-01-10T04:58:03Z,booster_landing,Falcon 9 Block 5 | OneWeb 16 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-f82f9cd73858,2023-01-11T10:19:00Z,reentry_sonic_boom,SpaceX CRS-26 splashdown,Cargo Dragon C211,Unknown,,0,0,,
 ksc-a30936fb9874,2023-01-15T22:56:00Z,orbital_launch,Falcon Heavy | USSF-67,Falcon Heavy,LC39A,,0,0,,
 ksc-50fc97580e0b,2023-01-15T23:03:46Z,booster_landing,"Falcon Heavy | USSF-67 booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,,0,0,,
 ksc-3ff8faadf9ee,2023-01-18T12:24:00Z,orbital_launch,Falcon 9 Block 5 | GPS III SV06,Falcon 9,LC40,,0,0,,
@@ -237,43 +417,62 @@ ksc-3d2a23fc0a7d,2023-02-02T07:58:20Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-f47e1c91f2f5,2023-02-07T01:32:00Z,orbital_launch,Falcon 9 Block 5 | Amazonas Nexus,Falcon 9,LC40,,0,0,,
 ksc-3e24c0f30457,2023-02-12T05:10:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-4,Falcon 9,LC40,,0,0,,
 ksc-78d23cca3a6b,2023-02-18T03:59:00Z,orbital_launch,Falcon 9 Block 5 | Inmarsat-6 F2,Falcon 9,LC40,,0,0,,
+ksc-aace86966ec0,2023-02-24T00:00:00Z,static_fire,Falcon 9 static fire for Crew-6,Falcon 9,LC39A,,0,0,,
+ksc-55896dd2535b,2023-02-27T06:42:46Z,scrub,Crew-6,Falcon 9,LC39A,,0,0,,
 ksc-0bc4039a0005,2023-02-27T23:13:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-1,Falcon 9,LC40,,0,0,,
 ksc-519a8e185eaf,2023-03-02T05:34:14Z,orbital_launch,Falcon 9 Block 5 | Crew-6,Falcon 9,LC39A,,0,0,,
+ksc-eb949f5bf388,2023-03-08T20:23:05Z,scrub,"Terran 1 | Good Luck, Have Fun (Maiden Flight) scrub",Terran 1,LC16,,0,0,,
 ksc-b5e05e440900,2023-03-09T19:13:28Z,orbital_launch,Falcon 9 Block 5 | OneWeb 17,Falcon 9,LC40,,0,0,,
 ksc-7804c896ad8c,2023-03-09T19:21:14Z,booster_landing,Falcon 9 Block 5 | OneWeb 17 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-0efb08b13267,2023-03-11T21:01:06Z,scrub,"Terran 1 | Good Luck, Have Fun (Maiden Flight) scrub",Terran 1,LC16,,0,0,,
+ksc-1b693710b187,2023-03-12T02:02:00Z,reentry_sonic_boom,SpaceX Crew-5 splashdown,SpaceX Crew-5 Crew Dragon Splashdown,Unknown,,0,0,,
 ksc-2ce2e370f06b,2023-03-15T00:30:42Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-27,Falcon 9,LC39A,,0,0,,
 ksc-0c09c07b1349,2023-03-17T23:38:00Z,orbital_launch,Falcon 9 Block 5 | SES-18 & SES-19,Falcon 9,LC40,,0,0,,
 ksc-fe080a37918b,2023-03-23T03:25:00Z,launch_failure,"Terran 1 | Good Luck, Have Fun (Maiden Flight)",Terran 1,LC16,,0,0,,
 ksc-804d7fae5442,2023-03-24T15:43:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-5,Falcon 9,LC40,,0,0,,
 ksc-25ed1956fdde,2023-03-29T20:01:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-10,Falcon 9,LC40,,0,0,,
 ksc-e5ebe1a63655,2023-04-07T04:30:00Z,orbital_launch,Falcon 9 Block 5 | Intelsat 40e,Falcon 9,LC40,,0,0,,
+ksc-996e532cf383,2023-04-13T16:00:00Z,static_fire,Falcon Heavy static fire for ViaSat-3 Americas,Falcon Heavy,LC39A,,0,0,,
+ksc-8e20f9514522,2023-04-15T20:58:00Z,reentry_sonic_boom,SpaceX CRS-27 splashdown,Cargo Dragon C209,Unknown,,0,0,,
 ksc-e82c3fc7b5ac,2023-04-19T14:31:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-2,Falcon 9,LC40,,0,0,,
+ksc-bab033d88864,2023-04-27T23:29:00Z,scrub,ViaSat-3 Americas,Falcon Heavy,LC39A,,0,0,,
 ksc-a369cf38e3fe,2023-04-28T22:12:00Z,orbital_launch,Falcon 9 Block 5 | O3b mPower 3 & 4,Falcon 9,LC40,,0,0,,
+ksc-35524a42edc8,2023-04-29T00:25:01Z,scrub,ViaSat-3 Americas,Falcon Heavy,LC39A,,0,0,,
 ksc-1db4c0050374,2023-05-01T00:26:00Z,orbital_launch,Falcon Heavy | ViaSat-3 F1 (ViaSat-3 Americas) & others,Falcon Heavy,LC39A,,0,0,,
 ksc-414324f84961,2023-05-04T07:31:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-6,Falcon 9,LC40,,0,0,,
 ksc-4672f6dc0b69,2023-05-14T05:03:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-9,Falcon 9,LC40,,0,0,,
 ksc-f149a2e4fc01,2023-05-19T06:19:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-3,Falcon 9,LC40,,0,0,,
 ksc-e53f2b327827,2023-05-21T21:37:09Z,orbital_launch,Falcon 9 Block 5 | Axiom Space Mission 2,Falcon 9,LC39A,,0,0,,
 ksc-1d761c01097e,2023-05-21T21:44:55Z,booster_landing,Falcon 9 Block 5 | Axiom Space Mission 2 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-a8801202a82a,2023-05-24T05:22:52Z,scrub,Falcon 9 Block 5 | BADR-8 scrub,Falcon 9,LC40,,0,0,,
 ksc-3065b717930e,2023-05-27T04:30:00Z,orbital_launch,Falcon 9 Block 5 | BADR-8,Falcon 9,LC40,,0,0,,
+ksc-0580a88d7219,2023-05-31T03:04:00Z,reentry_sonic_boom,Axiom Mission 2 (Ax-2) splashdown,SpaceX AX-2 Crew Dragon Splashdown,Unknown,,0,0,,
 ksc-c6824e0d089f,2023-06-04T12:20:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-4,Falcon 9,LC40,,0,0,,
 ksc-ebae50bcd783,2023-06-05T15:47:00Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-28,Falcon 9,LC39A,,0,0,,
 ksc-041cde0fd575,2023-06-08T01:05:00Z,static_fire,Vulcan Cert-1 Flight Readiness Firing (FRF),Vulcan,LC41,,0,0,,
 ksc-62d8f25afcf8,2023-06-12T07:10:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-11,Falcon 9,LC40,,0,0,,
+ksc-1610c8c02599,2023-06-15T00:00:00Z,suborbital_launch,FCET | -    (189s) | - | -,Trident D-5,ETR,,0,0,,
+ksc-250e98bf5c10,2023-06-15T00:00:00Z,suborbital_launch,FCET | -    (190s) | - | -,Trident D-5,ETR,,0,0,,
 ksc-57d8ea60e6a9,2023-06-18T22:21:00Z,orbital_launch,Falcon 9 Block 5 | Satria-1,Falcon 9,LC40,,0,0,,
+ksc-b1ae4074e3ad,2023-06-21T05:40:42Z,scrub,Delta IV Heavy | NROL-68 scrub,Delta IV Heavy,LC37B,,0,0,,
 ksc-99cbecf1bdb6,2023-06-22T09:18:00Z,orbital_launch,Delta IV Heavy | NROL-68,Delta IV Heavy,LC37B,,0,0,,
 ksc-a0d09b974f16,2023-06-23T15:35:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-12,Falcon 9,LC40,,0,0,,
+ksc-648297d8e5d5,2023-06-30T14:30:00Z,reentry_sonic_boom,SpaceX CRS-28 splashdown,Cargo Dragon C208,Unknown,,0,0,,
 ksc-f77ea189a394,2023-07-01T15:12:00Z,orbital_launch,Falcon 9 Block 5 | Euclid,Falcon 9,LC40,,0,0,,
 ksc-b24cf04e3e83,2023-07-10T03:58:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-5,Falcon 9,LC40,,0,0,,
+ksc-c90c792c8e77,2023-07-14T04:39:20Z,scrub,Starlink 5-15,Falcon 9,LC40,,0,0,,
 ksc-72c3ebfdd194,2023-07-15T04:50:00Z,static_fire,F9 B1060 Static Fire,Falcon 9,LC40,,0,0,,
 ksc-5c0e0b3ddcdb,2023-07-16T03:50:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 5-15,Falcon 9,LC40,,0,0,,
+ksc-21020fa8f72c,2023-07-23T02:53:43Z,scrub,Falcon 9 Block 5 | Starlink Group 6-6 scrub,Falcon 9,LC40,,0,0,,
 ksc-57c4bcd9cc5b,2023-07-24T00:50:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-6,Falcon 9,LC40,,0,0,,
+ksc-81a498a8acc2,2023-07-27T03:08:37Z,scrub,Falcon Heavy | EchoStar 24/Jupiter-3 scrub,Falcon Heavy,LC39A,,0,0,,
 ksc-d4922eb95b72,2023-07-28T04:01:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-7,Falcon 9,LC40,,0,0,,
 ksc-2ee568f23034,2023-07-29T03:04:00Z,orbital_launch,Falcon Heavy | EchoStar 24/Jupiter-3,Falcon Heavy,LC39A,,0,0,,
 ksc-6e639c45099e,2023-07-29T03:11:46Z,booster_landing,"Falcon Heavy | EchoStar 24/Jupiter-3 booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,,0,0,,
 ksc-2d2f620efcc7,2023-08-03T05:00:00Z,orbital_launch,Falcon 9 Block 5 | Galaxy 37,Falcon 9,LC40,,0,0,,
 ksc-05034c547740,2023-08-07T02:41:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-8,Falcon 9,LC40,,0,0,,
 ksc-f8b45fa2a8ed,2023-08-11T05:17:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-9,Falcon 9,LC40,,0,0,,
+ksc-4b5dfa57648f,2023-08-16T12:27:00Z,crawler_move,ML-1 to LC-39B for Artemis II upgrades/tests,ML-1 on CT-2,LC39B,,0,0,,
 ksc-daeefaf20c2a,2023-08-17T03:36:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-10,Falcon 9,LC40,,0,0,,
 ksc-7e599eb303da,2023-08-22T12:19:00Z,static_fire,Crew-7 Falcon 9 Static Fire Test,Falcon 9,LC39A,,0,0,,
 ksc-7d4406b493af,2023-08-26T07:27:27Z,orbital_launch,Falcon 9 Block 5 | Crew-7,Falcon 9,LC39A,,0,0,,
@@ -281,7 +480,9 @@ ksc-55b4cae1941e,2023-08-26T07:35:13Z,booster_landing,Falcon 9 Block 5 | Crew-7 
 ksc-8d6f2fba1744,2023-08-27T01:05:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-11,Falcon 9,LC40,,0,0,,
 ksc-c8375e3f129e,2023-09-01T02:21:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-13,Falcon 9,LC40,,0,0,,
 ksc-a69d2fb4e16f,2023-09-04T02:47:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-12,Falcon 9,LC39A,,0,0,,
+ksc-4280e9ec403b,2023-09-04T04:17:23Z,reentry_sonic_boom,SpaceX Crew-6 splashdown,SpaceX Crew-6 Crew Dragon Splashdown,Unknown,,0,0,,
 ksc-a99faee0d6bb,2023-09-09T03:12:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-14,Falcon 9,LC40,,0,0,,
+ksc-96d61453fa9d,2023-09-09T09:22:43Z,scrub,Atlas V 551 | NROL-107 (Silent Barker) scrub,Atlas V,LC41,,0,0,,
 ksc-d7e101c04974,2023-09-10T12:47:00Z,orbital_launch,Atlas V 551 | NROL-107 (Silent Barker),Atlas V,LC41,,0,0,,
 ksc-d179cbcd72e4,2023-09-16T03:38:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-16,Falcon 9,LC40,,0,0,,
 ksc-7a33befb4a5f,2023-09-20T03:38:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-17,Falcon 9,LC40,,0,0,,
@@ -290,11 +491,13 @@ ksc-c3343308c65b,2023-09-30T02:00:00Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-e8e65a9df9b1,2023-09-30T13:00:00Z,static_fire,Falcon Heavy Static Fire for Psyche,Falcon Heavy,LC39A,,0,0,,
 ksc-d84731230b1a,2023-10-05T05:36:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-21,Falcon 9,LC40,,0,0,,
 ksc-6477082e5325,2023-10-06T18:06:00Z,orbital_launch,Atlas V 501 | Amazon Leo (Project Kuiper) Protoflight Mission,Atlas V,LC41,,0,0,,
+ksc-401583f0cd99,2023-10-09T03:48:56Z,scrub,Falcon 9 Block 5 | Starlink Group 6-22 scrub,Falcon 9,LC40,,0,0,,
 ksc-4dde9247167b,2023-10-13T14:19:43Z,orbital_launch,Falcon Heavy | Psyche,Falcon Heavy,LC39A,,0,0,,
 ksc-354c5f99b116,2023-10-13T14:27:29Z,booster_landing,"Falcon Heavy | Psyche booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,,0,0,,
 ksc-86fb807691a3,2023-10-13T23:01:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-22,Falcon 9,LC40,,0,0,,
 ksc-7249302d7171,2023-10-18T00:39:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-23,Falcon 9,LC40,,0,0,,
 ksc-4412b3129fcf,2023-10-22T02:17:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-24,Falcon 9,LC40,,0,0,,
+ksc-6a15edca6604,2023-10-30T00:22:13Z,scrub,Falcon 9 Block 5 | Starlink Group 6-25 scrub,Falcon 9,LC40,,0,0,,
 ksc-c13e3cfb8775,2023-10-30T23:20:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-25,Falcon 9,LC40,,0,0,,
 ksc-f7b47e58400e,2023-11-04T00:37:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-26,Falcon 9,LC40,,0,0,,
 ksc-12d5f1a24f55,2023-11-08T05:05:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-27,Falcon 9,LC40,,0,0,,
@@ -307,39 +510,56 @@ ksc-4f79e19f28db,2023-11-28T04:20:00Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-fd09a9c4bacc,2023-12-03T04:00:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-31,Falcon 9,LC40,,0,0,,
 ksc-2f8a0bd77458,2023-12-03T17:00:00Z,static_fire,Falcon Heavy Static Fire for USSF-52,Falcon Heavy,LC39A,,0,0,,
 ksc-ddc0b1f4c4a3,2023-12-07T05:07:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-33,Falcon 9,LC40,,0,0,,
+ksc-48b4833e0a48,2023-12-12T00:54:00Z,scrub,USSF-52 (X-37B OTV-7),Falcon Heavy,LC39A,,0,0,,
 ksc-98a4f51158c7,2023-12-19T04:01:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-34,Falcon 9,LC40,,0,0,,
+ksc-b9f8e548a5ba,2023-12-22T17:33:00Z,reentry_sonic_boom,SpaceX CRS-29 splashdown,Cargo Dragon C211,Unknown,,0,0,,
 ksc-e0ea3526ac00,2023-12-23T05:33:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-32,Falcon 9,LC40,,0,0,,
 ksc-04b076ace0b2,2023-12-29T01:07:00Z,orbital_launch,Falcon Heavy | OTV-7 (X-37B) (USSF-52),Falcon Heavy,LC39A,,0,0,,
 ksc-2cecf5439460,2023-12-29T01:14:46Z,booster_landing,"Falcon Heavy | OTV-7 (X-37B) (USSF-52) booster landing (LZ-1, LZ-2)",Falcon Heavy,LZ1,,0,0,,
 ksc-1fe3843290e2,2023-12-29T04:01:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-36,Falcon 9,LC40,,0,0,,
 ksc-eecc560e33eb,2024-01-03T23:04:00Z,orbital_launch,Falcon 9 Block 5 | Ovzon-3,Falcon 9,LC40,,0,0,,
 ksc-6a7e2d0dd59c,2024-01-03T23:11:46Z,booster_landing,Falcon 9 Block 5 | Ovzon-3 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-f502c4b402ba,2024-01-05T16:33:00Z,rollout,Vulcan Cert-1 rollout,Vulcan,LC41,,0,0,,
 ksc-f301091bdb76,2024-01-07T22:35:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-35,Falcon 9,LC40,,0,0,,
 ksc-f8a8a3e95e8f,2024-01-08T07:18:00Z,orbital_launch,Vulcan VC2S | Peregrine lunar lander (Maiden flight),Vulcan,LC41,,0,0,,
+ksc-9b2e0c910b91,2024-01-14T00:47:11Z,scrub,Falcon 9 Block 5 | Starlink Group 6-37 scrub,Falcon 9,LC40,,0,0,,
 ksc-801e4fff9c13,2024-01-15T01:52:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-37,Falcon 9,LC40,,0,0,,
+ksc-23421884681e,2024-01-16T00:00:00Z,static_fire,Falcon 9 static fire for Axiom Mission 3 (Ax-3),Falcon 9,LC39A,,0,0,,
 ksc-a25213e7bd3e,2024-01-18T21:49:11Z,orbital_launch,Falcon 9 Block 5 | Axiom Space Mission 3,Falcon 9,LC39A,,0,0,,
 ksc-14554ead050c,2024-01-18T21:56:51Z,booster_landing,Falcon 9 Block 5 | Axiom Space Mission 3 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-63e53aff140e,2024-01-29T01:10:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-38,Falcon 9,LC39A,,0,0,,
+ksc-1d6f9bc10761,2024-01-30T00:00:00Z,suborbital_launch,DASO-12 | -    - | D5? | -,Trident D-5,ETR,,0,0,,
 ksc-09b83efd1458,2024-01-30T17:07:21Z,orbital_launch,Falcon 9 Block 5 | Cygnus CRS-2 NG-20 (S.S. Patricia “Patty” Hilliard Robertson),Falcon 9,LC40,,0,0,,
 ksc-7495104c90a8,2024-01-30T17:15:36Z,booster_landing,Falcon 9 Block 5 | Cygnus CRS-2 NG-20 (S.S. Patricia “Patty” Hilliard Robertson) booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-64ea1320b018,2024-02-05T13:00:00Z,rollout,NASA EDGE Pace Rollout Show,NASA EDGE Pace Rollout Show,LC40,,0,0,,
+ksc-043fbc9c067b,2024-02-06T03:00:29Z,scrub,"Falcon 9 Block 5 | PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) scrub",Falcon 9,LC40,,0,0,,
 ksc-47deaec8e8cb,2024-02-08T06:33:32Z,orbital_launch,"Falcon 9 Block 5 | PACE (Plankton, Aerosol, Cloud, ocean Ecosystem)",Falcon 9,LC40,,0,0,,
 ksc-2b5b2cf156ab,2024-02-08T06:41:08Z,booster_landing,"Falcon 9 Block 5 | PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) booster landing (LZ-1)",Falcon 9,LZ1,,0,0,,
+ksc-4b1e4638591e,2024-02-09T13:30:00Z,reentry_sonic_boom,Axiom Mission 3 (Ax-3) splashdown,SpaceX AX-3 Crew Dragon Splashdown,Unknown,,0,0,,
+ksc-a981847aa5f1,2024-02-14T05:57:00Z,scrub,IM-1 Odysseus (Nova-C),Falcon 9,LC39A,,0,0,,
 ksc-2e6aa24e16f0,2024-02-14T22:30:00Z,orbital_launch,Falcon 9 Block 5 | USSF-124,Falcon 9,LC40,,0,0,,
 ksc-97a8b735a610,2024-02-14T22:38:01Z,booster_landing,Falcon 9 Block 5 | USSF-124 booster landing (LZ-2),Falcon 9,LZ2,,0,0,,
 ksc-4bea4bb334e4,2024-02-15T06:05:37Z,orbital_launch,Falcon 9 Block 5 | Nova-C IM-1,Falcon 9,LC39A,,0,0,,
 ksc-e0902efe1304,2024-02-15T06:13:11Z,booster_landing,Falcon 9 Block 5 | Nova-C IM-1 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-0f09ea350870,2024-02-20T20:11:00Z,orbital_launch,Falcon 9 Block 5 | HTS-113BT (Merah Putih 2),Falcon 9,LC40,,0,0,,
+ksc-92c9e4b39c12,2024-02-21T00:00:00Z,rollout,New Glenn first pathfinder rollout to LC-36,New Glenn,LC36,,0,0,,
+ksc-e6b6ce09f879,2024-02-25T00:26:58Z,scrub,Falcon 9 Block 5 | Starlink Group 6-39 scrub,Falcon 9,LC40,,0,0,,
 ksc-02b897195fa3,2024-02-25T22:06:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-39,Falcon 9,LC40,,0,0,,
 ksc-48ea79373132,2024-02-29T15:30:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-40,Falcon 9,LC40,,0,0,,
+ksc-4fed4ab7c642,2024-03-03T00:54:49Z,scrub,Falcon 9 Block 5 | Crew-8 scrub,Falcon 9,LC39A,,0,0,,
 ksc-e5014547443e,2024-03-04T03:53:38Z,orbital_launch,Falcon 9 Block 5 | Crew-8,Falcon 9,LC39A,,0,0,,
 ksc-8d584bb36eda,2024-03-04T04:01:16Z,booster_landing,Falcon 9 Block 5 | Crew-8 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-129276e3b971,2024-03-04T23:56:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-41,Falcon 9,LC40,,0,0,,
 ksc-777dc78f2371,2024-03-10T23:05:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-43,Falcon 9,LC40,,0,0,,
+ksc-98d1d7711fc9,2024-03-12T09:47:00Z,reentry_sonic_boom,SpaceX Crew-7 splashdown,SpaceX Crew-7 Crew Dragon Splashdown,Unknown,,0,0,,
+ksc-49dc6d4065b8,2024-03-14T01:46:35Z,scrub,Falcon 9 Block 5 | Starlink Group 6-44 scrub,Falcon 9,LC39A,,0,0,,
+ksc-a686e2590388,2024-03-15T00:01:10Z,scrub,Falcon 9 Block 5 | Starlink Group 6-44 scrub,Falcon 9,LC39A,,0,0,,
 ksc-90a04ff18a1a,2024-03-16T00:21:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-44,Falcon 9,LC39A,,0,0,,
 ksc-c32e3b88012b,2024-03-21T20:55:09Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-30,Falcon 9,LC40,,0,0,,
 ksc-b6876127f077,2024-03-21T21:02:59Z,booster_landing,Falcon 9 Block 5 | Dragon CRS-2 SpX-30 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-d01ed302a3f4,2024-03-24T03:09:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-42,Falcon 9,LC39A,,0,0,,
 ksc-cf29af09769c,2024-03-25T23:42:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-46,Falcon 9,LC40,,0,0,,
+ksc-636fba7a93e7,2024-03-28T17:37:00Z,scrub,NROL-70,Delta IV Heavy,LC37B,,0,0,,
 ksc-6a8307ce00cf,2024-03-30T21:52:00Z,orbital_launch,Falcon 9 Block 5 | Eutelsat 36D,Falcon 9,LC39A,,0,0,,
 ksc-1acc6b60dca2,2024-03-31T01:30:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-45,Falcon 9,LC40,,0,0,,
 ksc-6a1624745885,2024-04-05T09:12:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-47,Falcon 9,LC40,,0,0,,
@@ -348,23 +568,33 @@ ksc-12252f0c39e4,2024-04-07T23:24:29Z,booster_landing,Falcon 9 Block 5 | Bandwag
 ksc-e55ec002ebad,2024-04-09T16:53:00Z,orbital_launch,Delta IV Heavy | NROL-70,Delta IV Heavy,LC37B,,0,0,,
 ksc-da5ab44d7bec,2024-04-10T05:40:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-48,Falcon 9,LC40,,0,0,,
 ksc-02c7cbdbcf08,2024-04-13T01:40:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-49,Falcon 9,LC40,,0,0,,
+ksc-0327074b3182,2024-04-16T09:00:00Z,rollout,Starliner CFT spacecraft transport to SLC-41,Boeing Starliner (road transporter),LC41,,0,0,,
 ksc-4444b56135b1,2024-04-17T21:26:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-51,Falcon 9,LC39A,,0,0,,
 ksc-7ee4ab7ef719,2024-04-18T22:40:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-52,Falcon 9,LC40,,0,0,,
 ksc-bb32c2565365,2024-04-23T22:17:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-53,Falcon 9,LC40,,0,0,,
 ksc-bcea5b0b066f,2024-04-28T00:34:00Z,orbital_launch,Falcon 9 Block 5 | Galileo L12 (FOC FM25 & FM27),Falcon 9,LC39A,,0,0,,
 ksc-a287f082c9e4,2024-04-28T22:08:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-54,Falcon 9,LC40,,0,0,,
+ksc-8d17c94bcde8,2024-04-30T05:38:00Z,reentry_sonic_boom,SpaceX CRS-30 splashdown,Cargo Dragon C209,Unknown,,0,0,,
 ksc-c5aeea4c6397,2024-05-03T02:37:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-55,Falcon 9,LC40,,0,0,,
+ksc-112959683c6e,2024-05-04T14:00:00Z,rollout,Atlas V Rollout for Starliner Crewed Flight Test,Atlas V,LC41,,0,0,,
 ksc-9b1155a7e0b0,2024-05-06T18:14:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-57,Falcon 9,LC40,,0,0,,
+ksc-0e99230b2289,2024-05-07T00:34:00Z,scrub,Boeing Starliner CFT,Atlas V,LC41,,0,0,,
 ksc-2f38232646be,2024-05-08T18:42:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-56,Falcon 9,LC39A,,0,0,,
 ksc-196404a1f9f2,2024-05-13T00:53:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-58,Falcon 9,LC40,,0,0,,
 ksc-8335f3094341,2024-05-18T00:32:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-59,Falcon 9,LC40,,0,0,,
 ksc-0eed13fadc14,2024-05-23T02:35:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-62,Falcon 9,LC40,,0,0,,
 ksc-f66e8d28ed13,2024-05-24T02:45:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-63,Falcon 9,LC39A,,0,0,,
+ksc-f3f76e026add,2024-05-27T14:47:12Z,scrub,Falcon 9 Block 5 | Starlink Group 6-60 scrub,Falcon 9,LC40,,0,0,,
 ksc-cc1791803f5b,2024-05-28T14:24:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-60,Falcon 9,LC40,,0,0,,
 ksc-54ff34b3412c,2024-06-01T02:37:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-64,Falcon 9,LC40,,0,0,,
+ksc-09f351351ba4,2024-06-01T16:21:10Z,scrub,Boeing Starliner CFT,Atlas V,LC41,,0,0,,
 ksc-fabf644a0d93,2024-06-05T02:16:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-5,Falcon 9,LC40,,0,0,,
 ksc-e2eb62dbafcb,2024-06-05T14:52:15Z,orbital_launch,Atlas V N22 | CST-100 Starliner Crewed Flight Test,Atlas V,LC41,,0,0,,
 ksc-e843f2f8c504,2024-06-08T01:56:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-1,Falcon 9,LC40,,0,0,,
+ksc-d36967298514,2024-06-12T00:00:00Z,scrub,Starlink 10-2,Falcon 9,LC40,,0,0,,
+ksc-9cfac14aebae,2024-06-13T20:46:00Z,scrub,Starlink 10-2,Falcon 9,LC40,,0,0,,
+ksc-05c1ff0c852d,2024-06-14T21:40:00Z,pad_abort,Starlink 10-2,Falcon 9,LC40,,0,0,,
+ksc-18ac701eea5d,2024-06-19T00:21:09Z,scrub,Falcon 9 Block 5 | Astra 1P/SES-24 scrub,Falcon 9,LC40,,0,0,,
 ksc-3c48e3a0289d,2024-06-20T21:35:00Z,orbital_launch,Falcon 9 Block 5 | Astra 1P/SES-24,Falcon 9,LC40,,0,0,,
 ksc-264d8d9b6910,2024-06-23T17:15:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-2,Falcon 9,LC40,,0,0,,
 ksc-1353fb195df6,2024-06-25T21:26:00Z,orbital_launch,Falcon Heavy | GOES-U,Falcon Heavy,LC39A,,0,0,,
@@ -372,13 +602,16 @@ ksc-251eec4cf334,2024-06-25T21:34:11Z,booster_landing,"Falcon Heavy | GOES-U boo
 ksc-11e96edb8267,2024-06-27T11:14:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-3,Falcon 9,LC40,,0,0,,
 ksc-4fe266ccd5de,2024-07-03T08:55:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-9,Falcon 9,LC40,,0,0,,
 ksc-8a8a8cdbb31e,2024-07-08T23:30:00Z,orbital_launch,Falcon 9 Block 5 | Türksat 6A,Falcon 9,LC40,,0,0,,
+ksc-701a956f1100,2024-07-25T04:00:00Z,static_fire,Falcon 9 static fire for Starlink 10-4 (return to flight),Falcon 9,LC40,,0,0,,
 ksc-09dbe022192e,2024-07-27T05:45:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-9,Falcon 9,LC39A,,0,0,,
 ksc-258ce75fc30a,2024-07-28T05:09:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-4,Falcon 9,LC40,,0,0,,
 ksc-c26cbb2697b3,2024-07-30T10:45:00Z,orbital_launch,Atlas V 551 | USSF-51,Atlas V,LC41,,0,0,,
 ksc-61f10ef22910,2024-08-02T05:01:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-6,Falcon 9,LC39A,,0,0,,
 ksc-287aa2963bd2,2024-08-04T15:02:53Z,orbital_launch,Falcon 9 Block 5 | Cygnus CRS-2 NG-21 (S.S. Francis R. “Dick” Scobee),Falcon 9,LC40,,0,0,,
 ksc-64faaabf67e9,2024-08-04T15:10:24Z,booster_landing,Falcon 9 Block 5 | Cygnus CRS-2 NG-21 (S.S. Francis R. “Dick” Scobee) booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-d40960fdd451,2024-08-09T15:55:19Z,scrub,Falcon 9 Block 5 | Starlink Group 8-3 scrub,Falcon 9,LC40,,0,0,,
 ksc-f6402f456102,2024-08-10T12:50:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-3,Falcon 9,LC40,,0,0,,
+ksc-2e6b1abd44c7,2024-08-11T15:01:08Z,scrub,Falcon 9 Block 5 | Starlink Group 10-7 scrub,Falcon 9,LC39A,,0,0,,
 ksc-50d94a6ce682,2024-08-12T10:37:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-7,Falcon 9,LC39A,,0,0,,
 ksc-927193684a13,2024-08-15T13:00:00Z,orbital_launch,Falcon 9 Block 5 | WorldView Legion 3 & 4,Falcon 9,LC40,,0,0,,
 ksc-75e0b339038e,2024-08-15T13:07:48Z,booster_landing,Falcon 9 Block 5 | WorldView Legion 3 & 4 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
@@ -386,30 +619,41 @@ ksc-a844068bbf7e,2024-08-20T13:20:00Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-d33baab80e93,2024-08-25T10:38:00Z,static_fire,Polaris Dawn Falcon 9 Static Fire Test,Falcon 9,LC39A,,0,0,,
 ksc-894a33a928c6,2024-08-28T07:48:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-6,Falcon 9,LC40,,0,0,,
 ksc-4e94047c2cbb,2024-08-31T07:43:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-10,Falcon 9,LC40,,0,0,,
+ksc-9b9a61bf1985,2024-09-04T16:07:00Z,scrub,Falcon 9 Block 5 | Starlink Group 8-11 scrub,Falcon 9,LC40,,0,0,,
 ksc-afdf774df2e0,2024-09-05T15:33:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-11,Falcon 9,LC40,,0,0,,
 ksc-e5122dae3b87,2024-09-10T09:23:49Z,orbital_launch,Falcon 9 Block 5 | Polaris Dawn,Falcon 9,LC39A,,0,0,,
 ksc-041a7b9fdf49,2024-09-12T08:52:00Z,orbital_launch,Falcon 9 Block 5 | BlueBird Block 1,Falcon 9,LC40,,0,0,,
 ksc-0b913287c6d9,2024-09-12T08:59:32Z,booster_landing,Falcon 9 Block 5 | BlueBird Block 1 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-c6b1e1b44b3d,2024-09-15T07:36:54Z,reentry_sonic_boom,Polaris Dawn splashdown,Polaris Dawn Crew Dragon Splashdown,Unknown,,0,0,,
 ksc-44c83188adec,2024-09-17T22:50:00Z,orbital_launch,Falcon 9 Block 5 | Galileo L13 (FOC FM26 & FM32),Falcon 9,LC40,,0,0,,
+ksc-c967635c2759,2024-09-24T00:00:00Z,static_fire,Falcon 9 static fire for Crew-9,Falcon 9,LC40,,0,0,,
 ksc-bb2eaa7c9d05,2024-09-28T17:17:20Z,orbital_launch,Falcon 9 Block 5 | Crew-9,Falcon 9,LC40,,0,0,,
 ksc-39ec8e252369,2024-09-28T17:25:00Z,booster_landing,Falcon 9 Block 5 | Crew-9 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-6ef0a4633dc8,2024-09-30T14:27:00Z,rollout,Vulcan Cert-2 rollout,Vulcan,LC41,,0,0,,
+ksc-7a7d72c03132,2024-10-03T04:09:00Z,crawler_move,ML-1 returns to VAB for Artemis II stacking,ML-1 on CT-2,LC39B,,0,0,,
 ksc-9209a5355598,2024-10-04T11:25:00Z,orbital_launch,Vulcan VC2S | Certification Flight 2,Vulcan,LC41,,0,0,,
 ksc-ec51bed934c4,2024-10-07T14:52:00Z,orbital_launch,Falcon 9 Block 5 | Hera,Falcon 9,LC40,,0,0,,
 ksc-7b5a5b60f402,2024-10-14T16:06:00Z,orbital_launch,Falcon Heavy | Europa Clipper,Falcon Heavy,LC39A,,0,0,,
 ksc-0444783cb2ef,2024-10-15T06:10:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-10,Falcon 9,LC40,,0,0,,
 ksc-9d8d5f489a39,2024-10-18T23:31:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 8-19,Falcon 9,LC40,,0,0,,
+ksc-c524003f684e,2024-10-23T00:23:00Z,scrub,Falcon 9 Block 5 | Starlink Group 6-61 scrub,Falcon 9,LC40,,0,0,,
 ksc-a9c7b4489e34,2024-10-23T21:47:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-61,Falcon 9,LC40,,0,0,,
+ksc-e01f9b943332,2024-10-25T07:29:02Z,reentry_sonic_boom,SpaceX Crew-8 splashdown,SpaceX Crew-8 Crew Dragon Splashdown,Unknown,,0,0,,
 ksc-cb0087d3ecdc,2024-10-26T21:47:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-8,Falcon 9,LC40,,0,0,,
 ksc-c55f7eedbd6f,2024-10-30T21:10:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-13,Falcon 9,LC40,,0,0,,
+ksc-38bf256420e3,2024-11-03T21:56:00Z,scrub,Falcon 9 Block 5 | Starlink Group 6-77 scrub,Falcon 9,LC40,,0,0,,
 ksc-ebdeb92a8acd,2024-11-05T02:29:30Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-31,Falcon 9,LC39A,,0,0,,
 ksc-665fc0f2b4a4,2024-11-05T02:37:20Z,booster_landing,Falcon 9 Block 5 | Dragon CRS-2 SpX-31 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
+ksc-e7e0cab480e1,2024-11-07T00:11:00Z,scrub,Falcon 9 Block 5 | Starlink Group 6-77 scrub,Falcon 9,LC40,,0,0,,
 ksc-93133dff76c1,2024-11-07T20:19:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-77,Falcon 9,LC40,,0,0,,
+ksc-d3cabdc0c3bf,2024-11-11T00:02:00Z,scrub,Falcon 9 Block 5 | Starlink Group 6-69 scrub,Falcon 9,LC40,,0,0,,
 ksc-bec0b82d2b93,2024-11-11T17:22:00Z,orbital_launch,Falcon 9 Block 5 | Koreasat 6A,Falcon 9,LC39A,,0,0,,
 ksc-4c68797d6eb3,2024-11-11T17:30:04Z,booster_landing,Falcon 9 Block 5 | Koreasat 6A booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-59dcf6248bc8,2024-11-11T21:28:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-69,Falcon 9,LC40,,0,0,,
 ksc-fa000dfbb5bf,2024-11-14T13:21:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-68,Falcon 9,LC40,,0,0,,
 ksc-d3001c2fcff2,2024-11-17T22:28:00Z,orbital_launch,Falcon 9 Block 5 | Optus-X/TD7,Falcon 9,LC39A,,0,0,,
 ksc-972f9cb07267,2024-11-18T18:31:00Z,orbital_launch,Falcon 9 Block 5 | GSAT-20 (GSAT-N2),Falcon 9,LC40,,0,0,,
+ksc-57d5d2ce7c5a,2024-11-21T00:00:00Z,rollout,New Glenn NG-1 rollout,New Glenn,LC36,,0,0,,
 ksc-47b00924ecd8,2024-11-21T16:07:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-66,Falcon 9,LC40,,0,0,,
 ksc-b11d8ba94c57,2024-11-25T10:02:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-1,Falcon 9,LC40,,0,0,,
 ksc-ca6ef330bf33,2024-11-27T04:41:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-76,Falcon 9,LC39A,,0,0,,
@@ -417,21 +661,29 @@ ksc-c9602fe25f8f,2024-11-30T05:00:00Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-5b72ee1334d6,2024-12-04T10:13:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-70,Falcon 9,LC40,,0,0,,
 ksc-26c18cd6d22b,2024-12-05T16:10:00Z,orbital_launch,Falcon 9 Block 5 | Sirius SXM-9,Falcon 9,LC39A,,0,0,,
 ksc-2157e584bc0c,2024-12-08T05:12:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-5,Falcon 9,LC40,,0,0,,
+ksc-bd27a63b06c5,2024-12-12T16:30:00Z,suborbital_launch,3 | LRHW AUR JFC-2R3 | Dark Eagle | -,LRHW (hypersonic),LC46,,0,0,,
+ksc-75a33c4ecce3,2024-12-14T00:50:00Z,scrub,Falcon 9 Block 5 | GPS III SV07 (RRT-1) scrub,Falcon 9,LC40,,0,0,,
 ksc-409448c5405a,2024-12-17T00:52:00Z,orbital_launch,Falcon 9 Block 5 | GPS III SV07 (RRT-1),Falcon 9,LC40,,0,0,,
+ksc-1055dc5ec14d,2024-12-17T18:39:30Z,reentry_sonic_boom,SpaceX CRS-31 splashdown,Cargo Dragon C208,Unknown,,0,0,,
 ksc-747c42a57129,2024-12-17T22:26:00Z,orbital_launch,Falcon 9 Block 5 | O3b mPower 7 & 8,Falcon 9,LC39A,,0,0,,
+ksc-218ca2772ce7,2024-12-21T05:00:00Z,pad_abort,Astranis 'From One to Many' (4 MicroGEO),Falcon 9,LC40,,0,0,,
 ksc-48eaa6c16d77,2024-12-23T05:35:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-2,Falcon 9,LC39A,,0,0,,
+ksc-46a848df31fa,2024-12-27T00:00:00Z,static_fire,New Glenn static fire for NG-1,New Glenn,LC36,,0,0,,
 ksc-be65ca81e250,2024-12-29T05:00:00Z,orbital_launch,Falcon 9 Block 5 | Astranis: From One to Many (4x Astranis MicroGEO),Falcon 9,LC40,,0,0,,
+ksc-f267e51e8a4a,2024-12-29T23:20:00Z,scrub,Falcon 9 Block 5 | Starlink Group 12-6 scrub,Falcon 9,LC39A,,0,0,,
 ksc-803470d1517f,2024-12-31T05:39:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-6,Falcon 9,LC39A,,0,0,,
 ksc-ff86e88bc487,2025-01-04T01:27:00Z,orbital_launch,Falcon 9 Block 5 | Thuraya 4-NGS,Falcon 9,LC40,,0,0,,
 ksc-186aebc5a926,2025-01-06T20:43:59Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-71,Falcon 9,LC40,,0,0,,
 ksc-4a657a7cef2d,2025-01-08T15:27:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-11,Falcon 9,LC39A,,0,0,,
 ksc-a4d543044a90,2025-01-10T19:11:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-12,Falcon 9,LC40,,0,0,,
+ksc-a1ef0d3ea582,2025-01-13T08:20:00Z,scrub,NG-1 (Blue Ring Pathfinder),New Glenn,LC36,,0,0,,
 ksc-29c880e6c86f,2025-01-13T16:47:09Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-4,Falcon 9,LC40,,0,0,,
 ksc-efba5edbf063,2025-01-15T06:11:00Z,orbital_launch,Falcon 9 Block 5 | Blue Ghost Lunar Lander Mission 1 & Hakuto-R M2 “Resilience”,Falcon 9,LC39A,,0,0,,
 ksc-be7f9b0ec7a2,2025-01-16T07:03:00Z,orbital_launch,New Glenn | Maiden Flight,New Glenn,LC36,,0,0,,
 ksc-3752a9c12f13,2025-01-21T05:24:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 13-1,Falcon 9,LC39A,,0,0,,
 ksc-e7c3b7979a74,2025-01-27T22:05:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-7,Falcon 9,LC40,,0,0,,
 ksc-b3a06b223687,2025-01-30T01:34:00Z,orbital_launch,Falcon 9 Block 5 | SpainSat NG I,Falcon 9,LC39A,,0,0,,
+ksc-cbaa587c88e2,2025-02-03T05:17:00Z,scrub,Falcon 9 Block 5 | Starlink Group 12-3 scrub,Falcon 9,LC40,,0,0,,
 ksc-f9391bc8af2e,2025-02-04T10:15:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-3,Falcon 9,LC40,,0,0,,
 ksc-43949d73cb06,2025-02-04T23:13:00Z,orbital_launch,Falcon 9 Block 5 | WorldView Legion 5 & 6,Falcon 9,LC39A,,0,0,,
 ksc-11f9590f5a91,2025-02-04T23:20:46Z,booster_landing,Falcon 9 Block 5 | WorldView Legion 5 & 6 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
@@ -440,19 +692,26 @@ ksc-5b15b3650fd7,2025-02-11T18:53:20Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-028b002df67e,2025-02-15T06:14:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-8,Falcon 9,LC40,,0,0,,
 ksc-1acc58c400a9,2025-02-18T23:21:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-12,Falcon 9,LC40,,0,0,,
 ksc-d239e6a5c531,2025-02-21T15:19:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-14,Falcon 9,LC40,,0,0,,
+ksc-c9f1ff3bafa3,2025-02-26T05:16:00Z,scrub,Falcon 9 Block 5 | Starlink Group 12-13 scrub,Falcon 9,LC40,,0,0,,
 ksc-87027036edb2,2025-02-27T00:16:30Z,orbital_launch,Falcon 9 Block 5 | Nova-C IM-2 & Others,Falcon 9,LC39A,,0,0,,
 ksc-07eed14a1a29,2025-02-27T03:34:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-13,Falcon 9,LC40,,0,0,,
 ksc-2b5b113e2fe1,2025-03-03T02:24:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-20,Falcon 9,LC40,,0,0,,
+ksc-b8a25447eda3,2025-03-11T04:30:00Z,scrub,Falcon 9 Block 5 | Starlink Group 12-21 scrub,Falcon 9,LC40,,0,0,,
+ksc-b7ec3f6e9e71,2025-03-12T23:03:00Z,scrub,Crew-10,Falcon 9,LC39A,,0,0,,
 ksc-8cb3ef3288e2,2025-03-13T02:35:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-21,Falcon 9,LC40,,0,0,,
 ksc-fc933279c990,2025-03-14T23:03:48Z,orbital_launch,Falcon 9 Block 5 | Crew-10,Falcon 9,LC39A,,0,0,,
 ksc-24ed776b68da,2025-03-14T23:11:27Z,booster_landing,Falcon 9 Block 5 | Crew-10 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-1bfc728e8ef2,2025-03-15T11:35:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-16,Falcon 9,LC40,,0,0,,
 ksc-698c6a6187f3,2025-03-18T19:57:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-25,Falcon 9,LC40,,0,0,,
+ksc-d3027c5cd469,2025-03-18T21:57:07Z,reentry_sonic_boom,SpaceX Crew-9 splashdown,SpaceX Crew-9 Crew Dragon Splashdown,Unknown,,0,0,,
 ksc-d6ae4cae56af,2025-03-24T17:48:00Z,orbital_launch,Falcon 9 Block 5 | NROL-69,Falcon 9,LC40,,0,0,,
 ksc-3701c91c253b,2025-03-24T17:56:22Z,booster_landing,Falcon 9 Block 5 | NROL-69 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-8ff8e9abc196,2025-03-31T19:52:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-80,Falcon 9,LC40,,0,0,,
 ksc-f66f54caad4e,2025-04-01T01:46:00Z,orbital_launch,Falcon 9 Block 5 | Fram2,Falcon 9,LC39A,,0,0,,
 ksc-59dc74a055e2,2025-04-06T03:07:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-72,Falcon 9,LC40,,0,0,,
+ksc-5aaad47567e5,2025-04-10T00:45:00Z,scrub,Kuiper KA-01 (Kuiper 1),Atlas V,LC41,,0,0,,
+ksc-ac0fe11d7e28,2025-04-11T04:59:00Z,scrub,Falcon 9 Block 5 | Starlink Group 12-17 scrub,Falcon 9,LC39A,,0,0,,
+ksc-4260370128b1,2025-04-12T04:53:00Z,scrub,Falcon 9 Block 5 | Starlink Group 12-17 scrub,Falcon 9,LC39A,,0,0,,
 ksc-3ba8ff83b12f,2025-04-13T00:53:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-17,Falcon 9,LC39A,,0,0,,
 ksc-f3d14d511e07,2025-04-14T04:00:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-73,Falcon 9,LC40,,0,0,,
 ksc-b8c731acda12,2025-04-21T08:15:45Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-32,Falcon 9,LC39A,,0,0,,
@@ -460,6 +719,7 @@ ksc-02200745a0f3,2025-04-21T08:23:22Z,booster_landing,Falcon 9 Block 5 | Dragon 
 ksc-97f73a2bd1ba,2025-04-22T00:48:34Z,orbital_launch,Falcon 9 Block 5 | Bandwagon 3 (Dedicated Mid-Inclination Rideshare),Falcon 9,LC40,,0,0,,
 ksc-9b83863ab4a9,2025-04-22T00:56:34Z,booster_landing,Falcon 9 Block 5 | Bandwagon 3 (Dedicated Mid-Inclination Rideshare) booster landing (LZ-2),Falcon 9,LZ2,,0,0,,
 ksc-0822ef0aa832,2025-04-25T01:52:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-74,Falcon 9,LC40,,0,0,,
+ksc-dd860250afa0,2025-04-25T12:05:20Z,suborbital_launch,4 | LRHW AUR | Dark Eagle | -,LRHW (hypersonic),LC46,,0,0,,
 ksc-49be93397522,2025-04-28T02:09:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-23,Falcon 9,LC40,,0,0,,
 ksc-f334007d7df6,2025-04-28T23:01:00Z,orbital_launch,Atlas V 551 | Amazon Leo (KA-01),Atlas V,LC41,,0,0,,
 ksc-484143a2065f,2025-04-29T02:34:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-10,Falcon 9,LC39A,,0,0,,
@@ -467,8 +727,10 @@ ksc-80861435f87d,2025-05-02T01:51:10Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-d595c6a2829a,2025-05-04T08:54:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-84,Falcon 9,LC39A,,0,0,,
 ksc-57a264d53bd9,2025-05-07T01:17:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-93,Falcon 9,LC40,,0,0,,
 ksc-3c3871ed9330,2025-05-10T06:28:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-91,Falcon 9,LC40,,0,0,,
+ksc-ae43fee4504c,2025-05-12T05:45:00Z,scrub,Falcon 9 Block 5 | Starlink Group 6-83 scrub,Falcon 9,LC39A,,0,0,,
 ksc-329b50346e14,2025-05-13T05:02:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-83,Falcon 9,LC39A,,0,0,,
 ksc-4b4ed4aea441,2025-05-14T16:38:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-67,Falcon 9,LC40,,0,0,,
+ksc-6430481ac216,2025-05-20T03:55:30Z,scrub,Starlink 12-15,Falcon 9,LC40,,0,0,,
 ksc-fb8682646cd5,2025-05-21T03:19:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-15,Falcon 9,LC40,,0,0,,
 ksc-2fe621ae2d4d,2025-05-24T17:19:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-22,Falcon 9,LC40,,0,0,,
 ksc-1bd5827e9927,2025-05-28T13:30:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-32,Falcon 9,LC39A,,0,0,,
@@ -477,7 +739,9 @@ ksc-54cbaf272239,2025-06-03T04:43:40Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-d4a009918276,2025-06-07T04:54:00Z,orbital_launch,Falcon 9 Block 5 | Sirius SXM-10,Falcon 9,LC40,,0,0,,
 ksc-611f4df66c0c,2025-06-10T13:05:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-24,Falcon 9,LC40,,0,0,,
 ksc-014ec1c461b3,2025-06-13T15:29:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 12-26,Falcon 9,LC40,,0,0,,
+ksc-affc9501e1f1,2025-06-16T17:00:00Z,scrub,Kuiper KA-02 (Kuiper 2),Atlas V,LC41,,0,0,,
 ksc-702a7077af35,2025-06-18T05:55:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-18,Falcon 9,LC40,,0,0,,
+ksc-5b988c18c969,2025-06-22T00:00:00Z,scrub,Starlink 10-23,Falcon 9,LC40,,0,0,,
 ksc-a77f7751a933,2025-06-23T05:58:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-23,Falcon 9,LC40,,0,0,,
 ksc-d797b2978276,2025-06-23T10:54:30Z,orbital_launch,Atlas V 551 | Amazon Leo (KA-02),Atlas V,LC41,,0,0,,
 ksc-1ab7173cf963,2025-06-25T06:31:53Z,orbital_launch,Falcon 9 Block 5 | Axiom Space Mission 4,Falcon 9,LC39A,,0,0,,
@@ -489,13 +753,19 @@ ksc-27253e1e6845,2025-07-02T06:28:10Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-1b44a984abbc,2025-07-08T08:21:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-28,Falcon 9,LC40,,0,0,,
 ksc-32c960262b27,2025-07-13T05:04:00Z,orbital_launch,Falcon 9 Block 5 | Dror-1,Falcon 9,LC40,,0,0,,
 ksc-2f09734241b4,2025-07-16T06:30:00Z,orbital_launch,Falcon 9 Block 5 | Amazon Leo (KF-01),Falcon 9,LC40,,0,0,,
+ksc-dda9a27e7708,2025-07-21T21:26:49Z,scrub,SES O3b mPOWER 9-10,Falcon 9,LC40,,0,0,,
 ksc-c868dc297747,2025-07-22T21:12:00Z,orbital_launch,Falcon 9 Block 5 | O3b mPower 9-10,Falcon 9,LC40,,0,0,,
 ksc-db219c105cf1,2025-07-26T09:01:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-26,Falcon 9,LC40,,0,0,,
 ksc-eb918a3fe80f,2025-07-29T16:30:00Z,static_fire,Crew-11 Falcon 9 Static Fire Test,Falcon 9,LC39A,,0,0,,
 ksc-2153167f4f96,2025-07-30T03:37:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-29,Falcon 9,LC40,,0,0,,
+ksc-63b45b26b169,2025-07-31T16:07:53Z,scrub,Crew-11,Falcon 9,LC39A,,0,0,,
 ksc-28b2ed73ecef,2025-08-01T15:43:42Z,orbital_launch,Falcon 9 Block 5 | Crew-11,Falcon 9,LC39A,,0,0,,
 ksc-99d28859f7b6,2025-08-01T15:51:25Z,booster_landing,Falcon 9 Block 5 | Crew-11 booster landing (LZ-1),Falcon 9,LZ1,,0,0,,
 ksc-d68717ebbf71,2025-08-04T07:57:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-30,Falcon 9,LC40,,0,0,,
+ksc-df42e59e4103,2025-08-07T13:51:00Z,scrub,Falcon 9 Block 5 | Amazon Leo (KF-02) scrub,Falcon 9,LC40,,0,0,,
+ksc-a84233338eb0,2025-08-08T10:44:00Z,scrub,Falcon 9 Block 5 | Amazon Leo (KF-02) scrub,Falcon 9,LC40,,0,0,,
+ksc-bc7ee7775bf6,2025-08-09T16:06:00Z,scrub,Kuiper KF-02,Falcon 9,LC40,,0,0,,
+ksc-dd1ce4b0334e,2025-08-10T12:57:00Z,scrub,Kuiper KF-02,Falcon 9,LC40,,0,0,,
 ksc-88014270edb3,2025-08-11T12:35:00Z,orbital_launch,Falcon 9 Block 5 | Amazon Leo (KF-02),Falcon 9,LC40,,0,0,,
 ksc-047b85f35ea6,2025-08-13T00:56:00Z,orbital_launch,Vulcan VC4S | USSF-106,Vulcan,LC41,,0,0,,
 ksc-7403579a0055,2025-08-14T12:29:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-20,Falcon 9,LC40,,0,0,,
@@ -507,11 +777,16 @@ ksc-68bebdc62302,2025-08-28T08:12:00Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-fd35f39b957d,2025-08-31T11:49:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-14,Falcon 9,LC40,,0,0,,
 ksc-0609ce612185,2025-09-03T11:56:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-22,Falcon 9,LC40,,0,0,,
 ksc-d22c459a4fa9,2025-09-05T12:32:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-57,Falcon 9,LC39A,,0,0,,
+ksc-6d2de6494fd4,2025-09-09T01:14:00Z,scrub,Falcon 9 Block 5 | Nusantara Lima scrub,Falcon 9,LC40,,0,0,,
 ksc-a440e3dd59e9,2025-09-12T01:56:00Z,orbital_launch,Falcon 9 Block 5 | Nusantara Lima,Falcon 9,LC40,,0,0,,
 ksc-46bba4eca210,2025-09-14T22:11:49Z,orbital_launch,Falcon 9 Block 5 | Cygnus CRS-2 NG-23 (S.S. William “Willie” C. McCool),Falcon 9,LC40,,0,0,,
 ksc-8168346b0142,2025-09-14T22:19:42Z,booster_landing,Falcon 9 Block 5 | Cygnus CRS-2 NG-23 (S.S. William “Willie” C. McCool) booster landing (LZ-2),Falcon 9,LZ2,,0,0,,
+ksc-52727fffbeed,2025-09-17T00:00:00Z,suborbital_launch,FCET? | -    (194s) | D5LE2 | -,Trident D-5,ETR,,0,0,,
+ksc-0a95107976e7,2025-09-18T00:00:00Z,suborbital_launch,FCET? | -    (195s) | D5LE2 | -,Trident D-5,ETR,,0,0,,
 ksc-7a590044aefb,2025-09-18T09:30:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-61,Falcon 9,LC40,,0,0,,
+ksc-1cfdfaba8289,2025-09-20T00:00:00Z,suborbital_launch,FCET? | -    (196s) | D5LE2 | -,Trident D-5,ETR,,0,0,,
 ksc-2f076e9dcddf,2025-09-21T10:53:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-27,Falcon 9,LC40,,0,0,,
+ksc-e268845c859b,2025-09-21T23:25:00Z,suborbital_launch,FCET? | -    (197s) | D5LE2 | -,Trident D-5,ETR,,0,0,,
 ksc-d4399ab45479,2025-09-24T11:30:50Z,orbital_launch,Falcon 9 Block 5 | IMAP & others,Falcon 9,LC39A,,0,0,,
 ksc-204b8553e911,2025-09-25T08:39:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-15,Falcon 9,LC40,,0,0,,
 ksc-69cf313ff41e,2025-09-25T12:09:00Z,orbital_launch,Atlas V 551 | Amazon Leo (KA-03),Atlas V,LC41,,0,0,,
@@ -522,11 +797,17 @@ ksc-9be7f40ec94a,2025-10-19T17:39:40Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-9943634e8fb5,2025-10-24T01:30:00Z,orbital_launch,Falcon 9 Block 5 | SpainSat NG II,Falcon 9,LC40,,0,0,,
 ksc-c102cddb8ee0,2025-10-26T15:00:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-21,Falcon 9,LC40,,0,0,,
 ksc-ec146cfe509d,2025-10-29T16:35:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-37,Falcon 9,LC40,,0,0,,
+ksc-f81037bd2be8,2025-10-31T01:59:00Z,static_fire,New Glenn static fire for NG-2 (ESCAPADE),New Glenn,LC36,,0,0,,
 ksc-4b68a337f24f,2025-11-02T05:09:59Z,orbital_launch,Falcon 9 Block 5 | Bandwagon 4 (Dedicated Mid-Inclination Rideshare),Falcon 9,LC40,,0,0,,
 ksc-133a78d4ed6d,2025-11-02T05:17:45Z,booster_landing,Falcon 9 Block 5 | Bandwagon 4 (Dedicated Mid-Inclination Rideshare) booster landing (LZ-2),Falcon 9,LZ2,,0,0,,
 ksc-8647d8baabf0,2025-11-06T01:31:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-81,Falcon 9,LC40,,0,0,,
+ksc-66adf24390be,2025-11-06T04:30:00Z,scrub,ViaSat-3 F2,Atlas V,LC41,,0,0,,
+ksc-a47720341583,2025-11-07T02:10:00Z,scrub,ViaSat-3 F2,Atlas V,LC41,,0,0,,
+ksc-3751a031073a,2025-11-08T12:10:00Z,scrub,Falcon 9 Block 5 | Starlink Group 10-51 scrub,Falcon 9,LC39A,,0,0,,
 ksc-89c3eaf1f3e0,2025-11-09T08:10:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-51,Falcon 9,LC39A,,0,0,,
+ksc-6419673b6917,2025-11-09T22:00:00Z,scrub,NG-2 (ESCAPADE),New Glenn,LC36,,0,0,,
 ksc-2becd3e80dd0,2025-11-11T03:21:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-87,Falcon 9,LC40,,0,0,,
+ksc-786504ed8899,2025-11-12T15:40:00Z,scrub,NG-2 (ESCAPADE),New Glenn,LC36,,0,0,,
 ksc-aba11393f655,2025-11-13T20:55:00Z,orbital_launch,New Glenn | EscaPADE,New Glenn,LC36,,0,0,,
 ksc-039e5b5248f5,2025-11-14T03:04:00Z,orbital_launch,Atlas V 551 | ViaSat-3 F2 (ViaSat-3 EMEA),Atlas V,LC41,,0,0,,
 ksc-4a470fb694ab,2025-11-15T03:08:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-89,Falcon 9,LC39A,,0,0,,
@@ -536,6 +817,7 @@ ksc-e89b0ca35236,2025-11-21T03:39:30Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-0eb3f7b2e500,2025-11-22T07:53:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-79,Falcon 9,LC40,,0,0,,
 ksc-82b702082725,2025-12-01T07:44:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-86,Falcon 9,LC39A,,0,0,,
 ksc-3f3e7002fcdd,2025-12-02T22:18:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-95,Falcon 9,LC40,,0,0,,
+ksc-dbbffba63258,2025-12-07T23:58:00Z,scrub,Falcon 9 Block 5 | Starlink Group 6-92 scrub,Falcon 9,LC39A,,0,0,,
 ksc-6a2de1b53f66,2025-12-08T22:26:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-92,Falcon 9,LC39A,,0,0,,
 ksc-021ba3666561,2025-12-09T19:16:00Z,orbital_launch,Falcon 9 Block 5 | NROL-77,Falcon 9,LC40,,0,0,,
 ksc-2a955a082a36,2025-12-09T19:24:53Z,booster_landing,Falcon 9 Block 5 | NROL-77 booster landing (LZ-2),Falcon 9,LZ2,,0,0,,
@@ -547,16 +829,21 @@ ksc-7529fbc8acaf,2026-01-04T06:48:10Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-1cc15fd9b96c,2026-01-09T21:41:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-96,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,8,96,1R.B01;1R.B03;1R.B05;1R.B24;1R.C371;1R.C383;1R.C384;1R.C386,1R
 ksc-0bc8de7076fc,2026-01-12T21:08:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-97,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,8,87,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29;DG.B12,1R;DG
 ksc-e3da40f1986c,2026-01-14T18:08:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-98,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,8,87,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29;DG.B12,1R;DG
+ksc-b1c3cce6cc13,2026-01-17T12:04:00Z,rollout,Artemis II rollout 1,SLS,LC39B,/Volumes/KSCGTdownld/SDS,8,87,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29;DG.B12,1R;DG
 ksc-daa2a452d411,2026-01-18T23:31:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-100,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,8,87,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29;DG.B12,1R;DG
 ksc-b5735b3600ff,2026-01-28T04:53:16Z,orbital_launch,Falcon 9 Block 5 | GPS III SV09,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-72a28650d897,2026-01-30T07:22:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-101,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-ccd8df755d25,2026-02-03T02:00:00Z,wet_dress_rehearsal,Artemis II Wet Dress Rehearsal,SLS,LC39B,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24,1R
+ksc-aada4a19fd6d,2026-02-08T08:16:00Z,static_fire,Falcon 9 static fire for Crew-12,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-8f843154ba0f,2026-02-12T09:22:00Z,orbital_launch,Vulcan VC4S | USSF-87,Vulcan,LC41,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-608d81f8b1a8,2026-02-13T10:15:55Z,orbital_launch,Falcon 9 Block 5 | Crew-12,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-86a25aa51338,2026-02-13T10:23:38Z,booster_landing,Falcon 9 Block 5 | Crew-12 booster landing (LZ-40),Falcon 9,LZ40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-7d430b16bd44,2026-02-16T07:59:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-103,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-164263a42845,2026-02-20T01:30:00Z,wet_dress_rehearsal,Artemis II Wet Dress Rehearsal #2,SLS,LC39B,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-87cf19f0a7c4,2026-02-20T01:41:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-36,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-3ae7284e1f28,2026-02-22T03:47:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-104,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-1f7ca123fdf0,2026-02-24T23:04:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-110,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-f55d9084f5d6,2026-02-25T14:38:00Z,rollback,Artemis II rollback (ICPS helium flow issue),SLS,LC39B,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-0af26ef4147b,2026-02-27T12:16:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 6-108,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-375216e7629b,2026-03-02T02:56:40Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-41,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-1eee73359465,2026-03-04T10:52:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-40,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
@@ -564,7 +851,9 @@ ksc-2bc0225f07bb,2026-03-10T04:19:00Z,orbital_launch,Falcon 9 Block 5 | EchoStar
 ksc-78476cda7658,2026-03-14T12:37:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-48,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,15,114,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B23,1R;DG
 ksc-4fa368856873,2026-03-17T13:27:34Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-46,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,15,101,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B23,1R;DG
 ksc-3ea656b7a3f3,2026-03-19T14:20:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-33,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,15,101,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B23,1R;DG
+ksc-b7fae9f247c3,2026-03-20T04:20:00Z,rollout,Artemis II rollout 2 (launched Apr 1),SLS,LC39B,/Volumes/KSCGTdownld/SDS,15,101,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B23,1R;DG
 ksc-5c0874b21ba7,2026-03-22T14:47:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-62,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,15,101,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B23,1R;DG
+ksc-dfdde3cd0c06,2026-03-26T16:30:00Z,suborbital_launch,5 | LRHW AUR | Dark Eagle | -,LRHW (hypersonic),LC46,/Volumes/KSCGTdownld/SDS,15,113,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B23,1R;DG
 ksc-8951cb1f257d,2026-03-30T21:15:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-44,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,15,102,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B07;DG.B23,1R;DG
 ksc-f8f81d1cba9a,2026-04-01T22:35:12Z,orbital_launch,SLS Block 1 | Artemis II,SLS,LC39B,/Volumes/KSCGTdownld/SDS,15,105,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B07;DG.B12;DG.B23,1R;DG
 ksc-46eb00d79023,2026-04-02T11:55:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-58,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,15,101,1R.B01;1R.B03;1R.B05;1R.B07;1R.B12;1R.B14;1R.B20;1R.B20S;1R.B20W;1R.B23;1R.B24;1R.B24LT;1R.B24RE;1R.B29;1R.UNK;DG.B07;DG.B23,1R;DG
@@ -572,12 +861,17 @@ ksc-28efb3e5f68a,2026-04-04T05:46:00Z,orbital_launch,Atlas V 551 | Amazon Leo (L
 ksc-7556c427659d,2026-04-11T11:41:21Z,orbital_launch,Falcon 9 Block 5 | Cygnus CRS-2 NG-24 (S.S. Steven R. Nagel),Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-201ba7a04a2f,2026-04-11T11:49:15Z,booster_landing,Falcon 9 Block 5 | Cygnus CRS-2 NG-24 (S.S. Steven R. Nagel) booster landing (LZ-40),Falcon 9,LZ40,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-e59b261e330a,2026-04-14T09:33:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-24,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
+ksc-7dc804d82a81,2026-04-16T11:45:00Z,static_fire,New Glenn static fire for NG-3 (BlueBird-7),New Glenn,LC36,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-13376165eab7,2026-04-16T12:11:00Z,crawler_move,ML-1 returns to VAB after Artemis II launch,ML-1 on CT-2,LC39B,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-cb36ac7b481d,2026-04-19T11:25:00Z,launch_failure,New Glenn | BlueBird 7 (Block 2 #2),New Glenn,LC36,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-4f65ac152861,2026-04-21T06:53:25Z,orbital_launch,Falcon 9 Block 5 | GPS III SV10,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-5399e6641953,2026-04-27T14:48:00Z,scrub,ViaSat-3 F3,Falcon Heavy,LC39A,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-c21a5e2c5ef6,2026-04-28T00:53:30Z,orbital_launch,Atlas V 551 | Amazon Leo (LA-06),Atlas V,LC41,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-32e4a3442c25,2026-04-29T14:13:00Z,orbital_launch,Falcon Heavy | ViaSat-3 F3 (ViaSat-3 Asia-Pacific),Falcon Heavy,LC39A,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-a49eb33c2786,2026-04-29T14:20:58Z,booster_landing,"Falcon Heavy | ViaSat-3 F3 (ViaSat-3 Asia-Pacific) booster landing (LZ-2, LZ-40)",Falcon Heavy,LZ2,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
 ksc-ba48d169148b,2026-05-01T18:06:10Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-38,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,6,72,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B29,1R
+ksc-feaf8e2dd55b,2026-05-12T20:21:00Z,scrub,Falcon 9 Block 5 | Dragon CRS-2 SpX-34 scrub,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-e1d59e44d0d8,2026-05-13T22:55:00Z,scrub,Falcon 9 Block 5 | Dragon CRS-2 SpX-34 scrub,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-206474a6bc2e,2026-05-15T22:05:41Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-34,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-2bd85bd85dd5,2026-05-15T22:13:23Z,booster_landing,Falcon 9 Block 5 | Dragon CRS-2 SpX-34 booster landing (LZ-40),Falcon 9,LZ40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-064c37acb5f4,2026-05-21T10:04:20Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-31,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
@@ -585,6 +879,7 @@ ksc-bb4b6869a89b,2026-05-25T11:48:04Z,orbital_launch,Falcon 9 Block 5 | Starlink
 ksc-newglenn-explosion-20260529,2026-05-29T01:00:02Z,pad_explosion,New Glenn static-fire explosion,New Glenn,LC36,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-1679235f18bf,2026-05-29T12:57:15Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-53,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-0e99b3dcbb39,2026-05-29T23:53:00Z,orbital_launch,Atlas V 551 | Amazon Leo (LA-07),Atlas V,LC41,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
+ksc-064e5e01e999,2026-06-03T11:25:00Z,scrub,Falcon 9 Block 5 | Starlink Group 10-43 scrub,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-b3259aa412ab,2026-06-04T10:26:30Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-43,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,7,84,1R.B01;1R.B03;1R.B05;1R.B14;1R.B20;1R.B24;1R.B29,1R
 ksc-1cecc047a5aa,2026-06-08T10:13:50Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-35,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,5,60,1R.B01;1R.B03;1R.B05;1R.B20;1R.B29,1R
 ksc-0490b6487850,2026-06-12T12:37:00Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-54,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,5,60,1R.B01;1R.B03;1R.B20;1R.B24;1R.B29,1R
@@ -599,9 +894,11 @@ ksc-5cf11cf7596f,2026-07-21T21:15:00Z,orbital_launch,Falcon 9 Block 5 | MRV-1,Fa
 ksc-1ead4fffc4c2,2026-07-30T07:10:19Z,orbital_launch,Falcon 9 Block 5 | NROL-95,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,5,60,1R.B01;1R.B03;1R.B20;1R.B24;1R.B29,1R
 ksc-65754933eedf,2026-07-30T07:18:45Z,booster_landing,Falcon 9 Block 5 | NROL-95 booster landing (LZ-2),Falcon 9,LZ2,/Volumes/KSCGTdownld/SDS,5,60,1R.B01;1R.B03;1R.B20;1R.B24;1R.B29,1R
 ksc-619acedd0932,2026-08-05T07:49:40Z,orbital_launch,Falcon 9 Block 5 | BlueBird 11-13 (Block 2 #6-8),Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,3,36,1R.B03;1R.B20;1R.B24,1R
+ksc-f1cc28005627,2026-08-10T14:23:00Z,scrub,Falcon 9 Block 5 | Starlink Group 10-19 scrub,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,3,36,1R.B03;1R.B20;1R.B24,1R
 ksc-d245a477d0fb,2026-08-11T15:58:26Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-19,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,3,36,1R.B03;1R.B20;1R.B24,1R
 ksc-20c6e9cacc2b,2026-08-16T01:12:14Z,orbital_launch,Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 8),Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,4,48,1R.B01;1R.B03;1R.B20;1R.B24,1R
 ksc-2032f2162424,2026-08-16T01:20:08Z,booster_landing,Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 8) booster landing (LZ-40),Falcon 9,LZ40,/Volumes/KSCGTdownld/SDS,4,48,1R.B01;1R.B03;1R.B20;1R.B24,1R
+ksc-3bdea58b6946,2026-08-20T15:18:30Z,scrub,Starlink 10-39,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,3,36,1R.B03;1R.B20;1R.B24,1R
 ksc-ef94d7e875e5,2026-08-21T15:14:22Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-39,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,4,48,1R.B03;1R.B14;1R.B20;1R.B24,1R
 ksc-026cc7042300,2026-08-25T09:33:38Z,orbital_launch,Falcon 9 Block 5 | Starlink Group 10-49,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,3,36,1R.B03;1R.B20;1R.B24,1R
 ksc-db3ae066c353,2026-08-30T11:25:49Z,orbital_launch,Falcon Heavy | Nancy Grace Roman Space Telescope,Falcon Heavy,LC39A,/Volumes/KSCGTdownld/SDS,3,36,1R.B03;1R.B20;1R.B24,1R
@@ -614,4 +911,6 @@ ksc-9215ef3f9c7f,2026-10-02T04:01:47Z,booster_landing,"Falcon Heavy | NROL-97 bo
 ksc-cd822919b273,2026-10-13T10:33:44Z,orbital_launch,Falcon 9 Block 5 | Dragon CRS-2 SpX-35,Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,0,0,,
 ksc-5e8185e5e92a,2026-10-13T10:41:05Z,booster_landing,Falcon 9 Block 5 | Dragon CRS-2 SpX-35 booster landing (LZ-40),Falcon 9,LZ40,/Volumes/KSCGTdownld/SDS,0,0,,
 ksc-95c9711c86d8,2026-10-20T11:04:00Z,orbital_launch,Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare),Falcon 9,LC40,/Volumes/KSCGTdownld/SDS,0,0,,
+ksc-2d304adb0658,2026-11-13T00:00:00Z,scrub,Amazon Leo 1 (LV-01),Vulcan,LC41,/Volumes/KSCGTdownld/SDS,0,0,,
+ksc-71fba6e17a50,2026-11-14T17:32:30Z,scrub,Amazon Leo 1 (LV-01),Vulcan,LC41,/Volumes/KSCGTdownld/SDS,0,0,,
 ksc-7ee5b9fb48c9,2026-11-15T17:40:00Z,launch_failure,Vulcan VC6L | Amazon Leo (LV-01),Vulcan,LC41,/Volumes/KSCGTdownld/SDS,0,0,,

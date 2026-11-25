@@ -69,3 +69,23 @@ def test_standard_metrics_and_vector_pgv():
     assert s["pgv"] == s["peak"] and s["pga"] > s["pgv"] and s["pgd"] < s["pgv"]
     v = ep.vector_metrics(Stream([z, n, e]), T0, (-30, 300), 1.0)
     assert v["pgv_3c_vector"] >= v["pgv_horizontal_vector"] > 0 and v["vector_channels"] == "00.HH?"
+
+
+def test_catalog_usable_only_for_pad_sources_near_the_pad():
+    near = dict(nearest_km=1.4)
+    assert ep.catalog_usable("orbital_launch", near)[0]
+    assert not ep.catalog_usable("booster_landing", near)[0]
+    assert not ep.catalog_usable("aborted_launch", dict(nearest_km=13.5))[0]
+    assert not ep.catalog_usable("static_fire", {})[0]
+    assert ep.catalog_usable("pad_explosion", dict(nearest_km=11.8))[0]      # stationary source
+
+
+def test_detected_origin_strong_pick_beats_colocated_noise():
+    on = pd.DataFrame([dict(kind="pressure", station="B2", origin_est_s=-585.0, max_ratio=15, distance_km=4.9),
+                       dict(kind="pressure", station="B2", origin_est_s=-585.0, max_ratio=15, distance_km=4.9),
+                       dict(kind="pressure", station="B2", origin_est_s=-1.5, max_ratio=29, distance_km=4.9)])
+    d = ep.detected_origin(on)
+    assert d["offset_s"] == -1.5 and d["rival_ratio"] == 15 / 29
+    on.loc[0:1, "max_ratio"] = 27                 # rival nearly as strong: one station is ambiguous
+    d = ep.detected_origin(on)
+    assert not ep.catalog_usable("static_fire", d)[0]
