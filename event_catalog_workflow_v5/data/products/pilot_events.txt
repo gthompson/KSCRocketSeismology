@@ -1,0 +1,20 @@
+# Pilot sample for the per-event products (ksc-rockets process --events-file ...).
+# The 8 launches of 07_ensemble_paper notebook 20 (each network era), plus other event types.
+ksc-4d8977e0556d   # 2016-03-04 Falcon 9 SES-9, LC40 (BCHH, FIRE, TANK)
+ksc-84ff2d3935e5   # 2016-06-11 Delta IV Heavy NROL-37, LC37B
+ksc-63e156ef62c2   # 2018-02-06 Falcon Heavy demo, LC39A (DVEL1/2, RBLAB)
+ksc-0eaa94e13c72   # 2018-10-17 Atlas V AEHF-4, LC41 (beach geophones BHP2-8)
+ksc-da8b52e60732   # 2019-07-02 Orion Ascent Abort-2, LC46
+ksc-38ab2b5b43b8   # 2021-10-16 Atlas V Lucy, LC41 (RB166/268/383)
+ksc-893bace1e8c8   # 2022-11-16 SLS Artemis I, LC39B
+ksc-f8f81d1cba9a   # 2026-04-01 SLS Artemis II, LC39B (2026 network)
+ksc-78476cda7658   # 2026-03-14 Falcon 9, LC40, 15 stations
+ksc-8f843154ba0f   # 2026-02-12 Vulcan, LC41
+ksc-cb36ac7b481d   # 2026-04-19 New Glenn launch failure, LC36
+ksc-newglenn-explosion-20260529  # 2026-05-29 New Glenn pad explosion, LC36
+ksc-d79e38ae7638   # 2016-09-01 AMOS-6 pad explosion, LC40
+ksc-fdb28ac4bbd2   # 2019-04-11 Falcon Heavy side-booster landings, LZ1 (sonic booms)
+ksc-86a25aa51338   # 2026-02-13 Falcon 9 booster landing, LZ40
+ksc-51877e99fc4f   # 2022-11-12 X-37B landing, SLF (sonic boom)
+ksc-dfc06a930fe5   # 2019-04-05 Falcon Heavy static fire (pad unknown in catalog)
+ksc-60d2d5d7be04   # 2016-02-29 Falcon 9 abort, LC40

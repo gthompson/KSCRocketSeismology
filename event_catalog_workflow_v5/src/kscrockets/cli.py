@@ -97,6 +97,7 @@ def _run_reconciliation(s, excel, start, end, use_ll2=True, use_gcat=True,
     build_database(s.canonical_catalog,s.database)
     write_reconciliation(s.database,ev,src,replace_events=replace_events)
     _load_availability(s)
+    _load_products(s)
     print(f"reconciled events: {len(ev)} -> {out}",flush=True)
     print(f"database updated from reconciled catalog: {s.database}",flush=True)
     return ev,src
@@ -125,6 +126,62 @@ def _availability(s, a):
     write_availability_table(s.database,table)
     print(f"availability: {len(table)} events, {int((table.n_stations>0).sum())} with data -> {out}",flush=True)
     print(f"availability: {len(gaps)} gap(s) with no day file in any archive -> {out/'sds_coverage_gaps.csv'}",flush=True)
+
+
+def _products_config(s):
+    import tomllib
+    cfg=tomllib.loads((s.root/"config/default.toml").read_text()).get("products",{})
+    return dict(out_root=cfg.get("out_root",str(s.event_waveforms)),
+                ensemble=str((s.root/cfg.get("ensemble","../07_ensemble_paper/ensemble.yaml")).resolve()))
+
+
+def _process(s, a):
+    """Waveform products, metrics and detected onsets for catalog events (ksclib.event_products)."""
+    import sys, time, datetime as _dt
+    pc=_products_config(s)
+    ksclib_src=(s.root.parent/"ksclib"/"src")
+    if ksclib_src.is_dir() and str(ksclib_src) not in sys.path: sys.path.insert(0,str(ksclib_src))
+    from ksclib import catalog_events as ce, event_products as ep
+    from .products import save_results, load_products, git_commit
+    ens=ce.load_ensemble(a.ensemble or pc["ensemble"])
+    cat=ce.load_catalog(ens)
+    ids=list(a.event_id or [])
+    if a.events_file:
+        ids+=[x.split("#")[0].strip() for x in Path(a.events_file).read_text().splitlines() if x.split("#")[0].strip()]
+    if a.all_with_data:
+        import sqlite3
+        with sqlite3.connect(s.database) as con:
+            ids+=[r[0] for r in con.execute("select event_id from event_waveform_availability where n_stations>0")]
+    missing=[e for e in ids if e not in set(cat.event_id)]
+    if missing: raise SystemExit(f"process: not in catalog: {' '.join(missing)}")
+    sel=cat[cat.event_id.isin(ids)]
+    out_root=Path(a.out_root or pc["out_root"]).expanduser()
+    real=out_root.resolve()             # follow links such as ~/work -> /Volumes/<drive>
+    if not a.allow_any_out_root and str(real).startswith("/Volumes/"):
+        vol=Path("/Volumes")/real.relative_to("/Volumes").parts[0]
+        if not vol.is_mount(): raise SystemExit(f"process: volume not mounted: {vol} (for {out_root})")
+    run_id=a.run_id or ("run-"+_dt.datetime.now(_dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+    run=dict(run_id=run_id, started_utc=_dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
+             products_version=ep.PRODUCTS_VERSION, code_commit=git_commit(s.root), out_root=str(out_root),
+             ensemble=str(ens.yaml_path), n_events=len(sel), params=ep.DEFAULTS, notes=a.notes or "")
+    results=[]
+    for _,row in sel.iterrows():
+        t=time.time()
+        r=ep.process_event(row.to_dict(),ens,out_root,run_id,plots=not a.no_plots)
+        results.append(r)
+        det=f" detected {r.detected['offset_s']:+.1f} s ({r.detected['n_stations']} sta)" if r.detected else ""
+        print(f"{r.event_id} {row.event_type:16s} {r.status:13s} raw={r.n_raw:3d} corr={r.n_corrected:3d}{det} "
+              f"{time.time()-t:.0f}s {r.error}",flush=True)
+    run["finished_utc"]=_dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds")
+    summary=save_results(s.root,run,results)
+    tables=load_products(s.root,s.database)
+    print(f"process {run_id}: {summary}; sqlite tables: {', '.join(tables)}",flush=True)
+
+
+def _load_products(s):
+    from .products import load_products
+    tables=load_products(s.root,s.database)
+    if tables: print(f"product tables re-attached: {', '.join(tables)}",flush=True)
 
 
 def _load_availability(s):
@@ -202,6 +259,13 @@ def main(argv=None):
                     help="SDS root used for events START <= t < END (repeatable)")
     av.add_argument("--pre",type=float,default=600); av.add_argument("--post",type=float,default=600)
     av.add_argument("--out-dir",default="data/availability")
+    pr=sp.add_parser("process",help="Per-event waveforms, plots, spectrograms, metrics and STA/LTA onsets")
+    pr.add_argument("--event-id",action="append"); pr.add_argument("--events-file",help="one event_id per line (# comments)")
+    pr.add_argument("--all-with-data",action="store_true",help="every event with archive data (availability table)")
+    pr.add_argument("--out-root",default=None,help="default: [products] out_root in config")
+    pr.add_argument("--ensemble",default=None,help="default: [products] ensemble in config")
+    pr.add_argument("--run-id",default=None); pr.add_argument("--notes",default="")
+    pr.add_argument("--no-plots",action="store_true"); pr.add_argument("--allow-any-out-root",action="store_true")
     kp=sp.add_parser("launchpads-kml",help="Write a Google Earth KML of the pad table (launchpads.csv)")
     kp.add_argument("--out",default=None,help="default: launchpads.csv with a .kml suffix")
     m=sp.add_parser("add-event")
@@ -242,6 +306,8 @@ def main(argv=None):
     ll2_cache,gcat_cache=_cache_paths(s)
     if a.command=="availability":
         _availability(s,a); return
+    if a.command=="process":
+        _process(s,a); return
     if a.command=="launchpads-kml":
         from .kml import write_launchpads_kml
         print(f"KML: {write_launchpads_kml(s.launchpads,a.out)}"); return

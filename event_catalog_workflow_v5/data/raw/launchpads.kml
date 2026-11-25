@@ -20,5 +20,7 @@ user 2026-11-25 (former LC-13; was 28.4859 -80.5444)</description><styleUrl>#lan
 user 2026-11-25 (~310 m NW of LZ-1)</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.545187,28.487721,0</coordinates></Point></Placemark>
 <Placemark><name>LZ40</name><description>28.561200, -80.573600
 user 2026-11-25 (approximate; ~350 m ESE of the SLC-40 mount)</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.573600,28.561200,0</coordinates></Point></Placemark>
+<Placemark><name>SLF</name><description>28.615000, -80.694500
+approximate midpoint of the Shuttle Landing Facility runway 15/33 (X-37B landings); verify in launchpads.kml</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.694500,28.615000,0</coordinates></Point></Placemark>
 </Document>
 </kml>
