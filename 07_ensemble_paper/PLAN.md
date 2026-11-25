@@ -182,7 +182,10 @@ need explaining. Thrust comparisons (3) need sourced thrust values before any nu
    Then re-run notebooks 15 and 20 against the new `KSC.xml`.
 2. **Shared metric module** (Sec. 2.1–2.3): peak ±, \|p\|, p-p, SPL, RMS/Leq, SEL/∫p², duration;
    PGV (Z, H, 3-C vector), PGA, PGD, RMS v, ∫v²; band versions. Reuse `ksclib.pressure` once merged.
-   Tests with synthetic signals of known SPL/SEL.
+   Tests with synthetic signals of known SPL/SEL. **In progress (2026-11-25), not committed:** the
+   catalog session is writing `ksclib.event_products` (`PRODUCTS_VERSION = "0.2"`: per-channel SPL/SEL/
+   Leq, vector metrics, STA/LTA onsets, built on `catalog_events`) in its worktree on branch
+   `claude/jovial-ptolemy-8effbc`. Build on that; do not write a second metric module here.
 3. **Catalogue tiers and QC** (Sec. 3.3, 2.4): populate `channel_epochs`/`qc_intervals` from the
    StationXML audit and the dead-channel list (item 5 above); add the tier columns.
 4. **Full-ensemble run** of the metrics over every 2016–2022 event with data, cached per `event_id`.
