@@ -202,6 +202,8 @@ def main(argv=None):
                     help="SDS root used for events START <= t < END (repeatable)")
     av.add_argument("--pre",type=float,default=600); av.add_argument("--post",type=float,default=600)
     av.add_argument("--out-dir",default="data/availability")
+    kp=sp.add_parser("launchpads-kml",help="Write a Google Earth KML of the pad table (launchpads.csv)")
+    kp.add_argument("--out",default=None,help="default: launchpads.csv with a .kml suffix")
     m=sp.add_parser("add-event")
     m.add_argument("event_type",choices=["orbital_launch","launch_failure","pad_explosion","static_fire","aborted_launch","booster_landing","aircraft_sonic_boom"])
     m.add_argument("time_utc"); m.add_argument("name"); m.add_argument("--pad",default=""); m.add_argument("--source",default="waveform_review"); m.add_argument("--notes",default="")
@@ -240,6 +242,9 @@ def main(argv=None):
     ll2_cache,gcat_cache=_cache_paths(s)
     if a.command=="availability":
         _availability(s,a); return
+    if a.command=="launchpads-kml":
+        from .kml import write_launchpads_kml
+        print(f"KML: {write_launchpads_kml(s.launchpads,a.out)}"); return
     if a.command=="clean": _clean(s,a.caches); return
     if a.command=="fetch-ll2":
         df,status=refresh_ll2_cache(a.start,a.end,ll2_cache); print(f"LL2 cache: {ll2_cache} ({len(df)} KSC/Cape records; {status})"); return

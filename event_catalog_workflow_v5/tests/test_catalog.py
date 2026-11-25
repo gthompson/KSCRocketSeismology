@@ -66,3 +66,20 @@ def test_reconciled_database_2016_to_present():
     assert (ev.vehicle.fillna('')!='').all()
     assert ev.pad.isin(['LC40','LC39A','LC39B','LC41','LC37B','LC46','LC36','LC16','LZ1','LZ2','LZ40',
                         'SLF','L1011','Unknown']).all()
+
+
+def test_launchpads_cover_catalog_pads_and_kml():
+    import sqlite3, xml.etree.ElementTree as ET
+    import pandas as pd
+    from kscrockets.kml import launchpads_kml
+    root = Path(__file__).resolve().parents[1]
+    pads = pd.read_csv(root/"data/raw/launchpads.csv")
+    assert pads.pad.is_unique
+    used = {r[0] for r in sqlite3.connect(root/"data/processed/ksc_rockets.sqlite").execute("select distinct pad from events")}
+    assert used - set(pads.pad) <= {"SLF", "L1011", "Unknown"}   # runway/air launch/unknown have no pad point
+    doc = ET.fromstring(launchpads_kml(pads))
+    ns = {"k": "http://www.opengis.net/kml/2.2"}
+    marks = doc.findall(".//k:Placemark", ns)
+    assert [m.find("k:name", ns).text for m in marks] == list(pads.pad)
+    lon, lat, _ = marks[0].find(".//k:coordinates", ns).text.split(",")
+    assert abs(float(lat) - pads.lat[0]) < 1e-6 and abs(float(lon) - pads.lon[0]) < 1e-6

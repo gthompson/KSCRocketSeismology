@@ -1,8 +1,12 @@
-pad,lat,lon
-LC39A,28.608172,-80.604336
-LC39B,28.62722,-80.62083
-LC40,28.562106,-80.57718
-LC41,28.58333,-80.5831
-LC37B,28.531986,-80.566821
-LZ1,28.4859,-80.5444
-LC46,28.4585,-80.5284
+pad,lat,lon,kind,source
+LC39A,28.608172,-80.604336,launch,
+LC39B,28.62722,-80.62083,launch,
+LC40,28.562106,-80.57718,launch,
+LC41,28.58333,-80.5831,launch,
+LC37B,28.531986,-80.566821,launch,
+LC46,28.4585,-80.5284,launch,
+LC36,28.470556,-80.5422,launch,station spreadsheet sheet launchpads_2026 (was ensemble.yaml extra)
+LC16,28.5017,-80.5518,launch,user 2026-11-25 (Relativity Terran R)
+LZ1,28.48575,-80.542944,landing,user 2026-11-25 (former LC-13; was 28.4859 -80.5444)
+LZ2,28.487721,-80.545187,landing,user 2026-11-25 (~310 m NW of LZ-1)
+LZ40,28.5612,-80.5736,landing,user 2026-11-25 (approximate; ~350 m ESE of the SLC-40 mount)

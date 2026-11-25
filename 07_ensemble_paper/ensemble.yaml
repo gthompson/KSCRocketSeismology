@@ -10,8 +10,7 @@ catalog:
 pads:
   files:
     - "{repo_root}/event_catalog_workflow_v5/data/raw/launchpads.csv"
-  extra:                            # pads missing from launchpads.csv: [lat, lon]
-    LC36: [28.470556, -80.542200]   # station spreadsheet, sheet launchpads_2026
+  extra: {}                         # pads missing from launchpads.csv: {CODE: [lat, lon]}
 
 window:                             # seconds relative to the catalog event time
   pretrigger: 600                   # read from origin - 600 s ...
