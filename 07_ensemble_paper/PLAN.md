@@ -1,12 +1,20 @@
-# Ensemble paper (2016–2026): plan
+# Ensemble paper (2016–2022): plan
 
-Working title: *Ten years of seismo-acoustic recordings of rocket launches at Kennedy Space Center
-and Cape Canaveral: amplitude scaling with vehicle, pad and distance.*
+Working title (from the shared science plan): *Six Years of Rocket Seismology: Systematic
+Seismo-Acoustic Observations of Space Launches at Cape Canaveral, 2016–2022.*
+
+**Governing document:** `notes/rocket_seismology_science_plan.md` (Glenn, 2026-11-25), Sections 2
+(shared metric definitions), 3 (this paper) and 10 (Priority 1). It makes this the top-priority
+paper and scopes it to **2016–2022**. The 2026 era stays in `ensemble.yaml` and the code because the
+same bridge serves cross-checks and the 2026 papers, but 2026 launches are not part of this paper.
+The extended catalog (branch `claude/jovial-ptolemy-8effbc`) found no KSC waveform archive for 2023–2025.
+See "Status against the science plan" below for what exists and what does not.
 
 The Artemis II papers study one launch in depth with a dense 2026 network. This paper does the
-opposite: many launches (≈200 in 2016–2022 alone, plus 2023–2026), each recorded by a few
-stations, and asks what is systematic — how peak pressure and ground motion scale with vehicle,
-pad, distance and atmosphere — and how the answer depends on the instruments of the day.
+opposite: many launches (191 `orbital_launch` rows in the reconciled sqlite for 2016–2022, plus
+aborts, static fires, a booster landing and AMOS-6), each recorded by a few stations, and asks what
+is systematic — how pressure and ground motion scale with vehicle, pad and distance, how
+air-to-ground coupling repeats at each site — and how the answer depends on the instruments of the day.
 
 ## How the folder is built
 
@@ -138,12 +146,49 @@ still from `~/Dropbox/KSC_paper`), `10_rocket_barcharts` (launch statistics; sti
    Centaur) — compare peak amplitudes only after a common low-pass (e.g. 40 Hz) if high-frequency
    crackle dominates near-pad peaks.
 
-## Next steps
+## Status against the science plan (checked 2026-11-25)
 
-1. Fix the StationXML (item 3: master-sheet `vpp`, geophone gains, BCHH DD2; one StationXML with epochs for 2016–2026) and extend the catalog to the present (item 1). These come first.
-2. Run notebook 20 over every catalog event with data (add a cache of per-event peak tables,
-   keyed by `event_id`, written to `ensemble.yaml: output`), then fits by vehicle/pad (Fig. 3–4).
-3. Event-time refinement notebook (airwave onset at the nearest station).
-4. Port spectral-ratio and coupling estimators from Artemis II notebooks 42/50 into ksclib and run
-   them over the ensemble.
-5. Weather at launch time for every event (`ksclib.weather` once the New Glenn branch is merged).
+What exists in this branch, what exists elsewhere, and what is missing. Nothing below is a result;
+the only numbers are counts of catalog rows and the measurement settings in the code.
+
+| Science plan item | Exists | Missing |
+|---|---|---|
+| 3.2 Network history and metadata | `00_station_map` (reads the sheet from `~/Dropbox/KSC_paper`); rebuilt `KSC.xml` 2016–2026 with audit trail on branch `claude/wizardly-faraday-01d6b3` (not merged here) | operation timeline, data-availability figure, station inventory table (sensor, datalogger, input range, sample rate per epoch), 1R network DOI |
+| 3.3 Launch catalogue | sqlite: 202 events to 2022-12-28, with `mission` and landing columns (landing columns empty); extended to the present with a waveform-availability table on branch `claude/jovial-ptolemy-8effbc` (not merged here) | the six tiers (catalogued / waveforms / usable seismic / usable infrasound / quantitative quality / > 1 station), data-quality and processing-status columns, landing info, DOI |
+| 3.4 Anatomy of launch signals | — | representative waveforms and spectrograms (near, intermediate, far; seismic ahead of airwave; ignition overpressure; ascent; sonic booms; landings) |
+| 3.5 Acoustic amplitudes | `catalog_events.peak_amplitudes`: peak \|p\| after a 0.5 Hz high-pass, signal window −30…300 s, noise window, SNR, Gem-overflow lower bounds; run on the 8-launch subset only (notebook 20). `ksclib.pressure` (AMOS-6 port: baseline-corrected positive/negative extrema, reduced pressure) exists on newer branches, not here | peak SPL, peak positive/negative, peak-to-peak, RMS and Leq, SEL / ∫p² dt, duration, band energies; full-ensemble run; attenuation fits with uncertainties; grouped regression by vehicle/pad |
+| 3.6 Seismic amplitudes | vertical PGV after a 1 Hz high-pass (`kind = seismic_Z`) | horizontal and vector PGV (and a stated definition), PGA, PGD, RMS velocity, ∫v² dt, band amplitudes |
+| 3.7 Air-to-ground coupling (major section) | estimators only in Artemis II notebooks 50/51 | port to ksclib; per-station distributions across launches; frequency-dependent coupling |
+| 3.8 Spectra and Doppler | estimators only in Artemis II notebook 42 | median spectra by vehicle, spectral evolution, first-order Doppler |
+| 3.9 Historical archive | — | inventory of presentations, posters, abstracts, old catalogues and software |
+| 2.4 Calibration and QC table | proposals in `03_stationxml/vpp_audit_DVEL_RBLAB.csv`; full audit on the StationXML branch; catalog schema already has empty `channel_epochs`, `qc_intervals` and `measurements` tables (the last with `metric_name`, `units`, `processing_version`, `qc_flag`) | one versioned table, populated and applied in `peak_amplitudes` |
+
+**Metric definitions (science plan Sec. 2) — decision for implementation.** Put every metric in one
+ksclib module shared by all five papers (Sec. 9), rather than in `catalog_events` or notebooks, and
+have `peak_amplitudes` call it. Every value carries its band (high-pass and low-pass corner, sample
+rate), window and processing version, so "band-limited, unweighted peak SPL" is stated with its
+bandwidth. Peak SPL = 20 log10(peak |p| / 20 µPa). PGV must say which: the current column is the
+vertical component only. Write results to the catalog's `measurements` table (or a parquet with the
+same columns), keyed by `event_id` and channel epoch.
+
+**Items in this plan that the science plan does not ask for.** T0 refinement (analysis 2) stays,
+because arrival times and windows depend on it. Pad/azimuth (4) and atmosphere (5) are secondary:
+the science plan says to keep the paper manageable, so do them only if the amplitude residuals
+need explaining. Thrust comparisons (3) need sourced thrust values before any number goes into text.
+
+## Next steps (science plan Priority 1 order)
+
+1. **Merge in the rebuilt StationXML and the extended catalog** (branches above; the user decides).
+   Then re-run notebooks 15 and 20 against the new `KSC.xml`.
+2. **Shared metric module** (Sec. 2.1–2.3): peak ±, \|p\|, p-p, SPL, RMS/Leq, SEL/∫p², duration;
+   PGV (Z, H, 3-C vector), PGA, PGD, RMS v, ∫v²; band versions. Reuse `ksclib.pressure` once merged.
+   Tests with synthetic signals of known SPL/SEL.
+3. **Catalogue tiers and QC** (Sec. 3.3, 2.4): populate `channel_epochs`/`qc_intervals` from the
+   StationXML audit and the dead-channel list (item 5 above); add the tier columns.
+4. **Full-ensemble run** of the metrics over every 2016–2022 event with data, cached per `event_id`.
+5. **Network-history figures and tables** (Sec. 3.2, Figs 1–3).
+6. **Anatomy examples** (Sec. 3.4, Fig. 4), then amplitude-distance fits (Figs 5–8).
+7. **Coupling and spectra**: port the Artemis II notebook 42/50/51 estimators into ksclib (Figs 9–12).
+8. Event-time refinement where arrival times are needed; weather (`ksclib.weather` on the New Glenn
+   branch) only if residuals call for it.
+9. Historical archive inventory (Sec. 3.9) — needs the user's list of past presentations.
