@@ -11,10 +11,13 @@ A manifest of every action (with the check that justified it) is written to
 <SDS>/_removed_20261126/manifest.csv (and to ./fix_sds_ksc_manifest.csv on a dry run).
 
 What it does (user decisions of 2026-11-26):
+ 0. Run this before rename_band_codes.py (it uses KSC_sds_codes.xml, whose codes match the archive now).
  1. Duplicates -> _removed_ (each one is checked sample-for-sample against the copy that is kept;
     anything that is not identical is reported and left alone):
       * unmatched/<year>/XX/<DAS serial>/ : RT130 data still under the DAS serial
-        (91F8 = BHP2 2018-288, 9338 = BHP4.00 2019-085, 9406 = BHP5.10/20 2019-183..197, 9BC5 = 2019-100)
+        (91F8 = BHP2 2018-288, 9338 = BHP4.00 2019-085, 9406 = BHP5.10/20 2019-183..197, 9BC5 = 2019-100).
+        Where the XX file is complete and the station file is zero-filled (BHP5.20 2019-190..192, and
+        possibly BHP8 2019-100), the XX data replace the station file under the station's name.
       * unmatched/2020/1R/FIREP/EL? 2020-346 : same samples as FIREP EH?
       * unmatched/2019/1R/BHP8/ : identical copies of the main-tree BHP8 files
       * 2019/1R/BHP8 2019-101..176 : DAS 9BC5 after it moved to BHP7; identical to BHP7.10
@@ -120,23 +123,65 @@ class Plan:
         print(f"\n{len(self.rows)} actions; manifest: {out}")
 
 
+def superset(a, b):
+    """True if file a covers file b's span and, wherever they differ, b is zero (b zero-filled/truncated)."""
+    A, B = merged(a), merged(b)
+    if len(A) != 1 or len(B) != 1:
+        return False, "multiple traces"
+    A, B = A[0], B[0]
+    if A.stats.starttime > B.stats.starttime + 0.01 or A.stats.endtime < B.stats.endtime - 0.01:
+        return False, "does not cover the station file"
+    x = np.ma.filled(A.slice(B.stats.starttime, B.stats.endtime).data, 0)
+    y = np.ma.filled(B.data, 0)
+    n = min(len(x), len(y))
+    d = x[:n] != y[:n]
+    if not d.any():
+        return True, "identical where both have data"
+    if np.all(y[:n][d] == 0) and np.mean(x[:n] == y[:n]) > 0.3:
+        return True, (f"station file zero where they differ ({d.sum()} samples) and spans "
+                      f"{len(B.data)} of {len(A.data)} samples")
+    return False, f"{d.sum()} differing samples, not all zero in the station file"
+
+
 def dedupe_serials(plan):
-    """unmatched/<y>/XX/<serial>/H0?: find the identical 1R EH? file the same day and remove the XX copy."""
+    """unmatched/<y>/XX/<serial>/H0?: RT130 data under the DAS serial.
+
+    If an identical 1R EH? file exists that day, the XX copy is removed. If instead the XX file is a
+    superset of a station file (BHP5.20 2019-190..192 are zero-filled from ~10:00 and stop at 20:00, while
+    XX.9406 has the whole day), the XX data are written under the station's name and the station file is
+    removed. Otherwise the file is kept and reported.
+    """
     um = plan.sds / "unmatched"
     for f in sorted(um.glob("*/XX/*/*.D/XX.*")):
         n, s, l, c, y, j = parse(f)
         cands = sorted(plan.sds.glob(f"{y}/1R/*/EH?.D/1R.*.EH?.D.{y}.{j:03d}")) + \
             sorted(um.glob(f"{y}/1R/*/EH?.D/1R.*.EH?.D.{y}.{j:03d}"))
-        hit = None
+        hit = sup = None
         for g in cands:
             ok, msg = identical(f, g)
             if ok:
                 hit = (g, msg)
                 break
+        if not hit:
+            for g in cands:
+                ok, msg = superset(f, g)
+                if ok:
+                    sup = (g, msg)
+                    break
         if hit:
             plan.to_trash(f, f"duplicate of {hit[0].relative_to(plan.sds)} ({hit[1]})")
+        elif sup:
+            g, msg = sup
+            gn, gs, gl, gc, gy, gj = parse(g)
+            st = read(str(f), details=True)
+            enc, reclen = st[0].stats.mseed.encoding, st[0].stats.mseed.record_length
+            for tr in st:
+                tr.stats.network, tr.stats.station, tr.stats.location, tr.stats.channel = gn, gs, gl, gc
+            plan.to_trash(g, f"replaced by the complete {f.name} ({msg})")
+            plan.write(st, g, enc, reclen, f"{f.name} relabelled as {g.name}: {msg}")
+            plan.to_trash(f, f"relabelled as {g.relative_to(plan.sds)}")
         else:
-            plan.log("KEEP", f, "", "no identical 1R EH? file that day - check by hand")
+            plan.log("KEEP", f, "", "no identical or zero-filled 1R EH? file that day - check by hand")
 
 
 def dedupe_pairs(plan):
@@ -246,12 +291,13 @@ def refile_mtegl(plan):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--sds", required=True, help="path to remastered SDS_KSC")
-    ap.add_argument("--xml", default=str(HERE.parent / "KSC.xml"))
+    ap.add_argument("--xml", default=str(HERE.parent / "KSC_sds_codes.xml"),
+                    help="StationXML with the archive's current channel codes (run this before rename_band_codes.py)")
     ap.add_argument("--apply", action="store_true", help="make the changes (default: dry run)")
     a = ap.parse_args()
     plan = Plan(a.sds, a.apply)
-    dedupe_serials(plan)
     dedupe_pairs(plan)
+    dedupe_serials(plan)
     bhp8_after_move(plan)
     promote_covered(plan, a.xml)
     refile_mtegl(plan)

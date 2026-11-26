@@ -54,7 +54,10 @@ def load_sheet(path):
     df = pd.read_excel(path, sheet_name="channel_epochs", dtype={"location": str, "datalogger_serial": str,
                                                                   "sensor_serial": str})
     df["location"] = df.location.fillna("--").replace({"--": ""})
-    for c in ("datalogger_serial", "sensor_serial", "sensor", "notes", "change", "evidence", "response_source", "end"):
+    if "sds_channel" not in df:
+        df["sds_channel"] = df.channel
+    for c in ("datalogger_serial", "sensor_serial", "sensor", "notes", "change", "evidence", "response_source", "end",
+              "sds_channel"):
         df[c] = df[c].map(_s)
     return df[df.include.astype(bool)].reset_index(drop=True)
 
@@ -170,7 +173,7 @@ def build_response(r, tpl):
     if r.datalogger == "Centaur":
         pre = (40.0 if r.vpp == 1 else 1.0) if r.sensor != "TCP" else TRILLIUM_PREAMP_40VPP
         if src.startswith(("centaur:", "nominal:")):
-            resp = tpl.centaur_file(src.split(":", 1)[1], r.channel)
+            resp = tpl.centaur_file(src.split(":", 1)[1], r.sds_channel or r.channel)
         else:
             resp = tpl.centaur_2016("H" if r.sensor == "TCP" else "D", float(r.sample_rate))
         stages = resp.response_stages
@@ -270,7 +273,7 @@ def make_channel(r, tpl):
     else:
         dl_serial = r.datalogger_serial or None
     if str(r.response_source).startswith("copy:"):
-        old = tpl.old.select(network=r.network, station=r.station, channel=r.channel)
+        old = tpl.old.select(network=r.network, station=r.station, channel=r.sds_channel or r.channel)
         cands = [c for n in old for s in n for c in s]
         ch = copy.deepcopy(cands[0])
         ch.start_date, ch.end_date = UTCDateTime(r.start), (UTCDateTime(r.end) if r.end else None)
@@ -297,8 +300,10 @@ def make_channel(r, tpl):
     return ch
 
 
-def build(sheet, out):
+def build(sheet, out, sds_codes=False):
     df = load_sheet(sheet)
+    if sds_codes:   # channel codes as in the not-yet-renamed archives (D?? for the Centaur broadband channels)
+        df["channel"] = df.sds_channel
     check(df)
     tpl = Templates()
     nets = {}
@@ -354,8 +359,10 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--sheet", default=str(HERE / "ksc_stations_master_v3.xlsx"))
     ap.add_argument("--out", default=str(HERE / "KSC.xml"))
+    ap.add_argument("--sds-codes", action="store_true",
+                    help="use the archive's current channel codes (sds_channel) instead of the SEED band codes")
     a = ap.parse_args()
     try:
-        build(a.sheet, a.out)
+        build(a.sheet, a.out, a.sds_codes)
     except SheetError as e:
         sys.exit(f"[sheet error]\n{e}")

@@ -611,14 +611,40 @@ README = [
                         "centaur:<file> = 2026 Centaur-written response; nominal:<file> = no file for that station; "
                         "copy:KSC.xml = Raspberry Shake channel copied; gemlog; paz"),
     ("change", "difference from KSC.xml (2025) / master v2"),
+    ("sds_channel", "channel code in the archived MiniSEED (Centaur D?? names) until the archives are renamed"),
     ("evidence", "why; audit tables in 03_stationxml/audit/"),
 ]
+
+def seed_band_codes(df):
+    """SEED band codes for the Centaur broadband channels (user, 2026-11-26).
+
+    The Centaur names its channels with band code D at 250/500 sps, but D is for sensors with a corner
+    period < 10 s. The Trillium Compact (120 s), infraBSU (-3 dB at ~0.035 Hz, ~28 s) and Chaparral M25
+    are broadband, so the SEED band code is C at 250-999 sps and H at 80-249 sps (B20 2026-04-04..06-14
+    and the B24 huddle on 2026-01-08 ran at 100 sps under the D names). SmartSolo DP? (5 Hz geophone,
+    500 sps) is correctly D and is unchanged. `sds_channel` keeps the code the archived MiniSEED uses until
+    03_stationxml/archive_fix/rename_band_codes.py has been run on the archives.
+    """
+    df = df.copy()
+    df["sds_channel"] = df.channel
+    m = (df.datalogger == "Centaur") & df.channel.str.startswith("D") & df.sensor.isin(["TCP", "infraBSU", "Chaparral"])
+    sr = df.sample_rate.astype(float)
+    band = np.where(sr >= 250, "C", np.where(sr >= 80, "H", "D"))
+    new = pd.Series(band, index=df.index) + df.channel.str[1:]
+    for i in df.index[m & (new != df.channel)]:
+        df.loc[i, "channel"] = new[i]
+        note = f"SEED band code {df.sds_channel[i]} -> {new[i]} ({int(sr[i])} sps, broadband sensor); archive still {df.sds_channel[i]}"
+        prev = df.change[i] if isinstance(df.change[i], str) else ""
+        df.loc[i, "change"] = (prev + "; " if prev else "") + note
+    return df
+
 
 if __name__ == "__main__":
     old = rows_2016_2022()
     new = rows_2026()
     df = pd.concat([old, new], ignore_index=True)
     df = df.sort_values(["network", "station", "location", "start", "channel"]).reset_index(drop=True)
+    df = seed_band_codes(df)
     changes = df[df.change.astype(str) != ""]
     with pd.ExcelWriter(OUT) as xw:
         df.to_excel(xw, sheet_name="channel_epochs", index=False)
