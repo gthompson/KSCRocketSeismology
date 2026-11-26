@@ -106,6 +106,7 @@ def main():
     rows, n_ok, n_conf = [], 0, 0
     files = sorted(p for p in sds.rglob("*.D/*") if p.is_file()
                    and not (set(p.relative_to(sds).parts) & SKIP_DIRS)
+                   and not any(x.startswith(".") for x in p.relative_to(sds).parts)   # e.g. .merge_cache
                    and p.parent.name[:2] in BROADBAND_D and len(p.name.split(".")) == 7)
     print(f"{len(files)} D?? files under {sds}")
     for f in files:
