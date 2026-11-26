@@ -111,7 +111,7 @@ From `coverage_KSC.csv` (column `in_unmatched_folder`), `unmatched_sds.csv` (`60
 * RB166/RB383 HD1–3, RB268 DDF (2021-10-16): no signal; notes say no power / did not record.
 * Install days now have epochs: BCHH3 from 2022-03-24, S39A3 from 2022-03-25, TANK from 2016-02-24 (same settings as the first epoch), BHP2 from 2018-10-15.
 
-**`unmatched/`: 2,404 channel-days, none needing an epoch except possibly the last two rows**
+**`unmatched/`: 2,404 channel-days, none needing an epoch.** `archive_fix/fix_sds_ksc.py` (run on hal9000) removes the duplicates, moves covered days into the main tree, relabels BHP8 2019-100 as BHP7.10 and re-files MTEGL.
 | group | decision | days |
 |---|---|---|
 | BCHH1 DD3 2017-11-14..2021-02-05 | empty input (3 counts MAD; DD1/DD2 45,000/8,100) | 551 |
@@ -124,9 +124,9 @@ From `coverage_KSC.csv` (column `in_unmatched_folder`), `unmatched_sds.csv` (`60
 | RB268 HDF/HH? 2021-10-16 | 16 minutes of already-converted floats; RB268 is covered in the main SDS | 4 |
 | CARL1 2016-02-20..25, SCMN 2016-05-23..31 | not at KSC (user) | 87 |
 | SF.LLS02 2018-02-06 | unknown (user: ignore) | 3 |
-| AM.R095E, R17FC, R976A, RC57A, RCC6E (2022-06-30..11-27), R37BE 2017-01-25 | **not at KSC**: no seismic launch signal (median SNR 0.8–1.0, 5–15 launches each). The HDF (Raspberry Boom) channels do record the big launches, but 340–1,430 s after launch, against 13–56 s at S39A1, i.e. 100–250 km away (USF). R17FC recorded Artemis I at SNR 21 and Falcon Heavy USSF-44 at SNR 40 | 1,149 |
-| BCHH 00 DD1–3/DH? 2016-02-20..23 | **open**: before the 2016-02-24 install, overlapping the CARL1 test; was the station at the beach house yet? | 18 |
-| BCHH2 HD7–HDC 2017-11-14 | **open, minor**: install-day 100 sps channels; no launch that day | 6 |
+| AM.R095E, R17FC, R976A, RC57A, RCC6E (2022-06-30..11-27), R37BE 2017-01-25 | **not KSC stations and no launch detections.** The Raspberry Shake FDSN puts all five in the Miami area, 291–303 km from LC-39A, through 2022. No seismic launch signal (median SNR 0.8–1.0). On the HDF (Boom) channels, `91_shake_regional_infrasound.py` looks for an arrival in the 830–1,170 s window expected at that range and compares it with the same window at the same time on non-launch days: the few SNR > 3 cases are matched by the null days, are not seen on the other Booms 6–10 km away, include one catalog time with no signal at KSC (2022-11-12 05:22), and the loudest launches (Artemis I, USSF-44, 07-24, 08-10) are not detected. (The 2026-11-26 report of arrivals "340–1,430 s after launch" was noise in a too-wide window.) | 1,149 |
+| BCHH 00 DD1–3/DH? 2016-02-20..23 | huddle test at the user's Tampa apartment with CARL1/CARL2 (user), not at KSC; ignored | 18 |
+| BCHH2 HD7–HDC 2017-11-14 | install-day 100 sps channels; no launch that day; ignored (user) | 6 |
 
 ## SmartSolo units (checked 2026-11-25)
 
@@ -142,8 +142,8 @@ The user recalled choosing *microvolt* output in SoloLite. However, the user's o
 ## Open questions for the user
 
 1. **L-22 constant.** Resolved: 88 V/(m/s) applied (median ratio to the Trillium 1.47 → 1.05). Whether the PASSCAL L-22s had a damping shunt is still unconfirmed; if they did, the damping in the PAZ should change too.
-2. **BCHH1 in 2020.** Is the ≈ 70× drop of the Trillium (and the low DD2) a known hardware fault? The data are flagged, not corrected.
+2. **BCHH1 in 2020.** No data 2019-09-23 (battery dead) to the 2020-01-31 service. On every launch after it, all three channels are low against BCHH2 DD4 and BHP2 EHZ: DHZ ≈ 50–100× (DHZ/BHP2 0.15–0.25 before, 0.000–0.004 after), DD2 ≈ 15× (0.017 → 0.001), DD1 ≈ 0. Exception: on 2020-10-24 DD1 and DD2 are back to their 2019 ratios while DHZ stays low. The data are flagged, not corrected; a common cause (Centaur or its power) is more likely than three sensors failing at once.
 3. **B20 and other 2026 stations after the 2026-09-22 service.** Only B20's 40 Vpp change is known. The other 2026 epochs end at the last downloaded day.
 4. **flovopy.** Fixed on flovopy branch `fix/chaparral-0p4-strict-vpp` (not merged or pushed): the Chaparral is 0.4 V/Pa, with the evidence in a comment, and a blank or unexpected Centaur vpp now raises an error. `librockets.py` still has 0.05.
-5. **BCHH 2016-02-20..23** (`unmatched/`, 18 channel-days): was the BCHH Centaur already at the beach house, or on the bench/at the CARL1 test? If at BCHH, its first epoch can start 2016-02-20.
-6. **Archive clean-up (classdata, not done here):** re-file the MTEGL days; move the BHP2 2018-288 files from `unmatched/` into the SDS; delete the duplicates (XX.*, FIREP EL?, BHP8 2019-100..176). The Raspberry Shake 2022 data are a regional (≈ 100–250 km) infrasound record of KSC launches, if that is ever wanted.
+5. **Archive clean-up**: `03_stationxml/archive_fix/fix_sds_ksc.py`, to be run on hal9000 (this Mac cannot write to classdata). Dry run by default; with `--apply`, removed files are moved to `SDS_KSC/_removed_20261126/` with a manifest.
+6. **stationxml-validator 1.7.5**: `KSC_1R_2016-2022.xml` PASSED. `KSC.xml` has no errors; 3 warnings on DG.B23 CL? (the recorder's channel code says velocity, but it is an accelerometer: CN? would be the SEED code). Fixed on the way: unit spellings (Pa, m/s, count), the Certimus 250 sps chain (its own file stops at 1000 sps; one more x2 FIR stage added from the 500 sps chain) and separate station epochs where the 2026 huddle Centaurs moved.

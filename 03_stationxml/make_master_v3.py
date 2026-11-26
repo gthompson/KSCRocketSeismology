@@ -287,11 +287,14 @@ def rows_2016_2022():
     for sta, old, new in [("BCHH3", "2022-03-30T00:00:00", "2022-03-24T00:00:00"),
                           ("S39A3", "2022-03-30T00:00:00", "2022-03-25T00:00:00"),
                           ("TANK", "2016-02-25T00:00:00", "2016-02-24T00:00:00"),
-                          ("BHP2", "2018-10-16T00:00:00", "2018-10-15T00:00:00")]:
+                          ("BHP2", "2018-10-16T00:00:00", "2018-10-15T00:00:00"),
+                          ("BHP7", "2019-04-11T00:00:00", "2019-04-10T00:00:00")]:
         setv(S(sta) & (df.start == old), start=new,
              change=f"start {old[:10]} -> {new[:10]} (install-day SDS data)",
-             evidence=("user 2026-11-26: same Centaur set-up as the rest of the deployment" if sta != "BHP2" else
-                       "SDS_KSC/unmatched 1R.BHP2 2018.288 = XX.91F8 (DAS of BHP2), identical samples"))
+             evidence={"BHP2": "SDS_KSC/unmatched 1R.BHP2 2018.288 = XX.91F8 (DAS of BHP2), identical samples",
+                       "BHP7": "SDS BHP8 2019.100 = DAS 9BC5 on the day it was installed at BHP7 (relabelled to "
+                               "BHP7.10 by archive_fix/fix_sds_ksc.py)"}.get(
+                 sta, "user 2026-11-26: same Centaur set-up as the rest of the deployment"))
     # XA.MTEGL: the MSFC Silicon Audio accelerometer later deployed at B23 (2026); same response.
     xa = df.network == "XA"
     df.loc[xa, "channel"] = df.loc[xa, "channel"].str.replace("EN", "CN", regex=False)

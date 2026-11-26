@@ -3,7 +3,7 @@
   <Source>build_ksc_stationxml.py (ksc_stations_master_v3.xlsx); 1R and AM epochs starting before 2023</Source>
   <Module>ObsPy 1.5.1</Module>
   <ModuleURI>https://www.obspy.org</ModuleURI>
-  <Created>2026-11-26T13:35:23.365752Z</Created>
+  <Created>2026-11-26T14:01:38.946703Z</Created>
   <Network code="1R">
     <Description>USF / KSC rocket seismo-acoustic network</Description>
     <Station code="BCHH" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z">
@@ -52,17 +52,17 @@
             <Value>1.2502613996330842</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 295</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -721,17 +721,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 283</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -1387,17 +1387,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -2055,10 +2055,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -2782,10 +2782,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -3509,10 +3509,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -4237,17 +4237,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 283</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -4909,17 +4909,17 @@
             <Value>1.2502613996330842</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 295</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -5587,10 +5587,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -6314,10 +6314,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -7041,10 +7041,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -7772,17 +7772,17 @@
             <Value>1.2502613996330842</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 295</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -8438,17 +8438,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 283</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -9104,17 +9104,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -9772,10 +9772,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -10497,17 +10497,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 224</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -11163,17 +11163,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 155</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -11829,17 +11829,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 311</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -12497,10 +12497,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -13224,10 +13224,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -13965,17 +13965,17 @@
             <Value>160000.02464977934</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros>
               <Description>Chaparral M25 low gain (flat)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
@@ -14622,17 +14622,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 302 (0.5")</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -15291,10 +15291,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -16019,10 +16019,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -16747,10 +16747,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -17474,10 +17474,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -18201,10 +18201,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -18928,10 +18928,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -19662,17 +19662,17 @@
             <Value>160000.02464977934</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros>
               <Description>Chaparral M25 low gain (flat)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
@@ -20328,17 +20328,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 302 (0.5")</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -21002,10 +21002,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -21735,10 +21735,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -22468,10 +22468,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -23200,17 +23200,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 155</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -23863,17 +23863,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 224</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -24526,17 +24526,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 282</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -25191,17 +25191,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -25856,17 +25856,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -26521,17 +26521,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -27194,17 +27194,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 155</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -27949,17 +27949,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 224</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -28704,17 +28704,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 282</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -29461,17 +29461,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -30218,17 +30218,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -30975,17 +30975,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -31745,17 +31745,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -32509,17 +32509,17 @@
             <Value>6400000.295110511</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros>
               <Description>Chaparral M25 low gain (flat)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
@@ -33264,10 +33264,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -34087,10 +34087,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -34910,10 +34910,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -35729,17 +35729,17 @@
             <Value>18.37884059060868</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -36493,17 +36493,17 @@
             <Value>160000.00737776275</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros>
               <Description>Chaparral M25 low gain (flat)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
@@ -37251,17 +37251,17 @@
             <Value>18.37884059060868</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -38015,17 +38015,17 @@
             <Value>160000.00737776275</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
             <PolesZeros>
               <Description>Chaparral M25 low gain (flat)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
               </InputUnits>
               <OutputUnits>
                 <Name>V</Name>
@@ -38767,10 +38767,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -39587,10 +39587,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -40407,10 +40407,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -41235,10 +41235,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -42053,10 +42053,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -42871,10 +42871,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -43704,10 +43704,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -44178,10 +44178,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -44652,10 +44652,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -45136,10 +45136,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -45610,10 +45610,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -46084,10 +46084,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -46568,10 +46568,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -47042,10 +47042,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -47516,10 +47516,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -48000,10 +48000,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -48474,10 +48474,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -48948,10 +48948,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -49422,10 +49422,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -49896,10 +49896,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -50370,10 +50370,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -50854,10 +50854,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -51328,10 +51328,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -51802,10 +51802,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -52276,10 +52276,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -52750,10 +52750,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -53224,10 +53224,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -53693,10 +53693,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -54162,10 +54162,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -54631,10 +54631,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -55115,10 +55115,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -55589,10 +55589,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -56063,10 +56063,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -56547,10 +56547,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -57021,10 +57021,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -57495,10 +57495,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -57932,13 +57932,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="EH1" startDate="2019-04-11T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
+      <Channel code="EH1" startDate="2019-04-10T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
         <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
-          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
+          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); start 2019-04-11 -&gt; 2019-04-10 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1); SDS BHP8 2019.100 = DAS 9BC5 on the day it was installed at BHP7 (relabelled to BHP7.10 by archive_fix/fix_sds_ksc.py)</Value>
         </Comment>
         <Comment>
           <Value>notes: XML says remoevd 2019-06-25</Value>
@@ -57969,10 +57969,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -58406,13 +58406,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="EH2" startDate="2019-04-11T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
+      <Channel code="EH2" startDate="2019-04-10T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
         <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
-          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
+          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); start 2019-04-11 -&gt; 2019-04-10 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1); SDS BHP8 2019.100 = DAS 9BC5 on the day it was installed at BHP7 (relabelled to BHP7.10 by archive_fix/fix_sds_ksc.py)</Value>
         </Comment>
         <Comment>
           <Value>notes: XML says remoevd 2019-06-25</Value>
@@ -58443,10 +58443,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -58880,13 +58880,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="EHZ" startDate="2019-04-11T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
+      <Channel code="EHZ" startDate="2019-04-10T00:00:00.000000Z" endDate="2019-07-01T00:00:00.000000Z" locationCode="10">
         <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
-          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
+          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); start 2019-04-11 -&gt; 2019-04-10 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1); SDS BHP8 2019.100 = DAS 9BC5 on the day it was installed at BHP7 (relabelled to BHP7.10 by archive_fix/fix_sds_ksc.py)</Value>
         </Comment>
         <Comment>
           <Value>notes: XML says remoevd 2019-06-25</Value>
@@ -58917,10 +58917,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -59401,10 +59401,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -59875,10 +59875,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -60349,10 +60349,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -60833,17 +60833,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291 (5”), 336 (0.5”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -61505,17 +61505,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291 (5”), 336 (0.5”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -62180,17 +62180,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291 (5”), 336 (0.5”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -62852,17 +62852,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291 (5”), 336 (0.5”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -63616,17 +63616,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291 (5”), 336 (0.5”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -64380,17 +64380,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 291 (5”), 336 (0.5”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -65154,17 +65154,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 268 (1”), 311 (0.5”), 295 (1”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -65826,17 +65826,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 268 (1”), 311 (0.5”), 295 (1”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -66498,17 +66498,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 268 (1”), 311 (0.5”), 295 (1”)</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -67180,17 +67180,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 412</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -67852,17 +67852,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 417</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -68524,17 +68524,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 436</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -69196,10 +69196,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -69927,10 +69927,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -70658,10 +70658,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -71399,10 +71399,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -72130,10 +72130,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -72861,10 +72861,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -73604,17 +73604,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -74278,17 +74278,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -74952,17 +74952,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -75623,10 +75623,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -76353,10 +76353,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -77083,10 +77083,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -77821,10 +77821,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -78292,10 +78292,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -78763,10 +78763,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -79236,17 +79236,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -79897,17 +79897,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -80558,17 +80558,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -81222,10 +81222,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -81945,10 +81945,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -82668,10 +82668,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -83398,17 +83398,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -84059,17 +84059,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -84720,17 +84720,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -85381,17 +85381,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -86042,17 +86042,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -86703,17 +86703,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -87387,10 +87387,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -88212,10 +88212,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -89037,10 +89037,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -89872,10 +89872,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -90605,10 +90605,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -91338,10 +91338,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -92078,10 +92078,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -92900,10 +92900,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -93722,10 +93722,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -94554,17 +94554,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -95222,17 +95222,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -95890,17 +95890,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -96564,17 +96564,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -97324,10 +97324,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -98143,10 +98143,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -98962,10 +98962,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -99784,17 +99784,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -100543,10 +100543,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -101361,10 +101361,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -102179,10 +102179,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -103007,17 +103007,17 @@
             <Value>735.1536236243471</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -103766,10 +103766,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -104584,10 +104584,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -105402,10 +105402,10 @@
             <Value>299457103.733586</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -106231,17 +106231,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -106894,17 +106894,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 302 (0.5")</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -107556,17 +107556,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -108222,10 +108222,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -108947,10 +108947,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -109672,10 +109672,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -110407,17 +110407,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 155</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -111073,17 +111073,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 224</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -111739,17 +111739,17 @@
             <Value>735.1537029842535</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 282</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -112411,17 +112411,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 285, 292, 296</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -113083,17 +113083,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 285, 292, 296</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -113755,17 +113755,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n 285, 292, 296</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -114436,17 +114436,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -115107,17 +115107,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -115778,17 +115778,17 @@
             <Value>18.378842574606335</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>PA</Name>
+              <Name>Pa</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1" resourceId="NRL:AnaPAZ_IUPa_NZ1_NP1_PHb6ca319_AN1_FN1::NRL:Gain_SG4.6em05_FN1">
             <PolesZeros>
               <Description>infraBSU 0.5in s/n ?</Description>
               <InputUnits>
-                <Name>PA</Name>
+                <Name>Pa</Name>
                 <Description>Pascals</Description>
               </InputUnits>
               <OutputUnits>
@@ -116449,10 +116449,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -117179,10 +117179,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -117909,10 +117909,10 @@
             <Value>299457136.0600099</Value>
             <Frequency>1.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -118647,10 +118647,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -119118,10 +119118,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">
@@ -119589,10 +119589,10 @@
             <Value>1771666917.2764335</Value>
             <Frequency>10.0</Frequency>
             <InputUnits>
-              <Name>M/S</Name>
+              <Name>m/s</Name>
             </InputUnits>
             <OutputUnits>
-              <Name>COUNTS</Name>
+              <Name>count</Name>
             </OutputUnits>
           </InstrumentSensitivity>
           <Stage number="1">

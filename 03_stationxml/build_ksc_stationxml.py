@@ -32,6 +32,7 @@ import numpy as np
 import pandas as pd
 from obspy import UTCDateTime, read_inventory
 from obspy.core.inventory import (Channel, Comment, Equipment, Inventory, Network, Site, Station)
+from obspy.core.inventory.util import Frequency
 from obspy.core.inventory.response import (CoefficientsTypeResponseStage, InstrumentSensitivity,
                                            PolesZerosResponseStage, Response)
 
@@ -115,7 +116,24 @@ class Templates:
         c = [c for n in self._centaur[path] for st in n for c in st if c.code == cha and c.sample_rate == sr]
         if not c:
             raise SheetError(f"no {cha} at {sr} sps in {path}")
-        return copy.deepcopy(c[0].response), c[0].location_code
+        resp = copy.deepcopy(c[0].response)
+        last = [s for s in resp.response_stages if s.decimation_factor][-1]
+        if abs(last.decimation_input_sample_rate / last.decimation_factor - sr) > 1e-6:
+            # The Certimus-written 250 sps stream (1N) stops at 1000 sps: its last two x2 stages are missing.
+            # Build it from the 500 sps stream (1L, ends with a x2 FIR from 1000 sps) plus one more copy of
+            # that x2 FIR from 500 to 250 sps (assumes the Certimus cascades the same half-band FIR; gain 1,
+            # so the sensitivity is unchanged).
+            full = [x for n in self._centaur[path] for st in n for x in st if x.code == cha and x.sample_rate == 2 * sr]
+            if not full:
+                raise SheetError(f"{cha} at {sr} sps in {path} has an incomplete decimation chain")
+            resp = copy.deepcopy(full[0].response)
+            half = copy.deepcopy(resp.response_stages[-1])
+            if half.decimation_factor != 2:
+                raise SheetError(f"last stage of {cha} at {2 * sr} sps is not a x2 decimation")
+            half.stage_sequence_number = len(resp.response_stages) + 1
+            half.decimation_input_sample_rate = Frequency(2 * sr)
+            resp.response_stages.append(half)
+        return resp, c[0].location_code
 
     def centaur_file(self, path, cha):
         if path not in self._centaur:
@@ -286,11 +304,14 @@ def build(sheet, out):
     nets = {}
     for (net, sta), g in df.groupby(["network", "station"]):
         g = g.sort_values("start")
-        # station epochs: union of channel epochs; a gap longer than one day starts a new epoch
+        # station epochs: union of channel epochs; a gap longer than one day or a move of more than 100 m
+        # (2026 huddle Centaurs taken to their field sites) starts a new epoch
         groups, cur, cur_end = [], [], None
         for _, r in g.iterrows():
             end = r.end or "2599-12-31T23:59:59"
-            if cur and r.start > (UTCDateTime(cur_end) + 86400).isoformat()[:19]:
+            moved = cur and (abs(float(r.latitude) - float(cur[0].latitude)) > 1e-3 or
+                             abs(float(r.longitude) - float(cur[0].longitude)) > 1e-3)
+            if cur and (moved or r.start > (UTCDateTime(cur_end) + 86400).isoformat()[:19]):
                 groups.append(cur)
                 cur, cur_end = [], None
             cur.append(r)
@@ -312,6 +333,17 @@ def build(sheet, out):
         "1R": "USF / KSC rocket seismo-acoustic network", "AM": "Raspberry Shake",
         "XA": "MSFC accelerometer (temporary, 2022)", "DG": "MSFC instruments co-located with the KSC network"}.get(n, ""))
         for n, s in sorted(nets.items())], source="build_ksc_stationxml.py (ksc_stations_master_v3.xlsx)")
+    # unit spellings accepted by the FDSN stationxml-validator (1.7.5 --units); ObsPy maps them case-blind
+    fix = {"PA": "Pa", "M/S": "m/s", "M/S**2": "m/s**2", "COUNTS": "count", "COUNT": "count"}
+    for netw in inv:
+        for sta_ in netw:
+            for ch in sta_:
+                resp = ch.response
+                for obj in [resp.instrument_sensitivity] + list(resp.response_stages):
+                    for att in ("input_units", "output_units"):
+                        u = getattr(obj, att, None)
+                        if u and u.upper() in fix:
+                            setattr(obj, att, fix[u.upper()])
     inv.write(str(out), format="STATIONXML", validate=True)
     n = sum(len(s.channels) for net in inv for s in net)
     print(f"wrote {out}: {len(inv.networks)} networks, {sum(len(x) for x in inv)} station epochs, {n} channel epochs")
