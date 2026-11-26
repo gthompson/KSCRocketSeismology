@@ -159,3 +159,6 @@ The Centaur names its channels with band code **D** at 250/500 sps, but D is for
 ## Zero-filled RT130 days found by the archive fix
 
 BHP5.20 2019-190..192 in the main SDS run only 06:00–20:00 and are zero from ≈ 10:00, while `unmatched/XX.9406` has complete days. `fix_sds_ksc.py` puts the XX data under the BHP5.20 name. XX.9BC5 2019-100 differs from BHP8 2019-100 over ≈ 47,500 samples that are not zeros: left for a manual check. Other zero-filled RT130 days have not been looked for.
+
+### ksclib during the rename (2026-11-26)
+`ksclib.seedcodes`: channel groups read both spellings (D[DH]? also reads C[DH]? and, on location 00, H[DH]?); Centaur response files (D-named) also answer for C/H-named traces; Gems (location '' or 10) are kept apart from Centaur HD? (location 00). StationXML eras (KSC.xml) always rename traces to SEED codes; event YAMLs opt in with `seed_band_codes: true` (set for the 2026 era of `ensemble.yaml`). `artemis2.yaml` is unchanged, so the Artemis II notebooks still get DD0/DHZ: checked identical to the previous ksclib on the launch window, and identical again on a renamed copy of the launch day. Before the 2026 archive is renamed, the Artemis II notebooks that call `client.get_waveforms(..., 'DD0'/'DHZ')` or select those codes (22, 25, 40, 42, 45, 48) must change.
