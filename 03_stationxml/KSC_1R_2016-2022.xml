@@ -3,7 +3,7 @@
   <Source>build_ksc_stationxml.py (ksc_stations_master_v3.xlsx); 1R and AM epochs starting before 2023</Source>
   <Module>ObsPy 1.5.1</Module>
   <ModuleURI>https://www.obspy.org</ModuleURI>
-  <Created>2026-11-26T14:01:38.946703Z</Created>
+  <Created>2026-11-26T14:30:48.614139Z</Created>
   <Network code="1R">
     <Description>USF / KSC rocket seismo-acoustic network</Description>
     <Station code="BCHH" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z">
@@ -15,10 +15,10 @@
         <Description>Centaur 383 + TCP; Centaur 383 + infraBSU</Description>
       </Site>
       <CreationDate>2016-02-24T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-03-04T20:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-03-04T20:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa x0.06803 measured | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: low-gain infraBSU 295: sensitivity x0.06803 (measured); epoch split at the 295/283 swap</Value>
+          <Value>change: low-gain infraBSU 295: sensitivity x0.06803 (measured); epoch split at the 295/283 swap; SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: sitedb.calibration: infraBSU 295 on HD1 2016-02-24..03-04, on HD2 from 2016-03-05 (calib 1.45 vs 0.12 Pa/count for 283); launch peaks DD2 vs DD1/DD3 (audit T2)</Value>
@@ -687,10 +687,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-03-04T20:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-03-04T20:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: epoch split at the 295/283 swap</Value>
+          <Value>change: epoch split at the 295/283 swap; SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>notes: Initially 283. Swapped with either 295 on 2016/03/04. Original lat/lon (phone) was 28.57396, -80.57236. Original location was never captured by high precision GPS. Using Laura's estimates of cable ends here.</Value>
@@ -1356,8 +1356,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
+        </Comment>
         <Comment>
           <Value>notes: Original location was never captured by high precision GPS. Using Laura's estimates of cable ends here.</Value>
         </Comment>
@@ -2022,8 +2025,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -2749,8 +2755,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -3476,8 +3485,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -4203,10 +4215,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD1" startDate="2016-03-04T20:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2016-03-04T20:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: epoch split at the 295/283 swap</Value>
+          <Value>change: epoch split at the 295/283 swap; SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>notes: Initially low gain sensor 295. swapped 2016/03/04 with 283. Original lat/lon (phone) was 28.574183,  -80.5724. Original location was never captured by high precision GPS. Using Laura's estimates of cable ends here.</Value>
@@ -4872,10 +4884,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-03-04T20:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2016-03-04T20:00:00.000000Z" endDate="2016-04-09T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa x0.06803 measured | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: low-gain infraBSU 295: sensitivity x0.06803 (measured); epoch split at the 295/283 swap</Value>
+          <Value>change: low-gain infraBSU 295: sensitivity x0.06803 (measured); epoch split at the 295/283 swap; SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: sitedb.calibration: infraBSU 295 on HD1 2016-02-24..03-04, on HD2 from 2016-03-05 (calib 1.45 vs 0.12 Pa/count for 283); launch peaks DD2 vs DD1/DD3 (audit T2)</Value>
@@ -5554,8 +5566,11 @@
         <Description>Centaur 268 + TCP; Centaur 268 + infraBSU; Centaur 371 + TCP; Centaur 371 + infraBSU</Description>
       </Site>
       <CreationDate>2016-05-17T00:00:00.000000Z</CreationDate>
-      <Channel code="DHZ" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
+      <Channel code="CHZ" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -6281,8 +6296,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
+      <Channel code="CHN" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -7008,8 +7026,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
+      <Channel code="CHE" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -7735,10 +7756,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
+      <Channel code="CD2" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa x0.06803 measured | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: low-gain infraBSU 295: sensitivity x0.06803 (measured)</Value>
+          <Value>change: low-gain infraBSU 295: sensitivity x0.06803 (measured); SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: sitedb.calibration: infraBSU 295 on HD1 2016-02-24..03-04, on HD2 from 2016-03-05 (calib 1.45 vs 0.12 Pa/count for 283); launch peaks DD2 vs DD1/DD3 (audit T2)</Value>
@@ -8407,8 +8428,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD1" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
+      <Channel code="CD1" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
+        </Comment>
         <Comment>
           <Value>notes: Original lat/lon (phone) was 28.574183,  -80.5724. Coords here from Laura survey 2016-11-02 of cable ends, as instruments removed for Hurricane.  4.6 m at 399 degrees from original.  </Value>
         </Comment>
@@ -9073,8 +9097,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
+      <Channel code="CD3" startDate="2016-05-17T00:00:00.000000Z" endDate="2016-09-09T00:00:00.000000Z" locationCode="10">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
+        </Comment>
         <Comment>
           <Value>notes: Original lat/lon (phnes) was 28.57399, -80.57255. Coords here from Laura survey 2016-11-02 of cable ends, as instruments removed for Hurricane. </Value>
         </Comment>
@@ -9739,8 +9766,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
+      <Channel code="CHN" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -10466,8 +10496,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD1" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
+      <Channel code="CD1" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
+        </Comment>
         <Comment>
           <Value>notes: Coords here from Laura survey 2016-11-02 of cable ends, as instruments removed for Hurricane. Robert estimated 28.574183	-80.57241 from Google Earth on 2016-10-17</Value>
         </Comment>
@@ -11132,8 +11165,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
+      <Channel code="CD2" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
+        </Comment>
         <Comment>
           <Value>notes: Coords here from Laura survey 2016-11-02 of cable ends, as instruments removed for Hurricane. Robert estimated 28.573894, -80.572352 from Google Earth on 2016-10-17</Value>
         </Comment>
@@ -11798,8 +11834,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
+      <Channel code="CD3" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
+        </Comment>
         <Comment>
           <Value>notes: Coords here from Laura survey 2016-11-02 of cable ends, as instruments removed for Hurricane. Robert estimated 28.574004, -80.572561 from Google Earth on 2017-10-17</Value>
         </Comment>
@@ -12464,8 +12503,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
+      <Channel code="CHE" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -13191,8 +13233,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
+      <Channel code="CHZ" startDate="2016-09-09T00:00:00.000000Z" endDate="2016-10-06T00:00:00.000000Z" locationCode="20">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -13928,10 +13973,10 @@
         <Description>Centaur 383 + Chaparral; Centaur 383 + TCP; Centaur 383 + infraBSU</Description>
       </Site>
       <CreationDate>2017-11-14T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2017-11-14T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2017-11-14T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
         <Description>Model 25, 0.4 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: added (missing from KSC.xml)</Value>
+          <Value>change: added (missing from KSC.xml); SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: Chaparral M25 0.4 V/Pa from co-located infraBSU launch peaks (audit T3); Centaur 383 dataless 2018-08-10: preamp x1 on HD1-HD3; syslog 2020-12-11 'Applying input range for THAC_0/1: 40'</Value>
@@ -14591,8 +14636,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2017-11-14T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2017-11-14T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Centaur 383 dataless 2018-08-10: preamp x1 on HD1-HD3; syslog 2020-12-11 'Applying input range for THAC_0/1: 40'</Value>
         </Comment>
@@ -15257,8 +15305,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2017-11-14T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2017-11-14T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -15985,8 +16036,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2017-11-14T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2017-11-14T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -16713,8 +16767,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2017-11-14T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2017-11-14T00:00:00.000000Z" endDate="2019-02-04T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -17441,8 +17498,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2019-02-04T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2019-02-04T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -18168,8 +18228,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2019-02-04T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2019-02-04T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -18895,8 +18958,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2019-02-04T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2019-02-04T00:00:00.000000Z" endDate="2020-01-31T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -19622,13 +19688,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD1" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>Model 25, 0.4 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged)</Value>
+          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged); SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: Chaparral M25 0.4 V/Pa from co-located infraBSU launch peaks (audit T3); Centaur 383 dataless 2018-08-10: preamp x1 on HD1-HD3; syslog 2020-12-11 'Applying input range for THAC_0/1: 40'</Value>
@@ -20288,13 +20354,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
           <Value>status: suspect</Value>
         </Comment>
         <Comment>
-          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged)</Value>
+          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged); SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: Centaur 383 dataless 2018-08-10: preamp x1 on HD1-HD3; syslog 2020-12-11 'Applying input range for THAC_0/1: 40'</Value>
@@ -20963,13 +21029,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
           <Value>status: suspect</Value>
         </Comment>
         <Comment>
-          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged)</Value>
+          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged); SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -21696,13 +21762,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
           <Value>status: suspect</Value>
         </Comment>
         <Comment>
-          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged)</Value>
+          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged); SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -22429,13 +22495,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2020-01-31T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
           <Value>status: suspect</Value>
         </Comment>
         <Comment>
-          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged)</Value>
+          <Value>change: epoch split at the 2020-01-31 service (status flag only, response unchanged); SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -23172,8 +23238,11 @@
         <Description>Centaur 384 + infraBSU</Description>
       </Site>
       <CreationDate>2017-11-14T00:00:00.000000Z</CreationDate>
-      <Channel code="DD4" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD4" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD4 -&gt; CD4 (250 sps, broadband sensor); archive still DD4</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.573779</Latitude>
         <Longitude unit="DEGREES">-80.572314</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -23835,8 +23904,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD5" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD5" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD5 -&gt; CD5 (250 sps, broadband sensor); archive still DD5</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.573476</Latitude>
         <Longitude unit="DEGREES">-80.572178</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -24498,8 +24570,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD6" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD6" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD6 -&gt; CD6 (250 sps, broadband sensor); archive still DD6</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.573701</Latitude>
         <Longitude unit="DEGREES">-80.572094</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -25161,8 +25236,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD7" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD7" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD7 -&gt; CD7 (250 sps, broadband sensor); archive still DD7</Value>
+        </Comment>
         <Comment>
           <Value>notes: SON2 Huddle with 292, 453 (new on 2019/02/03), 461 (new on 2019/02/03). Digitizer location.</Value>
         </Comment>
@@ -25826,8 +25904,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD8" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD8" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD8 -&gt; CD8 (250 sps, broadband sensor); archive still DD8</Value>
+        </Comment>
         <Comment>
           <Value>notes: SON2 Huddle with 292, 453 (new on 2019/02/03), 461 (new on 2019/02/03). Digitizer location.</Value>
         </Comment>
@@ -26491,8 +26572,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD9" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD9" startDate="2017-11-14T00:00:00.000000Z" endDate="2022-01-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD9 -&gt; CD9 (250 sps, broadband sensor); archive still DD9</Value>
+        </Comment>
         <Comment>
           <Value>notes: SON2 Huddle with 292, 453 (new on 2019/02/03), 461 (new on 2019/02/03). Digitizer location.</Value>
         </Comment>
@@ -60796,10 +60880,10 @@
         <Description>Centaur 378 + infraBSU</Description>
       </Site>
       <CreationDate>2018-02-06T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 0.19 if 1 Vpp vs 8 if 40 Vpp; night 0.15-0.35 Hz: 19.0 counts = 0.026 Pa if 1 Vpp / 1.04 Pa if 40 Vpp</Value>
@@ -61468,10 +61552,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 1.47 if 1 Vpp vs 59 if 40 Vpp; night 0.15-0.35 Hz: 154.5 counts = 0.210 Pa if 1 Vpp / 8.40 Pa if 40 Vpp</Value>
@@ -62140,13 +62224,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: vpp blank -&gt; 1 (same Sensor A port as DD1/DD2); dead input</Value>
+          <Value>change: vpp blank -&gt; 1 (same Sensor A port as DD1/DD2); dead input; SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: no launch signal: dead or disconnected; launches n=1: median ratio 0.00 if 1 Vpp vs 0 if 40 Vpp; night 0.15-0.35 Hz: 1.4 counts = 0.002 Pa if 1 Vpp / 0.08 Pa if 40 Vpp</Value>
@@ -65117,10 +65201,10 @@
         <Description>Centaur 379 + infraBSU</Description>
       </Site>
       <CreationDate>2018-02-06T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 0.54 if 1 Vpp vs 22 if 40 Vpp; night 0.15-0.35 Hz: 48.8 counts = 0.066 Pa if 1 Vpp / 2.65 Pa if 40 Vpp</Value>
@@ -65789,10 +65873,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 1.07 if 1 Vpp vs 43 if 40 Vpp; night 0.15-0.35 Hz: 148.8 counts = 0.202 Pa if 1 Vpp / 8.09 Pa if 40 Vpp</Value>
@@ -66461,10 +66545,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 0.28 if 1 Vpp vs 11 if 40 Vpp; night 0.15-0.35 Hz: 4.6 counts = 0.006 Pa if 1 Vpp / 0.25 Pa if 40 Vpp</Value>
@@ -67143,10 +67227,10 @@
         <Description>Centaur 166 + TCP; Centaur 166 + infraBSU</Description>
       </Site>
       <CreationDate>2019-02-13T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1; end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; end +1 day (SDS has data on the off-date); SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=8: median ratio 1.08 if 1 Vpp vs 43 if 40 Vpp; Centaur 166 dataless (2019-06-25): preamp x40 on HD1-HD3; night 0.15-0.35 Hz: 63.8 counts = 0.087 Pa if 1 Vpp / 3.47 Pa if 40 Vpp</Value>
@@ -67815,10 +67899,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1; end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; end +1 day (SDS has data on the off-date); SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=8: median ratio 1.10 if 1 Vpp vs 44 if 40 Vpp; Centaur 166 dataless (2019-06-25): preamp x40 on HD1-HD3; night 0.15-0.35 Hz: 43.4 counts = 0.059 Pa if 1 Vpp / 2.36 Pa if 40 Vpp</Value>
@@ -68487,10 +68571,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1; end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; end +1 day (SDS has data on the off-date); SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=2: median ratio 1.08 if 1 Vpp vs 43 if 40 Vpp; Centaur 166 dataless (2019-06-25): preamp x40 on HD1-HD3; night 0.15-0.35 Hz: 3.5 counts = 0.005 Pa if 1 Vpp / 0.19 Pa if 40 Vpp</Value>
@@ -69159,10 +69243,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -69890,10 +69974,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -70621,10 +70705,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2019-02-13T00:00:00.000000Z" endDate="2020-02-01T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -71362,10 +71446,10 @@
         <Description>Centaur 166 + TCP</Description>
       </Site>
       <CreationDate>2020-11-05T00:00:00.000000Z</CreationDate>
-      <Channel code="DHE" startDate="2020-11-05T00:00:00.000000Z" endDate="2020-12-12T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2020-11-05T00:00:00.000000Z" endDate="2020-12-12T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: new epoch: SDS has DVEL3 data 2020-11-05..2020-12-11 (master ends 2020-01-31)</Value>
+          <Value>change: new epoch: SDS has DVEL3 data 2020-11-05..2020-12-11 (master ends 2020-01-31); SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
         </Comment>
         <Comment>
           <Value>evidence: SDS_KSC 2020; Trillium recorded the 2020-12-11 Delta IV (SNR 12)</Value>
@@ -72093,10 +72177,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2020-11-05T00:00:00.000000Z" endDate="2020-12-12T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2020-11-05T00:00:00.000000Z" endDate="2020-12-12T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: new epoch: SDS has DVEL3 data 2020-11-05..2020-12-11 (master ends 2020-01-31)</Value>
+          <Value>change: new epoch: SDS has DVEL3 data 2020-11-05..2020-12-11 (master ends 2020-01-31); SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
         </Comment>
         <Comment>
           <Value>evidence: SDS_KSC 2020; Trillium recorded the 2020-12-11 Delta IV (SNR 12)</Value>
@@ -72824,10 +72908,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2020-11-05T00:00:00.000000Z" endDate="2020-12-12T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2020-11-05T00:00:00.000000Z" endDate="2020-12-12T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: new epoch: SDS has DVEL3 data 2020-11-05..2020-12-11 (master ends 2020-01-31)</Value>
+          <Value>change: new epoch: SDS has DVEL3 data 2020-11-05..2020-12-11 (master ends 2020-01-31); SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
         </Comment>
         <Comment>
           <Value>evidence: SDS_KSC 2020; Trillium recorded the 2020-12-11 Delta IV (SNR 12)</Value>
@@ -73565,13 +73649,13 @@
         <Description>Centaur 268 + TCP; Centaur 268 + infraBSU</Description>
       </Site>
       <CreationDate>2016-02-25T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: notebook 20: no launch signal; notes: 'still no infrasound data by 2016/03/23 so probably bad cable'</Value>
@@ -74239,13 +74323,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: notebook 20: no launch signal; notes: 'still no infrasound data by 2016/03/23 so probably bad cable'</Value>
@@ -74913,13 +74997,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
         </Comment>
         <Comment>
           <Value>evidence: notebook 20: no launch signal; notes: 'still no infrasound data by 2016/03/23 so probably bad cable'</Value>
@@ -75587,10 +75671,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -76317,10 +76401,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -77047,10 +77131,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-27T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: end +1 day (SDS has data on the off-date); SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
@@ -79210,8 +79294,11 @@
         <Description>Centaur + TCP; Centaur + infraBSU</Description>
       </Site>
       <CreationDate>2016-02-05T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -79871,8 +79958,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -80532,8 +80622,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -81193,8 +81286,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -81916,8 +82012,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -82639,8 +82738,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -83372,8 +83474,11 @@
         <Description>Centaur + infraBSU</Description>
       </Site>
       <CreationDate>2016-02-05T00:00:00.000000Z</CreationDate>
-      <Channel code="DD4" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD4" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD4 -&gt; CD4 (250 sps, broadband sensor); archive still DD4</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -84033,8 +84138,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD5" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD5" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD5 -&gt; CD5 (250 sps, broadband sensor); archive still DD5</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -84694,8 +84802,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD6" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD6" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD6 -&gt; CD6 (250 sps, broadband sensor); archive still DD6</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -85355,8 +85466,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD7" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD7" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD7 -&gt; CD7 (250 sps, broadband sensor); archive still DD7</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -86016,8 +86130,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD8" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD8" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD8 -&gt; CD8 (250 sps, broadband sensor); archive still DD8</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -86677,8 +86794,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD9" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD9" startDate="2016-02-05T00:00:00.000000Z" endDate="2016-02-06T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD9 -&gt; CD9 (250 sps, broadband sensor); archive still DD9</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.4077</Latitude>
         <Longitude unit="DEGREES">-80.5932</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -89833,13 +89953,13 @@
         <Description>Centaur 268 + TCP</Description>
       </Site>
       <CreationDate>2021-10-16T00:00:00.000000Z</CreationDate>
-      <Channel code="DHE" startDate="2021-10-16T00:00:00.000000Z" endDate="2021-10-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2021-10-16T00:00:00.000000Z" endDate="2021-10-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 40 explicit</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 40 explicit; SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); audit T5: Atlas V Lucy SNR ~1 (RB383 HHZ SNR 42); RB268 DHZ peak 2 counts</Value>
@@ -90566,13 +90686,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2021-10-16T00:00:00.000000Z" endDate="2021-10-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2021-10-16T00:00:00.000000Z" endDate="2021-10-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 40 explicit</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 40 explicit; SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); audit T5: Atlas V Lucy SNR ~1 (RB383 HHZ SNR 42); RB268 DHZ peak 2 counts</Value>
@@ -91299,13 +91419,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2021-10-16T00:00:00.000000Z" endDate="2021-10-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2021-10-16T00:00:00.000000Z" endDate="2021-10-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 40 explicit</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 40 explicit; SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); audit T5: Atlas V Lucy SNR ~1 (RB383 HHZ SNR 42); RB268 DHZ peak 2 counts</Value>
@@ -94518,13 +94638,13 @@
         <Description>Centaur 202 + infraBSU</Description>
       </Site>
       <CreationDate>2018-02-06T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
           <Value>status: dead</Value>
         </Comment>
         <Comment>
-          <Value>change: vpp blank -&gt; 1 (same Sensor A port as DD2/DD3); dead input</Value>
+          <Value>change: vpp blank -&gt; 1 (same Sensor A port as DD2/DD3); dead input; SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: nan</Value>
@@ -95189,10 +95309,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 1.60 if 1 Vpp vs 64 if 40 Vpp</Value>
@@ -95857,10 +95977,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2018-02-06T00:00:00.000000Z" endDate="2018-02-08T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp blank (built as 40) -&gt; 1</Value>
+          <Value>change: vpp blank (built as 40) -&gt; 1; SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
         </Comment>
         <Comment>
           <Value>evidence: vpp_audit_DVEL_RBLAB.csv: launches n=1: median ratio 1.92 if 1 Vpp vs 77 if 40 Vpp</Value>
@@ -106198,10 +106318,10 @@
         <Description>Centaur 383 + TCP; Centaur 383 + infraBSU</Description>
       </Site>
       <CreationDate>2017-08-18T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: added (missing from KSC.xml); sensor Chaparral -&gt; infraBSU (serial unknown)</Value>
+          <Value>change: added (missing from KSC.xml); sensor Chaparral -&gt; infraBSU (serial unknown); SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: Chaparral M25 0.4 V/Pa from co-located infraBSU launch peaks (audit T3); audit T3/T4b: TDRS-M 2017-08-18 DD1 = 2797 counts = 152 Pa as infraBSU at 40 Vpp (SON1 DD3 178 Pa, SON2 140-184 Pa) but 0.017 Pa as a Chaparral; master notes: the Chaparral moved to SON1 later</Value>
@@ -106866,8 +106986,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.573614</Latitude>
         <Longitude unit="DEGREES">-80.572248</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -107529,8 +107652,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-08-19T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-08-19T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.573614</Latitude>
         <Longitude unit="DEGREES">-80.572248</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -108191,8 +108317,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -108916,8 +109045,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -109641,8 +109773,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
+        <Comment>
+          <Value>change: SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
+        </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
         </Comment>
@@ -110376,8 +110511,11 @@
         <Description>Centaur 384 + infraBSU</Description>
       </Site>
       <CreationDate>2017-08-18T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
+        </Comment>
         <Comment>
           <Value>notes: SON2 Array. We don’t know exact setup until 2017-11-14</Value>
         </Comment>
@@ -111042,8 +111180,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
+        </Comment>
         <Comment>
           <Value>notes: SON2 Array</Value>
         </Comment>
@@ -111708,8 +111849,11 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
+        </Comment>
         <Comment>
           <Value>notes: SON2 Array</Value>
         </Comment>
@@ -112374,10 +112518,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD4" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD4" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: vpp 1 -&gt; 40</Value>
+          <Value>change: vpp 1 -&gt; 40; SEED band code DD4 -&gt; CD4 (250 sps, broadband sensor); archive still DD4</Value>
         </Comment>
         <Comment>
           <Value>evidence: audit T4b: TDRS-M 2017-08-18 DD1-3 ~1.0e5 counts vs DD4-6 ~3.2e3 (x33); 2017-08-26 x38; 40 Vpp gives 165-184 Pa, matching SON1 DD3 (178 Pa) and SON2 DD1-3 at 1 Vpp (140 Pa)</Value>
@@ -113046,10 +113190,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD5" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD5" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: vpp 1 -&gt; 40</Value>
+          <Value>change: vpp 1 -&gt; 40; SEED band code DD5 -&gt; CD5 (250 sps, broadband sensor); archive still DD5</Value>
         </Comment>
         <Comment>
           <Value>evidence: audit T4b: TDRS-M 2017-08-18 DD1-3 ~1.0e5 counts vs DD4-6 ~3.2e3 (x33); 2017-08-26 x38; 40 Vpp gives 165-184 Pa, matching SON1 DD3 (178 Pa) and SON2 DD1-3 at 1 Vpp (140 Pa)</Value>
@@ -113718,10 +113862,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD6" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD6" startDate="2017-08-18T00:00:00.000000Z" endDate="2017-11-13T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: vpp 1 -&gt; 40</Value>
+          <Value>change: vpp 1 -&gt; 40; SEED band code DD6 -&gt; CD6 (250 sps, broadband sensor); archive still DD6</Value>
         </Comment>
         <Comment>
           <Value>evidence: audit T4b: TDRS-M 2017-08-18 DD1-3 ~1.0e5 counts vs DD4-6 ~3.2e3 (x33); 2017-08-26 x38; 40 Vpp gives 165-184 Pa, matching SON1 DD3 (178 Pa) and SON2 DD1-3 at 1 Vpp (140 Pa)</Value>
@@ -114400,10 +114544,10 @@
         <Description>Centaur 166 + TCP; Centaur 166 + infraBSU</Description>
       </Site>
       <CreationDate>2016-02-24T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD1" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data); SEED band code DD1 -&gt; CD1 (250 sps, broadband sensor); archive still DD1</Value>
         </Comment>
         <Comment>
           <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
@@ -115071,10 +115215,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD2" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data); SEED band code DD2 -&gt; CD2 (250 sps, broadband sensor); archive still DD2</Value>
         </Comment>
         <Comment>
           <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
@@ -115742,10 +115886,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
+      <Channel code="CD3" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
         <Comment>
-          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data); SEED band code DD3 -&gt; CD3 (250 sps, broadband sensor); archive still DD3</Value>
         </Comment>
         <Comment>
           <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
@@ -116413,10 +116557,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHE" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data); SEED band code DHE -&gt; CHE (250 sps, broadband sensor); archive still DHE</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
@@ -117143,10 +117287,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHN" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data); SEED band code DHN -&gt; CHN (250 sps, broadband sensor); archive still DHN</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
@@ -117873,10 +118017,10 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="CHZ" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data); SEED band code DHZ -&gt; CHZ (250 sps, broadband sensor); archive still DHZ</Value>
         </Comment>
         <Comment>
           <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>

@@ -147,3 +147,15 @@ The user recalled choosing *microvolt* output in SoloLite. However, the user's o
 4. **flovopy.** Fixed on flovopy branch `fix/chaparral-0p4-strict-vpp` (not merged or pushed): the Chaparral is 0.4 V/Pa, with the evidence in a comment, and a blank or unexpected Centaur vpp now raises an error. `librockets.py` still has 0.05.
 5. **Archive clean-up**: `03_stationxml/archive_fix/fix_sds_ksc.py`, to be run on hal9000 (this Mac cannot write to classdata). Dry run by default; with `--apply`, removed files are moved to `SDS_KSC/_removed_20261126/` with a manifest.
 6. **stationxml-validator 1.7.5**: `KSC_1R_2016-2022.xml` PASSED. `KSC.xml` has no errors; 3 warnings on DG.B23 CL? (the recorder's channel code says velocity, but it is an accelerometer: CN? would be the SEED code). Fixed on the way: unit spellings (Pa, m/s, count), the Certimus 250 sps chain (its own file stops at 1000 sps; one more x2 FIR stage added from the 500 sps chain) and separate station epochs where the 2026 huddle Centaurs moved.
+
+## SEED band codes (2026-11-26)
+
+The Centaur names its channels with band code **D** at 250/500 sps, but D is for sensors with a corner period below 10 s. The Trillium Compact (120 s), the infraBSU (−3 dB at ≈ 0.035 Hz, ≈ 28 s) and the Chaparral M25 are broadband, so the SEED codes are **C** at 250–999 sps and **H** at 80–249 sps (user decision).
+* `KSC.xml` and `KSC_1R_2016-2022.xml` now use C?? (265 channel epochs) and H?? (B20 2026-04-04..06-14 and the B24 huddle 2026-01-08, which ran at 100 sps under the D names). SmartSolo DP? (5 Hz geophone) stays D.
+* The archives still use D??. Until `archive_fix/rename_band_codes.py` has been run on them, use **`KSC_sds_codes.xml`** (same responses, archive codes) with the data; the master sheet keeps the archive code in `sds_channel`.
+* `rename_band_codes.py` changes only the 3-byte channel field of each record (lossless; tested sample-for-sample) and routes records by their own sample rate, so B20's mixed 500/100 sps day files split into C?? and H?? files.
+* Code that hard-codes D[DH]? (ksclib `DEFAULT_CHANNEL_GROUPS`, `infrabsu_channels`, `ensemble.yaml`, `artemis2.yaml`, `restore_B29_DHZ.py`, notebooks, catalog seed-id lists) must change when the archives are renamed. New Centaur downloads will keep arriving as D?? unless the ingest renames them.
+
+## Zero-filled RT130 days found by the archive fix
+
+BHP5.20 2019-190..192 in the main SDS run only 06:00–20:00 and are zero from ≈ 10:00, while `unmatched/XX.9406` has complete days. `fix_sds_ksc.py` puts the XX data under the BHP5.20 name. XX.9BC5 2019-100 differs from BHP8 2019-100 over ≈ 47,500 samples that are not zeros: left for a manual check. Other zero-filled RT130 days have not been looked for.
