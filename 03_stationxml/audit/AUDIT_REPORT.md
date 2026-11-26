@@ -22,7 +22,7 @@ serials where known, and comments for status, change, evidence and notes.
 |---|---|
 | `validate_stationxml.py` (flovopy) | only issue: B20 is open-ended from 2026-09-23 (intentional, see below) |
 | blank `vpp` on DVEL3 DD1 (negative test) | builder refuses: "Centaur rows without vpp 1 or 40" |
-| SDS coverage (`30_check_coverage.py`, now also scanning the DG network and `SDS_KSC/unmatched/`) | main SDS trees: 49 of 30,984 channel-days have no response (old KSC.xml: 12,934). `unmatched/`: 2,407 more channel-days (2,434 files, 76 GB) that the remastering never matched to metadata. Both are triaged in *Data still without an epoch* below |
+| SDS coverage (`30_check_coverage.py`, now also scanning the DG network and `SDS_KSC/unmatched/`) | main SDS trees: 31 of 30,984 channel-days have no response (old KSC.xml: 12,934), all empty inputs. `unmatched/`: 2,404 more channel-days (2,434 files, 76 GB) that the remastering never matched to metadata. Both are triaged in *Data still without an epoch* below |
 | 2026 against ksclib (`40_compare_2026.py`, Artemis II) | Centaur 1.000 on every channel, SmartSolo 0.997–1.000, Gem 0.94–1.02 (different deconvolution path; Gem peaks are overflow lower bounds) |
 | BCHH1 DD2 (40 Vpp) against BCHH2 (1 Vpp) | median p·r ratio 0.86 over 24 launches |
 | notebook 20 re-run | see the final cell of `07_ensemble_paper/20_ensemble_subset_amplitudes.ipynb` |
@@ -103,27 +103,30 @@ serials where known, and comments for status, change, evidence and notes.
 
 ## Data still without an epoch
 
-From `coverage_KSC.csv` (column `in_unmatched_folder`) and `unmatched_sds.csv` (`60_unmatched_sds.py`: level of a sample day and of the matched channels at the same station that day).
+From `coverage_KSC.csv` (column `in_unmatched_folder`), `unmatched_sds.csv` (`60_unmatched_sds.py`) and `unmatched_launch_test.csv` (`90_unmatched_launch_test.py`). Decisions are the user's of 2026-11-26: the Trillium was always on the 40 V input; infrasound was 40 Vpp in 2016 and 1 Vpp in 2022; empty inputs, CARL1, SCMN and SF.LLS02 are ignored; Raspberry Shakes count only if they record KSC launches.
 
-**Main SDS trees (92 channel-days)**
-* Excluded because their response cannot be known: DVEL1 DD4–6/HD4–6 (2018-02-06/07), DVEL3 DD1–3 (2020-11-05..12-11), RB166/RB268/RB383 infrasound (2021-10-16).
-* Test or install days before the first epoch: BCHH3 2022-03-24, S39A3 2022-03-25, TANK 2016-02-24.
+**Main SDS trees: 31 channel-days, all empty inputs (ignored)**
+* DVEL1 DD4–6/HD4–6 (2018-02-06/07): digitizer floor, no launch signal.
+* DVEL3 DD1–3 (2020-11-05..12-11): SNR ≈ 1 on 5 launches that BCHH2 recorded.
+* RB166/RB383 HD1–3, RB268 DDF (2021-10-16): no signal; notes say no power / did not record.
+* Install days now have epochs: BCHH3 from 2022-03-24, S39A3 from 2022-03-25, TANK from 2016-02-24 (same settings as the first epoch), BHP2 from 2018-10-15.
 
-**`unmatched/` (2,407 channel-days), by what they are**
-| group | what it is | days |
+**`unmatched/`: 2,404 channel-days, none needing an epoch except possibly the last two rows**
+| group | decision | days |
 |---|---|---|
-| BCHH1 DD3 2017-11-14..2021-02-05 | third Sensor B input with nothing on it: 3 counts MAD, 34 counts at 99.9% (DD1/DD2 have 45,000/8,100) | 551 |
-| BCHH4 HD3 2022-05-26..12-02 | possibly a live infraBSU: 24 counts MAD vs 36 on HD2 | 191 |
-| S39A3 HD2, HD3 2022-04-01..05-25 | possibly live: 102 and 32 counts MAD (HDF at 1 Vpp: 502) | 110 |
-| BHP8 2019-02..06 | DAS 9BC5 after it moved to BHP7; duplicates BHP7.10 | 231 |
-| XX.91F8 / 9338 / 9406 / 9BC5 (2018-19) | RT130 data still under the DAS serial; 91F8 = BHP2 2018-10-15, identical samples | 54 |
-| FIREP EL? 2020-12-11 | same samples as FIREP EH? that day | 3 |
-| BCHH2 HD7–HDC 2017-11-14 | install day, 100 sps H-codes | 6 |
-| RB268 HDF/HH? 2021-10-16 | 16 minutes, already-converted floats | 4 |
-| SON1 DD2/DD3 2017 | days outside the SON1 epochs | 3 |
-| BCHH 2016-02-20..23, CARL1 2016-02-20..25, JPK1/JPK2 2016-02-05, SCMN 2016-05-23..31 | 2016 tests. JPK1/2 are in `ksc_stations_master.csv` (28.4077, −80.5932, Centaur 40 Vpp); CARL1 and SCMN have no coordinates anywhere | 99 |
-| AM.R095E, R17FC, R976A, RC57A, RCC6E (2022), R37BE 2017-01-25 | other Raspberry Shakes (R976A already in m/s) | 1,149 |
-| SF.LLS02 2018-02-06 | unknown, 1-count values | 3 |
+| BCHH1 DD3 2017-11-14..2021-02-05 | empty input (3 counts MAD; DD1/DD2 45,000/8,100) | 551 |
+| BCHH4 HD3 2022-05-26..12-02 | empty input: median launch SNR 2.1 on 29 launches against ≈ 200 on HD2, i.e. crosstalk | 191 |
+| S39A3 HD2, HD3 2022-04-01..05-25 | empty inputs: launch SNR 1.0 on all 9 launches HDF recorded | 110 |
+| BHP8 2019-02..06 | DAS 9BC5 after it moved to BHP7; duplicates BHP7.10 (withdraw at the DMC) | 231 |
+| XX.91F8 / 9338 / 9406 / 9BC5 (2018-19) | RT130 data under the DAS serial, identical samples to BHP2 2018-288, BHP4.00 2019-085, BHP5.20 2019-190 and BHP8 2019-100 | 54 |
+| FIREP EL? 2020-12-11 | same samples as FIREP EH? | 3 |
+| SON1 DD2 2017-05-08, DD3 2017-08-23..26 | empty (1–4 counts MAD) | 3 |
+| RB268 HDF/HH? 2021-10-16 | 16 minutes of already-converted floats; RB268 is covered in the main SDS | 4 |
+| CARL1 2016-02-20..25, SCMN 2016-05-23..31 | not at KSC (user) | 87 |
+| SF.LLS02 2018-02-06 | unknown (user: ignore) | 3 |
+| AM.R095E, R17FC, R976A, RC57A, RCC6E (2022-06-30..11-27), R37BE 2017-01-25 | **not at KSC**: no seismic launch signal (median SNR 0.8–1.0, 5–15 launches each). The HDF (Raspberry Boom) channels do record the big launches, but 340–1,430 s after launch, against 13–56 s at S39A1, i.e. 100–250 km away (USF). R17FC recorded Artemis I at SNR 21 and Falcon Heavy USSF-44 at SNR 40 | 1,149 |
+| BCHH 00 DD1–3/DH? 2016-02-20..23 | **open**: before the 2016-02-24 install, overlapping the CARL1 test; was the station at the beach house yet? | 18 |
+| BCHH2 HD7–HDC 2017-11-14 | **open, minor**: install-day 100 sps channels; no launch that day | 6 |
 
 ## SmartSolo units (checked 2026-11-25)
 
@@ -142,3 +145,5 @@ The user recalled choosing *microvolt* output in SoloLite. However, the user's o
 2. **BCHH1 in 2020.** Is the ≈ 70× drop of the Trillium (and the low DD2) a known hardware fault? The data are flagged, not corrected.
 3. **B20 and other 2026 stations after the 2026-09-22 service.** Only B20's 40 Vpp change is known. The other 2026 epochs end at the last downloaded day.
 4. **flovopy.** Fixed on flovopy branch `fix/chaparral-0p4-strict-vpp` (not merged or pushed): the Chaparral is 0.4 V/Pa, with the evidence in a comment, and a blank or unexpected Centaur vpp now raises an error. `librockets.py` still has 0.05.
+5. **BCHH 2016-02-20..23** (`unmatched/`, 18 channel-days): was the BCHH Centaur already at the beach house, or on the bench/at the CARL1 test? If at BCHH, its first epoch can start 2016-02-20.
+6. **Archive clean-up (classdata, not done here):** re-file the MTEGL days; move the BHP2 2018-288 files from `unmatched/` into the SDS; delete the duplicates (XX.*, FIREP EL?, BHP8 2019-100..176). The Raspberry Shake 2022 data are a regional (≈ 100–250 km) infrasound record of KSC launches, if that is ever wanted.

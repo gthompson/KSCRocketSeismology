@@ -3,7 +3,7 @@
   <Source>build_ksc_stationxml.py (ksc_stations_master_v3.xlsx)</Source>
   <Module>ObsPy 1.5.1</Module>
   <ModuleURI>https://www.obspy.org</ModuleURI>
-  <Created>2026-11-25T20:34:30.402937Z</Created>
+  <Created>2026-11-26T13:35:23.365752Z</Created>
   <Network code="1R">
     <Description>USF / KSC rocket seismo-acoustic network</Description>
     <Station code="B01" startDate="2026-01-08T00:00:00.000000Z" endDate="2026-08-20T00:00:00.000000Z">
@@ -103162,7 +103162,7 @@
         </Response>
       </Channel>
     </Station>
-    <Station code="BCHH3" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z">
+    <Station code="BCHH3" startDate="2022-03-24T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z">
       <Latitude unit="DEGREES">28.573614</Latitude>
       <Longitude unit="DEGREES">-80.572248</Longitude>
       <Elevation unit="METERS">0.0</Elevation>
@@ -103170,14 +103170,14 @@
         <Name>BCHH3</Name>
         <Description>Centaur 383 + Chaparral; Centaur 383 + TCP; Centaur 383 + infraBSU</Description>
       </Site>
-      <CreationDate>2022-03-30T00:00:00.000000Z</CreationDate>
-      <Channel code="HD2" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-05-26T15:09:33.000000Z" locationCode="00">
+      <CreationDate>2022-03-24T00:00:00.000000Z</CreationDate>
+      <Channel code="HD2" startDate="2022-03-24T00:00:00.000000Z" endDate="2022-05-26T15:09:33.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: vpp 40 -&gt; 1</Value>
+          <Value>change: vpp 40 -&gt; 1; start 2022-03-30 -&gt; 2022-03-24 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: Centaur-written FL.BCHH3_20220324..20220401*.xml: preamp x40 on HD2/HD3/HDF; librockets.py: 'Chaparral M25 ... set to 1 V FS' before 2022-05-26; launch p*r vs BCHH2 (audit T4)</Value>
+          <Value>evidence: Centaur-written FL.BCHH3_20220324..20220401*.xml: preamp x40 on HD2/HD3/HDF; librockets.py: 'Chaparral M25 ... set to 1 V FS' before 2022-05-26; launch p*r vs BCHH2 (audit T4); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Latitude unit="DEGREES">28.573614</Latitude>
         <Longitude unit="DEGREES">-80.572248</Longitude>
@@ -103931,13 +103931,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HDF" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-05-26T15:09:33.000000Z" locationCode="00">
+      <Channel code="HDF" startDate="2022-03-24T00:00:00.000000Z" endDate="2022-05-26T15:09:33.000000Z" locationCode="00">
         <Description>Model 25, 0.4 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
         <Comment>
-          <Value>change: added (missing from KSC.xml); vpp 40 -&gt; 1</Value>
+          <Value>change: added (missing from KSC.xml); vpp 40 -&gt; 1; start 2022-03-30 -&gt; 2022-03-24 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: Chaparral M25 0.4 V/Pa from co-located infraBSU launch peaks (audit T3); Centaur-written FL.BCHH3_20220324..20220401*.xml: preamp x40 on HD2/HD3/HDF; librockets.py: 'Chaparral M25 ... set to 1 V FS' before 2022-05-26; launch p*r vs BCHH2 (audit T4)</Value>
+          <Value>evidence: Chaparral M25 0.4 V/Pa from co-located infraBSU launch peaks (audit T3); Centaur-written FL.BCHH3_20220324..20220401*.xml: preamp x40 on HD2/HD3/HDF; librockets.py: 'Chaparral M25 ... set to 1 V FS' before 2022-05-26; launch p*r vs BCHH2 (audit T4); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: So at some point, the Chaparral was moved from SON2 HD7 to SON1. Probably while it was BCHH1 rather BCHH3?; M25 output +-18 V: clips above ~45 Pa at 40 Vpp and ~1.2 Pa at 1 Vpp (all BCHH3 launches clipped)</Value>
@@ -104685,13 +104685,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HHE" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="HHE" startDate="2022-03-24T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-24 (install-day SDS data); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: digitizer changed to 378 on 2022-05-26, and moved Chap/infraBSU from sensor B to sensor A on this date. And sensor B is now Trillium 2392 about 25 m SW of enclosure</Value>
@@ -105508,13 +105508,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HHN" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="HHN" startDate="2022-03-24T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-24 (install-day SDS data); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: digitizer changed to 378 on 2022-05-26, and moved Chap/infraBSU from sensor B to sensor A on this date. And sensor B is now Trillium 2392 about 25 m SW of enclosure</Value>
@@ -106331,13 +106331,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HHZ" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z" locationCode="00">
+      <Channel code="HHZ" startDate="2022-03-24T00:00:00.000000Z" endDate="2022-05-27T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>change: end +1 day (SDS has data on the off-date)</Value>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-24 (install-day SDS data); end +1 day (SDS has data on the off-date)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: digitizer changed to 378 on 2022-05-26, and moved Chap/infraBSU from sensor B to sensor A on this date. And sensor B is now Trillium 2392 about 25 m SW of enclosure</Value>
@@ -116546,7 +116546,7 @@
         </Response>
       </Channel>
     </Station>
-    <Station code="BHP2" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z">
+    <Station code="BHP2" startDate="2018-10-15T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z">
       <Latitude unit="DEGREES">28.574257</Latitude>
       <Longitude unit="DEGREES">-80.572877</Longitude>
       <Elevation unit="METERS">0.0</Elevation>
@@ -116554,14 +116554,14 @@
         <Name>BHP2</Name>
         <Description>RT130 91F8 + L-22</Description>
       </Site>
-      <CreationDate>2018-10-16T00:00:00.000000Z</CreationDate>
-      <Channel code="EH1" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
+      <CreationDate>2018-10-15T00:00:00.000000Z</CreationDate>
+      <Channel code="EH1" startDate="2018-10-15T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
         <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
-          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
+          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); start 2018-10-16 -&gt; 2018-10-15 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1); SDS_KSC/unmatched 1R.BHP2 2018.288 = XX.91F8 (DAS of BHP2), identical samples</Value>
         </Comment>
         <Comment>
           <Value>notes: kept</Value>
@@ -117029,13 +117029,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="EH2" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="EH2" startDate="2018-10-15T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
         <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
-          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
+          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); start 2018-10-16 -&gt; 2018-10-15 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1); SDS_KSC/unmatched 1R.BHP2 2018.288 = XX.91F8 (DAS of BHP2), identical samples</Value>
         </Comment>
         <Comment>
           <Value>notes: kept</Value>
@@ -117503,13 +117503,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="EHZ" startDate="2018-10-16T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
+      <Channel code="EHZ" startDate="2018-10-15T00:00:00.000000Z" endDate="2021-02-06T00:00:00.000000Z" locationCode="00">
         <Description>L-22D 2 Hz, 88 V/(m/s) | RT130, preamp gain x32</Description>
         <Comment>
-          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32)</Value>
+          <Value>change: RT130 gain 1 -&gt; 32 (sensitivity x32); start 2018-10-16 -&gt; 2018-10-15 (install-day SDS data)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1)</Value>
+          <Value>evidence: L-22 constant 88 V/(m/s), not the NRL 62.95: geophone/Trillium launch ratio 1.47 -&gt; 1.05 (audit/T1_geophone_vs_trillium.csv); user decision 2026-11-25; duringPASSCAL/CONFIG/network2018222..2019183.par and parfile.txt: gain 32 on every EH? channel; launch peaks vs co-located Trillium BCHH1 DHZ (audit T1); SDS_KSC/unmatched 1R.BHP2 2018.288 = XX.91F8 (DAS of BHP2), identical samples</Value>
         </Comment>
         <Comment>
           <Value>notes: kept</Value>
@@ -215524,7 +215524,7 @@
         </Response>
       </Channel>
     </Station>
-    <Station code="S39A3" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z">
+    <Station code="S39A3" startDate="2022-03-25T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z">
       <Latitude unit="DEGREES">28.605439</Latitude>
       <Longitude unit="DEGREES">-80.600892</Longitude>
       <Elevation unit="METERS">0.0</Elevation>
@@ -215532,9 +215532,15 @@
         <Name>S39A3</Name>
         <Description>Centaur + TCP; Centaur + infraBSU</Description>
       </Site>
-      <CreationDate>2022-03-30T00:00:00.000000Z</CreationDate>
-      <Channel code="HDF" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
+      <CreationDate>2022-03-25T00:00:00.000000Z</CreationDate>
+      <Channel code="HDF" startDate="2022-03-25T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 1 Vpp (preamp x40)</Description>
+        <Comment>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-25 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
+        </Comment>
         <Latitude unit="DEGREES">28.605439</Latitude>
         <Longitude unit="DEGREES">-80.600892</Longitude>
         <Elevation unit="METERS">0.0</Elevation>
@@ -216286,10 +216292,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HHE" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
+      <Channel code="HHE" startDate="2022-03-25T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-25 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Latitude unit="DEGREES">28.605439</Latitude>
         <Longitude unit="DEGREES">-80.600892</Longitude>
@@ -217101,10 +217110,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HHN" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
+      <Channel code="HHN" startDate="2022-03-25T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-25 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Latitude unit="DEGREES">28.605439</Latitude>
         <Longitude unit="DEGREES">-80.600892</Longitude>
@@ -217916,10 +217928,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="HHZ" startDate="2022-03-30T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
+      <Channel code="HHZ" startDate="2022-03-25T00:00:00.000000Z" endDate="2022-12-05T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>change: start 2022-03-30 -&gt; 2022-03-25 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Latitude unit="DEGREES">28.605439</Latitude>
         <Longitude unit="DEGREES">-80.600892</Longitude>
@@ -226934,7 +226949,7 @@
         </Response>
       </Channel>
     </Station>
-    <Station code="TANK" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z">
+    <Station code="TANK" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z">
       <Latitude unit="DEGREES">28.51733733</Latitude>
       <Longitude unit="DEGREES">-80.63648379</Longitude>
       <Elevation unit="METERS">0.0</Elevation>
@@ -226942,9 +226957,15 @@
         <Name>TANK</Name>
         <Description>Centaur 166 + TCP; Centaur 166 + infraBSU</Description>
       </Site>
-      <CreationDate>2016-02-25T00:00:00.000000Z</CreationDate>
-      <Channel code="DD1" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
+      <CreationDate>2016-02-24T00:00:00.000000Z</CreationDate>
+      <Channel code="DD1" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
+        </Comment>
         <Comment>
           <Value>notes: Initially 268, 292, 285. Originally lat/lon probably from phone was 28.517419 , -80.636574. resurveyed as 28.5173361748766 -80.6364824743971. 285 moved to FIRE on 2016/03/05 as no working infrasound at FIRE yet. TANK DD1 not working on 2016/03/23 and removed.; audit: no launch signal except SES-9 (SNR 7); notes say not working by 2016-03-23</Value>
         </Comment>
@@ -227608,8 +227629,14 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD2" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
+      <Channel code="DD2" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
+        </Comment>
         <Comment>
           <Value>notes: Initially 268, 292, 285. Originally lat/lon probably from phone was 28.517419 , -80.636574. resurveyed as 28.5173361748766 -80.6364824743971. 285 moved to FIRE on 2016/03/05 as no working infrasound at FIRE yet. TANK DD1 not working on 2016/03/23 and removed.</Value>
         </Comment>
@@ -228273,8 +228300,14 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DD3" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
+      <Channel code="DD3" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-26T00:00:00.000000Z" locationCode="00">
         <Description>infraBSU 0.5", 4.6e-05 V/Pa | Centaur, Sensor B, input range 40 Vpp (preamp x1)</Description>
+        <Comment>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
+        </Comment>
         <Comment>
           <Value>notes: Initially 268, 292, 285. Originally lat/lon probably from phone was 28.517419 , -80.636574. resurveyed as 28.5173361748766 -80.6364824743971. 285 moved to FIRE on 2016/03/05 as no working infrasound at FIRE yet. TANK DD1 not working on 2016/03/23 and removed.</Value>
         </Comment>
@@ -228938,10 +228971,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHE" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="DHE" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: Original lat/lon (phone) was 28.517311, -80.636478. resurveryed as 28.5173013666667 -80.6364906694445. 166 returned to USF on 2016-05-17 with Steve, and redeployed to his house on 2016-06-01.</Value>
@@ -229665,10 +229701,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHN" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="DHN" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: Original lat/lon (phone) was 28.517311, -80.636478. resurveryed as 28.5173013666667 -80.6364906694445. 166 returned to USF on 2016-05-17 with Steve, and redeployed to his house on 2016-06-01.</Value>
@@ -230392,10 +230431,13 @@
           </Stage>
         </Response>
       </Channel>
-      <Channel code="DHZ" startDate="2016-02-25T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
+      <Channel code="DHZ" startDate="2016-02-24T00:00:00.000000Z" endDate="2016-05-17T00:00:00.000000Z" locationCode="00">
         <Description>Trillium Compact Posthole 120 s, 754.3 V/(m/s) | Centaur, Sensor A, input range 40 Vpp (preamp x0.9925)</Description>
         <Comment>
-          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925)</Value>
+          <Value>change: start 2016-02-25 -&gt; 2016-02-24 (install-day SDS data)</Value>
+        </Comment>
+        <Comment>
+          <Value>evidence: Trillium on Centaur Sensor A at 40 Vpp in every Centaur-written response (BCHH1 2018, DVEL3 2019, BCHH3 2022, all 2026: preamp x0.9925); user 2026-11-26: same Centaur set-up as the rest of the deployment</Value>
         </Comment>
         <Comment>
           <Value>notes: Original lat/lon (phone) was 28.517311, -80.636478. resurveryed as 28.5173013666667 -80.6364906694445. 166 returned to USF on 2016-05-17 with Steve, and redeployed to his house on 2016-06-01.</Value>

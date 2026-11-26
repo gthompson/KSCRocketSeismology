@@ -281,6 +281,17 @@ def rows_2016_2022():
     # FIRE: no infrasound signal in 2016 (bad cable)
     setv(S("FIRE", ["DD1", "DD2", "DD3"]), status="dead",
          evidence="notebook 20: no launch signal; notes: 'still no infrasound data by 2016/03/23 so probably bad cable'")
+    # Install days before the first epoch (user 2026-11-26: Trillium always on the 40 V input; infrasound at
+    # 40 Vpp in 2016 and 1 Vpp in 2022). The Centaur-written FL.BCHH3_20220324*.xml already has x40 (1 Vpp)
+    # on HDF/HD2, so the first epoch's settings are taken back to the first SDS day.
+    for sta, old, new in [("BCHH3", "2022-03-30T00:00:00", "2022-03-24T00:00:00"),
+                          ("S39A3", "2022-03-30T00:00:00", "2022-03-25T00:00:00"),
+                          ("TANK", "2016-02-25T00:00:00", "2016-02-24T00:00:00"),
+                          ("BHP2", "2018-10-16T00:00:00", "2018-10-15T00:00:00")]:
+        setv(S(sta) & (df.start == old), start=new,
+             change=f"start {old[:10]} -> {new[:10]} (install-day SDS data)",
+             evidence=("user 2026-11-26: same Centaur set-up as the rest of the deployment" if sta != "BHP2" else
+                       "SDS_KSC/unmatched 1R.BHP2 2018.288 = XX.91F8 (DAS of BHP2), identical samples"))
     # XA.MTEGL: the MSFC Silicon Audio accelerometer later deployed at B23 (2026); same response.
     xa = df.network == "XA"
     df.loc[xa, "channel"] = df.loc[xa, "channel"].str.replace("EN", "CN", regex=False)
