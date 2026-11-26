@@ -44,6 +44,7 @@ import pandas as pd
 import yaml
 from obspy import Stream, UTCDateTime
 
+from .seedcodes import is_centaur
 from .event import DEFAULT_CHANNEL_GROUPS, DEFAULT_SMARTSOLO_GEOPHONE, REPO_ROOT, Event, _expand
 
 STATIC_EVENT_TYPES = {"pad_explosion", "explosion", "static_fire"}
@@ -63,6 +64,7 @@ class Era:
     stationxml: Path | None = None          # stationxml eras: coordinates + responses
     channel_groups: dict = field(default_factory=dict)
     gem_channel_prefix: str | None = None   # channels recorded by Gem loggers (overflow masking)
+    seed_band_codes: bool = False           # centaur eras: rename D?? traces to SEED C??/H?? (ksclib.seedcodes)
     centaur: dict = field(default_factory=dict)   # centaur eras: artemis2.yaml-style sections
 
     def contains(self, t) -> bool:
@@ -113,6 +115,7 @@ def load_ensemble(yaml_path) -> Ensemble:
             sds=P(e.get("sds")), stationxml=P(e.get("stationxml")),
             channel_groups={k: tuple(v) for k, v in e.get("channel_groups", DEFAULT_CHANNEL_GROUPS).items()},
             gem_channel_prefix=e.get("gem_channel_prefix"),
+            seed_band_codes=bool(e.get("seed_band_codes", False)),
             centaur={k: e[k] for k in ("ingest", "stations", "responses", "paths") if k in e},
         ))
     out = raw.get("output", {})
@@ -245,6 +248,7 @@ def event_from_row(row, ens: Ensemble, **overrides) -> Event:
              "era": era.name, "era_kind": era.kind, "event_id": event_id,
              "gem_channel_prefix": era.gem_channel_prefix},
         yaml_path=ens.yaml_path,
+        seed_band_codes=era.kind == "stationxml" or era.seed_band_codes,
     )
     if era.kind == "stationxml":
         ev = Event(project_yaml=None, run_id=None, project={}, project_root=era.sds.parent,
@@ -333,8 +337,9 @@ def station_table(ev: Event) -> pd.DataFrame:
 def read_raw(ev: Event, starttime=None, endtime=None) -> Stream:
     """Raw counts for the event window from the era's SDS archive (all channel groups)."""
     from . import data
-    if is_stationxml_event(ev):
-        return data.get_event_stream(ev, starttime=starttime, endtime=endtime)
+    if is_stationxml_event(ev):     # KSC.xml uses SEED codes (C??/H??): rename D?? traces to match
+        from .seedcodes import normalize_stream
+        return normalize_stream(data.get_event_stream(ev, starttime=starttime, endtime=endtime))
     groups = tuple(g for g in ("USF", "BSU", "SmartSolo") if g in ev.channel_groups)
     return data.event_stream_raw(ev, groups=groups, starttime=starttime, endtime=endtime)
 
@@ -349,7 +354,8 @@ def clip_intervals(raw: Stream, ev: Event) -> dict:
     if not prefix:
         return {}
     from flovopy.ingest.gem_overflow import stream_clip_intervals
-    return stream_clip_intervals(raw, channel_prefix=prefix)
+    gems = Stream([tr for tr in raw if not is_centaur(tr)])   # Centaur HD? (100 sps) are not Gems
+    return stream_clip_intervals(gems, channel_prefix=prefix)
 
 
 def channel_units(ev: Event, tr) -> str | None:
@@ -362,9 +368,9 @@ def channel_units(ev: Event, tr) -> str | None:
         u = (resp.instrument_sensitivity.input_units or "").strip()
         return {"PA": "Pa", "M/S": "m/s", "M/S**2": "m/s**2", "M": "m"}.get(u.upper(), u or None)
     cha = tr.stats.channel
-    if cha.startswith(("DH", "DP", "HH", "EH")):
+    if cha.startswith(("DH", "CH", "DP", "HH", "EH")):
         return "m/s"
-    if cha.startswith(("DD", "HD")):
+    if cha.startswith(("DD", "CD", "HD")):
         return "Pa"
     return None
 
@@ -393,7 +399,7 @@ def correct(st: Stream, ev: Event, pre_filt_low=(0.01, 0.02)) -> Stream:
             continue
         nyq = 0.5 * t.stats.sampling_rate
         try:
-            if prefix and t.stats.channel.startswith(prefix):
+            if prefix and t.stats.channel.startswith(prefix) and not is_centaur(t):
                 from flovopy.ingest.gem_overflow import repair_gem_overflow
                 t = repair_gem_overflow(t)
             t.detrend("linear")

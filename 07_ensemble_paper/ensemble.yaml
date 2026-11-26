@@ -34,7 +34,7 @@ eras:
     sds: /Volumes/classdata/remastered/SDS_KSC
     stationxml: "{repo_root}/03_stationxml/KSC.xml"
     channel_groups:                 # name: [network, station, location, channel]
-      USF: ["1R", "*", "*", "[DHE][DH]?"]     # DH?/DD? 250 sps; HH?/HD? 100 sps; EH? geophones
+      USF: ["1R", "*", "*", "[CDHE][DH]?"]    # Centaur 250 sps (archive DH?/DD?, SEED CH?/CD?); HH?/HD? 100 sps; EH? geophones
       Shake: ["AM", "*", "*", "[SEH][HD]?"]   # Raspberry Shake / Boom
     gem_channel_prefix: null        # Gems were only deployed in 2026; H-band channels here are Centaurs at 100 sps
 
@@ -55,6 +55,7 @@ eras:
       BSU: ["1R", "*", "*", "HD?"]
       SmartSolo: ["1R", "*", "*", "DP?"]
     gem_channel_prefix: HD
+    seed_band_codes: true           # traces read as SEED C??/H?? (archive D??), as in the 2016-2022 era
     responses:
       centaur_dirs:                 # the latest file at or before each event is used
         - "{project_root}/20260310_service/00_download/Centaur/responses"
