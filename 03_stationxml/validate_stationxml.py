@@ -1,3 +1,4 @@
+import sys
 # Example usage:
 if __name__ == "__main__":
     from obspy import read_inventory
