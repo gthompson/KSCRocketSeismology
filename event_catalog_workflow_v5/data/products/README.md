@@ -15,8 +15,10 @@ Git to `[products] out_root` (`~/work/KSC_event_catalog/<YYYY>/<event_id>/`):
 | `plots/station_<STA>.png` | waveform and spectrogram per channel |
 | `metrics.csv`, `onsets.csv`, `stations.csv`, `manifest.json` | as below; manifest has parameters, era, StationXML, warnings |
 
-The small tables here are in Git and loaded into `data/processed/ksc_rockets.sqlite` (also after
-every `rebuild`). Reprocessing an event replaces its rows.
+The run tables go to `~/work/KSC_event_catalog/tables/` (not Git) and are loaded into
+`data/processed/ksc_rockets.sqlite` after each run and every `rebuild` (skipped, with a message, when
+the drive is not mounted). Reprocessing an event replaces its rows. This folder keeps only the
+pilot event list and this README.
 
 | file / sqlite table | content |
 |---|---|
@@ -25,7 +27,7 @@ every `rebuild`). Reprocessing an event replaces its rows.
 | `measurements` | event × channel × metric (long table), with `data_source`, `qc_flag` |
 | `onsets` | STA/LTA onset per channel; `origin_est_s` = onset − distance / 343 m/s |
 | `event_products` | paths of the files above |
-| `event_links` | external links (webcasts, weather, regional data) — empty, for later |
+| `event_links` | `../curated/event_links.csv` (in Git): external links (webcasts, weather, regional data) — empty, for later |
 | `event_tiers` (view) | usability tiers of the science plan §3.3 |
 
 `../curated/detected_times.csv`: event origin from the best group of pressure onsets that agree
@@ -52,3 +54,15 @@ seismic: pgv, pga, pgd; per station (`kind = seismic_vector`): pgv_horizontal_ve
 **Caveat:** `03_stationxml/KSC.xml` gains are known to be wrong for some epochs (DVEL1–3, RBLAB
 infraBSU at 1 Vpp; geophones), so absolute amplitudes of the pilot are provisional. Rerun after
 the StationXML is fixed; `processing_runs` records which version was used.
+
+## Web pages
+
+    ksc-rockets build-site            # -> ~/work/KSC_event_catalog/site/index.html
+
+An index of every catalog event (filters by year, type, pad, data; sortable columns; strongest SPL,
+Pa and PGV among channels with SNR >= 3) and one page per event: catalog details, every time field
+and which one won, archive stations, the detected source time and why it is or is not used,
+record sections, per-channel metric tables, STA/LTA onsets, per-station waveform and spectrogram
+plots, the miniSEED files and external links. Pages link to the plots by relative path, so the
+site opens from disk and can be copied with the event folders to a web server. Events with no
+recordings get a page too. `--event-id` / `--events-file` limit which event pages are rewritten.

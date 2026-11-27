@@ -19,3 +19,6 @@ ksc-rockets = "kscrockets.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+kscrockets = ["site_assets/*"]

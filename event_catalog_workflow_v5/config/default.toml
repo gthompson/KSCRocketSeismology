@@ -17,8 +17,9 @@ launchpads = "data/raw/launchpads.csv"
 event_waveforms = "/Volumes/tachyon/KSC_EVENTS"
 
 [products]
-# Per-event products (miniSEED, plots, manifests) are written outside Git, to
-# <out_root>/<YYYY>/<event_id>/; the small result tables go to data/products/ (in Git).
+# All run outputs are written outside Git: per-event products (miniSEED, plots, manifests) to
+# <out_root>/<YYYY>/<event_id>/, the result tables to <out_root>/tables/, the web pages to
+# <out_root>/site/. Only data/curated/detected_times.csv and event_links.csv are in Git.
 out_root = "~/work/KSC_event_catalog"   # ~/work -> /Volumes/Pulwtop (NVMe); classdata is read-only
 # ksclib ensemble file: network eras, archives, responses and pads (relative to this repo's parent)
 ensemble = "../07_ensemble_paper/ensemble.yaml"
