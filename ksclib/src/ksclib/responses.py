@@ -8,6 +8,8 @@ from pathlib import Path
 import numpy as np
 from obspy import UTCDateTime, read_inventory
 
+from .seedcodes import centaur_response_codes, same_code
+
 
 def centaur_response_file(event, station, when=None):
     """Latest Centaur response XML (1R.<STA>_<YYYYMMDDTHHMMSS>Z.xml) written at or before `when`.
@@ -41,7 +43,7 @@ def centaur_inventory(event, station, when=None):
     for net in inv:
         for sta in net:
             for cha in sta:
-                if cha.code not in event.infrabsu_channels:
+                if not any(same_code(cha.code, c) for c in event.infrabsu_channels):
                     continue
                 resp = cha.response
                 stage = copy.deepcopy(sensor)
@@ -52,6 +54,16 @@ def centaur_inventory(event, station, when=None):
                 resp.instrument_sensitivity.input_units = "Pa"
                 resp.instrument_sensitivity.value *= stage.stage_gain
                 resp.recalculate_overall_sensitivity(1.0)
+    # The Centaur writes D?? codes; traces are read with SEED codes (C?? / H??): add copies under those codes.
+    for net in inv:
+        for sta in net:
+            extra = []
+            for cha in sta:
+                for code in centaur_response_codes(cha.code)[1:]:
+                    c2 = copy.deepcopy(cha)
+                    c2.code = code
+                    extra.append(c2)
+            sta.channels.extend(extra)
     return inv
 
 

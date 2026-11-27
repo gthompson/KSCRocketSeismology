@@ -3,6 +3,7 @@
 name: Artemis II
 kind: launch
 origin_time: 2026-04-01T22:35:12
+seed_band_codes: true               # read Centaur D?? as SEED C??/H?? (CD0, CHZ; ksclib.seedcodes)
 
 site:
   name: LC39B                       # looked up in the station file's site sheet
@@ -39,11 +40,12 @@ responses:
     - /Volumes/haldata/KSC/20260310_service/responses
     - /Volumes/haldata/KSC/20260605_service/responses
   infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
-  infrabsu_channels: [DD0, DD1, DD2]
+  infrabsu_channels: [CD0, CD1, CD2]
   smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
 
 # 1R.B29.00.DHZ days 082-093 are zero-filled in the SDS; the launch window was
-# recovered (exact counts) by restore_B29_DHZ.py into this SDS-style folder.
+# recovered (exact counts) by restore_B29_DHZ.py into this SDS-style folder. The key is the
+# spelling of the restored files (DHZ); ksclib renames the traces to CHZ on read.
 restored:
   1R.B29.00.DHZ: "{run_dir}/30_qc/B29_DHZ_restored/SDS"
 

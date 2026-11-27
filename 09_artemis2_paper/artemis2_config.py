@@ -9,8 +9,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from obspy import Stream
+
 import ksclib
 from ksclib import data as _data
+from ksclib.seedcodes import alias_patterns, normalize_stream, same_code
 from flovopy.ingest import gem_overflow as _gem
 
 PAPER_DIR = Path(__file__).resolve().parent
@@ -96,8 +99,34 @@ def get_launch_stream(client=None, groups=None, starttime=STARTTIME, endtime=END
 
 
 def launch_stream_raw(client=None):
-    """Raw launch-window stream for USF, BSU and SmartSolo groups, with restored B29 DHZ."""
+    """Raw launch-window stream for USF, BSU and SmartSolo groups, with restored B29 CHZ."""
     return ksclib.event_stream_raw(EVENT, client)
+
+
+def read_channel(seed_id, starttime=STARTTIME, endtime=ENDTIME, client=None):
+    """One channel by SEED id (e.g. 1R.B01.00.CD0), whichever spelling the archive uses.
+
+    Centaur channels are read as D?? or C??/H?? (the SDS is being renamed to SEED band codes)
+    and returned under the SEED code. A channel with a restored copy in artemis2.yaml
+    (1R.B29.00.CHZ, zero-filled in the SDS on days 082-093) is read from that copy.
+    """
+    net, sta, loc, cha = seed_id.split(".")
+    for rid in EVENT.restored:
+        r_net, r_sta, r_loc, r_cha = rid.split(".")
+        if (r_net, r_sta, r_loc) == (net, sta, loc) and same_code(r_cha, cha):
+            st = ksclib.read_restored(EVENT, rid, starttime, endtime)
+            if st:
+                return st
+    client = client or sds_client()
+    centaur = loc == "00" and len(cha) == 3 and cha[0] in "CDH" and cha[1] in "DH"
+    st = Stream()
+    for l, c in alias_patterns(loc, "D" + cha[1:] if centaur else cha):
+        if l in ("", "--"):     # Gem/SmartSolo files use location "--"; the client matches it only as "*"
+            st += Stream([tr for tr in client.get_waveforms(net, sta, "*", c, starttime, endtime)
+                          if tr.stats.location in ("", "--")])
+        else:
+            st += client.get_waveforms(net, sta, l, c, starttime, endtime)
+    return normalize_stream(st) if EVENT.seed_band_codes else st
 
 
 def station_table(pad=PAD):

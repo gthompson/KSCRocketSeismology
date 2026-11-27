@@ -1,0 +1,169 @@
+
+T1  geophone EHZ / Trillium BCHH1 DHZ (5-20 Hz, velocity), per channel
+                  n  median_if_gain1  median_if_gain32  p25_if_gain32  p75_if_gain32
+seed_id                                                                             
+1R.BHP1.00.EHZ   11           45.205             1.413          1.380          1.548
+1R.BHP2.00.EHZ   15           45.894             1.434          1.269         38.356
+1R.BHP3.00.EHZ    2           62.221             1.944          1.928          1.960
+1R.BHP4.00.EHZ   10           47.257             1.477          1.381          1.727
+1R.BHP5.20.EHZ    8         3123.922            97.623          1.929        126.231
+1R.BHP6.00.EHZ    1           46.377             1.449          1.449          1.449
+1R.BHP7.10.EHZ    1           43.483             1.359          1.359          1.359
+1R.BHP8.00.EHZ    1           43.483             1.359          1.359          1.359
+1R.FIREP.00.EHZ  11           43.986             1.375          0.583         19.025
+1R.TANKP.00.EHZ   8           12.091             0.378          0.346          1.321
+all channels: median ratio if gain 1 = 46.9 ; if gain 32 = 1.47 (n=68)
+
+T1b geophone (gain 32) / DVEL3 DHZ, not co-located (distance not removed):
+        seed_id  n  median_ratio_gain32_vs_DVEL3
+ 1R.BHP1.00.EHZ  7                         3.106
+ 1R.BHP2.00.EHZ  8                         3.553
+ 1R.BHP4.00.EHZ  7                         3.162
+ 1R.BHP5.20.EHZ  3                         4.401
+ 1R.BHP7.10.EHZ  1                         1.183
+ 1R.BHP8.00.EHZ  1                         1.183
+1R.FIREP.00.EHZ  8                         1.595
+1R.TANKP.00.EHZ  6                         0.970
+
+T2  BCHH 2016 launch peak ratios (raw counts, all channels 40 Vpp)
+        event_id                time  vehicle  location       DD1      DD2       DD3  DD2_over_DD1  DD2_over_DD3  DD1_over_DD3 sensor_295_on
+ksc-27031ce8da6f 2016-06-24T14:30:00  Atlas V        10  1949.462  190.306  2565.049         0.098         0.074         0.760           DD2
+ksc-4d8977e0556d 2016-03-04T23:35:00 Falcon 9         0  4407.155  274.425  4353.556         0.062         0.063         1.012           DD2
+ksc-60d2d5d7be04 2016-02-29T00:21:00 Falcon 9         0    33.563  512.856   516.554        15.280         0.993         0.065           DD1
+ksc-c18e8b8aed39 2016-05-27T21:39:00 Falcon 9        10  4067.182  264.937  3773.073         0.065         0.070         1.078           DD2
+ksc-d45a00cdbfb9 2016-03-23T03:05:52  Atlas V         0  2896.112  191.171  2908.791         0.066         0.066         0.996           DD2
+ksc-d79e38ae7638 2016-09-01T13:07:15 Falcon 9        10 10413.945 1015.524 13740.394         0.098         0.074         0.758           DD2
+ksc-e3bdbf905459 2016-04-08T20:43:31 Falcon 9         0  3233.097  207.946  2902.055         0.064         0.072         1.114           DD2
+sensor 295 (on DD2 after the swap): DD1/DD2 and DD3/DD2 median = 14.70 over 6 launches
+
+T2b BCHH 2016 night 0.15-0.35 Hz RMS ratios by day (first/last rows):
+channel       DD1    DD2    DD3  DD2_over_DD3  DD1_over_DD3
+day                                                        
+2016-02-25  0.578  9.073  8.966         1.012         0.064
+2016-02-26  0.277  2.478  2.458         1.008         0.113
+2016-02-27  0.250  2.207  2.277         0.969         0.110
+2016-02-28  0.332  2.440  2.665         0.915         0.124
+2016-02-29  0.236  0.569  0.617         0.923         0.382
+2016-03-01  0.325  0.395  0.411         0.962         0.793
+2016-03-02  0.425  5.251  4.076         1.288         0.104
+2016-03-03  0.487  6.838  7.459         0.917         0.065
+2016-03-04  0.258  3.714  2.717         1.367         0.095
+2016-03-05  8.975  0.699  8.356         0.084         1.074
+2016-03-23  3.670  0.335  2.694         0.124         1.362
+2016-03-24  1.023  0.179  2.680         0.067         0.382
+channel         DD1    DD2     DD3  DD2_over_DD3  DD1_over_DD3
+day                                                           
+2016-06-13   58.863  0.150   1.006         0.149        58.537
+2016-08-14  155.043  0.311   0.493         0.631       314.374
+2016-08-19  150.600  0.329   3.636         0.091        41.422
+2016-08-31   46.182  0.543  29.017         0.019         1.592
+2016-09-01   64.783  0.374  18.515         0.020         3.499
+
+T3  Chaparral sensitivity from co-located infraBSU (V/Pa)
+                                    count       25%       50%       75%
+chaparral       reference                                              
+1R.BCHH1.00.DD1 1R.BCHH1.00.DD2      21.0  0.150706  0.171723  0.330932
+1R.BCHH3.00.HDF median BCHH2 HD4-9    4.0  0.008340  0.012451  0.017048
+1R.BCHH4.00.HDF 1R.BCHH4.00.HD2      29.0  0.097600  0.111694  0.147422
+1R.SON1.00.DD1  1R.SON1.00.DD2        1.0  0.000014  0.000014  0.000014
+
+T4  p*r ratio to beach-house references (1 = agreement), per channel
+                 n_launches       first        last  median_ratio_if_40Vpp  misfit_40  median_ratio_if_1Vpp  misfit_1 verdict
+seed_id                                                                                                                      
+1R.BCHH1.00.DD1          21  2017-12-15  2020-10-24                3842.97       3.58                 96.07      1.98   1 Vpp
+1R.BCHH2.00.DD7          45  2017-12-15  2021-06-30                  47.56       1.68                  1.19      0.13   1 Vpp
+1R.BCHH2.00.DD8          56  2017-12-15  2021-06-30                  40.72       1.61                  1.02      0.09   1 Vpp
+1R.BCHH3.00.HDF           4  2022-04-01  2022-05-19               10898.45       4.02                272.46      2.42   1 Vpp
+1R.BCHH4.00.HD2          29  2022-06-08  2022-11-26                   1.68       0.22                  0.04      1.38  40 Vpp
+1R.BCHH4.00.HDF          29  2022-06-08  2022-11-26                4280.87       3.63                107.02      2.03   1 Vpp
+1R.DVEL1.00.DD1           1  2018-02-06  2018-02-06                   7.99       0.90                  0.20      0.70   1 Vpp
+1R.DVEL1.00.DD2           1  2018-02-06  2018-02-06                  61.49       1.78                  1.54      0.18   1 Vpp
+1R.DVEL1.00.DD3           1  2018-02-06  2018-02-06                   0.17       0.77                  0.00      2.37  40 Vpp
+1R.DVEL2.00.DD1           1  2018-02-06  2018-02-06                  22.54       1.35                  0.56      0.25   1 Vpp
+1R.DVEL2.00.DD2           1  2018-02-06  2018-02-06                  44.83       1.65                  1.12      0.06   1 Vpp
+1R.DVEL2.00.DD3           1  2018-02-06  2018-02-06                  11.87       1.07                  0.30      0.53   1 Vpp
+1R.DVEL3.00.DD1           8  2019-04-11  2019-08-22                  43.88       1.64                  1.10      0.07   1 Vpp
+1R.DVEL3.00.DD2           8  2019-04-11  2019-08-22                  44.78       1.65                  1.12      0.07   1 Vpp
+1R.DVEL3.00.DD3           2  2019-04-11  2019-05-04                  43.09       1.63                  1.08      0.03   1 Vpp
+1R.RBLAB.00.DD2           1  2018-02-06  2018-02-06                  67.02       1.82                  1.68      0.22   1 Vpp
+1R.RBLAB.00.DD3           1  2018-02-06  2018-02-06                  80.37       1.90                  2.01      0.30   1 Vpp
+1R.S39A1.00.HDF          38  2022-04-08  2022-11-26                  38.81       1.59                  0.97      0.06   1 Vpp
+1R.S39A2.00.HDF          33  2022-04-01  2022-11-26                  38.02       1.58                  0.95      0.07   1 Vpp
+1R.S39A3.00.HDF           9  2022-04-08  2022-05-25                  37.48       1.57                  0.94      0.04   1 Vpp
+reference consistency BCHH1 DD2 (40 Vpp) / BCHH2 (1 Vpp): median 0.86 over 24 launches
+
+RB166/RB268/RB383 on 2021-10-16 and DVEL3 Nov-Dec 2020 (raw counts):
+               time  vehicle         seed_id  peak_hp05  noise_hp05  snr_p  peak_bp5_20  snr_s
+2020-11-05T23:24:23 Falcon 9 1R.BCHH2.00.DD4    10149.7         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.BCHH2.00.DD5    38776.9         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.BCHH2.00.DD6   157206.7         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.BCHH2.00.DD7    12219.4         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.BCHH2.00.DD8    20567.5         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.BCHH2.00.DD9    11708.7         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.DVEL3.00.DD1       43.0         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.DVEL3.00.DD2      263.4         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.DVEL3.00.DD3       74.5         NaN    NaN          NaN    NaN
+2020-11-05T23:24:23 Falcon 9 1R.DVEL3.00.DHZ        NaN         NaN    NaN         86.2    NaN
+2020-11-16T00:27:17 Falcon 9 1R.BCHH2.00.DD4    60990.9       209.3  291.4          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.BCHH2.00.DD5    41443.1       599.7   69.1          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.BCHH2.00.DD6    45792.6       121.9  375.5          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.BCHH2.00.DD7    51307.8       155.0  330.9          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.BCHH2.00.DD8    43773.2       150.4  291.0          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.BCHH2.00.DD9    49155.6       134.9  364.4          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.DVEL3.00.DD1       50.5        41.9    1.2          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.DVEL3.00.DD2      119.4        47.0    2.5          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.DVEL3.00.DD3      354.0       391.8    0.9          NaN    NaN
+2020-11-16T00:27:17 Falcon 9 1R.DVEL3.00.DHZ        NaN         NaN    NaN         15.3    1.1
+2020-11-25T02:13:12 Falcon 9 1R.DVEL3.00.DD1       46.6         NaN    NaN          NaN    NaN
+2020-11-25T02:13:12 Falcon 9 1R.DVEL3.00.DD2      137.7         NaN    NaN          NaN    NaN
+2020-11-25T02:13:12 Falcon 9 1R.DVEL3.00.DD3      587.6         NaN    NaN          NaN    NaN
+2020-11-25T02:13:12 Falcon 9 1R.DVEL3.00.DHZ        NaN         NaN    NaN         14.1    NaN
+2020-12-06T16:17:08 Falcon 9 1R.BCHH2.00.DD4    51639.6       259.5  199.0          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.BCHH2.00.DD5    33285.0      1762.1   18.9          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.BCHH2.00.DD6    27826.2       174.8  159.2          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.BCHH2.00.DD7    39346.3       807.6   48.7          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.BCHH2.00.DD8    37521.8       797.8   47.0          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.BCHH2.00.DD9    37549.1       794.1   47.3          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.DVEL3.00.DD1       72.1        72.4    1.0          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.DVEL3.00.DD2      118.3       109.7    1.1          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.DVEL3.00.DD3       77.1        78.0    1.0          NaN    NaN
+2020-12-06T16:17:08 Falcon 9 1R.DVEL3.00.DHZ        NaN         NaN    NaN        173.0    1.9
+2020-12-11T01:09:00 Delta IV 1R.BCHH1.00.DD1   185484.7   4081015.1    0.0          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH1.00.DD2       23.3       566.6    0.0          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH1.00.DHZ        NaN         NaN    NaN         16.0    4.1
+2020-12-11T01:09:00 Delta IV 1R.BCHH2.00.DD4    37587.4       185.9  202.1          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH2.00.DD5    27368.8       179.6  152.4          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH2.00.DD6    28628.2        94.6  302.5          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH2.00.DD7    29779.0       109.7  271.4          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH2.00.DD8    26762.0        91.9  291.1          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.BCHH2.00.DD9    30711.5       110.7  277.4          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.DVEL3.00.DD1       61.6        63.9    1.0          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.DVEL3.00.DD2       81.7        72.4    1.1          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.DVEL3.00.DD3       67.8        58.7    1.2          NaN    NaN
+2020-12-11T01:09:00 Delta IV 1R.DVEL3.00.DHZ        NaN         NaN    NaN        157.2   12.0
+2021-10-16T09:34:00  Atlas V 1R.RB166.00.HD1       26.7        26.6    1.0          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB166.00.HD2       27.4        28.0    1.0          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB166.00.HD3       28.7        25.4    1.1          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB166.00.HHZ        NaN         NaN    NaN        367.0    1.1
+2021-10-16T09:34:00  Atlas V 1R.RB268.00.DDF      485.1       486.1    1.0          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB268.00.DHZ        NaN         NaN    NaN          2.0    1.0
+2021-10-16T09:34:00  Atlas V 1R.RB383.00.HD1       26.8        27.4    1.0          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB383.00.HD2       25.8        27.5    0.9          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB383.00.HD3       25.9        26.4    1.0          NaN    NaN
+2021-10-16T09:34:00  Atlas V 1R.RB383.00.HHZ        NaN         NaN    NaN      48032.7   41.7
+
+ambient 2021-10 and 2022 (night 0.15-0.35 Hz RMS counts):
+day              2022-04-05  2022-05-10  2022-06-15  2022-08-15  2022-11-01
+station channel                                                            
+BCHH2   HD4            45.2       152.8        21.0         6.7         6.7
+        HD5          1023.1      3309.7         0.0         0.0         0.0
+        HD6           188.3       417.0        56.4        15.8        13.6
+        HD7            79.8       465.3        69.2        17.5         9.8
+        HD8           142.8       547.3        78.1        18.2        11.1
+        HD9           141.8       544.5        77.9        18.1        11.7
+BCHH3   HDF       1321980.0   3673920.8         NaN         NaN         NaN
+BCHH4   HDF             NaN         NaN     18931.6      4404.7      2618.1
+        HD2             NaN         NaN         3.4         0.7         0.4
+S39A1   HDF            72.8       276.2        66.1        30.4        18.6
+S39A2   HDF            56.3       285.3        56.4        25.3         8.3
+S39A3   HDF            68.5       266.5         NaN         NaN         NaN

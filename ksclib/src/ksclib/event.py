@@ -30,8 +30,8 @@ from obspy import UTCDateTime
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
 DEFAULT_CHANNEL_GROUPS = {
-    "USF": ("1R", "*", "*", "D[DH]?"),        # Centaur: Trillium DH?, infraBSU/Chaparral DD?
-    "BSU": ("1R", "*", "*", "HD?"),           # Gem infrasound loggers HDF/HDI
+    "USF": ("1R", "*", "*", "D[DH]?"),        # Centaur: Trillium, infraBSU/Chaparral (read as D/C/H; see seedcodes)
+    "BSU": ("1R", "*", "*", "HD?"),           # Gem infrasound loggers HDF/HDI (location '' or 10)
     "SmartSolo": ("1R", "*", "*", "DP?"),     # SmartSolo geophones
     "MSFC": ("DG", "*", "*", "C*"),           # Guralp and Silicon Audio (MSFC)
 }
@@ -67,6 +67,7 @@ class Event:
     infrabsu_xml: Path | None = None
     infrabsu_channels: tuple = ("DD0", "DD1", "DD2")
     restored: dict[str, Path] = field(default_factory=dict)   # seed_id -> SDS root with recovered data
+    seed_band_codes: bool = False   # rename Centaur D?? traces to SEED C??/H?? on read (see ksclib.seedcodes)
     smartsolo_geophone: dict = field(default_factory=lambda: dict(DEFAULT_SMARTSOLO_GEOPHONE))
     launch_azimuth_deg: float | None = None
     trajectory: dict = field(default_factory=dict)            # GravityTurnParameters overrides
@@ -149,6 +150,7 @@ def load_event(yaml_path) -> Event:
         infrabsu_xml=P(resp.get("infrabsu_xml")),
         infrabsu_channels=tuple(resp.get("infrabsu_channels", ("DD0", "DD1", "DD2"))),
         restored={k: P(v) for k, v in raw.get("restored", {}).items()},
+        seed_band_codes=bool(raw.get("seed_band_codes", False)),
         smartsolo_geophone={**DEFAULT_SMARTSOLO_GEOPHONE, **resp.get("smartsolo_geophone", {})},
         launch_azimuth_deg=src.get("launch_azimuth_deg"),
         trajectory=src.get("trajectory", {}) or {},

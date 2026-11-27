@@ -218,5 +218,5 @@ def test_real_2016_launch():
     raw = ce.read_raw(ev, starttime=ev.origin_time - 120, endtime=ev.origin_time + 180)
     st = ce.correct(raw.select(station="BCHH"), ev)
     pk = ce.peak_amplitudes(st, ev, tab, signal=(-30, 150), noise=(-120, -30)).set_index("channel")
-    assert pk.loc["DD1", "peak"] > 50 and pk.loc["DD1", "snr"] > 10      # Pa
-    assert 1e-5 < pk.loc["DHZ", "peak"] < 1e-1                         # m/s
+    assert pk.loc["CD1", "peak"] > 50 and pk.loc["CD1", "snr"] > 10      # Pa (archive DD1, read as SEED CD1)
+    assert 1e-5 < pk.loc["CHZ", "peak"] < 1e-1                         # m/s (archive DHZ)

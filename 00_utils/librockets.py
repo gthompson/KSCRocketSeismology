@@ -80,8 +80,48 @@ def clean(st, taperseconds):
     
 
 
+_KSC_INV = None
+
+
+def _ksc_counts_per_unit(tr):
+    """Overall sensitivity (counts per Pa or per m/s) from 03_stationxml/KSC.xml, or None.
+
+    KSC.xml was rebuilt and audited in 2026-11 (03_stationxml/audit/AUDIT_REPORT.md): it knows, epoch by
+    epoch, whether each Centaur input was at 1 or 40 Vpp, which sensor was connected and the Chaparral
+    M25 at 0.4 V/Pa. Old FL.* ids are looked up as 1R.*, and any location code is accepted.
+    """
+    global _KSC_INV
+    if _KSC_INV is None:
+        xml = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '03_stationxml', 'KSC.xml')
+        try:
+            _KSC_INV = obspy.read_inventory(xml)
+        except Exception:
+            _KSC_INV = False
+    if not _KSC_INV:
+        return None
+    t = tr.stats.starttime + (tr.stats.endtime - tr.stats.starttime) / 2
+    cha = tr.stats.channel
+    for c in (cha, 'C' + cha[1:] if cha[0] == 'D' else cha, 'D' + cha[1:] if cha[0] == 'C' else cha):
+        sel = _KSC_INV.select(station=tr.stats.station, channel=c, time=t)
+        for net in sel:
+            for sta in net:
+                for ch in sta:
+                    s = ch.response.instrument_sensitivity
+                    if s is not None and s.value:
+                        return float(s.value), s.input_units
+    return None
+
+
 def apply_calibration_correction(st):
-    # calibration correction
+    # calibration correction: counts -> Pa (pressure) or um/s (seismic)
+    #
+    # 2026-11-26: the per-trace sensitivity now comes from 03_stationxml/KSC.xml whenever the trace is in
+    # it. The fixed constants below are only a fallback, and were wrong in two ways:
+    #   * the Chaparral M25 is 0.4 V/Pa (low gain), not 0.05 V/Pa (audit table T3: unclipped BCHH1 launches
+    #     give 0.37-0.45 V/Pa against co-located infraBSUs), so its counts/Pa are 8x the old values:
+    #     6.4e6 at 1 Vpp (was 8e5) and 1.6e5 at 40 Vpp (was 2e4);
+    #   * every other infrasound channel was assumed to be at 1 Vpp (720 counts/Pa); at 40 Vpp it is 18,
+    #     so 40 Vpp stations (all of 2016, BCHH1, SON1, BCHH4 ...) came out 40x too low.
 
     for tr in st:
         if 'countsPerUnit' in tr.stats:
@@ -99,17 +139,28 @@ def apply_calibration_correction(st):
                 elif tr.stats.channel[2] == 'H':
                     tr.stats.countsPerUnit = 1/6894.76 # counts (psi) per Pa
                     tr.stats.units = 'Pa'
+                tr.data = tr.data/tr.stats.countsPerUnit
+                continue
+            ksc = _ksc_counts_per_unit(tr)
+            if ksc is not None:
+                value, units = ksc
+                if units.upper() == 'PA':
+                    tr.stats.countsPerUnit, tr.stats.units = value, 'Pa'
+                elif units.upper() == 'M/S':
+                    tr.stats.countsPerUnit, tr.stats.units = value * 1e-6, 'um/s'
+                else:
+                    tr.stats.countsPerUnit, tr.stats.units = value, units
             elif tr.stats.channel[1]=='D':
-                tr.stats.countsPerUnit = 720 # counts/Pa on 1 V FS setting
+                tr.stats.countsPerUnit = 720 # counts/Pa for an infraBSU on 1 V FS (18 on 40 V FS)
                 if tr.id[:-1] == 'FL.BCHH3.10.HD':
-                    if tr.stats.starttime < obspy.UTCDateTime(2022,5,26): # Chaparral M25. I had it set to 1 V FS. Should have used 40 V FS. 
+                    if tr.stats.starttime < obspy.UTCDateTime(2022,5,26): # Chaparral M25 set to 1 V FS (until 2022-05-26 15:09:33)
                         if tr.id == 'FL.BCHH3.10.HDF':
-                            tr.stats.countsPerUnit = 8e5 # counts/Pa
+                            tr.stats.countsPerUnit = 6.4e6 # counts/Pa: 0.4 V/Pa x 1.6e7 counts/V (was 8e5 with 0.05 V/Pa)
                         else:
                             tr.stats.countsPerUnit = 720 # counts/Pa 
                     else: # Chaparral switched to 40 V FS
                         if tr.id == 'FL.BCHH3.10.HDF':
-                            tr.stats.countsPerUnit = 2e4 # counts/Pa
+                            tr.stats.countsPerUnit = 1.6e5 # counts/Pa: 0.4 V/Pa x 4e5 counts/V (was 2e4 with 0.05 V/Pa)
                         else:
                             tr.stats.countsPerUnit = 18 # counts/Pa 
                 tr.stats.units = 'Pa'
@@ -118,7 +169,6 @@ def apply_calibration_correction(st):
                 tr.stats.countsPerUnit = 3e2 # counts/(um/s)
                 tr.stats.units = 'um/s'
             tr.data = tr.data/tr.stats.countsPerUnit
-
 
 def maxamp(tr):
     return np.max(np.abs(tr.data))

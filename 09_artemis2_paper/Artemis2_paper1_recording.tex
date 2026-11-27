@@ -257,10 +257,13 @@ Certimus dataloggers were buried, so only a targeted window around the
 launch was retrieved via web interface. Gem data were converted to
 MiniSEED with \texttt{gemconvert}. All data were ingested into a single
 SDS archive with the \texttt{flovopy.ingest} tools, which validate
-each file and map logger serial numbers to SEED identifiers. The archive
-will be deposited with EarthScope.
+each file and map logger serial numbers to SEED identifiers. The Centaurs
+label their channels with band code D; we use the SEED band code for
+broadband sensors at 250--999 samples per second, C (\texttt{CHZ} for the
+Trillium vertical, \texttt{CD0} for the infraBSU), as in the station
+metadata. The archive will be deposited with EarthScope.
 
-One channel was damaged in archiving: the B29 vertical (1R.B29.00.DHZ)
+One channel was damaged in archiving: the B29 vertical (1R.B29.00.CHZ)
 day files for 2026 days 082--093 contain only zero bytes in every copy
 of the archive. The launch window was recovered exactly from an extract
 written on 8~April; the recovery reproduces two intact channels sample
@@ -302,7 +305,7 @@ from 30~minutes before to 45~minutes after the launch (22:35:12~UTC on
     are not used quantitatively here.
 \end{itemize}
 
-Unconnected digitizer inputs (DD1 and DD2 at B03, B05 and B29) and
+Unconnected digitizer inputs (CD1 and CD2 at B03, B05 and B29) and
 channels with no launch signal were identified from their spectral
 ratios (Section~\ref{sec:snr}) and removed.
 
@@ -401,7 +404,7 @@ produced no launch record; the co-located Gems and SmartSolos at those
 sites did record.
 
 No Centaur channel approached full scale during the launch: the
-largest was B01 DHZ at 10\% of the 24-bit range. B03 recorded the launch
+largest was B01 CHZ at 10\% of the 24-bit range. B03 recorded the launch
 on all channels but far too low: its seismometer's peak velocity is
 $\sim$35 times below that of the co-located SmartSolo, and its infraBSU
 peak at least $\sim$50 times below that of the co-located Gem, although
@@ -478,7 +481,7 @@ been checked.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{smartsolo_vs_trillium_B01_transfer}
-  \caption{SmartSolo DPZ (raw, mV) relative to Trillium Compact DHZ
+  \caption{SmartSolo DPZ (raw, mV) relative to Trillium Compact CHZ
     velocity at B01 during the launch: amplitude and phase of the
     transfer function, with the nominal 5~Hz geophone response for
     comparison.}
