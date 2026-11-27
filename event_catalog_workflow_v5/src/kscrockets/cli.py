@@ -350,6 +350,12 @@ def main(argv=None):
     bs.add_argument("--site-dir",default=None,help="default: <out_root>/site")
     bs.add_argument("--event-id",action="append",help="only these event pages (the index always lists all)")
     bs.add_argument("--events-file",help="only the event pages listed (one event_id per line, # comments)")
+    bs.add_argument("--web",action="store_true",help="self-contained copy to publish (GitHub Pages): WebP plots inside it, "
+                    "waveform files linked from data/curated/waveform_urls.csv; default <out_root>/site_web")
+    pw=sp.add_parser("package-waveforms",help="One zip per year of the event waveform products, for Zenodo or Box")
+    pw.add_argument("--out-root",default=None,help="default: [products] out_root in config")
+    pw.add_argument("--dest",default=None,help="default: <out_root>/archive")
+    pw.add_argument("--year",action="append",help="only these years (repeatable)")
     kp=sp.add_parser("launchpads-kml",help="Write a Google Earth KML of the pad table (launchpads.csv)")
     kp.add_argument("--out",default=None,help="default: launchpads.csv with a .kml suffix")
     m=sp.add_parser("add-event")
@@ -394,6 +400,12 @@ def main(argv=None):
         _process(s,a); return
     if a.command=="fetch-weather":
         _fetch_weather(s,a); return
+    if a.command=="package-waveforms":
+        from .package import package_waveforms
+        idx=package_waveforms(Path(a.out_root or _products_config(s)["out_root"]).expanduser(),a.dest,a.year)
+        for arc,g in idx.groupby("archive"):
+            print(f"{arc}: {g.event_id.nunique()} events, {g.bytes.sum()/1e9:.2f} GB",flush=True)
+        return
     if a.command=="build-site":
         from .site import build_site
         from .products import load_products, tables_dir
@@ -402,7 +414,9 @@ def main(argv=None):
         ids=list(a.event_id or [])
         if a.events_file:
             ids+=[x.split("#")[0].strip() for x in Path(a.events_file).read_text().splitlines() if x.split("#")[0].strip()]
-        index=build_site(s.database,out_root,a.site_dir,s.website_title,s.website_subtitle,event_ids=ids or None)
+        from .site import read_waveform_urls
+        index=build_site(s.database,out_root,a.site_dir,s.website_title,s.website_subtitle,event_ids=ids or None,
+                         web=a.web,waveform_urls=read_waveform_urls(s.root/"data/curated/waveform_urls.csv"))
         print(f"site: {index}",flush=True); return
     if a.command=="launchpads-kml":
         from .kml import write_launchpads_kml
