@@ -104,3 +104,14 @@ and names the file inside it. Until then it says "not online yet". `site_web/` h
 can be pushed as is to a `gh-pages` branch (one commit, force-pushed, so the repository does not grow
 with every rebuild). `raw_counts.mseed` does not depend on the StationXML, so it can be archived now;
 `corrected.mseed` and the metrics should be re-archived after the gain fix (a new Zenodo version).
+
+**Zenodo, restricted access.** Plots and metrics are public (the site); the miniSEED is not yet.
+`data/curated/zenodo_metadata.json` sets `access_right: restricted`: the record and its DOI are
+public, the files downloadable only by people you grant access on zenodo.org (Share: add a
+collaborator's Zenodo account, or create a secret link and send it), or who request access and you
+approve. Steps: create a token on zenodo.org (Applications → Personal access tokens, scope
+`deposit:write`), `export ZENODO_TOKEN=...`, `ksc-rockets zenodo-upload` (a draft, never published by
+the tool; `--sandbox` for a trial on sandbox.zenodo.org), review and publish on the web page, then
+`ksc-rockets zenodo-links --record <id>` and `ksc-rockets build-site --web`. Event pages show the
+link with "restricted access: request access on Zenodo". To open the data later: change the record's
+access on zenodo.org (or give an embargo date), then `zenodo-links --record <id> --access open`.

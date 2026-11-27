@@ -1,0 +1,16 @@
+{
+  "_comment": "Zenodo deposit metadata for ksc-rockets zenodo-upload. Edit creators, description and access before uploading. access_right 'restricted': the record and DOI are public, the files are downloadable only by people the owner grants access (or who request it and are approved). Switch to 'open' (or 'embargoed' with embargo_date) when the data may be public.",
+  "metadata": {
+    "upload_type": "dataset",
+    "title": "Seismo-acoustic waveforms of rocket launches and related events at Cape Canaveral and Kennedy Space Center, 2016-2026",
+    "creators": [
+      {"name": "Thompson, Glenn", "affiliation": "University of South Florida"}
+    ],
+    "description": "Per-event waveform products of the KSC rocket event catalog: raw counts (miniSEED, as recorded, catalog time -900 s to +900 s), response-corrected pressure and ground velocity (miniSEED), station tables, per-channel metrics and STA/LTA onsets, one zip per year with a SHA-256 file index. Recorded by temporary seismo-acoustic deployments of the University of South Florida at Kennedy Space Center and Cape Canaveral. Amplitudes of the corrected data and metrics are provisional until the instrument metadata are final; the raw counts do not depend on them.",
+    "access_right": "restricted",
+    "access_conditions": "Available to collaborators of the KSC rocket seismo-acoustics project on request; please describe your intended use.",
+    "license": "cc-by-4.0",
+    "keywords": ["infrasound", "seismology", "rocket launch", "Kennedy Space Center", "Cape Canaveral", "seismo-acoustic", "sonic boom"],
+    "version": "0.2-provisional"
+  }
+}

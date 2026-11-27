@@ -242,20 +242,33 @@ class WebLinks(LocalLinks):
         return _rel(out, self.edir)
 
     def data(self, path, product_type, event_id, year):
-        url = self.urls.get(event_id) or self.urls.get(str(year))
-        if not url:
+        u = self.urls.get(event_id) or self.urls.get(str(year))
+        if not u:
             return None
+        if isinstance(u, str):
+            u = dict(url=u, access="open", record_url="")
         inner = f"{event_id}/{Path(path).name}"
-        return url, (f"in the archive: <code>{escape(inner)}</code>" if url.split("?")[0].endswith(".zip") else "")
+        note = f"in the archive: <code>{escape(inner)}</code>" if u["url"].split("?")[0].endswith(".zip") else ""
+        if u["access"] == "restricted":
+            rec = u["record_url"] or u["url"]
+            note += (f" · restricted access: <a href='{escape(rec)}'>request access on Zenodo</a> "
+                     "(collaborators)")
+        return u["url"], note
 
 
 def read_waveform_urls(path) -> dict:
-    """data/curated/waveform_urls.csv (key, url[, notes]): key is an event_id or a year."""
+    """data/curated/waveform_urls.csv (key, url[, notes, access, record_url]): key is an event_id or a
+    year; access "restricted" marks files that need permission (link to the record to request it)."""
     p = Path(path)
     if not p.exists():
         return {}
     t = pd.read_csv(p, dtype=str, keep_default_na=False)
-    return {r.key.strip(): r.url.strip() for r in t.itertuples() if r.key.strip() and r.url.strip()}
+    out = {}
+    for r in t.to_dict("records"):
+        if r.get("key", "").strip() and r.get("url", "").strip():
+            out[r["key"].strip()] = dict(url=r["url"].strip(), access=r.get("access", "").strip() or "open",
+                                         record_url=r.get("record_url", "").strip())
+    return out
 
 
 # ---------------------------------------------------------------------------------------------

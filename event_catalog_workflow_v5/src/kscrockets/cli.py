@@ -356,6 +356,15 @@ def main(argv=None):
     pw.add_argument("--out-root",default=None,help="default: [products] out_root in config")
     pw.add_argument("--dest",default=None,help="default: <out_root>/archive")
     pw.add_argument("--year",action="append",help="only these years (repeatable)")
+    zu=sp.add_parser("zenodo-upload",help="Upload the year zips as a DRAFT Zenodo deposit (never publishes); token from ZENODO_TOKEN")
+    zu.add_argument("--archive-dir",default=None,help="default: <out_root>/archive")
+    zu.add_argument("--metadata",default="data/curated/zenodo_metadata.json")
+    zu.add_argument("--deposition",default=None,help="add files to this existing draft instead of creating one")
+    zu.add_argument("--sandbox",action="store_true",help="sandbox.zenodo.org (trial; separate account and token)")
+    zl=sp.add_parser("zenodo-links",help="Fill data/curated/waveform_urls.csv from a published Zenodo record")
+    zl.add_argument("--record",required=True); zl.add_argument("--archive-dir",default=None)
+    zl.add_argument("--access",choices=["restricted","open"],default="restricted")
+    zl.add_argument("--sandbox",action="store_true")
     kp=sp.add_parser("launchpads-kml",help="Write a Google Earth KML of the pad table (launchpads.csv)")
     kp.add_argument("--out",default=None,help="default: launchpads.csv with a .kml suffix")
     m=sp.add_parser("add-event")
@@ -400,6 +409,15 @@ def main(argv=None):
         _process(s,a); return
     if a.command=="fetch-weather":
         _fetch_weather(s,a); return
+    if a.command in {"zenodo-upload","zenodo-links"}:
+        from . import zenodo
+        arch=Path(a.archive_dir).expanduser() if a.archive_dir else Path(_products_config(s)["out_root"]).expanduser()/"archive"
+        if a.command=="zenodo-upload":
+            zenodo.upload_draft(arch,s.root/a.metadata,sandbox=a.sandbox,deposition=a.deposition)
+        else:
+            t=zenodo.record_links(a.record,arch,s.root/"data/curated/waveform_urls.csv",sandbox=a.sandbox,access=a.access)
+            print(f"waveform_urls.csv: {len(t)} rows (record {a.record}, {a.access}); now run build-site --web",flush=True)
+        return
     if a.command=="package-waveforms":
         from .package import package_waveforms
         idx=package_waveforms(Path(a.out_root or _products_config(s)["out_root"]).expanduser(),a.dest,a.year)
