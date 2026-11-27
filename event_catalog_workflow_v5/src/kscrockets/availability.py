@@ -100,6 +100,12 @@ def coverage_gaps(indexes: dict, start, end, min_days: int = 1) -> pd.DataFrame:
 
 
 def write_availability_table(db_path: str | Path, table: pd.DataFrame) -> None:
+    # counts must be integers in sqlite: a re-attached CSV is read as text, and in SQL
+    # '0' > 0 is true, which made every event look as if it had data
+    table = table.copy()
+    for c in ("n_stations", "n_channels"):
+        if c in table:
+            table[c] = pd.to_numeric(table[c], errors="coerce").fillna(0).astype(int)
     with sqlite3.connect(db_path) as con:
         table.to_sql("event_waveform_availability", con, if_exists="replace", index=False)
         con.execute("CREATE INDEX IF NOT EXISTS idx_availability_event ON event_waveform_availability(event_id)")

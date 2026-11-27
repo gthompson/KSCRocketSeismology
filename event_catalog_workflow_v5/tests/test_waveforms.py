@@ -54,3 +54,15 @@ def test_sds_availability_and_gaps(tmp_path):
     gaps = coverage_gaps(idx, "2016-02-01", "2016-02-10")
     assert gaps.to_dict("records") == [dict(first_day="2016-02-01", last_day="2016-02-04", n_days=4),
                                        dict(first_day="2016-02-07", last_day="2016-02-09", n_days=3)]
+
+
+def test_availability_counts_stored_as_integers(tmp_path):
+    """A CSV re-attached as strings must still give numeric counts: '0' > 0 is true in sqlite."""
+    import sqlite3
+    import pandas as pd
+    from kscrockets.availability import write_availability_table
+    t = pd.DataFrame(dict(event_id=["a", "b"], n_stations=["0", "3"], n_channels=["", "9"]))
+    db = tmp_path / "c.sqlite"
+    write_availability_table(db, t)
+    with sqlite3.connect(db) as con:
+        assert con.execute("select count(*) from event_waveform_availability where n_stations > 0").fetchone()[0] == 1
