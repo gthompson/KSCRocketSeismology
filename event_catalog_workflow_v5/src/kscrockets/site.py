@@ -72,11 +72,102 @@ def load_site_data(db_path) -> dict:
                  onsets=_query(con, "SELECT * FROM onsets"),
                  products=_query(con, "SELECT * FROM event_products"),
                  runs=_query(con, "SELECT * FROM processing_runs"),
-                 links=_query(con, "SELECT * FROM event_links"))
-    for k in ("avail", "proc", "products", "links"):
+                 links=_query(con, "SELECT * FROM event_links"),
+                 weather=_query(con, "SELECT * FROM event_weather"))
+    for k in ("avail", "proc", "products", "links", "weather"):
         if d[k].empty:
             d[k] = pd.DataFrame(columns=["event_id"])
+    pads = Path(__file__).resolve().parents[2] / "data/raw/launchpads.csv"
+    d["pads"] = pd.read_csv(pads).set_index("pad") if pads.exists() else pd.DataFrame()
     return d
+
+
+LEAFLET = ("<link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'>"
+           "<script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'></script>")
+
+
+def _event_dir(prods: pd.DataFrame) -> Path | None:
+    m = prods[prods.product_type == "manifest"]
+    return Path(m.path.iloc[0]).parent if len(m) else None
+
+
+def _map_data(e, d, prods, meas, wx) -> dict | None:
+    """Pad, stations (with their best SNR per kind) and weather sites for the event map."""
+    pad = d["pads"].loc[e.pad] if len(d["pads"]) and e.pad in d["pads"].index else None
+    edir = _event_dir(prods)
+    st = pd.read_csv(edir / "stations.csv") if edir is not None and (edir / "stations.csv").exists() else pd.DataFrame()
+    if pad is None and st.empty:
+        return None
+    best = {}
+    if len(meas):
+        m = meas[meas.metric == "snr_peak"].assign(value=lambda x: pd.to_numeric(x.value, errors="coerce"))
+        for (sta, kind), v in m.groupby(["station", "kind"]).value.max().items():
+            k = "pressure" if kind == "pressure" else "seismic"
+            best.setdefault(sta, {})[k] = max(best.get(sta, {}).get(k, 0), float(v))
+    stations = []
+    for r in (st.dropna(subset=["lat", "lon"]) if {"lat", "lon"} <= set(st.columns) else st.iloc[0:0]).itertuples():
+        b = best.get(r.station, {})
+        stations.append(dict(name=r.station, net=getattr(r, "network", ""), lat=r.lat, lon=r.lon, km=round(float(r.distance_km), 2),
+                             p=round(b.get("pressure", 0), 1), s=round(b.get("seismic", 0), 1)))
+    sites = []
+    if wx is not None:
+        if _t(wx.get("near_tower_lat")):
+            sites.append(dict(name=f"Tower {wx.get('near_tower')}", lat=float(wx["near_tower_lat"]), lon=float(wx["near_tower_lon"]),
+                              kind="tower"))
+        if _t(wx.get("airport_lat")):
+            sites.append(dict(name=f"Airport K{wx.get('airport')}", lat=float(wx["airport_lat"]), lon=float(wx["airport_lon"]), kind="airport"))
+    return dict(pad=dict(name=e.pad, lat=float(pad.lat), lon=float(pad.lon)) if pad is not None else None,
+                stations=stations, sites=sites)
+
+
+def _wind(speed, frm) -> str:
+    sp = _num(speed, "{:.1f} m/s")
+    return f"{sp} from {_num(frm, '{:.0f}')}°" if sp and _num(frm) else sp
+
+
+def _offset(s) -> str:
+    try:
+        x = float(s)
+    except (TypeError, ValueError):
+        return ""
+    return f"{x:+.0f} s" if abs(x) < 120 else f"{x / 60:+.0f} min"
+
+
+def _weather_block(wx) -> str:
+    if wx is None:
+        return "<p class='muted'>Not fetched yet (<code>ksc-rockets fetch-weather</code>).</p>"
+    rows = []
+    if _t(wx.get("tower_obs_utc")):
+        rows.append(("KSC towers, mean of lowest sensors",
+                     f"{_t(wx.get('tower_n'))} towers · {_t(wx.get('tower_product'))}",
+                     _when(wx.get("tower_obs_utc")), _offset(wx.get("tower_offset_s")),
+                     _num(wx.get("tower_temp_c"), "{:.1f} °C"), _num(wx.get("tower_rh_pct"), "{:.0f} %"),
+                     _wind(wx.get("tower_wind_speed_mps"), wx.get("tower_wind_from_deg")) +
+                     (f" <span class='muted'>({_t(wx.get('tower_wind_heights_ft'))} ft)</span>" if _t(wx.get("tower_wind_heights_ft")) else "")))
+    if _t(wx.get("near_tower")):
+        rows.append((f"Tower {_t(wx.get('near_tower'))}, nearest the pad",
+                     _num(wx.get("near_tower_km"), "{:.1f} km from the pad"),
+                     _when(wx.get("tower_obs_utc")), _offset(wx.get("tower_offset_s")),
+                     _num(wx.get("near_tower_temp_c"), "{:.1f} °C"), _num(wx.get("near_tower_rh_pct"), "{:.0f} %"),
+                     _wind(wx.get("near_tower_wind_speed_mps"), wx.get("near_tower_wind_from_deg")) +
+                     (f" <span class='muted'>({_t(wx.get('near_tower_wind_height_ft'))} ft)</span>" if _t(wx.get("near_tower_wind_height_ft")) else "")))
+    if _t(wx.get("airport")):
+        rows.append((f"Airport K{_t(wx.get('airport'))} (METAR)", f"<code class='small'>{_t(wx.get('airport_metar'))}</code>",
+                     _when(wx.get("airport_obs_utc")), _offset(wx.get("airport_offset_s")),
+                     _num(wx.get("airport_temp_c"), "{:.1f} °C"), _num(wx.get("airport_rh_pct"), "{:.0f} %"),
+                     _wind(wx.get("airport_wind_speed_mps"), wx.get("airport_wind_from_deg")) + " <span class='muted'>(10 m)</span>"))
+    if not rows:
+        return f"<p class='muted'>No weather data found near this time. {_t(wx.get('error'))}</p>"
+    tr = "".join(f"<tr><td>{a}<div class='muted small'>{b}</div></td><td class='nowrap'>{c}</td><td class='num'>{o}</td>"
+                 f"<td class='num'>{t}</td><td class='num'>{h}</td><td>{w}</td></tr>" for a, b, c, o, t, h, w in rows)
+    prof = _t(wx.get("profiler_files"))
+    note = (f"<p class='muted small'>Wind profiler files saved for later analysis: {prof.replace(';', ', ')}.</p>" if prof else "")
+    err = f"<p class='muted small'>{_t(wx.get('error'))}</p>" if _t(wx.get("error")) else ""
+    return ("<div class='tablewrap'><table><thead><tr><th>Source</th><th>Observed (UTC)</th><th class='num'>from event</th>"
+            "<th class='num'>Temp.</th><th class='num'>RH</th><th>Wind</th></tr></thead>"
+            f"<tbody>{tr}</tbody></table></div>"
+            "<p class='muted small'>Closest observation in time. Towers: KSC Spaceport Weather Archive (not quality controlled); "
+            "wind direction is where it blows from. Airports: Iowa Environmental Mesonet ASOS.</p>" + note + err)
 
 
 def event_summary(meas: pd.DataFrame) -> pd.DataFrame:
@@ -259,6 +350,8 @@ def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id) -> Path
     on = d["onsets"][d["onsets"].event_id == eid] if len(d["onsets"]) else pd.DataFrame()
     prods = d["products"][d["products"].event_id == eid]
     links = d["links"][d["links"].event_id == eid]
+    w = d["weather"][d["weather"].event_id == eid]
+    wx = w.iloc[0].to_dict() if len(w) else None
     title = e.mission if isinstance(e.mission, str) and e.mission else e.name
     nav = (f"<nav><a href='../index.html'>← All events</a>"
            + (f" · <a href='{prev_id}.html'>‹ previous</a>" if prev_id else "")
@@ -274,6 +367,14 @@ def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id) -> Path
     parts = [nav, f"<h1>{_t(title)}</h1>",
              f"<p class='lede'>{_t(TYPE_LABELS.get(e.event_type, e.event_type))} · {_when(e.event_time_utc)} UTC · {_t(e.pad)}</p>",
              "<div class='cols'><section>", "<h2>Event</h2>", facts, "</section><section><h2>Times</h2>", _times_table(e), "</section></div>"]
+    mp = _map_data(e, d, prods, meas, wx)
+    if mp and mp["stations"]:
+        parts.append("<h2>Stations</h2><div id='map' class='map'></div>"
+                     "<p class='muted small'>Stations that recorded this event, coloured by their best peak SNR "
+                     "(<span class='dot d-p'></span> pressure SNR ≥ 3, <span class='dot d-s'></span> seismic only, "
+                     "<span class='dot d-n'></span> neither); ★ pad; ◆ weather tower and airport used below.</p>"
+                     f"<script>const EVENT_MAP={json.dumps(mp)};</script>")
+    parts.append("<h2>Weather</h2>" + _weather_block(wx))
     # waveform data
     parts.append("<h2>Our recordings</h2>")
     n_sta = int(float(a.n_stations.iloc[0] or 0)) if len(a) else 0
@@ -317,13 +418,14 @@ def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id) -> Path
         parts.append("<p class='muted'>None yet (webcasts, weather and regional data will be added here).</p>")
     parts.append(nav)
     path = edir / f"{eid}.html"
-    path.write_text(_page(f"{title} · {_when(e.event_time_utc)[:10]}", "\n".join(parts), "../assets/style.css", "../assets/app.js"))
+    path.write_text(_page(f"{title} · {_when(e.event_time_utc)[:10]}", "\n".join(parts), "../assets/style.css", "../assets/app.js",
+                          head=LEAFLET if mp and mp["stations"] else ""))
     return path
 
 
-def _page(title, body, css, js=None) -> str:
+def _page(title, body, css, js=None, head="") -> str:
     return (f"<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
-            f"<title>{_t(title)}</title><link rel='stylesheet' href='{css}'></head><body><main>{body}</main>"
+            f"<title>{_t(title)}</title>{head}<link rel='stylesheet' href='{css}'></head><body><main>{body}</main>"
             + (f"<script src='{js}'></script>" if js else "") + "</body></html>")
 
 

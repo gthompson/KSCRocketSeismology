@@ -9,6 +9,7 @@ the repository: the waveforms and plots per event, and these tables in ``<out_ro
 ``measurements.csv``       long table: event x channel x metric (peak, SNR, energy, duration ...)
 ``onsets.csv``             STA/LTA onset per event and channel, with origin-time estimate
 ``event_products.csv``     files written per event (miniSEED, plots, manifest) and their paths
+``event_weather.csv``      surface weather closest to each event (``ksc-rockets fetch-weather``)
 =========================  ================================================================
 
 Two small inputs of the catalog stay in git, in ``data/curated/``: ``detected_times.csv``
@@ -35,6 +36,7 @@ PRODUCT_TABLES = {
     "measurements": "measurements.csv",
     "onsets": "onsets.csv",
     "event_products": "event_products.csv",
+    "event_weather": "event_weather.csv",          # kscrockets.weather
 }
 DETECTED_CSV = "data/curated/detected_times.csv"
 LINKS_CSV = "data/curated/event_links.csv"

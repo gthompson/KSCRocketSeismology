@@ -208,6 +208,40 @@ def _process(s, a):
     print(f"process {run_id}: {summary}; sqlite tables: {', '.join(tables)}",flush=True)
 
 
+def _event_ids(a):
+    ids=list(a.event_id or [])
+    if a.events_file:
+        ids+=[x.split("#")[0].strip() for x in Path(a.events_file).read_text().splitlines() if x.split("#")[0].strip()]
+    return ids
+
+
+def _fetch_weather(s, a):
+    import sqlite3, time
+    from .weather import KSCArchive, event_weather, save_weather
+    from .products import load_products, tables_dir
+    out_root=Path(a.out_root or _products_config(s)["out_root"]).expanduser()
+    ids=_event_ids(a)
+    if not ids: raise SystemExit("fetch-weather: give --event-id or --events-file")
+    with sqlite3.connect(s.database) as con:
+        ev=pd.read_sql("select event_id,event_time_utc,event_type,name,pad from events",con)
+    missing=sorted(set(ids)-set(ev.event_id))
+    if missing: raise SystemExit(f"fetch-weather: not in catalog: {' '.join(missing)}")
+    pads=pd.read_csv(s.root/"data/raw/launchpads.csv").set_index("pad")
+    cache=out_root/"weather"
+    archive=None if a.airports_only else KSCArchive(cache/"ksc_archive")
+    rows=[]
+    for e in ev[ev.event_id.isin(ids)].sort_values("event_time_utc").to_dict("records"):
+        t=time.time()
+        lat,lon=(pads.at[e["pad"],"lat"],pads.at[e["pad"],"lon"]) if e["pad"] in pads.index else (None,None)
+        r=event_weather(e,cache,archive,lat,lon); rows.append(r)
+        print(f"{e['event_id']} {e['event_time_utc']} towers {r.get('tower_offset_s','-')}s "
+              f"T={r.get('tower_temp_c','-')}C wind={r.get('tower_wind_speed_mps','-')}m/s from {r.get('tower_wind_from_deg','-')} | "
+              f"{r.get('airport','-')} {r.get('airport_offset_s','-')}s {time.time()-t:.0f}s {r.get('error','')}",flush=True)
+    p=save_weather(tables_dir(out_root),rows)
+    load_products(s.root,tables_dir(out_root),s.database)
+    print(f"fetch-weather: {len(rows)} events -> {p}",flush=True)
+
+
 def _load_products(s):
     from .products import load_products, tables_dir
     t=tables_dir(_products_config(s)["out_root"])
@@ -307,6 +341,10 @@ def main(argv=None):
     pr.add_argument("--ensemble",default=None,help="default: [products] ensemble in config")
     pr.add_argument("--run-id",default=None); pr.add_argument("--notes",default="")
     pr.add_argument("--no-plots",action="store_true"); pr.add_argument("--allow-any-out-root",action="store_true")
+    fw=sp.add_parser("fetch-weather",help="KSC tower/profiler files and airport METARs closest to each event")
+    fw.add_argument("--event-id",action="append"); fw.add_argument("--events-file",help="one event_id per line (# comments)")
+    fw.add_argument("--out-root",default=None,help="default: [products] out_root in config")
+    fw.add_argument("--airports-only",action="store_true",help="skip the KSC archive (towers, profilers)")
     bs=sp.add_parser("build-site",help="Web pages: index of all events and a page per event, in <out_root>/site/")
     bs.add_argument("--out-root",default=None,help="default: [products] out_root in config")
     bs.add_argument("--site-dir",default=None,help="default: <out_root>/site")
@@ -354,6 +392,8 @@ def main(argv=None):
         _availability(s,a); return
     if a.command=="process":
         _process(s,a); return
+    if a.command=="fetch-weather":
+        _fetch_weather(s,a); return
     if a.command=="build-site":
         from .site import build_site
         from .products import load_products, tables_dir
