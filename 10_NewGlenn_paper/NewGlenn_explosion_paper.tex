@@ -331,9 +331,24 @@ a \NGwind~m~s$^{-1}$ wind from \NGwindFrom$^{\circ}$. The still-air sound speed
 \NGoriginPrecise~UTC with a station spread of \NGoriginSpread~s (Figure~\ref{fig:origin}; \supptab{3}--\supptab{6}).
 Other onset definitions and weather choices give \NGoriginRange, and a
 fit with the speed left free gives \NGoriginFree{} at \NGspeedFree~m~s$^{-1}$: the far
-stations are slightly late relative to the surface weather, perhaps
-through a cooler layer near the ground or the wind profile above 10~m.
-We adopt \NGorigin~$\pm$~1~s.
+stations are slightly late relative to the surface weather.
+
+The KSC weather towers \citep{ksc_wxarchive} test the surface weather
+along the paths themselves (\suppfig{8}). Between 00:50 and 01:10~UTC,
+\NGtowerN{} towers around the paths recorded 6~ft (2~m)
+temperatures of \NGtowerTcoast~$^{\circ}$C near the pad and
+\NGtowerTinland~$^{\circ}$C near the stations, with 204~ft (62~m) within
+\NGtowerDTmax~$^{\circ}$C of 6~ft: no surface inversion at tower heights. The
+wind, from the west-north-west, strengthened with height, from a
+\NGtowerHeadLow~m~s$^{-1}$ headwind along the paths at 12~ft to
+\NGtowerHeadHigh~m~s$^{-1}$ at 204~ft. Interpolating the towers along each path
+gives \NGtowerCpathLow~m~s$^{-1}$ at 6--54~ft and an origin within
+\NGtowerShiftLow~s of that from the airport stations. With the 204~ft towers
+the speed falls to \NGtowerCpathHigh~m~s$^{-1}$, the origin moves
+\NGtowerShiftHigh~s \NGtowerShiftHighDir{} and the station spread falls to
+\NGtowerSpreadHigh~s, so the wind above 10~m probably contributes to the late
+far stations; the free-fit speed is lower still. No balloon sounding was
+made within 13~h of the explosion. We adopt \NGorigin~$\pm$~1~s.
 
 This origin assumes that the airwave travels at the speed of sound all
 the way from the pad. Near the pad, however, the blast front is a shock
@@ -666,7 +681,8 @@ The analysis (notebooks 05--42 in \texttt{10\_NewGlenn\_paper}, built on
 the shared \texttt{ksclib} package in the same repository) is available
 at \url{https://github.com/gthompson/KSCRocketSeismology}; the version used will be archived with a DOI on
 acceptance. Weather observations
-are from the Iowa Environmental Mesonet \citep{iem_asos}, and the 2026
+are from the Iowa Environmental Mesonet \citep{iem_asos} and the KSC
+Spaceport Weather Archive \citep{ksc_wxarchive}, and the 2026
 launch list from Launch Library~2 \citep{launchlibrary2}. The analysis
 builds on ObsPy \citep{Beyreuther2010,krischer_obspy_2015}, FlovoPy
 \citep{flovopy_2026} and \texttt{disba} \citep{luu2021disba}.

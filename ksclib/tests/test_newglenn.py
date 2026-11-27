@@ -60,3 +60,18 @@ def test_blast_front_advance():
     assert np.all((a > 0.4) & (a < 0.8))
     assert a[1] > a[0]                       # still accumulating, slowly
     assert blast_front_time_advance(12000.0, 2 * 1e3, 347.0) < a[0]   # smaller charge, less advance
+
+
+def test_ksc_tower_reader():
+    from ksclib import weather
+    files = sorted((REPO / "10_NewGlenn_paper" / "data" / "ksc_weather_towers").glob("WT_1MIN_2026052901*.dat"))
+    if not files:
+        pytest.skip("KSC tower files not present")
+    t = weather.load_ksc_tower_1min(files[:2])
+    assert t.datetime_utc.nunique() == 2 and str(t.datetime_utc.iloc[0].tz) == "UTC"
+    assert set(t.sensor_side) <= {"", "NW", "SE", "NE", "SW"}
+    assert not (t.wind_speed_knots == 999).any()
+    assert t.temperature_c.dropna().between(15, 35).all()
+    m = weather.tower_means(t)
+    r = weather.tower_path_sound_speed(m, 28.4706, -80.5422, 28.5736, -80.5722, height_ft_temperature=54)
+    assert 11000 < r["length_m"] < 12500 and 340 < r["c_path_mps"] < 352

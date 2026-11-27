@@ -531,3 +531,117 @@ def load_iem_asos_csv(filename: str | Path, *, sensor_height_m: float = 10.0) ->
     out["wind_u_east_mps"] = -out["wind_speed_mps"] * np.sin(d)
     out["wind_v_north_mps"] = -out["wind_speed_mps"] * np.cos(d)
     return out
+
+
+def load_ksc_tower_1min(filenames, *, prevailing_side_only: bool = True) -> pd.DataFrame:
+    """Load KSC Spaceport Weather Archive 1-minute tower files (``WT_1MIN_YYYYMMDDHHMM.dat``,
+    product midds/WINDS_TOWER) into the columns of `load_iem_asos_csv`, one row per tower,
+    sensor height and minute.
+
+    Each file has a title line (with the UTC time, e.g. "0100Z"), a header and a units line.
+    Tower IDs with a side suffix (NW, SE, ...) carry sensors on two sides of the tower; with
+    ``prevailing_side_only`` only the side named in PREVAILING (upwind, per the archive) is kept.
+    999 marks missing values. The archive data are not quality controlled.
+    """
+    if isinstance(filenames, (str, Path)):
+        filenames = [filenames]
+    frames = []
+    for f in sorted(Path(x) for x in filenames):
+        stamp = f.stem.split("_")[-1]
+        df = pd.read_csv(f, skiprows=[0, 2], dtype=str)
+        df.columns = [str(c).strip() for c in df.columns]
+        df["datetime_utc"] = pd.Timestamp(stamp[:8] + "T" + stamp[8:12], tz="UTC")
+        frames.append(df)
+    d = pd.concat(frames, ignore_index=True)
+    tower = d["TOWER"].astype(str).str.strip()
+    side = tower.str[4:]
+    prevailing = d["PREVAILING"].fillna("").astype(str).str.strip()
+    if prevailing_side_only:
+        keep = (side == "") | (side == prevailing)
+        d, tower, side = d[keep], tower[keep], side[keep]
+
+    def num(col):
+        return pd.to_numeric(d[col], errors="coerce").mask(lambda s: s == 999)
+
+    out = pd.DataFrame({
+        "station": tower.str[:4],
+        "sensor_side": side,
+        "datetime_utc": d["datetime_utc"],
+        "tower_latitude": num("LAT"),
+        "tower_longitude": num("LON"),
+        "height_ft": num("HGT"),
+        "temperature_f": num("TMP"),
+        "relative_humidity_percent": num("RH"),
+        "wind_direction_from_deg": num("01 MIN AVG DIR") % 360.0,
+        "wind_speed_knots": num("01 MIN AVG SPD"),
+    })
+    out["height_m"] = out["height_ft"] * FOOT_TO_M
+    out["temperature_c"] = (out["temperature_f"] - 32.0) * 5.0 / 9.0
+    out["wind_speed_mps"] = out["wind_speed_knots"] * KNOT_TO_MPS
+    rad = np.deg2rad(out["wind_direction_from_deg"])
+    out["wind_u_east_mps"] = -out["wind_speed_mps"] * np.sin(rad)
+    out["wind_v_north_mps"] = -out["wind_speed_mps"] * np.cos(rad)
+    return out.reset_index(drop=True)
+
+
+def tower_means(towers: pd.DataFrame, start=None, end=None) -> pd.DataFrame:
+    """Time-mean of each tower and sensor height between ``start`` and ``end`` (UTC, inclusive):
+    temperature, RH and vector-mean wind components."""
+    t = towers
+    if start is not None:
+        t = t[t.datetime_utc >= pd.Timestamp(start, tz="UTC") if pd.Timestamp(start).tzinfo is None
+              else t.datetime_utc >= pd.Timestamp(start)]
+    if end is not None:
+        t = t[t.datetime_utc <= pd.Timestamp(end, tz="UTC") if pd.Timestamp(end).tzinfo is None
+              else t.datetime_utc <= pd.Timestamp(end)]
+    return (t.groupby(["station", "height_ft"])
+             .agg(lat=("tower_latitude", "first"), lon=("tower_longitude", "first"),
+                  height_m=("height_m", "first"), temperature_c=("temperature_c", "mean"),
+                  relative_humidity_percent=("relative_humidity_percent", "mean"),
+                  wind_u_east_mps=("wind_u_east_mps", "mean"), wind_v_north_mps=("wind_v_north_mps", "mean"),
+                  n=("datetime_utc", "size"))
+             .reset_index())
+
+
+def _idw(tbl: pd.DataFrame, col: str, lat: float, lon: float, smoothing_m: float) -> float:
+    t = tbl.dropna(subset=[col])
+    if t.empty:
+        return np.nan
+    dx = (t["lon"] - lon) * 111.32e3 * np.cos(np.radians(lat))
+    dy = (t["lat"] - lat) * 110.57e3
+    w = 1.0 / (np.hypot(dx, dy) + smoothing_m) ** 2
+    return float((t[col] * w).sum() / w.sum())
+
+
+def tower_path_sound_speed(means: pd.DataFrame, lat0: float, lon0: float, lat1: float, lon1: float, *,
+                           height_ft_temperature: float, height_ft_wind: float | None = None,
+                           pressure_pa: float = 101325.0, co2_ppm: float = 425.0, n: int = 200,
+                           smoothing_m: float = 500.0) -> dict:
+    """Effective sound speed along the straight path (lat0, lon0) -> (lat1, lon1) from tower means.
+
+    At ``n`` points along the path, temperature and RH (at ``height_ft_temperature``) and the wind
+    components (at ``height_ft_wind``, default the same height) are interpolated from the towers by
+    inverse-distance-squared weighting (distance + ``smoothing_m``). The still-air speed follows
+    Cramer (1993); the wind is projected on the path direction. Returns the travel time over the
+    path length, the path-average (harmonic) speed and the means of c0 and of the along-path wind.
+    """
+    from .physics import compute_speed_of_sound_cramer
+    height_ft_wind = height_ft_temperature if height_ft_wind is None else height_ft_wind
+    T = means[means.height_ft == height_ft_temperature]
+    W = means[means.height_ft == height_ft_wind]
+    ex = (lon1 - lon0) * 111.32e3 * np.cos(np.radians(lat0))
+    ny = (lat1 - lat0) * 110.57e3
+    length = float(np.hypot(ex, ny))
+    e = np.array([ex, ny]) / length
+    f = np.linspace(0.0, 1.0, n)
+    c0, wa = [], []
+    for la, lo in zip(lat0 + f * (lat1 - lat0), lon0 + f * (lon1 - lon0)):
+        c0.append(float(compute_speed_of_sound_cramer(_idw(T, "temperature_c", la, lo, smoothing_m),
+                                                      _idw(T, "relative_humidity_percent", la, lo, smoothing_m),
+                                                      pressure_pa, co2_ppm)))
+        wa.append(_idw(W, "wind_u_east_mps", la, lo, smoothing_m) * e[0]
+                  + _idw(W, "wind_v_north_mps", la, lo, smoothing_m) * e[1])
+    c = np.array(c0) + np.array(wa)
+    tt = length * float(np.mean(1.0 / c))
+    return {"length_m": length, "travel_time_s": tt, "c_path_mps": length / tt,
+            "c0_mean_mps": float(np.mean(c0)), "wind_along_path_mps": float(np.mean(wa))}
