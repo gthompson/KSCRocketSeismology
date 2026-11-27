@@ -46,3 +46,7 @@ figure img { width: 100%; height: auto; display: block; }
 figcaption { font-size: .85em; color: #555; padding-top: 4px; }
 figure:target { outline: 3px solid var(--accent); }
 details { margin: 1em 0; } summary { cursor: pointer; color: var(--link); }
+.map { height: 460px; border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; border: 1px solid #333; }
+.d-p { background: #2b6cb0; } .d-s { background: #2f9e44; } .d-n { background: #adb5bd; }
+.leaflet-tooltip.sta { background: rgba(255,255,255,.85); border: 0; box-shadow: none; padding: 0 3px; font-size: 11px; color: #222; }

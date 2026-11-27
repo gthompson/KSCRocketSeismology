@@ -535,7 +535,7 @@ def load_iem_asos_csv(filename: str | Path, *, sensor_height_m: float = 10.0) ->
 
 def load_ksc_tower_1min(filenames, *, prevailing_side_only: bool = True) -> pd.DataFrame:
     """Load KSC Spaceport Weather Archive 1-minute tower files (``WT_1MIN_YYYYMMDDHHMM.dat``,
-    product midds/WINDS_TOWER) into the columns of `load_iem_asos_csv`, one row per tower,
+    product midds/WINDS_TOWER; also the 5-minute ``WT_5MIN_*`` files of WINDS_TOWER_5MIN) into the columns of `load_iem_asos_csv`, one row per tower,
     sensor height and minute.
 
     Each file has a title line (with the UTC time, e.g. "0100Z"), a header and a units line.
@@ -563,6 +563,8 @@ def load_ksc_tower_1min(filenames, *, prevailing_side_only: bool = True) -> pd.D
     def num(col):
         return pd.to_numeric(d[col], errors="coerce").mask(lambda s: s == 999)
 
+    avg_dir = next(c for c in d.columns if c.endswith("MIN AVG DIR"))     # "01 MIN ..." or "05 MIN ..."
+
     out = pd.DataFrame({
         "station": tower.str[:4],
         "sensor_side": side,
@@ -572,8 +574,8 @@ def load_ksc_tower_1min(filenames, *, prevailing_side_only: bool = True) -> pd.D
         "height_ft": num("HGT"),
         "temperature_f": num("TMP"),
         "relative_humidity_percent": num("RH"),
-        "wind_direction_from_deg": num("01 MIN AVG DIR") % 360.0,
-        "wind_speed_knots": num("01 MIN AVG SPD"),
+        "wind_direction_from_deg": num(avg_dir) % 360.0,
+        "wind_speed_knots": num(avg_dir.replace("DIR", "SPD")),
     })
     out["height_m"] = out["height_ft"] * FOOT_TO_M
     out["temperature_c"] = (out["temperature_f"] - 32.0) * 5.0 / 9.0

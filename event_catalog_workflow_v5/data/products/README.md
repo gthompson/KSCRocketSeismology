@@ -66,3 +66,25 @@ record sections, per-channel metric tables, STA/LTA onsets, per-station waveform
 plots, the miniSEED files and external links. Pages link to the plots by relative path, so the
 site opens from disk and can be copied with the event folders to a web server. Events with no
 recordings get a page too. `--event-id` / `--events-file` limit which event pages are rewritten.
+
+## Weather
+
+    ksc-rockets fetch-weather --events-file data/products/pilot_events.txt
+
+For each event, the files closest in time are downloaded once to `~/work/KSC_event_catalog/weather/`
+(`kscrockets.weather`), and one summary row per event goes to `tables/event_weather.csv` (sqlite
+`event_weather`), shown on the event page with its offset from the event time:
+
+* **KSC weather towers** (Spaceport Weather Archive, kscweather.ksc.nasa.gov/wxarchive, not quality
+  controlled): the 1-minute time step closest to the event (5-minute data if none within 15 min).
+  Mean over towers of the lowest temperature/RH sensor (6 ft) and the vector mean of each tower's
+  lowest wind sensor (12–54 ft), and the tower nearest the pad. Files before 2023 are fixed-width
+  (`T1MMDDHHMM.dat`, several 1-minute blocks per file, no coordinates); tower coordinates come from
+  `data/raw/ksc_weather_towers.csv` (the 2026 tower list).
+* **Airports** (Iowa Environmental Mesonet ASOS): the METAR closest in time among XMR, TTS, TIX and
+  COF (Melbourne only if none reported).
+* **Wind profilers**, saved but not summarised yet: the 915 MHz profiler files (Q1–Q5) and the 48 MHz
+  TDRWP file (M7) closest to the event.
+
+The event pages also show a map (Leaflet, satellite or street tiles; needs internet to view) of the
+pad, the stations that recorded the event coloured by best SNR, and the weather tower and airport.

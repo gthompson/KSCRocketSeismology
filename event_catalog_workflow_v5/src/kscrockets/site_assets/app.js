@@ -53,3 +53,37 @@
   [q, year, type, pad, data].forEach(function (el) { el.addEventListener("input", apply); });
   apply();
 })();
+
+// Event page: station map (Leaflet, loaded only on pages with EVENT_MAP).
+(function () {
+  if (typeof EVENT_MAP === "undefined" || typeof L === "undefined") return;
+  const el = document.getElementById("map"); if (!el) return;
+  const map = L.map(el, { scrollWheelZoom: false });
+  const osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { maxZoom: 18, attribution: "© OpenStreetMap contributors" });
+  const sat = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    { maxZoom: 18, attribution: "Imagery © Esri" });
+  sat.addTo(map);
+  L.control.layers({ "Satellite": sat, "Map": osm }).addTo(map);
+  L.control.scale({ imperial: false }).addTo(map);
+  const pts = [];
+  EVENT_MAP.stations.forEach(function (s) {
+    const color = s.p >= 3 ? "#2b6cb0" : (s.s >= 3 ? "#2f9e44" : "#adb5bd");
+    const m = L.circleMarker([s.lat, s.lon], { radius: 6, color: "#222", weight: 1, fillColor: color, fillOpacity: 0.95 }).addTo(map);
+    m.bindTooltip(s.name, { permanent: true, direction: "right", className: "sta", offset: [6, 0] });
+    m.bindPopup("<b>" + (s.net ? s.net + "." : "") + s.name + "</b><br>" + s.km + " km from the pad<br>best SNR: pressure " +
+                (s.p || "–") + ", seismic " + (s.s || "–") + "<br><a href='#sta-" + s.name + "'>waveforms ↓</a>");
+    pts.push([s.lat, s.lon]);
+  });
+  if (EVENT_MAP.pad) {
+    const p = EVENT_MAP.pad;
+    L.marker([p.lat, p.lon], { icon: L.divIcon({ className: "", html: "<div style='font-size:22px;color:#e8590c;text-shadow:0 0 3px #000'>★</div>", iconSize: [22, 22], iconAnchor: [11, 13] }) })
+      .bindTooltip("Pad " + p.name, { direction: "top" }).addTo(map);
+    pts.push([p.lat, p.lon]);
+  }
+  (EVENT_MAP.sites || []).forEach(function (w) {
+    L.marker([w.lat, w.lon], { icon: L.divIcon({ className: "", html: "<div style='font-size:15px;color:#f8f9fa;text-shadow:0 0 3px #000'>◆</div>", iconSize: [15, 15], iconAnchor: [7, 8] }) })
+      .bindTooltip(w.name, { direction: "top" }).addTo(map);
+  });
+  if (pts.length > 1) map.fitBounds(pts, { padding: [30, 30], maxZoom: 14 }); else map.setView(pts[0], 12);
+})();
