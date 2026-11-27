@@ -15,6 +15,13 @@ action is written to a manifest CSV.
     python rename_band_codes.py --sds /Volumes/KSCGTdownld/SDS                  # dry run
     python rename_band_codes.py --sds /Volumes/KSCGTdownld/SDS --apply
     python rename_band_codes.py --sds /path/to/remastered/SDS_KSC --apply      # on hal9000
+    python rename_band_codes.py --sds /Volumes/KSCGTdownld/SDS --copy-to /Volumes/Pulwtop/KSC_SDS_2026
+
+--copy-to builds a corrected copy of the whole tree instead and leaves the source untouched: D?? files are
+written renamed, everything else (other channels, SOH, unparsable D?? files such as zero-filled days) is copied
+unchanged. Each renamed file is checked against the source bytes (identical apart from the band letter) and
+read back. A file already present in the target with the expected size is skipped, so an interrupted copy can
+be resumed. The manifest is written as it goes, to <target>/_rename_copy_manifest.csv.
 
 Run fix_sds_ksc.py first on the remastered archive. Afterwards use KSC.xml (SEED codes) with the archive,
 instead of KSC_sds_codes.xml.
@@ -73,9 +80,9 @@ def byteorder(rec):
     return ">" if 1900 <= year <= 2100 else "<"
 
 
-def split_file(path):
+def split_file(path, data=None):
     """{new channel code: bytearray of records} for one D?? file; raises on anything unexpected."""
-    data = Path(path).read_bytes()
+    data = Path(path).read_bytes() if data is None else data
     out, pos = OrderedDict(), 0
     while pos < len(data):
         rec = data[pos:pos + 48]
@@ -95,14 +102,98 @@ def split_file(path):
     return out, len(data)
 
 
+def band_masked(b):
+    """Bytes with byte 15 of every 512-byte block zeroed: each record's band letter (records are 512 or 4096 B)."""
+    b = bytearray(b)
+    for i in range(15, len(b), 512):
+        b[i] = 0
+    return bytes(b)
+
+
+def copy_tree(sds: Path, target: Path):
+    """Write a renamed copy of `sds` to `target`; the source is only read."""
+    s, t = sds.resolve(), target.resolve()
+    if s == t or s in t.parents or t in s.parents:
+        raise SystemExit("source and target must not contain one another")
+    target.mkdir(parents=True, exist_ok=True)
+    man = open(target / "_rename_copy_manifest.csv", "a", newline="")
+    w = csv.DictWriter(man, fieldnames=["action", "src", "dst", "check"])
+    if man.tell() == 0:
+        w.writeheader()
+    tally = {}
+    files = sorted(p for p in sds.rglob("*") if p.is_file()
+                   and not (set(p.relative_to(sds).parts) & SKIP_DIRS)
+                   and not any(x.startswith(".") for x in p.relative_to(sds).parts))
+    print(f"{len(files)} files under {sds}", flush=True)
+
+    def log(action, src, dst, check=""):
+        tally[action] = tally.get(action, 0) + 1
+        w.writerow(dict(action=action, src=src, dst=dst, check=check))
+
+    for k, f in enumerate(files, 1):
+        rel = f.relative_to(sds)
+        is_d = f.parent.name[:2] in BROADBAND_D and f.parent.name.endswith(".D") and len(f.name.split(".")) == 7
+        parts = None
+        if is_d:
+            data = f.read_bytes()
+            try:
+                parts, _ = split_file(f, data)
+            except Exception as e:
+                parts, why = None, f"unparsable, copied unchanged: {e}"
+        if parts is None:
+            d = target / rel
+            if d.exists() and d.stat().st_size == f.stat().st_size:
+                log("skip-exists", f, d)
+            else:
+                d.parent.mkdir(parents=True, exist_ok=True)
+                tmp = d.with_name(d.name + ".tmp")
+                shutil.copy2(f, tmp)
+                if tmp.stat().st_size != f.stat().st_size:
+                    raise RuntimeError(f"copy of {f} has the wrong size")
+                os.replace(tmp, d)
+                log("copy-unparsable-D" if is_d else "copy", f, d, why if is_d else "")
+        else:
+            n, s_, l, c, q, y, j = f.name.split(".")
+            if len(parts) == 1 and band_masked(bytes(next(iter(parts.values())))) != band_masked(data):
+                raise RuntimeError(f"{f}: renamed bytes differ from the source beyond the band letter")
+            if sum(len(v) for v in parts.values()) != len(data):
+                raise RuntimeError(f"{f}: renamed copy has {sum(len(v) for v in parts.values())} bytes, source {len(data)}")
+            for cha, blob in parts.items():
+                d = target / rel.parent.parent / f"{cha}.D" / f"{n}.{s_}.{l}.{cha}.{q}.{y}.{j}"
+                if d.exists() and d.stat().st_size == len(blob):
+                    log("skip-exists", f, d)
+                    continue
+                if d.exists():
+                    raise RuntimeError(f"{d} exists with a different size")
+                d.parent.mkdir(parents=True, exist_ok=True)
+                tmp = d.with_name(d.name + ".tmp")
+                tmp.write_bytes(blob)
+                if tmp.read_bytes() != bytes(blob):
+                    raise RuntimeError(f"{tmp}: read-back differs")
+                ids = {tr.id for tr in read(str(tmp), headonly=True)}
+                if ids != {f"{n}.{s_}.{l}.{cha}"} and ids != {f"{n}.{s_}.{'' if l == '--' else l}.{cha}"}:
+                    raise RuntimeError(f"{tmp}: unexpected ids {ids}")
+                os.replace(tmp, d)
+                log("rename-split" if len(parts) > 1 else "rename", f, d, f"{len(data)} -> {len(blob)} bytes")
+        if k % 500 == 0:
+            man.flush()
+            print(f"  {k}/{len(files)} {tally}", flush=True)
+    man.close()
+    print(f"done: {tally}; manifest {target / '_rename_copy_manifest.csv'}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--sds", required=True)
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--delete-originals", action="store_true",
                     help="delete each original once its renamed copy is written and checked (default: quarantine)")
+    ap.add_argument("--copy-to", help="build a renamed copy of the whole tree here; the source is left untouched")
     a = ap.parse_args()
     sds = Path(a.sds)
+    if a.copy_to:
+        copy_tree(sds, Path(a.copy_to))
+        return
     rows, n_ok, n_conf = [], 0, 0
     files = sorted(p for p in sds.rglob("*.D/*") if p.is_file()
                    and not (set(p.relative_to(sds).parts) & SKIP_DIRS)
