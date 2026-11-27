@@ -10,7 +10,7 @@
 %%   42 spectral ratios, 45 sampling rate/bandwidth, 50/51 coupling.
 %% Tables are written by notebook 65 (tables/*.tex; edit captions there) and
 %% figures are copied from notebook outputs by compose_figures.py.
-%% \verify marks numbers that no notebook output reproduces yet.
+%% \verify marks numbers that no notebook output reproduces yet (none at present).
 
 \documentclass[]{seismica}
 
@@ -317,8 +317,8 @@ Gem overflows, consecutive raw samples jump by more than 20{,}000~counts
 and the baseline then walks off by $6.6\times10^{4}$ to
 $2\times10^{6}$~counts, a step that persists after the overflow. Steep
 shock fronts in the signal produce one-sample jumps of similar size
-(for example $-71$ to $+122$~Pa within 4~ms at B29\verify, confirmed by the
-co-located 500~samples~s$^{-1}$ infraBSU) but leave no persistent step.
+(for example $-71$ to $+122$~Pa within 4~ms at B29, 38.7~s after
+launch, recorded by the co-located 500~samples~s$^{-1}$ infraBSU) but leave no persistent step.
 We therefore cluster large jumps (2~s gap) and classify each cluster by
 the median baseline offset across it: an offset larger than
 32{,}768~counts marks an overflow interval (or, for a single jump, a
@@ -327,7 +327,8 @@ and are kept. Overflow intervals, padded by 0.25~s, are masked in all
 analyses. Before instrument correction each interval is bridged by a
 straight line and the baseline step is removed from the samples after
 it; without this repair the step leaks through the 0.05~Hz high-pass as
-a slow swing of up to 170~Pa\verify{} lasting tens of seconds.
+a slow swing of 120--610~Pa that stays above 10~Pa for 20--37~s after
+the interval (largest at B01, $-613$ to $+161$~Pa).
 
 \subsection{Amplitude and Spectral Metrics}
 
@@ -432,8 +433,11 @@ The co-located infraBSU at B01 also validates the Gem record outside
 the overflow interval (Figure~\ref{fig:clipping}b). In 5-s windows outside the
 interval, the corrected Gem and infraBSU waveforms correlate at 0.99
 (1--20~Hz) with an RMS amplitude ratio of 0.96; after the repair, the
-broadband (0.05--40~Hz) correlation is 0.94--0.95\verify. Below 1~Hz a residual
-of the overflow persists for $\sim$15~s\verify{} after the interval. Overflowed
+broadband (0.05--40~Hz) correlation is 0.94--0.95 from the end of the
+interval to 120~s after launch, and 0.93 from 120 to 300~s. Below 1~Hz
+a residual of the overflow persists for $\sim$15~s after the interval:
+the 0.05--1~Hz correlation in 10-s windows is 0.62 just after it and
+first exceeds 0.8 about 16~s after it. Overflowed
 Gems therefore remain usable before and after their overflow
 intervals, above $\sim$0.5~Hz, and we retain them in all analyses with
 the intervals masked.
