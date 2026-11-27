@@ -32,9 +32,12 @@ from rename_band_codes import BROADBAND_D, band_for, band_masked, byteorder, rec
 
 
 def records(data: bytes):
-    """[(start key, channel code, record bytes)]; raises on a bad record."""
+    """[(start key, channel code, record bytes)]; skips all-zero 512-byte blocks; raises on a bad record."""
     out, pos = [], 0
     while pos < len(data):
+        if not any(data[pos:pos + 512]):          # zero padding (e.g. a preallocated minute file): no data
+            pos += 512
+            continue
         bo = byteorder(data[pos:pos + 48])
         rl = record_length(data[pos:pos + 512], bo)
         if not rl or pos + rl > len(data):
