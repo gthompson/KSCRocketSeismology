@@ -6,6 +6,8 @@ from pathlib import Path
 
 from obspy import Stream, UTCDateTime, read
 
+from .seedcodes import alias_patterns, normalize_stream, same_code
+
 SKIPPED_FILES: list = []   # unreadable SDS files met by get_group_stream: (path, error)
 
 
@@ -43,12 +45,21 @@ def get_group_stream(event, group, client=None, starttime=None, endtime=None):
     starttime = starttime or event.starttime
     endtime = endtime or event.endtime
     client = client or sds_client(event)
-    net, sta, loc, cha = event.channel_groups[group]
-    try:
-        return client.get_waveforms(network=net, station=sta, location=loc, channel=cha,
-                                    starttime=starttime, endtime=endtime)
-    except Exception:
-        return read_sds_files(event.master_sds, net, sta, loc, cha, starttime, endtime)
+    net, sta, loc0, cha0 = event.channel_groups[group]
+    st = Stream()
+    seen = set()
+    for loc, cha in alias_patterns(loc0, cha0):        # archive in D?? or SEED C??/H?? spelling
+        try:
+            part = client.get_waveforms(network=net, station=sta, location=loc, channel=cha,
+                                        starttime=starttime, endtime=endtime)
+        except Exception:
+            part = read_sds_files(event.master_sds, net, sta, loc, cha, starttime, endtime)
+        for tr in part:
+            key = (tr.id, tr.stats.starttime.ns, tr.stats.npts)
+            if key not in seen:
+                seen.add(key)
+                st.append(tr)
+    return normalize_stream(st) if getattr(event, "seed_band_codes", False) else st
 
 
 def get_event_stream(event, client=None, groups=None, starttime=None, endtime=None):
@@ -65,8 +76,9 @@ def read_restored(event, seed_id, starttime=None, endtime=None):
     """Read a channel from its restored-data SDS folder (event.restored[seed_id])."""
     from obspy.clients.filesystem.sds import Client
     net, sta, loc, cha = seed_id.split(".")
-    return Client(str(event.restored[seed_id])).get_waveforms(
+    st = Client(str(event.restored[seed_id])).get_waveforms(
         net, sta, loc, cha, starttime or event.starttime, endtime or event.endtime)
+    return normalize_stream(st) if getattr(event, "seed_band_codes", False) else st
 
 
 def event_stream_raw(event, client=None, groups=("USF", "BSU", "SmartSolo"), starttime=None, endtime=None):
@@ -74,8 +86,20 @@ def event_stream_raw(event, client=None, groups=("USF", "BSU", "SmartSolo"), sta
     st = get_event_stream(event, client, groups=groups, starttime=starttime, endtime=endtime)
     added = False
     for sid in event.restored:
-        if not st.select(id=sid):
-            st += read_restored(event, sid, starttime, endtime)
+        restored = read_restored(event, sid, starttime, endtime)
+        if not restored:
+            continue
+        r = restored[0].stats
+        # the archive copy may be spelled D?? or C??/H?? (ksclib.seedcodes); match either
+        same = [tr for tr in st if (tr.stats.network, tr.stats.station, tr.stats.location) ==
+                (r.network, r.station, r.location) and same_code(tr.stats.channel, r.channel)]
+        if not same or not any(tr.stats.npts and abs(tr.data).max() > 0 for tr in same):
+            for tr in same:                     # zero-filled archive copy (e.g. B29 DHZ 2026-082..093)
+                st.remove(tr)
+            if same:
+                for tr in restored:
+                    tr.stats.channel = same[0].stats.channel
+            st += restored
             added = True
     if added:
         st.merge()

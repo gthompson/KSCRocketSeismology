@@ -1,0 +1,71 @@
+# 2016–2026 launch ensemble: network eras, pads and windows for ksclib.catalog_events.
+# Edit this file, not the notebooks, when a drive or folder moves.
+# Paths may use ~, {base_dir} (this folder), {repo_root}, and (centaur eras) {project_root}, {run_dir}.
+
+catalog:
+  # Reconciled event database of the launch-catalog package (kscrockets), in git.
+  sqlite: "{repo_root}/event_catalog_workflow_v5/data/processed/ksc_rockets.sqlite"
+  package_src: "{repo_root}/event_catalog_workflow_v5/src"     # used if kscrockets is not installed
+
+pads:
+  files:
+    - "{repo_root}/event_catalog_workflow_v5/data/raw/launchpads.csv"
+  extra: {}                         # pads missing from launchpads.csv: {CODE: [lat, lon]}
+
+window:                             # seconds relative to the catalog event time
+  pretrigger: 600                   # read from origin - 600 s ...
+  duration: 600                     # ... to origin + 600 s
+  posttrigger: 0
+  trim_before: 30                   # amplitude window: catalog times are often minute precision
+  trim_after: 300
+
+output:
+  dir: ~/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/Ensemble
+  env: ENSEMBLE_OUT_DIR
+
+eras:
+  # 2016–2022 campaigns (Centaur + Trillium/infraBSU, Centaur + geophones, Raspberry Shake/Boom).
+  # Responses and station epochs from one StationXML with time-dependent epochs.
+  - name: campaigns_2016_2022
+    kind: stationxml
+    start: 2016-01-01
+    end: 2023-01-01
+    sds: /Volumes/classdata/remastered/SDS_KSC
+    stationxml: "{repo_root}/03_stationxml/KSC.xml"
+    channel_groups:                 # name: [network, station, location, channel]
+      USF: ["1R", "*", "*", "[CDHE][DH]?"]    # Centaur 250 sps (archive DH?/DD?, SEED CH?/CD?); HH?/HD? 100 sps; EH? geophones
+      Shake: ["AM", "*", "*", "[SEH][HD]?"]   # Raspberry Shake / Boom
+    gem_channel_prefix: null        # Gems were only deployed in 2026; H-band channels here are Centaurs at 100 sps
+
+  # 2026 network (Artemis II, New Glenn): as 09_artemis2_paper/artemis2.yaml.
+  - name: network_2026
+    kind: centaur
+    start: 2026-01-01
+    end: 2027-01-01
+    ingest:
+      project_yaml: "{repo_root}/2026_ingest_service_runs/config/ksc.yaml"
+      run_id: 20260403_service
+    stations:
+      file: ~/Library/CloudStorage/Box-Box/thompsong/3_Project_Documents/NASAprojects/201602_Rocket_Seismology/writing/KSC_seismic_network_2016_2022.xls
+      sheet: artemis2               # TODO: per-campaign sheets (or SDS2026_metadata DOY ranges)
+      site_sheet: launchpads_2026
+    channel_groups:
+      USF: ["1R", "*", "*", "D[DH]?"]
+      BSU: ["1R", "*", "*", "HD?"]
+      SmartSolo: ["1R", "*", "*", "DP?"]
+    gem_channel_prefix: HD
+    seed_band_codes: true           # traces read as SEED C??/H?? (archive D??), as in the 2016-2022 era
+    responses:
+      centaur_dirs:                 # the latest file at or before each event is used
+        - "{project_root}/20260310_service/00_download/Centaur/responses"
+        - "{project_root}/20260403_service/00_download/Centaur0/responses"
+        - "{project_root}/20260613_service/00_download/Centaur/responses"
+        - "{project_root}/20260922_service/00_download/Centaur/responses"
+        - /Volumes/haldata/KSC/20260310_service/responses
+        - /Volumes/haldata/KSC/20260605_service/responses
+      infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
+      infrabsu_channels: [DD0, DD1, DD2]
+      smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
+
+# extra_events: (none) - the reconciled catalog now runs from 2016 to the present and includes
+# Artemis II (ksc-f8f81d1cba9a) and the New Glenn explosion (ksc-newglenn-explosion-20260529).

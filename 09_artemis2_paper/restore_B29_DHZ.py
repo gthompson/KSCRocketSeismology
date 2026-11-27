@@ -8,7 +8,9 @@ back gives integers; for intact channels (1R.B01.00.DHZ, 1R.B29.00.DH1) the
 result matches the SDS counts sample for sample.
 
 This script writes the recovered counts to a SEPARATE SDS-style folder for
-inspection. It never touches the master SDS.
+inspection. It never touches the master SDS. The recovered file keeps the Centaur
+spelling DHZ (as do the zero-filled archive days); ksclib reads it as the SEED code CHZ.
+The intact check channels may be spelled D?? or, after the archive rename, C??.
 
     python restore_B29_DHZ.py
 """
@@ -20,12 +22,20 @@ from obspy import read
 SOURCE = (Path("~").expanduser() / "Library/CloudStorage/Box-Box/thompsong/3_Project_Documents"
           / "NASAprojects/201602_Rocket_Seismology/writing/Artemis2/artemis2_launch_sds.mseed")
 SCALE = 3e8                      # counts = value * SCALE
-CHECKS = {                       # channel -> intact master SDS day file
-    "1R.B01.00.DHZ": "/Volumes/KSCGTdownld/SDS/2026/1R/B01/DHZ.D/1R.B01.00.DHZ.D.2026.091",
-    "1R.B29.00.DH1": "/Volumes/KSCGTdownld/SDS/2026/1R/B29/DH1.D/1R.B29.00.DH1.D.2026.091",
-}
+MASTER_SDS = Path("/Volumes/KSCGTdownld/SDS")
+CHECKS = ["1R.B01.00.DHZ", "1R.B29.00.DH1"]   # intact channels, day 2026-091 (as named in SOURCE)
 TARGET_ID = "1R.B29.00.DHZ"
 OUT_ROOT = Path("/Volumes/KSCGTdownld/20260403_service/30_qc/B29_DHZ_restored")
+
+
+def master_day_file(seed_id, year=2026, jday=91):
+    """Master SDS day file for a Centaur channel, spelled D?? or (after the rename) C??."""
+    net, sta, loc, cha = seed_id.split(".")
+    for c in (cha, "C" + cha[1:]):
+        path = MASTER_SDS / str(year) / net / sta / f"{c}.D" / f"{net}.{sta}.{loc}.{c}.D.{year}.{jday:03d}"
+        if path.exists():
+            return path
+    raise FileNotFoundError(f"no master SDS day file for {seed_id} ({year}.{jday:03d})")
 
 
 def to_counts(tr):
@@ -40,10 +50,10 @@ def main():
     st = read(str(SOURCE))
 
     # 1. The scaling must reproduce intact channels exactly.
-    for sid, path in CHECKS.items():
+    for sid in CHECKS:
         tr = st.select(id=sid)[0]
         counts, _ = to_counts(tr)
-        ref = read(path, starttime=tr.stats.starttime, endtime=tr.stats.endtime).merge()[0]
+        ref = read(str(master_day_file(sid)), starttime=tr.stats.starttime, endtime=tr.stats.endtime).merge()[0]
         n = min(len(counts), ref.stats.npts)
         same = ref.stats.starttime == tr.stats.starttime and np.array_equal(counts[:n], ref.data[:n])
         print(f"check {sid}: {n} samples, exact match = {same}")

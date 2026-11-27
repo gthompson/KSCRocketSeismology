@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>KSC / Cape Canaveral pads</name>
+<Style id="launch"><IconStyle><color>ff0000ff</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/triangle.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Style id="landing"><IconStyle><color>ffffaa00</color><scale>1.1</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/target.png</href></Icon></IconStyle><LabelStyle><scale>0.9</scale></LabelStyle></Style>
+<Placemark><name>LC39A</name><description>28.608172, -80.604336</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.604336,28.608172,0</coordinates></Point></Placemark>
+<Placemark><name>LC39B</name><description>28.627220, -80.620830</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.620830,28.627220,0</coordinates></Point></Placemark>
+<Placemark><name>LC40</name><description>28.562106, -80.577180</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.577180,28.562106,0</coordinates></Point></Placemark>
+<Placemark><name>LC41</name><description>28.583330, -80.583100</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.583100,28.583330,0</coordinates></Point></Placemark>
+<Placemark><name>LC37B</name><description>28.531986, -80.566821</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.566821,28.531986,0</coordinates></Point></Placemark>
+<Placemark><name>LC46</name><description>28.458500, -80.528400</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.528400,28.458500,0</coordinates></Point></Placemark>
+<Placemark><name>LC36</name><description>28.470556, -80.542200
+station spreadsheet sheet launchpads_2026 (was ensemble.yaml extra)</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.542200,28.470556,0</coordinates></Point></Placemark>
+<Placemark><name>LC16</name><description>28.501700, -80.551800
+user 2026-11-25 (Relativity Terran R)</description><styleUrl>#launch</styleUrl><Point><coordinates>-80.551800,28.501700,0</coordinates></Point></Placemark>
+<Placemark><name>LZ1</name><description>28.485750, -80.542944
+user 2026-11-25 (former LC-13; was 28.4859 -80.5444)</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.542944,28.485750,0</coordinates></Point></Placemark>
+<Placemark><name>LZ2</name><description>28.487721, -80.545187
+user 2026-11-25 (~310 m NW of LZ-1)</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.545187,28.487721,0</coordinates></Point></Placemark>
+<Placemark><name>LZ40</name><description>28.561200, -80.573600
+user 2026-11-25 (approximate; ~350 m ESE of the SLC-40 mount)</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.573600,28.561200,0</coordinates></Point></Placemark>
+<Placemark><name>SLF</name><description>28.615000, -80.694500
+approximate midpoint of the Shuttle Landing Facility runway 15/33 (X-37B landings); verify in launchpads.kml</description><styleUrl>#landing</styleUrl><Point><coordinates>-80.694500,28.615000,0</coordinates></Point></Placemark>
+</Document>
+</kml>

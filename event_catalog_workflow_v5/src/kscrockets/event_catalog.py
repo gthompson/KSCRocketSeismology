@@ -17,6 +17,18 @@ import pandas as pd
 EVENT_TYPES = (
     "orbital_launch", "launch_failure", "pad_explosion", "static_fire",
     "aborted_launch", "booster_landing", "aircraft_sonic_boom",
+    # Added with the 2016-present expansion (see 04_event_catalog/SQLITE_CATALOG.md):
+    "suborbital_launch",    # GCAT S/A launches: Trident D-5 off the Cape, LRHW hypersonic tests at LC-46
+    "air_launch",           # launch dropped from an aircraft that took off from the Cape/KSC (Pegasus)
+    "pad_abort",            # launch attempt with engine ignition, shut down on the pad
+    "scrub",                # launch-day scrub without ignition (often after propellant loading)
+    "reentry_sonic_boom",   # spacecraft return over/near Florida: X-37B at the SLF, Dragon splashdowns
+    "bolide",               # natural fireball with a reported boom
+    "rollout",              # vehicle or mobile launcher moving toward a pad (crawler, rail, transporter)
+    "rollback",             # moving back from the pad to the VAB/hangar
+    "crawler_move",         # crawler-transporter or mobile launcher moving with no rocket on board
+    "wet_dress_rehearsal",  # propellant-loading rehearsal on the pad, no ignition
+    "ground_test",          # other pad tests listed by LL2 (cryoproof, ambient pressure, vehicle testing)
 )
 
 SOURCE_SCHEMA = """
@@ -92,8 +104,10 @@ def normalize_event_type(value: str, status: str = "") -> str:
 
 
 def ensure_source_tables(db_path: str | Path) -> None:
+    from .event_times import ensure_time_columns
     with sqlite3.connect(db_path) as con:
         con.executescript(SOURCE_SCHEMA)
+        ensure_time_columns(con)
         cols = {r[1] for r in con.execute("PRAGMA table_info(event_time_sources)")}
         if "time_role" not in cols:
             con.execute("ALTER TABLE event_time_sources ADD COLUMN time_role TEXT DEFAULT 'actual_event_time'")
@@ -168,7 +182,8 @@ def add_manual_event(path: str | Path, event_type: str, time_utc: str, name: str
         "event_time_source": source, "event_time_quality": "manual_verified",
         "event_time_precision": precision, "time_definition": "observed_event_time",
         "name": name, "mission": name, "vehicle": "", "pad": pad, "provider": "",
-        "source": source, "notes": notes,
+        "source": source, "notes": notes, "source_url": "", "window_start_utc": "", "window_end_utc": "",
+        "event_end_utc": "", "route": "",
     }])
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
@@ -180,83 +195,339 @@ def add_manual_event(path: str | Path, event_type: str, time_utc: str, name: str
     return event_id
 
 
-def fetch_json(url: str, timeout: int = 60) -> dict:
+def fetch_json(url: str, timeout: int = 180) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": "KSCRocketSeismology/0.5 research catalog"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.load(resp)
 
 
-def fetch_ll2(start: str, end: str, location_ids: list[int] | None = None,
-              base_url: str = "https://ll.thespacedevs.com/2.3.0/launches/",
-              max_retries: int = 2, progress: bool = True) -> pd.DataFrame:
-    """Fetch LL2 launch candidates with visible page/retry progress.
+# Launch Library 2 location ids: 12 = Cape Canaveral SFS, 27 = Kennedy Space Center.
+LL2_CAPE_LOCATION_IDS = (12, 27)
+LL2_STATIC_FIRE_EVENT_TYPE = 5
+# Booster landing zones on the Cape (return-to-launch-site landings make local sonic booms).
+CAPE_LANDING_ZONES = {"LZ-1", "LZ-2", "LZ-40", "LZ-39A"}
 
-    LL2 is paginated and unauthenticated requests can be rate limited.  Progress
-    messages are flushed immediately so a long request never looks hung.
+
+def _ll2_offset_seconds(value) -> float | None:
+    """'PT7M42S' / '-PT3S' -> seconds."""
+    if not value: return None
+    try: return pd.Timedelta(str(value)).total_seconds()
+    except Exception:
+        m = re.fullmatch(r"(-)?P(?:T)?(?:(\d+)H)?(?:(\d+)M)?(?:([\d.]+)S)?", str(value))
+        if not m: return None
+        sec = int(m.group(2) or 0)*3600 + int(m.group(3) or 0)*60 + float(m.group(4) or 0)
+        return -sec if m.group(1) else sec
+
+
+def parse_ll2_launch(x: dict) -> dict:
+    """One LL2 2.3.0 launch (mode=normal or detailed) -> source row, with landing metadata."""
+    status = (x.get("status") or {}).get("name", "")
+    mission = (x.get("mission") or {}).get("name", "")
+    rocket = ((x.get("rocket") or {}).get("configuration") or {}).get("full_name", "")
+    pad = x.get("pad") or {}; loc = pad.get("location") or {}
+    precision = (x.get("net_precision") or {}).get("name", "")
+    stages = (x.get("rocket") or {}).get("launcher_stage") or []
+    landings = [st.get("landing") or {} for st in stages if st.get("landing")]
+    attempted = [l for l in landings if l.get("attempt")]
+    zones = sorted({(l.get("landing_location") or {}).get("abbrev", "") for l in attempted} - {""})
+    ltypes = sorted({(l.get("type") or {}).get("abbrev", "") for l in attempted} - {""})
+    offsets = [_ll2_offset_seconds(t.get("relative_time")) for t in (x.get("timeline") or [])
+               if (t.get("type") or {}).get("abbrev") in {"Stage 1 Landing", "Boosters Landing"}]
+    offsets = [o for o in offsets if o is not None and o > 0]
+    etype = normalize_event_type(x.get("name", ""), status)
+    if re.search(r"\bPegasus\b", rocket) and etype == "orbital_launch": etype = "air_launch"
+    return {
+        "source_name": "launch_library_2", "source_event_id": x.get("id", ""),
+        "source_name_value": x.get("name", ""),
+        "event_type": etype,
+        "time_utc": x.get("net"), "precision": precision.lower(),
+        "time_definition": "LL2 NET/T-0", "quality": status,
+        "pad": pad.get("name", ""), "location": loc.get("name", ""),
+        "vehicle_mission": " | ".join(v for v in (rocket, mission) if v),
+        "vehicle": rocket, "launch_designator": x.get("launch_designator") or "",
+        "provider": (x.get("launch_service_provider") or {}).get("name", ""),
+        "landing_attempt": bool(attempted) if landings else "",
+        "landing_success": (all(bool(l.get("success")) for l in attempted) if attempted else ""),
+        "landing_pad": ",".join(zones), "landing_type": ",".join(ltypes),
+        "landing_offset_s": min(offsets) if offsets else "",
+        "status": status, "source_url": x.get("url", ""), "notes": "",
+        "window_start_utc": iso_utc(x.get("window_start")) or "", "window_end_utc": iso_utc(x.get("window_end")) or "",
+        "holdreason": x.get("holdreason") or "", "failreason": x.get("failreason") or "",
+        "time_role": ("scheduled_launch_time" if "failure before launch" in str(x.get("name", "")).lower()
+                      else "actual_event_time"),
+    }
+
+
+# LL2 launch 'updates' are short dated notes ('Scrubbed for the day.', 'Launch aborted at T-0').
+_SCRUB_RE = re.compile(r"\bscrub|\b(?:launch|countdown|count) (?:was )?abort|\babort(?:ed)? at T|"
+                       r"\bhot[- ]?(?:fire )?abort|\bpad abort|\bstand(?:ing)? down for (?:the day|today)", re.I)
+_NOT_SCRUB_RE = re.compile(r"abort contingency|ascent abort|abort weather|abort (?:test|system)|"
+                           r"\bno scrub|scrub(?:bed)? (?:the )?(?:static|wet dress|WDR)|following\b.*\bscrub|"
+                           r"\b(?:delayed|moved|slips?|now targeting|NET)\b(?!.*scrub)", re.I)
+_IGNITION_RE = re.compile(r"ignition|engines? (?:lit|ignit|start)|hot[- ]?fire abort|abort(?:ed)? at T-?0|"
+                          r"T-0 abort|after (?:engine )?ignition|hold-?down", re.I)
+_BEFORE_IGNITION_RE = re.compile(r"(?:before|prior to|no) (?:engine )?ignition", re.I)
+_SPECULATIVE_RE = re.compile(r"\b(?:potential(?:ly)?|probabl[ey]|possible|likely)\b", re.I)
+
+
+def ll2_scrub_rows(launch_results: list[dict]) -> pd.DataFrame:
+    """Launch-day scrubs and pad aborts reported in LL2 launch updates (2020 onward).
+
+    One row per launch and UTC day; the time is when LL2 posted the update (precision 'hour':
+    it lags the call to scrub by minutes to an hour). Type ``pad_abort`` when the note mentions
+    ignition or a T-0 abort, else ``scrub``. Notes posted after the launch's own NET are ignored.
     """
-    params = {"format":"json", "mode":"normal", "limit":100,
-              "net__gte":iso_utc(start), "net__lte":iso_utc(end), "ordering":"net"}
-    if location_ids: params["pad__location"] = ",".join(map(str, location_ids))
-    url = base_url + "?" + urllib.parse.urlencode(params)
-    rows=[]; page=0
-    if progress:
-        print(f"LL2: requesting {start} through {end}", flush=True)
-        if location_ids:
-            print(f"LL2: restricting request to location id(s): {location_ids}", flush=True)
-        else:
-            print("LL2: no server-side location filter; KSC/Cape filtering will occur after download", flush=True)
+    rows = []
+    for x in launch_results:
+        net = pd.Timestamp(x["net"]) if x.get("net") else None
+        by_day = {}
+        for u in sorted(x.get("updates") or [], key=lambda u: u.get("created_on") or ""):
+            text = str(u.get("comment") or ""); t = u.get("created_on")
+            if not t or not _SCRUB_RE.search(text) or _NOT_SCRUB_RE.search(text): continue
+            ts = pd.Timestamp(t)
+            if net is not None and ts >= net - pd.Timedelta(minutes=30): continue
+            by_day.setdefault(ts.date(), []).append((ts, text, u))
+        for day, cands in sorted(by_day.items()):
+            # The first definite note of the day; a 'potential scrub' note only if nothing firmer.
+            firm = [c for c in cands if not _SPECULATIVE_RE.search(c[1])]
+            ts, text, u = (firm or cands)[0]
+            etype = "pad_abort" if (_IGNITION_RE.search(text) and not _BEFORE_IGNITION_RE.search(text)) else "scrub"
+            rocket = ((x.get("rocket") or {}).get("configuration") or {}).get("full_name", "")
+            mission = (x.get("mission") or {}).get("name", "")
+            rows.append({
+                "source_name": "launch_library_2", "source_event_id": f"{x.get('id','')}:update:{u.get('id','')}",
+                "source_name_value": f"{x.get('name','')} {'pad abort' if etype == 'pad_abort' else 'scrub'}",
+                "event_type": etype, "time_utc": iso_utc(ts), "precision": "hour",
+                "time_definition": "LL2 update posted (scrub reported; lags the scrub call)",
+                "quality": "LL2 update", "pad": (x.get("pad") or {}).get("name", ""),
+                "location": ((x.get("pad") or {}).get("location") or {}).get("name", ""),
+                "vehicle_mission": " | ".join(v for v in (rocket, mission) if v), "vehicle": rocket,
+                "launch_designator": "", "provider": (x.get("launch_service_provider") or {}).get("name", ""),
+                "status": "", "source_url": u.get("info_url") or x.get("url", ""), "notes": text,
+                "time_role": "actual_event_time",
+            })
+    return pd.DataFrame(rows)
+
+
+def ll2_landing_rows(launches: pd.DataFrame, default_offset_s: float | None = None) -> pd.DataFrame:
+    """Booster-landing source rows for LL2 launches with a return-to-launch-site landing on the Cape.
+
+    Time = LL2 NET + the 'Stage 1 Landing'/'Boosters Landing' timeline offset when LL2 has one
+    (precision 'second'), otherwise + the median offset of the other RTLS landings
+    (precision 'estimated'). Landings at sea (droneships) make no local event and are not rows.
+    """
+    if launches is None or launches.empty or "landing_pad" not in launches: return pd.DataFrame()
+    df = launches.copy()
+    zones = df["landing_pad"].fillna("").astype(str)
+    mask = zones.map(lambda z: bool(set(filter(None, z.split(","))) & CAPE_LANDING_ZONES))
+    mask &= df.get("time_role", pd.Series("actual_event_time", index=df.index)).fillna("actual_event_time").eq("actual_event_time")
+    df = df[mask]
+    if df.empty: return pd.DataFrame()
+    off = pd.to_numeric(df["landing_offset_s"], errors="coerce")
+    if default_offset_s is None:
+        default_offset_s = float(off.median()) if off.notna().any() else 480.0
+    rows = []
+    for (_, r), o in zip(df.iterrows(), off):
+        known = pd.notna(o)
+        t = pd.Timestamp(r["time_utc"]) + pd.Timedelta(seconds=float(o if known else default_offset_s))
+        cape = [z for z in str(r["landing_pad"]).split(",") if z in CAPE_LANDING_ZONES]
+        rows.append({
+            "source_name": "launch_library_2", "source_event_id": f"{r['source_event_id']}:landing",
+            "source_name_value": f"{r['source_name_value']} booster landing ({', '.join(cape)})",
+            "event_type": "booster_landing", "time_utc": iso_utc(t),
+            "precision": "second" if known else "estimated",
+            "time_definition": ("LL2 NET + LL2 timeline landing offset" if known else
+                                f"LL2 NET + median RTLS landing offset ({default_offset_s:.0f} s)"),
+            "quality": r.get("landing_success", ""), "pad": cape[0],
+            "location": r.get("location", ""), "vehicle_mission": r.get("vehicle_mission", ""),
+            "vehicle": r.get("vehicle", ""), "launch_designator": r.get("launch_designator", ""),
+            "provider": r.get("provider", ""), "landing_attempt": True,
+            "landing_success": r.get("landing_success", ""), "landing_pad": ",".join(cape),
+            "landing_type": "RTLS", "landing_offset_s": o if known else "",
+            "status": r.get("status", ""), "source_url": r.get("source_url", ""),
+            "notes": "Booster landing on the Cape: sonic boom; time not observed, from launch time + offset.",
+            "time_role": "actual_event_time",
+        })
+    return pd.DataFrame(rows)
+
+
+_FLORIDA_RE = re.compile(r"Kennedy|Cape Canaveral|CCSFS|CCFS|\bKSC\b|Florida|"
+                         r"\bS?LC-?(?:39[AB]|40|41|36|37B?|46|16|20)\b", re.I)
+# Dragon splashdowns off Florida: reentry over the Gulf/Atlantic, sonic boom possibly heard on land.
+_FLORIDA_WATERS_RE = re.compile(r"Gulf of Mexico|Gulf of America|Atlantic|\bFL\b|Florida", re.I)
+
+
+def _ll2_event_type(x: dict) -> str | None:
+    tid = (x.get("type") or {}).get("id")
+    name = str(x.get("name") or "").lower()
+    t = LL2_EVENT_TYPE_IDS.get(tid)
+    if t == "rollout": return "rollback" if "rollback" in name or "roll back" in name else "rollout"
+    if t in {"static_fire"}: return t
+    if t in {"wet_dress_rehearsal", "rehearsal"}: return "wet_dress_rehearsal"
+    if t in {"cryoproof_test", "ambient_pressure_test", "vehicle_testing"}: return "ground_test"
+    if t == "spacecraft_landing": return "reentry_sonic_boom"
+    return None   # abort tests and test flights are launches (LL2 /launches/) or not in Florida
+
+
+def parse_ll2_event(x: dict) -> dict | None:
+    """LL2 /events/ record -> source row, if it is an event type we keep and is on the Cape/KSC.
+
+    Static fires, rollouts/rollbacks, wet dress rehearsals and pad tests must be on the Cape/KSC;
+    spacecraft landings (-> reentry_sonic_boom) must splash down off Florida.
+    """
+    etype = _ll2_event_type(x)
+    if etype is None: return None
+    loc = x.get("location") or ""
+    if isinstance(loc, dict): loc = loc.get("name", "")
+    loc = str(loc)
+    if etype == "reentry_sonic_boom":
+        if not _FLORIDA_WATERS_RE.search(loc) or re.search(r"Pacific", loc, re.I): return None
+    elif not _FLORIDA_RE.search(loc): return None
+    m = re.search(r"\b(?:S?LC|Launch Complex)[ -]?(\d{2}[AB]?)\b", loc)
+    name = str(x.get("name") or "")
+    pad = ("LC" + m.group(1)) if m else ""
+    if not pad and re.search(r"Kennedy|\bKSC\b", loc):
+        # LL2 often gives only 'Kennedy Space Center'; KSC has two pads and each vehicle uses one.
+        if re.search(r"Artemis|\bSLS\b", name): pad = "LC39B"
+        elif re.search(r"Falcon|Dragon|Crew-\d", name): pad = "LC39A"
+    route = ""
+    if etype in {"rollout", "rollback"} and re.search(r"Artemis|SLS", name):
+        pad = pad or "LC39B"; route = "VAB->LC39B" if etype == "rollout" else "LC39B->VAB"
+    if etype == "reentry_sonic_boom": pad = ""
+    prec = ((x.get("date_precision") or {}).get("name") or "").lower()
+    end = ""
+    dur = _ll2_offset_seconds(x.get("duration"))
+    if dur and x.get("date"): end = iso_utc(pd.Timestamp(x["date"]) + pd.Timedelta(seconds=dur))
+    return {
+        "source_name": "launch_library_2", "source_event_id": f"event:{x.get('id', '')}",
+        "source_name_value": name, "event_type": etype,
+        "time_utc": x.get("date"), "precision": prec or "approximate",
+        "time_definition": "LL2 event date (scheduled/approximate)", "quality": "LL2 event",
+        "pad": pad, "location": loc,
+        "vehicle_mission": name, "vehicle": "", "launch_designator": "", "provider": "",
+        "status": "", "source_url": x.get("url", ""), "notes": x.get("description") or "",
+        "event_end_utc": end, "route": route,
+        "time_role": "actual_event_time",
+    }
+
+
+def ll2_rows_from_payloads(launch_results: list[dict], event_results: list[dict] = ()) -> pd.DataFrame:
+    """LL2 launch + event results -> cache rows: launches, Cape RTLS landings, Cape static fires."""
+    launches = pd.DataFrame([parse_ll2_launch(x) for x in launch_results])
+    launches = filter_ll2_ksc(launches)
+    landings = ll2_landing_rows(launches)
+    keep = set(launches["source_event_id"]) if not launches.empty else set()
+    scrubs = ll2_scrub_rows([x for x in launch_results if x.get("id") in keep])
+    events = pd.DataFrame([r for r in (parse_ll2_event(x) for x in event_results) if r])
+    out = pd.concat([d for d in (launches, landings, scrubs, events) if not d.empty], ignore_index=True)
+    return out.sort_values("time_utc").reset_index(drop=True)
+
+
+def _raw_page_path(raw_dir: Path, label: str, url: str) -> Path:
+    u = urllib.parse.urlparse(url)
+    q = urllib.parse.parse_qs(u.query)
+    offset = int((q.pop("offset", None) or ["0"])[0])
+    # LL2's 'next' links reorder the query, so key the page on the sorted query minus offset.
+    norm = u.path.rstrip("/") + "?" + urllib.parse.urlencode(sorted((k, v[0]) for k, v in q.items()))
+    key = hashlib.sha1(norm.encode()).hexdigest()[:8]
+    return Path(raw_dir) / f"{label}_{key}_{offset:05d}.json.gz"
+
+
+def _ll2_pages(url: str, label: str, max_retries: int, progress: bool,
+               raw_dir: str | Path | None = None, max_wait_s: float = 60) -> list[dict]:
+    """Follow LL2 pagination. With ``raw_dir``, each raw JSON page is cached (gzip) and a page
+    already in the cache is not requested again, so an interrupted fetch resumes for free."""
+    import gzip
+    results=[]; page=0
     while url:
-        page += 1
-        payload=None
-        if progress:
-            print(f"LL2: page {page}: requesting up to 100 records (collected {len(rows)} so far)...", flush=True)
+        page += 1; payload=None
+        cached = _raw_page_path(Path(raw_dir), label, url) if raw_dir else None
+        if cached is not None and cached.exists():
+            with gzip.open(cached, "rt") as fh: payload = json.load(fh)
+            got=payload.get("results", []); results.extend(got)
+            if progress: print(f"LL2 {label}: page {page}: {len(got)} records from raw cache {cached.name}", flush=True)
+            url=payload.get("next"); continue
+        if progress: print(f"LL2 {label}: page {page}: requesting (collected {len(results)} so far)...", flush=True)
         for attempt in range(max_retries + 1):
             try:
-                payload=fetch_json(url)
-                break
+                payload=fetch_json(url); break
             except urllib.error.HTTPError as exc:
                 if exc.code != 429 or attempt >= max_retries:
-                    if progress:
-                        print(f"LL2: page {page}: HTTP {exc.code}; giving up on refresh", flush=True)
+                    if progress: print(f"LL2 {label}: page {page}: HTTP {exc.code}; giving up on refresh", flush=True)
                     raise
                 retry_after=exc.headers.get("Retry-After") if exc.headers else None
-                wait=int(retry_after) if retry_after and str(retry_after).isdigit() else min(60, 5 * (2 ** attempt))
-                if progress:
-                    print(f"LL2: page {page}: HTTP 429 rate limit; waiting {wait} s before retry {attempt+2}/{max_retries+1}", flush=True)
+                if not (retry_after and str(retry_after).isdigit()):
+                    try:   # LL2 says 'Request was throttled. Expected available in N seconds.'
+                        m=re.search(r"available in (\d+) second", exc.read().decode("utf-8", "replace"))
+                        retry_after=m.group(1) if m else None
+                    except Exception: retry_after=None
+                wait=min(max_wait_s, int(retry_after) + 5) if retry_after and str(retry_after).isdigit() else min(60, 5 * (2 ** attempt))
+                if progress: print(f"LL2 {label}: page {page}: HTTP 429 rate limit; waiting {wait} s before retry {attempt+2}/{max_retries+1}", flush=True)
                 time_module.sleep(wait)
             except (urllib.error.URLError, TimeoutError, OSError) as exc:
-                if progress:
-                    print(f"LL2: page {page}: network error: {exc}", flush=True)
-                raise
-        results=payload.get("results", [])
-        total=payload.get("count")
-        if progress:
-            suffix=f" of {total} total LL2 candidates" if total is not None else ""
-            print(f"LL2: page {page}: received {len(results)} records{suffix}", flush=True)
-        for x in results:
-            status=(x.get("status") or {}).get("name", "")
-            mission=(x.get("mission") or {}).get("name", "")
-            rocket=((x.get("rocket") or {}).get("configuration") or {}).get("full_name", "")
-            pad=x.get("pad") or {}; loc=pad.get("location") or {}
-            precision=(x.get("net_precision") or {}).get("name", "")
-            rows.append({
-                "source_name":"launch_library_2", "source_event_id":x.get("id", ""),
-                "source_name_value":x.get("name", ""), "event_type":normalize_event_type(x.get("name", ""), status),
-                "time_utc":x.get("net"), "precision":precision.lower(),
-                "time_definition":"LL2 NET/T-0", "quality":status,
-                "pad":pad.get("name", ""), "location":loc.get("name", ""),
-                "vehicle_mission":" | ".join(v for v in (rocket, mission) if v),
-                "status":status, "source_url":x.get("url", ""), "notes":"",
-                "time_role": ("scheduled_launch_time" if
-                    ("failure before launch" in str(x.get("name", "")).lower())
-                    else "actual_event_time"),
-            })
-        if progress:
-            print(f"LL2: page {page}: accumulated {len(rows)} records; next page: {'yes' if payload.get('next') else 'no'}", flush=True)
+                if progress: print(f"LL2 {label}: page {page}: network error: {exc}", flush=True)
+                if attempt >= max_retries: raise
+                time_module.sleep(10)
+        if cached is not None:
+            cached.parent.mkdir(parents=True, exist_ok=True)
+            with gzip.open(cached, "wt") as fh: json.dump(payload, fh)
+        got=payload.get("results", []); results.extend(got)
+        if progress: print(f"LL2 {label}: page {page}: received {len(got)} of {payload.get('count')} records", flush=True)
         url=payload.get("next")
-    if progress:
-        print(f"LL2: download complete: {len(rows)} candidate records across {page} page(s)", flush=True)
-    return pd.DataFrame(rows)
+    return results
+
+
+# LL2 /events/ types that can make a signal on the Cape network (config/event_types/).
+LL2_EVENT_TYPE_IDS = {
+    5: "static_fire", 9: "spacecraft_landing", 10: "abort_test", 14: "test_flight",
+    18: "rehearsal", 19: "ambient_pressure_test", 21: "cryoproof_test",
+    22: "wet_dress_rehearsal", 27: "rollout", 30: "vehicle_testing",
+}
+
+
+def fetch_ll2(start: str, end: str, location_ids: list[int] | None = LL2_CAPE_LOCATION_IDS,
+              base_url: str = "https://ll.thespacedevs.com/2.3.0/",
+              max_retries: int = 2, progress: bool = True, static_fires: bool = True,
+              event_type_ids=None, raw_dir: str | Path | None = None,
+              max_wait_s: float = 60) -> pd.DataFrame:
+    """Fetch Cape/KSC launches (mode=detailed: window, holdreason, updates, landings, timeline)
+    and LL2 events (static fires, rollouts, wet dress rehearsals, landings...).
+
+    LL2 is paginated and unauthenticated use is limited to 15 requests per hour; 2016 to 2026
+    takes about 7 requests (100 detailed launches per page, filtered server-side with
+    ``location__ids``) plus a few for the events. With ``raw_dir`` every raw page is kept
+    (gzip JSON) and reused, so a fetch interrupted by the rate limit resumes where it stopped;
+    ``max_wait_s`` > 3600 lets one call sit out the hourly limit.
+    """
+    if base_url.rstrip("/").endswith("launches"): base_url = base_url.rstrip("/")[:-len("launches")]
+    params = {"format":"json", "mode":"detailed", "limit":100,
+              "net__gte":iso_utc(start), "net__lte":iso_utc(end), "ordering":"net"}
+    if location_ids: params["location__ids"] = ",".join(map(str, location_ids))
+    if progress: print(f"LL2: requesting {start} through {end} (location ids {location_ids})", flush=True)
+    kw = dict(raw_dir=raw_dir, max_wait_s=max_wait_s)
+    launches = _ll2_pages(base_url + "launches/?" + urllib.parse.urlencode(params), "launches", max_retries, progress, **kw)
+    events = []
+    if static_fires:
+        ids = event_type_ids if event_type_ids is not None else sorted(LL2_EVENT_TYPE_IDS)
+        ep = {"format":"json", "mode":"detailed", "limit":100, "type__ids": ",".join(map(str, ids)),
+              "date__gte":iso_utc(start), "date__lte":iso_utc(end), "ordering":"date"}
+        events = _ll2_pages(base_url + "events/?" + urllib.parse.urlencode(ep), "events", max_retries, progress, **kw)
+    out = ll2_rows_from_payloads(launches, events)
+    if progress: print(f"LL2: download complete: {len(launches)} launches, {len(events)} events -> {len(out)} rows", flush=True)
+    return out
+
+
+def ll2_rows_from_raw_dir(raw_dir: str | Path) -> pd.DataFrame:
+    """Rebuild LL2 cache rows offline from every cached raw page (newest copy of each record wins)."""
+    import gzip
+    launches, events = {}, {}
+    for f in sorted(Path(raw_dir).glob("*.json.gz")):
+        with gzip.open(f, "rt") as fh: payload = json.load(fh)
+        target = launches if f.name.startswith("launches_") else events
+        for x in payload.get("results", []):
+            old = target.get(x["id"])
+            if old is None or str(x.get("last_updated", "")) >= str(old.get("last_updated", "")): target[x["id"]] = x
+    return ll2_rows_from_payloads(list(launches.values()), list(events.values()))
 
 
 def filter_ll2_ksc(df: pd.DataFrame) -> pd.DataFrame:
@@ -266,7 +537,7 @@ def filter_ll2_ksc(df: pd.DataFrame) -> pd.DataFrame:
     location=df["location"].astype(str) if "location" in df else pd.Series("", index=df.index)
     pad=df["pad"].astype(str) if "pad" in df else pd.Series("", index=df.index)
     mask=(location.str.contains("Kennedy|Cape Canaveral",case=False,regex=True,na=False) |
-          pad.str.contains("39A|39B|SLC-40|SLC-41|SLC-37|SLC-46",case=False,regex=True,na=False))
+          pad.str.contains("39A|39B|SLC-40|SLC-41|SLC-37|SLC-46|Complex 36",case=False,regex=True,na=False))
     return df[mask].copy()
 
 
@@ -297,9 +568,9 @@ def refresh_ll2_cache(start: str, end: str, cache_path: str | Path,
     else:
         print("LL2: no existing cache found", flush=True)
     try:
-        raw=fetch_ll2(start, end, location_ids=location_ids, progress=True)
-        print(f"LL2: filtering {len(raw)} downloaded candidates to Kennedy/Cape Canaveral...", flush=True)
-        df=filter_ll2_ksc(raw)
+        raw_dir=cache_path.parent/"ll2_raw"
+        fetch_ll2(start, end, location_ids=location_ids or LL2_CAPE_LOCATION_IDS, progress=True, raw_dir=raw_dir)
+        df=ll2_rows_from_raw_dir(raw_dir)
         print(f"LL2: retained {len(df)} KSC/Cape record(s)", flush=True)
         write_source_cache(df, cache_path, "launch_library_2")
         print(f"LL2: cache written successfully: {cache_path}", flush=True)
@@ -332,6 +603,23 @@ def match_score(a: pd.Series, b: pd.Series) -> tuple[float, float]:
     return score, dt
 
 
+# Event types that are physically distinct from a launch at about the same time: a booster
+# landing ~8 min after liftoff, an aircraft boom, a static fire. They only cluster with their own type.
+# Every type except launches, launch failures, pad explosions, air launches and (legacy)
+# aborted_launch is its own family. Scrubs and pad aborts share one family: the same attempt can be
+# reported as either. Rollouts, rollbacks and crawler moves share one ("ground_move").
+_SEPARATE_TYPE_FAMILIES = {"booster_landing", "aircraft_sonic_boom", "static_fire",
+                           "reentry_sonic_boom", "bolide", "wet_dress_rehearsal", "ground_test"}
+_SHARED_TYPE_FAMILIES = {"scrub": "scrub", "pad_abort": "scrub",
+                         "rollout": "ground_move", "rollback": "ground_move", "crawler_move": "ground_move"}
+
+
+def _type_family(event_type) -> str:
+    t = str(event_type or "")
+    if t in _SHARED_TYPE_FAMILIES: return _SHARED_TYPE_FAMILIES[t]
+    return t if t in _SEPARATE_TYPE_FAMILIES else "launch"
+
+
 def _best_cluster_match(rec: dict, cluster: list[dict], max_hours: float, min_score: float):
     """Match against every source record already in a cluster, not just its first row.
 
@@ -340,7 +628,15 @@ def _best_cluster_match(rec: dict, cluster: list[dict], max_hours: float, min_sc
     to match the LL2 member of that cluster rather than only the bad manual row.
     """
     r=pd.Series(rec); best=None
+    fam=_type_family(rec.get("event_type"))
+    # One physical event has at most one record per source: two LL2 (or GCAT) launches a few
+    # hours apart are two events however similar their names ('Falcon 9 Block 5 | Starlink ...').
+    src=str(rec.get("source_name",""))
+    if any(str(m.get("source_name","")) == src and m.get("time_role","actual_event_time") == "actual_event_time"
+           for m in cluster):
+        return None
     for member in cluster:
+        if _type_family(member.get("event_type")) != fam: continue
         score,dt=match_score(r,pd.Series(member))
         if dt <= max_hours*3600 and score >= min_score:
             candidate=(score, -dt)
@@ -367,8 +663,9 @@ def _preferred_actual_record(actual_cluster: list[dict], consensus_seconds: floa
         if not placed: groups.append({"anchor":t,"records":[rec]})
     def source_priority(r):
         # Curated manual is a useful tie-breaker, but never beats stronger consensus.
-        order={"manual_excel":0,"gcat":1,"launch_library_2":2}
-        return (order.get(str(r.get("source_name","")),9),
+        # Curated sources (the workbook, data/curated/manual_events.csv) rank first.
+        order={"gcat":1,"launch_library_2":2}
+        return (order.get(str(r.get("source_name","")),0),
                 0 if str(r.get("precision","")).lower()=="second" else 1)
     def group_rank(g):
         distinct=len({str(r.get("source_name","")) for r in g["records"]})
@@ -376,6 +673,65 @@ def _preferred_actual_record(actual_cluster: list[dict], consensus_seconds: floa
         return (-distinct, best, g["anchor"])
     winning=min(groups,key=group_rank)
     return sorted(winning["records"],key=source_priority)[0]
+
+
+def _clean(v) -> str:
+    if v is None: return ""
+    try:
+        if pd.isna(v): return ""
+    except (TypeError, ValueError): pass
+    v = str(v).strip()
+    return "" if v.lower() == "nan" else v
+
+
+def _cluster_attributes(cluster: list[dict], identity: dict, preferred: dict) -> dict:
+    """vehicle, pad, provider, designator and landing fields for one reconciled event.
+
+    Vehicle and pad come from the first source that has them, in the order LL2, GCAT, curated
+    (LL2 carries a structured rocket name and pad); both are normalized to one form
+    (``classify_vehicle``, ``normalize_pad``). Landing fields come from LL2 only.
+    """
+    from .catalog import classify_vehicle, normalize_pad
+    order = {"launch_library_2": 0, "gcat": 1}
+    ranked = sorted(cluster, key=lambda r: order.get(str(r.get("source_name")), 2))
+    ll2 = next((r for r in ranked if r.get("source_name") == "launch_library_2"), {})
+    vehicle = ""
+    for r in ranked:
+        text = _clean(r.get("vehicle")) or _clean(r.get("vehicle_mission")) or _clean(r.get("source_name_value"))
+        if text:
+            v = classify_vehicle(text)
+            if v and v != "Unknown": vehicle = v; break
+    pad = "Unknown"
+    for r in [identity] + ranked:
+        p = normalize_pad(r.get("pad"))
+        if p != "Unknown": pad = p; break
+    designator = next((_clean(r.get("launch_designator")) for r in ranked if _clean(r.get("launch_designator"))), "")
+    if not designator:   # GCAT tags of orbital launches are COSPAR launch designators (YYYY-NNN)
+        designator = next((_clean(r.get("source_event_id")) for r in ranked if r.get("source_name") == "gcat"
+                           and re.fullmatch(r"\d{4}-\d{3}", _clean(r.get("source_event_id")))), "")
+    provider = _clean(ll2.get("provider")) or next((_clean(r.get("provider")) for r in ranked if _clean(r.get("provider"))), "")
+    if not provider and vehicle in {"Falcon 9", "Falcon Heavy"}: provider = "SpaceX"
+    return {
+        "vehicle": vehicle or "Unknown", "pad": pad, "provider": provider, "launch_designator": designator,
+        "launch_success": ({"Launch Successful": "True", "Launch Failure": "False", "Partial Failure": "Partial"}
+                           .get(_clean(ll2.get("status")), "") if identity.get("event_type") != "booster_landing" else ""),
+        "landing_attempt": _clean(ll2.get("landing_attempt")), "landing_success": _clean(ll2.get("landing_success")),
+        "landing_pad": _clean(ll2.get("landing_pad")), "landing_type": _clean(ll2.get("landing_type")),
+    }
+
+
+def _cluster_extent(cluster: list[dict]) -> dict:
+    """Launch window, end time, route and a source URL for one event: curated sources first, then LL2."""
+    order = {"launch_library_2": 1, "gcat": 2}
+    ranked = sorted(cluster, key=lambda r: order.get(str(r.get("source_name")), 0))
+    def first(col, fn=lambda v: v):
+        for r in ranked:
+            v = _clean(r.get(col))
+            if v: return fn(v)
+        return None
+    return {"window_start_utc": first("window_start_utc", iso_utc), "window_end_utc": first("window_end_utc", iso_utc),
+            "event_end_utc": first("event_end_utc", iso_utc), "route": first("route"),
+            "source_url": first("source_url")}
 
 
 def reconcile_sources(sources: list[pd.DataFrame], max_hours: float = 12.0,
@@ -425,6 +781,7 @@ def reconcile_sources(sources: list[pd.DataFrame], max_hours: float = 12.0,
                 nearest=min(abs((rt-pd.Timestamp(x["time_utc"])).total_seconds()) for x in physical)
                 if nearest > scheduled_match_hours*3600: continue
             for member in c:
+                if _type_family(member.get("event_type")) != _type_family(rec.get("event_type")): continue
                 rep=pd.Series(member); _,dt=match_score(r,rep)
                 ta=_tokens(r.get("vehicle_mission", r.get("source_name_value", "")))
                 tb=_tokens(rep.get("vehicle_mission", rep.get("source_name_value", "")))
@@ -445,20 +802,101 @@ def reconcile_sources(sources: list[pd.DataFrame], max_hours: float = 12.0,
         spread=(max(times)-min(times)).total_seconds() if len(times)>1 else 0.0
         # Keep the most human-readable curated identity fields when available, even if
         # an external-source consensus supplies the preferred timestamp.
-        identity=next((r for r in actual_cluster if r.get("source_name")=="manual_excel"), preferred)
+        identity=(next((r for r in actual_cluster if r.get("source_name")=="manual_excel"), None)
+                  or next((r for r in actual_cluster if r.get("source_name") not in {"gcat","launch_library_2"}), None)
+                  or next((r for r in actual_cluster if r.get("source_name")=="launch_library_2"), None)
+                  or preferred)
+        etype=identity.get("event_type",preferred["event_type"])
+        # An orbital launch any source calls an air launch (GCAT runway pad, LL2 Pegasus) is one.
+        if etype=="orbital_launch" and any(r.get("event_type")=="air_launch" for r in actual_cluster): etype="air_launch"
+        # A scrub any source reports with ignition is a pad abort.
+        if etype=="scrub" and any(r.get("event_type")=="pad_abort" for r in actual_cluster): etype="pad_abort"
         events.append({
-            "event_id":eid, "event_type":identity.get("event_type",preferred["event_type"]), "event_time_utc":iso_utc(preferred["time_utc"]),
+            "event_id":eid, "event_type":etype, "event_time_utc":iso_utc(preferred["time_utc"]),
             "event_time_source":preferred.get("source_name",""), "event_time_quality":preferred.get("quality",""),
             "event_time_precision":preferred.get("precision",""), "time_definition":preferred.get("time_definition",""),
             "name":identity.get("source_name_value",""), "mission":identity.get("vehicle_mission",""),
-            "vehicle":"", "pad":identity.get("pad",preferred.get("pad","")), "provider":"", "source":"reconciled_sources",
+            **_cluster_attributes(actual_cluster, identity, preferred),
+            "source":"reconciled_sources",
             "notes":identity.get("notes",""), "time_spread_s":spread,
             "time_conflict":bool(spread>60), "source_count":len(actual_cluster),
             "scheduled_time_count":len(cluster)-len(actual_cluster),
+            **_cluster_extent(actual_cluster),
         })
         for r in cluster: source_rows.append({"event_id":eid, **r})
     for r in unmatched_scheduled: source_rows.append({"event_id":"", **r})
     return pd.DataFrame(events).sort_values("event_time_utc"), pd.DataFrame(source_rows)
+
+# ---------------------------------------------------------------------------
+# Persistent reconciled event ids
+# ---------------------------------------------------------------------------
+# Reconciliation names a new event from a hash of its preferred source record, which would change
+# whenever a source's time or name changes. data/curated/reconciled_event_ids.csv freezes ids:
+# it maps each source alias (source_name + source_event_id, or source_name + time for sources
+# without ids, e.g. the hand-curated workbook) to the event id it was reconciled into.
+ID_REGISTRY_COLUMNS = ["event_id", "source_name", "source_event_id", "time_utc"]
+
+
+def _alias_key(source_name, source_event_id, time_utc) -> tuple[str, str]:
+    sid = _clean(source_event_id)
+    return (_clean(source_name), sid if sid else "@" + (iso_utc(time_utc) or ""))
+
+
+def read_id_registry(path: str | Path) -> pd.DataFrame:
+    path = Path(path)
+    if not path.exists(): return pd.DataFrame(columns=ID_REGISTRY_COLUMNS)
+    return pd.read_csv(path, dtype=str).fillna("")
+
+
+def assign_persistent_ids(events: pd.DataFrame, source_rows: pd.DataFrame,
+                          registry: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+    """Rename reconciled events to the ids their source aliases had in `registry`.
+
+    Each event takes the registered id most of its source aliases point to. If two events claim
+    the same id, the one with more supporting aliases keeps it and the other keeps its new id.
+    Returns (events, source_rows, report) with report counts of kept and new ids.
+    """
+    if events.empty or registry is None or registry.empty:
+        return events, source_rows, {"kept": 0, "new": len(events), "contested": []}
+    lookup = {_alias_key(r.source_name, r.source_event_id, r.time_utc): r.event_id
+              for r in registry.itertuples() if _clean(r.event_id)}
+    from collections import Counter
+    votes = {}
+    for r in source_rows.itertuples():
+        eid = _clean(getattr(r, "event_id", ""))
+        if not eid: continue
+        old = lookup.get(_alias_key(r.source_name, getattr(r, "source_event_id", ""), r.time_utc))
+        if old: votes.setdefault(eid, Counter())[old] += 1
+    ranked = sorted(((c.most_common(1)[0][1], eid, c.most_common(1)[0][0]) for eid, c in votes.items()), reverse=True)
+    rename, taken, contested = {}, set(), []
+    for n, eid, old in ranked:
+        if old in taken: contested.append((eid, old)); continue
+        rename[eid] = old; taken.add(old)
+    # A new hashed id must not collide with a registered id kept by another event.
+    for eid in events.event_id:
+        if eid not in rename and eid in taken:
+            raise ValueError(f"New event id {eid} collides with a registered id")
+    events = events.copy(); source_rows = source_rows.copy()
+    events["event_id"] = events["event_id"].map(lambda e: rename.get(e, e))
+    source_rows["event_id"] = source_rows["event_id"].map(lambda e: rename.get(e, e) if _clean(e) else e)
+    if events.event_id.duplicated().any():
+        raise ValueError("Duplicate event ids after applying the id registry")
+    return events, source_rows, {"kept": len(rename), "new": len(events) - len(rename), "contested": contested}
+
+
+def id_registry_from_sources(source_rows: pd.DataFrame, previous: pd.DataFrame | None = None) -> pd.DataFrame:
+    """Registry rows for every source alias in `source_rows`, plus earlier rows not superseded."""
+    cur = source_rows[source_rows["event_id"].map(_clean) != ""].copy()
+    cur = pd.DataFrame({"event_id": cur["event_id"], "source_name": cur["source_name"].map(_clean),
+                        "source_event_id": cur.get("source_event_id", pd.Series("", index=cur.index)).map(_clean),
+                        "time_utc": cur["time_utc"].map(iso_utc)})
+    frames = [cur]
+    if previous is not None and not previous.empty: frames.append(previous[ID_REGISTRY_COLUMNS])
+    out = pd.concat(frames, ignore_index=True).fillna("")
+    out["_key"] = [_alias_key(a, b, c) for a, b, c in zip(out.source_name, out.source_event_id, out.time_utc)]
+    out = out.drop_duplicates("_key", keep="first").drop(columns="_key")
+    return out.sort_values(["time_utc", "source_name", "source_event_id"]).reset_index(drop=True)
+
 
 def manual_events_as_source(path: str | Path) -> pd.DataFrame:
     df=read_manual_events_csv(path)
@@ -474,8 +912,12 @@ def manual_events_as_source(path: str | Path) -> pd.DataFrame:
         "quality": df.get("event_time_quality", "manual_verified"),
         "pad": df.get("pad", ""),
         "vehicle_mission": df.get("mission", df.get("name", "")),
+        "vehicle": df.get("vehicle", ""),
+        "provider": df.get("provider", ""),
         "notes": df.get("notes", ""),
-        "source_url": "",
+        "source_url": df.get("source_url", ""),
+        "window_start_utc": df.get("window_start_utc", ""), "window_end_utc": df.get("window_end_utc", ""),
+        "event_end_utc": df.get("event_end_utc", ""), "route": df.get("route", ""),
         "time_role": "actual_event_time",
         "persistent_event_id": df.get("event_id", ""),
     })
@@ -588,7 +1030,12 @@ def read_gcat_launch_tsv_bytes(data: bytes, source_url: str = "", progress: bool
         # GCAT documentation: E denotes a pad explosion/no launch; F in the
         # success/failure portion identifies a failed orbital launch attempt.
         lc=launch_code.upper()
-        if lc.startswith("E") or lc == "E": etype="pad_explosion"
+        tag=_first_present(r,"Launch_Tag","LaunchTag")
+        # GCAT gives pad explosions (no launch) 'E' tags (2026-E01) and an 'E' outcome code ('OE').
+        if lc.startswith("E") or lc[1:2] == "E" or re.search(r"-E\d", tag): etype="pad_explosion"
+        # GCAT tags suborbital launches YYYY-Snnn / YYYY-Annn (missile tests, abort tests); a failed
+        # one stays suborbital_launch (the F is kept in quality/status).
+        elif re.search(r"-[SA]\d", tag): etype="suborbital_launch"
         elif "F" in lc[:3]: etype="launch_failure"
         else: etype="orbital_launch"
         name=" | ".join(x for x in [
@@ -602,7 +1049,6 @@ def read_gcat_launch_tsv_bytes(data: bytes, source_url: str = "", progress: bool
         ] if x)
         pad=_first_present(r,"Launch_Pad","LaunchPad","Pad")
         site=_first_present(r,"Launch_Site","LaunchSite","Site")
-        tag=_first_present(r,"Launch_Tag","LaunchTag")
         rows.append({
             "source_name":"gcat", "source_event_id":tag,
             "source_name_value":name or tag, "event_type":etype,
@@ -628,17 +1074,22 @@ def read_gcat_tsv_bytes(data: bytes, list_code: str = "", source_url: str = "") 
     """Backward-compatible wrapper; list_code is ignored for canonical launch.tsv rows."""
     return read_gcat_launch_tsv_bytes(data, source_url=source_url, progress=False)
 
-def filter_gcat_ksc(df: pd.DataFrame) -> pd.DataFrame:
-    """Return GCAT records whose *Launch_Site* is Cape Canaveral or KSC.
+GCAT_FLORIDA_SITES = {"CC", "KSC", "SPFLA", "ETR"}
 
-    GCAT uses the site codes ``CC`` and ``KSC`` for these two launch sites.
+
+def filter_gcat_ksc(df: pd.DataFrame) -> pd.DataFrame:
+    """Return GCAT records launched from Cape Canaveral, KSC, or just off the Cape.
+
+    GCAT site codes: ``CC`` (Cape Canaveral SFS), ``KSC``, ``SPFLA`` (Space Florida's
+    LC-46 on the Cape: Minotaur ORS-5, Orion AA-2, Astra, Army hypersonic LRHW tests) and ``ETR``
+    (Eastern Test Range: Trident D-5 launches from submarines off the Cape).
     Do not infer geography from Launch_Pad: pad identifiers/numbers are not
     globally unique and previously admitted records from unrelated sites.
     """
     if df is None or df.empty:
         return pd.DataFrame()
     site = df.get("location", pd.Series("", index=df.index)).astype(str).str.strip().str.upper()
-    return df[site.isin({"CC", "KSC"})].copy()
+    return df[site.isin(GCAT_FLORIDA_SITES)].copy()
 
 def _count_gcat_project_interval(df: pd.DataFrame, start: str = "2016-02-24", end: str = "2022-12-02") -> int:
     """Diagnostic count for the historical USF deployment interval, inclusive."""

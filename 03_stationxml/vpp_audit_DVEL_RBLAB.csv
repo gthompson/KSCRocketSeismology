@@ -1,0 +1,16 @@
+network,station,location,channel,start,end,vpp_in_KSC_xml,proposed_vpp,proposed_counts_per_Pa,channel_live,evidence
+1R,DVEL1,00,DD1,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 0.19 if 1 Vpp vs 8 if 40 Vpp; night 0.15-0.35 Hz: 19.0 counts = 0.026 Pa if 1 Vpp / 1.04 Pa if 40 Vpp
+1R,DVEL1,00,DD2,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 1.47 if 1 Vpp vs 59 if 40 Vpp; night 0.15-0.35 Hz: 154.5 counts = 0.210 Pa if 1 Vpp / 8.40 Pa if 40 Vpp
+1R,DVEL1,00,DD3,2018-02-06,2018-02-08,40,,,False,no launch signal: dead or disconnected; launches n=1: median ratio 0.00 if 1 Vpp vs 0 if 40 Vpp; night 0.15-0.35 Hz: 1.4 counts = 0.002 Pa if 1 Vpp / 0.08 Pa if 40 Vpp
+1R,DVEL1,00,DD4,2018-02-06,2018-02-08,40,,,False,night 0.15-0.35 Hz: 1.6 counts = 0.002 Pa if 1 Vpp / 0.08 Pa if 40 Vpp
+1R,DVEL1,00,DD5,2018-02-06,2018-02-08,40,,,False,night 0.15-0.35 Hz: 1.4 counts = 0.002 Pa if 1 Vpp / 0.08 Pa if 40 Vpp
+1R,DVEL1,00,DD6,2018-02-06,2018-02-08,40,,,False,night 0.15-0.35 Hz: 2.3 counts = 0.003 Pa if 1 Vpp / 0.13 Pa if 40 Vpp
+1R,DVEL2,00,DD1,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 0.54 if 1 Vpp vs 22 if 40 Vpp; night 0.15-0.35 Hz: 48.8 counts = 0.066 Pa if 1 Vpp / 2.65 Pa if 40 Vpp
+1R,DVEL2,00,DD2,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 1.07 if 1 Vpp vs 43 if 40 Vpp; night 0.15-0.35 Hz: 148.8 counts = 0.202 Pa if 1 Vpp / 8.09 Pa if 40 Vpp
+1R,DVEL2,00,DD3,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 0.28 if 1 Vpp vs 11 if 40 Vpp; night 0.15-0.35 Hz: 4.6 counts = 0.006 Pa if 1 Vpp / 0.25 Pa if 40 Vpp
+1R,RBLAB,00,DD1,2018-02-06,2018-02-08,40,,,False,
+1R,RBLAB,00,DD2,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 1.60 if 1 Vpp vs 64 if 40 Vpp
+1R,RBLAB,00,DD3,2018-02-06,2018-02-08,40,1.0,736.0,True,launches n=1: median ratio 1.92 if 1 Vpp vs 77 if 40 Vpp
+1R,DVEL3,00,DD1,2019-02-13,2020-01-31,40,1.0,736.0,True,launches n=8: median ratio 1.08 if 1 Vpp vs 43 if 40 Vpp; Centaur 166 dataless (2019-06-25): preamp x40 on HD1-HD3; night 0.15-0.35 Hz: 63.8 counts = 0.087 Pa if 1 Vpp / 3.47 Pa if 40 Vpp
+1R,DVEL3,00,DD2,2019-02-13,2020-01-31,40,1.0,736.0,True,launches n=8: median ratio 1.10 if 1 Vpp vs 44 if 40 Vpp; Centaur 166 dataless (2019-06-25): preamp x40 on HD1-HD3; night 0.15-0.35 Hz: 43.4 counts = 0.059 Pa if 1 Vpp / 2.36 Pa if 40 Vpp
+1R,DVEL3,00,DD3,2019-02-13,2020-01-31,40,1.0,736.0,True,launches n=2: median ratio 1.08 if 1 Vpp vs 43 if 40 Vpp; Centaur 166 dataless (2019-06-25): preamp x40 on HD1-HD3; night 0.15-0.35 Hz: 3.5 counts = 0.005 Pa if 1 Vpp / 0.19 Pa if 40 Vpp

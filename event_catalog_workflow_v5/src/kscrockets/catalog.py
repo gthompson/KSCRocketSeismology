@@ -13,22 +13,43 @@ CANONICAL_COLUMNS = [
 
 
 def normalize_pad(value) -> str:
-    if pd.isna(value) or not str(value).strip(): return "Unknown"
-    s = str(value).strip().upper().replace("SLC-", "").replace("LC-", "")
-    s = re.sub(r"\s+", " ", s)
-    aliases = {"39A":"SLC-39A","39B":"SLC-39B","40":"SLC-40","41":"SLC-41",
-               "37A":"SLC-37A","37B":"SLC-37B","46":"SLC-46"}
-    return aliases.get(s, str(value).strip())
+    """One code per pad/landing zone, as in data/raw/launchpads.csv and GCAT.
+
+    '40', 'SLC-40', 'LC40', 'Space Launch Complex 40' -> 'LC40'; '39A', 'Launch Complex 39A' -> 'LC39A';
+    'Launch Complex 36A' (LL2's name for Blue Origin's LC-36) -> 'LC36'; 'LZ-1', 'Landing Zone 1' -> 'LZ1'.
+    Non-complex sites (SLF, L1011, ...) are returned stripped; blank -> 'Unknown'.
+    """
+    if value is None or pd.isna(value) or not str(value).strip() or str(value).strip().lower() == "nan":
+        return "Unknown"
+    raw = str(value).strip()
+    s = re.sub(r"\s+", " ", raw.upper())
+    m = re.fullmatch(r"(?:LANDING ZONE|LZ)[ -]*(\d+)", s)
+    if m:
+        return "LZ" + m.group(1)
+    s = re.sub(r"^(SPACE LAUNCH COMPLEX|LAUNCH COMPLEX|SLC|LC)[ -]*", "", s)
+    if s == "36A":          # LL2 names New Glenn's pad 'Launch Complex 36A'; GCAT and USF use LC36
+        s = "36"
+    if re.fullmatch(r"\d{2}[A-Z]?", s):
+        return "LC" + s
+    if re.fullmatch(r"RW ?\d{2}", s) or s in {"SKID", "SKID STRIP"}:   # GCAT: Pegasus carrier takeoff runway
+        return "L1011"
+    return raw
 
 
 def classify_vehicle(text) -> str:
-    if pd.isna(text): return "Unknown"
+    """Vehicle family from any free-text name ('Falcon 9 Block 5 | Starlink ...' -> 'Falcon 9')."""
+    if text is None or pd.isna(text): return "Unknown"
     s = str(text).lower()
     rules = [
-        (r"falcon\s*heavy", "Falcon Heavy"), (r"falcon\s*9|falcon 9 full thrust", "Falcon 9"),
-        (r"atlas\s*v", "Atlas V"), (r"delta\s*iv", "Delta IV"), (r"delta\s*ii", "Delta II"),
-        (r"\bsls\b|artemis", "SLS"), (r"vulcan", "Vulcan"), (r"new\s*glenn", "New Glenn"),
+        (r"falcon\s*heavy", "Falcon Heavy"), (r"falcon\s*9|\bf9\b", "Falcon 9"),
+        (r"atlas\s*v", "Atlas V"), (r"delta\s*(iv|4)\s*h(eavy)?\b", "Delta IV Heavy"),
+        (r"delta\s*(iv|4)", "Delta IV"), (r"delta\s*ii", "Delta II"),
+        (r"\bsls\b|space launch system|artemis", "SLS"), (r"vulcan", "Vulcan"), (r"new\s*glenn", "New Glenn"),
+        (r"starship|super\s*heavy", "Starship"), (r"terran", "Terran 1"),
         (r"minotaur", "Minotaur"), (r"astra", "Astra"), (r"electron", "Electron"),
+        (r"orion abort|ascent abort|\baa-2\b|^atb\b", "Orion AA-2 booster"),
+        (r"trident", "Trident D-5"), (r"chgb|lrhw|dark eagle", "LRHW (hypersonic)"), (r"pegasus", "Pegasus XL"),
+        (r"x-?37", "X-37B"), (r"f-18|f/a-18|sonicbat", "F/A-18"),
     ]
     for pattern, label in rules:
         if re.search(pattern, s): return label
@@ -44,7 +65,8 @@ def classify_event_type(mission) -> str:
 
 
 def _legacy_event_id(row: pd.Series) -> str:
-    """Fallback only. Existing IDs are frozen in event_id_registry.csv."""
+    """Legacy CSV-path id (not canonical). Canonical ids: data/curated/reconciled_event_ids.csv;
+    data/curated/legacy_event_id_map.csv maps event_id_registry.csv ids to them."""
     designator = str(row.get("launch_designator", "") or "").strip()
     identity = designator or f"{row.get('mission','')}|{row.get('pad','')}"
     return "ksc-" + hashlib.sha1(identity.encode()).hexdigest()[:12]

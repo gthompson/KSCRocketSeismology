@@ -20,6 +20,25 @@ class Settings:
     event_waveforms: Path
     website_title: str
     website_subtitle: str
+    present: bool = False
+
+    @property
+    def interval(self) -> tuple[str, str]:
+        """UTC start/end of the catalog interval (end = now when year_max is "present")."""
+        start = f"{self.year_min}-01-01T00:00:00Z"
+        if self.present:
+            import datetime as _dt
+            end = _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        else:
+            end = f"{self.year_max}-12-31T23:59:59Z"
+        return start, end
+
+
+def _year_max(value) -> tuple[int, bool]:
+    if str(value).strip().lower() in {"present", "now", "today"}:
+        import datetime as _dt
+        return _dt.datetime.now(_dt.timezone.utc).year, True
+    return int(value), False
 
 
 def load_settings(config_path: str | Path | None = None) -> Settings:
@@ -33,10 +52,11 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
         cfg = tomllib.load(f)
     p = cfg["paths"]
     resolve = lambda x: (root / x).resolve()
+    year_max, present = _year_max(cfg["project"]["year_max"])
     return Settings(
         root=root,
         year_min=int(cfg["project"]["year_min"]),
-        year_max=int(cfg["project"]["year_max"]),
+        year_max=year_max,
         raw_catalog=resolve(p["raw_catalog"]),
         canonical_catalog=resolve(p["canonical_catalog"]),
         database=resolve(p["database"]),
@@ -49,4 +69,5 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
         event_waveforms=resolve(p["event_waveforms"]),
         website_title=cfg["website"]["title"],
         website_subtitle=cfg["website"]["subtitle"],
+        present=present,
     )

@@ -1,6 +1,7 @@
 [project]
 year_min = 2016
-year_max = 2022
+# "present" = through the current UTC date (the reconciled catalog extends to today).
+year_max = "present"
 
 [paths]
 raw_catalog = "data/raw/merged_launches.csv"
@@ -14,6 +15,13 @@ analysis_output = "outputs/ensemble"
 launchpads = "data/raw/launchpads.csv"
 # Event waveform files and their extraction manifests are external to Git.
 event_waveforms = "/Volumes/tachyon/KSC_EVENTS"
+
+[products]
+# Per-event products (miniSEED, plots, manifests) are written outside Git, to
+# <out_root>/<YYYY>/<event_id>/; the small result tables go to data/products/ (in Git).
+out_root = "~/work/KSC_event_catalog"   # ~/work -> /Volumes/Pulwtop (NVMe); classdata is read-only
+# ksclib ensemble file: network eras, archives, responses and pads (relative to this repo's parent)
+ensemble = "../07_ensemble_paper/ensemble.yaml"
 
 [catalog]
 dedupe_tolerance_seconds = 120
