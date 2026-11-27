@@ -34,6 +34,12 @@ output:
 
 # Only the Centaur stations (B01 B03 B05 B14 B20 B24 B29) recorded on day 149; the Gems and
 # SmartSolos were recovered after Artemis II. The other groups are kept so the same code runs.
+# Centaur traces are renamed on read to SEED band codes (ksclib.seedcodes): C?? at 250-999 samples/s,
+# H?? at 80-249. On 29 May B20 recorded at 100 samples/s (4 Apr-14 Jun 2026), so its channels are HD1,
+# HDF, HHZ/HH1/HH2; B14, B29, B05 (and the dead B01, B03, B24) at 500 samples/s are CD?, CH?. The archive
+# still holds the Centaurs' D?? names until 03_stationxml/archive_fix/rename_band_codes.py is run; the
+# channel groups below read either spelling.
+seed_band_codes: true
 channel_groups:                     # name: [network, station, location, channel]
   USF: ["1R", "*", "*", "D[DH]?"]
   BSU: ["1R", "*", "*", "HD?"]
@@ -47,20 +53,20 @@ responses:
     - /Volumes/haldata/KSC/20260605_service/responses                    # B29
     - /Volumes/haldata/KSC/20260403_service/00_download/Nanometrics/responses   # B03
   infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
-  infrabsu_channels: [DD0, DD1, DD2]
-  # B20 DDF is a Chaparral M25 on Centaur Sensor B (1 Vpp until the 2026-09-23 field visit).
+  infrabsu_channels: [CD0, CD1, CD2]   # matched in any band spelling (the response files use DD?)
+  # B20 HDF (Centaur DDF) is a Chaparral M25 on Centaur Sensor B (1 Vpp until the 2026-09-23 field visit).
   # 32_chaparral_sensitivity.ipynb: 0.39-0.44 V/Pa relative to the infraBSU in normal operation
   # (Jan-4 Apr and 14 Jun-Sep 2026), matching the NRL "Low: 0.4 V/Pa". Between the field visits of
-  # 4 Apr and 14 Jun it was faulty (0.005-0.19 V/Pa, unstable; ~0.02-0.04 at the explosion), so DDF
+  # 4 Apr and 14 Jun it was faulty (0.005-0.19 V/Pa, unstable; ~0.02-0.04 at the explosion), so HDF
   # is not used for the explosion (it also clipped).
-  chaparral: {channels: [DDF], V_per_Pa: 0.4}
+  chaparral: {channels: [HDF], V_per_Pa: 0.4}
   smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
 
 # infraBSU channels whose airwave starts with a rarefaction while co-located or neighbouring
-# sensors start with the compression (B14 DD1/DD2 correlate at -0.99 with B14 DD0). The likely
+# sensors start with the compression (B14 CD1/CD2 correlate at -0.99 with B14 CD0). The likely
 # cause is the capillary tube mounted on the inner rather than the outer nipple.
 # newglenn_config.instrument_correct flips them (evidence in 22_data_overview.ipynb).
-polarity_reversed: [1R.B14.00.DD1, 1R.B14.00.DD2, 1R.B05.00.DD0]
+polarity_reversed: [1R.B14.00.CD1, 1R.B14.00.CD2, 1R.B05.00.CD0]   # SEED ids, as read
 
 source: {}                          # static source: no trajectory
 

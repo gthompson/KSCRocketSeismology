@@ -171,7 +171,11 @@ microbarometers on Sensor~B (1~V$_\text{pp}$, 735~counts~Pa$^{-1}$),
 housed in the plastic tote that also holds the electronics. B20 also has
 a Chaparral M25 microbarometer on Sensor~B. All stations recorded at
 500~samples~s$^{-1}$ except B20, which recorded at 100~samples~s$^{-1}$
-between field visits on 4~April and 14~June.
+between field visits on 4~April and 14~June. We name channels with SEED
+band codes, C at 500 and H at 100~samples~s$^{-1}$: the Trillium
+components are CHZ, CH1 and CH2 (HHZ, HH1 and HH2 at B20), the infraBSUs
+CD0, CD1 and CD2 (HD1 at B20) and the Chaparral HDF. The Centaur itself
+labels all of them with band code D.
 
 \begin{figure}[htbp]
   \centering
@@ -219,7 +223,7 @@ seismometer inputs and \NGdeadDD~counts on the infrasound inputs, with flat
 spectra and no microseism peak, two to five orders of magnitude below
 the connected inputs (Figure~\ref{fig:dead}). Small airwave-timed
 excursions of a few hundred counts appear on these inputs, as they do on
-unconnected inputs at working stations (B20 DD2; DD1 and DD2 at B05 and
+unconnected inputs at working stations (B20 HD2; CD1 and CD2 at B05 and
 B29). With no sensor attached they are most likely pressure or vibration
 acting on the digitizer and cabling.
 
@@ -234,20 +238,20 @@ acting on the digitizer and cabling.
 \end{figure}
 
 \paragraph{Reversed infrasound polarity.} A blast wave begins with a
-compression. B14 DD1, B14 DD2 and B05 DD0 begin with a rarefaction, and
-B14 DD1 and DD2 are mirror images of the co-located DD0 (correlation
+compression. B14 CD1, B14 CD2 and B05 CD0 begin with a rarefaction, and
+B14 CD1 and CD2 are mirror images of the co-located CD0 (correlation
 $\NGpolCorr$). The likely cause is a capillary tube fitted to the inner
 rather than the outer nipple of the sensor. We reverse these channels
 throughout.
 
 \paragraph{Sensor-to-sensor differences.} The three infraBSUs at B14 sat
-in the same tote. DD1 and DD2 record the airwave identically (coherence
+in the same tote. CD1 and CD2 record the airwave identically (coherence
 at least 0.98 from 0.5 to \NGbCohHz~Hz), with a constant amplitude ratio
-DD2/DD1~=~\NGbRatio{} below 40~Hz, a relative calibration difference of \NGbCal\%.
+CD2/CD1~=~\NGbRatio{} below 40~Hz, a relative calibration difference of \NGbCal\%.
 Above 100~Hz their ratio rises to $\NGresPeakDb$~dB near \NGresPeakHz~Hz and falls to
 $\NGresMinDb$~dB near \NGresMinHz~Hz, a resonance of one sensor's inlet that the other
 lacks (\suppfig{1}). Their noise levels above 0.5~Hz differ by almost
-two orders of magnitude (\NGnoiseDDzero, \NGnoiseDDone{} and \NGnoiseDDtwo~Pa rms for DD0, DD1 and DD2).
+two orders of magnitude (\NGnoiseDDzero, \NGnoiseDDone{} and \NGnoiseDDtwo~Pa rms for CD0, CD1 and CD2).
 Because the three shared one tote, none of these differences is a tote
 effect; they lie in each sensor's inlet or electronics. The peak
 pressures below are therefore uncertain by up to $\sim$\NGbCal\% until the
@@ -292,8 +296,8 @@ filtering and decimating the 500~samples~s$^{-1}$ records to
 is very steep), but those at B29 and B05 by only \NGdecOther\%; impulse and
 duration change by less than \NGdecImpDur\%.
 
-The working channels are therefore infraBSUs at B20 (DD1, \NGdistBtwenty~km), B14
-(DD0--DD2, \NGdistBfourteen~km), B29 (DD0, \NGdistBtwentynine~km) and B05 (DD0, \NGdistBzerofive~km), and
+The working channels are therefore infraBSUs at B20 (HD1, \NGdistBtwenty~km), B14
+(CD0--CD2, \NGdistBfourteen~km), B29 (CD0, \NGdistBtwentynine~km) and B05 (CD0, \NGdistBzerofive~km), and
 seismometers at B14, B29 and B05 (and B20's vertical).
 
 %% ============================================================
@@ -530,8 +534,8 @@ Multiple-filter analysis of the verticals at B14, B29 and B05 gives a
 fundamental-mode Rayleigh group velocity falling from \NGrayLowF~km~s$^{-1}$
 at 0.5~Hz to \NGrayMid~km~s$^{-1}$ at 1.5--3~Hz
 (Figure~\ref{fig:ftan}). The horizontals at B14 and B29 were rotated to
-radial and transverse assuming the usual installation (DH1 north),
-which the 1--3~Hz Rayleigh polarisation supports (DH1 at
+radial and transverse assuming the usual installation (CH1 north),
+which the 1--3~Hz Rayleigh polarisation supports (CH1 at
 \NGdhAz$^{\circ}$). With this orientation the radial dispersion matches
 the vertical's, and the transverse shows a distinct Love-wave curve,
 nearly identical at the two stations: \NGloveLowF~km~s$^{-1}$ at 0.5~Hz,
