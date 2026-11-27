@@ -10,6 +10,8 @@ from pathlib import Path
 
 import ksclib
 from ksclib import centaur
+from ksclib.seedcodes import is_centaur
+from obspy import Stream
 from flovopy.ingest import gem_overflow as _gem
 
 PAPER_DIR = Path(__file__).resolve().parent
@@ -43,7 +45,7 @@ def instrument_correct(st, pre_filt_low=(0.01, 0.02), fix_polarity=True):
     With `fix_polarity`, channels in newglenn.yaml `polarity_reversed` are sign-flipped.
     """
     out = centaur.instrument_correct_centaur(st, EVENT, pre_filt_low)
-    other = st.select(channel="HD?") + st.select(channel="DP?")
+    other = Stream([tr for tr in st if not is_centaur(tr) and tr.stats.channel[:2] in ("HD", "DP")])
     if len(other):
         out += ksclib.instrument_correct(other, EVENT, pre_filt_low)
     if fix_polarity:

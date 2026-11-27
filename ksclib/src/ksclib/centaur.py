@@ -21,6 +21,7 @@ import re
 import warnings
 from pathlib import Path
 
+from .seedcodes import centaur_response_codes, is_centaur, same_code
 from obspy import Stream, UTCDateTime, read_inventory
 from obspy.core.inventory.response import PolesZerosResponseStage
 
@@ -81,9 +82,9 @@ def centaur_inventory_nearest(event, station, when=None):
     for net in inv:
         for sta in net:
             for cha in sta:
-                if cha.code in event.infrabsu_channels:
+                if any(same_code(cha.code, c) for c in event.infrabsu_channels):
                     stage = copy.deepcopy(bsu)
-                elif cha.code in chap["channels"]:
+                elif any(same_code(cha.code, c) for c in chap["channels"]):
                     stage = _flat_sensor_stage(chap["V_per_Pa"])
                 else:
                     continue
@@ -95,6 +96,16 @@ def centaur_inventory_nearest(event, station, when=None):
                 resp.instrument_sensitivity.input_units = "Pa"
                 resp.instrument_sensitivity.value *= stage.stage_gain
                 resp.recalculate_overall_sensitivity(1.0)
+    # The Centaur writes D?? codes; traces may be read with SEED codes (C?? / H??): add copies.
+    for net in inv:
+        for sta in net:
+            extra = []
+            for cha in sta:
+                for code in centaur_response_codes(cha.code)[1:]:
+                    c2 = copy.deepcopy(cha)
+                    c2.code = code
+                    extra.append(c2)
+            sta.channels.extend(extra)
     return inv
 
 
@@ -109,8 +120,10 @@ def instrument_correct_centaur(st, event, pre_filt_low=(0.01, 0.02)):
     out, inventories = Stream(), {}
     for tr in st:
         cha, sta = tr.stats.channel, tr.stats.station
-        is_p = cha in event.infrabsu_channels or cha in chap
-        if tr.stats.network != "1R" or not (cha.startswith("DH") or is_p):
+        if not is_centaur(tr):
+            continue
+        is_p = any(same_code(cha, c) for c in (*event.infrabsu_channels, *chap))
+        if not (cha[1] == "H" or is_p):
             continue
         t = tr.copy()
         nyq = 0.5 * t.stats.sampling_rate

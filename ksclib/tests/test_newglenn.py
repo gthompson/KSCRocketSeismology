@@ -25,7 +25,8 @@ def test_event(ev):
     assert ev.kind == "static" and ev.site_name == "LC36"
     assert abs(ev.site_lat - 28.470556) < 1e-5 and abs(ev.site_lon + 80.5422) < 1e-5
     assert ev.origin_time.julday == 149
-    assert centaur.chaparral_config(ev) == {"channels": ("DDF",), "V_per_Pa": 0.4}
+    assert centaur.chaparral_config(ev) == {"channels": ("HDF",), "V_per_Pa": 0.4}
+    assert ev.seed_band_codes
 
 
 def test_geometry(ev):
