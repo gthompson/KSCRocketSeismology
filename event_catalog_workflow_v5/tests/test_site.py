@@ -58,3 +58,54 @@ def test_event_summary_ignores_low_snr_channels(tmp_path):
     s = event_summary(meas).set_index("event_id")
     assert s.at["ksc-a", "max_pa"] == 120.0 and bool(s.at["ksc-a", "max_pa_lower_bound"])
     assert s.at["ksc-a", "max_pgv"] != s.at["ksc-a", "max_pgv"]         # NaN: the seismic channel has SNR 2
+
+
+def test_web_build_webp_plots_and_external_data_links(tmp_path):
+    from PIL import Image
+    db, _ = _db(tmp_path)
+    Image.new("RGB", (2200, 600), "white").save(tmp_path / "out/2020/ksc-a/plots/station_S1.png")
+    m = tmp_path / "out/2020/ksc-a/raw_counts.mseed"; m.write_bytes(b"x")
+    with sqlite3.connect(db) as con:
+        pd.DataFrame([dict(event_id="ksc-a", product_type="raw_counts_mseed", path=str(m), station="")]
+                     ).to_sql("event_products", con, index=False, if_exists="append")
+    url = "https://zenodo.org/records/1/files/ksc_event_waveforms_2020.zip?download=1"
+    build_site(db, tmp_path / "out", web=True, waveform_urls={"2020": url})
+    site = tmp_path / "out/site_web"
+    a = (site / "events/ksc-a.html").read_text()
+    assert "../plots/ksc-a/station_S1.webp" in a and "2020/ksc-a" not in a.replace("ksc_event_waveforms_2020", "")
+    assert url in a and "ksc-a/raw_counts.mseed" in a                     # file inside the year zip
+    w = Image.open(site / "plots/ksc-a/station_S1.webp")
+    assert w.width == 1100 and (site / ".nojekyll").exists()
+
+
+def test_package_waveforms_one_zip_per_year(tmp_path):
+    import zipfile
+    from kscrockets.package import package_waveforms
+    for y, eid in (("2019", "ksc-a"), ("2019", "ksc-b"), ("2026", "ksc-c")):
+        d = tmp_path / y / eid; d.mkdir(parents=True)
+        (d / "manifest.json").write_text('{"run_id": "r1"}'); (d / "raw_counts.mseed").write_bytes(b"abc")
+    idx = package_waveforms(tmp_path)
+    assert sorted(idx.archive.unique()) == ["ksc_event_waveforms_2019.zip", "ksc_event_waveforms_2026.zip"]
+    names = zipfile.ZipFile(tmp_path / "archive/ksc_event_waveforms_2019.zip").namelist()
+    assert "ksc-b/raw_counts.mseed" in names and "README.txt" in names and len(idx.sha256.iloc[0]) == 64
+
+
+def test_zenodo_links_restricted_shown_on_pages(tmp_path):
+    from kscrockets.site import read_waveform_urls
+    from kscrockets.zenodo import record_links
+    arch = tmp_path / "archive"; arch.mkdir()
+    (arch / "ksc_event_waveforms_2020.zip").write_bytes(b"z")
+    csv = tmp_path / "waveform_urls.csv"
+    record_links(42, arch, csv)
+    urls = read_waveform_urls(csv)
+    assert urls["2020"]["url"] == "https://zenodo.org/records/42/files/ksc_event_waveforms_2020.zip?download=1"
+    assert urls["2020"]["access"] == "restricted"
+    db, _ = _db(tmp_path)
+    m = tmp_path / "out/2020/ksc-a/raw_counts.mseed"; m.write_bytes(b"x")
+    with sqlite3.connect(db) as con:
+        pd.DataFrame([dict(event_id="ksc-a", product_type="raw_counts_mseed", path=str(m), station="")]
+                     ).to_sql("event_products", con, index=False, if_exists="append")
+    (tmp_path / "out/2020/ksc-a/plots/station_S1.png").unlink()          # no plot conversion needed here
+    build_site(db, tmp_path / "out", web=True, waveform_urls=urls)
+    a = (tmp_path / "out/site_web/events/ksc-a.html").read_text()
+    assert "request access on Zenodo" in a and "https://zenodo.org/records/42" in a
