@@ -172,7 +172,7 @@ def _process(s, a):
     ksclib_src=(s.root.parent/"ksclib"/"src")
     if ksclib_src.is_dir() and str(ksclib_src) not in sys.path: sys.path.insert(0,str(ksclib_src))
     from ksclib import catalog_events as ce, event_products as ep
-    from .products import save_results, load_products, git_commit
+    from .products import save_results, load_products, git_commit, tables_dir
     ens=ce.load_ensemble(a.ensemble or pc["ensemble"])
     cat=ce.load_catalog(ens)
     ids=list(a.event_id or [])
@@ -203,14 +203,17 @@ def _process(s, a):
         print(f"{r.event_id} {row.event_type:16s} {r.status:13s} raw={r.n_raw:3d} corr={r.n_corrected:3d}{det} "
               f"{time.time()-t:.0f}s {r.error}",flush=True)
     run["finished_utc"]=_dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds")
-    summary=save_results(s.root,run,results)
-    tables=load_products(s.root,s.database)
+    summary=save_results(s.root,tables_dir(out_root),run,results)
+    tables=load_products(s.root,tables_dir(out_root),s.database)
     print(f"process {run_id}: {summary}; sqlite tables: {', '.join(tables)}",flush=True)
 
 
 def _load_products(s):
-    from .products import load_products
-    tables=load_products(s.root,s.database)
+    from .products import load_products, tables_dir
+    t=tables_dir(_products_config(s)["out_root"])
+    if not t.is_dir():
+        print(f"product tables not found ({t}; drive not mounted?): only event_links loaded",flush=True); t=None
+    tables=load_products(s.root,t,s.database)
     if tables: print(f"product tables re-attached: {', '.join(tables)}",flush=True)
 
 
@@ -304,6 +307,11 @@ def main(argv=None):
     pr.add_argument("--ensemble",default=None,help="default: [products] ensemble in config")
     pr.add_argument("--run-id",default=None); pr.add_argument("--notes",default="")
     pr.add_argument("--no-plots",action="store_true"); pr.add_argument("--allow-any-out-root",action="store_true")
+    bs=sp.add_parser("build-site",help="Web pages: index of all events and a page per event, in <out_root>/site/")
+    bs.add_argument("--out-root",default=None,help="default: [products] out_root in config")
+    bs.add_argument("--site-dir",default=None,help="default: <out_root>/site")
+    bs.add_argument("--event-id",action="append",help="only these event pages (the index always lists all)")
+    bs.add_argument("--events-file",help="only the event pages listed (one event_id per line, # comments)")
     kp=sp.add_parser("launchpads-kml",help="Write a Google Earth KML of the pad table (launchpads.csv)")
     kp.add_argument("--out",default=None,help="default: launchpads.csv with a .kml suffix")
     m=sp.add_parser("add-event")
@@ -346,6 +354,16 @@ def main(argv=None):
         _availability(s,a); return
     if a.command=="process":
         _process(s,a); return
+    if a.command=="build-site":
+        from .site import build_site
+        from .products import load_products, tables_dir
+        out_root=Path(a.out_root or _products_config(s)["out_root"]).expanduser()
+        t=tables_dir(out_root); load_products(s.root,t if t.is_dir() else None,s.database)
+        ids=list(a.event_id or [])
+        if a.events_file:
+            ids+=[x.split("#")[0].strip() for x in Path(a.events_file).read_text().splitlines() if x.split("#")[0].strip()]
+        index=build_site(s.database,out_root,a.site_dir,s.website_title,s.website_subtitle,event_ids=ids or None)
+        print(f"site: {index}",flush=True); return
     if a.command=="launchpads-kml":
         from .kml import write_launchpads_kml
         print(f"KML: {write_launchpads_kml(s.launchpads,a.out)}"); return

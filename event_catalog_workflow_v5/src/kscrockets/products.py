@@ -1,20 +1,20 @@
-"""Per-event processing results: kept as CSV in git, loaded into the sqlite catalog.
+"""Per-event processing results: tables outside git, loaded into the sqlite catalog.
 
-The waveform files and plots are large and live outside git (``--out-root``, an external volume);
-everything needed to query and publish them is small and lives here, in ``data/products/``:
+Everything a run writes goes under ``[products] out_root`` (``~/work/KSC_event_catalog``), not into
+the repository: the waveforms and plots per event, and these tables in ``<out_root>/tables/``:
 
 =========================  ================================================================
 ``processing_runs.csv``    one row per run: run id, code versions, parameters, output root
-``event_processing.csv``   one row per event and run: status, error, data source, channel counts
+``event_processing.csv``   one row per event: status, error, data source, channel counts
 ``measurements.csv``       long table: event x channel x metric (peak, SNR, energy, duration ...)
 ``onsets.csv``             STA/LTA onset per event and channel, with origin-time estimate
 ``event_products.csv``     files written per event (miniSEED, plots, manifest) and their paths
-``event_links.csv``        external links per event (webcasts, weather, regional data); later
 =========================  ================================================================
 
-Detected origin times go to ``data/curated/detected_times.csv`` (keyed by ``event_id``), which
-the catalog reads into ``events.detected_time_utc`` — only those that are source times at the pad
-(``ksclib.event_products.catalog_usable``); all detections are in ``event_processing``.
+Two small inputs of the catalog stay in git, in ``data/curated/``: ``detected_times.csv``
+(detected origin times, read into ``events.detected_time_utc`` — only those that are source times
+at the pad, ``ksclib.event_products.catalog_usable``; all detections are in ``event_processing``)
+and ``event_links.csv`` (external links per event: webcasts, weather, regional data).
 
 Rows from a newer run replace the rows of older runs for the same event, so re-processing an
 event (e.g. after a StationXML fix) never leaves stale metrics behind. ``data_source`` says where
@@ -35,8 +35,9 @@ PRODUCT_TABLES = {
     "measurements": "measurements.csv",
     "onsets": "onsets.csv",
     "event_products": "event_products.csv",
-    "event_links": "event_links.csv",
 }
+DETECTED_CSV = "data/curated/detected_times.csv"
+LINKS_CSV = "data/curated/event_links.csv"
 LINK_COLUMNS = ["event_id", "link_type", "url", "title", "source", "retrieved_utc", "notes"]
 DETECTED_COLUMNS = ["event_id", "detected_time_utc", "detected_time_method", "offset_from_catalog_s",
                     "mad_s", "n_stations", "n_channels", "n_channels_disagree", "nearest_km", "run_id"]
@@ -71,9 +72,14 @@ def _upsert(path: Path, new: pd.DataFrame, keys=("event_id",)) -> pd.DataFrame:
     return new
 
 
-def save_results(root: Path, run: dict, results: list) -> dict:
-    """Write one run's results (ksclib.event_products.EventResult list) to data/products/."""
-    d = Path(root) / "data/products"
+def tables_dir(out_root) -> Path:
+    return Path(out_root).expanduser() / "tables"
+
+
+def save_results(root: Path, tables: Path, run: dict, results: list) -> dict:
+    """Write one run's results (ksclib.event_products.EventResult list) to `tables`; detected
+    origin times to <root>/data/curated/detected_times.csv."""
+    d = Path(tables)
     d.mkdir(parents=True, exist_ok=True)
     _upsert(d / "processing_runs.csv", pd.DataFrame([{**run, "params": json.dumps(run.get("params", {}), default=str)}]),
             keys=("run_id",))
@@ -106,8 +112,6 @@ def save_results(root: Path, run: dict, results: list) -> dict:
                 old = old[~old.event_id.isin(done.event_id)]
             df = pd.concat([old, df.astype(str)], ignore_index=True) if len(df) else old
         df.to_csv(path, index=False)
-    if not (d / "event_links.csv").exists():
-        pd.DataFrame(columns=LINK_COLUMNS).to_csv(d / "event_links.csv", index=False)
     det = pd.DataFrame([dict(event_id=r.event_id, detected_time_utc=r.detected["detected_time_utc"],
                              detected_time_method=r.detected["method"],
                              offset_from_catalog_s=round(r.detected["offset_s"], 3),
@@ -118,7 +122,7 @@ def save_results(root: Path, run: dict, results: list) -> dict:
                              run_id=run["run_id"]) for r in ok if r.detected and r.detected.get("catalog_usable", True)],
                        columns=DETECTED_COLUMNS)
     # events with no detection lose an older detected time from an earlier run
-    detp = Path(root) / "data/curated/detected_times.csv"
+    detp = Path(root) / DETECTED_CSV
     if detp.exists() and len(done):
         old = _read(detp)
         if "event_id" in old:
@@ -129,13 +133,14 @@ def save_results(root: Path, run: dict, results: list) -> dict:
                 detected=int(sum(bool(r.detected) for r in ok)))
 
 
-def load_products(root: Path, db_path: Path) -> list[str]:
-    """(Re)load data/products/*.csv into the sqlite catalog; returns the tables loaded."""
-    d = Path(root) / "data/products"
+def load_products(root: Path, tables: Path | None, db_path: Path) -> list[str]:
+    """(Re)load the run tables in `tables` (skipped if None or missing) and
+    <root>/data/curated/event_links.csv into the sqlite catalog; returns the tables loaded."""
+    paths = {t: Path(tables) / n for t, n in PRODUCT_TABLES.items()} if tables else {}
+    paths["event_links"] = Path(root) / LINKS_CSV
     loaded = []
     with sqlite3.connect(db_path) as con:
-        for table, name in PRODUCT_TABLES.items():
-            p = d / name
+        for table, p in paths.items():
             if not p.exists():
                 continue
             df = _read(p)

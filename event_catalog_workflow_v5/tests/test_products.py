@@ -26,15 +26,17 @@ def _res(eid, peak, detected=True):
 
 def test_rerun_replaces_rows_and_loads_sqlite(tmp_path):
     (tmp_path / "data/curated").mkdir(parents=True)
-    save_results(tmp_path, dict(run_id="r1"), [_res("e1", 1.0), _res("e2", 2.0)])
-    save_results(tmp_path, dict(run_id="r2"), [_res("e1", 5.0, detected=False), R("e3", status="no_data")])
-    m = pd.read_csv(tmp_path / "data/products/measurements.csv")
+    t = tmp_path / "out/tables"
+    save_results(tmp_path, t, dict(run_id="r1"), [_res("e1", 1.0), _res("e2", 2.0)])
+    save_results(tmp_path, t, dict(run_id="r2"), [_res("e1", 5.0, detected=False), R("e3", status="no_data")])
+    m = pd.read_csv(t / "measurements.csv")
     assert sorted(zip(m.event_id, m.value)) == [("e1", 5.0), ("e2", 2.0)]
     det = pd.read_csv(tmp_path / "data/curated/detected_times.csv")
     assert list(det.event_id) == ["e2"]                       # e1 lost its old detection
-    st = pd.read_csv(tmp_path / "data/products/event_processing.csv")
+    st = pd.read_csv(t / "event_processing.csv")
     assert set(zip(st.event_id, st.run_id)) == {("e1", "r2"), ("e2", "r1"), ("e3", "r2")}
     db = tmp_path / "x.sqlite"
-    assert "measurements" in load_products(tmp_path, db)
+    assert not (tmp_path / "data/products").exists()          # nothing written into the repo
+    assert "measurements" in load_products(tmp_path, t, db)
     with sqlite3.connect(db) as con:
         assert con.execute("select value from measurements where event_id='e1'").fetchone()[0] == 5.0
