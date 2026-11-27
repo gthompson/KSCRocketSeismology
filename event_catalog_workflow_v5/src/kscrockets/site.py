@@ -201,6 +201,76 @@ def _rel(path, start) -> str:
     return os.path.relpath(Path(path).expanduser(), start).replace(os.sep, "/")
 
 
+DATA_FILES = ("raw_counts_mseed", "corrected_mseed", "manifest")
+
+
+class LocalLinks:
+    """Links for the site next to the products (<out_root>/site): plots and files by relative path."""
+    web = False
+
+    def __init__(self, site: Path):
+        self.edir = Path(site) / "events"
+
+    def image(self, path, event_id) -> str:
+        return _rel(path, self.edir)
+
+    def data(self, path, product_type, event_id, year) -> tuple[str, str] | None:
+        """(href, note) for a data file, None if it is not online."""
+        return _rel(path, self.edir), ""
+
+
+class WebLinks(LocalLinks):
+    """Links for a self-contained copy to publish (GitHub Pages): plots converted to WebP inside the
+    site (<site>/plots/<event_id>/), waveform files linked to an external archive (Zenodo, Box) by
+    `urls` (key = event_id or year -> URL of the file or archive that holds them)."""
+    web = True
+
+    def __init__(self, site: Path, urls: dict | None = None, width: int = 1100, quality: int = 80):
+        super().__init__(site)
+        self.site, self.urls, self.width, self.quality = Path(site), urls or {}, width, quality
+
+    def image(self, path, event_id) -> str:
+        src = Path(path).expanduser()
+        out = self.site / "plots" / event_id / (src.stem + ".webp")
+        if src.exists() and (not out.exists() or out.stat().st_mtime < src.stat().st_mtime):
+            from PIL import Image
+            out.parent.mkdir(parents=True, exist_ok=True)
+            im = Image.open(src).convert("RGB")
+            if im.width > self.width:
+                im = im.resize((self.width, round(im.height * self.width / im.width)), Image.LANCZOS)
+            im.save(out, "WEBP", quality=self.quality, method=6)
+        return _rel(out, self.edir)
+
+    def data(self, path, product_type, event_id, year):
+        u = self.urls.get(event_id) or self.urls.get(str(year))
+        if not u:
+            return None
+        if isinstance(u, str):
+            u = dict(url=u, access="open", record_url="")
+        inner = f"{event_id}/{Path(path).name}"
+        note = f"in the archive: <code>{escape(inner)}</code>" if u["url"].split("?")[0].endswith(".zip") else ""
+        if u["access"] == "restricted":
+            rec = u["record_url"] or u["url"]
+            note += (f" · restricted access: <a href='{escape(rec)}'>request access on Zenodo</a> "
+                     "(collaborators)")
+        return u["url"], note
+
+
+def read_waveform_urls(path) -> dict:
+    """data/curated/waveform_urls.csv (key, url[, notes, access, record_url]): key is an event_id or a
+    year; access "restricted" marks files that need permission (link to the record to request it)."""
+    p = Path(path)
+    if not p.exists():
+        return {}
+    t = pd.read_csv(p, dtype=str, keep_default_na=False)
+    out = {}
+    for r in t.to_dict("records"):
+        if r.get("key", "").strip() and r.get("url", "").strip():
+            out[r["key"].strip()] = dict(url=r["url"].strip(), access=r.get("access", "").strip() or "open",
+                                         record_url=r.get("record_url", "").strip())
+    return out
+
+
 # ---------------------------------------------------------------------------------------------
 # index page
 
@@ -340,9 +410,11 @@ def _detected_block(p) -> str:
                 ("Status", verdict)])
 
 
-def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id) -> Path:
+def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id, links: LocalLinks | None = None) -> Path:
     eid = e.event_id
     edir = site / "events"
+    lk = links or LocalLinks(site)
+    year = str(e.event_time_utc)[:4]
     a = d["avail"][d["avail"].event_id == eid]
     p = d["proc"][d["proc"].event_id == eid]
     p = p.iloc[0] if len(p) else None
@@ -391,7 +463,7 @@ def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id) -> Path
         plots = {r.product_type: r.path for r in prods.itertuples() if r.product_type.startswith("record_section")}
         if plots:
             parts.append("<h3>Record sections</h3><div class='plots'>" + "".join(
-                f"<figure><a href='{_rel(v, edir)}'><img loading='lazy' src='{_rel(v, edir)}' alt='{k}'></a>"
+                f"<figure><a href='{lk.image(v, eid)}'><img loading='lazy' src='{lk.image(v, eid)}' alt='{k}'></a>"
                 f"<figcaption>{'Pressure' if 'pressure' in k else 'Seismic vertical'}</figcaption></figure>"
                 for k, v in sorted(plots.items())) + "</div>")
         if len(meas):
@@ -404,12 +476,20 @@ def build_event_page(e, d, site: Path, out_root: Path, prev_id, next_id) -> Path
         if len(st):
             st = st.assign(dist=st.station.map(meas.groupby("station").distance_km.first().astype(float) if len(meas) else {})).sort_values("dist")
             parts.append("<h3>Stations: waveform and spectrogram</h3><div class='plots stations'>" + "".join(
-                f"<figure id='sta-{_t(r.station)}'><a href='{_rel(r.path, edir)}'><img loading='lazy' src='{_rel(r.path, edir)}' alt='{_t(r.station)}'></a>"
+                f"<figure id='sta-{_t(r.station)}'><a href='{lk.image(r.path, eid)}'><img loading='lazy' src='{lk.image(r.path, eid)}' alt='{_t(r.station)}'></a>"
                 f"<figcaption>{_t(r.station)}{_num(r.dist, ' · {:.1f} km')}</figcaption></figure>" for r in st.itertuples()) + "</div>")
-        files = prods[prods.product_type.isin(["raw_counts_mseed", "corrected_mseed", "manifest"])]
+        files = prods[prods.product_type.isin(DATA_FILES)]
         if len(files):
-            parts.append("<h3>Files</h3><ul>" + "".join(f"<li><a href='{_rel(r.path, edir)}'>{_t(Path(r.path).name)}</a> ({_t(r.product_type)})</li>"
-                                                     for r in files.itertuples()) + "</ul>")
+            items = []
+            for r in files.itertuples():
+                got = lk.data(r.path, r.product_type, eid, year)
+                name = _t(Path(r.path).name)
+                if got is None:
+                    items.append(f"<li>{name} ({_t(r.product_type)}) <span class='muted'>— not online yet</span></li>")
+                else:
+                    href, note = got
+                    items.append(f"<li><a href='{_t(href)}'>{name}</a> ({_t(r.product_type)}) <span class='muted small'>{note}</span></li>")
+            parts.append("<h3>Files</h3><ul>" + "".join(items) + "</ul>")
     parts.append("<h2>Links</h2>")
     if len(links):
         parts.append("<ul>" + "".join(f"<li><a href='{_t(r.url)}'>{_t(r.title) or _t(r.url)}</a> <span class='muted'>{_t(r.link_type)}</span></li>"
@@ -429,14 +509,21 @@ def _page(title, body, css, js=None, head="") -> str:
             + (f"<script src='{js}'></script>" if js else "") + "</body></html>")
 
 
-def build_site(db_path, out_root, site_dir=None, title="KSC Rocket Seismology Event Catalog", subtitle="", event_ids=None) -> Path:
-    """Write <out_root>/site/: index of all events, and a page per event (`event_ids` limits the event pages)."""
+def build_site(db_path, out_root, site_dir=None, title="KSC Rocket Seismology Event Catalog", subtitle="", event_ids=None,
+               web: bool = False, waveform_urls: dict | None = None) -> Path:
+    """Write <out_root>/site/ (or `site_dir`): index of all events, and a page per event (`event_ids`
+    limits the event pages). `web=True` makes a self-contained copy to publish (GitHub Pages,
+    default <out_root>/site_web): plots as WebP inside it, waveform files linked through
+    `waveform_urls` (read_waveform_urls) instead of by path."""
     out_root = Path(out_root).expanduser()
-    site = Path(site_dir).expanduser() if site_dir else out_root / "site"
+    site = Path(site_dir).expanduser() if site_dir else out_root / ("site_web" if web else "site")
     (site / "events").mkdir(parents=True, exist_ok=True)
     (site / "assets").mkdir(exist_ok=True)
     for name in ("style.css", "app.js"):
         (site / "assets" / name).write_text((Path(__file__).parent / "site_assets" / name).read_text())
+    links = WebLinks(site, waveform_urls) if web else LocalLinks(site)
+    if web:
+        (site / ".nojekyll").write_text("")          # GitHub Pages: serve files as they are
     d = load_site_data(db_path)
     summ = event_summary(d["meas"])
     index = build_index(d, site, title, subtitle, summ)
@@ -445,5 +532,5 @@ def build_site(db_path, out_root, site_dir=None, title="KSC Rocket Seismology Ev
     want = set(event_ids) if event_ids else set(ids)
     for i, e in enumerate(ev.itertuples()):
         if e.event_id in want:
-            build_event_page(e, d, site, out_root, ids[i - 1] if i else None, ids[i + 1] if i + 1 < len(ids) else None)
+            build_event_page(e, d, site, out_root, ids[i - 1] if i else None, ids[i + 1] if i + 1 < len(ids) else None, links)
     return index

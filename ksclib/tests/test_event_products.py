@@ -89,3 +89,17 @@ def test_detected_origin_strong_pick_beats_colocated_noise():
     on.loc[0:1, "max_ratio"] = 27                 # rival nearly as strong: one station is ambiguous
     d = ep.detected_origin(on)
     assert not ep.catalog_usable("static_fire", d)[0]
+
+
+def test_unlocated_event_never_feeds_the_catalog(monkeypatch):
+    """Events without pad coordinates use the reference site; their detections are never used."""
+    from ksclib import catalog_events as ce
+    calls = {}
+
+    def fake_from_row(row, ens, unlocated_site=None, **kw):
+        calls["site"] = unlocated_site
+        raise RuntimeError("stop after the location step")
+    monkeypatch.setattr(ce, "event_from_row", fake_from_row)
+    r = ep.process_event(dict(event_id="ksc-x", event_type="suborbital_launch", pad="ETR",
+                              event_time_utc="2020-01-01T00:00:00Z"), ens=None, out_root="/tmp", run_id="t")
+    assert calls["site"] == ep.REFERENCE_SITE and r.status == "error"

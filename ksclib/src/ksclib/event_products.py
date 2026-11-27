@@ -58,6 +58,10 @@ PAD_SOURCE_TYPES = {"orbital_launch", "launch", "launch_failure", "pad_explosion
 MOVING_SOURCE_TYPES = {"orbital_launch", "launch", "launch_failure", "aborted_launch", "suborbital_launch"}
 AMBIGUOUS_RIVAL = 0.8   # one-station detections with a rival arrival this strong are not used
 MAX_NEAREST_KM = 5.0     # farther, a launch's first clear arrival comes from the rising vehicle
+# Events with no source coordinates (Trident off the Cape, Pegasus air launches, reentry booms,
+# bolides): distances and record sections are from this nominal point between the Cape and KSC,
+# and their detected times are never used as source times.
+REFERENCE_SITE = (28.55, -80.62)
 
 
 def catalog_usable(event_type, det: dict) -> tuple[bool, str]:
@@ -391,7 +395,11 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
     eid = str(row["event_id"])
     res = EventResult(event_id=eid)
     try:
-        ev = ce.event_from_row(row, ens)
+        ev = ce.event_from_row(row, ens, unlocated_site=REFERENCE_SITE)
+        unlocated = ev.raw.get("source_location") == "reference"
+        if unlocated:
+            res.warnings.append(f"no coordinates for pad {row.get('pad')!r}: distances are from the reference point "
+                                f"{REFERENCE_SITE[0]:.2f}N {abs(REFERENCE_SITE[1]):.2f}W, not from the source")
         t0 = ev.origin_time
         res.data_source = _data_source(ev)
         stations = ce.station_table(ev)
@@ -400,7 +408,7 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
             raw = ce.read_raw(ev, starttime=t0 - p["read_before"], endtime=t0 + p["read_after"])
             clips = ce.clip_intervals(raw, ev)
             st = ce.correct(raw, ev)
-        res.warnings = sorted({str(x.message)[:200] for x in w})
+        res.warnings = res.warnings + sorted({str(x.message)[:200] for x in w})
         for tr in st:                      # centaur-era correction does not label units
             if not tr.stats.get("units"):
                 u = ce.channel_units(ev, tr)
@@ -464,6 +472,8 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
         if det:
             det["detected_time_utc"] = str(t0 + det["offset_s"])
             det["catalog_usable"], det["not_usable_reason"] = catalog_usable(row.get("event_type"), det)
+            if unlocated:
+                det["catalog_usable"], det["not_usable_reason"] = False, "source location unknown (distances from a reference point)"
         res.detected = det
 
         if write_waveforms:

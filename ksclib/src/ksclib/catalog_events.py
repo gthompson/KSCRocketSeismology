@@ -223,17 +223,27 @@ def event_kind(event_type) -> str:
 # ---------------------------------------------------------------------------
 # Row -> Event
 # ---------------------------------------------------------------------------
-def event_from_row(row, ens: Ensemble, **overrides) -> Event:
+def event_from_row(row, ens: Ensemble, unlocated_site: tuple[float, float] | None = None, **overrides) -> Event:
     """Build a :class:`ksclib.Event` from a launch-catalog row (dict or pandas Series).
 
     Uses ``event_id``, ``event_time_utc``, ``pad``, ``name`` (or ``mission``) and ``event_type``.
     The network era is chosen from the origin time. Keyword ``overrides`` replace Event fields
     (e.g. ``restored=...`` or ``launch_azimuth_deg=...``). Catalog fields and the era name are kept
     in ``Event.raw``.
+
+    Events with no pad coordinates (offshore Trident launches, air launches, reentry booms) raise
+    KeyError, unless ``unlocated_site`` = (lat, lon) is given: that reference point is used for
+    distances, and ``Event.raw["source_location"]`` is "reference" (else "pad").
     """
     t0 = UTCDateTime(str(_get(row, "event_time_utc")))
     era = ens.era_for(t0)
-    lat, lon = pad_location(ens, _get(row, "pad"))
+    located = "pad"
+    try:
+        lat, lon = pad_location(ens, _get(row, "pad"))
+    except KeyError:
+        if unlocated_site is None:
+            raise
+        (lat, lon), located = unlocated_site, "reference"
     event_id = str(_get(row, "event_id", f"ksc-{t0.strftime('%Y%m%dT%H%M%S')}"))
     name = str(_get(row, "name") or _get(row, "mission") or event_id)
     w = ens.window
@@ -246,7 +256,7 @@ def event_from_row(row, ens: Ensemble, **overrides) -> Event:
         out_dir=ens.out_dir / event_id, channel_groups=dict(era.channel_groups),
         raw={"catalog_row": {k: (str(v) if v is not None else None) for k, v in dict(row).items()},
              "era": era.name, "era_kind": era.kind, "event_id": event_id,
-             "gem_channel_prefix": era.gem_channel_prefix},
+             "gem_channel_prefix": era.gem_channel_prefix, "source_location": located},
         yaml_path=ens.yaml_path,
         seed_band_codes=era.kind == "stationxml" or era.seed_band_codes,
     )
