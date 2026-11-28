@@ -42,7 +42,8 @@ correctly D and must not change. Gem (`HD?`/`HDF`), Certimus, Silicon Audio and 
     The 202609 `day2` folder on classdata is empty; the tachyon copy has all three days.
 * **KSC.xml B23 epoch** is now 2026-01-10 21:42 – 09-24 19:32 (commit 76cb9b8). The Kelunji ran as "MTEGL" before that,
   off site, and those minutes are excluded. It was not part of the January huddle. B23 records launches throughout.
-  It has no data 2026-04-05 to 06-12, and no source for that span was found.
+  Data for 2026-04-05 to 06-12 were downloaded by the Marshall team around 06-12 and never shared; the epoch
+  runs through the gap, since the metadata are assumed unchanged.
 * **FL network data left out (Glenn, 2026-11-27):** S37A1 (2022-05-24..09-26), RB383 (2021–22) and S39A3 on 2022-05-24.
   None records any launch: S37A1 is digitizer self-noise only (its sensors went to repair S39A1), and the S39A3 day is
   a 2.5 h service visit. Don't add them. If FL data are ever added, they become network 1R.
@@ -82,4 +83,4 @@ reads only.
 * XX.9BC5 2019-100 differs from BHP7.10 2019-100 over ~47,500 samples: needs a manual look.
 * MTEGL has a 25 h gap (2022-11-19 08:00 to 11-20 09:00). The level jumps across it, so it's a real break. Glenn may find the raw minute files.
 * B23 `CL?` vs `CN?`; what changed at the 2026-09-22 service; whether the L-22s had damping shunts.
-* B23 2026-04-05..06-12 gap: no files found in any copy.
+* B23 2026-04-05..06-12: data held by the Marshall team (Paul, Aiden), not yet shared.

@@ -596,8 +596,10 @@ def rows_2026():
                                    "Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 "
                                    "2026-06-12 - 09-24 19:31): every settings.ss in that span has serial "
                                    "02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded "
-                                   "throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data "
-                                   "2026-04-05 - 06-12. Before 21:42 on 01-10 the unit ran as XA.MTEGL "
+                                   "throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data in hand "
+                                   "for 2026-04-05 - 06-12: the Marshall team (Paul, Aiden) downloaded the "
+                                   "station around 06-12 and has not shared it (Glenn, 2026-11-28); the "
+                                   "metadata are assumed unchanged across the gap. Before 21:42 on 01-10 the unit ran as XA.MTEGL "
                                    "(800 sps, gain x1): off site, not included"),
                          notes=("settings.ss names the sensor 'LE-3Dlite MKII' (400 V/(m/s)), but the output is "
                                 "proportional to acceleration, so that preset is wrong; GPS from the recorder "

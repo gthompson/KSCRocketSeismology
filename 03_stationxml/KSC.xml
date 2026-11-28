@@ -3,7 +3,7 @@
   <Source>build_ksc_stationxml.py (ksc_stations_master_v3.xlsx)</Source>
   <Module>ObsPy 1.5.1</Module>
   <ModuleURI>https://www.obspy.org</ModuleURI>
-  <Created>2026-11-27T20:33:28.898278Z</Created>
+  <Created>2026-11-28T13:23:52.920006Z</Created>
   <Network code="1R">
     <Description>USF / KSC rocket seismo-acoustic network</Description>
     <Station code="B01" startDate="2026-01-08T00:00:00.000000Z" endDate="2026-08-20T00:00:00.000000Z">
@@ -242558,7 +242558,7 @@
           <Value>change: added (2026)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, network DG, location 01, serial 02000160; calibrated against the B23 SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 2026-06-12 - 09-24 19:31): every settings.ss in that span has serial 02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data 2026-04-05 - 06-12. Before 21:42 on 01-10 the unit ran as XA.MTEGL (800 sps, gain x1): off site, not included</Value>
+          <Value>evidence: settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, network DG, location 01, serial 02000160; calibrated against the B23 SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 2026-06-12 - 09-24 19:31): every settings.ss in that span has serial 02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data in hand for 2026-04-05 - 06-12: the Marshall team (Paul, Aiden) downloaded the station around 06-12 and has not shared it (Glenn, 2026-11-28); the metadata are assumed unchanged across the gap. Before 21:42 on 01-10 the unit ran as XA.MTEGL (800 sps, gain x1): off site, not included</Value>
         </Comment>
         <Comment>
           <Value>notes: settings.ss names the sensor 'LE-3Dlite MKII' (400 V/(m/s)), but the output is proportional to acceleration, so that preset is wrong; GPS from the recorder histogram. CLE is poorly coherent with the SmartSolo (orientation unknown)</Value>
@@ -242644,7 +242644,7 @@
           <Value>change: added (2026)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, network DG, location 01, serial 02000160; calibrated against the B23 SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 2026-06-12 - 09-24 19:31): every settings.ss in that span has serial 02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data 2026-04-05 - 06-12. Before 21:42 on 01-10 the unit ran as XA.MTEGL (800 sps, gain x1): off site, not included</Value>
+          <Value>evidence: settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, network DG, location 01, serial 02000160; calibrated against the B23 SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 2026-06-12 - 09-24 19:31): every settings.ss in that span has serial 02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data in hand for 2026-04-05 - 06-12: the Marshall team (Paul, Aiden) downloaded the station around 06-12 and has not shared it (Glenn, 2026-11-28); the metadata are assumed unchanged across the gap. Before 21:42 on 01-10 the unit ran as XA.MTEGL (800 sps, gain x1): off site, not included</Value>
         </Comment>
         <Comment>
           <Value>notes: settings.ss names the sensor 'LE-3Dlite MKII' (400 V/(m/s)), but the output is proportional to acceleration, so that preset is wrong; GPS from the recorder histogram. CLE is poorly coherent with the SmartSolo (orientation unknown)</Value>
@@ -242730,7 +242730,7 @@
           <Value>change: added (2026)</Value>
         </Comment>
         <Comment>
-          <Value>evidence: settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, network DG, location 01, serial 02000160; calibrated against the B23 SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 2026-06-12 - 09-24 19:31): every settings.ss in that span has serial 02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data 2026-04-05 - 06-12. Before 21:42 on 01-10 the unit ran as XA.MTEGL (800 sps, gain x1): off site, not included</Value>
+          <Value>evidence: settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, network DG, location 01, serial 02000160; calibrated against the B23 SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 2026-06-12 - 09-24 19:31): every settings.ss in that span has serial 02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data in hand for 2026-04-05 - 06-12: the Marshall team (Paul, Aiden) downloaded the station around 06-12 and has not shared it (Glenn, 2026-11-28); the metadata are assumed unchanged across the gap. Before 21:42 on 01-10 the unit ran as XA.MTEGL (800 sps, gain x1): off site, not included</Value>
         </Comment>
         <Comment>
           <Value>notes: settings.ss names the sensor 'LE-3Dlite MKII' (400 V/(m/s)), but the output is proportional to acceleration, so that preset is wrong; GPS from the recorder histogram. CLE is poorly coherent with the SmartSolo (orientation unknown)</Value>
