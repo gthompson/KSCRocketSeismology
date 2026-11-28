@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ksc-event-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765", "--bind", "127.0.0.1", "--directory", "/Users/glennthompson/work/KSC_event_catalog"],
+      "port": 8765
+    }
+  ]
+}
