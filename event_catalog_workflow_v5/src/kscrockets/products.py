@@ -99,12 +99,14 @@ def save_results(root: Path, tables: Path, run: dict, results: list) -> dict:
                                 warnings=" | ".join(r.warnings)[:2000]) for r in results])
     _upsert(d / "event_processing.csv", status)
     ok = [r for r in results if r.status == "ok"]
-    done = pd.DataFrame({"event_id": [r.event_id for r in ok]})
+    # not_corrected events still write raw counts and a manifest; their rows replace older ones too
+    kept = [r for r in results if r.status in ("ok", "not_corrected")]
+    done = pd.DataFrame({"event_id": [r.event_id for r in kept]})
     cat = lambda frames: pd.concat([f for f in frames if len(f)], ignore_index=True) if any(len(f) for f in frames) else pd.DataFrame()  # noqa: E731
     meas = cat([r.metrics for r in ok])
     ons = cat([r.onsets for r in ok])
     prods = cat([pd.DataFrame(r.products).assign(event_id=r.event_id, run_id=run["run_id"],
-                                                 data_source=r.data_source) for r in ok if r.products])
+                                                 data_source=r.data_source) for r in kept if r.products])
     # events processed OK replace all their earlier rows, even if this run produced none
     for name, df in (("measurements.csv", meas), ("onsets.csv", ons), ("event_products.csv", prods)):
         path = d / name

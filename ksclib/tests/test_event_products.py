@@ -103,3 +103,26 @@ def test_unlocated_event_never_feeds_the_catalog(monkeypatch):
     r = ep.process_event(dict(event_id="ksc-x", event_type="suborbital_launch", pad="ETR",
                               event_time_utc="2020-01-01T00:00:00Z"), ens=None, out_root="/tmp", run_id="t")
     assert calls["site"] == ep.REFERENCE_SITE and r.status == "error"
+
+
+def test_raw_counts_kept_when_correction_fails(monkeypatch, tmp_path):
+    """No responses (or too little data to correct): raw counts, stations and manifest are still written."""
+    import json
+    from obspy import Stream
+    from ksclib import catalog_events as ce
+
+    class Ev:
+        origin_time = T0; raw = {"era": "test"}; paths = {}; site_name = "LC40"; master_sds = "x"
+    raw = Stream([_trace(length=60.0, units="")])
+    raw[0].data = (raw[0].data * 100).astype(np.int32)
+    monkeypatch.setattr(ce, "event_from_row", lambda row, ens, unlocated_site=None, **kw: Ev())
+    monkeypatch.setattr(ce, "station_table", lambda ev: pd.DataFrame(dict(distance_km=[1.0]), index=["S1"]))
+    monkeypatch.setattr(ce, "read_raw", lambda ev, starttime, endtime: raw)
+    monkeypatch.setattr(ce, "clip_intervals", lambda st, ev: {})
+    monkeypatch.setattr(ce, "correct", lambda st, ev: Stream())
+    r = ep.process_event(dict(event_id="ksc-y", event_type="orbital_launch", pad="LC40"), ens=None,
+                         out_root=tmp_path, run_id="t")
+    out = tmp_path / str(T0.year) / "ksc-y"
+    assert r.status == "not_corrected" and (out / "raw_counts.mseed").exists() and (out / "stations.csv").exists()
+    m = json.loads((out / "manifest.json").read_text())
+    assert m["status"] == "not_corrected" and m["raw_extent"]["1R.S1.00.HDF"]["npts"] == 6000

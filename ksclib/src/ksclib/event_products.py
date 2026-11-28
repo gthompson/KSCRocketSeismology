@@ -388,6 +388,34 @@ def detected_origin(onsets: pd.DataFrame, min_ratio=8.0, c=SOUND_SPEED, agree_s=
     return {}
 
 
+def _write_raw_counts(raw, path):
+    """Raw counts: integer, Steim2-compressed, whole read window (reprocessable after response fixes)."""
+    raw2 = raw.copy().split()
+    for tr in raw2:
+        tr.data = np.asarray(tr.data).astype(np.int32)
+    raw2.write(str(path), format="MSEED", encoding="STEIM2")
+
+
+def _extent(st) -> dict:
+    """Time span and sample count actually read, per channel (shows partial or near-empty windows)."""
+    out = {}
+    for tr in st:
+        a = out.setdefault(tr.id, dict(start=tr.stats.starttime, end=tr.stats.endtime, npts=0))
+        a["start"], a["end"] = min(a["start"], tr.stats.starttime), max(a["end"], tr.stats.endtime)
+        a["npts"] += int(tr.stats.npts)
+    return {k: dict(start=str(v["start"]), end=str(v["end"]), npts=v["npts"]) for k, v in out.items()}
+
+
+def _write_manifest(res, out, eid, run_id, t0, ev, p, det, **extra):
+    manifest = dict(event_id=eid, run_id=run_id, products_version=PRODUCTS_VERSION,
+                    catalog_time=str(t0), era=ev.raw.get("era"), data_source=res.data_source,
+                    stationxml=str(ev.paths.get("stationxml", "")), params=p, detected=det,
+                    n_raw=res.n_raw, n_corrected=res.n_corrected, warnings=res.warnings,
+                    created_utc=str(UTCDateTime()), **extra)
+    (out / "manifest.json").write_text(json.dumps(manifest, indent=1, default=str))
+    res.products.append(dict(product_type="manifest", path=str(out / "manifest.json")))
+
+
 def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
                   write_waveforms=True, plots=True) -> EventResult:
     """Read, correct, measure, detect and plot one catalog event. Failures are returned, not raised."""
@@ -415,10 +443,19 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
                 if u in ("Pa", "m/s"):
                     tr.stats.units = u
         res.n_raw, res.n_corrected = len(raw), len(st)
+        out = Path(out_root) / f"{t0.year}" / eid
         if not len(st):
             res.status = "no_data" if not len(raw) else "not_corrected"
+            if len(raw):
+                # keep what was recorded: raw counts do not depend on the responses, so they can be
+                # reprocessed (or inspected) once the metadata or the data are fixed
+                out.mkdir(parents=True, exist_ok=True)
+                if write_waveforms:
+                    _write_raw_counts(raw, out / "raw_counts.mseed")
+                    res.products.append(dict(product_type="raw_counts_mseed", path=str(out / "raw_counts.mseed")))
+                stations.to_csv(out / "stations.csv")
+                _write_manifest(res, out, eid, run_id, t0, ev, p, {}, status=res.status, raw_extent=_extent(raw))
             return res
-        out = Path(out_root) / f"{t0.year}" / eid
         (out / "plots").mkdir(parents=True, exist_ok=True)
         signal = tuple(p["signal"]); noise = (signal[0] - p["noise_length"], signal[0])
         title = f"{row.get('name', '')} | {row.get('event_type', '')} | {ev.site_name} | {t0}"
@@ -479,10 +516,7 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
         if write_waveforms:
             # raw counts: integer, Steim2-compressed, whole read window (reprocessable after
             # response fixes); corrected: float32, noise + signal window only (for download/plots)
-            raw2 = raw.copy().split()
-            for tr in raw2:
-                tr.data = np.asarray(tr.data).astype(np.int32)
-            raw2.write(str(out / "raw_counts.mseed"), format="MSEED", encoding="STEIM2")
+            _write_raw_counts(raw, out / "raw_counts.mseed")
             cor = st.copy().trim(t0 + noise[0] - 30, t0 + max(signal[1], p["plot_window"][1]) + 30)
             for tr in cor:
                 tr.data = np.ma.filled(tr.data, 0).astype(np.float32) if np.ma.isMaskedArray(tr.data) \
@@ -506,13 +540,7 @@ def process_event(row, ens, out_root, run_id: str, params: dict | None = None,
                                  window=p["plot_window"])
                 if f:
                     res.products.append(dict(product_type="station_waveform_spectrogram", path=str(f), station=sta))
-        manifest = dict(event_id=eid, run_id=run_id, products_version=PRODUCTS_VERSION,
-                        catalog_time=str(t0), era=ev.raw.get("era"), data_source=res.data_source,
-                        stationxml=str(ev.paths.get("stationxml", "")), params=p, detected=det,
-                        n_raw=res.n_raw, n_corrected=res.n_corrected, warnings=res.warnings,
-                        created_utc=str(UTCDateTime()))
-        (out / "manifest.json").write_text(json.dumps(manifest, indent=1, default=str))
-        res.products.append(dict(product_type="manifest", path=str(out / "manifest.json")))
+        _write_manifest(res, out, eid, run_id, t0, ev, p, det, status="ok")
     except Exception as exc:
         res.status, res.error = "error", f"{type(exc).__name__}: {exc}"
     return res
