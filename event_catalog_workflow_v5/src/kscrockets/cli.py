@@ -184,8 +184,16 @@ def _process(s, a):
             ids+=[r[0] for r in con.execute("select event_id from event_waveform_availability where n_stations>0")]
     missing=[e for e in ids if e not in set(cat.event_id)]
     if missing: raise SystemExit(f"process: not in catalog: {' '.join(missing)}")
-    sel=cat[cat.event_id.isin(ids)]
     out_root=Path(a.out_root or pc["out_root"]).expanduser()
+    if a.only_new:                      # skip events already processed OK (any run)
+        ep_csv=tables_dir(out_root)/"event_processing.csv"
+        if ep_csv.exists():
+            done=set(pd.read_csv(ep_csv,dtype=str).query("status=='ok'").event_id)
+            print(f"process --only-new: skipping {len(set(ids)&done)} events already processed OK")
+            ids=[e for e in ids if e not in done]
+    sel=cat[cat.event_id.isin(ids)]
+    if sel.empty:
+        print("process: no events to process"); return 0
     real=out_root.resolve()             # follow links such as ~/work -> /Volumes/<drive>
     if not a.allow_any_out_root and str(real).startswith("/Volumes/"):
         vol=Path("/Volumes")/real.relative_to("/Volumes").parts[0]
@@ -337,6 +345,7 @@ def main(argv=None):
     pr=sp.add_parser("process",help="Per-event waveforms, plots, spectrograms, metrics and STA/LTA onsets")
     pr.add_argument("--event-id",action="append"); pr.add_argument("--events-file",help="one event_id per line (# comments)")
     pr.add_argument("--all-with-data",action="store_true",help="every event with archive data (availability table)")
+    pr.add_argument("--only-new",action="store_true",help="skip events whose latest status is ok (e.g. after extending the catalog)")
     pr.add_argument("--out-root",default=None,help="default: [products] out_root in config")
     pr.add_argument("--ensemble",default=None,help="default: [products] ensemble in config")
     pr.add_argument("--run-id",default=None); pr.add_argument("--notes",default="")
