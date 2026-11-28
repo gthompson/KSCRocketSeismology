@@ -39,13 +39,14 @@ eras:
 
   # 2026 network (Artemis II, New Glenn): responses and station epochs from KSC.xml, as 2016-2022
   # (switched 2026-11-27; the per-service Centaur response files are kept under retired_eras below).
-  # The archive still holds Centaur channels as D?? where not yet renamed; ksclib reads both
-  # spellings and renames to SEED C??/H?? (KSC.xml). Gems HD? (loc '' or 10), SmartSolos DP? (loc '').
+  # Archive: the renamed copy (Centaurs as SEED C??/H?? on loc 00) with B29/B20 records restored
+  # from the tachyon backup (switched 2026-11-27; the original D?? archive is /Volumes/KSCGTdownld/SDS).
+  # ksclib reads either spelling. Gems HD? (loc '' or 10), SmartSolos DP? (loc '').
   - name: network_2026
     kind: stationxml
     start: 2026-01-01
     end: 2027-01-01
-    sds: /Volumes/KSCGTdownld/SDS
+    sds: /Volumes/Pulwtop/SDS_KSC_2026
     stationxml: "{repo_root}/03_stationxml/KSC.xml"
     channel_groups:
       USF: ["1R", "*", "*", "D[DH]?"]          # Centaurs (also read as C[DH]?, and H[DH]? on loc 00)
