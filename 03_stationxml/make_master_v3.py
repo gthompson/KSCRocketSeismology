@@ -366,10 +366,13 @@ def rows_2016_2022():
             continue
         t = UTCDateTime(e)
         loc = "" if r.location == "--" else r.location
-        f = f"{sds}/{t.year}/{r.network}/{r.station}/{r.channel}.D/{r.network}.{r.station}.{loc}.{r.channel}.D.{t.year}.{t.julday:03d}"
+        # the archive may hold a Centaur D?? channel under its SEED name C??/H?? (archive_fix/rename_band_codes.py)
+        chans = [r.channel] + ([b + r.channel[1:] for b in "CH"] if r.channel[:2] in ("DD", "DH") else [])
+        fs = [f"{sds}/{t.year}/{r.network}/{r.station}/{c}.D/{r.network}.{r.station}.{loc}.{c}.D.{t.year}.{t.julday:03d}"
+              for c in chans]
         later = ((df.network == r.network) & (df.station == r.station) & (df.location == r.location)
                  & (df.channel == r.channel) & (df.start == e)).any()
-        if os.path.exists(f) and not later:
+        if any(os.path.exists(f) for f in fs) and not later:
             df.at[i, "end"] = str(t + 86400)[:19]
             df.at[i, "change"] = (r.change + "; " if r.change else "") + "end +1 day (SDS has data on the off-date)"
     return df
@@ -578,7 +581,7 @@ def rows_2026():
     # DG.B23: MSFC Silicon Audio accelerometer on a Kelunji-format recorder (DG SDS, location 01)
     for cha, az, dip in (("CLE", 90.0, 0.0), ("CLN", 0.0, 0.0), ("CLZ", 0.0, -90.0)):
         rows.append(dict(network="DG", station="B23", location="01", channel=cha,
-                         start="2026-03-10T00:00:00", end="2026-04-05T00:00:00",
+                         start="2026-01-10T21:42:00", end="2026-09-24T19:32:00",
                          latitude=28.57879, longitude=-80.60780, elevation=0.0, depth=0.0,
                          azimuth=az, dip=dip, sample_rate=500.0, datalogger="SiliconAudio",
                          datalogger_serial="02000160", vpp=np.nan, datalogger_gain=8.0,
@@ -588,7 +591,14 @@ def rows_2026():
                          change="added (2026)",
                          evidence=("settings.ss (20260922_service SiliconAudio/B23): gain x8, 500 sps, "
                                    "network DG, location 01, serial 02000160; calibrated against the B23 "
-                                   "SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094"),
+                                   "SmartSolo on Artemis II: 1.51 (Z), 1.57 (N) V/(m/s^2); SDS 2026.069-094. "
+                                   "Extended 2026-11-27 to the raw minute files (tachyon_backup KSC_DATA: "
+                                   "Artemis2/00_download 2026-01-10 21:42 - 03-10, 202609_service/day3 "
+                                   "2026-06-12 - 09-24 19:31): every settings.ss in that span has serial "
+                                   "02000160, DG/B23/01, gain x8, 500 sps and the same GPS; launches recorded "
+                                   "throughout (rms ratio 100-350, onset 30-40 s after liftoff). No data "
+                                   "2026-04-05 - 06-12. Before 21:42 on 01-10 the unit ran as XA.MTEGL "
+                                   "(800 sps, gain x1): off site, not included"),
                          notes=("settings.ss names the sensor 'LE-3Dlite MKII' (400 V/(m/s)), but the output is "
                                 "proportional to acceleration, so that preset is wrong; GPS from the recorder "
                                 "histogram. CLE is poorly coherent with the SmartSolo (orientation unknown)"),
