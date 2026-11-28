@@ -46,6 +46,8 @@ correctly D and must not change. Gem (`HD?`/`HDF`), Certimus, Silicon Audio and 
 * **FL network data left out (Glenn, 2026-11-27):** S37A1 (2022-05-24..09-26), RB383 (2021–22) and S39A3 on 2022-05-24.
   None records any launch: S37A1 is digitizer self-noise only (its sensors went to repair S39A1), and the S39A3 day is
   a 2.5 h service visit. Don't add them. If FL data are ever added, they become network 1R.
+  RB383's Atlas V Lucy recording (2021-10-16 09:26–09:46, HHZ SNR ~42) is already in SDS_KSC as 1R.RB383. The FL copy
+  starts 2021-10-17 and overlaps only one launch, Transporter-4 on 2022-04-01, with SNR ~1.4.
 
 ## To do on hal: the 2026 data
 1. **Find every 2026 SDS tree on hal that holds Centaur D channels.** Known: the service-run folders under the KSC data
