@@ -37,6 +37,23 @@ eras:
       Shake: ["AM", "*", "*", "[SEH][HD]?"]   # Raspberry Shake / Boom
     gem_channel_prefix: null        # Gems were only deployed in 2026; H-band channels here are Centaurs at 100 sps
 
+  # 2026 network (Artemis II, New Glenn): responses and station epochs from KSC.xml, as 2016-2022
+  # (switched 2026-11-27; the per-service Centaur response files are kept under retired_eras below).
+  # The archive still holds Centaur channels as D?? where not yet renamed; ksclib reads both
+  # spellings and renames to SEED C??/H?? (KSC.xml). Gems HD? (loc '' or 10), SmartSolos DP? (loc '').
+  - name: network_2026
+    kind: stationxml
+    start: 2026-01-01
+    end: 2027-01-01
+    sds: /Volumes/KSCGTdownld/SDS
+    stationxml: "{repo_root}/03_stationxml/KSC.xml"
+    channel_groups:
+      USF: ["1R", "*", "*", "D[DH]?"]          # Centaurs (also read as C[DH]?, and H[DH]? on loc 00)
+      BSU: ["1R", "*", "*", "HD?"]             # Gems
+      SmartSolo: ["1R", "*", "*", "DP?"]
+    gem_channel_prefix: HD
+
+retired_eras:                       # not read by ksclib; kept for reference
   # 2026 network (Artemis II, New Glenn): as 09_artemis2_paper/artemis2.yaml.
   - name: network_2026
     kind: centaur
@@ -66,6 +83,7 @@ eras:
       infrabsu_xml: /Volumes/haldata/KSC/station_metadata/infraBSU_21s_0.5inch.xml
       infrabsu_channels: [DD0, DD1, DD2]
       smartsolo_geophone: {f0: 5.0, damping: 0.7, sensitivity_mV_per_mps: 76700.0}
+
 
 # extra_events: (none) - the reconciled catalog now runs from 2016 to the present and includes
 # Artemis II (ksc-f8f81d1cba9a) and the New Glenn explosion (ksc-newglenn-explosion-20260529).
