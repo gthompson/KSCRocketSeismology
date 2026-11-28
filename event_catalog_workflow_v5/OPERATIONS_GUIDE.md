@@ -44,11 +44,14 @@ Every command below is `ksc <command>`. `ksc <command> --help` lists its options
 | Era | Dates | SDS archive | Responses |
 |---|---|---|---|
 | `campaigns_2016_2022` | 2016-01-01 to 2023-01-01 | `/Volumes/classdata/remastered/SDS_KSC` (hal `/data/remastered/SDS_KSC`) | `03_stationxml/KSC.xml` |
-| `network_2026` | 2026-01-01 to 2027-01-01 | `/Volumes/KSCGTdownld/SDS` | `03_stationxml/KSC.xml` |
+| `network_2026` | 2026-01-01 to 2027-01-01 | `/Volumes/Pulwtop/SDS_KSC_2026` | `03_stationxml/KSC.xml` |
 
-A renamed (C/H band codes) 2026 copy with restored records is at `/Volumes/Pulwtop/SDS_KSC_2026`. To
-read that copy instead, change the `sds:` line of `network_2026`; nothing else needs to change.
-ksclib reads either the D or the C/H spelling of the Centaur channels.
+Since 2026-11-27 the 2026 era reads `/Volumes/Pulwtop/SDS_KSC_2026`: a copy of
+`/Volumes/KSCGTdownld/SDS` with Centaur channels renamed to SEED C??/H?? and the B29/B20 records
+restored from the tachyon backup. `/Volumes/KSCGTdownld/SDS` is still the ingest master (section 4),
+so new 2026 data must also be added to `SDS_KSC_2026` (section 4, step 3b). ksclib reads either the
+D or the C/H spelling of the Centaur channels, so pointing the `sds:` line of `network_2026` back
+at `/Volumes/KSCGTdownld/SDS` also works.
 
 **Events in a year that no era covers (2023–2025) get no waveforms.** Add an era to
 `ensemble.yaml` when data from those years are archived.
@@ -88,9 +91,9 @@ git add data && git commit -m "..."  # sqlite, detected_times.csv, availability,
    unless you pass `--apply`.
 
    ```bash
-   python ../03_stationxml/archive_fix/add_records.py --sds /Volumes/KSCGTdownld/SDS --tag 20261201 \
+   python ../03_stationxml/archive_fix/add_records.py --sds /Volumes/Pulwtop/SDS_KSC_2026 --tag 20261201 \
        /path/to/found/files/*.mseed            # dry run: read the report
-   python ../03_stationxml/archive_fix/add_records.py --sds /Volumes/KSCGTdownld/SDS --tag 20261201 \
+   python ../03_stationxml/archive_fix/add_records.py --sds /Volumes/Pulwtop/SDS_KSC_2026 --tag 20261201 \
        /path/to/found/files/*.mseed --apply
    ```
 
@@ -106,7 +109,7 @@ git add data && git commit -m "..."  # sqlite, detected_times.csv, availability,
 
    ```bash
    ksc availability --sds 2016-01-01:2023-01-01:/Volumes/classdata/remastered/SDS_KSC \
-                    --sds 2026-01-01:2027-01-01:/Volumes/KSCGTdownld/SDS
+                    --sds 2026-01-01:2027-01-01:/Volumes/Pulwtop/SDS_KSC_2026
    ```
 
 4. **Re-run the event** (or several: repeat `--event-id`, or use `--events-file list.txt`):
@@ -198,7 +201,7 @@ Then process the new events that have data:
 
 ```bash
 ksc availability --sds 2016-01-01:2023-01-01:/Volumes/classdata/remastered/SDS_KSC \
-                 --sds 2026-01-01:2027-01-01:/Volumes/KSCGTdownld/SDS
+                 --sds 2026-01-01:2027-01-01:/Volumes/Pulwtop/SDS_KSC_2026
 ksc process --all-with-data --only-new --run-id update-20261201
 ```
 
@@ -237,6 +240,17 @@ Ingest tooling is in `2026_ingest_service_runs/`. Read `docs/DATA_ORGANIZATION.m
    * SmartSolo: follow `config/smartsolo_mapping_*.csv`.
    * Both then go into the same master SDS.
 
+   **3b. Copy the new days into the archive the catalog reads** (`/Volumes/Pulwtop/SDS_KSC_2026`).
+   add_records.py adds only missing records, renames D?? to C??/H??, and keeps backups. Example for
+   days 300-365 (all channels: Centaur, Gem, SmartSolo):
+
+   ```bash
+   cd ../03_stationxml/archive_fix
+   find /Volumes/KSCGTdownld/SDS/2026 -type f -name '*.2026.3[0-6][0-9]' > /tmp/new_days.txt
+   python add_records.py --sds /Volumes/Pulwtop/SDS_KSC_2026 --tag 20261201 $(cat /tmp/new_days.txt)          # dry run
+   python add_records.py --sds /Volumes/Pulwtop/SDS_KSC_2026 --tag 20261201 $(cat /tmp/new_days.txt) --apply
+   ```
+
 4. **Add the new epochs to KSC.xml**, in `03_stationxml/`. For each station, record what changed at
    the service: instruments, gains, sample rate, new or removed stations, and the start/end times. Then
    rebuild and validate KSC.xml and commit it. Without new epochs, new channels have no response and
@@ -248,7 +262,7 @@ Ingest tooling is in `2026_ingest_service_runs/`. Read `docs/DATA_ORGANIZATION.m
    ```bash
    cd ../event_catalog_workflow_v5
    ksc availability --sds 2016-01-01:2023-01-01:/Volumes/classdata/remastered/SDS_KSC \
-                    --sds 2026-01-01:2027-01-01:/Volumes/KSCGTdownld/SDS
+                    --sds 2026-01-01:2027-01-01:/Volumes/Pulwtop/SDS_KSC_2026
    ```
 
 6. **Update the catalog for launches since the last update:** section 3 (`fetch-ll2`, `fetch-gcat`,
